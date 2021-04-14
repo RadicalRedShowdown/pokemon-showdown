@@ -42,6 +42,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
+	bonemerang: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, bone: 1},
+	},
+	bonerush: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, bone: 1},
+	},
 	chargebeam: {
 		inherit: true,
 		accuracy: 100,
@@ -406,6 +414,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Hits adjacent Pokemon. The user faints. The target's Defense is halved during damage calculation.",
 	},
+	shadowbone: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, bone: 1},
+	},
 	shadowclaw: {
 		inherit: true,
 		basePower: 80,
@@ -600,7 +612,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
 
-	//allow all past moves
+	// allow all past moves
 	"10000000voltthunderbolt": {
 		inherit: true,
 		isNonstandard: null,
@@ -647,6 +659,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	boneclub: {
 		inherit: true,
+		flags: {protect: 1, mirror: 1, bone: 1},
 		isNonstandard: null,
 	},
 	breakneckblitz: {
