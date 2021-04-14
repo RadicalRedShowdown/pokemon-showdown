@@ -26,6 +26,9 @@ export type MoveTarget =
 /** Possible move flags. */
 interface MoveFlags {
 	authentic?: 1; // Ignores a target's substitute.
+	blade?: 1; // blade moves
+	bone?: 1; // bone haha
+	kick?: 1; // striker
 	bite?: 1; // Power is multiplied by 1.5 when used by a Pokemon with the Ability Strong Jaw.
 	bullet?: 1; // Has no effect on Pokemon with the Ability Bulletproof.
 	charge?: 1; // The user is unable to make a move between turns.
