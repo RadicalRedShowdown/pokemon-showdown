@@ -7,7 +7,6 @@ interface SuspectTest {
 	tier: string;
 	suspect: string;
 	date: string;
-	url: string;
 }
 
 export const suspectTests: {[format: string]: SuspectTest} = JSON.parse(FS(SUSPECTS_FILE).readIfExistsSync() || "{}");
@@ -35,7 +34,7 @@ export const commands: ChatCommands = {
 			for (const i of Object.keys(suspectTests)) {
 				const test = suspectTests[i];
 				buffer += '<br />';
-				buffer += `${test.tier}: <a href="${test.url}">${test.suspect}</a> (${test.date})`;
+				buffer += `${test.tier}: ${test.suspect} (${test.date})`;
 			}
 			return this.sendReplyBox(buffer);
 		},
@@ -44,8 +43,8 @@ export const commands: ChatCommands = {
 		add(target, room, user) {
 			checkPermissions(this);
 
-			const [tier, suspect, date, url] = target.split(',');
-			if (!(tier && suspect && date && url)) {
+			const [tier, suspect, date] = target.split(',');
+			if (!(tier && suspect && date)) {
 				return this.parse('/help suspects');
 			}
 
@@ -59,11 +58,6 @@ export const commands: ChatCommands = {
 			if (!isValidDate) return this.errorReply("Dates must be in the format MM/DD.");
 			const dateActual = `${month}/${day}`;
 
-			const urlActual = url.trim();
-			if (!/^https:\/\/www\.smogon\.com\/forums\/(threads|posts)\//.test(urlActual)) {
-				throw new Chat.ErrorMessage("Suspect test URLs must be Smogon threads or posts.");
-			}
-
 			this.privateGlobalModAction(`${user.name} ${suspectTests[format.id] ? "edited the" : "added a"} ${format.name} suspect test.`);
 			this.globalModlog('SUSPECTTEST', null, `${suspectTests[format.id] ? "edited" : "added"} ${format.name}`);
 
@@ -71,7 +65,6 @@ export const commands: ChatCommands = {
 				tier: format.name,
 				suspect: suspectString,
 				date: dateActual,
-				url: urlActual,
 			};
 			saveSuspectTests();
 		},
@@ -100,7 +93,7 @@ export const commands: ChatCommands = {
 		this.sendReplyBox(
 			`Commands to manage suspect tests:<br />` +
 			`<code>/suspects</code>: displays currently running suspect tests.<br />` +
-			`<code>/suspects add [tier], [suspect], [date], [link]</code>: adds a suspect test. Date in the format MM/DD. Requires: &<br />` +
+			`<code>/suspects add [tier], [suspect], [date]</code>: adds a suspect test. Date in the format MM/DD. Requires: &<br />` +
 			`<code>/suspects remove [tier]</code>: deletes a suspect test. Requires: &`
 		);
 	},

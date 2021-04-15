@@ -1135,7 +1135,7 @@ export class RoomBattle extends RoomGames.RoomGame {
 			const format = Dex.getFormat(this.format);
 			this.room.add(
 				`|html|<div class="broadcast-blue"><strong>${format.name} is currently suspecting ${suspectTest.suspect}! ` +
-				`For information on how to participate check out the <a href="${suspectTest.url}">suspect thread</a>.</strong></div>`
+				`For information on how to participate check out the #news channel in the <a href="https://discord.gg/NshqKRGTed">Discord</a>.</strong></div>`
 			).update();
 		}
 		if (this.missingBattleStartMessage === 'multi') {
