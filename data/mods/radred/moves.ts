@@ -69,6 +69,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 80,
 		isNonstandard: null,
 	},
+	covet: {
+		inherit: true,
+		type: "Fairy",
+		isNonstandard: null,
+	},
 	cut: {
 		inherit: true,
 		accuracy: 100,
