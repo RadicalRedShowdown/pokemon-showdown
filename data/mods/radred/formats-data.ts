@@ -2842,8 +2842,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUber",
 	},
 	genesectburn: {
-		tier: "UU",
-		doublesTier: "DUU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	genesectchill: {
 		tier: "Uber",
