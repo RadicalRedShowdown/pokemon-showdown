@@ -29,6 +29,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Fighting", "Water"],
 		baseStats: {hp: 72, atk: 85, def: 67, spa: 95, spd: 71, spe: 110},
 		abilities: {0: "Adaptability", 1: "Prankster", H: "Technician"},
+		genderRatio: {M: 0.875, F: 0.125},
 		heightm: 1.35,
 		weightkg: 47,
 		color: "Blue",
