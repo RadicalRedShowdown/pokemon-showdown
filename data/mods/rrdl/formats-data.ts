@@ -8,4 +8,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	luninja: {
 		tier: "(OU)",
 	},
+	arctogolem: {
+		tier: "(OU)",
+	},
 };
