@@ -525,7 +525,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 100, def: 45, spa: 65, spd: 45, spe: 105},
-		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Surprise"},
+		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Surprise!"},
 	},
 	mantine: {
 		inherit: true,
