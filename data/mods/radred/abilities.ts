@@ -402,16 +402,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.field.setWeather('hail');
 				break;
 			case 3:
-				this.add('-ability', pokemon, 'Surprise!');
+				this.add('-ability', pokemon, 'Surprise');
 				pokemon.setAbility("Intimidate");
 				break;
 			case 4:
-				this.add('-ability', pokemon, 'Surprise!');
+				this.add('-ability', pokemon, 'Surprise');
 				pokemon.setAbility("Slow Start");
 				break;
 			}
 		},
-		name: "Surprise!",
+		name: "Surprise",
 		rating: 2,
 		num: 291,
 	},
