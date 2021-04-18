@@ -471,5 +471,5 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			electroball: ["8M"],
 			icefang: ["8M"],
 		},
-	}
+	},
 };
