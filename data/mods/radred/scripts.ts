@@ -16,8 +16,12 @@ export const Scripts: ModdedBattleScriptsData = {
 				return altForme.name;
 			}
 			// prevent Galarian Slowbro from mega evolving
-			if (item.name === "Slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			if (item.name === "slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
 				return null;
+			}
+			// prevent Galarian Slowbro from mega evolving
+			if (item.id === "toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
+				return "Toxtricity-Low-Key-Mega";
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {

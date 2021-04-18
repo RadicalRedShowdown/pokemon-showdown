@@ -2031,8 +2031,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 		color: "Purple",
 		eggGroups: ["Human-Like"],
-		requiredItem: "Toxtricitite LK",
-		changesFrom: "Toxtricity-Low-Key",
+		requiredItem: "Toxtricitite",
 	},
 	centiskorch: {
 		inherit: true,
