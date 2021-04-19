@@ -69,6 +69,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 95, def: 75, spa: 65, spd: 79, spe: 80},
 		abilities: {0: "Intimidate", 1: "Shed Skin", H: "Strong Jaw"},
 	},
+	pikachu: {
+		inherit: true,
+		otherFormes: ["Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World", "Pikachu-Flying", "Pikachu-Surfing"],
+		formeOrder: [
+			"Pikachu",
+			"Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", // Gen 7 formes
+			"Pikachu-Starter", // forme 8 in LGPE
+			"Pikachu-World", // Gen 8 forme (indexed as Pikachu 9 in datamine)
+			"Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Cosplay", // formes 1-6 from Gen 6
+			"Pikachu-Flying", "Pikachu-Surfing",
+		],
+	},
 	pikachurockstar: {
 		num: 25,
 		name: "Pikachu-Rock-Star",
@@ -143,6 +155,34 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 		gen: 6,
+	},
+	pikachuflying: {
+		num: 25,
+		name: "Pikachu-Flying",
+		baseSpecies: "Pikachu",
+		forme: "Flying",
+		types: ["Electric"],
+		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
+		abilities: {0: "Static", H: "Lightning Rod"},
+		heightm: 0.4,
+		weightkg: 6,
+		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+		gen: 8,
+	},
+	pikachusurfing: {
+		num: 25,
+		name: "Pikachu-Surfing",
+		baseSpecies: "Pikachu",
+		forme: "Surfing",
+		types: ["Electric"],
+		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
+		abilities: {0: "Static", H: "Lightning Rod"},
+		heightm: 0.4,
+		weightkg: 6,
+		color: "Yellow",
+		eggGroups: ["Undiscovered"],
+		gen: 8,
 	},
 	raichu: {
 		inherit: true,
