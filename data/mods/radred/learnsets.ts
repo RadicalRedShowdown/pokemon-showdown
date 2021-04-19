@@ -1404,6 +1404,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachucosplay: {
 		learnset: {
+			extremespeed: ["8L1"],
+			volttackle: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
@@ -1469,6 +1471,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachubelle: {
 		learnset: {
+			iciclecrash: ["8L1"],
+			extremespeed: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
@@ -1535,6 +1539,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachulibre: {
 		learnset: {
+			flyingpress: ["8L1"],
+			extremespeed: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
@@ -1601,6 +1607,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachuphd: {
 		learnset: {
+			extremespeed: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
@@ -1666,6 +1673,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachupopstar: {
 		learnset: {
+			drainingkiss: ["8L1", "8M"],
+			extremespeed: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
@@ -1700,7 +1709,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			reflect: ["8M"],
 			facade: ["8M"],
 			rest: ["8M"],
-			drainingkiss: ["8M"],
 			thief: ["8M"],
 			chargebeam: ["8M"],
 			risingvoltage: ["8M"],
@@ -1732,6 +1740,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pikachurockstar: {
 		learnset: {
+			meteormash: ["8L1"],
+			extremespeed: ["8L1"],
 			tailwhip: ["8L1"],
 			thundershock: ["8L1"],
 			growl: ["8L5"],
