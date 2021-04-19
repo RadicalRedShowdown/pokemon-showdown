@@ -907,6 +907,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
+	lightofruin: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	lightthatburnsthesky: {
 		inherit: true,
 		isNonstandard: null,
