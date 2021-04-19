@@ -53,7 +53,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] UU",
 		mod: 'radred',
 		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU', 'Ubers', 'AG'],
+		banlist: ['OU'],
 	},
 	{
 		name: "[Gen 8] Anything Goes",
