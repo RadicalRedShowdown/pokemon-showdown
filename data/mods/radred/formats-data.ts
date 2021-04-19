@@ -182,6 +182,14 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		tier: "UU",
 		doublesTier: "DUU",
 	},
+	pikachuflying: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
+	pikachusurfing: {
+		tier: "UU",
+		doublesTier: "DUU",
+	},
 	raichu: {
 		tier: "UU",
 		doublesTier: "DUU",
