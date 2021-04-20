@@ -97,7 +97,15 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard RadRed', 'VGC Timer', 'Item Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
-			'Arceus', 'Cosmoem', 'Cosmog', 'Calyrex', 'Cresselia', 'Darkrai', 'Deoxys', 'Dialga', 'Eternatus', 'Giratina', 'Groudon', 'Heatran', 'Ho-Oh', 'Kyogre', 'Kyurem', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Regigigas', 'Mewtwo', 'Necrozma', 'Palkia', 'Rayquaza', 'Reshiram', 'Shaymin', 'Solgaleo', 'Unown', 'Xerneas', 'Yveltal', 'Zacian', 'Zamazenta', 'Zekrom', 'Zygarde',
+			'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y',
+			'Unown', 'Ho-Oh', 'Lugia',
+			'Groudon', 'Groudon-Primal', 'Kyogre', 'Kyogre-Primal', 'Rayquaza', 'Rayquaza-Mega', 'Deoxys', 'Deoxys-Attack', 'Deoxys-Defense', 'Deoxys-Speed',
+			'Dialga', 'Dialga-Primal', 'Palkia', 'Heatran', 'Regigigas', 'Giratina', 'Giratina-Origin', 'Cresselia', 'Darkrai', 'Shaymin', 'Shaymin-Sky',
+			'Arceus', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 'Arceus-Fire', 'Arceus-Flying', 'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 'Arceus-Rock', 'Arceus-Steel', 'Arceus-Water',
+			'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Reshiram', 'Zekrom',
+			'Xerneas', 'Yveltal', 'Zygarde',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow',
+			'Eternatus', 'Zacian', 'Zamazenta', 'Calyrex', 'Calyrex-Ice', 'Calyrex-Shadow',
 		],
 		forcedLevel: 50,
 		teamLength: {
