@@ -25,7 +25,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] RRDL",
 		mod: 'radred',
 		searchShow: false,
-		ruleset: ['Standard RadRed', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Standard RadRed', 'OHKO Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			// mons
 			'Alakazam-Mega', 'Arceus', 'Blaziken-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chandelure', 'Deoxys-Attack', 'Deoxys-Base', 'Deoxys-Speed', 'Dialga', 'Dragapult', 'Eternatus', 'Genesect', 'Gengar-Mega', 'Giratina', 'Greninja-Ash', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Latias-Mega', 'Latios-Mega', 'Lucario-Mega', 'Lugia', 'Lunala', 'Magearna', 'Marshadow', 'Metagross-Mega', 'Mewtwo', 'Naganadel', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Necrozma-Ultra', 'Palkia', 'Pheromosa', 'Rayquaza', 'Reshiram', 'Salamence-Mega', 'Shaymin-Sky', 'Silvally', 'Solgaleo', 'Tapu Koko', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Complete',
@@ -40,13 +40,13 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] OU",
 		mod: 'radred',
-		ruleset: ['Standard RadRed', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Standard RadRed', 'OHKO Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Baton Pass', 'Dark Hole', 'Misty Explosion'],
 	},
 	{
 		name: "[Gen 8] Ubers",
 		mod: 'radred',
-		ruleset: ['Standard RadRed', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause', 'Mega Rayquaza Clause'],
+		ruleset: ['Standard RadRed', 'OHKO Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause', 'Mega Rayquaza Clause'],
 		banlist: ['AG', 'Baton Pass', 'Moody'],
 	},
 	{
@@ -66,7 +66,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Monotype",
 		mod: 'radred',
-		ruleset: ['Standard RadRed', 'Same Type Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Standard RadRed', 'Same Type Clause', 'OHKO Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			'AG', 'Uber',
 			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag', 'Damp Rock', 'Smooth Rock', 'Terrain Extender', 'Baton Pass',
