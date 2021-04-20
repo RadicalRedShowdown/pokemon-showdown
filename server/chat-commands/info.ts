@@ -562,7 +562,7 @@ export const commands: ChatCommands = {
 				}
 			}
 		}
-		let dex = Dex;
+		let dex = Dex.mod('radred');
 		let format: Format | null = null;
 		if (sep[1] && toID(sep[1]) in Dex.dexes) {
 			dex = Dex.mod(toID(sep[1]));
