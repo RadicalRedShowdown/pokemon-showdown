@@ -525,7 +525,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			},
 		},
 	},
-	stickweb: {
+	stickyweb: {
 		inherit: true,
 		condition: {
 			onStart(side) {
