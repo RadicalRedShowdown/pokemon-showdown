@@ -47,7 +47,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] Ubers",
 		mod: 'radred',
 		ruleset: ['Standard RadRed', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause', 'Mega Rayquaza Clause'],
-		banlist: ['AG', 'Baton Pass', 'Dark Hole', 'Moody'],
+		banlist: ['AG', 'Baton Pass', 'Moody'],
 	},
 	{
 		name: "[Gen 8] UU",
