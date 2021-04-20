@@ -104,7 +104,7 @@ export const Formats: FormatList = [
 			'Arceus', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 'Arceus-Fire', 'Arceus-Flying', 'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 'Arceus-Rock', 'Arceus-Steel', 'Arceus-Water',
 			'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Reshiram', 'Zekrom',
 			'Xerneas', 'Yveltal', 'Zygarde', 'Zygarde-Complete',
-			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Magearna', 'Marshadow',
+			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Necrozma-Ultra', 'Magearna', 'Marshadow',
 			'Eternatus', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Calyrex', 'Calyrex-Ice', 'Calyrex-Shadow',
 		],
 		forcedLevel: 50,

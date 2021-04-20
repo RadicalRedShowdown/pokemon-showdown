@@ -130,7 +130,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 150,
 		desc: "The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "Hits adjacent Pokemon. The user faints. The target's Defense is halved during damage calculation.",
+		shortDesc: "Target's Def halved during damage. User faints.",
 	},
 	falseswipe: {
 		inherit: true,
@@ -305,7 +305,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	mistyexplosion: {
 		inherit: true,
 		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "User faints. User on Misty Terrain: 1.5x power. The target's Defense is halved during damage calculation.",
+		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
 	},
 	multiattack: {
 		inherit: true,
@@ -417,7 +417,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 100,
 		desc: "The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "Hits adjacent Pokemon. The user faints. The target's Defense is halved during damage calculation.",
+		shortDesc: "Target's Def halved during damage. User faints.",
 	},
 	shadowbone: {
 		inherit: true,
