@@ -139,7 +139,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	flash: {
 		num: 148,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Special",
 		isNonstandard: null,
 		name: "Flash",
