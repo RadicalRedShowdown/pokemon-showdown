@@ -541,7 +541,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	stomp: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, kick: 1},
 	},
 	strengthsap: {
 		inherit: true,
