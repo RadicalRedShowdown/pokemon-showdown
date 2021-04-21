@@ -139,7 +139,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	flash: {
 		num: 148,
 		accuracy: 100,
-		basePower: 50,
+		basePower: 60,
 		category: "Special",
 		isNonstandard: null,
 		name: "Flash",
@@ -541,7 +541,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	stomp: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, kick: 1},
 	},
 	strengthsap: {
 		inherit: true,
