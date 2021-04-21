@@ -6,7 +6,7 @@ export const Formats: {[k: string]: FormatData} = {
 		ruleset: [
 			'Obtainable', '+Unobtainable', '+Past', 'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
 			// rr in game mechanics
-			'Sleep Clause Mod', 'Evasion Move Clause', 'OHKO Clause'
+			'Sleep Clause Mod', 'Evasion Moves Clause', 'OHKO Clause'
 		],
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
