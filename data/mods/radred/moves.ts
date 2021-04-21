@@ -103,7 +103,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			chance: 40,
 			status: 'slp',
 		},
-		shortDesc: "40% chance of putting foe to sleep, bypasses substitute.",
+		shortDesc: "40% chance to inflict sleep, bypasses substitute.",
 	},
 	diamondstorm: {
 		inherit: true,
