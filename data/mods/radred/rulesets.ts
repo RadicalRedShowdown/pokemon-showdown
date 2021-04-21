@@ -5,7 +5,8 @@ export const Formats: {[k: string]: FormatData} = {
 		desc: "The standard ruleset for all Radical Red tiers",
 		ruleset: [
 			'Obtainable', '+Unobtainable', '+Past', 'Team Preview', 'Nickname Clause', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause',
-			'Sleep Clause Mod', 'Evasion Move Clause',
+			// rr in game mechanics
+			'Sleep Clause Mod', 'Evasion Move Clause', 'OHKO Clause'
 		],
 		onValidateSet(set) {
 			// These Pokemon are still unobtainable
