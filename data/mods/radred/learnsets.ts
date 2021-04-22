@@ -47318,6 +47318,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			dracometeor: ["8T"],
 		},
 	},
+	zygarde10: {
+		learnset: {},
+	},
 	diancie: {
 		learnset: {
 			tackle: ["8L1"],
