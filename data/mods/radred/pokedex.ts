@@ -1424,7 +1424,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	bouffalant: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 110, def: 95, spa: 40, spd: 95, spe: 65},
-		abilities: {0: "Reckless", 1: "Sap Sipper",  H: "Bull Rush"},
+		abilities: {0: "Reckless", 1: "Sap Sipper", H: "Bull Rush"},
 	},
 	rufflet: {
 		inherit: true,
