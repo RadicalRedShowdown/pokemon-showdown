@@ -2196,8 +2196,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	alcremie: {
 		inherit: true,
+		baseForme: "Vanilla-Cream",
 		otherFormes: ["Alcremie-Mega"],
-		cosmeticFormes: ["Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
 		formeOrder: ["Alcremie", "Alcremie-Mega", "Alcremie-Ruby-Cream", "Alcremie-Matcha-Cream", "Alcremie-Mint-Cream", "Alcremie-Lemon-Cream", "Alcremie-Salted-Cream", "Alcremie-Ruby-Swirl", "Alcremie-Caramel-Swirl", "Alcremie-Rainbow-Swirl"],
 	},
 	alcremiemega: {
