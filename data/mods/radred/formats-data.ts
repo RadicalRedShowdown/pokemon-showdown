@@ -4045,7 +4045,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUU",
 	},
 	spectrier: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 	},
 	calyrex: {
