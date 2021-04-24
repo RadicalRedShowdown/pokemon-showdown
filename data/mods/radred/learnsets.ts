@@ -6687,7 +6687,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			mudsport: ["8L1"],
 			bubble: ["8L1"],
-			vicegrip: ["8L5"],
+			visegrip: ["8L5"],
 			leer: ["8L9"],
 			harden: ["8L11"],
 			bubblebeam: ["8L15"],
@@ -6756,7 +6756,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bubble: ["8L1"],
 			aquajet: ["8L1"],
 			leer: ["8L9"],
-			vicegrip: ["8L5"],
+			visegrip: ["8L5"],
 			harden: ["8L11"],
 			bubblebeam: ["8L15"],
 			mudshot: ["8L19"],
@@ -8652,7 +8652,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	pinsir: {
 		learnset: {
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			focusenergy: ["8L1", "8T"],
 			bind: ["8L4", "8T"],
 			seismictoss: ["8L8"],
@@ -20096,7 +20096,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			bubble: ["8L1"],
 			harden: ["8L5"],
-			vicegrip: ["8L7"],
+			visegrip: ["8L7"],
 			leer: ["8L10"],
 			bubblebeam: ["8L14"],
 			protect: ["8L17", "8M"],
@@ -20164,7 +20164,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swift: ["8L1"],
 			bubble: ["8L1"],
 			harden: ["8L5"],
-			vicegrip: ["8L7"],
+			visegrip: ["8L7"],
 			leer: ["8L10"],
 			bubblebeam: ["8L14"],
 			protect: ["8L17", "8M"],
@@ -39258,7 +39258,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	klink: {
 		learnset: {
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			charge: ["8L6"],
 			thundershock: ["8L11"],
 			geargrind: ["8L16"],
@@ -39304,7 +39304,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	klang: {
 		learnset: {
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			charge: ["8L6"],
 			thundershock: ["8L11"],
 			geargrind: ["8L16"],
@@ -39352,7 +39352,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			magneticflux: ["8L1"],
 			gearup: ["8L1"],
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			charge: ["8L6"],
 			thundershock: ["8L11"],
 			geargrind: ["8L16"],
@@ -41291,7 +41291,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			metalsound: ["8L56"],
 			slash: ["8L51"],
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			furycutter: ["8L1"],
 			bite: ["8L1"],
 			agility: ["8L6", "8T"],
@@ -45610,7 +45610,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			splash: ["8L1"],
 			watergun: ["8L1"],
 			watersport: ["8L7"],
-			vicegrip: ["8L9"],
+			visegrip: ["8L9"],
 			bubble: ["8L12"],
 			flail: ["8L16"],
 			bubblebeam: ["8L20"],
@@ -45663,7 +45663,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			healpulse: ["8L1"],
 			watergun: ["8L1"],
 			watersport: ["8L7"],
-			vicegrip: ["8L9"],
+			visegrip: ["8L9"],
 			bubble: ["8L12"],
 			flail: ["8L16"],
 			bubblebeam: ["8L20"],
@@ -48576,7 +48576,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	grubbin: {
 		learnset: {
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			stringshot: ["8L4"],
 			mudslap: ["8L7"],
 			bite: ["8L10"],
@@ -48619,7 +48619,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	charjabug: {
 		learnset: {
 			charge: ["8L1"],
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			stringshot: ["8L4"],
 			mudslap: ["8L7"],
 			bite: ["8L10"],
@@ -48664,7 +48664,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8L1", "8M"],
 			airslash: ["8L1", "8T"],
 			charge: ["8L1"],
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			stringshot: ["8L4"],
 			mudslap: ["8L7"],
 			bite: ["8L10"],
@@ -58959,7 +58959,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	regidrago: {
 		learnset: {
 			twister: ["8L1"],
-			vicegrip: ["8L1"],
+			visegrip: ["8L1"],
 			bite: ["8L6"],
 			ancientpower: ["8L12"],
 			dragonbreath: ["8L18"],
