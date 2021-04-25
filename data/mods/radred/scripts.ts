@@ -16,12 +16,16 @@ export const Scripts: ModdedBattleScriptsData = {
 				return altForme.name;
 			}
 			// prevent Galarian Slowbro from mega evolving
-			if (item.name === "slowbronite" && pokemon.baseSpecies.name === "Slowbro-Galar") {
+			if (item.name === "slowbronite" && species.name === "Slowbro-Galar") {
 				return null;
 			}
-			// prevent Galarian Slowbro from mega evolving
-			if (item.id === "toxtricitite" && pokemon.baseSpecies.name === "Toxtricity-Low-Key") {
-				return "Toxtricity-Low-Key-Mega";
+			// allow low key toxtricity to mega evolve
+			if (item.id === "toxtricitite" && species.name === "Toxtricity-Low-Key") {
+				return "Toxtricity-Mega";
+			}
+			// allow appletun to use the same mega stone as flapple
+			if (item.id === "applite" && species.baseSpecies === "Appletun") {
+				return "Appletun-Mega";
 			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {

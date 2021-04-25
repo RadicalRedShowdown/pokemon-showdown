@@ -290,7 +290,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		spritenum: 582,
 		megaStone: "Toxtricity-Mega",
 		megaEvolves: "Toxtricity",
-		itemUser: ["Toxtricity"],
+		itemUser: ["Toxtricity", "Toxtricity-Low-Key"],
 		onTakeItem(item, source) {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
@@ -299,22 +299,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Toxtricity, this item allows it to Mega Evolve in battle.",
 	},
-	/*
-	toxtricititelk: {
-		name: "Toxtricitite LK",
-		spritenum: 582,
-		megaStone: "Toxtricity-Low-Key-Mega",
-		megaEvolves: "Toxtricity-Low-Key",
-		itemUser: ["Toxtricity-Low-Key"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1011,
-		gen: 8,
-		desc: "If held by a Toxtricity-Low-Key, this item allows it to Mega Evolve in battle.",
-	},
-	*/
 	duraludonite: {
 		name: "Duraludonite",
 		spritenum: 577,
@@ -325,7 +309,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1012,
+		num: -1011,
 		gen: 8,
 		desc: "If held by a Duraludon, this item allows it to Mega Evolve in battle.",
 	},
@@ -339,7 +323,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1013,
+		num: -1012,
 		gen: 8,
 		desc: "If held by a Copperajah, this item allows it to Mega Evolve in battle.",
 	},
@@ -353,7 +337,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1014,
+		num: -1013,
 		gen: 8,
 		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
 	},
@@ -367,37 +351,23 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1015,
+		num: -1014,
 		gen: 8,
 		desc: "If held by a Sandaconda, this item allows it to Mega Evolve in battle.",
 	},
-	flapplite: {
-		name: "Flapplite",
+	applite: {
+		name: "Applite",
 		spritenum: 608,
 		megaStone: "Flapple-Mega",
 		megaEvolves: "Flapple",
-		itemUser: ["Flapple"],
+		itemUser: ["Flapple", "Appletun"],
 		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			if (source.baseSpecies.baseSpecies === ("Flapple" || "Appletun")) return false;
 			return true;
 		},
-		num: -1016,
+		num: -1015,
 		gen: 8,
-		desc: "If held by a Flapple, this item allows it to Mega Evolve in battle.",
-	},
-	appletunite: {
-		name: "Appletunite",
-		spritenum: 608,
-		megaStone: "Appletun-Mega",
-		megaEvolves: "Appletun",
-		itemUser: ["Appletun"],
-		onTakeItem(item, source) {
-			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
-			return true;
-		},
-		num: -1017,
-		gen: 8,
-		desc: "If held by a Appletun, this item allows it to Mega Evolve in battle.",
+		desc: "If held by a Flapple or Appletun, this item allows it to Mega Evolve in battle.",
 	},
 	alcremite: {
 		name: "Alcremite",
@@ -409,7 +379,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
-		num: -1018,
+		num: -1016,
 		gen: 8,
 		desc: "If held by a Alcremie, this item allows it to Mega Evolve in battle.",
 	},
