@@ -23,10 +23,6 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (item.id === "toxtricitite" && species.name === "Toxtricity-Low-Key") {
 				return "Toxtricity-Mega";
 			}
-			// allow appletun to use the same mega stone as flapple
-			if (item.id === "applite" && species.baseSpecies === "Appletun") {
-				return "Appletun-Mega";
-			}
 			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
 			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
 				return item.megaStone;
