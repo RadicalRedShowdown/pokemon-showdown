@@ -202,6 +202,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	innerfocus: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'surprise') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+		},
+	},
 	ironfist: {
 		inherit: true,
 		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
@@ -212,10 +221,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([5328, 4096]);
 			}
 		},
-	},
-	moldbreaker: {
-		inherit: true,
-		desc: "This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Mountaineer, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Primal Armor, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",
 	},
 	mountaineer: {
 		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
@@ -241,6 +246,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.multihitType === 'oraoraoraora' && move.hit > 1) return this.chainModify(0.5);
 		},
 	},
+	oblivious: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'surprise') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+		},
+	},
 	oraoraoraora: {
 		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
 		onPrepareHit(source, target, move) {
@@ -263,6 +277,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "ORAORAORAORA",
 		rating: 5,
 		num: 280,
+	},
+	owntempo: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'surprise') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
+			}
+		},
 	},
 	parasiticwaste: {
 		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
@@ -346,6 +369,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 278,
 	},
+	scrappy: {
+		inherit: true,
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate' || effect.id === 'surprise') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
+			}
+		},
+	},
 	selfsufficient: {
 		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 		onResidualPriority: -1,
@@ -402,22 +434,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.field.setWeather('hail');
 				break;
 			case 3:
-				this.add('-ability', pokemon, 'Surprise!');
-				pokemon.setAbility("Intimidate");
+				let activated = false;
+				for (const target of pokemon.adjacentFoes()) {
+					if (!activated) {
+						this.add('-ability', pokemon, 'Surprise!', 'boost');
+						activated = true;
+					}
+					if (target.volatiles['substitute']) {
+						this.add('-immune', target);
+					} else {
+						this.boost({atk: -1}, target, pokemon, null, true);
+					}
+				}
 				break;
 			case 4:
 				this.add('-ability', pokemon, 'Surprise!');
-				pokemon.setAbility("Slow Start");
+				pokemon.addVolatile('slowstart');
 				break;
 			}
 		},
 		name: "Surprise!",
 		rating: 2,
 		num: 291,
-	},
-	teravolt: {
-		inherit: true,
-		desc: "This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Mountaineer, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Primal Armor, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",
 	},
 	toxicboost: {
 		inherit: true,
@@ -442,10 +480,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			pokemon.addVolatile('truant');
 		},
-	},
-	turboblaze: {
-		inherit: true,
-		desc: "This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Mountaineer, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Primal Armor, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",
 	},
 	watercompaction: {
 		inherit: true,
