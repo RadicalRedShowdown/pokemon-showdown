@@ -527,7 +527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lanturn: {
 		inherit: true,
-		baseStats: {hp: 125, atk: 50, def: 65, spa: 76, spd: 90, spe: 67},
+		baseStats: {hp: 125, atk: 50, def: 65, spa: 90, spd: 76, spe: 67},
 		abilities: {0: "Volt Absorb", H: "Water Absorb"},
 	},
 	xatu: {
