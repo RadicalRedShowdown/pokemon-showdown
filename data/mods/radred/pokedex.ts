@@ -1490,12 +1490,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meowstic: {
 		inherit: true,
-		baseStats: {hp: 74, atk: 48, def: 76, spa: 50, spd: 81, spe: 104},
+		baseStats: {hp: 74, atk: 48, def: 76, spa: 55, spd: 81, spe: 104},
 		abilities: {0: "Frisk", 1: "Infiltrator", H: "Feline Power"},
 	},
 	meowsticf: {
 		inherit: true,
-		baseStats: {hp: 74, atk: 48, def: 76, spa: 50, spd: 81, spe: 104},
+		baseStats: {hp: 74, atk: 48, def: 76, spa: 55, spd: 81, spe: 104},
 		abilities: {0: "Frisk", 1: "Infiltrator", H: "Feline Power"},
 	},
 	honedge: {
