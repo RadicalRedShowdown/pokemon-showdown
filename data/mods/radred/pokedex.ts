@@ -1667,12 +1667,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rockruff: {
 		inherit: true,
-		abilities: {
-			0: "Frisk",
-			1: "Vital Spirit",
-			H: "Steadfast",
-			S: "Own Tempo",
-		},
+		abilities: {0: "Frisk", 1: "Vital Spirit", H: "Steadfast", S: "Own Tempo"},
 	},
 	lycanroc: {
 		inherit: true,
