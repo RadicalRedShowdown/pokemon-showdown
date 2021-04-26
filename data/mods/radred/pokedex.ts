@@ -324,9 +324,21 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 80, spa: 90, spd: 95, spe: 70},
 		abilities: {0: "Thick Fat", 1: "Ice Scales", H: "Ice Body"},
 	},
+	grimeralola: {
+		inherit: true,
+		abilities: {0: "Poison Point", 1: "Gluttony", H: "Power of Alchemy"},
+	},
+	grimer: {
+		inherit: true,
+		abilities: {0: "Stench", 1: "Sticky Hold", H: "Poison Point"},
+	},
 	muk: {
 		inherit: true,
-		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Touch"},
+		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Point"},
+	},
+	mukalola: {
+		inherit: true,
+		abilities: {0: "Poison Point", 1: "Gluttony", H: "Power of Alchemy"},
 	},
 	onix: {
 		inherit: true,
@@ -1049,6 +1061,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 80, def: 110, spa: 60, spd: 75, spe: 95},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Frisk"},
 	},
+	croagunk: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Dry Skin", H: "Poison Point"},
+	},
+	toxicroak: {
+		inherit: true,
+		abilities: {0: "Anticipation", 1: "Dry Skin", H: "Poison Point"},
+	},
 	carnivine: {
 		inherit: true,
 		baseStats: {hp: 89, atk: 100, def: 82, spa: 55, spd: 82, spe: 46},
@@ -1279,6 +1299,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	audinomega: {
 		inherit: true,
 		abilities: {0: "Regenerator"},
+	},
+	seismitoad: {
+		inherit: true,
+		abilities: {0: "Swift Swim", 1: "Poison Point", H: "Water Absorb"},
 	},
 	throh: {
 		inherit: true,
@@ -1526,6 +1550,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	barbaracle: {
 		inherit: true,
 		abilities: {0: "Tough Claws", 1: "Sniper", H: "Infiltrator"},
+	},
+	skrelp: {
+		inherit: true,
+		abilities: {0: "Poison Point", H: "Adaptability"},
+	},
+	dragalge: {
+		inherit: true,
+		abilities: {0: "Poison Point", H: "Adaptability"},
 	},
 	clawitzer: {
 		inherit: true,
