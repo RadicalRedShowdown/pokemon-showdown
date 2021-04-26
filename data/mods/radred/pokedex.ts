@@ -2076,7 +2076,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 1,
 		color: "Green",
 		eggGroups: ["Grass", "Dragon"],
-		requiredItem: "Applite",
+		requiredItem: "Flapplite",
 	},
 	appletun: {
 		inherit: true,
@@ -2095,7 +2095,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 13,
 		color: "Green",
 		eggGroups: ["Grass", "Dragon"],
-		requiredItem: "Applite",
+		requiredItem: "Appletunite",
 	},
 	sandaconda: {
 		inherit: true,
