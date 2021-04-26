@@ -161,7 +161,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Pikachu-Flying",
 		baseSpecies: "Pikachu",
 		forme: "Flying",
-		types: ["Electric"],
+		types: ["Electric", "Flying"],
 		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Static", H: "Lightning Rod"},
 		heightm: 0.4,
@@ -175,7 +175,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		name: "Pikachu-Surfing",
 		baseSpecies: "Pikachu",
 		forme: "Surfing",
-		types: ["Electric"],
+		types: ["Electric", "Water"],
 		baseStats: {hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90},
 		abilities: {0: "Static", H: "Lightning Rod"},
 		heightm: 0.4,
@@ -200,6 +200,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 120, spa: 25, spd: 65, spe: 65},
 		abilities: {0: "Slush Rush", H: "Ice Scales"},
+	},
+	nidoranf: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Hustle"},
+	},
+	nidorina: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Hustle"},
+	},
+	nidoqueen: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Sheer Force"},
+	},
+	nidoranm: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Hustle"},
+	},
+	nidorino: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Hustle"},
+	},
+	nidoking: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Rivalry", H: "Sheer Force"},
 	},
 	wigglytuff: {
 		inherit: true,
@@ -324,21 +348,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 90, atk: 50, def: 80, spa: 90, spd: 95, spe: 70},
 		abilities: {0: "Thick Fat", 1: "Ice Scales", H: "Ice Body"},
 	},
-	grimeralola: {
-		inherit: true,
-		abilities: {0: "Poison Point", 1: "Gluttony", H: "Power of Alchemy"},
-	},
-	grimer: {
-		inherit: true,
-		abilities: {0: "Stench", 1: "Sticky Hold", H: "Poison Point"},
-	},
 	muk: {
 		inherit: true,
-		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Point"},
-	},
-	mukalola: {
-		inherit: true,
-		abilities: {0: "Poison Point", 1: "Gluttony", H: "Power of Alchemy"},
+		abilities: {0: "Regenerator", 1: "Sticky Hold", H: "Poison Touch"},
 	},
 	onix: {
 		inherit: true,
@@ -401,6 +413,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 50, atk: 115, def: 79, spa: 35, spd: 110, spe: 76},
 		abilities: {0: "Frisk", 1: "Iron Fist", H: "Inner Focus"},
+	},
+	seadra: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Sniper", H: "Damp"},
 	},
 	staryu: {
 		inherit: true,
@@ -779,6 +795,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Bug", "Fairy"],
 		baseStats: {hp: 85, atk: 90, def: 75, spa: 47, spd: 85, spe: 100},
 	},
+	roselia: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Poison Touch", H: "Leaf Guard"},
+	},
 	swalot: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 88, def: 88, spa: 93, spd: 88, spe: 55},
@@ -973,6 +993,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Electric", "Dark"],
 	},
+	budew: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Poison Touch", H: "Leaf Guard"},
+	},
+	roserade: {
+		inherit: true,
+		abilities: {0: "Natural Cure", 1: "Poison Touch", H: "Technician"},
+	},
 	bastiodon: {
 		inherit: true,
 		abilities: {0: "Dauntless Shield", H: "Soundproof"},
@@ -1060,14 +1088,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 80, def: 110, spa: 60, spd: 75, spe: 95},
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Frisk"},
-	},
-	croagunk: {
-		inherit: true,
-		abilities: {0: "Anticipation", 1: "Dry Skin", H: "Poison Point"},
-	},
-	toxicroak: {
-		inherit: true,
-		abilities: {0: "Anticipation", 1: "Dry Skin", H: "Poison Point"},
 	},
 	carnivine: {
 		inherit: true,
@@ -1300,10 +1320,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Regenerator"},
 	},
-	seismitoad: {
-		inherit: true,
-		abilities: {0: "Swift Swim", 1: "Poison Point", H: "Water Absorb"},
-	},
 	throh: {
 		inherit: true,
 		baseStats: {hp: 120, atk: 100, def: 95, spa: 30, spd: 95, spe: 45},
@@ -1316,6 +1332,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	leavanny: {
 		inherit: true,
 		abilities: {0: "Swarm", 1: "Chlorophyll", H: "Blademaster"},
+	},
+	venipede: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Swarm", H: "Speed Boost"},
+	},
+	whirlipede: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Swarm", H: "Speed Boost"},
+	},
+	scolipede: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Swarm", H: "Speed Boost"},
 	},
 	basculin: {
 		inherit: true,
@@ -1553,11 +1581,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	skrelp: {
 		inherit: true,
-		abilities: {0: "Poison Point", H: "Adaptability"},
+		abilities: {0: "Poison Touch", H: "Adaptability"},
 	},
 	dragalge: {
 		inherit: true,
-		abilities: {0: "Poison Point", H: "Adaptability"},
+		abilities: {0: "Poison Touch", H: "Adaptability"},
 	},
 	clawitzer: {
 		inherit: true,
