@@ -432,6 +432,25 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 80,
 	},
+	shellsidearm: {
+		num: 801,
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		name: "Shell Side Arm",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		ignoreAbility: true,
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
+		target: "normal",
+		type: "Poison",
+		desc: "Has a 10% chance to poison the target. This move and its effects ignore the Abilities of other Pokemon.",
+		shortDesc: "10% psn; ignores the Abilities of other Pokemon.",
+	},
 	skullbash: {
 		inherit: true,
 		onTryMove(attacker, defender, move) {
