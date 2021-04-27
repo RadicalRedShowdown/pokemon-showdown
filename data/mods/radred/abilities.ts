@@ -18,7 +18,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 	},
 	blademaster: {
-		shortDesc: "Boosts Cutting moves by 20% and +1 crit chance",
+		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
+		shortDesc: "Blade attacks have 1.2x power and +1 crit ratio.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['blade']) {
