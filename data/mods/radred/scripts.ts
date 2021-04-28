@@ -8,7 +8,7 @@ export const Scripts: ModdedBattleScriptsData = {
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;
-			const altForme = species.otherFormes && this.dex.getSpecies(species.otherFormes[0]);
+			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
 			// Mega Rayquaza
 			if (altForme?.isMega && altForme?.requiredMove &&
@@ -106,8 +106,8 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			const attacker = pokemon;
 			const defender = target;
-			let attackStat: StatNameExceptHP = category === 'Physical' ? 'atk' : 'spa';
-			const defenseStat: StatNameExceptHP = defensiveCategory === 'Physical' ? 'def' : 'spd';
+			let attackStat: StatIDExceptHP = category === 'Physical' ? 'atk' : 'spa';
+			const defenseStat: StatIDExceptHP = defensiveCategory === 'Physical' ? 'def' : 'spd';
 			if (move.useSourceDefensiveAsOffensive) {
 				attackStat = defenseStat;
 				// Body press really wants to use the def stat,
@@ -184,7 +184,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (move.stealsBoosts) {
 				const boosts: SparseBoostsTable = {};
 				let stolen = false;
-				let statName: BoostName;
+				let statName: BoostID;
 				for (statName in target.boosts) {
 					const stage = target.boosts[statName];
 					if (stage > 0) {
@@ -197,7 +197,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					this.battle.add('-clearpositiveboost', target, pokemon, 'move: ' + move.name);
 					this.battle.boost(boosts, pokemon, pokemon);
 
-					let statName2: BoostName;
+					let statName2: BoostID;
 					for (statName2 in boosts) {
 						boosts[statName2] = 0;
 					}

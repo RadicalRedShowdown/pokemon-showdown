@@ -1,4 +1,4 @@
-export const Formats: {[k: string]: FormatData} = {
+export const Rulesets: {[k: string]: FormatData} = {
 	standardradred: {
 		effectType: 'ValidatorRule',
 		name: 'Standard RadRed',
@@ -13,7 +13,7 @@ export const Formats: {[k: string]: FormatData} = {
 			const unobtainables = [
 				'Eevee-Starter', 'Pikachu-Starter', 'Eternatus-Eternamax',
 			];
-			const species = this.dex.getSpecies(set.species);
+			const species = this.dex.species.get(set.species);
 			if (unobtainables.includes(species.name)) {
 				if (this.ruleTable.has(`+pokemon:${species.id}`)) return;
 				return [`${set.name || set.species} does not exist in the National Dex.`];
@@ -27,7 +27,7 @@ export const Formats: {[k: string]: FormatData} = {
 			}
 			// Items other than Z-Crystals and Pokémon-specific items should be illegal
 			if (!set.item) return;
-			const item = this.dex.getItem(set.item);
+			const item = this.dex.items.get(set.item);
 			if (!item.isNonstandard) return;
 			if (item.isNonstandard === 'Past' && !item.zMove && !item.itemUser && !item.forcedForme) {
 				if (this.ruleTable.has(`+item:${item.id}`)) return;

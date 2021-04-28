@@ -6,7 +6,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBoost(boost, target, source, effect) {
 			if (source && target !== source) return;
-			let i: BoostName;
+			let i: BoostID;
 			for (i in boost) {
 				if (boost[i]! < 0) {
 					delete boost[i];
@@ -146,13 +146,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and its Attack and Speed are multiplied by 1.5. If this Pokemon is a Cherrim and it is holding Utility Umbrella, it remains in its regular form and its Attack and Speed stats are not boosted. If this Pokemon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokemon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form.",
 		shortDesc: "If user is Cherrim and Sunny Day is active, its Attack and Speed are 1.5x.",
 		onModifyAtk(atk, pokemon) {
-			if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (this.effectData.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
 				return this.chainModify(1.5);
 			}
@@ -330,11 +330,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sagepower: {
 		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 		onStart(pokemon) {
-			pokemon.abilityData.choiceLock = "";
+			pokemon.abilityState.choiceLock = "";
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
-			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
+			if (pokemon.abilityState.choiceLock && pokemon.abilityState.choiceLock !== move.id) {
 				// Fails unless ability is being ignored (these events will not run), no PP lost.
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
@@ -344,8 +344,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
-			pokemon.abilityData.choiceLock = move.id;
+			if (pokemon.abilityState.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityState.choiceLock = move.id;
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(atk, pokemon) {
@@ -355,16 +355,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.5);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.abilityData.choiceLock) return;
+			if (!pokemon.abilityState.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
+				if (moveSlot.id !== pokemon.abilityState.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			pokemon.abilityData.choiceLock = "";
+			pokemon.abilityState.choiceLock = "";
 		},
 		name: "Sage Power",
 		rating: 4.5,
