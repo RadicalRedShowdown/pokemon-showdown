@@ -333,7 +333,7 @@ export function loadFilters() {
 
 /* The sucrase transformation of optional chaining is too expensive to be used in a hot function like this. */
 /* eslint-disable @typescript-eslint/prefer-optional-chain */
-export const chatfilter: ChatFilter = function (message, user, room) {
+export const chatfilter: Chat.ChatFilter = function (message, user, room) {
 	let lcMessage = message
 		.replace(/\u039d/g, 'N').toLowerCase()
 		// eslint-disable-next-line no-misleading-character-class
@@ -385,7 +385,7 @@ export const chatfilter: ChatFilter = function (message, user, room) {
 };
 /* eslint-enable @typescript-eslint/prefer-optional-chain */
 
-export const namefilter: NameFilter = (name, user) => {
+export const namefilter: Chat.NameFilter = (name, user) => {
 	const id = toID(name);
 	if (Punishments.namefilterwhitelist.has(id)) return name;
 	if (Monitor.forceRenames.has(id)) {
@@ -424,7 +424,7 @@ export const namefilter: NameFilter = (name, user) => {
 	}
 	return name;
 };
-export const loginfilter: LoginFilter = user => {
+export const loginfilter: Chat.LoginFilter = user => {
 	if (user.namelocked) return;
 	if (user.trackRename) {
 		const manualForceRename = Monitor.forceRenames.get(toID(user.trackRename));
@@ -440,7 +440,7 @@ export const loginfilter: LoginFilter = user => {
 		Punishments.offlineWarns.delete(user.id);
 	}
 };
-export const nicknamefilter: NicknameFilter = (name, user) => {
+export const nicknamefilter: Chat.NicknameFilter = (name, user) => {
 	let lcName = name
 		.replace(/\u039d/g, 'N').toLowerCase()
 		.replace(/[\u200b\u007F\u00AD]/g, '')
@@ -474,7 +474,7 @@ export const nicknamefilter: NicknameFilter = (name, user) => {
 					// Don't autolock unless it's an evasion regex and they're evading
 					void Punishments.autolock(
 						user, 'staff', 'FilterEvasionMonitor', `Evading filter in Pokémon nickname (${name} => ${word})`,
-						`${user.name}: Pokémon nicknamed SPOILER: \`\`${name} => ${word}\`\``
+						`${user.name}: Pokémon nicknamed SPOILER: \`\`${name} => ${word}\`\``, true
 					);
 				}
 				line.hits++;
@@ -486,7 +486,7 @@ export const nicknamefilter: NicknameFilter = (name, user) => {
 
 	return name;
 };
-export const statusfilter: StatusFilter = (status, user) => {
+export const statusfilter: Chat.StatusFilter = (status, user) => {
 	let lcStatus = status
 		.replace(/\u039d/g, 'N').toLowerCase()
 		.replace(/[\u200b\u007F\u00AD]/g, '')
@@ -527,7 +527,7 @@ export const statusfilter: StatusFilter = (status, user) => {
 	return status;
 };
 
-export const pages: PageTable = {
+export const pages: Chat.PageTable = {
 	filters(query, user, connection) {
 		if (!user.named) return Rooms.RETRY_AFTER_LOGIN;
 		this.title = 'Filters';
@@ -562,7 +562,7 @@ export const pages: PageTable = {
 	},
 };
 
-export const commands: ChatCommands = {
+export const commands: Chat.ChatCommands = {
 	filters: 'filter',
 	filter: {
 		add(target, room, user) {
@@ -644,11 +644,69 @@ export const commands: ChatCommands = {
 		help(target, room, user) {
 			this.parse(`/help filter`);
 		},
+		test(target, room, user) {
+			this.checkCan('lock');
+			if (room && ['staff', 'upperstaff'].includes(room.roomid)) this.runBroadcast(true);
+			let [monitorName, message] = Utils.splitFirst(target, " ");
+			if (!Chat.monitors[monitorName] && Chat.monitors[monitorName + 'filter']) {
+				monitorName = monitorName + 'filter';
+			}
+			// namefilter doesn't have a monitor function
+			if (!(monitorName && message) || !Chat.monitors[monitorName]?.monitor) {
+				return this.run((Chat.commands.filter as any).testhelp);
+			}
+			const monitor = Chat.monitors[monitorName].monitor!;
+			const lcMessage = Chat.stripFormatting(message
+				.replace(/\u039d/g, 'N')
+				.toLowerCase()
+				// eslint-disable-next-line no-misleading-character-class
+				.replace(/[\u200b\u007F\u00AD\uDB40\uDC00\uDC21]/g, '')
+				.replace(/\u03bf/g, 'o')
+				.replace(/\u043e/g, 'o')
+				.replace(/\u0430/g, 'a')
+				.replace(/\u0435/g, 'e')
+				.replace(/\u039d/g, 'e'));
+			let htmlBoxMessage = ``;
+			for (const line of Chat.filterWords[monitorName]) {
+				const ret = monitor.call(this, line, room, user, message, lcMessage, true);
+				if (typeof ret === 'string') {
+					htmlBoxMessage = ret;
+					break;
+				} else if (ret === false) {
+					htmlBoxMessage = `"${message}" would be blocked from being sent.`;
+					break;
+				 }
+			}
+			if (htmlBoxMessage) {
+				return this.sendReplyBox(Chat.formatText(htmlBoxMessage, false, true));
+			} else {
+				throw new Chat.ErrorMessage(
+					`"${message}" doesn't trigger any filters on the ${monitorName}${monitorName.endsWith('filter') ? '' : ' filter'}. Check spelling?`
+				);
+			}
+		},
+		testhelp(target, room, user) {
+			this.checkCan('lock');
+			if (room && ['staff', 'upperstaff'].includes(room.roomid)) this.runBroadcast(true);
+			const monitorNames = [...Object.keys(Chat.monitors).filter(x => Chat.monitors[x].monitor)];
+			monitorNames.push(
+				...Object.keys(Chat.monitors)
+					.filter(x => Chat.monitors[x].monitor && x.includes('filter'))
+					.map(x => x.replace('filter', ''))
+			);
+			this.sendReplyBox(
+				`<code>/filter test [monitor name] [test string]</code>:<br />` +
+				`Tests whether or not the provided test string would trigger the respective monitor.<br />` +
+				`All usable commands: <code>${monitorNames.sort().map(x => `/filter test ${x}`).join('</code>, <code>')}</code><br />` +
+				`Can only be broadcast in Staff and Upper Staff. Requires: % @ &`
+			);
+		},
 	},
 	filterhelp: [
-		`- /filter add list, word, reason, [, optional public reason] - Adds a word to the given filter list. Requires: &`,
-		`- /filter remove list, words - Removes words from the given filter list. Requires: &`,
-		`- /filter view - Opens the list of filtered words. Requires: % @ &`,
+		`/filter add list, word, reason[, optional public reason] - Adds a word to the given filter list. Requires: &`,
+		`/filter remove list, words - Removes words from the given filter list. Requires: &`,
+		`/filter view - Opens the list of filtered words. Requires: % @ &`,
+		`/filter test - Do "/help filter test" for more information. Requires: % @ &`,
 		`You may use / instead of , in /filter add if you want to specify a reason that includes commas.`,
 	],
 	allowname(target, room, user) {

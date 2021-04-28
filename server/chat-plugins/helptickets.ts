@@ -6,7 +6,7 @@ const TICKET_FILE = 'config/tickets.json';
 const TICKET_CACHE_TIME = 24 * 60 * 60 * 1000; // 24 hours
 const TICKET_BAN_DURATION = 48 * 60 * 60 * 1000; // 48 hours
 
-Punishments.roomPunishmentTypes.set(`TICKETBAN`, 'banned from creating help tickets');
+Punishments.addRoomPunishmentType('TICKETBAN', 'banned from creating help tickets');
 
 interface TicketState {
 	creator: string;
@@ -471,33 +471,18 @@ export function notifyStaff() {
 	const room = Rooms.get('staff');
 	if (!room) return;
 	let buf = ``;
-	const keys = Object.keys(tickets).sort((aKey, bKey) => {
-		const a = tickets[aKey];
-		const b = tickets[bKey];
-		if (a.offline) {
-			return (b.offline ? 1 : -1);
-		}
-		if (a.open !== b.open) {
-			return (a.open ? -1 : 1);
-		} else if (a.open && b.open) {
-			if (a.active !== b.active) {
-				return (a.active ? -1 : 1);
-			}
-			if (!!a.claimed !== !!b.claimed) {
-				return (a.claimed ? 1 : -1);
-			}
-			return a.created - b.created;
-		}
-		return 0;
-	});
+	const sortedTickets = Utils.sortBy(Object.values(tickets), ticket => [
+		!ticket.offline,
+		ticket.open,
+		ticket.open ? [ticket.active, !ticket.claimed, ticket.created] : 0,
+	]);
 	let count = 0;
 	let hiddenTicketUnclaimedCount = 0;
 	let hiddenTicketCount = 0;
 	let hasUnclaimed = false;
 	let fourthTicketIndex = 0;
 	let hasAssistRequest = false;
-	for (const key of keys) {
-		const ticket = tickets[key];
+	for (const ticket of sortedTickets) {
 		if (!ticket.open) continue;
 		if (!ticket.active) continue;
 		if (count >= 3) {
@@ -593,6 +578,7 @@ const ticketPages: {[k: string]: string} = {
 	battleharassment: `Someone is harassing me in a battle`,
 	inapname: `Someone is using an offensive username`,
 	inappokemon: `Someone is using offensive Pokemon nicknames`,
+	cheating: `Someone is hacking or cheating in my battle`,
 
 	appeal: `I want to appeal a punishment`,
 	permalock: `I want to appeal my permalock`,
@@ -619,8 +605,38 @@ const ticketPages: {[k: string]: string} = {
 	confirmroomhelp: `Call a Global Staff member to help`,
 	confirmother: `Call a Global Staff member`,
 };
+const cheatingScenarios = [
+	[
+		`My opponent's Pokemon used moves it couldn't learn`,
+		`It was probably a disguised Zoroark (<psicon pokemon="zoroark" />), which has the ability <a href="//${Config.routes.dex}/abilities/illusion">Illusion</a>. This happens often in Random Battles!`,
+	],
+	[
+		`My opponent got very lucky (critical hits, freezes, flinches, etc.)`,
+		`Sometimes, <a href="//${Config.routes.root}/pages/rng">that's just how RNG works</a>!`,
+	],
+	[
+		`My opponent used six of the same Pokemon or too many Legendaries`,
+		`Certain tiers, like Anything Goes, do not have Species Clause, which normally restricts a player to only one of each Pokemon. In addition, many tiers allow lots of legendaries, and you are allowed to use them!`,
+	],
+	[
+		`My Pokemon used a move I didn't choose`,
+		`You accidentally selected the wrong move and didn't notice. It happens more often than you might think!`,
+	],
+	[
+		`My Pokemon moved last when it shouldn't have`,
+		`You probably accidentally chose a move with negative priority, like Trick Room, Dragon Tail, or Roar.`,
+	],
+	[
+		`My Pokemon's Ability didn't work`,
+		`Perhaps Weezing's <a href="//${Config.routes.dex}/abilities/neutralizinggas">Neutralizing Gas</a> was active (<psicon pokemon="weezinggalar" />), or another effect, like <a href="https://dex.pokemonshowdown.com/abilities/moldbreaker">Mold Breaker</a>, was suppressing the Ability.`,
+	],
+	[
+		`My Pokemon's move failed when I attacked the opponent in a Double Battle)`,
+		`You attacked your own partner Pokemon, which failed because no Pokemon was there.`,
+	],
+];
 
-export const pages: PageTable = {
+export const pages: Chat.PageTable = {
 	help: {
 		request(query, user, connection) {
 			if (!user.named) {
@@ -689,6 +705,7 @@ export const pages: PageTable = {
 					buf += `<p><Button>battleharassment</Button></p>`;
 					buf += `<p><Button>inapname</Button></p>`;
 					buf += `<p><Button>inappokemon</Button></p>`;
+					buf += `<p><Button>cheating</Button></p>`;
 					break;
 				case 'pmharassment':
 					buf += `<p>${this.tr`If someone is harassing you in private messages (PMs), click the button below and a global staff member will take a look. If you are being harassed in a chatroom, please ask a room staff member to handle it. If it's a minor issue, consider using <code>/ignore [username]</code> instead.`}</p>`;
@@ -711,6 +728,15 @@ export const pages: PageTable = {
 					buf += `<p>${this.tr`Please save a replay of the battle if it has ended, or provide a link to the battle if it is still ongoing.`}</p>`;
 					if (!isLast) break;
 					buf += `<p><Button>confirminappokemon</Button></p>`;
+					break;
+				case 'cheating':
+					buf += `<p>Your opponent cannot control how lucky or unlucky you are, what moves you choose, or the mechanics of the battle. You may just be misunderstanding what happened in your battle!</p>`;
+					buf += `<h4>Some common situations</h4><ul>`;
+					for (const [scenario, explanation] of cheatingScenarios) {
+						buf += `<li><details class="readmore"><summary>${scenario}</summary><br />${explanation}<br /><br /></details></li>`;
+					}
+					buf += `</ul><p>There are many more situations like this where the opponent was not cheating or hacking. If you're confused about what happened, upload your battle replay and share it with the Help room. They can help you understand what happened!</p>`;
+					buf += `<p style="text-align: center"><button class="button" name="send" value="/j help"><strong>Join the Help Room</strong></button></p>`;
 					break;
 				case 'appeal':
 					buf += `<p><b>${this.tr`What would you like to appeal?`}</b></p>`;
@@ -754,7 +780,7 @@ export const pages: PageTable = {
 					break;
 				case 'hostfilter':
 					buf += `<p>${this.tr`We automatically lock proxies and VPNs to prevent evasion of punishments and other attacks on our server. To get unlocked, you need to disable your proxy or VPN.`}</p>`;
-					buf += `<p>For more detailed information, view the  <a href="https://pokemonshowdown.com/pages/proxyhelp">proxy help guide</a>.</p>`;
+					buf += `<p>For more detailed information, view the  <a href="//${Config.routes.root}/pages/proxyhelp">proxy help guide</a>.</p>`;
 					break;
 				case 'semilock':
 					buf += `<p>${this.tr`Do you have an autoconfirmed account? An account is autoconfirmed when it has won at least one rated battle and has been registered for one week or longer.`}</p>`;
@@ -827,27 +853,16 @@ export const pages: PageTable = {
 			buf += `<table style="margin-left: auto; margin-right: auto"><tbody><tr><th colspan="5"><h2 style="margin: 5px auto">${this.tr`Help tickets`}</h1></th></tr>`;
 			buf += `<tr><th>${this.tr`Status`}</th><th>${this.tr`Creator`}</th><th>${this.tr`Ticket Type`}</th><th>${this.tr`Claimed by`}</th><th>${this.tr`Action`}</th></tr>`;
 
-			const keys = Object.keys(tickets).sort((aKey, bKey) => {
-				const a = tickets[aKey];
-				const b = tickets[bKey];
-				if (a.open !== b.open) {
-					return (a.open ? -1 : 1);
-				}
-				if (a.open) {
-					if (a.active !== b.active) {
-						return (a.active ? -1 : 1);
-					}
-					return a.created - b.created;
-				}
-				return b.created - a.created;
-			});
+			const sortedTickets = Utils.sortBy(Object.values(tickets), ticket => [
+				ticket.open,
+				ticket.open ? [ticket.active, ticket.created] : -ticket.created,
+			]);
 			let count = 0;
-			for (const key of keys) {
+			for (const ticket of sortedTickets) {
 				if (count >= 100 && query[0] !== 'all') {
-					buf += `<tr><td colspan="5">${this.tr`And ${keys.length - count} more tickets.`} <a class="button" href="/view-help-tickets-all" target="replace">${this.tr`View all tickets`}</a></td></tr>`;
+					buf += `<tr><td colspan="5">${this.tr`And ${sortedTickets.length - count} more tickets.`} <a class="button" href="/view-help-tickets-all" target="replace">${this.tr`View all tickets`}</a></td></tr>`;
 					break;
 				}
-				const ticket = tickets[key];
 				let icon = `<span style="color:gray"><i class="fa fa-check-circle-o"></i> ${this.tr`Closed`}</span>`;
 				if (ticket.open) {
 					if (!ticket.active) {
@@ -883,9 +898,10 @@ export const pages: PageTable = {
 			buf += `<table style="margin-left: auto; margin-right: auto"><tbody>`;
 			buf += `<tr><th colspan="5"><h2 style="margin: 5px auto">${this.tr`Ticket Bans`}<i class="fa fa-ban"></i></h2></th></tr>`;
 			buf += `<tr><th>Userids</th><th>IPs</th><th>Expires</th><th>Reason</th></tr>`;
-			const ticketBans = Array.from(Punishments.getPunishments('staff'))
-				.sort((a, b) => a[1].expireTime - b[1].expireTime)
-				.filter(item => item[1].punishType === 'TICKETBAN');
+			const ticketBans = Utils.sortBy(
+				[...Punishments.getPunishments('staff')].filter(([id, entry]) => entry.punishType === 'TICKETBAN'),
+				([id, entry]) => entry.expireTime
+			);
 			for (const [userid, entry] of ticketBans) {
 				let ids = [userid];
 				if (entry.userids) ids = ids.concat(entry.userids);
@@ -1019,14 +1035,14 @@ export const pages: PageTable = {
 					}
 				}
 
-				const sortedStats = Object.keys(typeStats).sort((a, b) => {
+				const sortedStats = Utils.sortBy(Object.keys(typeStats), t => {
 					if (col === 'type') {
 						// Alphabetize strings
-						return a.localeCompare(b, 'en');
+						return t;
 					} else if (col === 'resolution') {
-						return (typeStats[b].resolved || 0) - (typeStats[a].resolved || 0);
+						return -(typeStats[t].resolved || 0);
 					}
-					return typeStats[b][col] - typeStats[a][col];
+					return -typeStats[t][col];
 				});
 
 				for (const type of sortedStats) {
@@ -1047,12 +1063,12 @@ export const pages: PageTable = {
 				for (const staff in staffStats) {
 					staffStats[staff].time = Math.round(staffStats[staff].time / staffStats[staff].num);
 				}
-				const sortedStaff = Object.keys(staffStats).sort((a, b) => {
+				const sortedStaff = Utils.sortBy(Object.keys(staffStats), staff => {
 					if (col === 'staff') {
 						// Alphabetize strings
-						return a.localeCompare(b, 'en');
+						return staff;
 					}
-					return staffStats[b][col] - staffStats[a][col];
+					return -staffStats[staff][col];
 				});
 				for (const staff of sortedStaff) {
 					buf += `<tr><td>${staff}</td><td>${staffStats[staff].num}</td><td>${Chat.toDurationString(staffStats[staff].time, {precision: 1})}</td></tr>`;
@@ -1080,7 +1096,7 @@ export const pages: PageTable = {
 	},
 };
 
-export const commands: ChatCommands = {
+export const commands: Chat.ChatCommands = {
 	report(target, room, user) {
 		if (!this.runBroadcast()) return;
 		const meta = this.pmTarget ? `-user-${this.pmTarget.id}` : this.room ? `-room-${this.room.roomid}` : '';
