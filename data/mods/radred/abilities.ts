@@ -240,13 +240,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 270,
 	},
-	mummy: {
-		inherit: true,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'parentalbond' && move.hit > 1) return this.chainModify(0.25);
-			if (move.multihitType === 'oraoraoraora' && move.hit > 1) return this.chainModify(0.5);
-		},
-	},
 	oblivious: {
 		inherit: true,
 		onBoost(boost, target, source, effect) {
@@ -260,14 +253,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
-			if (move.flags['punch'] && !move.spreadHit && !move.isZ && !move.isMax) {
+			if (move.flags['punch'] && !move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
 				move.multihit = 2;
 				move.multihitType = 'oraoraoraora';
 			}
-		},
-		onBasePowerPriority: 7,
-		onBasePower(basePower, pokemon, target, move) {
-			if (move.multihitType === 'oraoraoraora' && move.hit > 1) return this.chainModify(0.5);
 		},
 		onSourceModifySecondaries(secondaries, target, source, move) {
 			if (move.multihitType === 'oraoraoraora' && move.id === 'secretpower' && move.hit < 2) {
