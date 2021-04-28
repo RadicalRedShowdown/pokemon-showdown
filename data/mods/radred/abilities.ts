@@ -52,29 +52,29 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.flags['bone']) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
-					move.ignoreImmunity['Ground'] = true;
-					move.ignoreImmunity['Ghost'] = true;
+					move.ignoreImmunity[move.type] = true;
 				}
 			}
 		},
 		onModifyDamage(damage, source, target, move) {
-			if (move.flags['bone'] && (target.getMoveHitData(move).typeMod < 0)) {
+			if (move.flags['bone'] && target.getMoveHitData(move).typeMod < 0) {
 				this.debug('Welcome to the Bone Zone');
 				return this.chainModify(2);
 			}
 		},
 		name: "Bone Zone",
-		rating: 3,
+		rating: 4,
 		num: 290,
 	},
 	bullrush: {
 		shortDesc: "The first move this Pokemon's uses gets a 1.5x damage boost.",
-		onModifyDamage(damage, source, target, move) {
-			if (source.activeMoveActions > 1) {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.activeMoveActions > 1) {
 				return;
-			} else {
-				return this.chainModify(1.5);
 			}
+			this.debug('Bull Rush boost');
+			return this.chainModify(1.5);
 		},
 		name: "Bull Rush",
 		rating: 2,
@@ -83,6 +83,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	corrosion: {
 		inherit: true,
 		shortDesc: "This Pokemon can use poison type moves on other Pokemon regardless of their typing.",
+		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
@@ -107,8 +108,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	fatalprecision: {
 		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
-		onModifyDamage(damage, source, target, move) {
-			if (target && this.dex.getEffectiveness(move, target.types) > 0) {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (defender && this.dex.getEffectiveness(move, defender.types) > 0) {
+				this.debug('Fatal Precision boost');
 				return this.chainModify([4915, 4096]);
 			}
 		},
@@ -196,10 +199,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	illusion: {
 		inherit: true,
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
-		shortDesc: "This Pokemon appears as the last Pokemon in the party until it takes direct damage; 1.3x damage to moves when disguised.",
-		onModifyDamage(damage, pokemon) {
-			if (pokemon.illusion) {
-				return this.chainModify([5328, 4096]);
+		shortDesc: "Appears as last Pokemon in party damaged; 1.3x power when disguised.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.illusion) {
+				this.debug('Illusion boost');
+				return this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -219,7 +224,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Iron Fist boost');
-				return this.chainModify([5328, 4096]);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 	},
@@ -402,7 +407,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['kick']) {
 				this.debug('Striker Boost');
-				return this.chainModify([5328, 4096]);
+				return this.chainModify([5325, 4096]);
 			}
 		},
 		name: "Striker",
@@ -475,7 +480,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		desc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move; Reduces water damage by 50%.",
 		shortDesc: "Raises defense by 2 stages when damaged by water-type move; Reduces water damage by 50%.",
-		onSourceBasePower(basePower, attacker, defender, move) {
+		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Water') {
 				return this.chainModify(0.5);
 			}
