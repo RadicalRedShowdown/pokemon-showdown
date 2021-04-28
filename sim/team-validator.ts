@@ -443,7 +443,7 @@ export class TeamValidator {
 			if (ruleTable.has('obtainableformes')) {
 				tierSpecies = outOfBattleSpecies;
 			}
-			if (ruleTable.has('obtainablemisc')) {
+			if (ruleTable.has('obtainablemisc') && !ruleTable.has('standardradred')) {
 				if (set.gender && set.gender !== 'M') {
 					problems.push(`Battle Bond Greninja must be male.`);
 				}
