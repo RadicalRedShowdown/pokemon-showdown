@@ -199,7 +199,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	illusion: {
 		inherit: true,
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
-		shortDesc: "Appears as last Pokemon in party damaged; 1.3x power when disguised.",
+		shortDesc: "Appears as last Pokemon in party until damaged; 1.3x power when disguised.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.illusion) {
