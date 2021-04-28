@@ -502,7 +502,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	typhlosion: {
 		inherit: true,
-		abilities: {0: "Blaze", 1: "Blazing Soul", H: "Flash Fire"},
+		abilities: {0: "Flash Fire", H: "Blazing Soul"},
 	},
 	totodile: {
 		inherit: true,
@@ -518,7 +518,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sentret: {
 		inherit: true,
-		abilities: {0: "Run Away", 1: "Frisk", H: "Frisk"},
+		abilities: {0: "Run Away", 1: "Frisk"},
 	},
 	furret: {
 		inherit: true,
@@ -754,7 +754,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	loudred: {
 		inherit: true,
-		abilities: {0: "Soundproof", 1: "Scrappy", H: "Scrappy"},
+		abilities: {0: "Soundproof", 1: "Oblivious", H: "Scrappy"},
 	},
 	exploud: {
 		inherit: true,
@@ -831,7 +831,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	vibrava: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Tinted Lens"},
+		abilities: {0: "Levitate", 1: "Compound Eyes", H: "Tinted Lens"},
 	},
 	flygon: {
 		inherit: true,
