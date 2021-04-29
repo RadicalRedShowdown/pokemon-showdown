@@ -250,6 +250,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 35, atk: 110, def: 60, spa: 50, spd: 70, spe: 110},
 	},
+	meowthalola: {
+		inherit: true,
+		abilities: {0: "Pickup", 1: "Technician", H: "Rattled"},
+	},
 	persian: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 80, def: 60, spa: 60, spd: 65, spe: 115},
@@ -534,6 +538,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 110, atk: 50, def: 50, spa: 86, spd: 96, spe: 70},
 		abilities: {0: "Insomnia", 1: "Frisk", H: "Tinted Lens"},
 	},
+	ledyba: {
+		inherit: true,
+		abilities: {0: "Swarm", 1: "Early Bird"},
+	},
 	ledian: {
 		inherit: true,
 		types: ["Bug", "Fighting"],
@@ -644,6 +652,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 60, atk: 55, def: 100, spa: 65, spd: 100, spe: 40},
 		abilities: {0: "Weak Armor", 1: "Unburden", H: "Cursed Body"},
 	},
+	remoraid: {
+		inherit: true,
+		abilities: {0: "Hustle", 1: "Sniper", H: "Skill Link"},
+	},
 	octillery: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 105, def: 75, spa: 105, spd: 75, spe: 75},
@@ -670,6 +682,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	donphan: {
 		inherit: true,
 		abilities: {0: "Sturdy", H: "Technician"},
+	},
+	smeargle: {
+		inherit: true,
+		abilities: {0: "Own Tempo", 1: "Technician"},
 	},
 	stantler: {
 		inherit: true,
@@ -922,6 +938,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Dark", "Fairy"],
 		abilities: {0: "Blademaster"},
 	},
+	snorunt: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Ice Body", H: "Refrigerate"},
+	},
+	glalie: {
+		inherit: true,
+		abilities: {0: "Inner Focus", 1: "Ice Body", H: "Refrigerate"},
+	},
 	glaliemega: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 135, def: 80, spa: 105, spd: 80, spe: 100},
@@ -976,8 +1000,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Frisk", H: "Reckless"},
 	},
+	bidoof: {
+		inherit: true,
+		abilities: {0: "Simple", 1: "Unaware"},
+	},
 	bibarel: {
 		inherit: true,
+		abilities: {0: "Simple", 1: "Unaware"},
 		baseStats: {hp: 79, atk: 85, def: 80, spa: 55, spd: 80, spe: 50},
 	},
 	kricketot: {
@@ -1062,6 +1091,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 103, atk: 93, def: 67, spa: 91, spd: 61, spe: 84},
 		abilities: {0: "Stench", 1: "Aftermath", H: "Frisk"},
+	},
+	bonsly: {
+		inherit: true,
+		abilities: {0: "Sturdy", 1: "Rock Head"},
 	},
 	chatot: {
 		inherit: true,
