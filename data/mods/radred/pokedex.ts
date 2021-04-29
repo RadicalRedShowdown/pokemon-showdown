@@ -252,7 +252,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meowthalola: {
 		inherit: true,
-		abilities: {0: "Pickup", 1: "Technician", H: "Rattled"},
+		abilities: {0: "Pickup", 1: "Technician", H: "Feline Power"},
 	},
 	persian: {
 		inherit: true,
