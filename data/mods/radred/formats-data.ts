@@ -10,8 +10,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUU",
 	},
 	venusaurmega: {
-		tier: "UU",
-		doublesTier: "DUU",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	charmander: {
 		tier: "LC",
@@ -24,12 +24,12 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUU",
 	},
 	charizardmegax: {
-		tier: "UU",
-		doublesTier: "DUU",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	charizardmegay: {
-		tier: "UU",
-		doublesTier: "DUU",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	squirtle: {
 		tier: "LC",
@@ -2447,8 +2447,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		tier: "NFE",
 	},
 	krookodile: {
-		tier: "UU",
-		doublesTier: "DUU",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	darumaka: {
 		tier: "LC",
@@ -3531,8 +3531,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		tier: "Illegal",
 	},
 	tapukoko: {
-		tier: "Uber",
-		doublesTier: "DUber",
+		tier: "OU",
+		doublesTier: "DOU",
 	},
 	tapulele: {
 		tier: "UU",
@@ -3605,8 +3605,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUber",
 	},
 	magearna: {
-		tier: "OU",
-		doublesTier: "DOU",
+		tier: "Uber",
+		doublesTier: "DUber",
 	},
 	magearnaoriginal: {},
 	marshadow: {
