@@ -564,12 +564,9 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	strengthsap: {
 		inherit: true,
-		pp: 8,
-		noPPBoosts: true,
-		onTryHit(target, source, move) {
-			if (move.id === 'strengthsap') {
-				source.deductPP(move.id, 1);
-			}
+		pp: 5,
+		onTryHit(target, source) {
+			source.deductPP('strengthsap', 1);
 		},
 	},
 	suckerpunch: {
