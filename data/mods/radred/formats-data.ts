@@ -2128,7 +2128,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		doublesTier: "DUU",
 	},
 	rotom: {
-		tier: "LC",
+		tier: "NFE",
 	},
 	rotomheat: {
 		tier: "UU",
