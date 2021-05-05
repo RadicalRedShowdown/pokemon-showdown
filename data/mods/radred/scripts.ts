@@ -16,7 +16,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				return altForme.name;
 			}
 			// prevent Galarian Slowbro from mega evolving
-			if (item.name === "slowbronite" && species.name === "Slowbro-Galar") {
+			if (item.id === "slowbronite" && species.name === "Slowbro-Galar") {
 				return null;
 			}
 			// allow low key toxtricity to mega evolve
