@@ -17,6 +17,8 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
+import {Utils} from '../lib';
+
 export const Formats: FormatList = [
 	{
 		section: "RR Singles",
@@ -57,9 +59,6 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen 8] Anything Goes",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3672423/">National Dex AG</a>`,
-		],
 		mod: 'radred',
 		ruleset: ['Standard RadRed'],
 	},
@@ -78,15 +77,9 @@ export const Formats: FormatList = [
 		mod: 'radred',
 		searchShow: false,
 		debug: true,
-		maxLevel: 9999,
 		battle: {trunc: Math.trunc},
-		defaultLevel: 100,
-		teamLength: {
-			validate: [1, 24],
-			battle: 24,
-		},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 	{
 		section: "RR Doubles",
@@ -95,7 +88,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] RRC",
 		mod: 'radred',
 		gameType: 'doubles',
-		ruleset: ['Standard RadRed', 'VGC Timer', 'Item Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Standard RadRed', 'Adjust Level = 50', 'Picked Team Size = 4', 'VGC Timer', 'Item Clause', 'Species Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			'Mewtwo',
 			'Unown', 'Ho-Oh', 'Lugia',
@@ -106,11 +99,6 @@ export const Formats: FormatList = [
 			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow',
 			'Eternatus', 'Zacian', 'Zamazenta', 'Calyrex',
 		],
-		forcedLevel: 50,
-		teamLength: {
-			validate: [4, 6],
-			battle: 4,
-		},
 	},
 	{
 		name: "[Gen 8] Doubles Custom Game",
@@ -118,15 +106,9 @@ export const Formats: FormatList = [
 		mod: 'radred',
 		gameType: 'doubles',
 		searchShow: false,
-		maxLevel: 9999,
 		battle: {trunc: Math.trunc},
-		defaultLevel: 100,
 		debug: true,
-		teamLength: {
-			validate: [2, 24],
-			battle: 24,
-		},
 		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod'],
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 ];
