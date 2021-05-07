@@ -127,7 +127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	felinepower: {
 		shortDesc: "This Pokemon's Sp. Atk is doubled.",
 		onModifySpAPriority: 5,
-		onModifySpA(atk) {
+		onModifySpA(spa) {
 			return this.chainModify(2);
 		},
 		name: "Feline Power",
@@ -342,7 +342,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityState.choiceLock = move.id;
 		},
 		onModifySpAPriority: 1,
-		onModifySpA(SpA, pokemon) {
+		onModifySpA(spa, pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Sage Power SpA Boost');
