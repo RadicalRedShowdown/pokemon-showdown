@@ -342,7 +342,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.abilityState.choiceLock = move.id;
 		},
 		onModifySpAPriority: 1,
-		onModifySpA(atk, pokemon) {
+		onModifySpA(SpA, pokemon) {
 			if (pokemon.volatiles['dynamax']) return;
 			// PLACEHOLDER
 			this.debug('Sage Power SpA Boost');
