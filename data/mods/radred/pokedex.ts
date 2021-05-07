@@ -1533,6 +1533,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Blaze", H: "Magic Guard"},
 	},
+	greninja: {
+		inherit: true,
+		abilities: {0: "Torrent", 1: "Battle Bond", H: "Protean"},
+	},
 	greninjaash: {
 		inherit: true,
 		gender: "",
@@ -1666,6 +1670,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 70, def: 80, spa: 102, spd: 80, spe: 123},
 	},
+	zygarde: {
+		inherit: true,
+		abilities: {0: "Aura Break", H: "Power Construct"},
+	},
+	zygarde10: {
+		inherit: true,
+		abilities: {0: "Aura Break", H: "Power Construct"},
+	},
 	decidueye: {
 		inherit: true,
 		abilities: {0: "Overgrow", H: "Tinted Lens"},
@@ -1689,7 +1701,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rockruff: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Vital Spirit", H: "Steadfast", S: "Own Tempo"},
+		abilities: {0: "Frisk", 1: "Vital Spirit", H: "Steadfast"},
 	},
 	lycanroc: {
 		inherit: true,
