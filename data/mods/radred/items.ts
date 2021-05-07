@@ -18,6 +18,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 135,
 		gen: 4,
 		desc: "If held by a Dialga, this item triggers its Primal Reversion in battle.",
+		shortDesc: "If held by a Dialga, this item triggers its Primal Reversion in battle.",
 	},
 	adrenalineorb: {
 		inherit: true,
@@ -126,6 +127,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		num: 325,
 		gen: 4,
 		desc: "If held by a Dusknoir, its attacks cannot miss.",
+		shortDesc: "If held by a Dusknoir, its attacks cannot miss.",
 	},
 	rockmemory: {
 		inherit: true,
