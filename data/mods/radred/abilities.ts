@@ -235,9 +235,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
-		onTryHit(pokemon, target, move) {
-			if (target !== pokemon && move.type === 'Rock') {
-				this.add('-immune', pokemon, '[from] ability: Mountaineer');
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Rock') {
+				this.add('-immune', target, '[from] ability: Mountaineer');
 				return null;
 			}
 		},
