@@ -1295,6 +1295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Adamant Orb",
+		gen: 8,
 	},
 	emboar: {
 		inherit: true,
