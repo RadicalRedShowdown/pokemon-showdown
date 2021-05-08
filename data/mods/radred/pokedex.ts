@@ -1556,6 +1556,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rivalry", 1: "Unnerve", H: "Adaptability"},
 	},
+	floetteeternal: {
+		inherit: true,
+		abilities: {0: "Flower Veil", H: "Symbiosis"},
+	},
 	gogoat: {
 		inherit: true,
 		baseStats: {hp: 123, atk: 100, def: 72, spa: 67, spd: 87, spe: 74},
