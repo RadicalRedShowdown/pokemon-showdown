@@ -33,6 +33,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Bug"],
 		requiredItem: "Butterfrite",
+		gen: 8,
 	},
 	pidgey: {
 		inherit: true,
@@ -294,6 +295,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Human-Like"],
 		requiredItem: "Machampite",
+		gen: 8,
 	},
 	victreebel: {
 		inherit: true,
@@ -387,6 +389,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Red",
 		eggGroups: ["Water 3"],
 		requiredItem: "Kinglerite",
+		gen: 8,
 	},
 	voltorb: {
 		inherit: true,
@@ -467,6 +470,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Laprasite",
+		gen: 8,
 	},
 	flareon: {
 		inherit: true,
@@ -495,6 +499,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Black",
 		eggGroups: ["Monster"],
 		requiredItem: "Snorlaxite",
+		gen: 8,
 	},
 	articuno: {
 		inherit: true,
@@ -1432,6 +1437,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "Green",
 		eggGroups: ["Mineral"],
 		requiredItem: "Garbodorite",
+		gen: 8,
 	},
 	ducklett: {
 		inherit: true,
