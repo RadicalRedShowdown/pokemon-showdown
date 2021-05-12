@@ -42,6 +42,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
+	boneclub: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, bone: 1},
+		isNonstandard: null,
+	},
 	bonemerang: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bone: 1},
@@ -681,11 +686,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	bloomdoom: {
 		inherit: true,
-		isNonstandard: null,
-	},
-	boneclub: {
-		inherit: true,
-		flags: {protect: 1, mirror: 1, bone: 1},
 		isNonstandard: null,
 	},
 	breakneckblitz: {

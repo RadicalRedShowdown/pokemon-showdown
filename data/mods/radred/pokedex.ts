@@ -413,6 +413,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Lightning Rod", 1: "Rock Head", H: "Bone Zone"},
 	},
+	marowakalolatotem: {
+		inherit: true,
+		abilities: {0: "Bone Zone"},
+	},
 	hitmonlee: {
 		inherit: true,
 		abilities: {0: "Limber", 1: "Striker", H: "Unburden"},
