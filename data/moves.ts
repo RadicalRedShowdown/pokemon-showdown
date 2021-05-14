@@ -15121,6 +15121,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onPrepareHit(target, source, move) {
+			if (!source.isAlly(target)) {
+				this.attrLastMove('[anim] Shell Side Arm ' + move.category);
+			}
+		},
 		onModifyMove(move, pokemon, target) {
 			if (!target) return;
 			const atk = pokemon.getStat('atk', false, true);
@@ -17445,8 +17450,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
 			const myItem = source.takeItem();
-			const orbUser = ([382, 383].includes(target.baseSpecies.num) || [382, 383].includes(source.baseSpecies.num));
-			if (target.item || source.item || (!yourItem && !myItem) || (!yourItem && orbUser) || (!myItem && orbUser)) {
+			if (target.item || source.item || (!yourItem && !myItem)) {
 				if (yourItem) target.item = yourItem.id;
 				if (myItem) source.item = myItem.id;
 				return false;
@@ -18456,8 +18460,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onHit(target, source, move) {
 			const yourItem = target.takeItem(source);
 			const myItem = source.takeItem();
-			const orbUser = ([382, 383].includes(target.baseSpecies.num) || [382, 383].includes(source.baseSpecies.num));
-			if (target.item || source.item || (!yourItem && !myItem) || (!yourItem && orbUser) || (!myItem && orbUser)) {
+			if (target.item || source.item || (!yourItem && !myItem)) {
 				if (yourItem) target.item = yourItem.id;
 				if (myItem) source.item = myItem.id;
 				return false;

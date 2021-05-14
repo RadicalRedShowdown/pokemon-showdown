@@ -249,10 +249,10 @@ export class TeamValidator {
 		}
 
 		if (team.length < ruleTable.minTeamSize) {
-			problems.push(`You must bring at least ${ruleTable.minTeamSize} Pok\u00E9mon.`);
+			problems.push(`You must bring at least ${ruleTable.minTeamSize} Pok\u00E9mon (your team has ${team.length}).`);
 		}
 		if (team.length > ruleTable.maxTeamSize) {
-			return [`You may only bring up to ${ruleTable.maxTeamSize} Pok\u00E9mon.`];
+			return [`You may only bring up to ${ruleTable.maxTeamSize} Pok\u00E9mon (your team has ${team.length}).`];
 		}
 
 		// A limit is imposed here to prevent too much engine strain or
@@ -260,10 +260,6 @@ export class TeamValidator {
 		// allowed in Custom Game.
 		if (team.length > 24) {
 			problems.push(`Your team has more than than 24 Pok\u00E9mon, which the simulator can't handle.`);
-			return problems;
-		}
-		if (ruleTable.isBanned('nonexistent') && team.length > 6) {
-			problems.push(`Your team has more than than 6 Pok\u00E9mon.`);
 			return problems;
 		}
 
@@ -403,9 +399,6 @@ export class TeamValidator {
 		}
 		if (set.level > ruleTable.maxLevel) {
 			problems.push(`${name} (level ${set.level}) is above the maximum level of ${ruleTable.maxLevel}${ruleTable.blame('maxlevel')}`);
-		}
-		if ((set.level > 100 || set.level < 1) && ruleTable.isBanned('nonexistent')) {
-			problems.push(`${name} (level ${set.level}) is higher than level 100.`);
 		}
 
 		const setHas: {[k: string]: true} = {};
@@ -583,18 +576,11 @@ export class TeamValidator {
 			set.moves = set.moves.filter(val => val);
 		}
 		if (!set.moves?.length) {
-			problems.push(`${name} has no moves.`);
+			problems.push(`${name} has no moves (it must have at least one to be usable).`);
 			set.moves = [];
 		}
-		// A limit is imposed here to prevent too much engine strain or
-		// too much layout deformation - to be exact, this is the limit
-		// allowed in Custom Game.
-		if (set.moves.length > 24) {
-			problems.push(`${name} has more than 24 moves, which the simulator can't handle.`);
-			return problems;
-		}
-		if (ruleTable.isBanned('nonexistent') && set.moves.length > 4) {
-			problems.push(`${name} has more than 4 moves.`);
+		if (set.moves.length > ruleTable.maxMoveCount) {
+			problems.push(`${name} has ${set.moves.length} moves, which is more than the limit of ${ruleTable.maxMoveCount}.`);
 			return problems;
 		}
 
@@ -683,10 +669,30 @@ export class TeamValidator {
 				if (eventProblems) problems.push(...eventProblems);
 			}
 		}
-		if (ruleTable.has('obtainablemisc') && set.level < (species.evoLevel || 0)) {
+
+		let isFromRBYEncounter = false;
+		if (this.gen === 1 && !this.ruleTable.has('allowtradeback')) {
+			let lowestEncounterLevel;
+			for (const encounter of learnsetSpecies.encounters || []) {
+				if (encounter.generation !== 1) continue;
+				if (!encounter.level) continue;
+				if (lowestEncounterLevel && encounter.level < lowestEncounterLevel) continue;
+
+				lowestEncounterLevel = encounter.level;
+			}
+
+			if (lowestEncounterLevel) {
+				if (set.level < lowestEncounterLevel) {
+					problems.push(`${name} is not obtainable at levels below ${lowestEncounterLevel} in Gen 1.`);
+				}
+				isFromRBYEncounter = true;
+			}
+		}
+		if (!isFromRBYEncounter && ruleTable.has('obtainablemisc') && set.level < (species.evoLevel || 0)) {
 			// FIXME: Event pokemon given at a level under what it normally can be attained at gives a false positive
 			problems.push(`${name} must be at least level ${species.evoLevel} to be evolved.`);
 		}
+
 		if (ruleTable.has('obtainablemoves') && species.id === 'keldeo' && set.moves.includes('secretsword') &&
 			this.minSourceGen > 5 && dex.gen <= 7) {
 			problems.push(`${name} has Secret Sword, which is only compatible with Keldeo-Ordinary obtained from Gen 5.`);
@@ -1006,7 +1012,7 @@ export class TeamValidator {
 			const isCelebi = species.id === 'celebi';
 			eventData = {
 				generation: 2,
-				level: isMew ? 5 : isCelebi ? 30 : undefined,
+				level: isMew ? 5 : isCelebi ? 30 : 3, // Level 1/2 Pokémon can't be obtained by transfer from RBY/GSC
 				perfectIVs: isMew || isCelebi ? 5 : 3,
 				isHidden: !!this.dex.mod('gen7').species.get(species.id).abilities['H'],
 				shiny: isMew ? undefined : 1,
@@ -1368,7 +1374,7 @@ export class TeamValidator {
 				return `${tierSpecies.name} does not exist in Gen ${dex.gen}.`;
 			}
 			if (tierSpecies.isNonstandard === 'LGPE') {
-				return `${tierSpecies.name} does not exist in Ultra Sun/Moon, only in Let's Go Pikachu/Eevee.`;
+				return `${tierSpecies.name} does not exist in this game, only in Let's Go Pikachu/Eevee.`;
 			}
 			if (tierSpecies.isNonstandard === 'CAP') {
 				return `${tierSpecies.name} is a CAP and does not exist in this game.`;

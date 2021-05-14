@@ -241,6 +241,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
+		isBreakable: true,
 		name: "Mountaineer",
 		rating: 3,
 		num: 270,
@@ -304,7 +305,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isUnbreakable: true,
 		name: "Primal Armor",
 		rating: 3,
 		num: 275,

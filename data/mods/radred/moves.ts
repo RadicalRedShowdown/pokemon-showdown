@@ -96,13 +96,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Dark",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, authentic: 1},
-		onTryMove() {
-			this.attrLastMove('[still]');
-		},
-		onPrepareHit(target, source) {
-			this.add("-anim", source, "Dark Pulse", target);
-			this.add("-anim", source, "Dark Void", target);
-		},
 		target: "normal",
 		secondary: {
 			chance: 40,
