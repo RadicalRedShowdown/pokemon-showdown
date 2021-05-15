@@ -311,6 +311,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	quickfeet: {
 		inherit: true,
+		desc: "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 2; the Speed drop from paralysis is ignored.",
+		shortDesc: "If this Pokemon is statused, its Speed is 2x; ignores Speed drop from paralysis.",
 		onModifySpe(spe, pokemon) {
 			if (pokemon.status) {
 				return this.chainModify(2);
