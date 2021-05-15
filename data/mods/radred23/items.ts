@@ -726,6 +726,9 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
 				return critRatio + 1;
 			}
+			if (this.toID(user.baseSpecies.baseSpecies) === 'sirfetchd') {
+				return critRatio + 2;
+			}
 		},
 		onModifySpe(spe, user) {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
@@ -735,8 +738,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar"],
 		num: -1000,
 		gen: 8,
-		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost.",
-		shortDesc: "If held by a Farfetch’d, +1 critical hit ratio and 1.5x speed.",
+		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages.",
+		shortDesc: "If held by a Farfetch’d, +1 critical hit ratio and 1.5x speed. Sirfetch'd +2 crit ratio.",
 	},
 	butterfrite: {
 		name: "Butterfrite",

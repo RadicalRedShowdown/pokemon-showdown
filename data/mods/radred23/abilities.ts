@@ -309,6 +309,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 275,
 	},
+	quickfeet: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	rivalry: {
 		inherit: true,
 		desc: "This Pokemon's attacks have their power multiplied by 1.25 against targets of the same gender. There is no modifier if either this Pokemon or the target is genderless, or if they have different genders.",
@@ -391,14 +399,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	solarpower: {
 		inherit: true,
-		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and its defenses are multiplied by 1.33. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same and it does not gain a defense boost.",
-		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x and defenses are 1.33x.",
-		onModifyDefPriority: 6,
-		onModifyDef(def, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
-				return this.chainModify(1.33);
-			}
-		},
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x.",
 		onWeather() {},
 	},
 	striker: {

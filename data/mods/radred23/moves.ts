@@ -55,6 +55,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bone: 1},
 	},
+	bouncybubble: {
+		inherit: true,
+		pp: 5,
+		basePower: 95,
+		isNonstandard: null,
+	},
 	chargebeam: {
 		inherit: true,
 		accuracy: 100,
@@ -213,6 +219,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		desc: "Uses of one of these 8 moves: Shell Smash, Healing Wish, Dark Hole, Tail Glow, Roar of Time, Quiver Dance, No Retreat, or Soul Robbery",
 		shortDesc: "Isn't RNG fun?",
+	},
+	freezyfrost: {
+		inherit: true,
+		pp: 5,
+		isNonstandard: null,
 	},
 	furycutter: {
 		inherit: true,
@@ -431,6 +442,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
+	sappyseed: {
+		inherit: true,
+		pp: 5,
+		basePower: 95,
+		isNonstandard: null,
+		desc: "Deals damage and adds leech seed to the opponent if it isn't immune",
+		shortDesc: "Deals damage and adds leech seed",
+	},
 	secretsword: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, blade: 1},
@@ -543,7 +562,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	soulrobbery: {
 		num: 852,
 		accuracy: 100,
-		basePower: 105,
+		basePower: 90,
 		category: "Special",
 		name: "Soul Robbery",
 		pp: 5,
@@ -557,6 +576,20 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		contestType: "Cool",
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage.",
 		shortDesc: "Steals target's boosts before dealing damage.",
+	},
+	sparklyswirl: {
+		inherit: true,
+		accuracy: 100,
+		basePower: 95,
+		isNonstandard: null,
+		self: {
+			onHit(pokemon, source, move) {
+				this.add('-activate', source, 'move: Aromatherapy');
+				for (const ally of source.side.pokemon) {
+					ally.cureStatus();
+				}
+			},
+		},
 	},
 	spikecannon: {
 		inherit: true,
@@ -1243,5 +1276,16 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	wringout: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	zippyzap: {
+		inherit: true,
+		pp: 5,
+		basePower: 50,
+		priority: 1,
+		willCrit: true,
+		secondaries: null,
+		isNonstandard: null,
+		desc: "+1 priority move that always lands a critical hit",
+		shortDesc: "Priority move that crits.",
 	},
 };
