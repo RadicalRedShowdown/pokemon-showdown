@@ -309,6 +309,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		num: 275,
 	},
+	quickfeet: {
+		inherit: true,
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(2);
+			}
+		},
+	},
 	rivalry: {
 		inherit: true,
 		desc: "This Pokemon's attacks have their power multiplied by 1.25 against targets of the same gender. There is no modifier if either this Pokemon or the target is genderless, or if they have different genders.",
