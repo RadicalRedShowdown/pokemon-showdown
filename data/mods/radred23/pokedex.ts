@@ -1,20 +1,4 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
-	charmander: {
-		inherit: true,
-		abilities: {0: "Blaze", H: "Solar Power"},
-	},
-	charmeleon: {
-		inherit: true,
-		abilities: {0: "Blaze", H: "Solar Power"},
-	},
-	charizard: {
-		inherit: true,
-		abilities: {0: "Blaze", H: "Solar Power"},
-	},
-	blastoisemega: {
-		inherit: true,
-		baseStats: {hp: 79, atk: 103, def: 120, spa: 135, spd: 115, spe: 78},
-	},
 	butterfree: {
 		inherit: true,
 		otherFormes: ["Butterfree-Mega"],
@@ -273,7 +257,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	primeape: {
 		inherit: true,
-		baseStats: {hp: 65, atk: 105, def: 60, spa: 60, spd: 70, spe: 95},
 		abilities: {0: "Vital Spirit", 1: "Anger Point", H: "Gorilla Tactics"},
 	},
 	machamp: {
@@ -1409,7 +1392,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sawk: {
 		inherit: true,
 		abilities: {0: "Sturdy", 1: "Inner Focus", H: "Contrary"},
-		baseStats: {hp: 75, atk: 125, def: 75, spa: 30, spd: 75, spe: 85},
 	},
 	leavanny: {
 		inherit: true,
@@ -1510,7 +1492,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	klinklang: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 100, def: 115, spa: 70, spd: 85, spe: 90},
 		abilities: {0: "Plus", 1: "Minus", H: "Steelworker"},
 	},
 	eelektross: {
@@ -1545,7 +1526,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	accelgor: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 70, def: 40, spa: 100, spd: 60, spe: 145},
 		abilities: {0: "Hydration", 1: "Sheer Force", H: "Unburden"},
 	},
 	stunfisk: {
@@ -1644,10 +1624,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	doublade: {
 		inherit: true,
 		abilities: {0: "Blademaster"},
-	},
-	aegislash: {
-		inherit: true,
-		baseStats: {hp: 60, atk: 50, def: 140, spa: 50, spd: 140, spe: 60},
 	},
 	aromatisse: {
 		inherit: true,

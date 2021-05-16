@@ -735,11 +735,11 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 		    }
 		},
-		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar"],
+		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
 		num: -1000,
 		gen: 8,
-		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages.",
-		shortDesc: "If held by a Farfetch’d, +1 critical hit ratio and 1.5x speed. Sirfetch'd +2 crit ratio.",
+		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages and its speed isn't changed.",
+		shortDesc: "Farfetch’d: +1 crit ratio and 1.5x speed; Sirfetch'd: +2 crit ratio, no speed boost.",
 	},
 	butterfrite: {
 		name: "Butterfrite",

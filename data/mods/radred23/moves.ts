@@ -223,6 +223,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	freezyfrost: {
 		inherit: true,
 		pp: 5,
+		accuracy: 100,
+		basePower: 95,
 		isNonstandard: null,
 	},
 	furycutter: {
@@ -324,6 +326,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 85,
 	},
 	lowkick: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
+	},
+	lowsweep: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
@@ -445,10 +451,9 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	sappyseed: {
 		inherit: true,
 		pp: 5,
+		accuracy: 100,
 		basePower: 95,
 		isNonstandard: null,
-		desc: "Deals damage and adds leech seed to the opponent if it isn't immune",
-		shortDesc: "Deals damage and adds leech seed",
 	},
 	secretsword: {
 		inherit: true,
@@ -1279,13 +1284,13 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	zippyzap: {
 		inherit: true,
-		pp: 5,
 		basePower: 50,
+		pp: 15,
 		priority: 1,
 		willCrit: true,
-		secondaries: null,
+		secondary: null,
 		isNonstandard: null,
-		desc: "+1 priority move that always lands a critical hit",
-		shortDesc: "Priority move that crits.",
+		desc: "Will always result in a critical hit.",
+		shortDesc: "Usually goes first. Always crits.",
 	},
 };
