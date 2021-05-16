@@ -679,7 +679,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	houndoommega: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 90, spa: 140, spd: 90, spe: 115},
-		abilities: {0: "Dark Aura"},
+		abilities: {0: "Dark Aura", H: "Solar Power"},
 	},
 	donphan: {
 		inherit: true,
@@ -939,7 +939,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	absolmega: {
 		inherit: true,
 		types: ["Dark", "Fairy"],
-		abilities: {0: "Blademaster"},
+		abilities: {0: "Blademaster", H: "Magic Bounce"},
 	},
 	snorunt: {
 		inherit: true,
