@@ -120,14 +120,14 @@ export const Formats: FormatList = [
 		mod: 'radred',
 		team: 'randomCC',
 		searchShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 8] Challenge Cup 1v1",
 
 		mod: 'radred',
 		team: 'randomCC',
-		ruleset: ['[Gen 8] Challenge Cup', 'Team Preview', 'Dynamax Clause', 'Picked Team Size = 1'],
+		ruleset: ['[Gen 8] Challenge Cup', 'Team Preview', 'Picked Team Size = 1'],
 	},
 	{
 		name: "[Gen 8] Challenge Cup 2v2",
@@ -144,7 +144,7 @@ export const Formats: FormatList = [
 
 		mod: 'radred',
 		team: 'randomHC',
-		ruleset: ['Obtainable Formes', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Obtainable Formes', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 	{
 		name: "[Gen 8] Doubles Hackmons Cup",
@@ -153,6 +153,6 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		team: 'randomHC',
 		searchShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 ];
