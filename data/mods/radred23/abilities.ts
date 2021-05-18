@@ -106,6 +106,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	emergencyexit: {
+		inherit: true,
+		onResidualOrder: 26,
+		onResidualSubOrder: 1,
+		onResidual(pokemon) {
+			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			pokemon.switchFlag = true;
+			this.add('-activate', pokemon, 'ability: Emergency Exit');
+		},
+		onEmergencyExit() {},
+	},
 	fatalprecision: {
 		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
 		onBasePowerPriority: 23,
