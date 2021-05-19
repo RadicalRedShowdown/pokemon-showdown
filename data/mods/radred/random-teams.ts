@@ -595,6 +595,7 @@ export class RandomRadicalRedTeams {
 		}
 
 		const sets = this.randomSets[species.name];
+		if (!sets || !sets.length) return;
 		let setData = this.sampleNoReplace(sets);
 		if ((this.dex.items.get(setData.item).megaEvolves === species.baseSpecies && teamDetails.megaStone) ||
 			((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance')) && teamDetails.rain) ||
@@ -620,7 +621,9 @@ export class RandomRadicalRedTeams {
 		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 
 		let level: number;
-		if (species.randomBattleLevel) {
+		if (this.dex.items.get(item).megaEvolves === species.baseSpecies) {
+			level = this.dex.species.get(this.dex.items.get(item).megaStone).randomBattleLevel!;
+		} else if (species.randomBattleLevel) {
 			level = species.randomBattleLevel;
 		} else {
 			level = 80;
