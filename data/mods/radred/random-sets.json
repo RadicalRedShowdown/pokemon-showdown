@@ -22,9 +22,6 @@
 		{
 			"item": "Abomasite",
 			"ability": "Snow Warning",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Giga Drain", "Aurora Veil", "Focus Blast"]
 		}
 	],
@@ -62,17 +59,11 @@
 	"Accelgor": [{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Bug Buzz", "Focus Blast", "Sludge Bomb", "Spikes"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Bug Buzz", "Focus Blast", "Energy Ball", "Spikes"]
 		}
 	],
@@ -157,75 +148,48 @@
 	"Alakazam": [{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Recover", "Psychic", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Recover", "Psychic", "Shadow Ball"]
 		},
 		{
 			"item": "Alakazite",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Nasty Plot", "Psychic", "Focus Blast"]
 		},
 		{
 			"item": "Alakazite",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Nasty Plot", "Psychic", "Shadow Ball"]
 		}
 	],
 	"Alcremie": [{
 			"item": "Leftovers",
 			"ability": "Aroma Veil",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Acid Armor", "Draining Kiss", "Stored Power"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Aroma Veil",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Moonblast", "Mystical Fire", "Calm Mind"]
 		},
 		{
 			"item": "Alcremite",
 			"ability": "Sweet Veil",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Moonblast", "Mystical Fire"]
 		},
 		{
 			"item": "Alcremite",
 			"ability": "Sweet Veil",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Acid Armor", "Stored Power", "Draining Kiss"]
 		}
 	],
 	"Alomomola": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Toxic", "Scald"]
 		},
 		{
@@ -237,17 +201,11 @@
 	"Altaria": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Hurricane", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Spin", "Perish Song", "Protect", "Roost"]
 		},
 		{
@@ -263,25 +221,16 @@
 		{
 			"item": "Altarianite",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Hyper Voice", "Fire Blast"]
 		},
 		{
 			"item": "Altarianite",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Hyper Voice", "Refresh"]
 		},
 		{
 			"item": "Altarianite",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Roost", "Hyper Voice", "Fire Blast"]
 		}
 	],
@@ -293,59 +242,38 @@
 	"Amoonguss": [{
 			"item": "Black Sludge",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spore", "Giga Drain", "Sludge Bomb", "Foul Play"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spore", "Giga Drain", "Sludge Bomb", "Stun Spore"]
 		}
 	],
 	"Ampharos": [{
 			"item": "Leftovers",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Discharge", "Heal Bell", "Toxic", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Ampharosite",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Thunderbolt", "Dragon Pulse", "Focus Blast"]
 		},
 		{
 			"item": "Ampharosite",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Agility", "Thunderbolt", "Dragon Pulse"]
 		}
 	],
 	"Appletun": [{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Apple Acid", "Dragon Pulse", "Leech Seed", "Recover"]
 		},
 		{
 			"item": "Appletunite",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Draco Meteor", "Recover", "Hidden Power [Fire]"]
 		}
 	],
@@ -379,9 +307,6 @@
 	"Arcanine": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Morning Sun", "Flamethrower", "Teleport", "Toxic"]
 		},
 		{
@@ -408,25 +333,16 @@
 		{
 			"item": "Pixie Plate",
 			"ability": "Multitype",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Judgment", "Earth Power"]
 		},
 		{
 			"item": "Pixie Plate",
 			"ability": "Multitype",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Judgment", "Refresh"]
 		},
 		{
 			"item": "Pixie Plate",
 			"ability": "Multitype",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Recover", "Judgment", "Will-O-Wisp"]
 		}
 	],
@@ -443,9 +359,6 @@
 		{
 			"item": "Power Herb",
 			"ability": "Defeatist",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Hurricane", "Earth Power", "Heat Wave"]
 		}
 	],
@@ -505,43 +418,27 @@
 	"Aromatisse": [{
 			"item": "Life Orb",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0,
-				"spe": 0
-			},
 			"moves": ["Trick Room", "Nasty Plot", "Moonblast", "Psychic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Wish", "Protect", "Calm Mind"]
 		}
 	],
 	"Articuno": [{
 			"item": "Leftovers",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Freeze-Dry", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Heal Bell", "Freeze-Dry", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Substitute", "Freeze-Dry", "Hurricane"]
 		}
 	],
@@ -553,9 +450,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Freezing Glare", "Hurricane"]
 		}
 	],
@@ -567,9 +461,6 @@
 		{
 			"item": "Audinite",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Teleport", "Moonblast"]
 		}
 	],
@@ -581,17 +472,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Filter",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Recover", "Body Press", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Filter",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Recover", "Body Press", "Roar"]
 		},
 		{
@@ -613,17 +498,11 @@
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psyshock", "Fire Blast", "Dazzling Gleam"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psychic", "Fire Blast", "Thunderbolt"]
 		},
 		{
@@ -773,25 +652,16 @@
 	"Beautifly": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Rivalry",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Quiver Dance", "Roost", "Bug Buzz", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Rivalry",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Roost", "Bug Buzz", "Energy Ball"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Rivalry",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Roost", "Bug Buzz", "Psychic"]
 		}
 	],
@@ -824,66 +694,42 @@
 	"Beheeyem": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Analytic",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Teleport", "Future Sight", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Analytic",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Shadow Ball", "Thunderbolt", "Teleport"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Analytic",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Shadow Ball", "Thunderbolt", "Trick"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Analytic",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Recover", "Thunderbolt", "Trick Room"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Analytic",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Recover", "Thunderbolt", "Nasty Plot"]
 		}
 	],
 	"Bellossom": [{
 			"item": "Leftovers",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Apple Acid", "Moonblast", "Sleep Powder"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Apple Acid", "Moonblast", "Hidden Power [Fire]"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Apple Acid", "Moonblast", "Substitute"]
 		}
 	],
@@ -943,17 +789,11 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Shadow Ball", "Trick", "Scorching Sands"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Substitute", "Flamethrower", "Shadow Ball"]
 		},
 		{
@@ -965,9 +805,6 @@
 	"Blastoise": [{
 			"item": "White Herb",
 			"ability": "Torrent",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Hydro Pump", "Ice Beam", "Aura Sphere"]
 		},
 		{
@@ -988,17 +825,11 @@
 		{
 			"item": "Blastoisinite",
 			"ability": "Rain Dish",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Dark Pulse", "Ice Beam", "Hydro Pump"]
 		},
 		{
 			"item": "Blastoisinite",
 			"ability": "Rain Dish",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Dark Pulse", "Aura Sphere", "Hydro Pump"]
 		}
 	],
@@ -1025,9 +856,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Speed Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Protect", "Fire Blast", "Scorching Sands", "Aura Sphere"]
 		},
 		{
@@ -1043,9 +871,6 @@
 		{
 			"item": "Blazikenite",
 			"ability": "Speed Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Scorching Sands", "Hidden Power [Ice]"]
 		},
 		{
@@ -1177,41 +1002,26 @@
 	"Bronzong": [{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Stealth Rock", "Gyro Ball", "Body Press", "Teleport"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Stealth Rock", "Gyro Ball", "Body Press", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Psychic", "Body Press", "Teleport"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Psychic", "Body Press", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Protect", "Body Press", "Toxic"]
 		},
 		{
@@ -1254,41 +1064,26 @@
 	"Butterfree": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Sleep Powder", "Hurricane", "Energy Ball"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Sleep Powder", "Bug Buzz", "Air Slash"]
 		},
 		{
 			"item": "Butterfrite",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sleep Powder", "Quiver Dance", "Hurricane", "Energy Ball"]
 		},
 		{
 			"item": "Butterfrite",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sleep Powder", "Quiver Dance", "Hurricane", "Roost"]
 		},
 		{
 			"item": "Butterfrite",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sleep Powder", "Quiver Dance", "Hurricane", "Bug Buzz"]
 		}
 	],
@@ -1336,26 +1131,17 @@
 		{
 			"item": "Life Orb",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spikes", "Dark Pulse", "Giga Drain", "Focus Blast"]
 		}
 	],
 	"Calyrex": [{
 			"item": "Leftovers",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Giga Drain", "Psyshock", "Substitute"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Leech Seed", "Giga Drain", "Psyshock"]
 		}
 	],
@@ -1373,67 +1159,43 @@
 	"Calyrex-Shadow": [{
 			"item": "Choice Specs",
 			"ability": "As One (Spectrier)",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Astral Barrage", "Psyshock", "Draining Kiss", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "As One (Spectrier)",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Astral Barrage", "Nasty Plot", "Draining Kiss"]
 		}
 	],
 	"Camerupt": [{
 			"item": "Choice Specs",
 			"ability": "Solid Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Eruption", "Fire Blast", "Earth Power", "Steam Eruption"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Solid Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Lava Plume", "Earth Power", "Toxic"]
 		},
 		{
 			"item": "Cameruptite",
 			"ability": "Solid Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Fire Blast", "Earth Power", "Steam Eruption"]
 		},
 		{
 			"item": "Cameruptite",
 			"ability": "Solid Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rest", "Fire Blast", "Earth Power", "Sleep Talk"]
 		}
 	],
 	"Carbink": [{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Body Press", "Iron Defense"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Moonblast", "Toxic"]
 		}
 	],
@@ -1462,66 +1224,42 @@
 	"Castform": [{
 			"item": "Damp Rock",
 			"ability": "Forecast",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Weather Ball", "Hurricane", "Thunder", "Ice Beam"]
 		},
 		{
 			"item": "Heat Rock",
 			"ability": "Forecast",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Weather Ball", "Solar Beam", "Ice Beam", "Thunderbolt"]
 		},
 		{
 			"item": "Icy Rock",
 			"ability": "Forecast",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Thunderbolt", "Flamethrower", "Scald"]
 		},
 		{
 			"item": "Smooth Rock",
 			"ability": "Forecast",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Weather Ball", "Thunderbolt", "Ice Beam", "Flamethrower"]
 		}
 	],
 	"Celebi": [{
 			"item": "Life Orb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Giga Drain", "Psychic", "Aura Sphere"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Giga Drain", "Psychic", "Earth Power"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Giga Drain", "Psychic", "Recover"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Leaf Storm", "Psychic"]
 		},
 		{
@@ -1553,9 +1291,6 @@
 	"Celesteela": [{
 			"item": "Weakness Policy",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Flamethrower", "Flash Cannon", "Autotomize"]
 		},
 		{
@@ -1608,41 +1343,26 @@
 	"Chandelure": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Fire Blast", "Calm Mind", "Pain Split"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Fire Blast", "Energy Ball", "Trick"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Fire Blast", "Energy Ball", "Trick"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Fire Blast", "Calm Mind", "Substitute"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Fire Blast", "Substitute", "Pain Split"]
 		}
 	],
@@ -1680,17 +1400,11 @@
 	"Charizard": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hurricane", "Fire Blast", "Scorching Sands"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hurricane", "Fire Blast", "Defog"]
 		},
 		{
@@ -1721,17 +1435,11 @@
 		{
 			"item": "Charizardite Y",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Flamethrower", "Solar Beam", "Scorching Sands"]
 		},
 		{
 			"item": "Charizardite Y",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Fire Blast", "Solar Beam", "Scorching Sands"]
 		}
 	],
@@ -1748,17 +1456,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Boomburst", "Chatter", "Substitute"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Boomburst", "Heat Wave", "Encore"]
 		}
 	],
@@ -1807,9 +1509,6 @@
 	"Chimecho": [{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Healing Wish", "Recover", "Psychic", "Thunder Wave"]
 		},
 		{
@@ -1820,9 +1519,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Recover", "Psychic", "Thunder Wave"]
 		},
 		{
@@ -1833,9 +1529,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Heal Bell", "Recover", "Psychic", "Thunder Wave"]
 		},
 		{
@@ -1846,9 +1539,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Recover", "Psychic", "Thunder Wave"]
 		},
 		{
@@ -1864,17 +1554,11 @@
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Recover", "Shadow Ball", "Forbidden Spell"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Recover", "Dazzling Gleam", "Forbidden Spell"]
 		},
 		{
@@ -1968,9 +1652,6 @@
 	"Clawitzer": [{
 			"item": "Choice Specs",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Snipe Shot", "Ice Beam", "Dark Pulse", "Aura Sphere"]
 		},
 		{
@@ -1986,90 +1667,57 @@
 		{
 			"item": "Assault Vest",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Snipe Shot", "Ice Beam", "Dark Pulse", "Aura Sphere"]
 		}
 	],
 	"Claydol": [{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Teleport", "Rapid Spin", "Future Sight"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Teleport", "Stealth Rock", "Future Sight"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Teleport", "Rapid Spin", "Scorching Sands"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Teleport", "Stealth Rock", "Scorching Sands"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Toxic", "Rapid Spin", "Scorching Sands"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Toxic", "Stealth Rock", "Scorching Sands"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Toxic", "Rapid Spin", "Psychic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Toxic", "Stealth Rock", "Psychic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Stealth Rock", "Rapid Spin", "Psychic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shore Up", "Stealth Rock", "Rapid Spin", "Scorching Sands"]
 		}
 	],
@@ -2091,81 +1739,51 @@
 		{
 			"item": "Leftovers",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Stealth Rock", "Wish"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Stealth Rock", "Thunder Wave"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Wish", "Thunder Wave"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Wish", "Teleport"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Flamethrower"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Thunderbolt"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Thunder Wave"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Heal Bell"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Wish"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Soft-Boiled", "Calm Mind", "Flamethrower"]
 		}
 	],
@@ -2203,17 +1821,11 @@
 		{
 			"item": "Coalossite",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Overheat", "Scorching Sands", "Spikes", "Rapid Spin"]
 		},
 		{
 			"item": "Coalossite",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Overheat", "Heavy Slam", "Spikes", "Rapid Spin"]
 		},
 		{
@@ -2224,9 +1836,6 @@
 		{
 			"item": "Coalossite",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Overheat", "Scorching Sands", "Stealth Rock", "Rapid Spin"]
 		}
 	],
@@ -2248,70 +1857,43 @@
 		{
 			"item": "Leftovers",
 			"ability": "Justified",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Calm Mind", "Aura Sphere", "Flash Cannon", "Hidden Power [Ice]"]
 		}
 	],
 	"Cofagrigus": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Iron Defense", "Body Press", "Shadow Ball", "Rest"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Mummy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Will-O-Wisp", "Body Press", "Shadow Ball", "Pain Split"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Mummy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Toxic Spikes", "Body Press", "Shadow Ball", "Pain Split"]
 		}
 	],
 	"Comfey": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Draining Kiss", "Synthesis", "U-turn"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draining Kiss", "Giga Drain", "Synthesis"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draining Kiss", "Giga Drain", "Stored Power"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0,
-				"spa": 30,
-				"spe": 30
-			},
 			"moves": ["Calm Mind", "Draining Kiss", "Giga Drain", "Hidden Power [Fire]"]
 		},
 		{
@@ -2365,17 +1947,11 @@
 	"Corsola": [{
 			"item": "Leftovers",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Scald", "Toxic"]
 		},
 		{
 			"item": "Rocky Helmet",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Scald", "Toxic"]
 		}
 	],
@@ -2397,9 +1973,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Iron Defense", "Body Press"]
 		},
 		{
@@ -2410,9 +1983,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Toxic", "Body Press"]
 		},
 		{
@@ -2445,9 +2015,6 @@
 	"Cradily": [{
 			"item": "Leftovers",
 			"ability": "Storm Drain",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Recover", "Toxic", "Giga Drain"]
 		},
 		{
@@ -2464,9 +2031,6 @@
 	"Cramorant": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Gulp Missile",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Defog", "Roost", "Surf", "Hurricane"]
 	}],
 	"Crawdaunt": [{
@@ -2483,49 +2047,31 @@
 	"Cresselia": [{
 			"item": "Kee Berry",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Stored Power", "Moonlight", "Moonblast"]
 		},
 		{
 			"item": "Kee Berry",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Stored Power", "Moonlight", "Substitute"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonlight", "Psyshock", "Ice Beam", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonlight", "Psyshock", "Moonblast", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonlight", "Psyshock", "Ice Beam", "Thunder Wave"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonlight", "Psyshock", "Moonblast", "Thunder Wave"]
 		}
 	],
@@ -2562,25 +2108,16 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Roost", "Sludge Bomb", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Roost", "Heat Wave", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Roost", "Taunt", "Hurricane"]
 		}
 	],
@@ -2608,9 +2145,6 @@
 	"Cryogonal": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Recover", "Freeze-Dry", "Toxic"]
 		},
 		{
@@ -2621,89 +2155,53 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0,
-				"spa": 30,
-				"spe": 30
-			},
 			"moves": ["Rapid Spin", "Recover", "Freeze-Dry", "Hidden Power [Fire]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Recover", "Freeze-Dry", "Haze"]
 		}
 	],
 	"Cursola": [{
 			"item": "Power Herb",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Shadow Ball", "Mystical Fire", "Strength Sap"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Shadow Ball", "Mystical Fire", "Stealth Rock"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 1,
-				"def": 30,
-				"spa": 30,
-				"spd": 30,
-				"spe": 30
-			},
 			"moves": ["Meteor Beam", "Shadow Ball", "Mystical Fire", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Shadow Ball", "Mystical Fire", "Earth Power"]
 		}
 	],
 	"Darkrai": [{
 			"item": "Life Orb",
 			"ability": "Bad Dreams",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Hole", "Sludge Bomb", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Bad Dreams",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Hole", "Sludge Bomb", "Thunder"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Bad Dreams",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Hole", "Sludge Bomb", "Substitute"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Bad Dreams",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Hole", "Trick", "Sludge Bomb", "Focus Blast"]
 		}
 	],
@@ -2777,9 +2275,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Shadow Ball", "Nasty Plot", "Roost"]
 		},
 		{
@@ -2801,19 +2296,11 @@
 	"Dedenne": [{
 			"item": "Choice Specs",
 			"ability": "Electric Surge",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Rising Voltage", "Dazzling Gleam", "Volt Switch", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Electric Surge",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Rising Voltage", "Draining Kiss", "Volt Switch", "Hidden Power [Ice]"]
 		},
 		{
@@ -2830,25 +2317,16 @@
 	"Delcatty": [{
 			"item": "Choice Specs",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Ice Beam", "Thunderbolt", "Shadow Ball"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Ice Beam", "Thunderbolt", "Shadow Ball"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Hyper Voice", "Ice Beam", "Thunderbolt"]
 		}
 	],
@@ -2866,17 +2344,11 @@
 	"Delphox": [{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Mind Blown", "Psyshock", "Scorching Sands"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Mind Blown", "Psyshock", "Grass Knot"]
 		}
 	],
@@ -2924,26 +2396,17 @@
 		{
 			"item": "Focus Sash",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psychic", "Ice Beam", "Dark Pulse"]
 		},
 		{
 			"item": "Focus Sash",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psychic", "Ice Beam", "Thunderbolt"]
 		}
 	],
 	"Deoxys-Speed": [{
 			"item": "Focus Sash",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"]
 		},
 		{
@@ -2954,9 +2417,6 @@
 		{
 			"item": "Light Clay",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Taunt", "Reflect", "Light Screen"]
 		},
 		{
@@ -2973,9 +2433,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Spikes", "Recover", "Night Shade"]
 		},
 		{
@@ -2991,9 +2448,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Toxic", "Recover", "Night Shade"]
 		}
 	],
@@ -3005,25 +2459,16 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Ice Scales",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Toxic", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Ice Scales",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Ice Beam", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Ice Scales",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Whirlpool", "Perish Song", "Encore", "Protect"]
 		}
 	],
@@ -3056,154 +2501,97 @@
 	"Dialga": [{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Draco Meteor", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Draco Meteor", "Thunderbolt", "Roar"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Draco Meteor", "Thunderbolt", "Fire Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Flash Cannon", "Thunderbolt", "Fire Blast"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Flash Cannon", "Thunderbolt", "Fire Blast"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Stealth Rock", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Roar of Time", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Draco Meteor", "Thunderbolt", "Fire Blast"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Draco Meteor", "Thunderbolt", "Flash Cannon"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rest", "Sleep Talk", "Roar of Time", "Body Press"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rest", "Sleep Talk", "Roar of Time", "Flash Cannon"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rest", "Sleep Talk", "Roar of Time", "Thunder Wave"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Iron Defense", "Flash Cannon", "Rest"]
 		},
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Iron Defense", "Roar of Time", "Rest"]
 		}
 	],
 	"Diancie": [{
 			"item": "Leftovers",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Diamond Storm", "Body Press", "Protect", "Stealth Rock"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Diamond Storm", "Body Press", "Toxic", "Stealth Rock"]
 		},
 		{
 			"item": "Diancite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Diamond Storm", "Moonblast", "Mystical Fire", "Earth Power"]
 		},
 		{
 			"item": "Diancite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Diamond Storm", "Moonblast", "Mystical Fire", "Stealth Rock"]
 		},
 		{
 			"item": "Diancite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draining Kiss", "Diamond Storm", "Mystical Fire"]
 		}
 	],
@@ -3231,10 +2619,6 @@
 	"Ditto": [{
 		"item": "Choice Scarf",
 		"ability": "Imposter",
-		"ivs": {
-			"atk": 0,
-			"spe": 0
-		},
 		"moves": ["Transform"]
 	}],
 	"Dodrio": [{
@@ -3410,17 +2794,11 @@
 		{
 			"item": "Leftovers",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Draco Meteor", "Substitute", "Disable"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Draco Meteor", "Substitute", "Will-O-Wisp"]
 		},
 		{
@@ -3453,49 +2831,31 @@
 	"Drampa": [{
 			"item": "Leftovers",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Dragon Pulse", "Surf"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Dragon Pulse", "Flamethrower"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Dragon Pulse", "Hyper Voice"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Fatal Precision",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Draco Meteor", "Focus Blast", "Fire Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Fatal Precision",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Draco Meteor", "Hydro Pump", "Fire Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Fatal Precision",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Draco Meteor", "Hurricane", "Fire Blast"]
 		}
 	],
@@ -3604,65 +2964,41 @@
 	"Drifblim": [{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Hurricane", "Hidden Power [Fighting]", "Strength Sap"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Hurricane", "Calm Mind", "Strength Sap"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Hurricane", "Thunderbolt", "Nasty Plot"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Hurricane", "Hidden Power [Fighting]", "Nasty Plot"]
 		},
 		{
 			"item": "Sitrus Berry",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Nasty Plot", "Shadow Ball", "Hurricane"]
 		},
 		{
 			"item": "Sitrus Berry",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Nasty Plot", "Shadow Ball", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Sitrus Berry",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Shadow Ball", "Hurricane"]
 		},
 		{
 			"item": "Sitrus Berry",
 			"ability": "Unburden",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Shadow Ball", "Hidden Power [Fighting]"]
 		}
 	],
@@ -3715,9 +3051,6 @@
 	"Dubwool": [{
 			"item": "Leftovers",
 			"ability": "Fluffy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Cotton Guard", "Body Press", "Rest", "Sleep Talk"]
 		},
 		{
@@ -3739,9 +3072,6 @@
 		{
 			"item": "Focus Sash",
 			"ability": "Arena Trap",
-			"ivs": {
-				"hp": 28
-			},
 			"moves": ["Earthquake", "Reversal", "Screech", "Sucker Punch"]
 		}
 	],
@@ -3785,49 +3115,31 @@
 	"Duraludon": [{
 			"item": "Assault Vest",
 			"ability": "Light Metal",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Draco Meteor", "Flash Cannon", "Thunderbolt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Light Metal",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Draco Meteor", "Flash Cannon", "Stealth Rock"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Light Metal",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Draco Meteor", "Flash Cannon", "Thunder Wave"]
 		},
 		{
 			"item": "Duraludonite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Steel Beam", "Body Press", "Thunderbolt"]
 		},
 		{
 			"item": "Duraludonite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Steel Beam", "Body Press", "Stealth Rock"]
 		},
 		{
 			"item": "Duraludonite",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Steel Beam", "Body Press", "Thunder Wave"]
 		}
 	],
@@ -3850,17 +3162,11 @@
 	"Dusclops": [{
 			"item": "Eviolite",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mean Look", "Spite", "Rest", "Haze"]
 		},
 		{
 			"item": "Eviolite",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mean Look", "Spite", "Rest", "Disable"]
 		}
 	],
@@ -3883,17 +3189,11 @@
 	"Dustox": [{
 			"item": "Black Sludge",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Roost", "Bug Buzz", "Iron Defense"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Toxic", "Protect", "Bug Buzz", "Roost"]
 		},
 		{
@@ -3915,9 +3215,6 @@
 		{
 			"item": "Assault Vest",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Giga Drain", "Fire Blast", "Acid Spray"]
 		},
 		{
@@ -3928,10 +3225,6 @@
 		{
 			"item": "Assault Vest",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Volt Switch", "Giga Drain", "Fire Blast", "Hidden Power [Ice]"]
 		},
 		{
@@ -3954,25 +3247,16 @@
 	"Eldegoss": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Sleep Powder", "Giga Drain", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Sleep Powder", "Giga Drain", "Aromatherapy"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Sleep Powder", "Giga Drain", "Hidden Power [Fire]"]
 		}
 	],
@@ -4057,9 +3341,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Scald", "Toxic"]
 		},
 		{
@@ -4075,9 +3356,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Stealth Rock", "Scald", "Toxic"]
 		},
 		{
@@ -4088,57 +3366,36 @@
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Scald", "Substitute"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Scald", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Scald", "Flash Cannon"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Scald", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Scald", "Flash Cannon"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Scald", "Substitute"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Competitive",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Scald", "Iron Defense"]
 		}
 	],
@@ -4187,66 +3444,42 @@
 	"Espeon": [{
 			"item": "Leftovers",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Morning Sun", "Psychic", "Fiery Dance"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Dazzling Gleam", "Psychic", "Fiery Dance"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Shadow Ball", "Dazzling Gleam", "Fiery Dance"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Trick", "Dazzling Gleam", "Fiery Dance"]
 		}
 	],
 	"Eternatus": [{
 			"item": "Life Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Dynamax Cannon", "Sludge Bomb", "Flamethrower"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Dynamax Cannon", "Meteor Beam", "Flamethrower"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Dynamax Cannon", "Toxic", "Flamethrower"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Dynamax Cannon", "Toxic Spikes", "Flamethrower"]
 		}
 	],
@@ -4284,70 +3517,43 @@
 	"Exeggutor": [{
 			"item": "Life Orb",
 			"ability": "Harvest",
-			"ivs": {
-				"atk": 0,
-				"spe": 0
-			},
 			"moves": ["Trick Room", "Psychic", "Giga Drain", "Mystical Fire"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Harvest",
-			"ivs": {
-				"atk": 0,
-				"spe": 0
-			},
 			"moves": ["Trick Room", "Psychic", "Giga Drain", "Sleep Powder"]
 		},
 		{
 			"item": "Sitrus Berry",
 			"ability": "Harvest",
-			"ivs": {
-				"atk": 0,
-				"spe": 0
-			},
 			"moves": ["Substitute", "Leech Seed", "Sleep Powder", "Giga Drain"]
 		}
 	],
 	"Exeggutor-Alola": [{
 			"item": "Choice Specs",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Draco Meteor", "Flamethrower", "Giga Drain"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick Room", "Draco Meteor", "Giga Drain", "Flamethrower"]
 		}
 	],
 	"Exploud": [{
 			"item": "Choice Specs",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overheat", "Focus Blast", "Shadow Ball"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overheat", "Focus Blast", "Surf"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overheat", "Focus Blast", "Ice Beam"]
 		}
 	],
@@ -4367,7 +3573,7 @@
 			"moves": ["First Impression", "Close Combat", "Throat Chop", "Poison Jab"]
 		}
 	],
-	"Farfetch\u2019d": [{
+	"Farfetch’d": [{
 			"item": "Leek Stick",
 			"ability": "Blademaster",
 			"moves": ["Swords Dance", "Sacred Sword", "Leaf Blade", "Brave Bird"]
@@ -4402,33 +3608,21 @@
 	"Ferrothorn": [{
 			"item": "Leftovers",
 			"ability": "Iron Barbs",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Spikes", "Leech Seed", "Gyro Ball", "Power Whip"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Iron Barbs",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Stealth Rock", "Leech Seed", "Gyro Ball", "Power Whip"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Iron Barbs",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Spikes", "Leech Seed", "Gyro Ball", "Knock Off"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Iron Barbs",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Stealth Rock", "Leech Seed", "Gyro Ball", "Knock Off"]
 		},
 		{
@@ -4543,25 +3737,16 @@
 	"Florges": [{
 			"item": "Leftovers",
 			"ability": "Symbiosis",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Wish", "Synthesis", "Aromatherapy"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Symbiosis",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Toxic", "Synthesis", "Aromatherapy"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Symbiosis",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Defog", "Synthesis", "Aromatherapy"]
 		}
 	],
@@ -4588,9 +3773,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Scorching Sands", "Toxic", "Defog"]
 		},
 		{
@@ -4617,41 +3799,26 @@
 	"Forretress": [{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Rapid Spin", "Volt Switch", "Stealth Rock"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Rapid Spin", "Volt Switch", "Spikes"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Rapid Spin", "Volt Switch", "Toxic Spikes"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Toxic", "Volt Switch", "Spikes"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Toxic", "Volt Switch", "Stealth Rock"]
 		},
 		{
@@ -4663,9 +3830,6 @@
 	"Froslass": [{
 			"item": "Focus Sash",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spikes", "Taunt", "Destiny Bond", "Icy Wind"]
 		},
 		{
@@ -4697,33 +3861,21 @@
 	"Frosmoth": [{
 			"item": "Leftovers",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Ice Beam", "Giga Drain"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Shield Dust",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Ice Beam", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Ice Scales",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Ice Beam", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Ice Scales",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Ice Beam", "Giga Drain"]
 		}
 	],
@@ -4793,49 +3945,31 @@
 	"Galvantula": [{
 			"item": "Focus Sash",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Volt Switch"]
 		},
 		{
 			"item": "Focus Sash",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Focus Sash",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Giga Drain"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Volt Switch"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Thunder", "Giga Drain"]
 		}
 	],
@@ -4944,113 +4078,71 @@
 	"Gardevoir": [{
 			"item": "Choice Specs",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Shadow Ball"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Mystical Fire"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Shadow Ball"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Trick"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Mystical Fire"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Focus Blast", "Healing Wish"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Psyshock", "Trick", "Healing Wish"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Hyper Voice", "Psyshock", "Focus Blast"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Hyper Voice", "Psyshock", "Mystical Fire"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Will-O-Wisp", "Hyper Voice", "Psyshock", "Focus Blast"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Will-O-Wisp", "Hyper Voice", "Psyshock", "Mystical Fire"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Healing Wish", "Hyper Voice", "Psyshock", "Focus Blast"]
 		},
 		{
 			"item": "Gardevoirite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Healing Wish", "Hyper Voice", "Psyshock", "Mystical Fire"]
 		}
 	],
@@ -5108,17 +4200,11 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Download",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Bug Buzz", "Flash Cannon", "Flamethrower", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Download",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Bug Buzz", "Ice Beam", "Flamethrower", "Thunderbolt"]
 		},
 		{
@@ -5145,113 +4231,71 @@
 	"Gengar": [{
 			"item": "Black Sludge",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Substitute", "Shadow Ball", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Sludge Wave", "Shadow Ball", "Focus Blast"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Substitute", "Will-O-Wisp", "Focus Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Trick"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Taunt"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Destiny Bond"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Substitute", "Disable"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Substitute", "Nasty Plot"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Substitute"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Will-O-Wisp", "Sludge Bomb", "Substitute"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Will-O-Wisp", "Sludge Bomb", "Taunt"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Nasty Plot"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Sludge Wave", "Taunt", "Destiny Bond"]
 		},
 		{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Perish Song", "Substitute", "Disable", "Shadow Ball"]
 		}
 	],
@@ -5279,50 +4323,32 @@
 	"Girafarig": [{
 			"item": "Life Orb",
 			"ability": "Parental Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Nasty Plot", "Psyshock", "Thunderbolt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Parental Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Nasty Plot", "Psyshock", "Wish"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Parental Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Trick", "Psyshock", "Thunderbolt"]
 		}
 	],
 	"Giratina": [{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Will-O-Wisp", "Rest", "Hex"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Will-O-Wisp", "Toxic", "Rest", "Hex"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Will-O-Wisp", "Roar", "Rest", "Hex"]
 		},
 		{
@@ -5369,34 +4395,22 @@
 	"Glaceon": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Slush Rush",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Freeze-Dry", "Hidden Power [Fire]", "Earth Power"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Slush Rush",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Freeze-Dry", "Hidden Power [Fire]", "Earth Power"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Slush Rush",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Freeze-Dry", "Earth Power"]
 		}
 	],
 	"Glalie": [{
 			"item": "Leftovers",
 			"ability": "Moody",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Disable", "Freeze-Dry", "Protect", "Substitute"]
 		},
 		{
@@ -5518,9 +4532,6 @@
 	"Golduck": [{
 			"item": "Choice Specs",
 			"ability": "Neuroforce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Hydro Pump", "Ice Beam", "Focus Blast"]
 		},
 		{
@@ -5531,25 +4542,16 @@
 		{
 			"item": "Choice Scarf",
 			"ability": "Neuroforce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Hydro Pump", "Ice Beam", "Focus Blast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Neuroforce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Hydro Pump", "Psyshock", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Neuroforce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Hydro Pump", "Psyshock", "Substitute"]
 		}
 	],
@@ -5625,17 +4627,11 @@
 	"Goodra": [{
 			"item": "Leftovers",
 			"ability": "Sap Sipper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Draco Meteor", "Thunderbolt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Sap Sipper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Draco Meteor", "Flamethrower"]
 		},
 		{
@@ -5651,26 +4647,17 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Sap Sipper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Fire Blast", "Sludge Wave", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Sap Sipper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Fire Blast", "Scald", "Thunderbolt"]
 		}
 	],
 	"Gorebyss": [{
 			"item": "White Herb",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Hydro Pump", "Moonblast", "Ice Beam"]
 		},
 		{
@@ -5687,68 +4674,44 @@
 	"Gothitelle": [{
 			"item": "Leftovers",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Charm", "Taunt", "Rest", "Cosmic Power"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Tag",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick", "Rest", "Stored Power", "Cosmic Power"]
 		}
 	],
 	"Gourgeist": [{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Giga Drain", "Fire Blast", "Will-O-Wisp"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shadow Ball", "Giga Drain", "Fire Blast", "Focus Blast"]
 		}
 	],
 	"Gourgeist-Large": [{
 		"item": "Flame Orb",
 		"ability": "Flare Boost",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Synthesis", "Will-O-Wisp", "Hex", "Giga Drain"]
 	}],
 	"Gourgeist-Super": [{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Giga Drain", "Synthesis", "Will-O-Wisp"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hex", "Giga Drain", "Trick Room", "Fire Blast"]
 		}
 	],
 	"Gourgeist-Small": [{
 		"item": "Flame Orb",
 		"ability": "Flare Boost",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Hex", "Giga Drain", "Fire Blast", "Will-O-Wisp"]
 	}],
 	"Granbull": [{
@@ -5827,9 +4790,6 @@
 		{
 			"item": "Focus Sash",
 			"ability": "Torrent",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spikes", "Toxic Spikes", "Taunt", "Ice Beam"]
 		},
 		{
@@ -5870,33 +4830,21 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Battle Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spikes", "Dark Pulse", "Water Shuriken", "Hydro Pump"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Battle Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spikes", "Dark Pulse", "Water Shuriken", "Surf"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Battle Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Dark Pulse", "Water Shuriken", "Hydro Pump"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Battle Bond",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Dark Pulse", "Water Shuriken", "Surf"]
 		},
 		{
@@ -6030,57 +4978,36 @@
 	"Grumpig": [{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Thunder Wave", "Focus Blast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Toxic", "Focus Blast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Thunder Wave", "Whirlwind"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Heal Bell", "Whirlwind"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Psychic", "Thunder Wave", "Heal Bell"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Calm Mind", "Psychic", "Focus Blast"]
 		}
 	],
@@ -6114,9 +5041,6 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Dark Pulse", "Fire Blast", "Sludge Bomb"]
 		},
 		{
@@ -6185,17 +5109,11 @@
 	"Hatterene": [{
 			"item": "Leftovers",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draining Kiss", "Psyshock", "Mystical Fire"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick Room", "Mystical Fire", "Psyshock", "Dazzling Gleam"]
 		}
 	],
@@ -6233,9 +5151,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Fatal Precision",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Giga Drain", "Focus Blast", "Scorching Sands"]
 		},
 		{
@@ -6257,106 +5172,67 @@
 	"Heatran": [{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Magma Storm", "Earth Power", "Taunt", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Magma Storm", "Earth Power", "Stealth Rock", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Earth Power", "Stealth Rock", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Earth Power", "Hidden Power [Ice]", "Taunt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Magma Storm", "Earth Power", "Hidden Power [Ice]", "Stealth Rock"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Earth Power", "Protect", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Stealth Rock", "Protect", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Magma Storm", "Stealth Rock", "Taunt", "Toxic"]
 		}
 	],
 	"Heliolisk": [{
 			"item": "Choice Specs",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Surf"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Glare"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Surf"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Hidden Power [Ice]"]
 		}
 	],
@@ -6545,17 +5421,11 @@
 	"Hoopa": [{
 			"item": "Choice Scarf",
 			"ability": "Magician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psyshock", "Shadow Ball", "Trick", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psyshock", "Shadow Ball", "Nasty Plot", "Focus Blast"]
 		}
 	],
@@ -6567,26 +5437,17 @@
 		{
 			"item": "Life Orb",
 			"ability": "Magician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psyshock", "Dark Pulse", "Focus Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Magician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick", "Psyshock", "Dark Pulse", "Focus Blast"]
 		}
 	],
 	"Houndoom": [{
 			"item": "Life Orb",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Pulse", "Fire Blast", "Taunt"]
 		},
 		{
@@ -6597,17 +5458,11 @@
 		{
 			"item": "Houndoominite",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Pulse", "Fire Blast", "Sludge Bomb"]
 		},
 		{
 			"item": "Houndoominite",
 			"ability": "Flash Fire",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Pulse", "Fire Blast", "Taunt"]
 		},
 		{
@@ -6635,49 +5490,31 @@
 	"Hydreigon": [{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Dark Pulse", "Earth Power", "Draco Meteor"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Earth Power", "Draco Meteor"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Dark Pulse", "Flash Cannon"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Taunt", "Dark Pulse", "Draco Meteor"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Dark Pulse", "Draco Meteor"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Roost", "Earth Power", "Defog"]
 		},
 		{
@@ -6699,17 +5536,11 @@
 	"Hypno": [{
 			"item": "Choice Specs",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Expanding Force", "Focus Blast", "Shadow Ball", "Switcheroo"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Expanding Force", "Focus Blast", "Shadow Ball", "Nasty Plot"]
 		}
 	],
@@ -6758,50 +5589,32 @@
 	"Indeedee": [{
 			"item": "Choice Specs",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Expanding Force", "Mystical Fire", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Expanding Force", "Mystical Fire", "Dazzling Gleam"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Expanding Force", "Mystical Fire", "Trick"]
 		}
 	],
 	"Indeedee-F": [{
 			"item": "Choice Specs",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Expanding Force", "Hyper Voice", "Mystical Fire", "Healing Wish"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Expanding Force", "Hyper Voice", "Mystical Fire", "Healing Wish"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Expanding Force", "Hyper Voice", "Mystical Fire", "Trick"]
 		}
 	],
@@ -6823,25 +5636,16 @@
 		{
 			"item": "Life Orb",
 			"ability": "Blaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Fire Blast", "Focus Blast", "Grass Knot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Blaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Fire Blast", "Aura Sphere", "Grass Knot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Blaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Fire Blast", "Focus Blast", "Vacuum Wave"]
 		},
 		{
@@ -6888,42 +5692,27 @@
 		{
 			"item": "Scope Lens",
 			"ability": "Sniper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Focus Energy", "Snipe Shot", "Ice Beam", "Dark Pulse"]
 		}
 	],
 	"Jellicent": [{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Scald", "Hex", "Will-O-Wisp"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Scald", "Hex", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Water Bubble",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Scald", "Toxic", "Taunt"]
 		},
 		{
 			"item": "Mystic Water",
 			"ability": "Water Bubble",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Trick Room", "Hydro Pump", "Water Spout"]
 		}
 	],
@@ -6996,41 +5785,26 @@
 	"Jolteon": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Toxic", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Heal Bell", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Yawn", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Substitute", "Calm Mind", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Shadow Ball", "Calm Mind", "Hidden Power [Ice]"]
 		}
 	],
@@ -7063,25 +5837,16 @@
 	"Jynx": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lovely Kiss", "Nasty Plot", "Psystrike", "Freeze-Dry"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psycho Boost", "Focus Blast", "Trick", "Freeze-Dry"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psycho Boost", "Focus Blast", "Trick", "Freeze-Dry"]
 		}
 	],
@@ -7232,9 +5997,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Justified",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Secret Sword", "Substitute", "Scald", "Calm Mind"]
 		}
 	],
@@ -7246,9 +6008,6 @@
 		{
 			"item": "Scope Lens",
 			"ability": "Sniper",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Agility", "Focus Energy", "Draco Meteor", "Surf"]
 		}
 	],
@@ -7301,9 +6060,6 @@
 	"Klefki": [{
 			"item": "Leftovers",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Foul Play", "Spikes", "Thunder Wave", "Toxic"]
 		},
 		{
@@ -7402,17 +6158,11 @@
 		{
 			"item": "Leftovers",
 			"ability": "Bulletproof",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Stealth Rock", "Toxic", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Bulletproof",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Body Press", "Stealth Rock", "Toxic", "Flamethrower"]
 		},
 		{
@@ -7516,74 +6266,47 @@
 	"Kyogre": [{
 			"item": "Choice Scarf",
 			"ability": "Drizzle",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Drizzle",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Calm Mind"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Rest", "Sleep Talk", "Calm Mind"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Rest", "Sleep Talk", "Toxic"]
 		},
 		{
 			"item": "Blue Orb",
 			"ability": "Primordial Sea",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Rest", "Sleep Talk", "Ice Beam"]
 		}
 	],
 	"Kyurem": [{
 			"item": "Choice Specs",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Ice Beam", "Earth Power", "Focus Blast"]
 		},
 		{
@@ -7594,17 +6317,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Roost", "Ice Beam", "Earth Power"]
 		},
 		{
 			"item": "Metronome",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Roost", "Ice Beam", "Earth Power"]
 		}
 	],
@@ -7627,50 +6344,32 @@
 	"Kyurem-White": [{
 			"item": "Life Orb",
 			"ability": "Turboblaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Draco Meteor", "Ice Beam", "Fusion Flare"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Turboblaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Draco Meteor", "Ice Beam", "Fusion Flare"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Turboblaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Draco Meteor", "Ice Beam", "Fusion Flare"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Turboblaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Draco Meteor", "Ice Beam", "Fusion Flare"]
 		}
 	],
 	"Landorus": [{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Sludge Wave", "Stealth Rock", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Sludge Wave", "Rock Polish", "Focus Blast"]
 		},
 		{
@@ -7706,25 +6405,16 @@
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Sludge Wave", "Calm Mind", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Sludge Wave", "Calm Mind", "Psychic"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Earth Power", "Sludge Wave", "Calm Mind", "Rock Polish"]
 		}
 	],
@@ -7777,236 +6467,149 @@
 	"Lanturn": [{
 			"item": "Leftovers",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Volt Switch", "Toxic", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Volt Switch", "Toxic", "Heal Bell"]
 		},
 		{
 			"item": "Assault Vest",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Volt Switch", "Parabolic Charge", "Ice Beam"]
 		}
 	],
 	"Lapras": [{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Draco Meteor", "Toxic", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Draco Meteor", "Toxic", "Heal Bell"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Draco Meteor", "Thunderbolt", "Freeze-Dry"]
 		},
 		{
 			"item": "Assault Vest",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Draco Meteor", "Thunderbolt", "Freeze-Dry"]
 		},
 		{
 			"item": "Laprasite",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Draco Meteor", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Laprasite",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Draco Meteor", "Thunderbolt", "Freeze-Dry"]
 		},
 		{
 			"item": "Laprasite",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Whirlpool", "Perish Song", "Protect", "Rest"]
 		}
 	],
 	"Latias": [{
 			"item": "Choice Scarf",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psychic", "Mystical Fire", "Healing Wish"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psychic", "Defog", "Healing Wish"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psychic", "Trick", "Healing Wish"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draco Meteor", "Psyshock", "Roost"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psyshock", "Mystical Fire", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psyshock", "Mystical Fire", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psyshock", "Mystical Fire", "Aura Sphere"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Stored Power", "Aura Sphere"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Psyshock", "Aura Sphere"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Stored Power", "Refresh"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Roost", "Stored Power", "Reflect Type"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Wish", "Draco Meteor", "Psyshock"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Thunder Wave", "Draco Meteor", "Psyshock"]
 		},
 		{
 			"item": "Latiasite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Draco Meteor", "Psyshock"]
 		}
 	],
 	"Latios": [{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Mystical Fire", "Psychic", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Psychic", "Aura Sphere", "Trick"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Roost", "Psychic", "Mystical Fire"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Roost", "Psychic", "Aura Sphere"]
 		},
 		{
 			"item": "Soul Dew",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Roost", "Psyshock", "Calm Mind"]
 		},
 		{
@@ -8022,9 +6625,6 @@
 		{
 			"item": "Latiosite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Draco Meteor", "Psychic", "Roost"]
 		}
 	],
@@ -8146,17 +6746,11 @@
 	"Lilligant": [{
 			"item": "Life Orb",
 			"ability": "Own Tempo",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Giga Drain", "Sleep Powder", "Hidden Power [Fire]"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Giga Drain", "Healing Wish", "Hidden Power [Fire]"]
 		}
 	],
@@ -8209,9 +6803,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Inner Focus",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Aura Sphere", "Flash Cannon", "Vacuum Wave"]
 		},
 		{
@@ -8232,278 +6823,176 @@
 		{
 			"item": "Lucarionite",
 			"ability": "Inner Focus",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Aura Sphere", "Flash Cannon", "Vacuum Wave"]
 		}
 	],
 	"Ludicolo": [{
 			"item": "Life Orb",
 			"ability": "Swift Swim",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Hydro Pump", "Ice Beam", "Rain Dance"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Swift Swim",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Hydro Pump", "Ice Beam", "Focus Blast"]
 		}
 	],
 	"Lugia": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Ice Beam", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Ice Beam", "Thunder Wave", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Psychic", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Aeroblast", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Psychic", "Toxic", "Substitute"]
 		}
 	],
 	"Lumineon": [{
 			"item": "Life Orb",
 			"ability": "Dazzling",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Hurricane", "Ice Beam"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Dazzling",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Agility", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Dazzling",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Hurricane", "Ice Beam"]
 		}
 	],
 	"Lunala": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hex", "Will-O-Wisp", "Ice Beam"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hex", "Will-O-Wisp", "Psychic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hex", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hex", "Will-O-Wisp", "Toxic"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Meteor Beam", "Psyshock", "Roost"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Meteor Beam", "Ice Beam", "Roost"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Ice Beam", "Psyshock"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Moonblast", "Psyshock"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Moonblast", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Ice Beam", "Trick"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Calm Mind", "Moongeist Beam", "Psyshock"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Focus Blast", "Calm Mind", "Moongeist Beam", "Psyshock"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Calm Mind", "Moongeist Beam", "Psyshock"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Ice Beam", "Psyshock"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Moonblast", "Psyshock"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Moonblast", "Trick"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Shadow Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moongeist Beam", "Focus Blast", "Ice Beam", "Trick"]
 		}
 	],
 	"Lunatone": [{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Photon Geyser", "Power Gem", "Earth Power", "Nasty Plot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Photon Geyser", "Power Gem", "Rock Polish", "Nasty Plot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Photon Geyser", "Power Gem", "Earth Power", "Rock Polish"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Photon Geyser", "Power Gem", "Moonblast", "Nasty Plot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Photon Geyser", "Power Gem", "Moonblast", "Rock Polish"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Photon Geyser", "Power Gem", "Toxic"]
 		}
 	],
@@ -8521,17 +7010,11 @@
 	"Luvdisc": [{
 			"item": "Life Orb",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lovely Kiss", "Draining Kiss", "Hydro Pump", "Ice Beam"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Agility", "Draining Kiss", "Hydro Pump", "Ice Beam"]
 		}
 	],
@@ -8648,90 +7131,57 @@
 	"Magcargo": [{
 			"item": "Leftovers",
 			"ability": "Simple",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["No Retreat", "Power Gem", "Fire Blast", "Scorching Sands"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Simple",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["No Retreat", "Power Gem", "Fire Blast", "Scald"]
 		}
 	],
 	"Magearna": [{
 			"item": "Choice Specs",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fleur Cannon", "Aura Sphere", "Volt Switch", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fleur Cannon", "Aura Sphere", "Volt Switch", "Flash Cannon"]
 		},
 		{
 			"item": "Weakness Policy",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Calm Mind", "Draining Kiss", "Stored Power"]
 		},
 		{
 			"item": "Weakness Policy",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Calm Mind", "Thunderbolt", "Ice Beam"]
 		},
 		{
 			"item": "Weakness Policy",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Calm Mind", "Aura Sphere", "Flash Cannon"]
 		},
 		{
 			"item": "Weakness Policy",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Thunderbolt", "Focus Blast", "Flash Cannon"]
 		},
 		{
 			"item": "Weakness Policy",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Thunderbolt", "Focus Blast", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Heart Swap", "Pain Split", "Volt Switch", "Flash Cannon"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Heart Swap", "Pain Split", "Volt Switch", "Fleur Cannon"]
 		},
 		{
@@ -8742,123 +7192,78 @@
 		{
 			"item": "Assault Vest",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fleur Cannon", "Volt Switch", "Flash Cannon", "Focus Blast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Pain Split", "Fleur Cannon", "Thunderbolt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Pain Split", "Fleur Cannon", "Aura Sphere"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Calm Mind", "Thunderbolt", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Calm Mind", "Aura Sphere", "Flash Cannon"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Thunderbolt", "Focus Blast", "Flash Cannon"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Soul-Heart",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shift Gear", "Thunderbolt", "Focus Blast", "Ice Beam"]
 		}
 	],
 	"Magmortar": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Dark Pulse", "Steam Eruption"]
 		},
 		{
 			"item": "Assault Vest",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Dark Pulse", "Steam Eruption"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Dark Pulse", "Steam Eruption"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Thunderbolt", "Steam Eruption"]
 		},
 		{
 			"item": "Assault Vest",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Thunderbolt", "Steam Eruption"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Fire Blast", "Aura Sphere", "Thunderbolt", "Steam Eruption"]
 		}
 	],
 	"Magnezone": [{
 			"item": "Choice Specs",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Flash Cannon", "Hidden Power [Fire]"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Flash Cannon", "Hidden Power [Fire]"]
 		}
 	],
@@ -8902,34 +7307,22 @@
 	"Manaphy": [{
 			"item": "Leftovers",
 			"ability": "Hydration",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Energy Ball", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Hydration",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Psychic", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Hydration",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Surf", "Energy Ball", "Rest"]
 		}
 	],
 	"Mandibuzz": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Overcoat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Foul Play", "Toxic"]
 		},
 		{
@@ -8945,75 +7338,48 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Overcoat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Foul Play", "Whirlwind"]
 		}
 	],
 	"Manectric": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Overheat", "Thunderbolt", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Overheat", "Thunderbolt", "Switcheroo"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Overheat", "Thunderbolt", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Manectite",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Overheat", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Manectite",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Overheat", "Hidden Power [Grass]"]
 		}
 	],
 	"Mantine": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Scald", "Toxic", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Scald", "Haze", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Scald", "Hurricane", "Defog"]
 		},
 		{
@@ -9109,17 +7475,11 @@
 	"Masquerain": [{
 			"item": "Focus Sash",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sticky Web", "Bug Buzz", "Hydro Pump", "Quiver Dance"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Bug Buzz", "Hydro Pump", "Quiver Dance"]
 		},
 		{
@@ -9223,17 +7583,11 @@
 	"Meganium": [{
 			"item": "Leftovers",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Draining Kiss", "Toxic", "Synthesis"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Triage",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Draining Kiss", "Hidden Power [Fire]", "Leaf Storm"]
 		}
 	],
@@ -9271,9 +7625,6 @@
 	"Meloetta": [{
 			"item": "Leftovers",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Hyper Voice", "Psyshock", "Focus Blast"]
 		},
 		{
@@ -9284,9 +7635,6 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Hyper Voice", "Psyshock", "Focus Blast"]
 		},
 		{
@@ -9303,42 +7651,27 @@
 	"Meowstic": [{
 			"item": "Light Clay",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Reflect", "Light Screen", "Thunder Wave", "Psychic"]
 		},
 		{
 			"item": "Light Clay",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Reflect", "Light Screen", "Yawn", "Psychic"]
 		}
 	],
 	"Meowstic-F": [{
 			"item": "Choice Specs",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Shadow Ball", "Mystical Fire", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Trick", "Mystical Fire", "Thunderbolt"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Nasty Plot", "Mystical Fire", "Thunderbolt"]
 		}
 	],
@@ -9365,17 +7698,11 @@
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psychic", "Dazzling Gleam", "Thunderbolt"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psychic", "Dazzling Gleam", "Shadow Ball"]
 		},
 		{
@@ -9386,25 +7713,16 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Psychic", "Dazzling Gleam", "Healing Wish"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Dazzling Gleam", "Shadow Ball", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Dazzling Gleam", "Thunderbolt", "Trick"]
 		},
 		{
@@ -9502,17 +7820,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Spikes", "Roost", "Will-O-Wisp"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Spikes", "Roost", "Will-O-Wisp"]
 		},
 		{
@@ -9528,17 +7840,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Toxic Spikes", "Roost", "Will-O-Wisp"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Toxic Spikes", "Roost", "Will-O-Wisp"]
 		},
 		{
@@ -9554,17 +7860,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Stealth Rock", "Roost", "Will-O-Wisp"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Stealth Rock", "Roost", "Will-O-Wisp"]
 		},
 		{
@@ -9580,17 +7880,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Defog", "Roost", "Will-O-Wisp"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Defog", "Roost", "Will-O-Wisp"]
 		},
 		{
@@ -9606,41 +7900,26 @@
 		{
 			"item": "Leftovers",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Cosmic Power", "Stored Power", "Body Press", "Rest"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Roost", "Psyshock", "Flamethrower"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Focus Blast", "Psyshock", "Flamethrower"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rock Polish", "Nasty Plot", "Psyshock", "Flamethrower"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rock Polish", "Psychic", "Flamethrower", "Aura Sphere"]
 		},
 		{
@@ -9657,33 +7936,21 @@
 	"Mewtwo": [{
 			"item": "Life Orb",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Ice Beam", "Fire Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Ice Beam", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Fire Blast", "Recover"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Focus Blast", "Recover"]
 		},
 		{
@@ -9709,33 +7976,21 @@
 		{
 			"item": "Mewtwonite Y",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Fire Blast", "Ice Beam"]
 		},
 		{
 			"item": "Mewtwonite Y",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Focus Blast", "Ice Beam"]
 		},
 		{
 			"item": "Mewtwonite Y",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Recover", "Fire Blast"]
 		},
 		{
 			"item": "Mewtwonite Y",
 			"ability": "Unnerve",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Psystrike", "Focus Blast", "Recover"]
 		}
 	],
@@ -9794,17 +8049,11 @@
 	"Milotic": [{
 			"item": "Leftovers",
 			"ability": "Marvel Scale",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Recover", "Toxic", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Marvel Scale",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Recover", "Toxic", "Haze"]
 		},
 		{
@@ -9864,50 +8113,32 @@
 	"Mismagius": [{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick", "Shadow Ball", "Moonblast", "Memento"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Trick", "Shadow Ball", "Moonblast", "Mystical Fire"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Shadow Ball", "Moonblast", "Taunt"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Hex", "Moonblast", "Will-O-Wisp"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Shadow Ball", "Moonblast", "Substitute"]
 		}
 	],
 	"Moltres": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Roost", "Mystical Fire", "Scorching Sands"]
 		},
 		{
@@ -9919,9 +8150,6 @@
 	"Moltres-Galar": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Defog", "Dark Pulse", "Scorching Sands"]
 		},
 		{
@@ -9932,17 +8160,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Substitute", "Dark Pulse", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Nasty Plot", "Dark Pulse", "Hurricane"]
 		}
 	],
@@ -9980,116 +8202,74 @@
 	"Mothim": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Hurricane", "Giga Drain"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Bug Buzz", "Hurricane", "Roost"]
 		}
 	],
 	"Mr. Mime": [{
 			"item": "Choice Scarf",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Moonblast", "Trick", "Misty Explosion"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Soundproof",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Moonblast", "Trick", "Healing Wish"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Moonblast", "Nasty Plot", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Soundproof",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Moonblast", "Nasty Plot", "Focus Blast"]
 		}
 	],
 	"Mr. Mime-Galar": [{
 			"item": "Eviolite",
 			"ability": "Vital Spirit",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Freeze-Dry", "Psychic", "Focus Blast"]
 		},
 		{
 			"item": "Eviolite",
 			"ability": "Vital Spirit",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Freeze-Dry", "Psychic", "Focus Blast"]
 		}
 	],
 	"Mr. Rime": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Freeze-Dry", "Psychic", "Focus Blast"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Ice Beam", "Psychic", "Focus Blast"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Freeze-Dry", "Healing Wish", "Focus Blast"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Ice Beam", "Healing Wish", "Focus Blast"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Freeze-Dry", "Slack Off", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Screen Cleaner",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Freeze-Dry", "Slack Off", "Focus Blast"]
 		}
 	],
@@ -10139,50 +8319,32 @@
 	"Musharna": [{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Psyshock", "Moonlight", "Moonblast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Future Sight", "Moonblast", "Moonlight", "Teleport"]
 		},
 		{
 			"item": "Kee Berry",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Stored Power", "Moonlight", "Heal Bell"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Future Sight", "Moonblast", "Moonlight", "Heal Bell"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Future Sight", "Moonblast", "Moonlight", "Toxic"]
 		}
 	],
 	"Naganadel": [{
 			"item": "Life Orb",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Draco Meteor", "Sludge Wave", "Fire Blast"]
 		},
 		{
@@ -10194,17 +8356,11 @@
 	"Necrozma": [{
 			"item": "Power Herb",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Autotomize", "Meteor Beam", "Photon Geyser", "Heat Wave"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Meteor Beam", "Photon Geyser", "Heat Wave"]
 		},
 		{
@@ -10215,42 +8371,27 @@
 		{
 			"item": "Leftovers",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Moonlight", "Photon Geyser", "Heat Wave"]
 		}
 	],
 	"Necrozma-Dawn-Wings": [{
 			"item": "Power Herb",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Moongeist Beam", "Heat Wave", "Photon Geyser"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Moongeist Beam", "Stealth Rock", "Photon Geyser"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Moongeist Beam", "Autotomize", "Photon Geyser"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Prism Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Heat Wave", "Moongeist Beam", "Calm Mind", "Photon Geyser"]
 		}
 	],
@@ -10288,25 +8429,16 @@
 	"Nidoking": [{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Wave", "Earth Power", "Thunderbolt", "Flamethrower"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Wave", "Earth Power", "Thunderbolt", "Ice Beam"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Wave", "Earth Power", "Thunderbolt", "Substitute"]
 		},
 		{
@@ -10318,110 +8450,69 @@
 	"Nidoqueen": [{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Earth Power", "Sludge Wave", "Fire Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Toxic Spikes", "Earth Power", "Sludge Wave", "Fire Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Earth Power", "Sludge Wave", "Ice Beam"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Toxic Spikes", "Earth Power", "Sludge Wave", "Ice Beam"]
 		}
 	],
 	"Nihilego": [{
 			"item": "Power Herb",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Sludge Wave", "Power Gem", "Grass Knot"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Sludge Wave", "Thunderbolt", "Grass Knot"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Power Gem", "Sludge Wave", "Toxic Spikes", "Thunderbolt"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Power Gem", "Sludge Wave", "Stealth Rock", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Power Gem", "Sludge Wave", "Grass Knot", "Thunderbolt"]
 		}
 	],
 	"Ninetales": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Drought",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Fire Blast", "Solar Beam", "Scorching Sands"]
 		},
 		{
 			"item": "Heat Rock",
 			"ability": "Drought",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Fire Blast", "Solar Beam", "Scorching Sands"]
 		}
 	],
 	"Ninetales-Alola": [{
 			"item": "Light Clay",
 			"ability": "Snow Warning",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Aurora Veil", "Freeze-Dry", "Hypnosis", "Encore"]
 		},
 		{
 			"item": "Light Clay",
 			"ability": "Snow Warning",
-			"ivs": {
-				"atk": 0,
-				"spa": 30,
-				"spe": 30
-			},
 			"moves": ["Aurora Veil", "Freeze-Dry", "Moonblast", "Hidden Power [Fire]"]
 		}
 	],
@@ -10433,25 +8524,16 @@
 	"Noctowl": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hurricane", "Roost", "Agility", "Nasty Plot"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hurricane", "Roost", "Heat Wave", "Nasty Plot"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Oblivion Wing", "Roost", "Heat Wave", "Nasty Plot"]
 		}
 	],
@@ -10463,17 +8545,11 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Aeroblast", "Draco Meteor", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Aeroblast", "Draco Meteor", "Roost", "Flamethrower"]
 		},
 		{
@@ -10506,17 +8582,11 @@
 	"Octillery": [{
 			"item": "Choice Specs",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Aura Sphere", "Energy Ball", "Fire Blast", "Octazooka"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Mega Launcher",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Water Spout", "Aura Sphere", "Fire Blast", "Octazooka"]
 		},
 		{
@@ -10533,116 +8603,74 @@
 	"Omastar": [{
 			"item": "Power Herb",
 			"ability": "Weak Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Shell Smash", "Surf", "Ice Beam"]
 		},
 		{
 			"item": "Focus Sash",
 			"ability": "Weak Armor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Spikes", "Shell Smash", "Scald"]
 		}
 	],
 	"Oranguru": [{
 			"item": "Choice Specs",
 			"ability": "Sage Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Focus Blast", "Thunderbolt", "Psyshock"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Sage Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Focus Blast", "Thunderbolt", "Shadow Ball"]
 		}
 	],
 	"Orbeetle": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Stored Power", "Iron Defense"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Future Sight", "Recover", "Sticky Web"]
 		},
 		{
 			"item": "Orbeetlite",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Iron Defense", "Stored Power"]
 		},
 		{
 			"item": "Orbeetlite",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Recover", "Psyshock", "Bug Buzz"]
 		},
 		{
 			"item": "Orbeetlite",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Recover", "Future Sight", "Body Press"]
 		},
 		{
 			"item": "Orbeetlite",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Recover", "Future Sight", "Sticky Web"]
 		}
 	],
 	"Oricorio": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Dancer",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Quiver Dance", "Hurricane", "Revelation Dance", "Roost"]
 	}],
 	"Oricorio-Pa'u": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Dancer",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Quiver Dance", "Roost", "Hurricane", "Revelation Dance"]
 	}],
 	"Oricorio-Pom-Pom": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Dancer",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Quiver Dance", "Roost", "Hurricane", "Revelation Dance"]
 	}],
 	"Oricorio-Sensu": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Dancer",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Quiver Dance", "Roost", "Hurricane", "Revelation Dance"]
 	}],
 	"Pachirisu": [{
@@ -10659,17 +8687,11 @@
 	"Palkia": [{
 			"item": "Lustrous Orb",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spacial Rend", "Hydro Pump", "Thunder", "Fire Blast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Surf", "Rest", "Toxic"]
 		},
 		{
@@ -10681,9 +8703,6 @@
 	"Palossand": [{
 		"item": "Leftovers",
 		"ability": "Water Compaction",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Stealth Rock", "Shore Up", "Scorching Sands", "Shadow Ball"]
 	}],
 	"Pangoro": [{
@@ -10732,25 +8751,16 @@
 	"Pelipper": [{
 			"item": "Damp Rock",
 			"ability": "Drizzle",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Scald", "U-turn", "Defog"]
 		},
 		{
 			"item": "Damp Rock",
 			"ability": "Drizzle",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hurricane", "U-turn", "Defog"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Drizzle",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Weather Ball", "Hurricane", "Scald", "U-turn"]
 		}
 	],
@@ -10768,9 +8778,6 @@
 	"Persian": [{
 			"item": "Life Orb",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Hyper Voice", "Thunderbolt", "Surf"]
 		},
 		{
@@ -10782,9 +8789,6 @@
 	"Persian-Alola": [{
 			"item": "Life Orb",
 			"ability": "Feline Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Dark Pulse", "Dazzling Gleam", "Thunderbolt"]
 		},
 		{
@@ -10811,17 +8815,11 @@
 		{
 			"item": "Life Orb",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Focus Blast", "Bug Buzz", "Ice Beam"]
 		},
 		{
 			"item": "Focus Sash",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Focus Blast", "Bug Buzz", "Ice Beam"]
 		}
 	],
@@ -10844,9 +8842,6 @@
 		{
 			"item": "Pidgeotite",
 			"ability": "Frisk",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roost", "Hurricane", "Heat Wave", "Focus Blast"]
 		},
 		{
@@ -10878,9 +8873,6 @@
 	"Pikachu-Pop-Star": [{
 		"item": "Light Ball",
 		"ability": "Lightning Rod",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Dazzling Gleam", "Thunderbolt", "Surf", "Nasty Plot"]
 	}],
 	"Pikachu-Rock-Star": [{
@@ -10891,10 +8883,6 @@
 	"Pikachu-Surfing": [{
 		"item": "Light Ball",
 		"ability": "Lightning Rod",
-		"ivs": {
-			"atk": 0,
-			"def": 30
-		},
 		"moves": ["Nasty Plot", "Thunderbolt", "Surf", "Hidden Power [Ice]"]
 	}],
 	"Piloswine": [{
@@ -10905,17 +8893,11 @@
 	"Pincurchin": [{
 			"item": "Leftovers",
 			"ability": "Electric Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rising Voltage", "Scald", "Recover", "Spikes"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Electric Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rising Voltage", "Scald", "Recover", "Toxic Spikes"]
 		}
 	],
@@ -10948,25 +8930,16 @@
 	"Plusle": [{
 			"item": "Choice Specs",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Hidden Power [Ice]", "Surf"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Thunderbolt", "Nasty Plot", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Surf", "Thunderbolt", "Nasty Plot", "Hidden Power [Ice]"]
 		}
 	],
@@ -11010,83 +8983,53 @@
 	"Polteageist": [{
 		"item": "White Herb",
 		"ability": "Weak Armor",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Shell Smash", "Shadow Ball", "Stored Power", "Giga Drain"]
 	}],
 	"Porygon-Z": [{
 			"item": "Choice Scarf",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tri Attack", "Trick", "Shadow Ball", "Nasty Plot"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tri Attack", "Trick", "Shadow Ball", "Hyper Beam"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tri Attack", "Trick", "Shadow Ball", "Hyper Beam"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tri Attack", "Trick", "Shadow Ball", "Thunderbolt"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Tri Attack", "Thunderbolt", "Shadow Ball"]
 		}
 	],
 	"Porygon2": [{
 			"item": "Eviolite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Recover", "Discharge", "Ice Beam"]
 		},
 		{
 			"item": "Eviolite",
 			"ability": "Trace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Recover", "Toxic", "Foul Play"]
 		}
 	],
 	"Primarina": [{
 			"item": "Choice Specs",
 			"ability": "Torrent",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hydro Pump", "Moonblast", "Draining Kiss", "Scald"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Torrent",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Substitute", "Draining Kiss", "Scald"]
 		},
 		{
@@ -11119,35 +9062,21 @@
 	"Probopass": [{
 			"item": "Air Balloon",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0,
-				"spa": 30,
-				"spe": 30
-			},
 			"moves": ["Hidden Power [Fire]", "Stealth Rock", "Flash Cannon", "Body Press"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Toxic", "Iron Defense", "Body Press"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Thunder Wave", "Iron Defense", "Body Press"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Magnet Pull",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Volt Switch", "Toxic", "Body Press"]
 		}
 	],
@@ -11175,42 +9104,27 @@
 	"Pyroar": [{
 			"item": "Choice Specs",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Fire Blast", "Scorching Sands", "Dark Pulse"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Fire Blast", "Scorching Sands", "Dark Pulse"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Adaptability",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Fire Blast", "Scorching Sands", "Will-O-Wisp"]
 		}
 	],
 	"Pyukumuku": [{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Block", "Spite", "Rest"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Unaware",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Recover", "Block", "Soak", "Toxic"]
 		}
 	],
@@ -11249,49 +9163,31 @@
 	"Raichu": [{
 		"item": "Life Orb",
 		"ability": "Static",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Nasty Plot", "Thunderbolt", "Surf", "Focus Blast"]
 	}],
 	"Raichu-Alola": [{
 		"item": "Life Orb",
 		"ability": "Surge Surfer",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Nasty Plot", "Thunderbolt", "Psychic", "Focus Blast"]
 	}],
 	"Raikou": [{
 			"item": "Choice Specs",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Aura Sphere", "Scald"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Thunderbolt", "Scald"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Toxic", "Protect", "Thunderbolt"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Aura Sphere", "Scald"]
 		}
 	],
@@ -11373,9 +9269,6 @@
 	"Regidrago": [{
 			"item": "Choice Specs",
 			"ability": "Dragon's Maw",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dragon Energy", "Draco Meteor", "Dragon Pulse", "Hyper Beam"]
 		},
 		{
@@ -11387,67 +9280,43 @@
 	"Regieleki": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Hidden Power [Ice]", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Hidden Power [Ice]", "Thunderbolt", "Rapid Spin"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Hidden Power [Ice]", "Thunderbolt", "Toxic"]
 		},
 		{
 			"item": "Magnet",
 			"ability": "Transistor",
-			"ivs": {
-				"atk": 30
-			},
 			"moves": ["Volt Switch", "Hidden Power [Ice]", "Thunderbolt", "Explosion"]
 		}
 	],
 	"Regice": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Ice Beam", "Thunderbolt", "Toxic", "Rest"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rock Polish", "Ice Beam", "Thunderbolt", "Focus Blast"]
 		}
 	],
 	"Registeel": [{
 			"item": "Leftovers",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Clear Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Toxic"]
 		}
 	],
@@ -11481,9 +9350,6 @@
 	"Reshiram": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Turboblaze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blue Flare", "Draco Meteor", "Earth Power", "Roost"]
 		},
 		{
@@ -11495,17 +9361,11 @@
 	"Reuniclus": [{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Psyshock", "Focus Blast", "Recover"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Focus Blast", "Thunder", "Recover"]
 		},
 		{
@@ -11516,9 +9376,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Teleport", "Future Sight", "Focus Blast", "Recover"]
 		}
 	],
@@ -11578,143 +9435,92 @@
 	"Roselia": [{
 		"item": "Choice Scarf",
 		"ability": "Natural Cure",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Sludge Bomb", "Leaf Storm", "Dazzling Gleam", "Spikes"]
 	}],
 	"Roserade": [{
 			"item": "Black Sludge",
 			"ability": "Technician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mega Drain", "Sludge Bomb", "Hidden Power [Fire]", "Spikes"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Technician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mega Drain", "Sludge Bomb", "Flash", "Spikes"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Technician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mega Drain", "Sludge Bomb", "Sleep Powder", "Spikes"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Technician",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Mega Drain", "Sludge Bomb", "Sleep Powder", "Toxic Spikes"]
 		}
 	],
 	"Rotom": [{
 			"item": "Eviolite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Shadow Ball", "Defog", "Will-O-Wisp"]
 		},
 		{
 			"item": "Eviolite",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Shadow Ball", "Thunderbolt", "Pain Split"]
 		}
 	],
 	"Rotom-Fan": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Motor Drive",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Hurricane", "Volt Switch", "Hidden Power [Ice]", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Motor Drive",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Hurricane", "Volt Switch", "Hidden Power [Ice]", "Nasty Plot"]
 		}
 	],
 	"Rotom-Frost": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Thunderbolt", "Will-O-Wisp", "Pain Split"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Thunderbolt", "Will-O-Wisp", "Nasty Plot"]
 		}
 	],
 	"Rotom-Heat": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Overheat", "Volt Switch", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Overheat", "Thunderbolt", "Hidden Power [Ice]", "Nasty Plot"]
 		}
 	],
 	"Rotom-Mow": [{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Volt Switch", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Volt Switch", "Thunderbolt", "Trick"]
 		}
 	],
 	"Rotom-Wash": [{
 			"item": "Leftovers",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hydro Pump", "Volt Switch", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hydro Pump", "Volt Switch", "Trick", "Thunderbolt"]
 		}
 	],
@@ -11748,9 +9554,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Draco Meteor", "Flamethrower", "Defog", "Roost"]
 		},
 		{
@@ -11761,18 +9564,12 @@
 		{
 			"item": "Salamencite",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Flamethrower", "Defog", "Roost"]
 		}
 	],
 	"Salazzle": [{
 			"item": "Black Sludge",
 			"ability": "Corrosion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Toxic", "Protect", "Sludge Wave"]
 		},
 		{
@@ -11979,9 +9776,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Swift Swim",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rain Dance", "Hydro Pump", "Earth Power", "Sludge Wave"]
 		}
 	],
@@ -11998,9 +9792,6 @@
 		{
 			"item": "Leftovers",
 			"ability": "Contrary",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Substitute", "Glare", "Leaf Storm", "Hidden Power [Fire]"]
 		}
 	],
@@ -12048,18 +9839,12 @@
 		{
 			"item": "Leftovers",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Leech Seed", "Seed Flare", "Earth Power"]
 		}
 	],
 	"Shaymin-Sky": [{
 			"item": "Choice Scarf",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Seed Flare", "Air Slash", "Earth Power", "Healing Wish"]
 		},
 		{
@@ -12070,9 +9855,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Leech Seed", "Seed Flare", "Air Slash"]
 		}
 	],
@@ -12110,9 +9892,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Solar Beam", "Heat Wave", "Dark Pulse"]
 		},
 		{
@@ -12128,26 +9907,17 @@
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Solar Beam", "Heat Wave", "Dark Pulse"]
 		}
 	],
 	"Shiinotic": [{
 			"item": "Leftovers",
 			"ability": "Effect Spore",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spore", "Moonblast", "Energy Ball", "Synthesis"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Effect Spore",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Spore", "Moonblast", "Strength Sap", "Synthesis"]
 		}
 	],
@@ -12236,9 +10006,6 @@
 	"Silvally-Poison": [{
 		"item": "Black Sludge",
 		"ability": "Battle Armor",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Toxic", "Protect", "Flamethrower", "Parting Shot"]
 	}],
 	"Silvally-Psychic": [{
@@ -12264,66 +10031,42 @@
 	"Sigilyph": [{
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Energy Ball", "Heat Wave", "Psychic"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psycho Shift", "Cosmic Power", "Air Slash", "Roost"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Magic Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psycho Shift", "Cosmic Power", "Stored Power", "Roost"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
 		}
 	],
 	"Simisage": [{
 		"item": "Choice Specs",
 		"ability": "Sage Power",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Leaf Storm", "Giga Drain", "Focus Blast", "Hidden Power [Ice]"]
 	}],
 	"Simipour": [{
 		"item": "Choice Specs",
 		"ability": "Sage Power",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Hydro Pump", "Ice Beam", "Focus Blast", "Grass Knot"]
 	}],
 	"Simisear": [{
 		"item": "Choice Specs",
 		"ability": "Sage Power",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Overheat", "Flamethrower", "Focus Blast", "Grass Knot"]
 	}],
 	"Sirfetch’d": [{
@@ -12340,9 +10083,6 @@
 	"Skarmory": [{
 			"item": "Leftovers",
 			"ability": "Sturdy",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Iron Defense", "Body Press", "Spikes", "Roost"]
 		},
 		{
@@ -12406,59 +10146,38 @@
 	"Slowbro": [{
 			"item": "Rocky Helmet",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Future Sight", "Slack Off", "Teleport"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Future Sight", "Slack Off", "Teleport"]
 		},
 		{
 			"item": "Slowbronite",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Scald", "Flamethrower", "Slack Off"]
 		},
 		{
 			"item": "Slowbronite",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Slack Off", "Scald", "Future Sight", "Teleport"]
 		}
 	],
 	"Slowbro-Galar": [{
 			"item": "Assault Vest",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Flamethrower", "Future Sight", "Scald"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Sludge Bomb", "Flamethrower", "Slack Off"]
 		}
 	],
 	"Slowking": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Future Sight", "Slack Off", "Teleport"]
 		},
 		{
@@ -12470,17 +10189,11 @@
 	"Slowking-Galar": [{
 			"item": "Assault Vest",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Future Sight", "Flamethrower", "Scald"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Future Sight", "Slack Off", "Teleport"]
 		}
 	],
@@ -12583,9 +10296,6 @@
 	"Spectrier": [{
 			"item": "Choice Specs",
 			"ability": "Grim Neigh",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Shadow Ball", "Hidden Power [Fighting]", "Will-O-Wisp", "Haze"]
 		},
 		{
@@ -12601,25 +10311,16 @@
 		{
 			"item": "Leftovers",
 			"ability": "Grim Neigh",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Substitute", "Calm Mind", "Shadow Ball", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Grim Neigh",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Will-O-Wisp", "Nasty Plot", "Shadow Ball", "Hidden Power [Fighting]"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Grim Neigh",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Will-O-Wisp", "Calm Mind", "Hex"]
 		}
 	],
@@ -12637,17 +10338,11 @@
 	"Spiritomb": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Parting Shot", "Will-O-Wisp", "Foul Play", "Shadow Ball"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Intimidate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Rest", "Sleep Talk", "Dark Pulse"]
 		},
 		{
@@ -12659,25 +10354,16 @@
 	"Stakataka": [{
 			"item": "Choice Band",
 			"ability": "Beast Boost",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Stone Edge", "Body Press", "Earthquake"]
 		},
 		{
 			"item": "Air Balloon",
 			"ability": "Beast Boost",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Gyro Ball", "Stone Edge", "Body Press", "Trick Room"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Beast Boost",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Stealth Rock", "Toxic", "Gyro Ball", "Body Press"]
 		}
 	],
@@ -12695,17 +10381,11 @@
 	"Starmie": [{
 			"item": "Life Orb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hydro Pump", "Thunderbolt", "Psychic", "Recover"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Meteor Beam", "Hydro Pump", "Thunderbolt", "Psychic"]
 		},
 		{
@@ -12716,9 +10396,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Natural Cure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Scald", "Recover", "Psychic"]
 		}
 	],
@@ -12745,9 +10422,6 @@
 		{
 			"item": "Steelixite",
 			"ability": "Sturdy",
-			"ivs": {
-				"spe": 0
-			},
 			"moves": ["Curse", "Earthquake", "Gyro Ball", "Rest"]
 		},
 		{
@@ -12785,17 +10459,11 @@
 	"Stunfisk": [{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Discharge", "Earth Power", "Stealth Rock", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Discharge", "Earth Power", "Stealth Rock", "Yawn"]
 		}
 	],
@@ -12834,57 +10502,36 @@
 	"Suicune": [{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Scald", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Toxic", "Scald", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Toxic", "Ice Beam", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Scald", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Ice Beam", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roar", "Scald", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Roar", "Scald", "Rest", "Calm Mind"]
 		},
 		{
@@ -12895,59 +10542,38 @@
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Scald", "Ice Beam"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Calm Mind", "Scald", "Roar"]
 		}
 	],
 	"Sunflora": [{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Giga Drain", "Earth Power", "Fiery Dance"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Solar Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Giga Drain", "Earth Power", "Weather Ball"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Giga Drain", "Earth Power", "Fiery Dance"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Solar Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Giga Drain", "Earth Power", "Flamethrower"]
 		}
 	],
 	"Swalot": [{
 		"item": "Life Orb",
 		"ability": "Magic Guard",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Sludge Bomb", "Earth Power", "Ice Beam", "Focus Blast"]
 	}],
 	"Swampert": [{
@@ -12984,33 +10610,21 @@
 	"Swanna": [{
 			"item": "Choice Specs",
 			"ability": "No Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hurricane", "Hydro Pump", "Ice Beam", "Scald"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "No Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hurricane", "Hydro Pump", "Ice Beam", "Scald"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "No Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Roost", "Hurricane", "Hydro Pump"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "No Guard",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Roost", "Hurricane", "Ice Beam"]
 		}
 	],
@@ -13033,41 +10647,26 @@
 	"Swoobat": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Simple",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Calm Mind", "Roost", "Psychic", "Air Slash"]
 	}],
 	"Sylveon": [{
 			"item": "Leftovers",
 			"ability": "Pixilate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Mystical Fire", "Wish", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pixilate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Heal Bell", "Wish", "Protect"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pixilate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Mystical Fire", "Psyshock", "Calm Mind"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Pixilate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hyper Voice", "Mystical Fire", "Psyshock", "Shadow Ball"]
 		}
 	],
@@ -13110,9 +10709,6 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Leaf Storm", "Focus Blast", "Sludge Bomb", "Ancient Power"]
 		},
 		{
@@ -13155,17 +10751,11 @@
 		{
 			"item": "Leftovers",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Defog", "Haze", "Scald", "Moonblast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nature's Madness", "Taunt", "Scald", "Moonblast"]
 		},
 		{
@@ -13176,17 +10766,11 @@
 		{
 			"item": "Choice Scarf",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Moonblast", "Misty Explosion", "Trick"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Misty Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Moonblast", "Misty Explosion", "Trick"]
 		}
 	],
@@ -13228,9 +10812,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Electric Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Thunderbolt", "Dazzling Gleam", "Roost"]
 		},
 		{
@@ -13242,25 +10823,16 @@
 	"Tapu Lele": [{
 			"item": "Choice Specs",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Psyshock", "Moonblast", "Focus Blast"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Psyshock", "Moonblast", "Focus Blast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Psychic Surge",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Psyshock", "Moonblast", "Focus Blast"]
 		}
 	],
@@ -13283,17 +10855,11 @@
 		{
 			"item": "Black Sludge",
 			"ability": "Liquid Ooze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Sludge Bomb", "Rapid Spin", "Haze"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Liquid Ooze",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Scald", "Sludge Bomb", "Ice Beam"]
 		}
 	],
@@ -13326,17 +10892,11 @@
 	"Thievul": [{
 			"item": "Choice Specs",
 			"ability": "Stakeout",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Mystical Fire", "Grass Knot", "Parting Shot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Stakeout",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Mystical Fire", "Grass Knot", "Nasty Plot"]
 		}
 	],
@@ -13359,42 +10919,27 @@
 		{
 			"item": "Leftovers",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Toxic", "Protect", "Thunderbolt"]
 		}
 	],
 	"Thundurus-Therian": [{
 			"item": "Choice Specs",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Focus Blast", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Focus Blast", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Thunderbolt", "Focus Blast", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Volt Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Agility", "Thunderbolt", "Focus Blast"]
 		}
 	],
@@ -13412,66 +10957,42 @@
 	"Togekiss": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Air Slash", "Aura Sphere", "Roost"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Air Slash", "Aura Sphere", "Thunder Wave"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dazzling Gleam", "Air Slash", "Flamethrower", "Trick"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dazzling Gleam", "Air Slash", "Flamethrower", "Trick"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Serene Grace",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Mystical Fire", "Defog", "Roost"]
 		}
 	],
 	"Torkoal": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Drought",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Earth Power", "Toxic", "Stealth Rock"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Drought",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Lava Plume", "Rapid Spin", "Yawn", "Stealth Rock"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Drought",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Eruption", "Lava Plume", "Solar Beam", "Earth Power"]
 		}
 	],
@@ -13503,9 +11024,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Hurricane", "Focus Blast", "Heat Wave", "Nasty Plot"]
 		}
 	],
@@ -13590,9 +11108,6 @@
 		{
 			"item": "Life Orb",
 			"ability": "Dry Skin",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Nasty Plot", "Sludge Bomb", "Aura Sphere", "Vacuum Wave"]
 		},
 		{
@@ -13604,9 +11119,6 @@
 	"Toxtricity": [{
 			"item": "Choice Specs",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overdrive", "Sludge Wave", "Volt Switch"]
 		},
 		{
@@ -13617,17 +11129,11 @@
 		{
 			"item": "Toxtricitite",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overdrive", "Sludge Wave", "Volt Switch"]
 		},
 		{
 			"item": "Toxtricitite",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overdrive", "Hidden Power [Fire]", "Volt Switch"]
 		},
 		{
@@ -13638,9 +11144,6 @@
 		{
 			"item": "Toxtricitite",
 			"ability": "Punk Rock",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Boomburst", "Overdrive", "Sludge Wave", "Hidden Power [Fire]"]
 		}
 	],
@@ -13673,25 +11176,16 @@
 	"Tropius": [{
 			"item": "Sitrus Berry",
 			"ability": "Harvest",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Roost", "Dragon Pulse", "Giga Drain"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Solar Power",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Dragon Pulse", "Giga Drain", "Weather Ball"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Dragon Pulse", "Giga Drain", "Weather Ball"]
 		}
 	],
@@ -13729,33 +11223,21 @@
 	"Turtonator": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dauntless Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Dragon Pulse", "Flamethrower", "Scorching Sands"]
 		},
 		{
 			"item": "White Herb",
 			"ability": "Dauntless Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Shell Smash", "Dragon Pulse", "Flamethrower", "Scorching Sands"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dauntless Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Draco Meteor", "Flamethrower", "Scorching Sands"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dauntless Shield",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Rapid Spin", "Draco Meteor", "Flamethrower", "Body Press"]
 		}
 	],
@@ -13788,17 +11270,11 @@
 	"Typhlosion": [{
 			"item": "Choice Specs",
 			"ability": "Blazing Soul",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Eruption", "Flamethrower", "Scorching Sands", "Hidden Power [Grass]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Blazing Soul",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Eruption", "Flamethrower", "Scorching Sands", "Hidden Power [Grass]"]
 		}
 	],
@@ -13852,17 +11328,11 @@
 	"Umbreon": [{
 			"item": "Leftovers",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Heal Bell", "Foul Play"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Synchronize",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Protect", "Toxic", "Foul Play"]
 		}
 	],
@@ -13895,10 +11365,6 @@
 	"Unown": [{
 		"item": "Choice Specs",
 		"ability": "Levitate",
-		"ivs": {
-			"atk": 0,
-			"spe": 30
-		},
 		"moves": ["Hidden Power [Psychic]"]
 	}],
 	"Ursaring": [{
@@ -13957,17 +11423,11 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Snow Warning",
-			"ivs": {
-				"atk": 1
-			},
 			"moves": ["Blizzard", "Freeze-Dry", "Hidden Power [Fire]", "Aurora Veil"]
 		},
 		{
 			"item": "Light Clay",
 			"ability": "Snow Warning",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Blizzard", "Freeze-Dry", "Aurora Veil", "Taunt"]
 		},
 		{
@@ -13979,17 +11439,11 @@
 	"Vaporeon": [{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Wish", "Protect", "Haze"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Wish", "Protect", "Toxic"]
 		},
 		{
@@ -14000,59 +11454,38 @@
 		{
 			"item": "Leftovers",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Wish", "Protect", "Calm Mind"]
 		}
 	],
 	"Venomoth": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Sludge Bomb", "Bug Buzz", "Roost"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Sludge Bomb", "Bug Buzz", "Giga Drain"]
 		}
 	],
 	"Venusaur": [{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Giga Drain", "Sludge Bomb", "Weather Ball"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Giga Drain", "Sludge Bomb", "Earth Power"]
 		},
 		{
 			"item": "Venusaurite",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Sludge Bomb", "Leech Seed", "Synthesis"]
 		},
 		{
 			"item": "Venusaurite",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Earth Power", "Leech Seed", "Synthesis"]
 		},
 		{
@@ -14063,9 +11496,6 @@
 		{
 			"item": "Venusaurite",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Giga Drain", "Sludge Bomb", "Earth Power", "Synthesis"]
 		}
 	],
@@ -14099,75 +11529,48 @@
 	"Victreebel": [{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sunny Day", "Giga Drain", "Sludge Bomb", "Weather Ball"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sleep Powder", "Giga Drain", "Sludge Bomb", "Weather Ball"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Growth", "Giga Drain", "Sludge Bomb", "Weather Ball"]
 		}
 	],
 	"Vikavolt": [{
 			"item": "Choice Specs",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Volt Switch", "Bug Buzz", "Energy Ball"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Bug Buzz", "Sticky Web", "Roost"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Iron Defense", "Roost", "Bug Buzz", "Thunderbolt"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Agility", "Thunderbolt", "Bug Buzz", "Energy Ball"]
 		}
 	],
 	"Vileplume": [{
 			"item": "Black Sludge",
 			"ability": "Effect Spore",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Apple Acid", "Leech Seed", "Strength Sap"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Effect Spore",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Apple Acid", "Leech Seed", "Synthesis"]
 		}
 	],
@@ -14179,18 +11582,12 @@
 		{
 			"item": "Life Orb",
 			"ability": "Justified",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Calm Mind", "Giga Drain", "Focus Blast", "Synthesis"]
 		}
 	],
 	"Vivillon": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Compound Eyes",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Sleep Powder", "Quiver Dance", "Hurricane"]
 		},
 		{
@@ -14202,9 +11599,6 @@
 	"Volbeat": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Swarm",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Tail Glow", "Bug Buzz", "Thunderbolt", "Hidden Power [Fire]"]
 		},
 		{
@@ -14216,58 +11610,37 @@
 	"Volcanion": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Steam Eruption", "Flamethrower", "Sludge Wave", "Earth Power"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Steam Eruption", "Flamethrower", "Sludge Wave", "Earth Power"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Steam Eruption", "Flamethrower", "Defog", "Toxic"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Steam Eruption", "Flamethrower", "Sludge Wave", "Earth Power"]
 		},
 		{
 			"item": "Assault Vest",
 			"ability": "Water Absorb",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Steam Eruption", "Flamethrower", "Sludge Wave", "Earth Power"]
 		}
 	],
 	"Volcarona": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Flamethrower", "Bug Buzz", "Giga Drain"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Flamethrower", "Bug Buzz", "Roost"]
 		}
 	],
@@ -14279,26 +11652,17 @@
 		{
 			"item": "Leftovers",
 			"ability": "Thick Fat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Toxic", "Rest", "Sleep Talk"]
 		}
 	],
 	"Walrein": [{
 			"item": "Leftovers",
 			"ability": "Fur Coat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Body Press", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Fur Coat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Scald", "Body Press", "Toxic", "Protect"]
 		},
 		{
@@ -14337,107 +11701,68 @@
 	"Weezing": [{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Will-O-Wisp", "Pain Split", "Haze"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Flamethrower", "Will-O-Wisp", "Pain Split"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Flamethrower", "Will-O-Wisp", "Toxic Spikes"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Will-O-Wisp", "Pain Split", "Haze"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Flamethrower", "Will-O-Wisp", "Pain Split"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Flamethrower", "Will-O-Wisp", "Toxic Spikes"]
 		}
 	],
 	"Weezing-Galar": [{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Pain Split"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Neutralizing Gas",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Toxic Spikes"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Pain Split"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Defog"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Levitate",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Sludge Bomb", "Strange Steam", "Will-O-Wisp", "Toxic Spikes"]
 		}
 	],
 	"Whimsicott": [{
 			"item": "Choice Specs",
 			"ability": "Infiltrator",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Energy Ball", "Hurricane", "Switcheroo"]
 		},
 		{
@@ -14448,17 +11773,11 @@
 		{
 			"item": "Leftovers",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Substitute", "Leech Seed", "Protect", "Moonblast"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Prankster",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Encore", "Taunt", "Moonblast", "Energy Ball"]
 		}
 	],
@@ -14476,17 +11795,11 @@
 	"Wigglytuff": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Wish", "Teleport", "Protect", "Moonblast"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Flamethrower", "Ice Beam", "Thunderbolt"]
 		}
 	],
@@ -14504,27 +11817,16 @@
 	"Wobbuffet": [{
 		"item": "Focus Sash",
 		"ability": "Shadow Tag",
-		"ivs": {
-			"atk": 0
-		},
 		"moves": ["Counter", "Mirror Coat", "Destiny Bond", "Encore"]
 	}],
 	"Wormadam-Trash": [{
 		"item": "Leftovers",
 		"ability": "Overcoat",
-		"ivs": {
-			"spe": 0
-		},
 		"moves": ["Stealth Rock", "Toxic", "Protect", "Gyro Ball"]
 	}],
 	"Wormadam": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Overcoat",
-		"ivs": {
-			"atk": 1,
-			"spa": 30,
-			"spd": 30
-		},
 		"moves": ["Quiver Dance", "Bug Buzz", "Giga Drain", "Hidden Power [Ground]"]
 	}],
 	"Wormadam-Sandy": [{
@@ -14535,50 +11837,32 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Overcoat",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Quiver Dance", "Earth Power", "Power Gem", "Bug Buzz"]
 		}
 	],
 	"Xatu": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Night Shade", "Psychic", "Roost", "Teleport"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Night Shade", "Toxic", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Night Shade", "Teleport", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Heat Wave", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Heat Wave", "Roost", "Teleport"]
 		},
 		{
@@ -14589,25 +11873,16 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Cosmic Power", "Psychic", "Dazzling Gleam", "Roost"]
 		},
 		{
 			"item": "Light Clay",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Reflect", "Light Screen", "Psychic", "Teleport"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Magic Bounce",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Psychic", "Dazzling Gleam", "Heat Wave", "Trick"]
 		},
 		{
@@ -14619,33 +11894,21 @@
 	"Xerneas": [{
 			"item": "Choice Specs",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Thunderbolt", "Misty Explosion", "Focus Blast"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Thunderbolt", "Psyshock", "Focus Blast"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Thunderbolt", "Psyshock", "Focus Blast"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Thunderbolt", "Misty Explosion", "Focus Blast"]
 		},
 		{
@@ -14656,130 +11919,78 @@
 		{
 			"item": "Power Herb",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Geomancy", "Moonblast", "Thunderbolt", "Focus Blast"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0,
-				"spa": 30,
-				"spe": 30
-			},
 			"moves": ["Geomancy", "Moonblast", "Hidden Power [Fire]", "Thunderbolt"]
 		},
 		{
 			"item": "Power Herb",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Geomancy", "Moonblast", "Focus Blast", "Substitute"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Hidden Power [Fire]", "Defog", "Aromatherapy"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Fairy Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Moonblast", "Thunder Wave", "Defog", "Aromatherapy"]
 		}
 	],
 	"Xurkitree": [{
 			"item": "Choice Specs",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Energy Ball", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Energy Ball", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Dazzling Gleam", "Energy Ball", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hidden Power [Ice]", "Energy Ball", "Tail Glow"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hidden Power [Ice]", "Energy Ball", "Tail Glow"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Volt Switch", "Thunderbolt", "Energy Ball", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Beast Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hidden Power [Ice]", "Energy Ball", "Toxic"]
 		}
 	],
 	"Yanmega": [{
 			"item": "Life Orb",
 			"ability": "Speed Boost",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Protect", "Air Slash", "Bug Buzz", "Giga Drain"]
 		},
 		{
 			"item": "Choice Specs",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Bug Buzz", "Giga Drain", "Psychic"]
 		},
 		{
 			"item": "Choice Scarf",
 			"ability": "Tinted Lens",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Air Slash", "Bug Buzz", "Giga Drain", "Psychic"]
 		},
 		{
@@ -14851,9 +12062,6 @@
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Dark Aura",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Oblivion Wing", "Dark Pulse", "Heat Wave", "Roost"]
 		},
 		{
@@ -14995,77 +12203,46 @@
 	"Zapdos": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Heat Wave", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hidden Power [Ice]", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Hurricane", "Roost", "Defog"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Heat Wave", "Roost", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hidden Power [Ice]", "Roost", "Toxic"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Hurricane", "Roost", "Toxic"]
 		},
 		{
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Thunderbolt", "Toxic", "Substitute", "Roost"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hurricane", "Heat Wave", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Static",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Hurricane", "Heat Wave", "Hidden Power [Ice]"]
 		},
 		{
@@ -15179,19 +12356,11 @@
 	"Zebstrika": [{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0,
-				"def": 30
-			},
 			"moves": ["Thunderbolt", "Flamethrower", "Hidden Power [Ice]", "Volt Switch"]
 		},
 		{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
-			"ivs": {
-				"atk": 0,
-				"spa": 30
-			},
 			"moves": ["Thunderbolt", "Flamethrower", "Hidden Power [Grass]", "Volt Switch"]
 		}
 	],
@@ -15275,9 +12444,6 @@
 	"Zoroark": [{
 			"item": "Choice Specs",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Focus Blast", "Trick"]
 		},
 		{
@@ -15288,9 +12454,6 @@
 		{
 			"item": "Choice Scarf",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Focus Blast", "Trick"]
 		},
 		{
@@ -15301,9 +12464,6 @@
 		{
 			"item": "Choice Specs",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Flamethrower", "Trick"]
 		},
 		{
@@ -15314,9 +12474,6 @@
 		{
 			"item": "Choice Scarf",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Flamethrower", "Trick"]
 		},
 		{
@@ -15327,17 +12484,11 @@
 		{
 			"item": "Life Orb",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Focus Blast", "Nasty Plot"]
 		},
 		{
 			"item": "Life Orb",
 			"ability": "Illusion",
-			"ivs": {
-				"atk": 0
-			},
 			"moves": ["Dark Pulse", "Sludge Bomb", "Flamethrower", "Nasty Plot"]
 		}
 	],
