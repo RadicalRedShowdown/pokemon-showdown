@@ -614,8 +614,10 @@ export class RandomRadicalRedTeams {
 		}
 
 		const ability = setData.ability;
-		const item = setData.item;
 		const moves = setData.moves;
+		let item = setData.item;
+		// make sure no item sets don't crash anything
+		if (!item) item = '';
 
 		const evs = {hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85};
 		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
