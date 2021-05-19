@@ -597,10 +597,10 @@ export class RandomRadicalRedTeams {
 		const sets = this.randomSets[species.name];
 		if (!sets || !sets.length) return;
 		let setData = this.sampleNoReplace(sets);
-		if (((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance')) && teamDetails.rain) ||
-			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day')) && teamDetails.sun) ||
-			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail')) && teamDetails.hail) ||
-			(setData.ability === 'Sand Stream' && teamDetails.sand) ||
+		if (((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance') || (setData.ability === 'Forecast' && setData.item === 'Damp Rock')) && teamDetails.rain) ||
+			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day') || (setData.ability === 'Forecast' && setData.item === 'Heat Rock')) && teamDetails.sun) ||
+			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail') || (setData.ability === 'Forecast' && setData.item === 'Icy Rock')) && teamDetails.hail) ||
+			((setData.ability === 'Sand Stream' || (setData.ability === 'Forecast' && setData.item === 'Smooth Rock')) && teamDetails.sand) ||
 			(setData.moves.includes('Spikes') && teamDetails.spikes) ||
 			(setData.moves.includes('Stealth Rock') && teamDetails.stealthRock) ||
 			(setData.moves.includes('Sticky Web') && teamDetails.stickyWeb) ||
@@ -854,10 +854,14 @@ export class RandomRadicalRedTeams {
 
 			// Track what the team has
 			if (this.dex.items.get(set.item).megaStone) hasMega = true;
-			if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails.rain = 1;
-			if (set.ability === 'Drought' || set.moves.includes('sunnyday')) teamDetails.sun = 1;
-			if (set.ability === 'Sand Stream') teamDetails.sand = 1;
-			if (set.ability === 'Snow Warning') teamDetails.hail = 1;
+			if (set.ability === 'Drizzle' || set.moves.includes('raindance') ||
+				(set.ability === 'Forecast' && set.item === 'Damp Rock')) teamDetails.rain = 1;
+			if (set.ability === 'Drought' || set.moves.includes('sunnyday') ||
+				(set.ability === 'Forecast' && set.item === 'Heat Rock')) teamDetails.sun = 1;
+			if (set.ability === 'Snow Warning' || set.moves.includes('Hail') ||
+				(set.ability === 'Forecast' && set.item === 'Icy Rock')) teamDetails.hail = 1;
+			if (set.ability === 'Sand Stream' ||
+				(set.ability === 'Forecast' && set.item === 'Smooth Rock')) teamDetails.sand = 1;
 			if (set.moves.includes('spikes')) teamDetails.spikes = (teamDetails.spikes || 0) + 1;
 			if (set.moves.includes('stealthrock')) teamDetails.stealthRock = 1;
 			if (set.moves.includes('stickyweb')) teamDetails.stickyWeb = 1;
