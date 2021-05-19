@@ -4435,11 +4435,18 @@
 			"moves": ["Wish", "Protect", "Freeze-Dry", "Earth Power"]
 		}
 	],
-	"Glalie": [{
-		"item": "Leftovers",
-		"ability": "Moody",
-		"moves": ["Disable", "Freeze-Dry", "Protect", "Substitute"]
-	}],
+	"Glalie": [
+		{
+			"item": "Choice Band",
+			"ability": "Refrigerate",
+			"moves": ["Explosion", "Return", "Earthquake", "Ice Shard"]
+		},
+		{
+			"item": "Heavy-Duty Boots",
+			"ability": "Refrigerate",
+			"moves": ["Explosion", "Spikes", "Earthquake", "Ice Shard"]
+		}
+	],
 	"Glalie-Mega": [{
 		"item": "Glalitite",
 		"ability": "Inner Focus",
@@ -12182,7 +12189,7 @@
 		{
 			"item": "Life Orb",
 			"ability": "Intrepid Sword",
-			"moves": ["sworddance", "Play Rough", "Close Combat", "Wild Charge"]
+			"moves": ["Swords Dance", "Play Rough", "Close Combat", "Wild Charge"]
 		},
 		{
 			"item": "Leftovers",
