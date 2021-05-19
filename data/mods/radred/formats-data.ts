@@ -2167,7 +2167,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 76
 	},
 	dialgaprimal: {
-		tier: "Uber"
+		tier: "Uber",
+		randomBattleLevel: 76
 	},
 	palkia: {
 		tier: "Uber",
@@ -3136,7 +3137,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 83
 	},
 	zygardecomplete: {
-		tier: "Uber"
+		tier: "Uber",
+		randomBattleLevel: 76
 	},
 	diancie: {
 		tier: "UU",

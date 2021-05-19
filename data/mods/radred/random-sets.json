@@ -2538,7 +2538,9 @@
 			"item": "Choice Scarf",
 			"ability": "Pressure",
 			"moves": ["Draco Meteor", "Flash Cannon", "Thunderbolt", "Fire Blast"]
-		},
+		}
+	],
+	"Dialga-Primal": [
 		{
 			"item": "Adamant Orb",
 			"ability": "Pressure",
@@ -4850,7 +4852,9 @@
 			"item": "Expert Belt",
 			"ability": "Torrent",
 			"moves": ["Spikes", "Gunk Shot", "Ice Beam", "Dark Pulse"]
-		},
+		}
+	],
+	"Greninja-Ash": [
 		{
 			"item": "Choice Specs",
 			"ability": "Battle Bond",
@@ -4937,65 +4941,67 @@
 			"item": "Choice Band",
 			"ability": "Drought",
 			"moves": ["Precipice Blades", "Heat Crash", "Stone Edge", "Heavy Slam"]
-		},
+		}
+	],
+	"Groudon-Primal": [
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Swords Dance", "Rock Polish", "Precipice Blades", "Stone Edge"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Swords Dance", "Stealth Rock", "Precipice Blades", "Stone Edge"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Overheat", "Precipice Blades", "Toxic"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Lava Plume", "Precipice Blades", "Toxic"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Overheat", "Precipice Blades", "Thunder Wave"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Lava Plume", "Precipice Blades", "Thunder Wave"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Lava Plume", "Precipice Blades", "Roar"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Stealth Rock", "Overheat", "Precipice Blades", "Roar"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Rock Polish", "Fire Blast", "Precipice Blades", "Hidden Power [Ice]"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Swords Dance", "Eruption", "Precipice Blades", "Rock Tomb"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Swords Dance", "Overheat", "Precipice Blades", "Rock Tomb"]
 		},
 		{
 			"item": "Red Orb",
-			"ability": "Desolate Land",
+			"ability": "Drought",
 			"moves": ["Swords Dance", "Rock Polish", "Precipice Blades", "Fire Punch"]
 		}
 	],
@@ -6301,35 +6307,37 @@
 			"item": "Choice Specs",
 			"ability": "Drizzle",
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Thunder"]
-		},
+		}
+	],
+	"Kyogre-Primal": [
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Calm Mind", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Thunder"]
 		},
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Water Spout", "Origin Pulse", "Ice Beam", "Calm Mind"]
 		},
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Scald", "Rest", "Sleep Talk", "Calm Mind"]
 		},
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Scald", "Rest", "Sleep Talk", "Toxic"]
 		},
 		{
 			"item": "Blue Orb",
-			"ability": "Primordial Sea",
+			"ability": "Drizzle",
 			"moves": ["Scald", "Rest", "Sleep Talk", "Ice Beam"]
 		}
 	],
@@ -12549,18 +12557,8 @@
 			"moves": ["Earthquake", "Outrage", "Stone Edge", "Superpower"]
 		},
 		{
-			"item": "Choice Band",
-			"ability": "Power Construct",
-			"moves": ["Earthquake", "Outrage", "Stone Edge", "Superpower"]
-		},
-		{
 			"item": "Leftovers",
 			"ability": "Aura Break",
-			"moves": ["Substitute", "Glare", "Dragon Tail", "Earthquake"]
-		},
-		{
-			"item": "Leftovers",
-			"ability": "Power Construct",
 			"moves": ["Substitute", "Glare", "Dragon Tail", "Earthquake"]
 		},
 		{
@@ -12570,17 +12568,7 @@
 		},
 		{
 			"item": "Chesto Berry",
-			"ability": "Power Construct",
-			"moves": ["Dragon Dance", "Rest", "Earthquake", "Stone Edge"]
-		},
-		{
-			"item": "Chesto Berry",
 			"ability": "Aura Break",
-			"moves": ["Dragon Dance", "Rest", "Earthquake", "Outrage"]
-		},
-		{
-			"item": "Chesto Berry",
-			"ability": "Power Construct",
 			"moves": ["Dragon Dance", "Rest", "Earthquake", "Outrage"]
 		},
 		{
@@ -12590,17 +12578,7 @@
 		},
 		{
 			"item": "Leftovers",
-			"ability": "Power Construct",
-			"moves": ["Substitute", "Coil", "Earthquake", "Dragon Tail"]
-		},
-		{
-			"item": "Leftovers",
 			"ability": "Aura Break",
-			"moves": ["Dragon Dance", "Coil", "Earthquake", "Stone Edge"]
-		},
-		{
-			"item": "Leftovers",
-			"ability": "Power Construct",
 			"moves": ["Dragon Dance", "Coil", "Earthquake", "Stone Edge"]
 		}
 	],
@@ -12608,5 +12586,37 @@
 		"item": "Choice Band",
 		"ability": "Aura Break",
 		"moves": ["Earthquake", "Outrage", "Stone Edge", "Scale Shot"]
-	}]
+	}],
+	"Zygarde-Complete": [
+		{
+			"item": "Choice Band",
+			"ability": "Power Construct",
+			"moves": ["Earthquake", "Outrage", "Stone Edge", "Superpower"]
+		},
+		{
+			"item": "Leftovers",
+			"ability": "Power Construct",
+			"moves": ["Substitute", "Glare", "Dragon Tail", "Earthquake"]
+		},
+		{
+			"item": "Chesto Berry",
+			"ability": "Power Construct",
+			"moves": ["Dragon Dance", "Rest", "Earthquake", "Stone Edge"]
+		},
+		{
+			"item": "Chesto Berry",
+			"ability": "Power Construct",
+			"moves": ["Dragon Dance", "Rest", "Earthquake", "Outrage"]
+		},
+		{
+			"item": "Leftovers",
+			"ability": "Power Construct",
+			"moves": ["Substitute", "Coil", "Earthquake", "Dragon Tail"]
+		},
+		{
+			"item": "Leftovers",
+			"ability": "Power Construct",
+			"moves": ["Dragon Dance", "Coil", "Earthquake", "Stone Edge"]
+		}
+	]
 }
