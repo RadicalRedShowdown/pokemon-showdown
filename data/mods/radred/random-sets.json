@@ -8,8 +8,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Snow Warning",
 			"moves": ["Swords Dance", "Ice Hammer", "Wood Hammer", "Ice Shard"]
-		},
-		{
+		}
+	],
+	"Abomasnow-Mega": [{
 			"item": "Abomasite",
 			"ability": "Snow Warning",
 			"moves": ["Swords Dance", "Wood Hammer", "Ice Hammer", "Earthquake"]
@@ -34,8 +35,9 @@
 			"item": "Choice Band",
 			"ability": "Justified",
 			"moves": ["Knock Off", "Sucker Punch", "Close Combat", "Cut"]
-		},
-		{
+		}
+	],
+	"Absol-Mega": [{
 			"item": "Absolite",
 			"ability": "Justified",
 			"moves": ["Swords Dance", "Knock Off", "Sucker Punch", "Play Rough"]
@@ -102,8 +104,9 @@
 			"item": "Choice Band",
 			"ability": "Unnerve",
 			"moves": ["Stone Edge", "Dual Wingbeat", "Earthquake", "Crunch"]
-		},
-		{
+		}
+	],
+	"Aerodactyl-Mega": [{
 			"item": "Aerodactylite",
 			"ability": "Unnerve",
 			"moves": ["Dragon Dance", "Stone Edge", "Earthquake", "Dual Wingbeat"]
@@ -128,8 +131,9 @@
 			"item": "Air Balloon",
 			"ability": "Rock Head",
 			"moves": ["Head Smash", "Heavy Slam", "Stealth Rock", "Body Press"]
-		},
-		{
+		}
+	],
+	"Aggron-Mega": [{
 			"item": "Aggronite",
 			"ability": "Sturdy",
 			"moves": ["Stealth Rock", "Heavy Slam", "Body Press", "Toxic"]
@@ -154,8 +158,9 @@
 			"item": "Life Orb",
 			"ability": "Magic Guard",
 			"moves": ["Nasty Plot", "Recover", "Psychic", "Shadow Ball"]
-		},
-		{
+		}
+	],
+	"Alakazam-Mega": [{
 			"item": "Alakazite",
 			"ability": "Magic Guard",
 			"moves": ["Recover", "Nasty Plot", "Psychic", "Focus Blast"]
@@ -175,8 +180,9 @@
 			"item": "Leftovers",
 			"ability": "Aroma Veil",
 			"moves": ["Recover", "Moonblast", "Mystical Fire", "Calm Mind"]
-		},
-		{
+		}
+	],
+	"Alcremie-Mega": [{
 			"item": "Alcremite",
 			"ability": "Sweet Veil",
 			"moves": ["Calm Mind", "Recover", "Moonblast", "Mystical Fire"]
@@ -207,8 +213,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Natural Cure",
 			"moves": ["Fire Spin", "Perish Song", "Protect", "Roost"]
-		},
-		{
+		}
+	],
+	"Altaria-Mega": [{
 			"item": "Altarianite",
 			"ability": "Natural Cure",
 			"moves": ["Dragon Dance", "Return", "Earthquake", "Roost"]
@@ -251,11 +258,11 @@
 		}
 	],
 	"Ampharos": [{
-			"item": "Leftovers",
-			"ability": "Static",
-			"moves": ["Discharge", "Heal Bell", "Toxic", "Hidden Power [Ice]"]
-		},
-		{
+		"item": "Leftovers",
+		"ability": "Static",
+		"moves": ["Discharge", "Heal Bell", "Toxic", "Hidden Power [Ice]"]
+	}],
+	"Ampharos-Mega": [{
 			"item": "Ampharosite",
 			"ability": "Static",
 			"moves": ["Tail Glow", "Thunderbolt", "Dragon Pulse", "Focus Blast"]
@@ -267,16 +274,15 @@
 		}
 	],
 	"Appletun": [{
-			"item": "Leftovers",
-			"ability": "Thick Fat",
-			"moves": ["Apple Acid", "Dragon Pulse", "Leech Seed", "Recover"]
-		},
-		{
-			"item": "Appletunite",
-			"ability": "Thick Fat",
-			"moves": ["Leaf Storm", "Draco Meteor", "Recover", "Hidden Power [Fire]"]
-		}
-	],
+		"item": "Leftovers",
+		"ability": "Thick Fat",
+		"moves": ["Apple Acid", "Dragon Pulse", "Leech Seed", "Recover"]
+	}],
+	"Appletun-Mega": [{
+		"item": "Appletunite",
+		"ability": "Thick Fat",
+		"moves": ["Leaf Storm", "Draco Meteor", "Recover", "Hidden Power [Fire]"]
+	}],
 	"Araquanid": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Water Bubble",
@@ -454,16 +460,15 @@
 		}
 	],
 	"Audino": [{
-			"item": "Heavy-Duty Boots",
-			"ability": "Regenerator",
-			"moves": ["Wish", "Protect", "Teleport", "Knock Off"]
-		},
-		{
-			"item": "Audinite",
-			"ability": "Regenerator",
-			"moves": ["Wish", "Protect", "Teleport", "Moonblast"]
-		}
-	],
+		"item": "Heavy-Duty Boots",
+		"ability": "Regenerator",
+		"moves": ["Wish", "Protect", "Teleport", "Knock Off"]
+	}],
+	"Audino-Mega": [{
+		"item": "Audinite",
+		"ability": "Regenerator",
+		"moves": ["Wish", "Protect", "Teleport", "Moonblast"]
+	}],
 	"Avalugg": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Filter",
@@ -541,8 +546,9 @@
 			"item": "Leftovers",
 			"ability": "Insomnia",
 			"moves": ["Poltergeist", "Gunk Shot", "Shadow Sneak", "Destiny Bond"]
-		},
-		{
+		}
+	],
+	"Banette-Mega": [{
 			"item": "Banettite",
 			"ability": "Frisk",
 			"moves": ["Poltergeist", "Knock Off", "Sucker Punch", "Destiny Bond"]
@@ -674,8 +680,9 @@
 			"item": "Focus Sash",
 			"ability": "Swarm",
 			"moves": ["Toxic Spikes", "Endeavor", "Knock Off", "U-turn"]
-		},
-		{
+		}
+	],
+	"Beedrill-Mega": [{
 			"item": "Beedrillite",
 			"ability": "Swarm",
 			"moves": ["U-turn", "Poison Jab", "Drill Run", "Knock Off"]
@@ -821,8 +828,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Torrent",
 			"moves": ["Scald", "Rapid Spin", "Toxic", "Flip Turn"]
-		},
-		{
+		}
+	],
+	"Blastoise-Mega": [{
 			"item": "Blastoisinite",
 			"ability": "Rain Dish",
 			"moves": ["Shell Smash", "Dark Pulse", "Ice Beam", "Hydro Pump"]
@@ -857,8 +865,9 @@
 			"item": "Life Orb",
 			"ability": "Speed Boost",
 			"moves": ["Protect", "Fire Blast", "Scorching Sands", "Aura Sphere"]
-		},
-		{
+		}
+	],
+	"Blaziken-Mega": [{
 			"item": "Blazikenite",
 			"ability": "Speed Boost",
 			"moves": ["Fire Blast", "Close Combat", "Scorching Sands", "Thunder Punch"]
@@ -1070,8 +1079,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
 			"moves": ["Quiver Dance", "Sleep Powder", "Bug Buzz", "Air Slash"]
-		},
-		{
+		}
+	],
+	"Butterfree-Mega": [{
 			"item": "Butterfrite",
 			"ability": "Compound Eyes",
 			"moves": ["Sleep Powder", "Quiver Dance", "Hurricane", "Energy Ball"]
@@ -1176,8 +1186,9 @@
 			"item": "Leftovers",
 			"ability": "Solid Rock",
 			"moves": ["Stealth Rock", "Lava Plume", "Earth Power", "Toxic"]
-		},
-		{
+		}
+	],
+	"Camerupt-Mega": [{
 			"item": "Cameruptite",
 			"ability": "Solid Rock",
 			"moves": ["Stealth Rock", "Fire Blast", "Earth Power", "Steam Eruption"]
@@ -1313,8 +1324,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Flash Fire",
 			"moves": ["Fire Lash", "Coil", "Power Whip", "Leech Life"]
-		},
-		{
+		}
+	],
+	"Centiskorch-Mega": [{
 			"item": "Centiskite",
 			"ability": "Flash Fire",
 			"moves": ["Fire Lash", "Knock Off", "Power Whip", "Leech Life"]
@@ -1406,8 +1418,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
 			"moves": ["Roost", "Hurricane", "Fire Blast", "Defog"]
-		},
-		{
+		}
+	],
+	"Charizard-Mega-X": [{
 			"item": "Charizardite X",
 			"ability": "Flame Body",
 			"moves": ["Dragon Dance", "Fire Lash", "Dragon Claw", "Roost"]
@@ -1431,8 +1444,9 @@
 			"item": "Charizardite X",
 			"ability": "Flame Body",
 			"moves": ["Swords Dance", "Fire Lash", "Scale Shot", "Roost"]
-		},
-		{
+		}
+	],
+	"Charizard-Mega-Y": [{
 			"item": "Charizardite Y",
 			"ability": "Flame Body",
 			"moves": ["Roost", "Flamethrower", "Solar Beam", "Scorching Sands"]
@@ -1817,8 +1831,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Flame Body",
 			"moves": ["Stealth Rock", "Rapid Spin", "Overheat", "Stone Edge"]
-		},
-		{
+		}
+	],
+	"Coalossal-Mega": [{
 			"item": "Coalossite",
 			"ability": "Flame Body",
 			"moves": ["Overheat", "Scorching Sands", "Spikes", "Rapid Spin"]
@@ -1927,8 +1942,9 @@
 			"item": "Assault Vest",
 			"ability": "Heavy Metal",
 			"moves": ["Heat Crash", "Double Iron Bash", "Power Whip", "Earthquake"]
-		},
-		{
+		}
+	],
+	"Copperajah-Mega": [{
 			"item": "Copperajite",
 			"ability": "Sheer Force",
 			"moves": ["Double Iron Bash", "Superpower", "Fire Blast", "Power Whip"]
@@ -2404,27 +2420,6 @@
 			"moves": ["Nasty Plot", "Psychic", "Ice Beam", "Thunderbolt"]
 		}
 	],
-	"Deoxys-Speed": [{
-			"item": "Focus Sash",
-			"ability": "Pressure",
-			"moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"]
-		},
-		{
-			"item": "Focus Sash",
-			"ability": "Pressure",
-			"moves": ["Stealth Rock", "Spikes", "Taunt", "Knock Off"]
-		},
-		{
-			"item": "Light Clay",
-			"ability": "Pressure",
-			"moves": ["Stealth Rock", "Taunt", "Reflect", "Light Screen"]
-		},
-		{
-			"item": "Leftovers",
-			"ability": "Pressure",
-			"moves": ["Stealth Rock", "Psycho Boost", "Recover", "Superpower"]
-		}
-	],
 	"Deoxys-Defense": [{
 			"item": "Leftovers",
 			"ability": "Pressure",
@@ -2449,6 +2444,27 @@
 			"item": "Leftovers",
 			"ability": "Pressure",
 			"moves": ["Stealth Rock", "Toxic", "Recover", "Night Shade"]
+		}
+	],
+	"Deoxys-Speed": [{
+			"item": "Focus Sash",
+			"ability": "Pressure",
+			"moves": ["Stealth Rock", "Spikes", "Taunt", "Magic Coat"]
+		},
+		{
+			"item": "Focus Sash",
+			"ability": "Pressure",
+			"moves": ["Stealth Rock", "Spikes", "Taunt", "Knock Off"]
+		},
+		{
+			"item": "Light Clay",
+			"ability": "Pressure",
+			"moves": ["Stealth Rock", "Taunt", "Reflect", "Light Screen"]
+		},
+		{
+			"item": "Leftovers",
+			"ability": "Pressure",
+			"moves": ["Stealth Rock", "Psycho Boost", "Recover", "Superpower"]
 		}
 	],
 	"Dewgong": [{
@@ -2578,8 +2594,9 @@
 			"item": "Leftovers",
 			"ability": "Clear Body",
 			"moves": ["Diamond Storm", "Body Press", "Toxic", "Stealth Rock"]
-		},
-		{
+		}
+	],
+	"Diancie-Mega": [{
 			"item": "Diancite",
 			"ability": "Clear Body",
 			"moves": ["Diamond Storm", "Moonblast", "Mystical Fire", "Earth Power"]
@@ -2909,8 +2926,9 @@
 			"item": "Choice Scarf",
 			"ability": "Strong Jaw",
 			"moves": ["Aqua Fang", "Stone Edge", "Earthquake", "Ice Fang"]
-		},
-		{
+		}
+	],
+	"Drednaw-Mega": [{
 			"item": "Drednawite",
 			"ability": "Shell Armor",
 			"moves": ["Stealth Rock", "Aqua Fang", "Jaw Lock", "Earthquake"]
@@ -3126,8 +3144,9 @@
 			"item": "Leftovers",
 			"ability": "Light Metal",
 			"moves": ["Body Press", "Draco Meteor", "Flash Cannon", "Thunder Wave"]
-		},
-		{
+		}
+	],
+	"Duraludon-Mega": [{
 			"item": "Duraludonite",
 			"ability": "Clear Body",
 			"moves": ["Draco Meteor", "Steel Beam", "Body Press", "Thunderbolt"]
@@ -3680,8 +3699,9 @@
 			"item": "Life Orb",
 			"ability": "Hustle",
 			"moves": ["Grav Apple", "Outrage", "Sucker Punch", "Dragon Dance"]
-		},
-		{
+		}
+	],
+	"Flapple-Mega": [{
 			"item": "Flapplite",
 			"ability": "Hustle",
 			"moves": ["Draco Meteor", "Grav Apple", "Sucker Punch", "U-turn"]
@@ -3925,8 +3945,9 @@
 			"item": "Choice Scarf",
 			"ability": "Justified",
 			"moves": ["Close Combat", "Trick", "Zen Headbutt", "Knock Off"]
-		},
-		{
+		}
+	],
+	"Gallade-Mega": [{
 			"item": "Galladite",
 			"ability": "Justified",
 			"moves": ["Swords Dance", "Psycho Cut", "Sacred Sword", "Knock Off"]
@@ -3992,8 +4013,9 @@
 			"item": "Black Sludge",
 			"ability": "Gooey",
 			"moves": ["Gunk Shot", "Spikes", "Explosion", "Stomping Tantrum"]
-		},
-		{
+		}
+	],
+	"Garbodor-Mega": [{
 			"item": "Garbodorite",
 			"ability": "Gooey",
 			"moves": ["Autotomize", "Gunk Shot", "Stomping Tantrum", "Drain Punch"]
@@ -4043,8 +4065,9 @@
 			"item": "Leftovers",
 			"ability": "Rough Skin",
 			"moves": ["Earthquake", "Stealth Rock", "Protect", "Toxic"]
-		},
-		{
+		}
+	],
+	"Garchomp-Mega": [{
 			"item": "Garchompite",
 			"ability": "Rough Skin",
 			"moves": ["Swords Dance", "Earthquake", "Scale Shot", "Fire Fang"]
@@ -4114,8 +4137,9 @@
 			"item": "Choice Scarf",
 			"ability": "Trace",
 			"moves": ["Moonblast", "Psyshock", "Trick", "Healing Wish"]
-		},
-		{
+		}
+	],
+	"Gardevoir-Mega": [{
 			"item": "Gardevoirite",
 			"ability": "Trace",
 			"moves": ["Calm Mind", "Hyper Voice", "Psyshock", "Focus Blast"]
@@ -4247,8 +4271,9 @@
 			"item": "Choice Specs",
 			"ability": "Cursed Body",
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Trick"]
-		},
-		{
+		}
+	],
+	"Gengar-Mega": [{
 			"item": "Gengarite",
 			"ability": "Cursed Body",
 			"moves": ["Shadow Ball", "Sludge Wave", "Focus Blast", "Taunt"]
@@ -4409,16 +4434,15 @@
 		}
 	],
 	"Glalie": [{
-			"item": "Leftovers",
-			"ability": "Moody",
-			"moves": ["Disable", "Freeze-Dry", "Protect", "Substitute"]
-		},
-		{
-			"item": "Glalitite",
-			"ability": "Inner Focus",
-			"moves": ["Explosion", "Spikes", "Earthquake", "Return"]
-		}
-	],
+		"item": "Leftovers",
+		"ability": "Moody",
+		"moves": ["Disable", "Freeze-Dry", "Protect", "Substitute"]
+	}],
+	"Glalie-Mega": [{
+		"item": "Glalitite",
+		"ability": "Inner Focus",
+		"moves": ["Explosion", "Spikes", "Earthquake", "Return"]
+	}],
 	"Glastrier": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Chilling Neigh",
@@ -4698,6 +4722,11 @@
 		"ability": "Flare Boost",
 		"moves": ["Synthesis", "Will-O-Wisp", "Hex", "Giga Drain"]
 	}],
+	"Gourgeist-Small": [{
+		"item": "Flame Orb",
+		"ability": "Flare Boost",
+		"moves": ["Hex", "Giga Drain", "Fire Blast", "Will-O-Wisp"]
+	}],
 	"Gourgeist-Super": [{
 			"item": "Flame Orb",
 			"ability": "Flare Boost",
@@ -4709,11 +4738,6 @@
 			"moves": ["Hex", "Giga Drain", "Trick Room", "Fire Blast"]
 		}
 	],
-	"Gourgeist-Small": [{
-		"item": "Flame Orb",
-		"ability": "Flare Boost",
-		"moves": ["Hex", "Giga Drain", "Fire Blast", "Will-O-Wisp"]
-	}],
 	"Granbull": [{
 			"item": "Leftovers",
 			"ability": "Intimidate",
@@ -5063,8 +5087,9 @@
 			"item": "Leftovers",
 			"ability": "Moxie",
 			"moves": ["Dragon Dance", "Substitute", "Bounce", "Waterfall"]
-		},
-		{
+		}
+	],
+	"Gyarados-Mega": [{
 			"item": "Gyaradosite",
 			"ability": "Intimidate",
 			"moves": ["Dragon Dance", "Crunch", "Waterfall", "Earthquake"]
@@ -5255,8 +5280,9 @@
 			"item": "Choice Scarf",
 			"ability": "Moxie",
 			"moves": ["Close Combat", "Megahorn", "Spikes", "Knock Off"]
-		},
-		{
+		}
+	],
+	"Heracross-Mega": [{
 			"item": "Heracronite",
 			"ability": "Guts",
 			"moves": ["Swords Dance", "Close Combat", "Rock Blast", "Bullet Seed"]
@@ -5454,8 +5480,9 @@
 			"item": "Life Orb",
 			"ability": "Flash Fire",
 			"moves": ["Nasty Plot", "Dark Pulse", "Fire Blast", "Sucker Punch"]
-		},
-		{
+		}
+	],
+	"Houndoom-Mega": [{
 			"item": "Houndoominite",
 			"ability": "Flash Fire",
 			"moves": ["Nasty Plot", "Dark Pulse", "Fire Blast", "Sludge Bomb"]
@@ -5895,8 +5922,9 @@
 			"item": "Silk Scarf",
 			"ability": "Scrappy",
 			"moves": ["Fake Out", "Return", "Drain Punch", "Sucker Punch"]
-		},
-		{
+		}
+	],
+	"Kangaskhan-Mega": [{
 			"item": "Kangaskhanite",
 			"ability": "Scrappy",
 			"moves": ["Fake Out", "Return", "Sucker Punch", "Power-Up Punch"]
@@ -6025,8 +6053,9 @@
 			"item": "Life Orb",
 			"ability": "Sheer Force",
 			"moves": ["Rock Slide", "Agility", "Liquidation", "Ice Punch"]
-		},
-		{
+		}
+	],
+	"Kingler-Mega": [{
 			"item": "Kinglerite",
 			"ability": "Hyper Cutter",
 			"moves": ["Swords Dance", "Liquidation", "Iron Head", "Aqua Jet"]
@@ -6499,8 +6528,9 @@
 			"item": "Assault Vest",
 			"ability": "Water Absorb",
 			"moves": ["Scald", "Draco Meteor", "Thunderbolt", "Freeze-Dry"]
-		},
-		{
+		}
+	],
+	"Lapras-Mega": [{
 			"item": "Laprasite",
 			"ability": "Water Absorb",
 			"moves": ["Boomburst", "Draco Meteor", "Thunderbolt", "Toxic"]
@@ -6550,8 +6580,9 @@
 			"item": "Choice Specs",
 			"ability": "Levitate",
 			"moves": ["Draco Meteor", "Psyshock", "Mystical Fire", "Aura Sphere"]
-		},
-		{
+		}
+	],
+	"Latias-Mega": [{
 			"item": "Latiasite",
 			"ability": "Levitate",
 			"moves": ["Calm Mind", "Roost", "Stored Power", "Aura Sphere"]
@@ -6611,8 +6642,9 @@
 			"item": "Soul Dew",
 			"ability": "Levitate",
 			"moves": ["Draco Meteor", "Roost", "Psyshock", "Calm Mind"]
-		},
-		{
+		}
+	],
+	"Latios-Mega": [{
 			"item": "Latiosite",
 			"ability": "Levitate",
 			"moves": ["Earthquake", "Draco Meteor", "Psychic", "Roost"]
@@ -6768,8 +6800,9 @@
 			"item": "Assault Vest",
 			"ability": "Klutz",
 			"moves": ["Healing Wish", "Switcheroo", "U-turn", "Return"]
-		},
-		{
+		}
+	],
+	"Lopunny-Mega": [{
 			"item": "Lopunnite",
 			"ability": "Limber",
 			"moves": ["Fake Out", "Close Combat", "Return", "U-turn"]
@@ -6804,8 +6837,9 @@
 			"item": "Life Orb",
 			"ability": "Inner Focus",
 			"moves": ["Nasty Plot", "Aura Sphere", "Flash Cannon", "Vacuum Wave"]
-		},
-		{
+		}
+	],
+	"Lucario-Mega": [{
 			"item": "Lucarionite",
 			"ability": "Justified",
 			"moves": ["Swords Dance", "Close Combat", "Meteor Mash", "Extreme Speed"]
@@ -7113,11 +7147,11 @@
 		}
 	],
 	"Machamp": [{
-			"item": "Flame Orb",
-			"ability": "Guts",
-			"moves": ["Close Combat", "Knock Off", "Facade", "Bullet Punch"]
-		},
-		{
+		"item": "Flame Orb",
+		"ability": "Guts",
+		"moves": ["Close Combat", "Knock Off", "Facade", "Bullet Punch"]
+	}],
+	"Machamp-Mega": [{
 			"item": "Machampite",
 			"ability": "Guts",
 			"moves": ["Power-Up Punch", "Drain Punch", "Knock Off", "Bullet Punch"]
@@ -7355,8 +7389,9 @@
 			"item": "Choice Scarf",
 			"ability": "Intimidate",
 			"moves": ["Volt Switch", "Overheat", "Thunderbolt", "Hidden Power [Ice]"]
-		},
-		{
+		}
+	],
+	"Manectric-Mega": [{
 			"item": "Manectite",
 			"ability": "Intimidate",
 			"moves": ["Volt Switch", "Thunderbolt", "Overheat", "Hidden Power [Ice]"]
@@ -7512,8 +7547,9 @@
 			"item": "Leftovers",
 			"ability": "Intimidate",
 			"moves": ["Play Rough", "Super Fang", "Toxic", "Stealth Rock"]
-		},
-		{
+		}
+	],
+	"Mawile-Mega": [{
 			"item": "Mawilite",
 			"ability": "Intimidate",
 			"moves": ["Play Rough", "Sucker Punch", "Knock Off", "Swords Dance"]
@@ -7563,8 +7599,9 @@
 			"item": "Choice Scarf",
 			"ability": "Pure Power",
 			"moves": ["Close Combat", "Zen Headbutt", "Thunder Punch", "Ice Punch"]
-		},
-		{
+		}
+	],
+	"Medicham-Mega": [{
 			"item": "Medichamite",
 			"ability": "Pure Power",
 			"moves": ["Fake Out", "Close Combat", "Ice Punch", "Thunder Punch"]
@@ -7770,8 +7807,9 @@
 			"item": "Choice Scarf",
 			"ability": "Clear Body",
 			"moves": ["Trick", "Meteor Mash", "Earthquake", "Ice Punch"]
-		},
-		{
+		}
+	],
+	"Metagross-Mega": [{
 			"item": "Metagrossite",
 			"ability": "Clear Body",
 			"moves": ["Meteor Mash", "Zen Headbutt", "Thunder Punch", "Ice Punch"]
@@ -7952,8 +7990,9 @@
 			"item": "Life Orb",
 			"ability": "Pressure",
 			"moves": ["Nasty Plot", "Psystrike", "Focus Blast", "Recover"]
-		},
-		{
+		}
+	],
+	"Mewtwo-Mega-X": [{
 			"item": "Mewtwonite X",
 			"ability": "Unnerve",
 			"moves": ["Bulk Up", "Drain Punch", "Zen Headbutt", "Ice Punch"]
@@ -7972,8 +8011,9 @@
 			"item": "Mewtwonite X",
 			"ability": "Unnerve",
 			"moves": ["Bulk Up", "Drain Punch", "Taunt", "Ice Punch"]
-		},
-		{
+		}
+	],
+	"Mewtwo-Mega-Y": [{
 			"item": "Mewtwonite Y",
 			"ability": "Unnerve",
 			"moves": ["Nasty Plot", "Psystrike", "Fire Blast", "Ice Beam"]
@@ -8631,8 +8671,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Frisk",
 			"moves": ["Teleport", "Future Sight", "Recover", "Sticky Web"]
-		},
-		{
+		}
+	],
+	"Orbeetle-Mega": [{
 			"item": "Orbeetlite",
 			"ability": "Frisk",
 			"moves": ["Calm Mind", "Recover", "Iron Defense", "Stored Power"]
@@ -8835,11 +8876,11 @@
 		}
 	],
 	"Pidgeot": [{
-			"item": "Heavy-Duty Boots",
-			"ability": "Frisk",
-			"moves": ["Roost", "U-turn", "Brave Bird", "Defog"]
-		},
-		{
+		"item": "Heavy-Duty Boots",
+		"ability": "Frisk",
+		"moves": ["Roost", "U-turn", "Brave Bird", "Defog"]
+	}],
+	"Pidgeot-Mega": [{
 			"item": "Pidgeotite",
 			"ability": "Frisk",
 			"moves": ["Roost", "Hurricane", "Heat Wave", "Focus Blast"]
@@ -8850,11 +8891,6 @@
 			"moves": ["U-turn", "Hurricane", "Heat Wave", "Focus Blast"]
 		}
 	],
-	"Pikachu-Partner": [{
-		"item": "Light Ball",
-		"ability": "Lightning Rod",
-		"moves": ["Volt Tackle", "Hidden Power [Ice]", "Volt Switch", "Knock Off"]
-	}],
 	"Pikachu-Belle": [{
 		"item": "Light Ball",
 		"ability": "Lightning Rod",
@@ -8869,6 +8905,11 @@
 		"item": "Light Ball",
 		"ability": "Lightning Rod",
 		"moves": ["Close Combat", "Wild Charge", "Volt Switch", "Knock Off"]
+	}],
+	"Pikachu-Partner": [{
+		"item": "Light Ball",
+		"ability": "Lightning Rod",
+		"moves": ["Volt Tackle", "Hidden Power [Ice]", "Volt Switch", "Knock Off"]
 	}],
 	"Pikachu-Pop-Star": [{
 		"item": "Light Ball",
@@ -8915,8 +8956,9 @@
 			"item": "Choice Scarf",
 			"ability": "Moxie",
 			"moves": ["Stone Edge", "Megahorn", "Earthquake", "Close Combat"]
-		},
-		{
+		}
+	],
+	"Pinsir-Mega": [{
 			"item": "Pinsirite",
 			"ability": "Hyper Cutter",
 			"moves": ["Swords Dance", "Return", "Quick Attack", "Close Combat"]
@@ -9255,15 +9297,15 @@
 			"moves": ["Outrage", "Dragon Ascent", "Earthquake", "Extreme Speed"]
 		}
 	],
-	"Regigigas": [{
-			"item": "Leftovers",
-			"ability": "Slow Start",
-			"moves": ["Body Slam", "Darkest Lariat", "Thunder Wave", "Protect"]
+	"Regice": [{
+			"item": "Heavy-Duty Boots",
+			"ability": "Clear Body",
+			"moves": ["Ice Beam", "Thunderbolt", "Toxic", "Rest"]
 		},
 		{
-			"item": "Leftovers",
-			"ability": "Slow Start",
-			"moves": ["Substitute", "Toxic", "Body Slam", "Darkest Lariat"]
+			"item": "Heavy-Duty Boots",
+			"ability": "Clear Body",
+			"moves": ["Rock Polish", "Ice Beam", "Thunderbolt", "Focus Blast"]
 		}
 	],
 	"Regidrago": [{
@@ -9298,26 +9340,15 @@
 			"moves": ["Volt Switch", "Hidden Power [Ice]", "Thunderbolt", "Explosion"]
 		}
 	],
-	"Regice": [{
-			"item": "Heavy-Duty Boots",
-			"ability": "Clear Body",
-			"moves": ["Ice Beam", "Thunderbolt", "Toxic", "Rest"]
-		},
-		{
-			"item": "Heavy-Duty Boots",
-			"ability": "Clear Body",
-			"moves": ["Rock Polish", "Ice Beam", "Thunderbolt", "Focus Blast"]
-		}
-	],
-	"Registeel": [{
+	"Regigigas": [{
 			"item": "Leftovers",
-			"ability": "Clear Body",
-			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Protect"]
+			"ability": "Slow Start",
+			"moves": ["Body Slam", "Darkest Lariat", "Thunder Wave", "Protect"]
 		},
 		{
 			"item": "Leftovers",
-			"ability": "Clear Body",
-			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Toxic"]
+			"ability": "Slow Start",
+			"moves": ["Substitute", "Toxic", "Body Slam", "Darkest Lariat"]
 		}
 	],
 	"Regirock": [{
@@ -9334,6 +9365,17 @@
 			"item": "Choice Band",
 			"ability": "Clear Body",
 			"moves": ["Stone Edge", "Body Press", "Earthquake", "Heavy Slam"]
+		}
+	],
+	"Registeel": [{
+			"item": "Leftovers",
+			"ability": "Clear Body",
+			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Protect"]
+		},
+		{
+			"item": "Leftovers",
+			"ability": "Clear Body",
+			"moves": ["Stealth Rock", "Body Press", "Flash Cannon", "Toxic"]
 		}
 	],
 	"Relicanth": [{
@@ -9536,16 +9578,15 @@
 		}
 	],
 	"Sableye": [{
-			"item": "Leftovers",
-			"ability": "Prankster",
-			"moves": ["Knock Off", "Will-O-Wisp", "Taunt", "Recover"]
-		},
-		{
-			"item": "Sablenite",
-			"ability": "Prankster",
-			"moves": ["Knock Off", "Will-O-Wisp", "Foul Play", "Recover"]
-		}
-	],
+		"item": "Leftovers",
+		"ability": "Prankster",
+		"moves": ["Knock Off", "Will-O-Wisp", "Taunt", "Recover"]
+	}],
+	"Sableye-Mega": [{
+		"item": "Sablenite",
+		"ability": "Prankster",
+		"moves": ["Knock Off", "Will-O-Wisp", "Foul Play", "Recover"]
+	}],
 	"Salamence": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Moxie",
@@ -9555,8 +9596,9 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Intimidate",
 			"moves": ["Draco Meteor", "Flamethrower", "Defog", "Roost"]
-		},
-		{
+		}
+	],
+	"Salamence-Mega": [{
 			"item": "Salamencite",
 			"ability": "Intimidate",
 			"moves": ["Dragon Dance", "Facade", "Earthquake", "Roost"]
@@ -9597,8 +9639,9 @@
 			"item": "Leftovers",
 			"ability": "Shed Skin",
 			"moves": ["Coil", "Earthquake", "Stone Edge", "Rest"]
-		},
-		{
+		}
+	],
+	"Sandaconda-Mega": [{
 			"item": "Sandacondite",
 			"ability": "Shed Skin",
 			"happiness": 0,
@@ -9674,16 +9717,15 @@
 		}
 	],
 	"Sceptile": [{
-			"item": "Choice Specs",
-			"ability": "Overgrow",
-			"moves": ["Leaf Storm", "Draco Meteor", "Focus Blast", "Hidden Power [Fire]"]
-		},
-		{
-			"item": "Sceptilite",
-			"ability": "Technician",
-			"moves": ["Swords Dance", "Scale Shot", "Bullet Seed", "Earthquake"]
-		}
-	],
+		"item": "Choice Specs",
+		"ability": "Overgrow",
+		"moves": ["Leaf Storm", "Draco Meteor", "Focus Blast", "Hidden Power [Fire]"]
+	}],
+	"Sceptile-Mega": [{
+		"item": "Sceptilite",
+		"ability": "Technician",
+		"moves": ["Swords Dance", "Scale Shot", "Bullet Seed", "Earthquake"]
+	}],
 	"Scizor": [{
 			"item": "Choice Band",
 			"ability": "Technician",
@@ -9693,8 +9735,9 @@
 			"item": "Leftovers",
 			"ability": "Technician",
 			"moves": ["Swords Dance", "Bullet Punch", "Bug Bite", "Superpower"]
-		},
-		{
+		}
+	],
+	"Scizor-Mega": [{
 			"item": "Scizorite",
 			"ability": "Light Metal",
 			"moves": ["Swords Dance", "Bullet Punch", "Bug Bite", "Roost"]
@@ -9809,8 +9852,9 @@
 			"item": "Life Orb",
 			"ability": "Speed Boost",
 			"moves": ["Protect", "Liquidation", "Crunch", "Close Combat"]
-		},
-		{
+		}
+	],
+	"Sharpedo-Mega": [{
 			"item": "Sharpedonite",
 			"ability": "Speed Boost",
 			"moves": ["Protect", "Aqua Fang", "Crunch", "Close Combat"]
@@ -9932,6 +9976,32 @@
 			"moves": ["Sticky Web", "Stealth Rock", "Encore", "Knock Off"]
 		}
 	],
+	"Sigilyph": [{
+			"item": "Life Orb",
+			"ability": "Magic Guard",
+			"moves": ["Air Slash", "Energy Ball", "Heat Wave", "Psychic"]
+		},
+		{
+			"item": "Flame Orb",
+			"ability": "Magic Guard",
+			"moves": ["Psycho Shift", "Cosmic Power", "Air Slash", "Roost"]
+		},
+		{
+			"item": "Flame Orb",
+			"ability": "Magic Guard",
+			"moves": ["Psycho Shift", "Cosmic Power", "Stored Power", "Roost"]
+		},
+		{
+			"item": "Choice Specs",
+			"ability": "Tinted Lens",
+			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
+		},
+		{
+			"item": "Choice Scarf",
+			"ability": "Tinted Lens",
+			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
+		}
+	],
 	"Silvally": [{
 		"item": "Choice Band",
 		"ability": "Battle Armor",
@@ -10028,41 +10098,15 @@
 		"ability": "Battle Armor",
 		"moves": ["Multi-Attack", "Flamethrower", "Parting Shot", "Defog"]
 	}],
-	"Sigilyph": [{
-			"item": "Life Orb",
-			"ability": "Magic Guard",
-			"moves": ["Air Slash", "Energy Ball", "Heat Wave", "Psychic"]
-		},
-		{
-			"item": "Flame Orb",
-			"ability": "Magic Guard",
-			"moves": ["Psycho Shift", "Cosmic Power", "Air Slash", "Roost"]
-		},
-		{
-			"item": "Flame Orb",
-			"ability": "Magic Guard",
-			"moves": ["Psycho Shift", "Cosmic Power", "Stored Power", "Roost"]
-		},
-		{
-			"item": "Choice Specs",
-			"ability": "Tinted Lens",
-			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
-		},
-		{
-			"item": "Choice Scarf",
-			"ability": "Tinted Lens",
-			"moves": ["Air Slash", "Hurricane", "Psychic", "Heat Wave"]
-		}
-	],
-	"Simisage": [{
-		"item": "Choice Specs",
-		"ability": "Sage Power",
-		"moves": ["Leaf Storm", "Giga Drain", "Focus Blast", "Hidden Power [Ice]"]
-	}],
 	"Simipour": [{
 		"item": "Choice Specs",
 		"ability": "Sage Power",
 		"moves": ["Hydro Pump", "Ice Beam", "Focus Blast", "Grass Knot"]
+	}],
+	"Simisage": [{
+		"item": "Choice Specs",
+		"ability": "Sage Power",
+		"moves": ["Leaf Storm", "Giga Drain", "Focus Blast", "Hidden Power [Ice]"]
 	}],
 	"Simisear": [{
 		"item": "Choice Specs",
@@ -10152,16 +10196,6 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Regenerator",
 			"moves": ["Scald", "Future Sight", "Slack Off", "Teleport"]
-		},
-		{
-			"item": "Slowbronite",
-			"ability": "Regenerator",
-			"moves": ["Nasty Plot", "Scald", "Flamethrower", "Slack Off"]
-		},
-		{
-			"item": "Slowbronite",
-			"ability": "Regenerator",
-			"moves": ["Slack Off", "Scald", "Future Sight", "Teleport"]
 		}
 	],
 	"Slowbro-Galar": [{
@@ -10173,6 +10207,17 @@
 			"item": "Black Sludge",
 			"ability": "Regenerator",
 			"moves": ["Calm Mind", "Sludge Bomb", "Flamethrower", "Slack Off"]
+		}
+	],
+	"Slowbro-Mega": [{
+			"item": "Slowbronite",
+			"ability": "Regenerator",
+			"moves": ["Nasty Plot", "Scald", "Flamethrower", "Slack Off"]
+		},
+		{
+			"item": "Slowbronite",
+			"ability": "Regenerator",
+			"moves": ["Slack Off", "Scald", "Future Sight", "Teleport"]
 		}
 	],
 	"Slowking": [{
@@ -10244,8 +10289,9 @@
 			"item": "Sitrus Berry",
 			"ability": "Thick Fat",
 			"moves": ["Belly Drum", "Body Slam", "Darkest Lariat", "Earthquake"]
-		},
-		{
+		}
+	],
+	"Snorlax-Mega": [{
 			"item": "Snorlaxite",
 			"ability": "Thick Fat",
 			"moves": ["Curse", "Body Slam", "Seed Bomb", "Rest"]
@@ -10413,8 +10459,9 @@
 			"item": "Life Orb",
 			"ability": "Sheer Force",
 			"moves": ["Dragon Dance", "Iron Head", "Ice Fang", "Fire Fang"]
-		},
-		{
+		}
+	],
+	"Steelix-Mega": [{
 			"item": "Steelixite",
 			"ability": "Sturdy",
 			"moves": ["Stealth Rock", "Earthquake", "Body Press", "Toxic"]
@@ -10590,8 +10637,9 @@
 			"item": "Choice Band",
 			"ability": "Torrent",
 			"moves": ["Earthquake", "Liquidation", "Flip Turn", "Stone Edge"]
-		},
-		{
+		}
+	],
+	"Swampert-Mega": [{
 			"item": "Swampertite",
 			"ability": "Damp",
 			"moves": ["Rain Dance", "Liquidation", "Earthquake", "Ice Punch"]
@@ -11125,8 +11173,9 @@
 			"item": "Life Orb",
 			"ability": "Punk Rock",
 			"moves": ["Boomburst", "Overdrive", "Drain Punch", "Shift Gear"]
-		},
-		{
+		}
+	],
+	"Toxtricity-Mega": [{
 			"item": "Toxtricitite",
 			"ability": "Punk Rock",
 			"moves": ["Boomburst", "Overdrive", "Sludge Wave", "Volt Switch"]
@@ -11287,8 +11336,9 @@
 			"item": "Leftovers",
 			"ability": "Sand Stream",
 			"moves": ["Stone Edge", "Crunch", "Pursuit", "Stealth Rock"]
-		},
-		{
+		}
+	],
+	"Tyranitar-Mega": [{
 			"item": "Tyranitarite",
 			"ability": "Sand Stream",
 			"moves": ["Dragon Dance", "Stone Edge", "Ice Punch", "Fire Punch"]
@@ -11477,8 +11527,9 @@
 			"item": "Life Orb",
 			"ability": "Chlorophyll",
 			"moves": ["Sunny Day", "Giga Drain", "Sludge Bomb", "Earth Power"]
-		},
-		{
+		}
+	],
+	"Venusaur-Mega": [{
 			"item": "Venusaurite",
 			"ability": "Chlorophyll",
 			"moves": ["Giga Drain", "Sludge Bomb", "Leech Seed", "Synthesis"]
@@ -11819,11 +11870,6 @@
 		"ability": "Shadow Tag",
 		"moves": ["Counter", "Mirror Coat", "Destiny Bond", "Encore"]
 	}],
-	"Wormadam-Trash": [{
-		"item": "Leftovers",
-		"ability": "Overcoat",
-		"moves": ["Stealth Rock", "Toxic", "Protect", "Gyro Ball"]
-	}],
 	"Wormadam": [{
 		"item": "Heavy-Duty Boots",
 		"ability": "Overcoat",
@@ -11840,6 +11886,11 @@
 			"moves": ["Quiver Dance", "Earth Power", "Power Gem", "Bug Buzz"]
 		}
 	],
+	"Wormadam-Trash": [{
+		"item": "Leftovers",
+		"ability": "Overcoat",
+		"moves": ["Stealth Rock", "Toxic", "Protect", "Gyro Ball"]
+	}],
 	"Xatu": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Magic Bounce",
@@ -12090,69 +12141,6 @@
 			"moves": ["Oblivion Wing", "Dark Pulse", "Sucker Punch", "Roost"]
 		}
 	],
-	"Zamazenta-Crowned": [{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Close Combat", "Behemoth Bash", "Wild Charge", "Ice Fang"]
-		},
-		{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Howl", "Close Combat", "Behemoth Bash", "Wild Charge"]
-		},
-		{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Howl", "Close Combat", "Ice Fang", "Wild Charge"]
-		},
-		{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Behemoth Bash", "Close Combat", "Wild Charge", "Toxic"]
-		},
-		{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Behemoth Bash", "Close Combat", "Wild Charge", "Metal Burst"]
-		},
-		{
-			"item": "Rusted Shield",
-			"ability": "Dauntless Shield",
-			"moves": ["Behemoth Bash", "Close Combat", "Metal Burst", "Toxic"]
-		}
-	],
-	"Zamazenta": [{
-			"item": "Choice Band",
-			"ability": "Dauntless Shield",
-			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
-		},
-		{
-			"item": "Choice Scarf",
-			"ability": "Dauntless Shield",
-			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
-		},
-		{
-			"item": "Life Orb",
-			"ability": "Dauntless Shield",
-			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
-		}
-	],
-	"Zacian-Crowned": [{
-			"item": "Rusted Sword",
-			"ability": "Intrepid Sword",
-			"moves": ["Swords Dance", "Behemoth Blade", "Play Rough", "Close Combat"]
-		},
-		{
-			"item": "Rusted Sword",
-			"ability": "Intrepid Sword",
-			"moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Wild Charge"]
-		},
-		{
-			"item": "Rusted Sword",
-			"ability": "Intrepid Sword",
-			"moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Substitute"]
-		}
-	],
 	"Zacian": [{
 			"item": "Choice Band",
 			"ability": "Intrepid Sword",
@@ -12182,6 +12170,69 @@
 			"item": "Leftovers",
 			"ability": "Intrepid Sword",
 			"moves": ["Substitute", "Swords Dance", "Play Rough", "Close Combat"]
+		}
+	],
+	"Zacian-Crowned": [{
+			"item": "Rusted Sword",
+			"ability": "Intrepid Sword",
+			"moves": ["Swords Dance", "Behemoth Blade", "Play Rough", "Close Combat"]
+		},
+		{
+			"item": "Rusted Sword",
+			"ability": "Intrepid Sword",
+			"moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Wild Charge"]
+		},
+		{
+			"item": "Rusted Sword",
+			"ability": "Intrepid Sword",
+			"moves": ["Behemoth Blade", "Play Rough", "Close Combat", "Substitute"]
+		}
+	],
+	"Zamazenta": [{
+			"item": "Choice Band",
+			"ability": "Dauntless Shield",
+			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
+		},
+		{
+			"item": "Choice Scarf",
+			"ability": "Dauntless Shield",
+			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
+		},
+		{
+			"item": "Life Orb",
+			"ability": "Dauntless Shield",
+			"moves": ["Close Combat", "Crunch", "Psychic Fangs", "Wild Charge"]
+		}
+	],
+	"Zamazenta-Crowned": [{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Close Combat", "Behemoth Bash", "Wild Charge", "Ice Fang"]
+		},
+		{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Howl", "Close Combat", "Behemoth Bash", "Wild Charge"]
+		},
+		{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Howl", "Close Combat", "Ice Fang", "Wild Charge"]
+		},
+		{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Behemoth Bash", "Close Combat", "Wild Charge", "Toxic"]
+		},
+		{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Behemoth Bash", "Close Combat", "Wild Charge", "Metal Burst"]
+		},
+		{
+			"item": "Rusted Shield",
+			"ability": "Dauntless Shield",
+			"moves": ["Behemoth Bash", "Close Combat", "Metal Burst", "Toxic"]
 		}
 	],
 	"Zangoose": [{

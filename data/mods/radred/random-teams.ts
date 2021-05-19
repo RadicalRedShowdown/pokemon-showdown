@@ -597,8 +597,7 @@ export class RandomRadicalRedTeams {
 		const sets = this.randomSets[species.name];
 		if (!sets || !sets.length) return;
 		let setData = this.sampleNoReplace(sets);
-		if ((this.dex.items.get(setData.item).megaEvolves === species.baseSpecies && teamDetails.megaStone) ||
-			((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance')) && teamDetails.rain) ||
+		if (((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance')) && teamDetails.rain) ||
 			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day')) && teamDetails.sun) ||
 			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail')) && teamDetails.hail) ||
 			(setData.ability === 'Sand Stream' && teamDetails.sand) ||
@@ -623,9 +622,7 @@ export class RandomRadicalRedTeams {
 		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 
 		let level: number;
-		if (this.dex.items.get(item).megaEvolves === species.baseSpecies) {
-			level = this.dex.species.get(this.dex.items.get(item).megaStone).randomBattleLevel!;
-		} else if (species.randomBattleLevel) {
+		if (species.randomBattleLevel) {
 			level = species.randomBattleLevel;
 		} else {
 			level = 80;
@@ -733,6 +730,7 @@ export class RandomRadicalRedTeams {
 		const potd = usePotD ? this.dex.species.get(Config.potd) : null;
 
 		const baseFormes: {[k: string]: number} = {};
+		let hasMega = false;
 
 		const levelCount: {[k: string]: number} = {};
 		const tierCount: {[k: string]: number} = {};
@@ -747,6 +745,9 @@ export class RandomRadicalRedTeams {
 
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
+
+			// Limit one Mega per team
+			if (hasMega && species.isMega) continue;
 
 			// Illusion shouldn't be on the last slot
 			if (species.name === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
@@ -846,7 +847,7 @@ export class RandomRadicalRedTeams {
 			}
 
 			// Track what the team has
-			if (this.dex.items.get(set.item).megaEvolves === species.baseSpecies) teamDetails.megaStone = 1;
+			if (this.dex.items.get(set.item).megaStone) hasMega = true;
 			if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails.rain = 1;
 			if (set.ability === 'Drought' || set.moves.includes('sunnyday')) teamDetails.sun = 1;
 			if (set.ability === 'Sand Stream') teamDetails.sand = 1;
