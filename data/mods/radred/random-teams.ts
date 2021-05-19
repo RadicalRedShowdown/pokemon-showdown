@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import {Dex, toID} from '../../../sim/dex';
 import {Utils} from '../../../lib';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
@@ -581,6 +582,9 @@ export class RandomRadicalRedTeams {
 		species = this.dex.species.get(species);
 		let forme = species.name;
 		let gmax = false;
+		let choiceBand = false;
+		let choiceSpecs = false;
+		let choices = 0;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -597,10 +601,12 @@ export class RandomRadicalRedTeams {
 		const sets = this.randomSets[species.name];
 		if (!sets || !sets.length) return;
 		let setData = this.sampleNoReplace(sets);
+		// eslint-disable-next-line max-len
 		if (((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance') || (setData.ability === 'Forecast' && setData.item === 'Damp Rock')) && teamDetails.rain) ||
 			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day') || (setData.ability === 'Forecast' && setData.item === 'Heat Rock')) && teamDetails.sun) ||
 			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail') || (setData.ability === 'Forecast' && setData.item === 'Icy Rock')) && teamDetails.hail) ||
 			((setData.ability === 'Sand Stream' || (setData.ability === 'Forecast' && setData.item === 'Smooth Rock')) && teamDetails.sand) ||
+			choiceBand || choiceSpecs || (choices > 2) ||
 			(setData.moves.includes('Spikes') && teamDetails.spikes) ||
 			(setData.moves.includes('Stealth Rock') && teamDetails.stealthRock) ||
 			(setData.moves.includes('Sticky Web') && teamDetails.stickyWeb) ||
@@ -661,6 +667,17 @@ export class RandomRadicalRedTeams {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
+
+		// Limit choice items
+		if (item === "Choice Band") {
+			choiceBand = true;
+			choices++;
+		}
+		if (item === "Choice Specs") {
+			choiceSpecs = true;
+			choices++;
+		}
+		if (item === "Choice Scarf") choices++;
 
 		// Ensure Nihilego's Beast Boost gives it Special Attack boosts instead of Special Defense
 		if (forme === 'Nihilego') evs.spd -= 32;

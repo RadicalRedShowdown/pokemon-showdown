@@ -5265,6 +5265,16 @@
 			"item": "Heavy-Duty Boots",
 			"ability": "Dry Skin",
 			"moves": ["Boomburst", "Thunderbolt", "Volt Switch", "Hidden Power [Ice]"]
+		},
+		{
+			"item": "Life Orb",
+			"ability": "Solar Power",
+			"moves": ["Boomburst", "Thunderbolt", "Sunny Day", "Weather Ball"]
+		},
+		{
+			"item": "Life Orb",
+			"ability": "Solar Power",
+			"moves": ["Boomburst", "Thunderbolt", "Sunny Day", "Grass Knot"]
 		}
 	],
 	"Heracross": [{
