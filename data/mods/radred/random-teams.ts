@@ -781,10 +781,7 @@ export class RandomRadicalRedTeams {
 			*/
 
 			// Limit one Pokemon per level, two for Monotype
-			if (
-				(levelCount[species.randomBattleLevel || 80] >= (this.forceMonotype || isMonotype ? 2 : 1) * limitFactor) &&
-				!this.randomChance(1, Math.pow(5, tierCount[tier]))
-			) {
+			if (levelCount[species.randomBattleLevel || 80] >= (this.forceMonotype || isMonotype ? 2 : 1) * limitFactor) {
 				continue;
 			}
 
