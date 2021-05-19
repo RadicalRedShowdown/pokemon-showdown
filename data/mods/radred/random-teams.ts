@@ -748,6 +748,12 @@ export class RandomRadicalRedTeams {
 
 			// Limit one Mega per team
 			if (hasMega && species.isMega) continue;
+			if (species.otherFormes && !hasMega && (
+				species.otherFormes.includes(species.name + '-Mega') ||
+				species.otherFormes.includes(species.name + '-Mega-X')
+			)) {
+				continue;
+			}
 
 			// Illusion shouldn't be on the last slot
 			if (species.name === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
