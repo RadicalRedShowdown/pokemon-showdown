@@ -643,10 +643,10 @@ export class RandomRadicalRedTeams {
 			if (multipleOfFourNecessary) {
 				// Two Substitutes should activate Sitrus Berry
 				if (hp % 4 === 0) break;
-			} else if (moves.includes('bellydrum') && (item === 'Sitrus Berry' || ability === 'Gluttony')) {
+			} else if (moves.includes('Belly Drum') && (item === 'Sitrus Berry' || ability === 'Gluttony')) {
 				// Belly Drum should activate Sitrus Berry
 				if (hp % 2 === 0) break;
-			} else if (moves.includes('substitute') && moves.includes('reversal')) {
+			} else if (moves.includes('Substitute') && moves.includes('Reversal')) {
 				// Reversal users should be able to use four Substitutes
 				if (hp % 4 > 0) break;
 			} else {
@@ -658,7 +658,7 @@ export class RandomRadicalRedTeams {
 
 		// Minimize confusion damage
 		if (!moves.some((move: any) => this.dex.moves.get(move).category === "Physical") &&
-			!moves.includes('transform')) {
+			!moves.includes('Transform')) {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
@@ -666,9 +666,14 @@ export class RandomRadicalRedTeams {
 		// Ensure Nihilego's Beast Boost gives it Special Attack boosts instead of Special Defense
 		if (forme === 'Nihilego') evs.spd -= 32;
 
-		if (moves.includes('gyroball') || moves.includes('trickroom')) {
+		if (moves.includes('Gyro Ball') || moves.includes('Trick Room')) {
 			evs.spe = 0;
 			ivs.spe = 0;
+		}
+
+		let happiness = 255;
+		if (moves.includes('Frustration')) {
+			happiness = 0;
 		}
 
 		return {
@@ -683,6 +688,7 @@ export class RandomRadicalRedTeams {
 			evs,
 			ivs,
 			item,
+			happiness,
 		};
 	}
 
