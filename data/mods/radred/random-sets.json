@@ -5301,12 +5301,12 @@
 	"Heracross-Mega": [{
 			"item": "Heracronite",
 			"ability": "Guts",
-			"moves": ["Swords Dance", "Close Combat", "Rock Blast", "Bullet Seed"]
+			"moves": ["Swords Dance", "Arm Thrust", "Rock Blast", "Bullet Seed"]
 		},
 		{
 			"item": "Heracronite",
 			"ability": "Guts",
-			"moves": ["Swords Dance", "Close Combat", "Rock Blast", "Pin Missile"]
+			"moves": ["Swords Dance", "Arm Thrust", "Rock Blast", "Pin Missile"]
 		}
 	],
 	"Hippowdon": [{
