@@ -17,6 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {Utils} from '../lib';
 
 export const Formats: FormatList = [
@@ -29,7 +30,7 @@ export const Formats: FormatList = [
 
 		mod: 'radred',
 		team: 'random',
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause',],
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] RRDL",
@@ -127,7 +128,7 @@ export const Formats: FormatList = [
 
 		mod: 'radred',
 		team: 'random',
-		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause',],
+		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] Challenge Cup",
