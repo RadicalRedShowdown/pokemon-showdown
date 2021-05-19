@@ -582,9 +582,6 @@ export class RandomRadicalRedTeams {
 		species = this.dex.species.get(species);
 		let forme = species.name;
 		let gmax = false;
-		let choiceBand = false;
-		let choiceSpecs = false;
-		let choices = 0;
 
 		if (typeof species.battleOnly === 'string') {
 			// Only change the forme. The species has custom moves, and may have different typing and requirements.
@@ -602,18 +599,20 @@ export class RandomRadicalRedTeams {
 		if (!sets || !sets.length) return;
 		let setData = this.sampleNoReplace(sets);
 		// eslint-disable-next-line max-len
-		if (((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance') || (setData.ability === 'Forecast' && setData.item === 'Damp Rock')) && teamDetails.rain) ||
+		if (
+			((setData.ability === 'Drizzle' || setData.moves.includes('Rain Dance') || (setData.ability === 'Forecast' && setData.item === 'Damp Rock')) && teamDetails.rain) ||
 			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day') || (setData.ability === 'Forecast' && setData.item === 'Heat Rock')) && teamDetails.sun) ||
 			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail') || (setData.ability === 'Forecast' && setData.item === 'Icy Rock')) && teamDetails.hail) ||
 			((setData.ability === 'Sand Stream' || (setData.ability === 'Forecast' && setData.item === 'Smooth Rock')) && teamDetails.sand) ||
-			choiceBand || choiceSpecs || (choices > 2) ||
+			((setData.item === 'Choice Band' || setData.item === 'Choice Specs' || setData.item === 'Choice Scarf') && teamDetails.choiceItems && teamDetails.choiceItems >= 2) ||
 			(setData.moves.includes('Spikes') && teamDetails.spikes) ||
 			(setData.moves.includes('Stealth Rock') && teamDetails.stealthRock) ||
 			(setData.moves.includes('Sticky Web') && teamDetails.stickyWeb) ||
 			(setData.moves.includes('Toxic Spikes') && teamDetails.toxicSpikes) ||
 			(setData.moves.includes('Defog') && teamDetails.defog) ||
 			(setData.moves.includes('Rapid Spin') && teamDetails.rapidSpin) ||
-			(setData.moves.includes('Aurora Veil') || (setData.moves.includes('Reflect') && setData.moves.includes('Light Screen')))) {
+			(setData.moves.includes('Aurora Veil') || (setData.moves.includes('Reflect') && setData.moves.includes('Light Screen')))
+		) {
 			if (!sets.length) return;
 			setData = this.sampleNoReplace(sets);
 		}
@@ -667,17 +666,6 @@ export class RandomRadicalRedTeams {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
-
-		// Limit choice items
-		if (item === "Choice Band") {
-			choiceBand = true;
-			choices++;
-		}
-		if (item === "Choice Specs") {
-			choiceSpecs = true;
-			choices++;
-		}
-		if (item === "Choice Scarf") choices++;
 
 		// Ensure Nihilego's Beast Boost gives it Special Attack boosts instead of Special Defense
 		if (forme === 'Nihilego') evs.spd -= 32;
@@ -884,6 +872,9 @@ export class RandomRadicalRedTeams {
 			if (set.moves.includes('rapidspin')) teamDetails.rapidSpin = 1;
 			if (set.moves.includes('auroraveil') || (set.moves.includes('reflect') && set.moves.includes('lightscreen'))) {
 				teamDetails.screens = 1;
+			}
+			if (set.item === 'Choice Band' || set.item === 'Choice Specs' || set.item === 'Choice Scarf') {
+				teamDetails.choiceItems = (teamDetails.choiceItems || 0) + 1;
 			}
 
 			// For setting Zoroark's level
