@@ -1,10 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen8',
-	init() {
-		for (const id in this.data.Learnsets) {
-			this.modData('Learnsets', id).eventOnly = false;
-		}
-	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;
