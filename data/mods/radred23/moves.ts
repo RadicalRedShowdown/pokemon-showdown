@@ -325,6 +325,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
 	lovelykiss: {
 		inherit: true,
@@ -346,10 +348,44 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 60,
 	},
+	mirrorshot: {
+		inherit: true,
+		accuracy: 100,
+		secondary: null,
+		isNonstandard: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+	},
 	mistyexplosion: {
 		inherit: true,
 		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
+	},
+	mudbomb: {
+		inherit: true,
+		accuracy: 100,
+		secondary: null,
+		isNonstandard: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
+	},
+	muddywater: {
+		inherit: true,
+		secondary: {
+			chance: 40,
+			boosts: {
+				atk: -1,
+			},
+		},
+		desc: "Has a 40% chance to lower the target's Attack by 1 stage.",
+		shortDesc: "40% chance to lower the foe(s) Attack by 1.",
+	},
+	mudslap: {
+		inherit: true,
+		basePower: 40,
+		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
 	multiattack: {
 		inherit: true,
@@ -361,20 +397,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
 		shortDesc: "Type varies based on the user's primary type.",
 	},
-	muddywater: {
-		inherit: true,
-		secondary: {
-			chance: 40,
-			boosts: {
-				atk: -1,
-			},
-		},
-	},
-	mudslap: {
-		inherit: true,
-		basePower: 40,
-		secondary: null,
-	},
 	needlearm: {
 		inherit: true,
 		basePower: 95,
@@ -385,6 +407,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 95,
 		accuracy: 100,
 		secondary: null,
+		desc: "No additional effect.",
+		shortDesc: "No additional effect.",
 	},
 	nightslash: {
 		inherit: true,
@@ -480,6 +504,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				atk: -1,
 			},
 		},
+		desc: "Lowers the target's Attack by 1 stage.",
+		shortDesc: "Lowers the target's Attack by 1.",
 	},
 	sappyseed: {
 		inherit: true,
@@ -562,6 +588,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				atk: -1,
 			},
 		},
+		desc: "Lowers the target's Attack by 1 stage.",
+		shortDesc: "Lowers the target's Attack by 1.",
 	},
 	snaptrap: {
 		inherit: true,
@@ -1097,18 +1125,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	mirrormove: {
 		inherit: true,
-		isNonstandard: null,
-	},
-	mirrorshot: {
-		inherit: true,
-		accuracy: 100,
-		secondary: null,
-		isNonstandard: null,
-	},
-	mudbomb: {
-		inherit: true,
-		accuracy: 100,
-		secondary: null,
 		isNonstandard: null,
 	},
 	mudsport: {
