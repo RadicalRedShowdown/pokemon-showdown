@@ -321,6 +321,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 	},
+	leaftornado: {
+		inherit: true,
+		accuracy: 100,
+		secondary: null,
+	},
 	lovelykiss: {
 		inherit: true,
 		accuracy: 85,
@@ -356,10 +361,30 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
 		shortDesc: "Type varies based on the user's primary type.",
 	},
+	muddywater: {
+		inherit: true,
+		secondary: {
+			chance: 40,
+			boosts: {
+				atk: -1,
+			},
+		},
+	},
+	mudslap: {
+		inherit: true,
+		basePower: 40,
+		secondary: null,
+	},
 	needlearm: {
 		inherit: true,
 		basePower: 95,
 		isNonstandard: null,
+	},
+	nightdaze: {
+		inherit: true,
+		basePower: 95,
+		accuracy: 100,
+		secondary: null,
 	},
 	nightslash: {
 		inherit: true,
@@ -448,6 +473,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
+	sandattack: {
+		inherit: true,
+		secondary: {
+			boosts: {
+				atk: -1,
+			},
+		},
+	},
 	sappyseed: {
 		inherit: true,
 		pp: 5,
@@ -521,6 +554,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	slash: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+	},
+	smokescreen: {
+		inherit: true,
+		secondary: {
+			boosts: {
+				atk: -1,
+			},
+		},
 	},
 	snaptrap: {
 		inherit: true,
@@ -1060,10 +1101,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	mirrorshot: {
 		inherit: true,
+		accuracy: 100,
+		secondary: null,
 		isNonstandard: null,
 	},
 	mudbomb: {
 		inherit: true,
+		accuracy: 100,
+		secondary: null,
 		isNonstandard: null,
 	},
 	mudsport: {
