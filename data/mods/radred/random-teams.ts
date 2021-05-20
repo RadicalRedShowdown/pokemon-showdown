@@ -753,6 +753,24 @@ export class RandomRadicalRedTeams {
 
 			// Limit one Mega per team
 			if (hasMega && species.isMega) continue;
+
+			// Adjust rate for species with multiple sets
+			switch (species.baseSpecies) {
+			case 'Silvally':
+				if (this.randomChance(8, 9) && !isMonotype) continue;
+				break;
+			case 'Deoxys': case 'Gourgeist': case 'Oricorio':
+				if (this.randomChance(3, 4)) continue;
+				break;
+			case 'Zygarde': case 'Necrozma': case 'Calyrex':
+				if (this.randomChance(2, 3)) continue;
+				break;
+			case 'Basculin': case 'Floette': case 'Groudon': case 'Kyogre': case 'Dialga':
+			case 'Greninja': case 'Arceus': case 'Toxtricity': case 'Zacian': case 'Zamazenta':
+			case 'Urshifu':
+				if (this.randomChance(1, 2)) continue;
+				break;
+			}
 			if (species.otherFormes && !hasMega && (
 				species.otherFormes.includes(species.name + '-Mega') ||
 				species.otherFormes.includes(species.name + '-Mega-X')
