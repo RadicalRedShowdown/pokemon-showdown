@@ -439,12 +439,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	metalcoat: {
-		inherit: true,
-		onBasePower() {},
-		desc: "Evolves Onix into Steelix, Scyther into Scizor, Nosepass into Probopass, Meltan into Melmetal when used.",
-		shortDesc: "Evolves certain species of Pokemon when used.",
-	},
 	mewniumz: {
 		inherit: true,
 		isNonstandard: null,
