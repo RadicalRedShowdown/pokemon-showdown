@@ -3945,8 +3945,9 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 86,
 	},
 	dracovish: {
-		tier: "OU",
-		randomBattleLevel: 78,
+		// buh bye
+		tier: "Uber",
+		randomBattleLevel: 76,
 	},
 	arctovish: {
 		tier: "UU",
