@@ -31,9 +31,15 @@ interface TicketState {
 }
 
 interface TextTicketInfo {
-	checker?: (input: string, context: string, pageId: string, user: User, reportTarget?: string) => boolean | string[];
+	checker?: (
+		input: string, context: string, pageId: string, user: User, reportTarget?: string
+	) => boolean | string[] | Promise<boolean | string[]>;
 	title: string;
-	getReviewDisplay: (ticket: TicketState & {text: [string, string]}, staff: User, conn: Connection) => string | void;
+	disclaimer?: string;
+	getReviewDisplay: (
+		ticket: TicketState & {text: [string, string]}, staff: User, conn: Connection
+	) => Promise<string | void> | string | void;
+	onSubmit?: (ticket: TicketState, text: [string, string], submitter: User, conn: Connection) => void;
 }
 
 type TicketResult = 'approved' | 'valid' | 'assisted' | 'denied' | 'invalid' | 'unassisted' | 'ticketban' | 'deleted';
@@ -380,19 +386,20 @@ export class HelpTicket extends Rooms.RoomGame {
 		this.playerTable = null;
 	}
 	onChatMessage(message: string, user: User) {
-		const roomids = message.match(BATTLES_REGEX);
-		if (roomids) {
-			for (const roomid of roomids) {
-				const curRoom = Rooms.get(roomid);
-				if (!curRoom || !('uploadReplay' in curRoom) || curRoom?.battle?.replaySaved) continue;
-				void curRoom.uploadReplay(user, user.connections[0], 'forpunishment');
-			}
-		}
+		HelpTicket.uploadReplaysFrom(message, user, user.connections[0]);
 	}
 	static modlogStream = Rooms.Modlog.initialize('help-texttickets' as ModlogID);
 	// workaround to modlog for no room
 	static modlog(entry: PartialModlogEntry) {
 		Rooms.Modlog.write('help-texttickets' as ModlogID, entry);
+	}
+	static uploadReplaysFrom(text: string, user: User, conn: Connection) {
+		const rooms = getBattleLinks(text);
+		for (const roomid of rooms) {
+			const room = Rooms.get(roomid);
+			if (!room || !('uploadReplay' in (room as GameRoom))) continue;
+			void (room as GameRoom).uploadReplay(user, conn, "forpunishment");
+		}
 	}
 	static getTextButton(ticket: TicketState & {text: [string, string]}) {
 		let buf = '';
@@ -454,7 +461,8 @@ export class HelpTicket extends Rooms.RoomGame {
 	static notifyResolved(user: User, ticket: TicketState, userid = user.id) {
 		const {result, time, by, seen} = ticket.resolved as {result: string, time: number, by: string, seen: boolean};
 		if (seen) return;
-		user.send(`|pm|&Staff|${user.getIdentity()}|Hello! Your report was resolved by ${by}, ${Chat.toDurationString(Date.now() - time)} ago.`);
+		const timeString = (Date.now() - time) > 1000 ? `, ${Chat.toDurationString(Date.now() - time)} ago.` : '.';
+		user.send(`|pm|&Staff|${user.getIdentity()}|Hello! Your report was resolved by ${by}${timeString}`);
 		if (result?.trim()) {
 			user.send(`|pm|&Staff|${user.getIdentity()}|The result was "${result}"`);
 		}
@@ -557,10 +565,10 @@ export function notifyStaff() {
 			hasUnclaimed = true;
 			if (ticket.type === 'Public Room Assistance Request') hasAssistRequest = true;
 		}
-		if (ticketGame) {
-			buf += ticketGame.getButton();
-		} else if (ticket.text) {
+		if (ticket.text) {
 			buf += HelpTicket.getTextButton(ticket as TicketState & {text: [string, string]});
+		} else if (ticketGame) {
+			buf += ticketGame.getButton();
 		}
 		count++;
 	}
@@ -708,6 +716,45 @@ const cheatingScenarios = [
 ];
 
 export const textTickets: {[k: string]: TextTicketInfo} = {
+	pmharassment: {
+		title: "Who's harassing you in PMs?",
+		checker(input) {
+			if (!Users.get(input)) {
+				return ['That user was not found.'];
+			}
+			return true;
+		},
+		getReviewDisplay(ticket, staff, conn) {
+			let buf = '';
+			const reportUserid = toID(ticket.text[0]);
+			const sharedBattles = getCommonBattles(ticket.userid, null, reportUserid, null, conn);
+			const replays = getBattleLinks(ticket.text[1]).concat(getBattleLinks(ticket.text[1]));
+			buf += `<strong>Reported user:</strong> ${reportUserid} `;
+			buf += `<button class="button" name="send" value="/modlog global,[${reportUserid}]">Global Modlog</button><br />`;
+			buf += `<br /><details class="readmore"><summary><strong>Punish:</strong></summary><div class="infobox">`;
+			const replayString = replays.concat(sharedBattles).map(u => `https://${Config.routes.client}/${u}`).join(', ');
+			const proofString = `spoiler:PMs with ${ticket.userid}${replayString ? `, ${replayString}` : ''}`;
+			for (const [name, punishment] of [['Lock', 'lock'], ['Weeklock', 'weeklock'], ['Warn', 'warn']]) {
+				buf += `<form data-submitsend="/msgroom staff,/${punishment} ${reportUserid},{reason} ${proofString}">`;
+				buf += `<button class="button notifying" type="submit">${name}</button><br />`;
+				buf += `Optional reason: <input name="reason" />`;
+				buf += `</form><br />`;
+			}
+			buf += `</div></details><br />`;
+			if (sharedBattles.length) {
+				buf += `<details class="readmore"><summary><strong>Shared battles</strong></summary>`;
+				buf += sharedBattles.map(url => Chat.formatText(`<<${url}>>`)).join(', ');
+				buf += `</details>`;
+			}
+			if (replays.length) {
+				buf += `<details class="readmore"><summary>Battle links</summary>`;
+				buf += replays.map(url => `<<${url}>>`).join(', ');
+				buf += `</details>`;
+			}
+
+			return buf;
+		},
+	},
 	inapname: {
 		title: "What's the inappropriate username?",
 		checker(input) {
@@ -741,6 +788,11 @@ export const textTickets: {[k: string]: TextTicketInfo} = {
 		checker(input) {
 			if (BATTLES_REGEX.test(input) || REPLAY_REGEX.test(input)) return true;
 			return ['Please provide at least one valid battle or replay URL.'];
+		},
+		onSubmit(ticket, text, submitter, conn) {
+			for (const part of text) {
+				HelpTicket.uploadReplaysFrom(part, submitter, conn);
+			}
 		},
 		getReviewDisplay(ticket, staff, connection) {
 			let buf = ``;
@@ -829,14 +881,13 @@ export const textTickets: {[k: string]: TextTicketInfo} = {
 			for (const [i, link] of links.entries()) {
 				if (links.indexOf(link) !== i) continue;
 				buf += Chat.formatText(`<<${link}>>`);
-				const battles = link.match(BATTLES_REGEX);
-				if (battles) {
-					for (const battle of battles) {
-						void (Rooms.get(battle) as GameRoom | null)?.uploadReplay?.(staff, conn, "forpunishment");
-					}
-				}
 			}
 			return buf;
+		},
+		onSubmit(ticket, text, submitter, conn) {
+			for (const part of text) {
+				HelpTicket.uploadReplaysFrom(part, submitter, conn);
+			}
 		},
 	},
 };
@@ -1046,6 +1097,9 @@ export const pages: Chat.PageTable = {
 					const textTicket = textTickets[page.slice(7)];
 					if (textTicket) {
 						buf += `<p><b>${this.tr(textTicket.title)}</b></p>`;
+						if (textTicket.disclaimer) {
+							buf += `<p>${this.tr(textTicket.disclaimer)}</p>`;
+						}
 						buf += `<form data-submitsend="/helpticket submit ${ticketTitles[page.slice(7)]} ${submitMeta} | {text} | {context}">`;
 						buf += `<textarea style="width: 100%" name="text"></textarea><br />`;
 						buf += `<strong>Do you have any other information you want to provide? (this is optional)</strong><br />`;
@@ -1148,7 +1202,7 @@ export const pages: Chat.PageTable = {
 			buf += `</tbody></table></div>`;
 			return buf;
 		},
-		text(query, user, connection) {
+		async text(query, user, connection) {
 			if (!user.named) return Rooms.RETRY_AFTER_LOGIN;
 			this.title = this.tr`Queued Tickets`;
 			this.checkCan('lock');
@@ -1179,7 +1233,7 @@ export const pages: Chat.PageTable = {
 			} else if (ticket.claimed) {
 				buf += `<strong>Claimed:</strong> ${ticket.claimed}<br />`;
 			}
-			buf += ticketInfo.getReviewDisplay(ticket as TicketState & {text: [string, string]}, user, connection);
+			buf += await ticketInfo.getReviewDisplay(ticket as TicketState & {text: [string, string]}, user, connection);
 			buf += `<br />`;
 			buf += `<div class="infobox">`;
 			const [text, context] = ticket.text;
@@ -1431,7 +1485,7 @@ export const commands: Chat.ChatCommands = {
 		createhelp: [`/helpticket create - Creates a new ticket requesting help from global staff.`],
 
 		submittext: 'submit',
-		submit(target, room, user, connection, cmd) {
+		async submit(target, room, user, connection, cmd) {
 			if (user.can('lock') && !user.can('bypassall')) {
 				return this.popupReply(this.tr`Global staff can't make tickets. They can only use the form for reference.`);
 			}
@@ -1509,10 +1563,10 @@ export const commands: Chat.ChatCommands = {
 				if (text.length > 8192) {
 					return this.popupReply(`Your report is too long. Please use fewer words.`);
 				}
-				const validation = textTicket.checker?.(text, contextString || '', ticket.type, user, reportTarget);
+				const validation = await textTicket.checker?.(text, contextString || '', ticket.type, user, reportTarget);
 				if (Array.isArray(validation) && validation.length) {
 					this.parse(`/join view-${pageId}`);
-					return this.popupReply(validation.join('||'));
+					return this.popupReply(`|html|` + validation.join('||'));
 				}
 				ticket.text = [text, contextString];
 				ticket.active = true;
@@ -1524,6 +1578,7 @@ export const commands: Chat.ChatCommands = {
 				});
 				writeTickets();
 				notifyStaff();
+				textTicket.onSubmit?.(ticket, [text, contextString], this.user, this.connection);
 
 				connection.send(`>view-${pageId}\n|deinit`);
 				return this.popupReply(`Your report has been submitted.`);

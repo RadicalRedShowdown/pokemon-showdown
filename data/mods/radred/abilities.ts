@@ -386,7 +386,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	selfsufficient: {
 		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
-		onResidualPriority: -1,
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
