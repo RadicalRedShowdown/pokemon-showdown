@@ -2883,6 +2883,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 	},
 	greninjaash: {
 		tier: "OU",
+		randomBattleLevel: 80,
 	},
 	bunnelby: {
 		tier: "LC",
