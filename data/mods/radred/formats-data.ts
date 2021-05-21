@@ -4012,7 +4012,8 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 82,
 	},
 	zarudedada: {
-		tier: "UU",
+		isNonstandard: "Unobtainable",
+		tier: "Illegal",
 	},
 	regieleki: {
 		tier: "OU",
