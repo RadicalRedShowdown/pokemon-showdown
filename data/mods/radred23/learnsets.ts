@@ -33038,6 +33038,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 		},
 	},
+	giratinaorigin: {},
 	cresselia: {
 		learnset: {
 			aurorabeam: ["8L29"],
