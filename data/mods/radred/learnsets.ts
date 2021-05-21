@@ -1439,7 +1439,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1511,7 +1511,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "iciclecrash"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "iciclecrash"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1583,7 +1583,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "flyingpress"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "flyingpress"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1653,7 +1653,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "electricterrain"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "electricterrain"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1724,7 +1724,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1796,7 +1796,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "meteormash"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "meteormash"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1868,7 +1868,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "fly"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "fly"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1939,7 +1939,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "surf"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "surf"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2011,7 +2011,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2083,7 +2083,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2155,7 +2155,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2227,7 +2227,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2299,7 +2299,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2371,7 +2371,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2443,7 +2443,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2515,7 +2515,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8L50", "8M"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},

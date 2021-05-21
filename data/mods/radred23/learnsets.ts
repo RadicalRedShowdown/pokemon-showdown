@@ -1438,7 +1438,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1513,7 +1513,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["freezyfrost", "happyhour", "thunderwave", "iciclecrash"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["freezyfrost", "happyhour", "thunderwave", "iciclecrash"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1587,7 +1587,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "flyingpress"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "flyingpress"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1661,7 +1661,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "psychic"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "psychic"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1734,7 +1734,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1808,7 +1808,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "meteormash"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "meteormash"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1883,7 +1883,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "airslash"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "airslash"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -1957,7 +1957,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "bouncybubble"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "bouncybubble"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2031,7 +2031,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2105,7 +2105,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2179,7 +2179,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2253,7 +2253,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2327,7 +2327,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2401,7 +2401,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2475,7 +2475,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
@@ -2549,7 +2549,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "volttackle"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},
