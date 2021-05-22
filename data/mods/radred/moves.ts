@@ -21,6 +21,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 120,
 	},
+	batonpass: {
+		inherit: true,
+		self: {},
+	},
 	beatup: {
 		num: 251,
 		accuracy: 100,
