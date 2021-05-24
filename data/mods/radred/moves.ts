@@ -537,10 +537,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	smokescreen: {
 		inherit: true,
-		secondary: {
-			boosts: {
-				atk: -1,
-			},
+		boosts: {
+			atk: -1,
 		},
 		desc: "Lowers the target's Attack by 1 stage.",
 		shortDesc: "Lowers the target's Attack by 1.",
