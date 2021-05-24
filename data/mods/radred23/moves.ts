@@ -21,6 +21,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 120,
 	},
+	batonpass: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	beatup: {
 		num: 251,
 		accuracy: 100,
@@ -117,6 +121,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
+	doubleteam: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	dracometeor: {
 		inherit: true,
 		accuracy: 100,
@@ -139,6 +147,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	falseswipe: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+	},
+	fissure: {
+		inherit: true,
+		isNonstandard: "Past",
 	},
 	flash: {
 		num: 148,
@@ -231,6 +243,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {blade: 1, contact: 1, protect: 1, mirror: 1},
 	},
+	guillotine: {
+		inherit: true,
+		isNonstandard: "Past",
+	},
 	headcharge: {
 		inherit: true,
 		secondary: {
@@ -253,6 +269,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	highjumpkick: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, gravity: 1, kick: 1},
+	},
+	horndrill: {
+		inherit: true,
+		isNonstandard: "Past",
 	},
 	icehammer: {
 		inherit: true,
@@ -347,6 +367,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	megadrain: {
 		inherit: true,
 		basePower: 60,
+	},
+	minimize: {
+		inherit: true,
+		isNonstandard: "Past",
 	},
 	mirrorshot: {
 		inherit: true,
@@ -536,6 +560,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	shadowpunch: {
 		inherit: true,
 		basePower: 80,
+	},
+	sheercold: {
+		inherit: true,
+		isNonstandard: "Past",
 	},
 	shellsidearm: {
 		num: 801,
