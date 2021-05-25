@@ -121,7 +121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Fatal Precision",
-		rating: 4,
+		rating: 3,
 		num: 269,
 	},
 	felinepower: {
@@ -243,7 +243,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 		name: "Mountaineer",
-		rating: 3,
+		rating: 4,
 		num: 270,
 	},
 	oblivious: {
@@ -399,6 +399,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		desc: "This Pokemon is not affected by the secondary effect of another Pokemon's attack, and is not affected by entry hazards.",
 		shortDesc: "This Pokemon is unaffected by entry hazards and secondary effects of moves.",
+		rating: 3.5,
 	},
 	solarpower: {
 		inherit: true,
