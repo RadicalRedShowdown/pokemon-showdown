@@ -1378,7 +1378,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 88,
 	},
 	mawilemega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 	},
 	aron: {
@@ -1403,7 +1403,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 86,
 	},
 	medichammega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 	},
 	electrike: {
@@ -1713,7 +1713,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 82,
 	},
 	latiasmega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 	},
 	latios: {
@@ -1721,7 +1721,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 81,
 	},
 	latiosmega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 	},
 	kyogre: {
@@ -2762,7 +2762,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		tier: "LC",
 	},
 	volcarona: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 80,
 	},
 	cobalion: {
@@ -3146,7 +3146,7 @@ export const FormatsData: { [k: string]: ModdedSpeciesFormatsData } = {
 		randomBattleLevel: 86,
 	},
 	dianciemega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 	},
 	hoopa: {
