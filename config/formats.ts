@@ -64,7 +64,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] UU",
 		mod: 'radred',
 		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU'],
+		banlist: ['OU', 'Damp Rock'],
 	},
 	{
 		name: "[Gen 8] Anything Goes",
