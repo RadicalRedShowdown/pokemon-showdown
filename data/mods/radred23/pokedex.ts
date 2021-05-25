@@ -601,6 +601,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 100, atk: 85, def: 90, spa: 65, spd: 65, spe: 35},
 	},
+	slowkinggalar: {
+		inherit: true,
+		abilities: {0: "Oblivious", 1: "Own Tempo", H: "Regenerator"},
+	},
 	girafarig: {
 		inherit: true,
 		abilities: {0: "Sap Sipper", 1: "Early Bird", H: "Parental Bond"},
