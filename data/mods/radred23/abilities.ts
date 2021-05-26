@@ -14,7 +14,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Bad Company",
 		rating: 4,
-		num: 301,
+		gen: 8,
 		shortDesc: "Prevents self-lowering stat drops and recoil.",
 	},
 	blademaster: {
@@ -32,7 +32,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Blademaster",
 		rating: 3.5,
-		num: 271,
+		gen: 8,
 		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
 		shortDesc: "Blade attacks have 1.2x power and +1 crit ratio.",
 	},
@@ -42,7 +42,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Blazing Soul",
 		rating: 3,
-		num: 272,
+		gen: 8,
 		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
 	},
 	bonezone: {
@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Bone Zone",
 		rating: 4,
-		num: 290,
+		gen: 8,
 		shortDesc: "Bone moves ignore immunities and deal double damage on not very effective.",
 	},
 	bullrush: {
@@ -77,7 +77,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Bull Rush",
 		rating: 2,
-		num: 273,
+		gen: 8,
 		shortDesc: "The first move this Pokemon's uses gets a 1.5x damage boost.",
 	},
 	corrosion: {
@@ -139,7 +139,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Fatal Precision",
 		rating: 4,
-		num: 269,
+		gen: 8,
 		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
 	},
 	felinepower: {
@@ -149,7 +149,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Feline Power",
 		rating: 5,
-		num: 277,
+		gen: 8,
 		shortDesc: "This Pokemon's Sp. Atk is doubled.",
 	},
 	flareboost: {
@@ -261,7 +261,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Mountaineer",
 		rating: 3,
-		num: 270,
+		gen: 8,
 		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 	},
 	oblivious: {
@@ -289,7 +289,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "ORAORAORAORA",
 		rating: 5,
-		num: 280,
+		gen: 8,
 		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
 	},
 	owntempo: {
@@ -311,7 +311,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Parasitic Waste",
-		num: 300,
+		gen: 8,
 		rating: 2.5,
 		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
 	},
@@ -324,7 +324,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Primal Armor",
 		rating: 3,
-		num: 275,
+		gen: 8,
 		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
 	},
 	quickfeet: {
@@ -390,7 +390,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Sage Power",
 		rating: 4.5,
-		num: 278,
+		gen: 8,
 		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 	},
 	scrappy: {
@@ -410,7 +410,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Self Sufficient",
 		rating: 2.5,
-		num: 273,
+		gen: 8,
 		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 	},
 	shielddust: {
@@ -434,7 +434,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Striker",
 		rating: 3,
-		num: 268,
+		gen: 8,
 		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.3.",
 		shortDesc: "This Pokemon's kick-based attacks have 1.3x power.",
 	},
@@ -473,7 +473,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Surprise!",
 		rating: 2,
-		num: 291,
+		gen: 8,
 		shortDesc: "Random effect on switch-in.",
 	},
 	toxicboost: {

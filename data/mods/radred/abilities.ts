@@ -14,8 +14,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Bad Company",
-		num: 301,
 		rating: 4,
+		gen: 8,
 	},
 	blademaster: {
 		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
@@ -34,7 +34,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Blademaster",
 		rating: 3.5,
-		num: 271,
+		gen: 8,
 	},
 	blazingsoul: {
 		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
@@ -43,7 +43,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Blazing Soul",
 		rating: 3,
-		num: 272,
+		gen: 8,
 	},
 	bonezone: {
 		shortDesc: "Bone moves ignore immunities and deal double damage on not very effective.",
@@ -64,7 +64,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Bone Zone",
 		rating: 4,
-		num: 290,
+		gen: 8,
 	},
 	bullrush: {
 		shortDesc: "The first move this Pokemon's uses gets a 1.5x damage boost.",
@@ -78,7 +78,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Bull Rush",
 		rating: 2,
-		num: 273,
+		gen: 8,
 	},
 	corrosion: {
 		inherit: true,
@@ -122,7 +122,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Fatal Precision",
 		rating: 3,
-		num: 269,
+		gen: 8,
 	},
 	felinepower: {
 		shortDesc: "This Pokemon's Sp. Atk is doubled.",
@@ -132,7 +132,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Feline Power",
 		rating: 5,
-		num: 277,
+		gen: 8,
 	},
 	flareboost: {
 		inherit: true,
@@ -244,7 +244,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		isBreakable: true,
 		name: "Mountaineer",
 		rating: 4,
-		num: 270,
+		gen: 8,
 	},
 	oblivious: {
 		inherit: true,
@@ -272,7 +272,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "ORAORAORAORA",
 		rating: 5,
-		num: 280,
+		gen: 8,
 	},
 	owntempo: {
 		inherit: true,
@@ -294,8 +294,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Parasitic Waste",
-		num: 300,
 		rating: 2.5,
+		gen: 8,
 	},
 	primalarmor: {
 		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
@@ -307,7 +307,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Primal Armor",
 		rating: 3,
-		num: 275,
+		gen: 8,
 	},
 	quickfeet: {
 		inherit: true,
@@ -373,7 +373,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Sage Power",
 		rating: 4.5,
-		num: 278,
+		gen: 8,
 	},
 	scrappy: {
 		inherit: true,
@@ -393,7 +393,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Self Sufficient",
 		rating: 2.5,
-		num: 273,
+		gen: 8,
 	},
 	shielddust: {
 		inherit: true,
@@ -425,7 +425,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Striker",
 		rating: 3,
-		num: 268,
+		gen: 8,
 	},
 	surprise: {
 		shortDesc: "Random effect on switch-in.",
@@ -463,7 +463,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		name: "Surprise!",
 		rating: 2,
-		num: 291,
+		gen: 8,
 	},
 	toxicboost: {
 		inherit: true,
