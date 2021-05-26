@@ -92,10 +92,12 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Feebas', 'Simisage'];
+			const pool = ['Coalossal-Mega', 'Lapras-Mega', 'Garbodor-Mega', 'Sandaconda-Mega', 'Flapple-Mega'];
 			let fromPool = 0;
 			for (const set of team) {
-				if (pool.includes(set.species)) fromPool++;
+				const item = this.dex.items.get(set.item);
+				const species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
+				if (pool.includes(species)) fromPool++;
 			}
 			if (fromPool === 0) {
 				return [`Your team must have at least one of the following Pok\u00e9mon: ${pool.join(', ')}.`];
