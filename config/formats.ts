@@ -86,6 +86,23 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 8] Random Pool",
+		mod: 'radred',
+		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Misty Explosion'],
+		searchShow: false,
+		onValidateTeam(team, format) {
+			const pool = ['Feebas', 'Simisage'];
+			let fromPool = 0;
+			for (const set of team) {
+				if (pool.includes(set.species)) fromPool++;
+			}
+			if (fromPool === 0) {
+				return ['You must have at least one pokemon from the pool. (Currently )'];
+			}
+		},
+	},
+	{
 		name: "[Gen 8] Custom Game",
 		mod: 'radred',
 		searchShow: false,
