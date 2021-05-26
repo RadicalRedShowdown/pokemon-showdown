@@ -88,9 +88,9 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] Random Pool",
 		mod: 'radred',
-		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Misty Explosion'],
+		ruleset: ['[Gen 8] OU'],
 		searchShow: false,
+		challengeShow: false,
 		onValidateTeam(team, format) {
 			const pool = ['Feebas', 'Simisage'];
 			let fromPool = 0;
@@ -98,7 +98,7 @@ export const Formats: FormatList = [
 				if (pool.includes(set.species)) fromPool++;
 			}
 			if (fromPool === 0) {
-				return ['You must have at least one pokemon from the pool. (Currently )'];
+				return [`Your team must have at least one of the following Pok\u00e9mon: ${pool.join(', ')}.`];
 			}
 		},
 	},
