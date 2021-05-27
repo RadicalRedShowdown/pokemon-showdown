@@ -1518,6 +1518,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Static", 1: "Water Absorb", H: "Sand Veil"},
 	},
+	stunfiskgalar: {
+		inherit: true,
+		abilities: {0: "Filter"},
+	},
 	druddigon: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 120, def: 90, spa: 60, spd: 90, spe: 41},
