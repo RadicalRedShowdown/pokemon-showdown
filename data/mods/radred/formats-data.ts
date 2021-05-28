@@ -15,6 +15,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["gigadrain", "hiddenpowerfire", "hiddenpowerice", "leafstorm", "protect", "sleeppowder", "sludgebomb"],
 	},
+	venusaurgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	charmander: {
 		tier: "LC",
 	},
@@ -36,6 +40,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["airslash", "fireblast", "focusblast", "heatwave", "protect", "solarbeam"],
 	},
+	charizardgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	squirtle: {
 		tier: "LC",
 	},
@@ -52,6 +60,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["aurasphere", "darkpulse", "fakeout", "icebeam", "muddywater", "protect", "waterpulse"],
 	},
+	blastoisegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	caterpie: {
 		tier: "LC",
 	},
@@ -67,6 +79,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["hurricane", "pollenpuff", "protect", "sleeppowder", "tailwind"],
+	},
+	butterfreegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	weedle: {
 		tier: "LC",
@@ -204,6 +220,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 88,
 		randomDoubleBattleMoves: ["fakeout", "surf", "thunderbolt", "protect", "extremespeed"],
+	},
+	pikachugmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	raichu: {
 		tier: "UU",
@@ -344,6 +364,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meowthgalar: {
 		tier: "LC",
 	},
+	meowthgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	persian: {
 		tier: "UU",
 		randomBattleLevel: 88,
@@ -420,6 +444,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["bulletpunch", "drainpunch", "poweruppunch", "icepunch", "knockoff", "protect"],
+	},
+	machampgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	bellsprout: {
 		tier: "LC",
@@ -569,6 +597,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 76,
 		randomDoubleBattleMoves: ["disable", "focusblast", "hypnosis", "protect", "shadowball", "sludgebomb", "willowisp"],
 	},
+	gengargmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	onix: {
 		tier: "LC",
 	},
@@ -592,6 +624,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["crabhammer", "ironhead", "aquajet", "highhorsepower", "protect"],
+	},
+	kinglergmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	voltorb: {
 		tier: "LC",
@@ -769,6 +805,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["hypervoice", "dracometeor", "icywind", "protect"],
 	},
+	laprasgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	ditto: {
 		tier: "UU",
 		randomBattleLevel: 80,
@@ -780,6 +820,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	eeveestarter: {
 		isNonstandard: "LGPE",
 		tier: "Illegal",
+	},
+	eeveegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	vaporeon: {
 		tier: "UU",
@@ -833,6 +877,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	snorlaxmega: {
 		tier: "UU",
 		randomBattleLevel: 81,
+	},
+	snorlaxgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	articuno: {
 		tier: "UU",
@@ -2919,6 +2967,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["gunkshot", "stompingtantrum", "drainpunch", "painsplit", "autotomize", "protect"],
 	},
+	garbodorgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	zorua: {
 		tier: "LC",
 	},
@@ -4201,6 +4253,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["acidarmor", "bodypress", "doubleironbash", "protect", "thunderpunch", "thunderwave"],
 	},
+	melmetalgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	grookey: {
 		tier: "LC",
 	},
@@ -4211,6 +4267,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["fakeout", "grassyglide", "highhorsepower", "protect", "uturn", "woodhammer"],
+	},
+	rillaboomgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	scorbunny: {
 		tier: "LC",
@@ -4223,6 +4283,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
 	},
+	cinderacegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	sobble: {
 		tier: "LC",
 	},
@@ -4233,6 +4297,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["airslash", "hydropump", "icebeam", "muddywater", "shadowball", "uturn"],
+	},
+	inteleongmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	skwovet: {
 		tier: "LC",
@@ -4253,6 +4321,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["bodypress", "bravebird", "bulkup", "ironhead", "roost", "tailwind"],
 	},
+	corviknightgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	blipbug: {
 		tier: "LC",
 	},
@@ -4267,6 +4339,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["bodypress", "psychic", "protect", "strugglebug"],
+	},
+	orbeetlegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	nickit: {
 		tier: "LC",
@@ -4305,6 +4381,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 85,
 		randomDoubleBattleMoves: ["rockpolish", "aquafang", "jawlock", "protect", "icefang"],
 	},
+	drednawgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	yamper: {
 		tier: "LC",
 	},
@@ -4328,6 +4408,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomDoubleBattleMoves: ["fireblast", "incinerate", "protect", "stealthrock", "flashcannon", "willowisp"],
 	},
+	coalossalgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	applin: {
 		tier: "LC",
 	},
@@ -4341,6 +4425,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["dragonpulse", "energyball", "hiddenpowerfire", "protect", "dracometeor"],
 	},
+	flapplegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	appletun: {
 		tier: "UU",
 		randomBattleLevel: 88,
@@ -4351,17 +4439,26 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["dracometeor", "leafstorm", "superpower", "protect"],
 	},
+	appletungmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	silicobra: {
 		tier: "LC",
 	},
 	sandaconda: {
 		tier: "UU",
 		randomBattleLevel: 86,
+		randomDoubleBattleMoves: ["coil", "glare", "highhorsepower", "protect", "stoneedge"],
 	},
 	sandacondamega: {
 		tier: "UU",
 		randomBattleLevel: 83,
 		randomDoubleBattleMoves: ["return", "highhorsepower", "rockslide", "coil", "protect"],
+	},
+	sandacondagmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	cramorant: {
 		tier: "UU",
@@ -4382,6 +4479,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricity: {
 		tier: "UU",
 		randomBattleLevel: 84,
+		randomDoubleBattleMoves: ["overdrive", "sludgebomb", "snarl", "nuzzle", "shiftgear", "protect"],
 	},
 	toxtricitylowkey: {
 		tier: "UU",
@@ -4394,17 +4492,30 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toxtricitylowkeymega: {
 		tier: "OU",
 	},
+	toxtricitygmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
+	toxtricitylowkeygmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	sizzlipede: {
 		tier: "LC",
 	},
 	centiskorch: {
 		tier: "UU",
 		randomBattleLevel: 88,
+		randomDoubleBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip", "protect"],
 	},
 	centiskorchmega: {
 		tier: "OU",
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["coil", "firelash", "knockoff", "leechlife", "powerwhip", "protect"],
+	},
+	centiskorchgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	clobbopus: {
 		tier: "LC",
@@ -4439,6 +4550,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["dazzlinggleam", "mysticalfire", "protect", "psychic", "trickroom"],
 	},
+	hatterenegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
 	impidimp: {
 		tier: "LC",
 	},
@@ -4449,6 +4564,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["darkestlariat", "fakeout", "lightscreen", "reflect", "spiritbreak", "taunt", "thunderwave"],
+	},
+	grimmsnarlgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	obstagoon: {
 		tier: "UU",
@@ -4491,6 +4610,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["dazzlinggleam", "decorate", "mysticalfire", "protect", "recover"],
+	},
+	alcremiegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	falinks: {
 		tier: "UU",
@@ -4547,11 +4670,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	copperajah: {
 		tier: "UU",
 		randomBattleLevel: 86,
+		randomDoubleBattleMoves: ["highhorsepower", "doubleironbash", "powerwhip", "protect", "rockslide"],
 	},
 	copperajahmega: {
 		tier: "UU",
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["highhorsepower", "doubleironbash", "playrough", "powerwhip", "protect", "rockslide", "fireblast", "focusblast"],
+	},
+	copperajahgmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	dracozolt: {
 		tier: "UU",
@@ -4582,6 +4710,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 82,
 		randomDoubleBattleMoves: ["dracometeor", "steelbeam", "protect", "snarl", "thunderbolt"],
+	},
+	duraludongmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	dreepy: {
 		tier: "LC",
@@ -4636,6 +4768,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["aquajet", "closecombat", "poisonjab", "protect", "surgingstrikes", "uturn"],
+	},
+	urshifugmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
+	},
+	urshifurapidstrikegmax: {
+		isNonstandard: "Gigantamax",
+		tier: "AG",
 	},
 	zarude: {
 		tier: "UU",
