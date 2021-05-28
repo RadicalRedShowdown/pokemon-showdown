@@ -1319,23 +1319,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			}
 		} while (moves.size < 4 && (movePool.length || rejectedPool.length));
 
-		if (hasHiddenPower) {
-			let hpType;
-			for (const move of moves) {
-				if (move.startsWith('hiddenpower')) hpType = move.substr(11);
-				if (move.startsWith('hiddenpower')) {
-					hpType = move.substr(11);
-					break;
-				}
-			}
-			if (!hpType) throw new Error(`hasHiddenPower is true, but no Hidden Power move was found.`);
-			const HPivs = this.dex.types.get(hpType).HPivs;
-			let iv: StatID;
-			for (iv in HPivs) {
-				ivs[iv] = HPivs[iv]!;
-			}
-		}
-
 		const battleOnly = species.battleOnly && !species.requiredAbility;
 		const baseSpecies: Species = battleOnly ? this.dex.species.get(species.battleOnly as string) : species;
 
