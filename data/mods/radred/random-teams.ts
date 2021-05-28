@@ -1583,6 +1583,12 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			case 'Arceus': case 'Silvally':
 				if (this.randomChance(8, 9) && !isMonotype) continue;
 				break;
+			case 'Oricorio':
+				if (this.randomChance(3, 4)) continue;
+				break;
+			case 'Castform': case 'Floette':
+				if (this.randomChance(2, 3)) continue;
+				break;
 			case 'Aegislash': case 'Basculin': case 'Gourgeist': case 'Meloetta':
 				if (this.randomChance(1, 2)) continue;
 				break;
@@ -1595,9 +1601,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			case 'Necrozma': case 'Calyrex':
 				if (this.randomChance(2, 3)) continue;
 				break;
-			case 'Magearna': case 'Toxtricity': case 'Zacian': case 'Zamazenta': case 'Zarude':
-			case 'Appletun': case 'Blastoise': case 'Butterfree': case 'Copperajah': case 'Grimmsnarl':
-			case 'Inteleon': case 'Rillaboom': case 'Snorlax': case 'Urshifu': case 'Giratina': case 'Genesect':
+			case 'Zacian': case 'Zamazenta':
+			case 'Urshifu': case 'Giratina': case 'Genesect':
+			case 'Kyogre': case 'Groudon': case 'Dialga':
 				if (this.gen >= 8 && this.randomChance(1, 2)) continue;
 				break;
 			}
