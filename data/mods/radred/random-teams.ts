@@ -1186,14 +1186,17 @@ export class RandomRadicalRedTeams extends RandomTeams {
 
 		do {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			const pool = (movePool.length ? movePool : rejectedPool);
-			while (moves.size < 4 && pool.length) {
-				const moveid = this.sampleNoReplace(pool);
+			while (moves.size < 4 && movePool.length) {
+				const moveid = this.sampleNoReplace(movePool);
 				if (moveid.startsWith('hiddenpower')) {
 					availableHP--;
 					if (hasHiddenPower) continue;
 					hasHiddenPower = true;
 				}
+				moves.add(moveid);
+			}
+			while (moves.size < 4 && rejectedPool.length) {
+				const moveid = this.sampleNoReplace(rejectedPool);
 				moves.add(moveid);
 			}
 
