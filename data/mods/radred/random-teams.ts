@@ -230,7 +230,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: movePool.includes('swordsdance')};
 		case 'hypervoice':
 			// Special case for Heliolisk, which always wants Thunderbolt
-			return {cull: types.has('Electric') && movePool.includes('thunderbolt')};
+			return {cull: (types.has('Electric') && movePool.includes('thunderbolt') || moves.has('blizzard'))};
 		case 'payback': case 'psychocut':
 			// Special case for Type: Null and Malamar, which don't want these + RestTalk
 			return {cull: !counter.get('Status') || hasRestTalk};
@@ -393,8 +393,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: !!counter.get('recovery') || movePool.includes('doubleedge')};
 		case 'hiddenpower':
 			return {cull: moves.has('rest') || !counter.get('stab') && counter.damagingMoves.size < 2};
-		case 'hypervoice':
-			return {cull: moves.has('blizzard')};
 		case 'judgment':
 			return {cull: counter.setupType !== 'Special' && counter.get('stab') > 1};
 		case 'return':
@@ -628,6 +626,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'leechseed':
 			// Special case for Calyrex to prevent Leech Seed + Calm Mind
 			return {cull: !!counter.setupType};
+		case 'aquafang':
+			return {cull: moves.has('liquidation') && !abilities.has('strongjaw')};
 		}
 
 		return {cull: false};
@@ -1587,7 +1587,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
-			
+
 			// Limit one Mega per team
 			if (hasMega && species.isMega) continue;
 
@@ -1635,7 +1635,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			let tier = species.tier;
 			if (tier === 'UU') {
 				const gen8species = Dex.species.get(species.id);
-				const gen7species = Dex.mod('gen7').species.get(species.id)
+				const gen7species = Dex.mod('gen7').species.get(species.id);
 				if (gen8species.exists && !gen8species.isNonstandard) {
 					tier = gen8species.tier;
 				} else if (gen7species.exists && !gen7species.isNonstandard) {
@@ -1953,7 +1953,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			let tier = species.tier;
 			if (tier === 'UU') {
 				const gen8species = Dex.species.get(species.id);
-				const gen7species = Dex.mod('gen7').species.get(species.id)
+				const gen7species = Dex.mod('gen7').species.get(species.id);
 				if (gen8species.exists && !gen8species.isNonstandard) {
 					tier = gen8species.tier;
 				} else if (gen7species.exists && !gen7species.isNonstandard) {
