@@ -29,8 +29,32 @@ export const Formats: FormatList = [
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
 		mod: 'radred',
-		team: 'random',
+		team: 'randomSingles',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
+	},
+	{
+		name: "[Gen 8] Free-For-All Random Battle",
+
+		mod: 'radred',
+		team: 'random',
+		gameType: 'freeforall',
+		tournamentShow: false,
+		rated: false,
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+	},
+	{
+		name: "[Gen 8] Multi Random Battle",
+
+		mod: 'radred',
+		team: 'random',
+		gameType: 'multi',
+		searchShow: false,
+		tournamentShow: false,
+		rated: false,
+		ruleset: [
+			'Max Team Size = 3',
+			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod',
+		],
 	},
 	{
 		name: "[Gen 8] RRDL",
@@ -136,6 +160,14 @@ export const Formats: FormatList = [
 	},*/
 	{
 		section: "RR Doubles",
+	},
+	{
+		name: "[Gen 8] Random Doubles Battle",
+
+		mod: 'radred',
+		gameType: 'doubles',
+		team: 'random',
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] RRC",
