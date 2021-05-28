@@ -374,7 +374,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	kingler: {
 		inherit: true,
 		otherFormes: ["Kingler-Mega"],
-		formeOrder: ["Kingler, Kingler-Mega"],
+		formeOrder: ["Kingler", "Kingler-Mega"],
 	},
 	kinglermega: {
 		num: 99,
