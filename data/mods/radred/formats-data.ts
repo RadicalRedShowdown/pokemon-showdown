@@ -974,7 +974,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	feraligatr: {
 		tier: "UU",
 		randomBattleLevel: 82,
-		randomDoubleBattleMoves: ["aquajet", "crunch", "dragondance", "icepunch", "liquidation", "aquafang", "protect"],
+		randomDoubleBattleMoves: ["aquajet", "crunch", "dragondance", "icefang", "aquafang", "psychicfangs", "protect"],
 	},
 	sentret: {
 		tier: "LC",
@@ -1159,7 +1159,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	girafarig: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["hypervoice", "nastyplot", "protect", "psychic", "psyshock", "thunderbolt"],
+		randomDoubleBattleMoves: ["boomburst", "nastyplot", "protect", "psychic", "psyshock", "thunderbolt"],
 	},
 	pineco: {
 		tier: "LC",
@@ -3551,7 +3551,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heliolisk: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["glare", "grassknot", "hypervoice", "protect", "thunderbolt", "voltswitch"],
+		randomDoubleBattleMoves: ["glare", "grassknot", "boomburst", "protect", "thunderbolt", "voltswitch"],
 	},
 	tyrunt: {
 		tier: "LC",
@@ -3566,6 +3566,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	aurorus: {
 		tier: "UU",
+		randomDoubleBattleMoves: ["boomburst", "blizzard", "diamondstorm", "freezedry", "earthpower", "protect"],
 	},
 	sylveon: {
 		tier: "UU",

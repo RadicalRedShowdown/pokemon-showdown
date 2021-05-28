@@ -230,7 +230,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: movePool.includes('swordsdance')};
 		case 'hypervoice':
 			// Special case for Heliolisk, which always wants Thunderbolt
-			return {cull: (types.has('Electric') && movePool.includes('thunderbolt') || moves.has('blizzard'))};
+			return {cull: (types.has('Electric') && movePool.includes('thunderbolt'))};
 		case 'payback': case 'psychocut':
 			// Special case for Type: Null and Malamar, which don't want these + RestTalk
 			return {cull: !counter.get('Status') || hasRestTalk};
@@ -288,6 +288,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (counter.damagingMoves.size < 2 || moves.has('rest')) return {cull: true};
 			if (movePool.includes('calmmind') || movePool.includes('nastyplot')) return {cull: true};
 			return {cull: false, isSetup: !counter.setupType};
+		case 'boomburst':
+			// Special case for aurorus, who doesn't want boomburst on Snow Warning
+			return {cull: movePool.includes('blizzard')}
 
 		// Bad after setup
 		case 'coaching': case 'counter': case 'reversal':
@@ -626,8 +629,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'leechseed':
 			// Special case for Calyrex to prevent Leech Seed + Calm Mind
 			return {cull: !!counter.setupType};
-		case 'aquafang':
-			return {cull: moves.has('liquidation') && !abilities.has('strongjaw')};
 		}
 
 		return {cull: false};
@@ -748,7 +749,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// For Scrafty
 			return moves.has('dragondance');
 		case 'Sheer Force':
-			return (!counter.get('sheerforce') || abilities.has('Guts'));
+			// Feraligatr always wants strong jaw in doubles
+			const feraligatrCase = (species.id === 'feraligatr' && isDoubles);
+			return (!counter.get('sheerforce') || abilities.has('Guts') || feraligatrCase);
 		case 'Shell Armor':
 			return (species.id === 'omastar' && (moves.has('spikes') || moves.has('stealthrock')));
 		case 'Slush Rush':
@@ -1425,35 +1428,37 @@ export class RandomRadicalRedTeams extends RandomTeams {
 
 		let level: number;
 		if (isDoubles) {
-			// We choose level based on BST. Min level is 70, max level is 99. 600+ BST is 70, less than 300 is 99. Calculate with those values.
-			// Every 10.34 BST adds a level from 70 up to 99. Results are floored. Uses the Mega's stats if holding a Mega Stone
-			const baseStats = species.baseStats;
-
-			let bst = species.bst;
-			// If Wishiwashi, use the school-forme's much higher stats
-			if (species.baseSpecies === 'Wishiwashi') bst = this.dex.species.get('wishiwashischool').bst;
-			// Adjust levels of mons based on abilities (Pure Power, Sheer Force, etc.) and also Eviolite
-			// For the stat boosted, treat the Pokemon's base stat as if it were multiplied by the boost. (Actual effective base stats are higher.)
-			const speciesAbility = (baseSpecies === species ? ability : species.abilities[0]);
-			if (speciesAbility === 'Huge Power' || speciesAbility === 'Pure Power') {
-				bst += baseStats.atk;
-			} else if (speciesAbility === 'Parental Bond') {
-				bst += 0.25 * (counter.get('Physical') > counter.get('Special') ? baseStats.atk : baseStats.spa);
-			} else if (speciesAbility === 'Protean') {
-				bst += 0.3 * (counter.get('Physical') > counter.get('Special') ? baseStats.atk : baseStats.spa);
-			} else if (speciesAbility === 'Fur Coat') {
-				bst += baseStats.def;
-			} else if (speciesAbility === 'Slow Start') {
-				bst -= baseStats.atk / 2 + baseStats.spe / 2;
-			} else if (speciesAbility === 'Truant') {
-				bst *= 2 / 3;
+			let tier = species.tier;
+			if (tier === 'UU') {
+				const gen8species = Dex.species.get(species.id);
+				const gen7species = Dex.mod('gen7').species.get(species.id);
+				if (gen8species.exists && !gen8species.isNonstandard) {
+					tier = gen8species.tier;
+				} else if (gen7species.exists && !gen7species.isNonstandard) {
+					tier = gen7species.tier;
+				}
 			}
-			if (item === 'Eviolite') {
-				bst += 0.5 * (baseStats.def + baseStats.spd);
-			} else if (item === 'Light Ball') {
-				bst += baseStats.atk + baseStats.spa;
-			}
-			level = species.randomDoubleBattleLevel || 70 + Math.floor(((600 - Utils.clampIntRange(bst, 300, 600)) / 10.34));
+			const tierScale: {[k: string]: number} = {
+				Uber: 76,
+				OU: 80,
+				UUBL: 81,
+				UU: 82,
+				RUBL: 83,
+				RU: 84,
+				NUBL: 85,
+				NU: 86,
+				PUBL: 87,
+				PU: 88, "(PU)": 88, NFE: 88,
+			};
+			const customScale: {[k: string]: number} = {
+				// These Pokemon are too strong and need a lower level
+				zaciancrowned: 66, calyrexshadow: 68, xerneas: 70, necrozmaduskmane: 72, zacian: 72, kyogre: 73, zekrom: 74,
+				marshadow: 75, eternatus: 75, glalie: 78, haxorus: 80, inteleon: 80, cresselia: 83, octillery: 84, jolteon: 84,
+				swoobat: 84, dugtrio: 84, slurpuff: 84, polteageist: 84, wobbuffet: 86,
+				// These Pokemon are too weak and need a higher level
+				delibird: 100, vespiquen: 96, shedinja: 92, arctozolt: 88, reuniclus: 87, slowking: 81,
+			};
+			level = customScale[species.id] || tierScale[tier];
 		} else {
 			level = species.randomBattleLevel || 80;
 		}
