@@ -5063,12 +5063,12 @@
 	],
 	"Gurdurr": [{
 			"item": "Eviolite",
-			"ability": "Guts",
+			"ability": "Iron Fist",
 			"moves": ["Bulk Up", "Drain Punch", "Knock Off", "Mach Punch"]
 		},
 		{
 			"item": "Eviolite",
-			"ability": "Guts",
+			"ability": "Iron Fist",
 			"moves": ["Defog", "Drain Punch", "Knock Off", "Mach Punch"]
 		}
 	],
@@ -6072,7 +6072,7 @@
 		{
 			"item": "Life Orb",
 			"ability": "Sheer Force",
-			"moves": ["Swords Dance", "Rock Slide", "Liquidation", "Ice Punch"]
+			"moves": ["Swords Dance", "Aqua Jet", "Liquidation", "Ice Punch"]
 		},
 		{
 			"item": "Life Orb",
@@ -11321,11 +11321,6 @@
 			"item": "Eviolite",
 			"ability": "Battle Armor",
 			"moves": ["U-turn", "Crush Claw", "Rest", "Sleep Talk"]
-		},
-		{
-			"item": "Eviolite",
-			"ability": "Battle Armor",
-			"moves": ["U-turn", "Toxic", "Rest", "Sleep Talk"]
 		},
 		{
 			"item": "Eviolite",
