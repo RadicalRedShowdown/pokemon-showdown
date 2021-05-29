@@ -701,6 +701,9 @@ export const commands: Chat.ChatCommands = {
 					if (move.flags['recharge']) details["&#10003; Has recharge turn"] = "";
 					if (move.flags['gravity'] && dex.gen >= 4) details["&#10007; Suppressed by Gravity"] = "";
 					if (move.flags['dance'] && dex.gen >= 7) details["&#10003; Dance move"] = "";
+					if (move.flags['kick']) details["&#10003; Kick"] = "";
+					if (move.flags['bone']) details["&#10003; Bone"] = "";
+					if (move.flags['blade']) details["&#10003; Blade"] = "";
 
 					if (dex.gen >= 7) {
 						if (move.gen >= 8 && move.isMax) {
