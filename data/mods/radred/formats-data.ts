@@ -1100,7 +1100,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aipom: {
 		tier: "LC",
 		randomBattleLevel: 100,
-		randomDoubleBattleLevel: 100,
 	},
 	sunkern: {
 		tier: "LC",
@@ -1697,7 +1696,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	roselia: {
 		tier: "NFE",
 		randomBattleLevel: 100,
-		randomDoubleBattleLevel: 100,
 	},
 	gulpin: {
 		tier: "LC",
@@ -4735,7 +4733,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	zaciancrowned: {
 		tier: "AG",
 		randomBattleLevel: 76,
-		randomDoubleBattleLevel: 66,
 		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
 	},
 	zamazenta: {
@@ -4820,7 +4817,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	calyrexshadow: {
 		tier: "Uber",
 		randomBattleLevel: 76,
-		randomDoubleBattleLevel: 68,
 		randomDoubleBattleMoves: ["astralbarrage", "nastyplot", "snarl", "protect", "psyshock"],
 	},
 };
