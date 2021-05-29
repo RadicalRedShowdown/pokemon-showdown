@@ -116,7 +116,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Coalossal-Mega', 'Lapras-Mega', 'Garbodor-Mega', 'Sandaconda-Mega', 'Flapple-Mega'];
+			const pool = ['Aurorus', 'Bastiodon', 'Carracosta', 'Armaldo'];
 			let fromPool = 0;
 			let stones = 0;
 			for (const set of team) {
