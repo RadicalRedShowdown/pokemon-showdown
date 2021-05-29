@@ -290,7 +290,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: false, isSetup: !counter.setupType};
 		case 'boomburst':
 			// Special case for aurorus, who doesn't want boomburst on Snow Warning
-			return {cull: movePool.includes('blizzard')}
+			return {cull: movePool.includes('blizzard')};
 
 		// Bad after setup
 		case 'coaching': case 'counter': case 'reversal':
