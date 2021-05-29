@@ -1,7 +1,7 @@
 import {MoveCounter, RandomTeams, TeamData} from '../../random-teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {Utils} from '../../../lib';
-import {toID} from '../../../sim/dex';
+import {Dex, toID} from '../../../sim/dex';
 
 // Moves that restore HP:
 const RecoveryMove = [
