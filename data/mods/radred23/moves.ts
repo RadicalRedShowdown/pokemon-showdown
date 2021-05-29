@@ -23,7 +23,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	batonpass: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	beatup: {
 		num: 251,
@@ -123,7 +123,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	doubleteam: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	dracometeor: {
 		inherit: true,
@@ -150,7 +150,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	fissure: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	flash: {
 		num: 148,
@@ -245,7 +245,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	guillotine: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	headcharge: {
 		inherit: true,
@@ -272,7 +272,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	horndrill: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	icehammer: {
 		inherit: true,
@@ -370,7 +370,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	minimize: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	mirrorshot: {
 		inherit: true,
@@ -563,7 +563,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	sheercold: {
 		inherit: true,
-		isNonstandard: "Past",
+		isNonstandard: "Unobtainable",
 	},
 	shellsidearm: {
 		num: 801,
