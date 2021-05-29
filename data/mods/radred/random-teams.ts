@@ -1457,8 +1457,12 @@ export class RandomRadicalRedTeams extends RandomTeams {
 				marshadow: 75, eternatus: 75, glalie: 78, haxorus: 80, inteleon: 80, cresselia: 83, octillery: 84, jolteon: 84,
 				swoobat: 84, dugtrio: 84, slurpuff: 84, polteageist: 84, wobbuffet: 86,
 				// These Pokemon are too weak and need a higher level
-				delibird: 100, vespiquen: 96, shedinja: 92, arctozolt: 88, reuniclus: 87, slowking: 81,
+				delibird: 100, pikachu: 88, vespiquen: 96, shedinja: 92, arctozolt: 88, reuniclus: 87, slowking: 81,
 			};
+			let id = species.id;
+			if (species.baseSpecies === 'Pikachu') {
+				id = 'pikachu' as ID;
+			}
 			level = customScale[species.id] || tierScale[tier];
 		} else {
 			level = species.randomBattleLevel || 80;
