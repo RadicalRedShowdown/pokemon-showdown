@@ -509,6 +509,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 				// and Defog Noctowl wants Hurricane—presumably for a high-risk, high-reward damaging move
 				// after its main job of removing hazards is done.
 				(species.id === 'noctowl' && !counter.setupType) ||
+				(species.id === 'drifblim' && !counter.setupType) ||
 				hasRestTalk ||
 				(abilities.has('Simple') && !!counter.get('recovery')) ||
 				counter.setupType === 'Physical',
