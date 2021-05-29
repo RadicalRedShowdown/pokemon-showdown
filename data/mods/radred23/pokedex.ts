@@ -46,7 +46,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	fearow: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 100, def: 65, spa: 61, spd: 61, spe: 115},
-		abilities: {0: "Technician", H: "Sniper"},
+		abilities: {0: "Sniper", H: "Technician"},
 	},
 	arbok: {
 		inherit: true,
