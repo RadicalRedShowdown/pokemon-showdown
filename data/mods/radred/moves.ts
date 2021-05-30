@@ -581,7 +581,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		num: 852,
 		accuracy: 100,
 		basePower: 105,
-		category: "Special",
+		category: "Physical",
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
