@@ -1627,7 +1627,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["firefang", "ironhead", "playrough", "protect", "suckerpunch", "swordsdance"],
 	},
 	mawilemega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["ironhead", "knockoff", "playrough", "protect", "suckerpunch", "swordsdance"],
 	},
@@ -1656,7 +1656,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["bulletpunch", "drainpunch", "fakeout", "closecombat", "icepunch", "protect", "zenheadbutt"],
 	},
 	medichammega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["bulletpunch", "drainpunch", "fakeout", "closecombat", "icepunch", "protect", "zenheadbutt"],
 	},
@@ -2019,7 +2019,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["calmmind", "dracometeor", "healpulse", "mysticalfire", "psyshock", "roost", "tailwind"],
 	},
 	latiasmega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["dragonpulse", "healpulse", "helpinghand", "protect", "psychic", "tailwind"],
 	},
@@ -2029,7 +2029,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["dracometeor", "dragonpulse", "mysticalfire", "psychic", "psyshock", "roost", "tailwind", "trick"],
 	},
 	latiosmega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["dracometeor", "dragonpulse", "hiddenpowerfire", "protect", "psyshock", "tailwind"],
 	},
@@ -3242,7 +3242,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	volcarona: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 80,
 		randomDoubleBattleMoves: ["bugbuzz", "gigadrain", "heatwave", "hurricane", "protect", "quiverdance"],
 	},
@@ -3686,7 +3686,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["bodypress", "diamondstorm", "earthpower", "moonblast"],
 	},
 	dianciemega: {
-		tier: "UU",
+		tier: "UUBL",
 		randomBattleLevel: 81,
 		randomDoubleBattleMoves: ["calmmind", "dazzlinggleam", "diamondstorm", "earthpower", "hiddenpowerfire", "moonblast", "protect", "psyshock"],
 	},
