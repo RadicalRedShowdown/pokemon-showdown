@@ -114,7 +114,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pidgeotmega: {
 		tier: "UU",
 		randomBattleLevel: 82,
-		randomDoubleBattleMoves: ["heatwave", "hurricane", "protect", "tailwind", "uturn"],
+		randomDoubleBattleMoves: ["heatwave", "hurricane", "protect", "tailwind", "uturn", "focusblast"],
 	},
 	rattata: {
 		tier: "LC",
@@ -1223,7 +1223,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	heracrossmega: {
 		tier: "UU",
 		randomBattleLevel: 81,
-		randomDoubleBattleMoves: ["bulletseed", "closecombat", "knockoff", "pinmissile", "protect", "rockblast", "swordsdance"],
+		randomDoubleBattleMoves: ["bulletseed", "armthrust", "knockoff", "pinmissile", "protect", "rockblast", "swordsdance"],
 	},
 	sneasel: {
 		tier: "LC",
@@ -2661,7 +2661,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	emboar: {
 		tier: "UU",
 		randomBattleLevel: 85,
-		randomDoubleBattleMoves: ["flareblitz", "headsmash", "heatwave", "protect", "rockslide", "superpower", "wildcharge"],
+		randomDoubleBattleMoves: ["flareblitz", "headsmash", "heatwave", "protect", "rockslide", "closecombat", "wildcharge"],
 	},
 	oshawott: {
 		tier: "LC",
