@@ -180,7 +180,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pikachulibre: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["closecombat", "knockoff", "protect", "extremespeed", "wildcharge"],
+		randomDoubleBattleMoves: ["closecombat", "knockoff", "protect", "extremespeed", "thunderbolt"],
 	},
 	pikachuoriginal: {
 		tier: "UU",
