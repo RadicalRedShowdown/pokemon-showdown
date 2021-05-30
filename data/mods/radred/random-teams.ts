@@ -1423,9 +1423,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (item === 'Leftovers' && types.has('Poison')) {
 			item = 'Black Sludge';
 		}
-		if (species.name === 'Pikachu' && !gmax) {
-			forme = 'Pikachu' + this.sample(['-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']);
-		}
 
 		let level: number;
 		if (isDoubles) {

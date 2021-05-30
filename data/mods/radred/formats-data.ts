@@ -154,7 +154,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	pikachu: {
 		tier: "NFE",
-		randomDoubleBattleMoves: ["fakeout", "grassknot", "knockoff", "protect", "extremespeed", "volttackle"],
+		randomDoubleBattleMoves: ["fakeout", "grassknot", "knockoff", "protect", "extremespeed", "thunderbolt"],
 	},
 	pikachucosplay: {
 		tier: "UU",
@@ -162,17 +162,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pikachurockstar: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["fakeout", "meteormash", "knockoff", "protect", "extremespeed", "wildcharge"],
+		randomDoubleBattleMoves: ["meteormash", "knockoff", "protect", "extremespeed", "thunderbolt"],
 	},
 	pikachubelle: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["fakeout", "iciclecrash", "knockoff", "protect", "extremespeed", "wildcharge"],
+		randomDoubleBattleMoves: ["iciclecrash", "knockoff", "protect", "extremespeed", "thunderbolt"],
 	},
 	pikachupopstar: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["fakeout", "dazzlinggleam", "hiddenpowerfire", "protect", "extremespeed", "thunderbolt"],
+		randomDoubleBattleMoves: ["dazzlinggleam", "hiddenpowerfire", "protect", "extremespeed", "thunderbolt"],
 	},
 	pikachuphd: {
 		tier: "UU",
@@ -180,7 +180,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	pikachulibre: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["fakeout", "closecombat", "knockoff", "protect", "extremespeed", "wildcharge"],
+		randomDoubleBattleMoves: ["closecombat", "knockoff", "protect", "extremespeed", "wildcharge"],
 	},
 	pikachuoriginal: {
 		tier: "UU",
