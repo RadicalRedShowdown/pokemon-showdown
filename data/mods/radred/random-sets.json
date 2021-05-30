@@ -10228,12 +10228,12 @@
 	"Slowbro-Galar": [{
 			"item": "Assault Vest",
 			"ability": "Regenerator",
-			"moves": ["Sludge Bomb", "Flamethrower", "Future Sight", "Scald"]
+			"moves": ["Shell Side Arm", "Flamethrower", "Future Sight", "Scald"]
 		},
 		{
 			"item": "Black Sludge",
 			"ability": "Regenerator",
-			"moves": ["Calm Mind", "Sludge Bomb", "Flamethrower", "Slack Off"]
+			"moves": ["Calm Mind", "Shell Side Arm", "Flamethrower", "Slack Off"]
 		}
 	],
 	"Slowbro-Mega": [{
