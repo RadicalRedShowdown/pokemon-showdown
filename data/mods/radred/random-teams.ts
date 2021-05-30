@@ -1765,7 +1765,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			((setData.ability === 'Drought' || setData.moves.includes('Sunny Day') || (setData.ability === 'Forecast' && setData.item === 'Heat Rock')) && teamDetails.sun) ||
 			((setData.ability === 'Snow Warning' || setData.moves.includes('Hail') || (setData.ability === 'Forecast' && setData.item === 'Icy Rock')) && teamDetails.hail) ||
 			((setData.ability === 'Sand Stream' || (setData.ability === 'Forecast' && setData.item === 'Smooth Rock')) && teamDetails.sand) ||
-			((setData.item === 'Choice Band' || setData.item === 'Choice Specs' || setData.item === 'Choice Scarf') && teamDetails.choiceItems && teamDetails.choiceItems >= 2) ||
 			(setData.moves.includes('Spikes') && teamDetails.spikes) ||
 			(setData.moves.includes('Stealth Rock') && teamDetails.stealthRock) ||
 			(setData.moves.includes('Sticky Web') && teamDetails.stickyWeb) ||
@@ -2051,9 +2050,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (set.moves.includes('rapidspin')) teamDetails.rapidSpin = 1;
 			if (set.moves.includes('auroraveil') || (set.moves.includes('reflect') && set.moves.includes('lightscreen'))) {
 				teamDetails.screens = 1;
-			}
-			if (set.item === 'Choice Band' || set.item === 'Choice Specs' || set.item === 'Choice Scarf') {
-				teamDetails.choiceItems = (teamDetails.choiceItems || 0) + 1;
 			}
 
 			// For setting Zoroark's level

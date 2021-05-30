@@ -475,7 +475,6 @@ namespace RandomTeamsTypes {
 		rapidSpin?: number;
 		defog?: number;
 		screens?: number;
-		choiceItems?: number;
 		illusion?: number;
 		statusCure?: number;
 	}
