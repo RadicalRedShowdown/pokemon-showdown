@@ -6900,27 +6900,27 @@
 	],
 	"Lugia": [{
 			"item": "Heavy-Duty Boots",
-			"ability": "Pressure",
+			"ability": "Multiscale",
 			"moves": ["Roost", "Ice Beam", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
-			"ability": "Pressure",
+			"ability": "Multiscale",
 			"moves": ["Roost", "Ice Beam", "Thunder Wave", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
-			"ability": "Pressure",
+			"ability": "Multiscale",
 			"moves": ["Roost", "Psychic", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
-			"ability": "Pressure",
+			"ability": "Multiscale",
 			"moves": ["Roost", "Aeroblast", "Toxic", "Whirlwind"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
-			"ability": "Pressure",
+			"ability": "Multiscale",
 			"moves": ["Roost", "Psychic", "Toxic", "Substitute"]
 		}
 	],
