@@ -982,7 +982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 55, atk: 84, def: 105, spa: 104, spd: 75, spe: 52},
-		abilities: {0: "Swift Swim", H: "Regenerator"},
+		abilities: {0: "Dazzling", H: "Regenerator"},
 	},
 	relicanth: {
 		inherit: true,
