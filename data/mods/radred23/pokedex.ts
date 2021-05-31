@@ -2354,6 +2354,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	frosmoth: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 65, def: 65, spa: 125, spd: 90, spe: 65},
+		evoType: "useItem",
+		evoItem: "Ice Stone",
+		evoCondition: "",
 	},
 	stonjourner: {
 		inherit: true,
@@ -2427,6 +2430,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
 		requiredItem: "Duraludonite",
+	},
+	urshifu: {
+		inherit: true,
+		evoType: "useItem",
+		evoItem: "Dusk Stone",
+		evoCondition: "",
+	},
+	urshifurapidstrike: {
+		inherit: true,
+		evoType: "useItem",
+		evoItem: "Water Stone",
+		evoCondition: "",
 	},
 	zarude: {
 		inherit: true,
