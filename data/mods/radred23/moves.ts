@@ -655,7 +655,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		name: "Sonic Slash",
 		pp: 10,
 		priority: 0,
-		flags: {bite: 1, contact: 1, protect: 1, mirror: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		target: "normal",
 		type: "Flying",
 		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 140 if the result is 3 or more, 120 if 2, 80 if less than 2. If the target's current Speed is 0, this move's power is 80.",
@@ -669,7 +669,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1, authentic: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
 		secondary: null,
