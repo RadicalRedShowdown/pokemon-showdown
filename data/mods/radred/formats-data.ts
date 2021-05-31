@@ -2815,7 +2815,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	throh: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["facade", "knockoff", "poisonjab", "protect", "stoneedge", "stormthrow", "wideguard"],
+		randomDoubleBattleMoves: ["knockoff", "poisonjab", "protect", "rocktomb", "stormthrow"],
 	},
 	sawk: {
 		tier: "UU",

@@ -709,7 +709,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return (abilities.has('Tinted Lens') && !counter.get('Status') && !isDoubles);
 		case 'Mold Breaker':
 			return (
-				abilities.has('Adaptability') || abilities.has('Scrappy') || (abilities.has('Unburden') && !!counter.setupType) ||
+				abilities.has('Adaptability') || abilities.has('Scrappy') || abilities.has('Technician') ||
+				(abilities.has('Unburden') && !!counter.setupType) ||
 				(abilities.has('Sheer Force') && !!counter.get('sheerforce'))
 			);
 		case 'Moxie':
