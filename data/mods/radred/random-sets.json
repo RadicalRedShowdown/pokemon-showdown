@@ -11532,12 +11532,12 @@
 	"Venomoth": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"moves": ["Quiver Dance", "Sludge Bomb", "Bug Buzz", "Roost"]
+			"moves": ["Quiver Dance", "Psychic", "Bug Buzz", "Roost"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Tinted Lens",
-			"moves": ["Quiver Dance", "Sludge Bomb", "Bug Buzz", "Giga Drain"]
+			"moves": ["Quiver Dance", "Psychic", "Bug Buzz", "Giga Drain"]
 		}
 	],
 	"Venusaur": [{
