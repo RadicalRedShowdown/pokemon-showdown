@@ -1,4 +1,8 @@
 export const Moves: {[k: string]: ModdedMoveData} =	{
+	acupressure: {
+		inherit: true,
+		isNonstandard: "Unobtainable",
+	},
 	aquafang: {
 		num: 850,
 		accuracy: 100,
