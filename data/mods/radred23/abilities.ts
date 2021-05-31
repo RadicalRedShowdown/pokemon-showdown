@@ -160,7 +160,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Immune to burn damage.",
-		shortDesc: "While this Pokemon is burned, its special attacks have 1.5x power; Immune to burn damage.",
+		shortDesc: "When burned, special attacks have 1.5x power; Immune to burn damage.",
 	},
 	flowergift: {
 		inherit: true,
@@ -484,7 +484,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to poison damage.",
-		shortDesc: "While this Pokemon is poisoned, its physical attacks have 1.5x power; Immune to poison damage.",
+		shortDesc: "When poisoned, physical attacks have 1.5x power; Immune to poison damage.",
 	},
 	truant: {
 		inherit: true,
