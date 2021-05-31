@@ -1865,7 +1865,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Frisk", 1: "Vital Spirit", H: "No Guard"},
 	},
-	lycanrockdusk: {
+	lycanrocdusk: {
 		inherit: true,
 		evoCondition: "between 5:00 - 7:59 PM"
 	},
