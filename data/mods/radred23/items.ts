@@ -740,7 +740,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			basePower: 30,
 		},
 		gen: 8,
-		desc: "Evolves Pokemon that would normally be evolved via trade."
+		desc: "Evolves Pokemon that would normally be evolved via trade.",
 	},
 	butterfrite: {
 		name: "Butterfrite",

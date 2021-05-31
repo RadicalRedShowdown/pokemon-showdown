@@ -601,7 +601,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	slowkinggalar: {
 		inherit: true,
 		abilities: {0: "Oblivious", 1: "Own Tempo", H: "Regenerator"},
-		evoItem: "King's Rock"
+		evoItem: "King's Rock",
 	},
 	girafarig: {
 		inherit: true,
@@ -1867,7 +1867,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lycanrocdusk: {
 		inherit: true,
-		evoCondition: "between 5:00 - 7:59 PM"
+		evoCondition: "between 5:00 - 7:59 PM",
 	},
 	lurantis: {
 		inherit: true,
