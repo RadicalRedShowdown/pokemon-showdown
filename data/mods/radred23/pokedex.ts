@@ -177,6 +177,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Infiltrator", 1: "Sniper", H: "Corrosion"},
 	},
+	gloom: {
+		inherit: true,
+		evoLevel: 16,
+	},
 	parasect: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 110, def: 100, spa: 60, spd: 80, spe: 30},
@@ -535,6 +539,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 55, atk: 90, def: 50, spa: 35, spd: 100, spe: 85},
+		evoLevel: 16,
 	},
 	ariados: {
 		inherit: true,
@@ -578,6 +583,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		evoType: "useItem",
 		evoItem: "King's Rock",
+	},
+	skiploom: {
+		inherit: true,
+		evoLevel: 16,
 	},
 	jumpluff: {
 		inherit: true,
@@ -746,10 +755,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 60, spd: 60, spe: 70},
 		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Moxie"},
+		evoLevel: 16,
 	},
 	linoone: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 85, def: 61, spa: 50, spd: 61, spe: 100},
+		evoLevel: 16,
+	},
+	linoonegalar: {
+		inherit: true,
+		evoLevel: 16,
 	},
 	beautifly: {
 		inherit: true,
@@ -788,6 +803,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Water"],
 		baseStats: {hp: 80, atk: 60, def: 62, spa: 100, spd: 82, spe: 80},
+	},
+	ninjask: {
+		inherit: true,
+		evoLevel: 16,
 	},
 	shedinja: {
 		inherit: true,
@@ -909,7 +928,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	seviper: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 100, def: 83, spa: 100, spd: 83, spe: 85},
-		abilities: {0: "Merciless", H: "Fatal Precision"},
+		abilities: {0: "Merciless", 1: "Shed Skin", H: "Fatal Precision"},
 	},
 	lunatone: {
 		inherit: true,
@@ -1003,7 +1022,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 55, atk: 84, def: 105, spa: 104, spd: 75, spe: 52},
-		abilities: {0: "Swift Swim", H: "Regenerator"},
+		abilities: {0: "Dazzling", H: "Regenerator"},
 		evoType: "useItem",
 		evoItem: "Sun Stone",
 	},
@@ -1868,6 +1887,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gumshoos: {
 		inherit: true,
 		baseStats: {hp: 98, atk: 110, def: 60, spa: 55, spd: 60, spe: 45},
+		evoLevel: 16,
 	},
 	crabominable: {
 		inherit: true,

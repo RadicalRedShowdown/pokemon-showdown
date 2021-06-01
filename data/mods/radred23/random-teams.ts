@@ -505,10 +505,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'airslash':
 			return {cull:
 				(species.id === 'naganadel' && moves.has('nastyplot')) ||
-				// I'm told that Nasty Plot Noctowl wants Air Slash (presumably for consistent damage),
-				// and Defog Noctowl wants Hurricane—presumably for a high-risk, high-reward damaging move
-				// after its main job of removing hazards is done.
-				(species.id === 'noctowl' && !counter.setupType) ||
 				(species.id === 'drifblim' && !counter.setupType) ||
 				hasRestTalk ||
 				(abilities.has('Simple') && !!counter.get('recovery')) ||
@@ -518,9 +514,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// Special case for Mew, which only wants Brave Bird with Swords Dance
 			return {cull: moves.has('dragondance')};
 		case 'hurricane':
-			// Special case for Noctowl, which wants Air Slash if Nasty Plot instead
-			const noctowlCase = (!isNoDynamax && !isDoubles && species.id === 'noctowl' && !!counter.setupType);
-			return {cull: counter.setupType === 'Physical' || noctowlCase};
+			return {cull: counter.setupType === 'Physical'};
 		case 'futuresight':
 			return {cull: moves.has('psyshock') || moves.has('trick') || movePool.includes('teleport')};
 		case 'photongeyser':
@@ -629,7 +623,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: moves.has('rocktomb') || (species.id === 'lucario' && !!counter.setupType)};
 		case 'leechseed':
 			// Special case for Calyrex to prevent Leech Seed + Calm Mind
-			return {cull: !!counter.setupType};
+			return {cull: !!counter.setupType || moves.has('sappyseed')};
 		}
 
 		return {cull: false};

@@ -116,7 +116,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Aurorus', 'Bastiodon', 'Carracosta', 'Armaldo'];
+			const pool = ['Morpeko', 'Dedenne', 'Plusle', 'Togedemaru', 'Pikachu-Libre'];
 			let fromPool = 0;
 			let stones = 0;
 			for (const set of team) {

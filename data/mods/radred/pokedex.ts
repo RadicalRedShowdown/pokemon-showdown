@@ -892,7 +892,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	seviper: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 100, def: 83, spa: 100, spd: 83, spe: 85},
-		abilities: {0: "Merciless", H: "Fatal Precision"},
+		abilities: {0: "Merciless", 1: "Shed Skin", H: "Fatal Precision"},
 	},
 	lunatone: {
 		inherit: true,
@@ -982,7 +982,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Water", "Fairy"],
 		baseStats: {hp: 55, atk: 84, def: 105, spa: 104, spd: 75, spe: 52},
-		abilities: {0: "Swift Swim", H: "Regenerator"},
+		abilities: {0: "Dazzling", H: "Regenerator"},
 	},
 	relicanth: {
 		inherit: true,
