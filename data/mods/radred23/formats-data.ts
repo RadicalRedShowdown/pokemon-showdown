@@ -3149,7 +3149,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	cryogonal: {
 		tier: "UU",
 		randomBattleLevel: 88,
-		randomDoubleBattleMoves: ["freezedry", "icebeam", "icywind", "haze", "rapidspin", "recover", "toxic"],
+		randomDoubleBattleMoves: ["freezedry", "freezyfrost", "icywind", "haze", "rapidspin", "recover", "toxic"],
 	},
 	shelmet: {
 		tier: "LC",
@@ -3329,10 +3329,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	meloetta: {
 		tier: "UU",
 		randomBattleLevel: 83,
-		randomDoubleBattleMoves: ["calmmind", "focusblast", "hypervoice", "protect", "psyshock", "shadowball"],
+		randomDoubleBattleMoves: ["calmmind", "focusblast", "hypervoice", "protect", "lusterpurge", "shadowball"],
 	},
 	meloettapirouette: {
 		tier: "UU",
+		randomDoubleBattleMoves: ["bulkup", "closecombat", "bodyslam", "rockslide", "icepunch", "protect"],
 	},
 	genesect: {
 		tier: "Uber",
@@ -4799,7 +4800,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	glastrier: {
 		tier: "UU",
 		randomBattleLevel: 85,
-		randomDoubleBattleMoves: ["closecombat", "highhorsepower", "iciclecrash", "protect"],
+		randomDoubleBattleMoves: ["closecombat", "highhorsepower", "icehammer", "protect"],
 	},
 	spectrier: {
 		tier: "Uber",

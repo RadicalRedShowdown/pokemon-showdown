@@ -454,7 +454,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'freezedry':
 			const betterIceMove = (
 				(moves.has('blizzard') && !!counter.setupType) ||
-				(moves.has('icebeam') && counter.get('Special') < 4)
+				((moves.has('icebeam') || moves.has('freezyfrost')) && counter.get('Special') < 4)
 			);
 			const preferThunderWave = movePool.includes('thunderwave') && types.has('Electric');
 			return {cull: betterIceMove || preferThunderWave || movePool.includes('bodyslam')};
