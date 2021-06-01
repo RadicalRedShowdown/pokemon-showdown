@@ -21,15 +21,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pidgey: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Big Pecks"},
+		abilities: {0: "Tangled Feet", H: "Frisk"},
 	},
 	pidgeotto: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Big Pecks"},
+		abilities: {0: "Tangled Feet", H: "Frisk"},
 	},
 	pidgeot: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Big Pecks"},
+		abilities: {0: "Tangled Feet", H: "Frisk"},
 	},
 	raticate: {
 		inherit: true,
@@ -1160,7 +1160,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	chatot: {
 		inherit: true,
 		baseStats: {hp: 76, atk: 65, def: 45, spa: 92, spd: 42, spe: 101},
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Big Pecks"},
+		abilities: {0: "Tangled Feet", H: "Frisk"},
 	},
 	spiritomb: {
 		inherit: true,
@@ -1423,9 +1423,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Forewarn", 1: "Synchronize", H: "Unaware"},
 	},
+	pidove: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Super Luck", H: "Rivalry"},
+	},
+	tranquill: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Super Luck", H: "Rivalry"},
+	},
 	unfezant: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 115, def: 80, spa: 65, spd: 55, spe: 108},
+		abilities: {0: "Frisk", 1: "Super Luck", H: "Rivalry"},
 	},
 	blitzle: {
 		inherit: true,
@@ -1535,12 +1544,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ducklett: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Big Pecks", H: "Hydration"},
+		abilities: {0: "Frisk", H: "Hydration"},
 	},
 	swanna: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 77, def: 63, spa: 97, spd: 63, spe: 98},
-		abilities: {0: "Frisk", 1: "Big Pecks", H: "No Guard"},
+		abilities: {0: "Frisk", H: "No Guard"},
 	},
 	vanilluxe: {
 		inherit: true,
@@ -1642,9 +1651,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Frisk", 1: "Sheer Force", H: "Defiant"},
 		evoLevel: 44,
 	},
+	vullaby: {
+		inherit: true,
+		abilities: {0: "Frisk", 1: "Overcoat", H: "Weak Armor"},
+	},
 	mandibuzz: {
 		inherit: true,
 		evoLevel: 45,
+		abilities: {0: "Frisk", 1: "Overcoat", H: "Weak Armor"},
 	},
 	heatmor: {
 		inherit: true,
@@ -1670,6 +1684,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 			M: 0.875,
 			F: 0.125,
 		},
+	},
+	fletchling: {
+		inherit: true,
+		abilities: {0: "Frisk", H: "Gale Wings"},
+	},
+	fletchinder: {
+		inherit: true,
+		abilities: {0: "Frisk", H: "Gale Wings"},
 	},
 	talonflame: {
 		inherit: true,
@@ -2048,11 +2070,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	rookidee: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Unnerve", H: "Big Pecks"},
+		abilities: {0: "Unnerve", H: "Frisk"},
 	},
 	corvisquire: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Unnerve", H: "Big Pecks"},
+		abilities: {0: "Unnerve", H: "Frisk"},
 	},
 	corviknight: {
 		inherit: true,
