@@ -1712,6 +1712,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["8M"],
 			snore: ["8T"],
 			spark: ["8L26"],
+			sparklyswirl: ["8S0"],
 			strength: ["8M"],
 			substitute: ["8M"],
 			surf: ["8M"],
@@ -1730,7 +1731,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["8L57"],
 		},
 		eventData: [
-			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "drainingkiss"], pokeball: "pokeball"},
+			{generation: 8, level: 30, shiny: 1, moves: ["extremespeed", "happyhour", "thunderwave", "sparklyswirl"], pokeball: "pokeball"},
 		],
 		eventOnly: true,
 	},

@@ -4124,7 +4124,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tapukoko: {
 		tier: "OU",
 		randomBattleLevel: 80,
-		randomDoubleBattleMoves: ["bravebird", "playrought", "closecombat", "wildcharge", "uturn"],
+		randomDoubleBattleMoves: ["bravebird", "playrough", "closecombat", "wildcharge", "uturn"],
 	},
 	tapulele: {
 		tier: "UU",

@@ -892,7 +892,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	seviper: {
 		inherit: true,
 		baseStats: {hp: 83, atk: 100, def: 83, spa: 100, spd: 83, spe: 85},
-		abilities: {0: "Merciless", H: "Fatal Precision"},
+		abilities: {0: "Merciless", 1: "Shed Skin", H: "Fatal Precision"},
 	},
 	lunatone: {
 		inherit: true,
