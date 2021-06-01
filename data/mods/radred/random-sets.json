@@ -1882,12 +1882,12 @@
 		},
 		{
 			"item": "Leftovers",
-			"ability": "Mummy",
+			"ability": "Shadow Shield",
 			"moves": ["Will-O-Wisp", "Body Press", "Shadow Ball", "Pain Split"]
 		},
 		{
 			"item": "Leftovers",
-			"ability": "Mummy",
+			"ability": "Shadow Shield",
 			"moves": ["Toxic Spikes", "Body Press", "Shadow Ball", "Pain Split"]
 		}
 	],
