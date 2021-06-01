@@ -915,7 +915,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (teamDetails.defog && teamDetails.rapidSpin && moves.has('eruption')) {
 				return 'Choice Specs';
 			} else {
-				return 'Heavy-Duty Boots'
+				return 'Heavy-Duty Boots';
 			}
 		}
 
