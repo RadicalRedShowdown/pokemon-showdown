@@ -152,6 +152,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
+	fishiousrend: {
+		inherit: true,
+		flags: {contact: 1, protect: 1, mirror: 1},
+	},
 	fissure: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
@@ -362,7 +366,13 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	lowsweep: {
 		inherit: true,
+		basePower: 60,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
+	},
+	lusterpurge: {
+		inherit: true,
+		basePower: 85,
+		pp: 10,
 	},
 	megakick: {
 		inherit: true,
@@ -383,6 +393,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
+	},
+	mistball: {
+		inherit: true,
+		basePower: 85,
+		pp: 10,
 	},
 	mistyexplosion: {
 		inherit: true,
