@@ -911,6 +911,13 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (ability === 'Unburden') return (moves.has('closecombat') || moves.has('curse')) ? 'White Herb' : 'Sitrus Berry';
 		if (ability === 'Poison Heal' || ability === 'Toxic Boost') return 'Toxic Orb';
 		if (ability === 'Flare Boost') return 'Flame Orb';
+		if (ability === 'Blazing Soul') {
+			if (teamDetails.defog && teamDetails.rapidSpin && moves.has('eruption')) {
+				return 'Choice Specs';
+			} else {
+				return 'Heavy-Duty Boots'
+			}
+		}
 
 		// Move based logic
 		if (moves.has('trick') || moves.has('switcheroo') && !isDoubles) {
