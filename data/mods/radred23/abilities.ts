@@ -226,7 +226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAccuracy(target, source, move) {
 			return this.chainModify(1.2);
 		},
-		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.2."
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.2.",
 	},
 	illusion: {
 		inherit: true,
