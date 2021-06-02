@@ -1433,42 +1433,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		}
 
 		let level: number;
-		if (isDoubles) {
-			let tier = species.tier;
-			if (tier === 'UU') {
-				const gen8species = Dex.species.get(species.id);
-				const gen7species = Dex.mod('gen7').species.get(species.id);
-				if (gen8species.exists && !gen8species.isNonstandard) {
-					tier = gen8species.tier;
-				} else if (gen7species.exists && !gen7species.isNonstandard) {
-					tier = gen7species.tier;
-				}
-			}
-			const tierScale: {[k: string]: number} = {
-				Uber: 76,
-				OU: 80,
-				UUBL: 81,
-				UU: 82,
-				RUBL: 83,
-				RU: 84,
-				NUBL: 85,
-				NU: 86,
-				PUBL: 87,
-				PU: 88, "(PU)": 88, NFE: 88,
-			};
-			const customScale: {[k: string]: number} = {
-				// These Pokemon are too strong and need a lower level
-				zaciancrowned: 66, calyrexshadow: 68, xerneas: 70, necrozmaduskmane: 72, zacian: 72, kyogre: 73, zekrom: 74,
-				marshadow: 75, eternatus: 75, glalie: 78, haxorus: 80, inteleon: 80, cresselia: 83, octillery: 84, jolteon: 84,
-				swoobat: 84, dugtrio: 84, slurpuff: 84, polteageist: 84, wobbuffet: 86,
-				// These Pokemon are too weak and need a higher level
-				delibird: 100, pikachu: 88, shedinja: 92, arctozolt: 88, reuniclus: 87, slowking: 81,
-			};
-			let id = species.id;
-			if (species.baseSpecies === 'Pikachu') {
-				id = 'pikachu' as ID;
-			}
-			level = customScale[id] || tierScale[tier];
+		if (isDoubles && species.randomDoubleBattleLevel) {
+			level = species.randomDoubleBattleLevel;
 		} else {
 			level = species.randomBattleLevel || 80;
 		}
@@ -1528,28 +1494,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			ivs,
 			item,
 		};
-	}
-
-	getPokemonPool(
-		type: string,
-		pokemonToExclude: RandomTeamsTypes.RandomSet[] = [],
-		isMonotype = false,
-	) {
-		const exclude = pokemonToExclude.map(p => toID(p.species));
-		const pokemonPool = [];
-		for (const id in this.dex.data.FormatsData) {
-			let species = this.dex.species.get(id);
-			if (species.gen > this.gen || exclude.includes(species.id)) continue;
-			if (isMonotype) {
-				if (!species.types.includes(type)) continue;
-				if (typeof species.battleOnly === 'string') {
-					species = this.dex.species.get(species.battleOnly);
-					if (!species.types.includes(type)) continue;
-				}
-			}
-			pokemonPool.push(id);
-		}
-		return pokemonPool;
 	}
 
 	randomTeam() {
