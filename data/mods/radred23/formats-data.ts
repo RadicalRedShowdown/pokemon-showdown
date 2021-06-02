@@ -2894,13 +2894,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 84,
 		randomDoubleBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
 	},
-	darmanitanzen: {},
+	darmanitanzen: {
+		randomBattleLevel: 84,
+		randomDoubleBattleMoves: ["psychic", "fireblast", "trickroom", "heatwave", "grassknot", "protect"],
+	},
 	darmanitangalar: {
 		tier: "OU",
 		randomBattleLevel: 78,
 		randomDoubleBattleMoves: ["earthquake", "flareblitz", "iciclecrash", "rockslide", "superpower", "uturn"],
 	},
-	darmanitangalarzen: {},
+	darmanitangalarzen: {
+		randomBattleLevel: 78,
+		randomDoubleBattleMoves: ["earthquake", "flareblitz", "iciclecrash", "rockslide", "superpower", "uturn"],
+	},
 	maractus: {
 		tier: "UU",
 		randomBattleLevel: 88,

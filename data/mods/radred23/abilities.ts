@@ -523,9 +523,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Raises defense by 2 stages when damaged by water-type move; Reduces water damage by 50%.",
 	},
 	zenmode: {
-		inherit: true,
-		onResidual() {},
-		onEnd() {},
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
 				return;
@@ -538,5 +535,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.transformed = true;
 			}
 		},
+		isPermanent: true,
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
 	},
 };
