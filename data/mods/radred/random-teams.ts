@@ -1795,10 +1795,10 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
 
 		let level: number;
-		if (species.randomBattleLevel) {
-			level = species.randomBattleLevel;
-		} else if (ability === 'Power Construct') {
+		if (ability === 'Power Construct') {
 			level = 76;
+		} else if (species.randomBattleLevel) {
+			level = species.randomBattleLevel;
 		} else {
 			level = 80;
 		}
