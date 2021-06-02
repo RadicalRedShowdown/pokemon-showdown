@@ -84,7 +84,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bull Rush",
 		rating: 2,
 		gen: 8,
-		shortDesc: "The first move this Pokemon's uses gets a 1.5x damage boost.",
+		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.3x Attack boost.",
+		shortDesc: "On first turn out, 1.5x Speed and 1.3x Attack.",
 	},
 	corrosion: {
 		inherit: true,
@@ -225,6 +226,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAccuracy(target, source, move) {
 			return this.chainModify(1.2);
 		},
+		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.2."
 	},
 	illusion: {
 		inherit: true,
@@ -539,5 +541,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
+		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
+		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
 };

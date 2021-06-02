@@ -415,14 +415,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Rain Dish", 1: "Water Veil", H: "Lightning Rod"},
 	},
-	staryu: {
-		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Illuminate", H: "Analytic"},
-	},
-	starmie: {
-		inherit: true,
-		abilities: {0: "Natural Cure", 1: "Illuminate", H: "Analytic"},
-	},
 	mrmime: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 45, def: 65, spa: 100, spd: 120, spe: 90},
@@ -560,15 +552,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 90, def: 80, spa: 90, spd: 80, spe: 130},
 		abilities: {0: "Infiltrator", 1: "Sniper", H: "Corrosion"},
-	},
-	chinchou: {
-		inherit: true,
-		abilities: {0: "Volt Absorb", 1: "Illuminate", H: "Water Absorb"},
-	},
-	lanturn: {
-		inherit: true,
-		baseStats: {hp: 125, atk: 50, def: 65, spa: 90, spd: 76, spe: 67},
-		abilities: {0: "Volt Absorb", 1: "Illuminate", H: "Water Absorb"},
 	},
 	xatu: {
 		inherit: true,
@@ -864,7 +847,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 85, atk: 47, def: 75, spa: 90, spd: 85, spe: 100},
-		abilities: {0: "Swarm", 1: "Illuminate", H: "Prankster"},
 	},
 	illumise: {
 		inherit: true,
@@ -1426,7 +1408,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	watchog: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 100, def: 74, spa: 60, spd: 74, spe: 77},
-		abilities: {0: "Analytic", H: "No Guard"},
+		abilities: {0: "Analytic", 1: "Frisk", H: "No Guard"},
 	},
 	stoutland: {
 		inherit: true,
@@ -1939,15 +1921,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Grass", "Fighting"],
 		baseStats: {hp: 70, atk: 105, def: 90, spa: 80, spd: 90, spe: 55},
-	},
-	morelull: {
-		inherit: true,
-		abilities: {0: "Effect Spore", 1: "Illuminate", H: "Rain Dish"},
-	},
-	shiinotic: {
-		inherit: true,
-		baseStats: {hp: 75, atk: 45, def: 80, spa: 90, spd: 100, spe: 30},
-		abilities: {0: "Effect Spore", 1: "Illuminate", H: "Rain Dish"},
 	},
 	tsareena: {
 		inherit: true,
