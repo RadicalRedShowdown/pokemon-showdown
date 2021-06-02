@@ -996,7 +996,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomBattleMoves: ["boomburst", "dracometeor", "thunderbolt", "toxic", "freezedry", "whirlpool", "perishsong", "protect", "rest"],
 		randomDoubleBattleLevel: 82,
-		randomDoubleBattleMoves: ["boomburst", "dragonhammer", "megahorn", "dragondance"],
+		randomDoubleBattleMoves: ["boomburst", "dragonhammer", "irontail", "dragondance"],
 		tier: "UU",
 	},
 	laprasgmax: {
