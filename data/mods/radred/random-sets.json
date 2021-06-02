@@ -12594,14 +12594,7 @@
 			"item": "Leftovers",
 			"ability": "Aura Break",
 			"moves": ["Dragon Dance", "Coil", "Earthquake", "Stone Edge"]
-		}
-	],
-	"Zygarde-10%": [{
-		"item": "Choice Band",
-		"ability": "Aura Break",
-		"moves": ["Earthquake", "Outrage", "Stone Edge", "Scale Shot"]
-	}],
-	"Zygarde-Complete": [
+		},
 		{
 			"item": "Choice Band",
 			"ability": "Power Construct",
@@ -12632,5 +12625,10 @@
 			"ability": "Power Construct",
 			"moves": ["Dragon Dance", "Coil", "Earthquake", "Stone Edge"]
 		}
-	]
+	],
+	"Zygarde-10%": [{
+		"item": "Choice Band",
+		"ability": "Aura Break",
+		"moves": ["Earthquake", "Outrage", "Stone Edge", "Scale Shot"]
+	}]
 }

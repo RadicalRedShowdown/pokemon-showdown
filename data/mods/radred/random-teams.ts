@@ -1797,6 +1797,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		let level: number;
 		if (species.randomBattleLevel) {
 			level = species.randomBattleLevel;
+		} else if (ability === 'Power Construct') {
+			level = 76;
 		} else {
 			level = 80;
 		}
