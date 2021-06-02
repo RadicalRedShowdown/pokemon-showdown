@@ -336,7 +336,6 @@ interface ModdedBattlePokemon {
 	transformInto?: (this: Pokemon, pokemon: Pokemon, effect: Effect | null) => boolean;
 	ignoringAbility?: (this: Pokemon) => boolean;
 	ignoringItem?: (this: Pokemon) => boolean;
-	formeChange?: (this: Pokemon, speciesId: string | Species, source: Effect, isPermanent?: boolean, message?: string) => boolean;
 
 	// OM
 	getLinkedMoves?: (this: Pokemon, ignoreDisabled?: boolean) => string[];

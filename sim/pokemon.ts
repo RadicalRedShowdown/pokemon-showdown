@@ -1304,8 +1304,14 @@ export class Pokemon {
 		if (isPermanent && !['disguise', 'iceface'].includes(source.id)) {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
+				}
+			if (['Absol-Mega', 'Houndoom-Mega', 'Slowbro-Mega'].includes(species.name)) {
+				if (this.ability === toID(species.abilities['H'])) {
+					this.setAbility(species.abilites['H'], null, true);
+				}
+			} else {
+				this.setAbility(species.abilities['0'], null, true);
 			}
-			this.setAbility(species.abilities['0'], null, true);
 			this.baseAbility = this.ability;
 		}
 		return true;
