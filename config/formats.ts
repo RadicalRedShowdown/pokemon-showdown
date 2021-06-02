@@ -123,7 +123,7 @@ export const Formats: FormatList = [
 				const item = this.dex.items.get(set.item);
 				const species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
 				if (item.megaStone) stones++;
-				if (pool.includes(species) && set.ability === 'blademaster') fromPool++;
+				if (pool.includes(species) && this.dex.toID(set.ability) === 'blademaster') fromPool++;
 			}
 			if (stones > 1) {
 				return [`Nice try guys.`];
