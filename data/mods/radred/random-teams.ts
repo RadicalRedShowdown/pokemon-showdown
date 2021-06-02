@@ -955,7 +955,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (this.dex.getEffectiveness('Rock', species) >= 2 && !types.has('Flying')) return 'Heavy-Duty Boots';
 		if (counter.get('Physical') >= 4 && ['fakeout', 'feint', 'rapidspin', 'suckerpunch'].every(m => !moves.has(m)) && (
 			types.has('Dragon') || types.has('Fighting') || types.has('Rock') ||
-			moves.has('flipturn') || moves.has('uturn')
+			moves.has('flipturn') || moves.has('uturn') || ability === 'Gorilla Tactics'
 		)) {
 			return (
 				!counter.get('priority') && !abilities.has('Speed Boost') &&
@@ -970,6 +970,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			) || (
 				(counter.get('Special') >= 3 && (moves.has('flipturn') || moves.has('uturn'))) &&
 				!moves.has('acidspray') && !moves.has('electroweb')
+			) || (
+				ability === 'Sage Power'
 			)
 		) {
 			return (
