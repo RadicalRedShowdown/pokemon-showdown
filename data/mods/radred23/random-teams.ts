@@ -288,9 +288,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (counter.damagingMoves.size < 2 || moves.has('rest')) return {cull: true};
 			if (movePool.includes('calmmind') || movePool.includes('nastyplot')) return {cull: true};
 			return {cull: false, isSetup: !counter.setupType};
-		case 'boomburst':
-			// Special case for aurorus, who doesn't want boomburst on Snow Warning
-			return {cull: movePool.includes('blizzard')};
+		case 'blizzard':
+			// Special case for Aurorus, which doesn't want blizzard with boomburst
+			return {cull: movePool.includes('boomburst')};
 
 		// Bad after setup
 		case 'coaching': case 'counter': case 'reversal':
