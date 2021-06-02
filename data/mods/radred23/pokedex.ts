@@ -1680,6 +1680,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meloettapirouette: {
 		inherit: true,
+		requiredMove: "",
 		battleOnly: "",
 	},
 	chesnaught: {
