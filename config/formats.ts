@@ -116,20 +116,20 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Morpeko', 'Dedenne', 'Plusle', 'Togedemaru', 'Pikachu-Libre'];
+			const pool = ['Sirfetch\u2019d', 'Farfetch\u2019d', 'Kabutops', 'Leavanny', 'Doublade'];
 			let fromPool = 0;
 			let stones = 0;
 			for (const set of team) {
 				const item = this.dex.items.get(set.item);
 				const species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
 				if (item.megaStone) stones++;
-				if (pool.includes(species)) fromPool++;
+				if (pool.includes(species) && set.ability === 'blademaster') fromPool++;
 			}
 			if (stones > 1) {
 				return [`Nice try guys.`];
 			}
 			if (fromPool === 0) {
-				return [`Your team must have at least one of the following Pok\u00e9mon: ${pool.join(', ')}.`];
+				return [`Your team must have at least one of the following Pok\u00e9mon with the ability Blademaster: ${pool.join(', ')}.`];
 			}
 		},
 	},
