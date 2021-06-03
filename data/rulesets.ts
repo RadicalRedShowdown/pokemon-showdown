@@ -1,4 +1,7 @@
 // Note: These are the rules that formats use
+
+import {Utils} from "../lib";
+
 // The list of formats is stored in config/formats.js
 export const Rulesets: {[k: string]: FormatData} = {
 
@@ -26,7 +29,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 		effectType: 'ValidatorRule',
 		name: 'Flat Rules',
 		desc: "The in-game Flat Rules: Adjust Level Down 50, Species Clause, Item Clause, -Mythical, -Restricted Legendary, Bring 6 Pick 3-6 depending on game type.",
-		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Adjust Level Down = 50', 'Picked Team Size = Flat Rules Team Size', 'Cancel Mod'],
+		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'Item Clause', 'Adjust Level Down = 50', 'Picked Team Size = Auto', 'Cancel Mod'],
 		banlist: ['Mythical', 'Restricted Legendary'],
 	},
 	limittworestricted: {
@@ -106,7 +109,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 		effectType: 'ValidatorRule',
 		name: 'Obtainable',
 		desc: "Makes sure the team is possible to obtain in-game.",
-		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'Obtainable Misc'],
+		ruleset: ['Obtainable Moves', 'Obtainable Abilities', 'Obtainable Formes', 'EV Limit = Auto', 'Obtainable Misc'],
 		banlist: ['Unreleased', 'Unobtainable', 'Nonexistent'],
 		// Mostly hardcoded in team-validator.ts
 		onValidateTeam(team, format) {
@@ -176,7 +179,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 	obtainablemisc: {
 		effectType: 'ValidatorRule',
 		name: 'Obtainable Misc',
-		desc: "Validate all obtainability things that aren't moves/abilities (Hidden Power type, gender, stats, etc).",
+		desc: "Validate all obtainability things that aren't moves/abilities (Hidden Power type, gender, IVs, events, duplicate moves).",
 		// Mostly hardcoded in team-validator.ts
 		onChangeSet(set) {
 			const species = this.dex.species.get(set.species);
@@ -192,6 +195,8 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 
 			// limit one of each move
+			// repealing this will not actually let you USE multiple moves, because of a cart bug:
+			// https://twitter.com/DaWoblefet/status/1396217830006132737
 			if (set.moves) {
 				const hasMove: {[k: string]: true} = {};
 				for (const moveId of set.moves) {
@@ -1118,6 +1123,35 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return this.checkCanLearn(move, species, setSources, set);
 		},
 	},
+	sketchmonsmovelegality: {
+		effectType: 'ValidatorRule',
+		name: 'Sketchmons Move Legality',
+		desc: "Pok&eacute;mon can learn one of any move they don't normally learn.",
+		checkCanLearn(move, species, lsetData, set) {
+			const problem = this.checkCanLearn(move, species, lsetData, set);
+			if (!problem) return null;
+			if (move.isZ || move.isMax || this.ruleTable.isRestricted(`move:${move.id}`)) return problem;
+			if ((set as any).sketchMove) {
+				return ` already has ${(set as any).sketchMove} as a sketched move.\n(${species.name} doesn't learn ${move.name}.)`;
+			}
+			(set as any).sketchMove = move.name;
+			return null;
+		},
+		onValidateTeam(team) {
+			const sketches = new Utils.Multiset<string>();
+			for (const set of team) {
+				if ((set as any).sketchMove) {
+					sketches.add((set as any).sketchMove);
+				}
+			}
+			const overSketched = [...sketches.entries()].filter(([moveName, count]) => count > 1);
+			if (overSketched.length) {
+				return overSketched.map(([moveName, count]) => (
+					`You are limited to 1 of ${moveName} by Sketch Clause.\n(You have sketched ${moveName} ${count} times.)`
+				));
+			}
+		},
+	},
 	allowtradeback: {
 		effectType: 'ValidatorRule',
 		name: 'Allow Tradeback',
@@ -1335,6 +1369,13 @@ export const Rulesets: {[k: string]: FormatData} = {
 		name: "Min Team Size",
 		desc: "Minimum team size (number of pokemon) that can be brought into Team Preview (or into the battle, in formats without Team Preview)",
 		hasValue: 'positive-integer',
+		// hardcoded in sim/team-validator
+	},
+	evlimit: {
+		effectType: 'ValidatorRule',
+		name: "EV Limit",
+		desc: "Maximum total EVs on each pokemon.",
+		hasValue: 'integer',
 		// hardcoded in sim/team-validator
 	},
 	maxteamsize: {

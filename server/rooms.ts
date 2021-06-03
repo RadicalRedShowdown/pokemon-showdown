@@ -134,7 +134,6 @@ export interface RoomSettings {
 }
 
 export type MessageHandler = (room: BasicRoom, message: string) => void;
-export type RenameHandler = (oldId: RoomID, newID: RoomID, room: BasicRoom) => void;
 export type Room = GameRoom | ChatRoom;
 
 import type {AnnouncementData} from './chat-plugins/announcements';
@@ -1028,8 +1027,14 @@ export abstract class BasicRoom {
 		// they are staff and online
 		const staff = Object.values(this.users).filter(u => this.auth.atLeast(u, '%'));
 		if (!staff.length) {
-			const {rank, time} = this.settings.autoModchat;
+			const {time} = this.settings.autoModchat;
+			if (!time || time < 5) {
+				throw new Error(`Invalid time setting for automodchat (${Utils.visualize(this.settings.autoModchat)})`);
+			}
+			if (this.modchatTimer) clearTimeout(this.modchatTimer);
 			this.modchatTimer = setTimeout(() => {
+				if (!this.settings.autoModchat) return;
+				const {rank} = this.settings.autoModchat;
 				this.settings.modchat = rank;
 				this.add(
 					`|raw|<div class="broadcast-blue"><strong>This room has had no active staff for ${Chat.toDurationString(time)},` +
@@ -1039,13 +1044,13 @@ export abstract class BasicRoom {
 					action: 'AUTOMODCHAT ACTIVATE',
 				});
 				// automodchat will always exist
-				this.settings.autoModchat!.active = true;
+				this.settings.autoModchat.active = true;
 			}, time * 60 * 1000);
 		}
 	}
 
 	checkAutoModchat(user: User) {
-		if (this.auth.atLeast(user, '%')) {
+		if (user.can('mute', null, this, 'modchat')) {
 			if (this.modchatTimer) {
 				clearTimeout(this.modchatTimer);
 			}
@@ -1704,7 +1709,7 @@ export class ChatRoom extends BasicRoom {
 }
 
 export class GameRoom extends BasicRoom {
-	readonly type: 'battle';
+	declare readonly type: 'battle';
 	readonly format: string;
 	p1: User | null;
 	p2: User | null;
@@ -1715,10 +1720,9 @@ export class GameRoom extends BasicRoom {
 	 * 0 for unrated battles. 1 for unknown ratings.
 	 */
 	rated: number;
-	battle: RoomBattle | null;
-	game: RoomGame;
+	declare battle: RoomBattle | null;
+	declare game: RoomGame;
 	modchatUser: string;
-	active: boolean;
 	constructor(roomid: RoomID, title: string, options: Partial<RoomSettings & RoomBattleOptions>) {
 		options.noLogTimes = true;
 		options.noAutoTruncate = true;
