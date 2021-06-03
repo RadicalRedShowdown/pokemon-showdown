@@ -71,18 +71,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (attacker.activeMoveActions > 1) {
 				return;
 			}
-			this.debug('Bull Rush boost');
-			return this.chainModify(1.3);
+			this.debug('Bull Rush attack boost');
+			return this.chainModify([5325, 4096]);
 		},
 		onModifySpe(spe, pokemon) {
 			if (pokemon.activeMoveActions > 1) {
 				return;
 			}
-			this.debug('Bull Rush boost');
+			this.debug('Bull Rush speed boost');
 			return this.chainModify(1.5);
 		},
 		name: "Bull Rush",
-		rating: 2,
+		rating: 3.5,
 		gen: 8,
 		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.3x Attack boost.",
 		shortDesc: "On first turn out, 1.5x Speed and 1.3x Attack.",
@@ -224,7 +224,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	illuminate: {
 		inherit: true,
 		onModifyAccuracy(target, source, move) {
-			return this.chainModify(1.2);
+			return this.chainModify([4915, 4096]);
 		},
 		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.2.",
 	},

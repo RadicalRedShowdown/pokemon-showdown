@@ -414,17 +414,16 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: (moves.has('fireblast') && counter.setupType !== 'Physical') || otherFireMoves};
 		case 'overheat':
 			return {cull: moves.has('flareblitz') || (isDoubles && moves.has('calmmind'))};
-		case 'aquatail': case 'flipturn': case 'retaliate':
+		case 'retaliate':
 			// Retaliate: Special case for Braviary to prevent Retaliate on non-Choice
-			return {cull: moves.has('aquajet') || !!counter.get('Status')};
+			return {cull: !counter.get('Status')};
 		case 'hydropump':
 			return {cull: moves.has('scald') && (
 				(counter.get('Special') < 4 && !moves.has('uturn')) ||
 				(species.types.length > 1 && counter.get('stab') < 3)
 			)};
 		case 'scald':
-			// Special case for Clawitzer
-			return {cull: moves.has('waterpulse')};
+			return {cull: moves.has('bouncybubble')};
 		case 'thunderbolt':
 			// Special case for Goodra, which only wants one move to hit Water-types
 			return {cull: moves.has('powerwhip')};
@@ -860,7 +859,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			!isDoubles
 		) return 'Rocky Helmet';
 		if (species.name === 'Eternatus' && counter.get('Status') < 2) return 'Metronome';
-		if (species.baseSpecies === 'Farfetch\u2019d') return 'Leek Stick';
 		if (species.name === 'Genesect' && moves.has('technoblast')) return 'Douse Drive';
 		if (species.name === 'Froslass' && !isDoubles) return 'Wide Lens';
 		if (species.name === 'Latios' && counter.get('Special') === 2 && !isDoubles) return 'Soul Dew';
@@ -868,6 +866,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (species.baseSpecies === 'Marowak') return 'Thick Club';
 		if (species.baseSpecies === 'Pikachu') return 'Light Ball';
 		if (species.name === 'Dusknoir') return 'Reaper Cloth';
+		if (species.baseSpecies === 'Farfetch\u2019d' || species.name === 'Sirfetch\u2019d') return 'Leek Stick';
 		if (species.name === 'Aipom') return 'Choice Band';
 		if (species.name === 'Roselia') return 'Choice Scarf';
 		if (species.name === 'Regieleki' && !isDoubles) return 'Magnet';
@@ -1566,22 +1565,16 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			case 'Castform': case 'Floette':
 				if (this.randomChance(2, 3)) continue;
 				break;
-			case 'Aegislash': case 'Basculin': case 'Gourgeist': case 'Meloetta':
-				if (this.randomChance(1, 2)) continue;
-				break;
-			case 'Greninja':
-				if (this.gen >= 7 && this.randomChance(1, 2)) continue;
-				break;
-			case 'Darmanitan':
-				if (species.gen === 8 && this.randomChance(1, 2)) continue;
-				break;
 			case 'Necrozma': case 'Calyrex':
 				if (this.randomChance(2, 3)) continue;
 				break;
 			case 'Zacian': case 'Zamazenta':
 			case 'Urshifu': case 'Giratina': case 'Genesect':
 			case 'Kyogre': case 'Groudon': case 'Dialga':
-				if (this.gen >= 8 && this.randomChance(1, 2)) continue;
+			case 'Aegislash': case 'Basculin': case 'Gourgeist':
+			case 'Meloetta': case 'Magearna': case 'Darmanitan':
+			case 'Greninja':
+				if (this.randomChance(1, 2)) continue;
 				break;
 			}
 			if (species.otherFormes && !hasMega && (
