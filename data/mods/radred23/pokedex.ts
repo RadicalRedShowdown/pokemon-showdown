@@ -1263,7 +1263,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gallademega: {
 		inherit: true,
 		baseStats: {hp: 68, atk: 165, def: 75, spa: 65, spd: 115, spe: 110},
-		abilities: {0: "Blademaster"},
+		abilities: {0: "Blademaster", H: "Inner Focus"},
 	},
 	probopass: {
 		inherit: true,
