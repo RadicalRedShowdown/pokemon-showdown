@@ -685,7 +685,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Harvest':
 			return (abilities.has('Frisk') && !isDoubles);
 		case 'Hustle': case 'Inner Focus':
-			return (counter.get('Physical') < 2 || abilities.has('Iron Fist'));
+			return (counter.get('Physical') < 2 || abilities.has('Iron Fist') || abilities.has('Scrappy'));
 		case 'Infiltrator':
 			return (moves.has('rest') && moves.has('sleeptalk')) || (isDoubles && abilities.has('Clear Body'));
 		case 'Intimidate':
@@ -748,9 +748,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// For Scrafty
 			return moves.has('dragondance');
 		case 'Sheer Force':
-			// Feraligatr always wants strong jaw in doubles
-			const feraligatrCase = (species.id === 'feraligatr' && isDoubles);
-			return (!counter.get('sheerforce') || abilities.has('Guts') || feraligatrCase);
+			return (!counter.get('sheerforce') || abilities.has('Guts') || abilities.has('strongjaw'));
 		case 'Shell Armor':
 			return (species.id === 'omastar' && (moves.has('spikes') || moves.has('stealthrock')));
 		case 'Slush Rush':
@@ -844,7 +842,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 	) {
 		// not undefined — we want "no item" not "go find a different item"
 		if (moves.has('acrobatics') && ability !== 'Ripen') return ability === 'Grassy Surge' ? 'Grassy Seed' : '';
-		if (moves.has('geomancy') || moves.has('meteorbeam')) return 'Power Herb';
+		if (moves.has('geomancy') || moves.has('meteorbeam') || moves.has('skullbash')) return 'Power Herb';
 		if (moves.has('shellsmash')) {
 			if (ability === 'Sturdy' && !isLead && !isDoubles) return 'Heavy-Duty Boots';
 			// Shell Smash + Solid Rock is intended for Carracosta, but I think
@@ -871,12 +869,13 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (species.baseSpecies === 'Pikachu') return 'Light Ball';
 		if (species.name === 'Dusknoir') return 'Reaper Cloth';
 		if (species.baseSpecies === 'Farfetch\u2019d' || species.name === 'Sirfetch\u2019d') return 'Leek Stick';
+		if (species.name === 'Regieleki' && !isDoubles) return 'Magnet';
 		if (species.name === 'Castform-Rainy') return 'Damp Rock';
 		if (species.name === 'Castform-Snowy') return 'Icy Rock';
 		if (species.name === 'Castform-Sunny') return 'Heat Rock';
 		if (species.name === 'Aipom') return 'Choice Band';
 		if (species.name === 'Roselia') return 'Choice Scarf';
-		if (species.name === 'Regieleki' && !isDoubles) return 'Magnet';
+		if (species.name === 'Kangaskhan' && isDoubles) return 'Silk Scarf';
 		if (species.name === 'Shedinja') {
 			const noSash = !teamDetails.defog && !teamDetails.rapidSpin && !isDoubles;
 			return noSash ? 'Heavy-Duty Boots' : 'Focus Sash';
