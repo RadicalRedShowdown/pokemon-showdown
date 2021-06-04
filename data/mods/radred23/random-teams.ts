@@ -289,8 +289,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (movePool.includes('calmmind') || movePool.includes('nastyplot')) return {cull: true};
 			return {cull: false, isSetup: !counter.setupType};
 		case 'blizzard':
-			// Special case for Aurorus, which doesn't want blizzard with boomburst
-			return {cull: movePool.includes('boomburst')};
+			return {cull: moves.has('boomburst')};
+		case 'focuspunch':
+			return {cull: !moves.has('substitute') || counter.damagingMoves.size < 2};
 
 		// Bad after setup
 		case 'coaching': case 'counter': case 'reversal':
@@ -867,6 +868,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (species.baseSpecies === 'Pikachu') return 'Light Ball';
 		if (species.name === 'Dusknoir') return 'Reaper Cloth';
 		if (species.baseSpecies === 'Farfetch\u2019d' || species.name === 'Sirfetch\u2019d') return 'Leek Stick';
+		if (species.name === 'Castform-Rainy') return 'Damp Rock';
+		if (species.name === 'Castform-Snowy') return 'Icy Rock';
+		if (species.name === 'Castform-Sunny') return 'Heat Rock';
 		if (species.name === 'Aipom') return 'Choice Band';
 		if (species.name === 'Roselia') return 'Choice Scarf';
 		if (species.name === 'Regieleki' && !isDoubles) return 'Magnet';
@@ -1677,8 +1681,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (item.megaStone) hasMega = true;
 			if (set.ability === 'Drizzle' || set.moves.includes('raindance')) teamDetails.rain = 1;
 			if (set.ability === 'Drought' || set.moves.includes('sunnyday')) teamDetails.sun = 1;
+			if (set.ability === 'Snow Warning' || set.moves.includes('hail')) teamDetails.hail = 1;
 			if (set.ability === 'Sand Stream') teamDetails.sand = 1;
-			if (set.ability === 'Snow Warning') teamDetails.hail = 1;
 			if (set.moves.includes('spikes')) teamDetails.spikes = (teamDetails.spikes || 0) + 1;
 			if (set.moves.includes('stealthrock')) teamDetails.stealthRock = 1;
 			if (set.moves.includes('stickyweb')) teamDetails.stickyWeb = 1;
