@@ -1132,7 +1132,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	moltresgalar: {
 		randomBattleLevel: 80,
-		randomBattleMoves: ["roost", "defog", "darkpulse", "scorchingsands", "uturn", "substitute", "hurricane", "nastyplot"],
+		randomBattleMoves: ["roost", "defog", "fierywrath", "hurricane", "airslash", "nastyplot"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["fierywrath", "hurricane", "nastyplot", "protect", "roost"],
 		tier: "UU",

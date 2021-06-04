@@ -8217,22 +8217,22 @@
 	"Moltres-Galar": [{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"moves": ["Roost", "Defog", "Dark Pulse", "Scorching Sands"]
+			"moves": ["Roost", "Defog", "Fiery Wrath", "Scorching Sands"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"moves": ["Roost", "Defog", "Dark Pulse", "U-turn"]
+			"moves": ["Roost", "Defog", "Fiery Wrath", "U-turn"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"moves": ["Roost", "Substitute", "Dark Pulse", "Hurricane"]
+			"moves": ["Roost", "Substitute", "Fiery Wrath", "Hurricane"]
 		},
 		{
 			"item": "Heavy-Duty Boots",
 			"ability": "Berserk",
-			"moves": ["Roost", "Nasty Plot", "Dark Pulse", "Hurricane"]
+			"moves": ["Roost", "Nasty Plot", "Fiery Wrath", "Hurricane"]
 		}
 	],
 	"Morpeko": [{

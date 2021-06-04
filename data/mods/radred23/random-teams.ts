@@ -505,6 +505,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'airslash':
 			return {cull:
 				(species.id === 'naganadel' && moves.has('nastyplot')) ||
+				(species.id === 'moltresgalar' && !counter.setupType) ||
 				(species.id === 'drifblim' && !counter.setupType) ||
 				hasRestTalk ||
 				(abilities.has('Simple') && !!counter.get('recovery')) ||
@@ -514,7 +515,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// Special case for Mew, which only wants Brave Bird with Swords Dance
 			return {cull: moves.has('dragondance')};
 		case 'hurricane':
-			return {cull: counter.setupType === 'Physical'};
+			// Special case for Moltres-Galar, which wants Air Slash if Nasty Plot instead
+			const moltresgCase = (!isDoubles && species.id === 'moltresgalar' && !!counter.setupType);
+			return {cull: counter.setupType === 'Physical' || moltresgCase};
 		case 'futuresight':
 			return {cull: moves.has('psyshock') || moves.has('trick') || movePool.includes('teleport')};
 		case 'photongeyser':
