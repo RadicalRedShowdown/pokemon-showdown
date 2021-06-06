@@ -4,6 +4,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: "Unobtainable",
 	},
 	aquafang: {
+		shortDesc: "No additional effect.",
 		num: 850,
 		accuracy: 100,
 		basePower: 80,
@@ -15,7 +16,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		target: "normal",
 		type: "Water",
 		contestType: "Tough",
-		shortDesc: "No additional effect.",
 	},
 	armthrust: {
 		inherit: true,
@@ -62,12 +62,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	bonerush: {
 		inherit: true,
 		flags: {protect: 1, mirror: 1, bone: 1},
-	},
-	bouncybubble: {
-		inherit: true,
-		pp: 5,
-		basePower: 95,
-		isNonstandard: null,
 	},
 	chargebeam: {
 		inherit: true,
@@ -152,10 +146,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
-	fishiousrend: {
-		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1},
-	},
 	fissure: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
@@ -237,15 +227,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			}
 			this.actions.useMove(chosen, target);
 		},
-		desc: "Uses of one of these 8 moves: Shell Smash, Healing Wish, Dark Hole, Tail Glow, Roar of Time, Quiver Dance, No Retreat, or Soul Robbery",
 		shortDesc: "Isn't RNG fun?",
-	},
-	freezyfrost: {
-		inherit: true,
-		pp: 5,
-		accuracy: 100,
-		basePower: 95,
-		isNonstandard: null,
+		desc: "Uses of one of these 8 moves: Shell Smash, Healing Wish, Dark Hole, Tail Glow, Roar of Time, Quiver Dance, No Retreat, or Soul Robbery",
 	},
 	furycutter: {
 		inherit: true,
@@ -254,17 +237,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	guillotine: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
-	},
-	headcharge: {
-		inherit: true,
-		secondary: {
-			chance: 10,
-			boosts: {
-				def: -1,
-			},
-		},
-		desc: "Has a 10% chance to lower the target's Defense by 1 stage. If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil. 10% chance to lower the target's Defense by 1.",
 	},
 	headsmash: {
 		inherit: true,
@@ -282,14 +254,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
-	icehammer: {
-		inherit: true,
-		accuracy: 100,
-		isNonstandard: null,
-		self: null,
-		desc: "No additional effect.",
-		shortDesc: "No additional effect.",
-	},
 	inferno: {
 		inherit: true,
 		basePower: 120,
@@ -297,12 +261,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	jawlock: {
 		inherit: true,
 		basePower: 90,
-		onHit(target, source, move) {
-			target.addVolatile('trapped', source, move, 'trapper');
-		},
 		type: "Fighting",
-		desc: "Prevents the target from switching out. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if the user leaves the field.",
-		shortDesc: "Prevents the target from switching out.",
 	},
 	jumpkick: {
 		inherit: true,
@@ -364,16 +323,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
-	lowsweep: {
-		inherit: true,
-		basePower: 60,
-		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
-	},
-	lusterpurge: {
-		inherit: true,
-		basePower: 85,
-		pp: 10,
-	},
 	megakick: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
@@ -393,11 +342,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
-	},
-	mistball: {
-		inherit: true,
-		basePower: 85,
-		pp: 10,
 	},
 	mistyexplosion: {
 		inherit: true,
@@ -542,20 +486,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	sandattack: {
 		inherit: true,
-		secondary: {
-			boosts: {
-				atk: -1,
-			},
+		boosts: {
+			atk: -1,
 		},
 		desc: "Lowers the target's Attack by 1 stage.",
 		shortDesc: "Lowers the target's Attack by 1.",
-	},
-	sappyseed: {
-		inherit: true,
-		pp: 5,
-		accuracy: 100,
-		basePower: 95,
-		isNonstandard: null,
 	},
 	secretsword: {
 		inherit: true,
@@ -630,19 +565,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	smokescreen: {
 		inherit: true,
-		secondary: {
-			boosts: {
-				atk: -1,
-			},
+		boosts: {
+			atk: -1,
 		},
 		desc: "Lowers the target's Attack by 1 stage.",
 		shortDesc: "Lowers the target's Attack by 1.",
-	},
-	snaptrap: {
-		inherit: true,
-		accuracy: 85,
-		basePower: 100,
-		pp: 5,
 	},
 	snipeshot: {
 		inherit: true,
@@ -654,41 +581,15 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, blade: 1},
 	},
-	sonicslash: {
-		num: 854,
-		accuracy: 100,
-		basePower: 0,
-		basePowerCallback(pokemon, target) {
-			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe'));
-			if (!isFinite(ratio)) ratio = 0;
-			let bp = 80;
-			if (ratio >= 3) {
-				bp = 140;
-			} else if (ratio >= 2) {
-				bp = 120;
-			}
-			this.debug(`${bp} bp`);
-			return bp;
-		},
-		category: "Physical",
-		name: "Sonic Slash",
-		pp: 10,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		target: "normal",
-		type: "Flying",
-		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 140 if the result is 3 or more, 120 if 2, 80 if less than 2. If the target's current Speed is 0, this move's power is 80.",
-		shortDesc: "140 BP if 3x target's speed; 120 BP if 2x; else 80 BP.",
-	},
 	soulrobbery: {
 		num: 852,
 		accuracy: 100,
-		basePower: 90,
-		category: "Special",
+		basePower: 105,
+		category: "Physical",
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
 		secondary: null,
@@ -697,20 +598,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		contestType: "Cool",
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage.",
 		shortDesc: "Steals target's boosts before dealing damage.",
-	},
-	sparklyswirl: {
-		inherit: true,
-		accuracy: 100,
-		basePower: 95,
-		isNonstandard: null,
-		self: {
-			onHit(pokemon, source, move) {
-				this.add('-activate', source, 'move: Aromatherapy');
-				for (const ally of source.side.pokemon) {
-					ally.cureStatus();
-				}
-			},
-		},
 	},
 	spikecannon: {
 		inherit: true,
@@ -773,6 +660,9 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	strengthsap: {
 		inherit: true,
 		pp: 5,
+		onTryHit(target, source) {
+			source.deductPP('strengthsap', 1);
+		},
 	},
 	suckerpunch: {
 		inherit: true,
@@ -821,17 +711,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			return 20 * move.hit;
 		},
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
-		desc: "Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times."
 	},
 	tropkick: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
-	},
-	volttackle: {
-		inherit: true,
-		recoil: [1, 4],
-		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil. 10% chance to paralyze target.",
 	},
 	wickedblow: {
 		inherit: true,
@@ -1108,6 +991,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	iceball: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	icehammer: {
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1390,16 +1277,5 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	wringout: {
 		inherit: true,
 		isNonstandard: null,
-	},
-	zippyzap: {
-		inherit: true,
-		basePower: 50,
-		pp: 15,
-		priority: 1,
-		willCrit: true,
-		secondary: null,
-		isNonstandard: null,
-		desc: "Will always result in a critical hit.",
-		shortDesc: "Usually goes first. Always crits.",
 	},
 };

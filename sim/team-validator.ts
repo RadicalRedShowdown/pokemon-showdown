@@ -435,7 +435,7 @@ export class TeamValidator {
 			if (ruleTable.has('obtainableformes')) {
 				tierSpecies = outOfBattleSpecies;
 			}
-			if (ruleTable.has('obtainablemisc') && this.dex.currentMod !== 'radred') {
+			if (ruleTable.has('obtainablemisc') && this.dex.currentMod !== ('radred' || 'rr22b')) {
 				if (set.gender && set.gender !== 'M') {
 					problems.push(`Battle Bond Greninja must be male.`);
 				}
@@ -487,7 +487,7 @@ export class TeamValidator {
 		}
 
 		if (ruleTable.has('obtainableformes')) {
-			const canMegaEvo = dex.gen <= 7 || ruleTable.has('standardnatdex' || this.dex.currentMod === 'radred');
+			const canMegaEvo = dex.gen <= 7 || ruleTable.has('standardnatdex' || this.dex.currentMod === ('radred' || 'rr22b'));
 			if (item.megaEvolves === species.name) {
 				if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
 				tierSpecies = dex.species.get(item.megaStone);
@@ -495,7 +495,7 @@ export class TeamValidator {
 				tierSpecies = dex.species.get('Groudon-Primal');
 			} else if (item.id === 'blueorb' && species.id === 'kyogre') {
 				tierSpecies = dex.species.get('Kyogre-Primal');
-			} else if (item.id === 'adamantorb' && species.id === 'dialga' && this.dex.currentMod === 'radred') {
+			} else if (item.id === 'adamantorb' && species.id === 'dialga' && this.dex.currentMod === ('radred' || 'rr22b')) {
 				tierSpecies = dex.species.get('Dialga-Primal');
 			} else if (canMegaEvo && species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID)) {
 				tierSpecies = dex.species.get('Rayquaza-Mega');
@@ -817,7 +817,7 @@ export class TeamValidator {
 		const diancieException = species.name === 'Diancie' && !set.shiny;
 		const has3PerfectIVs = setSources.minSourceGen() >= 6 && isLegendary && !diancieException;
 
-		if (set.hpType === 'Fighting' && ruleTable.has('obtainablemisc') && this.dex.currentMod !== 'radred') {
+		if (set.hpType === 'Fighting' && ruleTable.has('obtainablemisc') && this.dex.currentMod !== ('radred' || 'rr22b')) {
 			if (has3PerfectIVs) {
 				// Legendary Pokemon must have at least 3 perfect IVs in gen 6+
 				problems.push(`${name} must not have Hidden Power Fighting because it starts with 3 perfect IVs because it's a Gen 6+ legendary.`);
@@ -1903,7 +1903,7 @@ export class TeamValidator {
 			} else if (learnset['sketch']) {
 				if (move.noSketch || move.isZ || move.isMax) {
 					cantLearnReason = `can't be Sketched.`;
-				} else if (move.gen > 7 && !ruleTable.has('standardnatdex') && this.dex.currentMod !== 'radred') {
+				} else if (move.gen > 7 && !ruleTable.has('standardnatdex') && this.dex.currentMod !== ('radred' || 'rr22b')) {
 					cantLearnReason = `can't be Sketched because it's a Gen 8 move and Sketch isn't available in Gen 8.`;
 				} else {
 					if (!sources) sketch = true;

@@ -1,5 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	badcompany: {
+		shortDesc: "Prevents self-lowering stat drops and recoil.",
 		onModifyMove(move) {
 			move.mindBlownRecoil = false;
 		},
@@ -15,9 +16,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bad Company",
 		rating: 4,
 		gen: 8,
-		shortDesc: "Prevents self-lowering stat drops and recoil.",
 	},
 	blademaster: {
+		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
+		shortDesc: "Blade attacks have 1.2x power and +1 crit ratio.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['blade']) {
@@ -33,19 +35,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Blademaster",
 		rating: 3.5,
 		gen: 8,
-		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
-		shortDesc: "Blade attacks have 1.2x power and +1 crit ratio.",
 	},
 	blazingsoul: {
+		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.type === 'Fire' && pokemon.hp === pokemon.maxhp) return priority + 1;
 		},
 		name: "Blazing Soul",
 		rating: 3,
 		gen: 8,
-		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
 	},
 	bonezone: {
+		shortDesc: "Bone moves ignore immunities and deal double damage on not very effective.",
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (move.flags['bone']) {
@@ -64,31 +65,24 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bone Zone",
 		rating: 4,
 		gen: 8,
-		shortDesc: "Bone moves ignore immunities and deal double damage on not very effective.",
 	},
 	bullrush: {
-		onModifyAtk(atk, attacker, defender, move) {
+		shortDesc: "The first move this Pokemon's uses gets a 1.5x damage boost.",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.activeMoveActions > 1) {
 				return;
 			}
-			this.debug('Bull Rush attack boost');
-			return this.chainModify([5325, 4096]);
-		},
-		onModifySpe(spe, pokemon) {
-			if (pokemon.activeMoveActions > 1) {
-				return;
-			}
-			this.debug('Bull Rush speed boost');
+			this.debug('Bull Rush boost');
 			return this.chainModify(1.5);
 		},
 		name: "Bull Rush",
-		rating: 3.5,
+		rating: 2,
 		gen: 8,
-		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.3x Attack boost.",
-		shortDesc: "On first turn out, 1.5x Speed and 1.3x Attack.",
 	},
 	corrosion: {
 		inherit: true,
+		shortDesc: "This Pokemon can use poison type moves on other Pokemon regardless of their typing.",
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
@@ -96,10 +90,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Poison'] = true;
 			}
 		},
-		shortDesc: "This Pokemon can use poison type moves on other Pokemon regardless of their typing.",
 	},
 	defeatist: {
 		inherit: true,
+		desc: "While this Pokemon has 1/3 or less of its maximum HP, its Attack and Special Attack are halved.",
+		shortDesc: "While this Pokemon has 1/3 or less of its max HP, its Attack and Sp. Atk are halved.",
 		onModifyAtk(atk, pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 3) {
 				return this.chainModify(0.5);
@@ -110,28 +105,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		desc: "While this Pokemon has 1/3 or less of its maximum HP, its Attack and Special Attack are halved.",
-		shortDesc: "While this Pokemon has 1/3 or less of its max HP, its Attack and Sp. Atk are halved.",
-	},
-	emergencyexit: {
-		inherit: true,
-		onResidualOrder: 28,
-		onResidualSubOrder: 2,
-		onResidual(pokemon) {
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
-			for (const side of this.sides) {
-				for (const active of side.active) {
-					active.switchFlag = false;
-				}
-			}
-			pokemon.switchFlag = true;
-			this.add('-activate', pokemon, 'ability: Emergency Exit');
-		},
-		onEmergencyExit() {},
-		desc: "At the end of the turn, if this Pokemon has less than 1/2 of its maximum HP, it switches out to a chosen ally.",
-		shortDesc: "If this Pokemon is below 1/2 HP at the end of the turn, it switches out.",
 	},
 	fatalprecision: {
+		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (defender && this.dex.getEffectiveness(move, defender.types) > 0) {
@@ -145,11 +121,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Fatal Precision",
-		rating: 4,
+		rating: 3,
 		gen: 8,
-		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
 	},
 	felinepower: {
+		shortDesc: "This Pokemon's Sp. Atk is doubled.",
 		onModifySpAPriority: 5,
 		onModifySpA(spa) {
 			return this.chainModify(2);
@@ -157,20 +133,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Feline Power",
 		rating: 5,
 		gen: 8,
-		shortDesc: "This Pokemon's Sp. Atk is doubled.",
 	},
 	flareboost: {
 		inherit: true,
+		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Immune to burn damage.",
+		shortDesc: "While this Pokemon is burned, its special attacks have 1.5x power; Immune to burn damage.",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'brn') {
 				return false;
 			}
 		},
-		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Immune to burn damage.",
-		shortDesc: "When burned, special attacks have 1.5x power; Immune to burn damage.",
 	},
 	flowergift: {
 		inherit: true,
+		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and its Attack and Speed are multiplied by 1.5. If this Pokemon is a Cherrim and it is holding Utility Umbrella, it remains in its regular form and its Attack and Speed stats are not boosted. If this Pokemon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokemon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form.",
+		shortDesc: "If user is Cherrim and Sunny Day is active, its Attack and Speed are 1.5x.",
 		onModifyAtk(atk, pokemon) {
 			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
@@ -185,11 +162,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAllyModifyAtk() {},
 		onAllyModifySpD() {},
-		desc: "If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and its Attack and Speed are multiplied by 1.5. If this Pokemon is a Cherrim and it is holding Utility Umbrella, it remains in its regular form and its Attack and Speed stats are not boosted. If this Pokemon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokemon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form.",
-		shortDesc: "If user is Cherrim and Sunny Day is active, its Attack and Speed are 1.5x.",
 	},
 	forecast: {
 		inherit: true,
+		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm. If this Pokemon is holding Utility Umbrella and the weather condition is Sunny Day, Desolate Land, Rain Dance, or Primordial Sea, it will not change types. If this pokemon is holding a weather rock, it will set the weather corrosponding to the rock it is holding.",
+		shortDesc: "Castform's type changes to the current weather condition's type, except Sandstorm. Summons weather if holding weather rock.",
 		onStart(pokemon) {
 			if (pokemon.hasItem('damprock')) {
 				this.field.setWeather('raindance');
@@ -201,11 +178,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.field.setWeather('hail');
 			}
 		},
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm. If this Pokemon is holding Utility Umbrella and the weather condition is Sunny Day, Desolate Land, Rain Dance, or Primordial Sea, it will not change types. If this pokemon is holding a weather rock, it will set the weather corrosponding to the rock it is holding.",
-		shortDesc: "Castform's type changes to the current weather condition's type, except Sandstorm. Summons weather if holding weather rock.",
 	},
 	gulpmissile: {
 		inherit: true,
+		desc: "If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it has more than 1/2 of its maximum HP remaining, or Gorging Form with a Pikachu in its mouth if it has 1/2 or less of its maximum HP remaining. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Speed by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",
+		shortDesc: "When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Speed or paralysis.",
 		onDamagingHit(damage, target, source, move) {
 			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
 			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
@@ -218,18 +195,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				target.formeChange('cramorant', move);
 			}
 		},
-		desc: "If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it has more than 1/2 of its maximum HP remaining, or Gorging Form with a Pikachu in its mouth if it has 1/2 or less of its maximum HP remaining. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Speed by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",
-		shortDesc: "When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Speed or paralysis.",
-	},
-	illuminate: {
-		inherit: true,
-		onModifyAccuracy(target, source, move) {
-			return this.chainModify([4915, 4096]);
-		},
-		shortDesc: "This Pokemon's moves have their accuracy multiplied by 1.2.",
 	},
 	illusion: {
 		inherit: true,
+		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
+		shortDesc: "Appears as last Pokemon in party until damaged; 1.3x power when disguised.",
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.illusion) {
@@ -237,8 +207,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify([5325, 4096]);
 			}
 		},
-		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
-		shortDesc: "Appears as last Pokemon in party until damaged; 1.3x power when disguised.",
 	},
 	innerfocus: {
 		inherit: true,
@@ -251,16 +219,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	ironfist: {
 		inherit: true,
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
+		shortDesc: "This Pokemon's punch-based attacks have 1.3x power.",
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
 				this.debug('Iron Fist boost');
 				return this.chainModify([5325, 4096]);
 			}
 		},
-		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
-		shortDesc: "This Pokemon's punch-based attacks have 1.3x power.",
 	},
 	mountaineer: {
+		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
 				return false;
@@ -274,9 +243,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 		name: "Mountaineer",
-		rating: 3,
+		rating: 4,
 		gen: 8,
-		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 	},
 	oblivious: {
 		inherit: true,
@@ -288,6 +256,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	oraoraoraora: {
+		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
 			if (move.flags['punch'] && !move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
@@ -304,7 +273,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "ORAORAORAORA",
 		rating: 5,
 		gen: 8,
-		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
 	},
 	owntempo: {
 		inherit: true,
@@ -316,6 +284,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	parasiticwaste: {
+		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
 		onModifyMove(move) {
 			if (!move.secondaries) move.secondaries = [];
 			for (const secondary of move.secondaries) {
@@ -325,11 +294,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Parasitic Waste",
-		gen: 8,
 		rating: 2.5,
-		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
+		gen: 8,
 	},
 	primalarmor: {
+		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.getMoveHitData(move).typeMod > 0) {
 				this.debug('Primal Armor neutralize');
@@ -339,20 +308,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Primal Armor",
 		rating: 3,
 		gen: 8,
-		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
 	},
 	quickfeet: {
 		inherit: true,
+		desc: "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 2; the Speed drop from paralysis is ignored.",
+		shortDesc: "If this Pokemon is statused, its Speed is 2x; ignores Speed drop from paralysis.",
 		onModifySpe(spe, pokemon) {
 			if (pokemon.status) {
 				return this.chainModify(2);
 			}
 		},
-		desc: "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 2; the Speed drop from paralysis is ignored.",
-		shortDesc: "If this Pokemon is statused, its Speed is 2x; ignores Speed drop from paralysis.",
 	},
 	rivalry: {
 		inherit: true,
+		desc: "This Pokemon's attacks have their power multiplied by 1.25 against targets of the same gender. There is no modifier if either this Pokemon or the target is genderless, or if they have different genders.",
+		shortDesc: "This Pokemon's attacks do 1.25x on same gender targets.",
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.gender && defender.gender) {
 				if (attacker.gender === defender.gender) {
@@ -361,10 +331,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		desc: "This Pokemon's attacks have their power multiplied by 1.25 against targets of the same gender. There is no modifier if either this Pokemon or the target is genderless, or if they have different genders.",
-		shortDesc: "This Pokemon's attacks do 1.25x on same gender targets.",
 	},
 	sagepower: {
+		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 		onStart(pokemon) {
 			pokemon.abilityState.choiceLock = "";
 		},
@@ -405,7 +374,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Sage Power",
 		rating: 4.5,
 		gen: 8,
-		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 	},
 	scrappy: {
 		inherit: true,
@@ -417,6 +385,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	selfsufficient: {
+		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
@@ -425,20 +394,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Self Sufficient",
 		rating: 2.5,
 		gen: 8,
-		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 	},
 	shielddust: {
 		inherit: true,
 		desc: "This Pokemon is not affected by the secondary effect of another Pokemon's attack, and is not affected by entry hazards.",
 		shortDesc: "This Pokemon is unaffected by entry hazards and secondary effects of moves.",
+		rating: 3.5,
 	},
 	solarpower: {
 		inherit: true,
+		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and its defenses are multiplied by 1.33. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same and it does not gain a defense boost.",
+		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x and defenses are 1.33x.",
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.33);
+			}
+		},
 		onWeather() {},
-		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same.",
-		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x.",
 	},
 	striker: {
+		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.3.",
+		shortDesc: "This Pokemon's kick-based attacks have 1.3x power.",
 		onBasePowerPriority: 43,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['kick']) {
@@ -449,10 +426,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Striker",
 		rating: 3,
 		gen: 8,
-		desc: "This Pokemon's kick-based attacks have their power multiplied by 1.3.",
-		shortDesc: "This Pokemon's kick-based attacks have 1.3x power.",
 	},
 	surprise: {
+		shortDesc: "Random effect on switch-in.",
 		onStart(pokemon) {
 			const effectNum = this.random(5);
 			switch (effectNum) {
@@ -488,20 +464,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Surprise!",
 		rating: 2,
 		gen: 8,
-		shortDesc: "Random effect on switch-in.",
 	},
 	toxicboost: {
 		inherit: true,
+		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to poison damage.",
+		shortDesc: "While this Pokemon is poisoned, its physical attacks have 1.5x power; Immune to poison damage.",
 		onDamage(damage, target, source, effect) {
 			if (effect.id === 'tox' || effect.id === 'psn') {
 				return false;
 			}
 		},
-		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to poison damage.",
-		shortDesc: "When poisoned, physical attacks have 1.5x power; Immune to poison damage.",
 	},
 	truant: {
 		inherit: true,
+		shortDesc: "This Pokemon can only use healing moves every other turn.",
 		onBeforeMove(pokemon, target, move) {
 			if (pokemon.removeVolatile('truant')) {
 				if (!move.heal) {
@@ -512,36 +488,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			pokemon.addVolatile('truant');
 		},
-		shortDesc: "This Pokemon can only use healing moves every other turn.",
 	},
 	watercompaction: {
 		inherit: true,
+		desc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move; Reduces water damage by 50%.",
+		shortDesc: "Raises defense by 2 stages when damaged by water-type move; Reduces water damage by 50%.",
 		onSourceModifyDamage(damage, source, target, move) {
 			if (move.type === 'Water') {
 				return this.chainModify(0.5);
 			}
 		},
-		desc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move; Reduces water damage by 50%.",
-		shortDesc: "Raises defense by 2 stages when damaged by water-type move; Reduces water damage by 50%.",
-	},
-	zenmode: {
-		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
-				return;
-			}
-			if (!pokemon.species.name.includes('Galar')) {
-				if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
-				pokemon.transformed = true;
-			} else {
-				if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
-				pokemon.transformed = true;
-			}
-		},
-		isPermanent: true,
-		name: "Zen Mode",
-		rating: 0,
-		num: 161,
-		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
-		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
 };

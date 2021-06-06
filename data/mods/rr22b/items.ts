@@ -439,6 +439,12 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	metalcoat: {
+		inherit: true,
+		onBasePower() {},
+		desc: "Evolves Onix into Steelix, Scyther into Scizor, Nosepass into Probopass, Meltan into Melmetal when used.",
+		shortDesc: "Evolves certain species of Pokemon when used.",
+	},
 	mewniumz: {
 		inherit: true,
 		isNonstandard: null,
@@ -720,27 +726,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
 				return critRatio + 1;
 			}
-			if (this.toID(user.baseSpecies.baseSpecies) === 'sirfetchd') {
-				return critRatio + 2;
-			}
 		},
 		onModifySpe(spe, user) {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
 				return this.chainModify(1.5);
 		    }
 		},
-		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
+		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar"],
+		num: -1000,
 		gen: 8,
-		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages and its speed isn't changed.",
-		shortDesc: "Farfetch’d: +1 crit ratio and 1.5x speed; Sirfetch'd: +2 crit ratio, no speed boost.",
-	},
-	linkcable: {
-		name: "Link Cable",
-		fling: {
-			basePower: 30,
-		},
-		gen: 8,
-		desc: "Evolves Pokemon that would normally be evolved via trade.",
+		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost.",
+		shortDesc: "If held by a Farfetch’d, +1 critical hit ratio and 1.5x speed.",
 	},
 	butterfrite: {
 		name: "Butterfrite",
@@ -752,6 +748,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1001,
 		gen: 8,
 		desc: "If held by a Butterfree, this item allows it to Mega Evolve in battle.",
 	},
@@ -765,6 +762,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1002,
 		gen: 8,
 		desc: "If held by a Machamp, this item allows it to Mega Evolve in battle.",
 	},
@@ -778,6 +776,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1003,
 		gen: 8,
 		desc: "If held by a Garbodor, this item allows it to Mega Evolve in battle.",
 	},
@@ -791,6 +790,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1004,
 		gen: 8,
 		desc: "If held by a Kingler, this item allows it to Mega Evolve in battle.",
 	},
@@ -804,6 +804,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1005,
 		gen: 8,
 		desc: "If held by a Snorlax, this item allows it to Mega Evolve in battle.",
 	},
@@ -817,6 +818,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1006,
 		gen: 8,
 		desc: "If held by a Lapras, this item allows it to Mega Evolve in battle.",
 	},
@@ -830,6 +832,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1007,
 		gen: 8,
 		desc: "If held by a Drednaw, this item allows it to Mega Evolve in battle.",
 	},
@@ -843,6 +846,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1008,
 		gen: 8,
 		desc: "If held by a Coalossal, this item allows it to Mega Evolve in battle.",
 	},
@@ -856,6 +860,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1009,
 		gen: 8,
 		desc: "If held by a Orbeetle, this item allows it to Mega Evolve in battle.",
 	},
@@ -869,6 +874,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1010,
 		gen: 8,
 		desc: "If held by a Toxtricity, this item allows it to Mega Evolve in battle.",
 	},
@@ -882,6 +888,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1011,
 		gen: 8,
 		desc: "If held by a Duraludon, this item allows it to Mega Evolve in battle.",
 	},
@@ -895,6 +902,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1012,
 		gen: 8,
 		desc: "If held by a Copperajah, this item allows it to Mega Evolve in battle.",
 	},
@@ -908,6 +916,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1013,
 		gen: 8,
 		desc: "If held by a Centiskorch, this item allows it to Mega Evolve in battle.",
 	},
@@ -921,6 +930,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1014,
 		gen: 8,
 		desc: "If held by a Sandaconda, this item allows it to Mega Evolve in battle.",
 	},
@@ -934,6 +944,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1015,
 		gen: 8,
 		desc: "If held by a Flapple, this item allows it to Mega Evolve in battle.",
 	},
@@ -947,6 +958,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1016,
 		gen: 8,
 		desc: "If held by a Appletun, this item allows it to Mega Evolve in battle.",
 	},
@@ -960,6 +972,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
 			return true;
 		},
+		num: -1017,
 		gen: 8,
 		desc: "If held by a Alcremie, this item allows it to Mega Evolve in battle.",
 	},
