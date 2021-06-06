@@ -2068,7 +2068,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	guzzlord: {
 		inherit: true,
-		baseStats: {hp: 193, atk: 111, def: 73, spa: 97, spd: 73, spe: 23},
+		baseStats: {hp: 193, atk: 101, def: 73, spa: 97, spd: 73, spe: 23},
 		abilities: {0: "Beast Boost", 1: "Dark Aura"},
 	},
 	meltan: {
