@@ -1306,7 +1306,8 @@ export class Pokemon {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
 			if (['absolmega', 'houndoommega', 'slowbromega', 'gallademega'].includes(species.id)) {
-				if (this.ability === toID(species.abilities['H'])) {
+				const baseSpecies = this.battle.dex.species.get(species.baseSpecies);
+				if (this.ability === toID(baseSpecies.abilities['H']) && species.abilites['H']) {
 					this.setAbility(species.abilites['H'], null, true);
 				}
 			} else {
