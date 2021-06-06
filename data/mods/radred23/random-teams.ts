@@ -763,7 +763,12 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Steely Spirit':
 			return (moves.has('fakeout') && !isDoubles);
 		case 'Sturdy':
-			return (moves.has('bulkup') || !!counter.get('recoil') || (!isNoDynamax && abilities.has('Solid Rock')));
+			return (
+				moves.has('bulkup') ||
+				!!counter.get('recoil') ||
+				(!isNoDynamax && abilities.has('Solid Rock')) ||
+				abilities.has('Technician')
+			);
 		case 'Swarm':
 			return (!counter.get('Bug') || !!counter.get('recovery'));
 		case 'Sweet Veil':

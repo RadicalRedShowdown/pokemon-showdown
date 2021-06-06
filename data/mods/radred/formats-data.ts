@@ -157,7 +157,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	fearow: {
 		randomBattleLevel: 88,
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["drillpeck", "drillrun", "protect", "quickattack", "return", "uturn"],
+		randomDoubleBattleMoves: ["dualwingbeat", "drillrun", "protect", "quickattack", "return", "uturn"],
 		tier: "UU",
 	},
 	ekans: {
