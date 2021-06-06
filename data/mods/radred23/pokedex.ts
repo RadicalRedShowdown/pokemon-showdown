@@ -2453,6 +2453,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	duraludon: {
 		inherit: true,
+		baseStats: {hp: 85, atk: 95, def: 115, spa: 120, spd: 50, spe: 85},
 		abilities: {0: "Light Metal", 1: "Heavy Metal", H: "Clear Body"},
 		otherFormes: ["Duraludon-Mega"],
 		formeOrder: ["Duraludon", "Duraludon-Mega"],
@@ -2463,7 +2464,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Duraludon",
 		forme: "Mega",
 		types: ["Steel", "Dragon"],
-		baseStats: {hp: 70, atk: 95, def: 140, spa: 140, spd: 90, spe: 95},
+		baseStats: {hp: 85, atk: 95, def: 140, spa: 140, spd: 90, spe: 95},
 		abilities: {0: "Bad Company"},
 		heightm: 43,
 		weightkg: 40,
