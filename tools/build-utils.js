@@ -250,7 +250,6 @@ exports.transpile = (doForce) => {
 	copyOverDataJSON('mods/gen7/factory-sets.json');
 	copyOverDataJSON('mods/gen7/bss-factory-sets.json');
 	copyOverDataJSON('mods/gen6/factory-sets.json');
-	copyOverDataJSON('mods/radred/random-sets.json');
 
 	// NOTE: replace is asynchronous - add additional replacements for the same path in one call instead of making multiple calls.
 };
