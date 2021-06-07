@@ -228,9 +228,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: movePool.includes('bellydrum') || (moves.has('earthquake') && movePool.includes('substitute'))};
 		case 'flamecharge':
 			return {cull: movePool.includes('swordsdance')};
-		case 'hypervoice':
-			// Special case for Heliolisk, which always wants Thunderbolt
-			return {cull: (types.has('Electric') && movePool.includes('thunderbolt'))};
 		case 'payback': case 'psychocut':
 			// Special case for Type: Null and Malamar, which don't want these + RestTalk
 			return {cull: !counter.get('Status') || hasRestTalk};
@@ -429,8 +426,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// Special case for Goodra, which only wants one move to hit Water-types
 			return {cull: moves.has('powerwhip')};
 		case 'energyball':
-			// Special case to prevent Shiinotic with four Grass moves and no Moonblast
-			return {cull: species.id === 'shiinotic' && !moves.has('moonblast')};
+			// Special case to prevent Shiinotic with four Grass moves and no Sparkly Swirl
+			return {cull: species.id === 'shiinotic' && !moves.has('sparklyswirl')};
 		case 'gigadrain':
 			// Celebi always wants Leaf Storm on its more pivoting-focused non-Nasty Plot sets
 			const celebiPreferLeafStorm = species.id === 'celebi' && !counter.setupType && moves.has('uturn');
@@ -936,7 +933,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (moves.has('hypnosis') && ability === 'Beast Boost') return 'Blunder Policy';
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
 
-		if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles) return 'Heavy-Duty Boots';
+		if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles && ability !== 'Shield Dust') return 'Heavy-Duty Boots';
 	}
 
 	/** Item generation specific to Random Doubles */
