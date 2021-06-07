@@ -96,7 +96,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				move.ignoreImmunity['Poison'] = true;
 			}
 		},
-		shortDesc: "This Pokemon can use poison type moves on other Pokemon regardless of their typing.",
+		rating: 3,
+		shortDesc: "This Pokemon can hit Steel types with Poison-type moves.",
 	},
 	defeatist: {
 		inherit: true,
@@ -145,7 +146,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Fatal Precision",
-		rating: 4,
+		rating: 3,
 		gen: 8,
 		shortDesc: "Super Effective Moves from this Pokemon can’t miss and receive a 20% damage boost.",
 	},
@@ -166,6 +167,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		rating: 3,
 		desc: "While this Pokemon is burned, the power of its special attacks is multiplied by 1.5. Immune to burn damage.",
 		shortDesc: "When burned, special attacks have 1.5x power; Immune to burn damage.",
 	},
@@ -274,7 +276,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isBreakable: true,
 		name: "Mountaineer",
-		rating: 3,
+		rating: 3.5,
 		gen: 8,
 		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 	},
@@ -337,7 +339,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		name: "Primal Armor",
-		rating: 3,
+		rating: 4,
 		gen: 8,
 		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
 	},
@@ -348,6 +350,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		rating: 3,
 		desc: "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 2; the Speed drop from paralysis is ignored.",
 		shortDesc: "If this Pokemon is statused, its Speed is 2x; ignores Speed drop from paralysis.",
 	},
@@ -423,18 +426,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(pokemon.baseMaxhp / 16);
 		},
 		name: "Self Sufficient",
-		rating: 2.5,
+		rating: 3,
 		gen: 8,
 		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 	},
 	shielddust: {
 		inherit: true,
+		rating: 3.5,
 		desc: "This Pokemon is not affected by the secondary effect of another Pokemon's attack, and is not affected by entry hazards.",
 		shortDesc: "This Pokemon is unaffected by entry hazards and secondary effects of moves.",
 	},
 	solarpower: {
 		inherit: true,
 		onWeather() {},
+		rating: 2.5,
 		desc: "If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same.",
 		shortDesc: "If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x.",
 	},
@@ -497,6 +502,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return false;
 			}
 		},
+		rating: 3,
 		desc: "While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5. Immune to poison damage.",
 		shortDesc: "When poisoned, physical attacks have 1.5x power; Immune to poison damage.",
 	},

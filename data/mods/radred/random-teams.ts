@@ -642,7 +642,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		isNoDynamax: boolean
 	): boolean {
 		if ([
-			'Flare Boost', 'Hydration', 'Ice Body', 'Innards Out', 'Insomnia', 'Misty Surge',
+			'Hydration', 'Ice Body', 'Innards Out', 'Insomnia', 'Misty Surge',
 			'Quick Feet', 'Rain Dish', 'Snow Cloak', 'Steadfast', 'Steam Engine',
 		].includes(ability)) return true;
 
