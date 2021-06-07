@@ -29,7 +29,7 @@ export const Formats: FormatList = [
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
 		mod: 'radred',
-		team: 'randomSingles',
+		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
 	{
