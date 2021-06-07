@@ -832,6 +832,11 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		return false;
 	}
 
+	getSREffectiveness(species: Species, ability: string) {
+		if (['Magic Guard', 'Shield Dust', 'Mountaineer'].includes(ability)) return 0;
+		return this.dex.getEffectiveness('Rock', species);
+	}
+
 	getHighPriorityItem(
 		ability: string,
 		types: Set<string>,
@@ -933,7 +938,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		if (moves.has('hypnosis') && ability === 'Beast Boost') return 'Blunder Policy';
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
 
-		if (this.dex.getEffectiveness('Rock', species) >= 2 && !isDoubles && ability !== 'Shield Dust') return 'Heavy-Duty Boots';
+		if (this.getSREffectiveness(species, ability) >= 2 && !isDoubles) return 'Heavy-Duty Boots';
 	}
 
 	/** Item generation specific to Random Doubles */
@@ -953,7 +958,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			counter.damagingMoves.size >= 4
 		) return 'Choice Scarf';
 		if (moves.has('blizzard') && ability !== 'Snow Warning' && !teamDetails.hail) return 'Blunder Policy';
-		if (this.dex.getEffectiveness('Rock', species) >= 2 && !types.has('Flying')) return 'Heavy-Duty Boots';
+		if (this.getSREffectiveness(species, ability) >= 2 && !types.has('Flying')) return 'Heavy-Duty Boots';
 		if (counter.get('Physical') >= 4 && ['fakeout', 'feint', 'rapidspin', 'suckerpunch'].every(m => !moves.has(m)) && (
 			types.has('Dragon') || types.has('Fighting') || types.has('Rock') ||
 			moves.has('flipturn') || moves.has('uturn') || ability === 'Gorilla Tactics'
@@ -1047,7 +1052,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		) return 'Life Orb';
 		if (
 			!isDoubles &&
-			this.dex.getEffectiveness('Rock', species) >= 1 && (
+			this.getSREffectiveness(species, ability) >= 1 && (
 				['Defeatist', 'Emergency Exit', 'Multiscale'].includes(ability) ||
 				['courtchange', 'defog', 'rapidspin'].some(m => moves.has(m))
 			)
@@ -1094,7 +1099,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		) return 'Throat Spray';
 
 		const rockWeaknessCase = (
-			this.dex.getEffectiveness('Rock', species) >= 1 &&
+			this.getSREffectiveness(species, ability) >= 1 &&
 			(!teamDetails.defog || ability === 'Intimidate' || moves.has('uturn') || moves.has('voltswitch'))
 		);
 		const spinnerCase = (moves.has('rapidspin') && (ability === 'Regenerator' || !!counter.get('recovery')));
@@ -1447,7 +1452,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		}
 
 		// Prepare optimal HP
-		const srImmunity = ability === 'Magic Guard' || ability === 'Mountaineer' || ability === 'Shield Dust' || item === 'Heavy-Duty Boots';
+		const srImmunity = ['Magic Guard', 'Mountaineer', 'Shield Dust'].includes(ability) || item === 'Heavy-Duty Boots';
 		const srWeakness = srImmunity ? 0 : this.dex.getEffectiveness('Rock', species);
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
