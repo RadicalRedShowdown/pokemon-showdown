@@ -2357,9 +2357,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	castformsnowy: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["weatherball", "blizzard", "thunderbolt", "fireblast"],
+		randomBattleMoves: ["blizzard", "thunderbolt", "fireblast", "hiddenpowerground"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["weatherball", "blizzard", "thunderbolt", "fireblast"],
+		randomDoubleBattleMoves: ["blizzard", "thunderbolt", "fireblast", "hiddenpowerground"],
 	},
 	kecleon: {
 		randomBattleLevel: 88,
@@ -2451,9 +2451,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	walrein: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["scald", "bodypress", "rest", "sleeptalk", "toxic", "protect", "flipturn", "swordsdance", "liquidation", "iciclespear", "earthquake"],
+		randomBattleMoves: ["scald", "bodypress", "toxic", "protect", "flipturn", "swordsdance", "liquidation", "iciclespear", "earthquake"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["scald", "icebeam", "icywind", "superfang"],
+		randomDoubleBattleMoves: ["scald", "icebeam", "icywind", "superfang", "protect", "toxic"],
 		tier: "UU",
 	},
 	clamperl: {
@@ -2921,7 +2921,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 86,
 		randomBattleMoves: ["stealthrock", "gyroball", "bodypress", "teleport", "toxic", "psychic", "protect", "earthquake"],
 		randomDoubleBattleLevel: 86,
-		randomDoubleBattleMoves: ["bodypress", "explosion", "ironhead", "trickroom"],
+		randomDoubleBattleMoves: ["bodypress", "explosion", "gyroball", "toxic", "trickroom", "protect"],
 		tier: "UU",
 	},
 	bonsly: {
@@ -3258,9 +3258,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	dialgaprimal: {
-		randomBattleLevel: 76,
+		randomBattleLevel: 70,
 		randomBattleMoves: ["dracometeor", "stealthrock", "thunderbolt", "toxic", "roaroftime", "fireblast", "flashcannon"],
-		randomDoubleBattleLevel: 76,
+		randomDoubleBattleLevel: 70,
 		randomDoubleBattleMoves: ["dracometeor", "roaroftime", "flashcannon", "earthpower", "flamethrower", "thunderbolt", "protect"],
 		tier: "Uber",
 	},
@@ -3522,9 +3522,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swoobat: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["calmmind", "roost", "psychic", "airslash"],
+		randomBattleMoves: ["calmmind", "roost", "psychic", "airslash", "heatwave"],
 		randomDoubleBattleLevel: 84,
-		randomDoubleBattleMoves: ["airslash", "calmmind", "heatwave", "psychic"],
+		randomDoubleBattleMoves: ["airslash", "calmmind", "heatwave", "psychic", "protect"],
 		tier: "UU",
 	},
 	drilbur: {
@@ -3601,7 +3601,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	leavanny: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["stickyweb", "knockoff", "leafblade", "xscissor", "sacredsword", "swordsdance", "magiccoat"],
+		randomBattleMoves: ["stickyweb", "knockoff", "leafblade", "xscissor", "sacredsword", "swordsdance", "cut"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["leafblade", "cut", "sacredsword", "swordsdance", "xscissor"],
 		tier: "UU",
@@ -3681,9 +3681,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	darmanitanzen: {
 		randomBattleLevel: 84,
-		randomBattleMoves: ["fireblast", "psychic", "trickroom", "teleport"],
+		randomBattleMoves: ["fireblast", "psychic", "grassknot", "hiddenpowerice", "trickroom", "teleport"],
 		randomDoubleBattleLevel: 84,
-		randomDoubleBattleMoves: ["psychic", "fireblast", "trickroom", "heatwave", "grassknot", "protect"],
+		randomDoubleBattleMoves: ["psychic", "fireblast", "trickroom", "heatwave", "grassknot", "hiddenpowerice", "protect"],
 	},
 	darmanitangalar: {
 		randomBattleLevel: 78,
@@ -4184,28 +4184,28 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	reshiram: {
 		randomBattleLevel: 76,
-		randomBattleMoves: ["blueflare", "dracometeor", "earthpower", "roost", "dragondance", "scaleshot", "flareblitz"],
+		randomBattleMoves: ["blueflare", "defog", "dracometeor", "dragonpulse", "earthpower", "roost", "stoneedge"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["blueflare", "dracometeor", "earthpower", "heatwave", "roost", "tailwind"],
 		tier: "Uber",
 	},
 	zekrom: {
 		randomBattleLevel: 76,
-		randomBattleMoves: ["boltstrike", "dragonclaw", "outrage", "voltswitch", "toxic", "dragondance", "roost", "substitute"],
-		randomDoubleBattleLevel: 74,
+		randomBattleMoves: ["boltstrike", "dragonclaw", "outrage", "voltswitch", "dragondance", "roost"],
+		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["boltstrike", "dragonclaw", "dragondance", "roost"],
 		tier: "Uber",
 	},
 	landorus: {
 		randomBattleLevel: 76,
-		randomBattleMoves: ["earthpower", "sludgewave", "stealthrock", "focusblast", "rockpolish", "knockoff", "rockslide", "calmmind", "psychic"],
-		randomDoubleBattleLevel: 76,
+		randomBattleMoves: ["earthpower", "focusblast", "knockoff", "rockpolish", "rockslide", "sludgewave", "stealthrock", "calmmind"],
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["calmmind", "earthpower", "focusblast", "protect", "psychic", "sludgebomb"],
 		tier: "Uber",
 	},
 	landorustherian: {
 		randomBattleLevel: 80,
-		randomBattleMoves: ["stealthrock", "earthquake", "uturn", "knockoff", "toxic", "rockslide", "swordsdance", "substitute", "earthpower", "stoneedge", "explosion", "rockpolish", "punishment"],
+		randomBattleMoves: ["earthquake", "knockoff", "stealthrock", "stoneedge", "swordsdance", "uturn"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["earthquake", "fly", "knockoff", "stoneedge", "swordsdance", "uturn"],
 		tier: "OU",
@@ -4673,7 +4673,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["coil", "outrage", "substitute", "thousandarrows", "extremespeed"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["dragondance", "glare", "breakingswipe", "thousandarrows", "extremespeed"],
-		tier: "UU",
+		tier: "Uber",
 	},
 	zygarde10: {
 		randomBattleLevel: 83,
