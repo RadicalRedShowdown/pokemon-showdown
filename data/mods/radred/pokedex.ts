@@ -1,6 +1,7 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	butterfree: {
 		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 50, spa: 95, spd: 80, spe: 70},
 		otherFormes: ["Butterfree-Mega"],
 		formeOrder: ["Butterfree", "Butterfree-Mega"],
 	},
