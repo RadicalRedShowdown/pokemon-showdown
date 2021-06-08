@@ -251,6 +251,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {blade: 1, contact: 1, protect: 1, mirror: 1},
 	},
+	geargrind: {
+		inherit: true,
+		accuracy: 100,
+	},
 	guillotine: {
 		inherit: true,
 		isNonstandard: "Unobtainable",

@@ -262,6 +262,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.3.",
 		shortDesc: "This Pokemon's punch-based attacks have 1.3x power.",
 	},
+	liquidvoice: {
+		inherit: true,
+		onBasePower (basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Liquid Voice boost');
+				return this.chainModify(1.2);
+			}
+		},
+	},
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {

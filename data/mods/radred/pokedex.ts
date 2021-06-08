@@ -445,7 +445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Lapras",
 		forme: "Mega",
 		types: ["Water", "Dragon"],
-		baseStats: {hp: 130, atk: 105, def: 90, spa: 120, spd: 105, spe: 70},
+		baseStats: {hp: 130, atk: 105, def: 90, spa: 115, spd: 105, spe: 70},
 		abilities: {0: "Liquid Voice"},
 		heightm: 24,
 		weightkg: 220,
@@ -662,7 +662,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corsola: {
 		inherit: true,
-		baseStats: {hp: 85, atk: 55, def: 100, spa: 65, spd: 100, spe: 35},
+		baseStats: {hp: 85, atk: 55, def: 100, spa: 65, spd: 100, spe: 55},
 	},
 	corsolagalar: {
 		inherit: true,
@@ -2068,7 +2068,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	guzzlord: {
 		inherit: true,
-		baseStats: {hp: 193, atk: 101, def: 73, spa: 97, spd: 73, spe: 23},
+		baseStats: {hp: 203, atk: 101, def: 73, spa: 97, spd: 73, spe: 23},
 		abilities: {0: "Beast Boost", 1: "Dark Aura"},
 	},
 	meltan: {
@@ -2445,7 +2445,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dracovish: {
 		inherit: true,
-		baseStats: {hp: 90, atk: 80, def: 100, spa: 70, spd: 90, spe: 75},
+		baseStats: {hp: 90, atk: 90, def: 100, spa: 70, spd: 80, spe: 75},
 	},
 	arctovish: {
 		inherit: true,
