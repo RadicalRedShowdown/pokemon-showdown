@@ -109,17 +109,20 @@ export const Formats: FormatList = [
 			'Misty Explosion',
 		],
 	},
-	/* {
+	{
 		name: "[Gen 8] LC",
 		mod: 'radred',
 		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: ['LCBL',
+		banlist: [
+			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
+			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Scyther',
+			'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma',
 			// moves
 			'Baton Pass', 'Dragon Rage', 'Sonic Boom',
 			// items
 			'Leek Stick',
 		],
-	}, */
+	},
 	{
 		name: "[Gen 8] Random Pool",
 		mod: 'radred',
