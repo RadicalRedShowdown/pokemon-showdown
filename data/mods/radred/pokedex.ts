@@ -1150,7 +1150,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	glameow: {
 		inherit: true,
-		baseStats: {hp: 49, atk: 55, def: 42, spa: 42, spd: 37, spe: 112},
 		abilities: {0: "Limber", 1: "Own Tempo", H: "Frisk"},
 	},
 	purugly: {
