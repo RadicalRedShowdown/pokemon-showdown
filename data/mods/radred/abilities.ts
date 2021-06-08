@@ -264,12 +264,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	liquidvoice: {
 		inherit: true,
+		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['sound']) {
-				this.debug('Liquid Voice boost');
-				return this.chainModify(1.2);
+			if (move.flags['sound'] && !attacker.volatiles['dynamax']) {
+				return this.chainModify([4915, 4096]);
 			}
 		},
+		desc: "This Pokemon's sound-based moves become Water-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's sound-based moves become Water type and have 1.2x power.",
 	},
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
