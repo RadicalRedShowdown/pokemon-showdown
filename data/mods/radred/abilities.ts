@@ -264,7 +264,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	liquidvoice: {
 		inherit: true,
-		onBasePower (basePower, attacker, defender, move) {
+		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['sound']) {
 				this.debug('Liquid Voice boost');
 				return this.chainModify(1.2);
