@@ -462,7 +462,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["nastyplot", "darkpulse", "dazzlinggleam", "thunderbolt", "knockoff", "partingshot", "foulplay", "toxic"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["fakeout", "foulplay", "icywind", "partingshot", "protect", "snarl", "taunt"],
+		randomDoubleBattleMoves: ["fakeout", "darkpulse", "icywind", "partingshot", "protect", "snarl", "taunt"],
 		tier: "UU",
 	},
 	psyduck: {
@@ -1897,9 +1897,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	swellow: {
 		randomBattleLevel: 86,
-		randomBattleMoves: ["quickattack", "facade", "bravebird", "uturn", "boomburst", "heatwave", "hiddenpowerground"],
-		randomDoubleBattleLevel: 84,
-		randomDoubleBattleMoves: ["bravebird", "facade", "protect", "quickattack", "uturn"],
+		randomBattleMoves: ["boomburst", "heatwave", "airslash", "uturn"],
+		randomDoubleBattleLevel: 86,
+		randomDoubleBattleMoves: ["boomburst", "heatwave", "airslash", "uturn", "tailwind", "protect"],
 		tier: "UU",
 	},
 	wingull: {
@@ -4756,7 +4756,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	primarina: {
 		randomBattleLevel: 82,
-		randomBattleMoves: ["hydropump", "moonblast", "drainingkiss", "scald", "calmmind", "substitute", "flipturn"],
+		randomBattleMoves: ["hypervoice", "moonblast", "drainingkiss", "calmmind", "substitute", "flipturn"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["dazzlinggleam", "flipturn", "hypervoice", "moonblast", "protect", "psychic"],
 		tier: "UU",

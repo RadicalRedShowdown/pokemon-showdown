@@ -286,6 +286,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			if (movePool.includes('calmmind') || movePool.includes('nastyplot')) return {cull: true};
 			return {cull: false, isSetup: !counter.setupType};
 		case 'blizzard':
+			// For Aurorus
 			return {cull: moves.has('boomburst')};
 		case 'focuspunch':
 			return {cull: !moves.has('substitute') || counter.damagingMoves.size < 2};
