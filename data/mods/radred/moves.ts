@@ -821,7 +821,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			return 20 * move.hit;
 		},
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
-		desc: "Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times."
+		desc: "Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
 	},
 	tropkick: {
 		inherit: true,
