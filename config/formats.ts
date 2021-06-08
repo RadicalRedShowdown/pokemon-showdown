@@ -109,6 +109,17 @@ export const Formats: FormatList = [
 			'Misty Explosion',
 		],
 	},
+	/* {
+		name: "[Gen 8] LC",
+		mod: 'radred',
+		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: ['LCBL',
+			// moves
+			'Baton Pass', 'Dragon Rage', 'Sonic Boom',
+			// items
+			'Leek Stick',
+		],
+	}, */
 	{
 		name: "[Gen 8] Random Pool",
 		mod: 'radred',

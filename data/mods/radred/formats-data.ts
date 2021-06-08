@@ -442,7 +442,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	meowthalola: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	meowthgalar: {
 		tier: "LC",
@@ -872,7 +872,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	tangela: {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["gigadrain", "knockoff", "leechseed", "toxic"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	kangaskhan: {
 		randomBattleLevel: 88,
@@ -895,7 +895,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	goldeen: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	seaking: {
 		randomBattleLevel: 86,
@@ -932,7 +932,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["dualwingbeat", "uturn", "knockoff", "brickbreak"],
 		randomDoubleBattleMoves: ["brickbreak", "bugbite", "dualwingbeat", "uturn"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	jynx: {
 		randomBattleLevel: 88,
@@ -1369,7 +1369,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	aipom: {
 		randomBattleLevel: 100,
 		randomBattleMoves: ["tailslap", "knockoff", "uturn", "switcheroo"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	sunkern: {
 		tier: "LC",
@@ -1382,7 +1382,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	yanma: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	wooper: {
 		tier: "LC",
@@ -1409,7 +1409,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	murkrow: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	slowking: {
 		randomBattleLevel: 82,
@@ -1426,7 +1426,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	misdreavus: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	unown: {
 		randomBattleLevel: 90,
@@ -1467,7 +1467,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	gligar: {
 		randomBattleLevel: 82,
 		randomBattleMoves: ["earthquake", "roost", "uturn", "defog", "stealthrock", "knockoff", "toxic"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	steelix: {
 		randomBattleLevel: 86,
@@ -1538,7 +1538,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	sneasel: {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["tripleaxel", "iceshard", "knockoff", "pursuit", "swordsdance"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	teddiursa: {
 		tier: "LC",
@@ -1576,7 +1576,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	corsolagalar: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	remoraid: {
 		tier: "LC",
@@ -2068,7 +2068,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	meditite: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	medicham: {
 		randomBattleLevel: 86,
@@ -2851,7 +2851,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	drifloon: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	drifblim: {
 		randomBattleLevel: 88,
@@ -3192,7 +3192,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["voltswitch", "shadowball", "defog", "willowisp", "nastyplot", "thunderbolt", "painsplit"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["electroweb", "protect", "shadowball", "thunderbolt", "voltswitch", "willowisp"],
-		tier: "NFE",
+		tier: "LCBL",
 	},
 	rotomheat: {
 		randomBattleLevel: 82,
@@ -3807,7 +3807,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	gothita: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	gothorita: {
 		tier: "NFE",
@@ -4463,7 +4463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	swirlix: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	slurpuff: {
 		randomBattleLevel: 84,
@@ -4842,7 +4842,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	cutiefly: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	ribombee: {
 		randomBattleLevel: 86,
@@ -5034,7 +5034,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	typenull: {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["uturn", "crushclaw", "rest", "sleeptalk", "toxic", "swordsdance", "irondefense", "crunch"],
-		tier: "LC",
+		tier: "LCBL",
 	},
 	silvally: {
 		randomBattleLevel: 82,
@@ -6053,7 +6053,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	kubfu: {
-		tier: "LC",
+		tier: "LCBL",
 	},
 	urshifu: {
 		randomBattleLevel: 76,
