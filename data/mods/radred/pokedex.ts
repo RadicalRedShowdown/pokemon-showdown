@@ -20,6 +20,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredItem: "Butterfrite",
 		gen: 8,
 	},
+	butterfreegmax: {
+		inherit: true,
+		baseStats: {hp: 60, atk: 45, def: 50, spa: 95, spd: 80, spe: 70},
+	},
 	pidgey: {
 		inherit: true,
 		abilities: {0: "Tangled Feet", H: "Frisk"},
@@ -330,6 +334,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoType: "useItem",
 		evoItem: "Link Cable",
 	},
+	gengargmax: {
+		inherit: true,
+		abilities: {0: "Levitate"},
+	},
 	onix: {
 		inherit: true,
 		baseStats: {hp: 50, atk: 60, def: 150, spa: 30, spd: 45, spe: 65},
@@ -453,6 +461,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Monster", "Water 1"],
 		requiredItem: "Laprasite",
 		gen: 8,
+	},
+	laprasgmax: {
+		inherit: true,
+		types: ["Water", "Dragon"],
 	},
 	flareon: {
 		inherit: true,
@@ -2086,6 +2098,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 111, def: 75, spa: 65, spd: 75, spe: 119},
 	},
+	cinderacegmax: {
+		inherit: true,
+		baseStats: {hp: 80, atk: 111, def: 75, spa: 65, spd: 75, spe: 119},
+	},
 	rookidee: {
 		inherit: true,
 		abilities: {0: "Unnerve", H: "Frisk"},
@@ -2330,6 +2346,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Prankster", 1: "Frisk", H: "Infiltrator"},
 	},
+	grimmsnarlgmax: {
+		inherit: true,
+		abilities: {0: "Prankster", 1: "Frisk", H: "Infiltrator"},
+	},
 	perrserker: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 110, def: 100, spa: 30, spd: 60, spe: 50},
@@ -2439,6 +2459,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Field", "Mineral"],
 		requiredItem: "Copperajite",
 	},
+	copperajahgmax: {
+		inherit: true,
+		baseStats: {hp: 122, atk: 130, def: 79, spa: 80, spd: 79, spe: 30},
+		abilities: {0: "Heavy Metal"},
+	},
 	arctozolt: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 100, def: 90, spa: 90, spd: 55, spe: 80},
@@ -2471,6 +2496,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
 		requiredItem: "Duraludonite",
+	},
+	duraludongmax: {
+		inherit: true,
+		baseStats: {hp: 85, atk: 95, def: 115, spa: 120, spd: 50, spe: 85},
+		abilities: {0: "Light Metal", 1: "Heavy Metal", H: "Clear Body"},
 	},
 	urshifu: {
 		inherit: true,
