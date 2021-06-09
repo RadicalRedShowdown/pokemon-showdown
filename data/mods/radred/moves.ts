@@ -707,6 +707,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 		basePower: 95,
+		pp: 5,
 		isNonstandard: null,
 		self: {
 			onHit(pokemon, source, move) {
@@ -1399,7 +1400,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	zippyzap: {
 		inherit: true,
 		basePower: 50,
-		pp: 15,
+		pp: 5,
 		priority: 1,
 		willCrit: true,
 		secondary: null,
