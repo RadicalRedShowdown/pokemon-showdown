@@ -66,8 +66,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			weatherball: ["8T"],
 			workup: ["8M"],
-			worryseed: ["8L31", "8T"]
-		}
+			worryseed: ["8L31", "8T"],
+		},
 	},
 	ivysaur: {
 		learnset: {
@@ -125,8 +125,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vinewhip: ["8L9"],
 			weatherball: ["8T"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	venusaur: {
 		learnset: {
@@ -197,8 +197,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vinewhip: ["8L9"],
 			weatherball: ["8T"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	charmander: {
 		learnset: {
@@ -270,8 +270,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	charmeleon: {
 		learnset: {
@@ -335,8 +335,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	charizard: {
 		learnset: {
@@ -424,8 +424,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	squirtle: {
 		learnset: {
@@ -495,8 +495,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			workup: ["8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	wartortle: {
 		learnset: {
@@ -554,8 +554,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			withdraw: ["8L10"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	blastoise: {
 		learnset: {
@@ -632,24 +632,24 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			withdraw: ["8L10"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	caterpie: {
 		learnset: {
 			bugbite: ["8L7", "8T"],
 			electroweb: ["8T"],
 			stringshot: ["8L1"],
-			tackle: ["8L1"]
-		}
+			tackle: ["8L1"],
+		},
 	},
 	metapod: {
 		learnset: {
 			bugbite: ["8T"],
 			electroweb: ["8T"],
 			harden: ["8L0", "8L1"],
-			irondefense: ["8T"]
-		}
+			irondefense: ["8T"],
+		},
 	},
 	butterfree: {
 		learnset: {
@@ -711,24 +711,24 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			venoshock: ["8M"],
-			whirlwind: ["8L29"]
-		}
+			whirlwind: ["8L29"],
+		},
 	},
 	weedle: {
 		learnset: {
 			bugbite: ["8L7", "8T"],
 			electroweb: ["8T"],
 			poisonsting: ["8L1"],
-			stringshot: ["8L1"]
-		}
+			stringshot: ["8L1"],
+		},
 	},
 	kakuna: {
 		learnset: {
 			bugbite: ["8T"],
 			electroweb: ["8T"],
 			harden: ["8L0", "8L1"],
-			irondefense: ["8T"]
-		}
+			irondefense: ["8T"],
+		},
 	},
 	beedrill: {
 		learnset: {
@@ -790,8 +790,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twineedle: ["8L0", "8L1"],
 			uturn: ["8M"],
 			venoshock: ["8L23", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	pidgey: {
 		learnset: {
@@ -837,8 +837,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T", "8E"],
 			uturn: ["8M"],
 			whirlwind: ["8L17"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	pidgeotto: {
 		learnset: {
@@ -880,8 +880,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			whirlwind: ["8L17"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	pidgeot: {
 		learnset: {
@@ -928,8 +928,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			whirlwind: ["8L17"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	rattata: {
 		learnset: {
@@ -991,8 +991,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	rattataalola: {
 		learnset: {
@@ -1055,8 +1055,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T", "8E"],
 			uturn: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	raticate: {
 		learnset: {
@@ -1122,8 +1122,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8L19", "8T"]
-		}
+			zenheadbutt: ["8L19", "8T"],
+		},
 	},
 	raticatealola: {
 		learnset: {
@@ -1192,8 +1192,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			venoshock: ["8M"],
-			zenheadbutt: ["8L19", "8T"]
-		}
+			zenheadbutt: ["8L19", "8T"],
+		},
 	},
 	spearow: {
 		learnset: {
@@ -1243,8 +1243,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T", "8E"],
 			uturn: ["8M"],
 			whirlwind: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	fearow: {
 		learnset: {
@@ -1293,8 +1293,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	ekans: {
 		learnset: {
@@ -1358,8 +1358,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			venoshock: ["8M"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	arbok: {
 		learnset: {
@@ -1428,8 +1428,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	pikachu: {
 		learnset: {
@@ -2743,8 +2743,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	raichualola: {
 		learnset: {
@@ -2813,8 +2813,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	sandshrew: {
 		learnset: {
@@ -2882,8 +2882,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	sandshrewalola: {
 		learnset: {
@@ -2955,8 +2955,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	sandslash: {
 		learnset: {
@@ -3022,8 +3022,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	sandslashalola: {
 		learnset: {
@@ -3090,8 +3090,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	nidoranf: {
 		learnset: {
@@ -3153,8 +3153,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			toxicspikes: ["8L31", "8T"],
 			venomdrench: ["8T", "8E"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	nidorina: {
 		learnset: {
@@ -3206,8 +3206,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			toxicspikes: ["8L35", "8T"],
 			venomdrench: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	nidoqueen: {
 		learnset: {
@@ -3298,8 +3298,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	nidoranm: {
 		learnset: {
@@ -3359,8 +3359,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			toxicspikes: ["8L31", "8T"],
 			venomdrench: ["8T", "8E"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	nidorino: {
 		learnset: {
@@ -3409,8 +3409,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			toxicspikes: ["8L35", "8T"],
 			venomdrench: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	nidoking: {
 		learnset: {
@@ -3500,8 +3500,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	clefairy: {
 		learnset: {
@@ -3597,8 +3597,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8L22"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	clefable: {
 		learnset: {
@@ -3689,8 +3689,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	vulpix: {
 		learnset: {
@@ -3756,8 +3756,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8L20", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	vulpixalola: {
 		learnset: {
@@ -3823,8 +3823,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L4"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	ninetales: {
 		learnset: {
@@ -3884,8 +3884,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	ninetalesalola: {
 		learnset: {
@@ -3946,8 +3946,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			weatherball: ["8T"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	jigglypuff: {
 		learnset: {
@@ -4032,8 +4032,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wakeupslap: ["8L27"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	wigglytuff: {
 		learnset: {
@@ -4114,8 +4114,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	zubat: {
 		learnset: {
@@ -4179,8 +4179,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8L37", "8M"],
 			whirlwind: ["8E"],
 			wingattack: ["8L13"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	golbat: {
 		learnset: {
@@ -4240,8 +4240,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T"],
 			venoshock: ["8L43", "8M"],
 			wingattack: ["8L13"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	oddish: {
 		learnset: {
@@ -4299,8 +4299,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8L35", "8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	gloom: {
 		learnset: {
@@ -4352,8 +4352,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			toxic: ["8L39", "8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	vileplume: {
 		learnset: {
@@ -4403,8 +4403,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			toxic: ["8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	paras: {
 		learnset: {
@@ -4475,8 +4475,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			wideguard: ["8E"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	parasect: {
 		learnset: {
@@ -4539,8 +4539,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			venoshock: ["8M"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	venonat: {
 		learnset: {
@@ -4586,8 +4586,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8T", "8E"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			zenheadbutt: ["8L37", "8T"]
-		}
+			zenheadbutt: ["8L37", "8T"],
+		},
 	},
 	venomoth: {
 		learnset: {
@@ -4645,8 +4645,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			zenheadbutt: ["8L41", "8T"]
-		}
+			zenheadbutt: ["8L41", "8T"],
+		},
 	},
 	diglett: {
 		learnset: {
@@ -4702,8 +4702,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T", "8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	diglettalola: {
 		learnset: {
@@ -4761,8 +4761,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8E"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	dugtrio: {
 		learnset: {
@@ -4818,8 +4818,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			triattack: ["8L1"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	dugtrioalola: {
 		learnset: {
@@ -4875,8 +4875,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			triattack: ["8L1"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	meowth: {
 		learnset: {
@@ -4946,8 +4946,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	meowthalola: {
 		learnset: {
@@ -5017,8 +5017,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	meowthgalar: {
 		learnset: {
@@ -5082,8 +5082,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	persian: {
 		learnset: {
@@ -5152,8 +5152,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	persianalola: {
 		learnset: {
@@ -5225,8 +5225,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	psyduck: {
 		learnset: {
@@ -5303,8 +5303,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["8L43", "8T"],
 			worryseed: ["8T"],
 			yawn: ["8E"],
-			zenheadbutt: ["8L25", "8T"]
-		}
+			zenheadbutt: ["8L25", "8T"],
+		},
 	},
 	golduck: {
 		learnset: {
@@ -5379,8 +5379,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wonderroom: ["8L51", "8T"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8L25", "8T"]
-		}
+			zenheadbutt: ["8L25", "8T"],
+		},
 	},
 	mankey: {
 		learnset: {
@@ -5467,8 +5467,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	primeape: {
 		learnset: {
@@ -5554,8 +5554,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	growlithe: {
 		learnset: {
@@ -5613,8 +5613,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8E"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	arcanine: {
 		learnset: {
@@ -5673,8 +5673,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8L1", "8T"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	poliwag: {
 		learnset: {
@@ -5727,8 +5727,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L5"],
 			waterpulse: ["8E"],
 			watersport: ["8L1", "8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	poliwhirl: {
 		learnset: {
@@ -5780,8 +5780,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			watersport: ["8L1"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	poliwrath: {
 		learnset: {
@@ -5851,8 +5851,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["8T"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	abra: {
 		learnset: {
@@ -5914,8 +5914,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	kadabra: {
 		learnset: {
@@ -5977,8 +5977,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	alakazam: {
 		learnset: {
@@ -6046,8 +6046,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	machop: {
 		learnset: {
@@ -6122,8 +6122,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["8T"],
 			vitalthrow: ["8L25"],
 			wakeupslap: ["8L27"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	machoke: {
 		learnset: {
@@ -6191,8 +6191,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["8T"],
 			vitalthrow: ["8L25"],
 			wakeupslap: ["8L27"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	machamp: {
 		learnset: {
@@ -6269,8 +6269,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vitalthrow: ["8L25"],
 			wakeupslap: ["8L27"],
 			wideguard: ["8L1"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	bellsprout: {
 		learnset: {
@@ -6330,8 +6330,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T", "8E"],
 			worryseed: ["8T", "8E"],
 			wrap: ["8L11"],
-			wringout: ["8L50"]
-		}
+			wringout: ["8L50"],
+		},
 	},
 	weepinbell: {
 		learnset: {
@@ -6385,8 +6385,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			worryseed: ["8T"],
 			wrap: ["8L1"],
-			wringout: ["8L58"]
-		}
+			wringout: ["8L58"],
+		},
 	},
 	victreebel: {
 		learnset: {
@@ -6443,8 +6443,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			venoshock: ["8M"],
 			weatherball: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	tentacool: {
 		learnset: {
@@ -6508,8 +6508,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8L16"],
 			whirlpool: ["8T"],
-			wringout: ["8L49"]
-		}
+			wringout: ["8L49"],
+		},
 	},
 	tentacruel: {
 		learnset: {
@@ -6572,8 +6572,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L16"],
 			whirlpool: ["8T"],
-			wringout: ["8L1"]
-		}
+			wringout: ["8L1"],
+		},
 	},
 	geodude: {
 		learnset: {
@@ -6635,8 +6635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	geodudealola: {
 		learnset: {
@@ -6704,8 +6704,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8L22", "8T"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	graveler: {
 		learnset: {
@@ -6763,8 +6763,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			thunderpunch: ["8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	graveleralola: {
 		learnset: {
@@ -6830,8 +6830,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderpunch: ["8L22", "8T"],
 			toxic: ["8M"],
-			voltswitch: ["8M"]
-		}
+			voltswitch: ["8M"],
+		},
 	},
 	golem: {
 		learnset: {
@@ -6898,8 +6898,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			thunderpunch: ["8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	golemalola: {
 		learnset: {
@@ -6976,8 +6976,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			volttackle: ["8L68"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	ponyta: {
 		learnset: {
@@ -7030,8 +7030,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8E"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	ponytagalar: {
 		learnset: {
@@ -7081,8 +7081,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	rapidash: {
 		learnset: {
@@ -7138,8 +7138,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rapidashgalar: {
 		learnset: {
@@ -7199,8 +7199,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	slowpoke: {
 		learnset: {
@@ -7277,8 +7277,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wonderroom: ["8T", "8E"],
 			yawn: ["8L1"],
-			zenheadbutt: ["8L32", "8T", "8E"]
-		}
+			zenheadbutt: ["8L32", "8T", "8E"],
+		},
 	},
 	slowpokegalar: {
 		learnset: {
@@ -7354,8 +7354,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wonderroom: ["8T"],
 			yawn: ["8L9"],
-			zenheadbutt: ["8L24", "8T"]
-		}
+			zenheadbutt: ["8L24", "8T"],
+		},
 	},
 	slowbro: {
 		learnset: {
@@ -7443,8 +7443,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			withdraw: ["8L0", "8L1"],
 			wonderroom: ["8T"],
 			yawn: ["8L1"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	slowbrogalar: {
 		learnset: {
@@ -7507,8 +7507,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L18"],
 			withdraw: ["8L1"],
 			yawn: ["8L9"],
-			zenheadbutt: ["8L24", "8T"]
-		}
+			zenheadbutt: ["8L24", "8T"],
+		},
 	},
 	magnemite: {
 		learnset: {
@@ -7558,8 +7558,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L49"]
-		}
+			zapcannon: ["8L49"],
+		},
 	},
 	magneton: {
 		learnset: {
@@ -7614,8 +7614,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L0", "8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L1"]
-		}
+			zapcannon: ["8L1"],
+		},
 	},
 	farfetchd: {
 		learnset: {
@@ -7693,8 +7693,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wish: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	farfetchdgalar: {
 		learnset: {
@@ -7753,8 +7753,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			throatchop: ["8T"],
 			toxic: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	doduo: {
 		learnset: {
@@ -7803,8 +7803,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8L29", "8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	dodrio: {
 		learnset: {
@@ -7854,8 +7854,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L1"],
 			uproar: ["8L29", "8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	seel: {
 		learnset: {
@@ -7911,8 +7911,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8E"],
 			watersport: ["8L7"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	dewgong: {
 		learnset: {
@@ -7963,8 +7963,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	grimer: {
 		learnset: {
@@ -8033,8 +8033,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	grimeralola: {
 		learnset: {
@@ -8108,8 +8108,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	muk: {
 		learnset: {
@@ -8176,8 +8176,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			venomdrench: ["8L0", "8L1", "8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	mukalola: {
 		learnset: {
@@ -8251,8 +8251,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			venomdrench: ["8L0", "8L1", "8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	shellder: {
 		learnset: {
@@ -8304,8 +8304,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8E"],
 			whirlpool: ["8L40", "8T"],
-			withdraw: ["8L4"]
-		}
+			withdraw: ["8L4"],
+		},
 	},
 	cloyster: {
 		learnset: {
@@ -8355,8 +8355,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8L1", "8T"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			withdraw: ["8L1"]
-		}
+			withdraw: ["8L1"],
+		},
 	},
 	gastly: {
 		learnset: {
@@ -8425,8 +8425,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venoshock: ["8M"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	haunter: {
 		learnset: {
@@ -8489,8 +8489,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venoshock: ["8M"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	gengar: {
 		learnset: {
@@ -8568,8 +8568,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venoshock: ["8M"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	onix: {
 		learnset: {
@@ -8643,8 +8643,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			taunt: ["8M"],
 			toxic: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	drowzee: {
 		learnset: {
@@ -8718,8 +8718,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wakeupslap: ["8L29"],
 			wish: ["8E"],
-			zenheadbutt: ["8L41", "8T"]
-		}
+			zenheadbutt: ["8L41", "8T"],
+		},
 	},
 	hypno: {
 		learnset: {
@@ -8790,8 +8790,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wakeupslap: ["8L29"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	krabby: {
 		learnset: {
@@ -8856,8 +8856,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			visegrip: ["8L5"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	kingler: {
 		learnset: {
@@ -8926,8 +8926,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L5"],
 			whirlpool: ["8T"],
 			wideguard: ["8L1"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	voltorb: {
 		learnset: {
@@ -8974,8 +8974,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	electrode: {
 		learnset: {
@@ -9029,8 +9029,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L1"],
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	exeggcute: {
 		learnset: {
@@ -9093,8 +9093,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8L1", "8T"],
 			wish: ["8E"],
-			worryseed: ["8L33", "8T"]
-		}
+			worryseed: ["8L33", "8T"],
+		},
 	},
 	exeggutor: {
 		learnset: {
@@ -9157,8 +9157,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			woodhammer: ["8L37"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	exeggutoralola: {
 		learnset: {
@@ -9228,8 +9228,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			woodhammer: ["8L37"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	cubone: {
 		learnset: {
@@ -9305,8 +9305,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L31"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	marowak: {
 		learnset: {
@@ -9380,8 +9380,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	marowakalola: {
 		learnset: {
@@ -9467,8 +9467,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8L23", "8M"]
-		}
+			willowisp: ["8L23", "8M"],
+		},
 	},
 	hitmonlee: {
 		learnset: {
@@ -9534,8 +9534,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			vacuumwave: ["8T"],
 			wideguard: ["8L41"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	hitmonchan: {
 		learnset: {
@@ -9597,8 +9597,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			vacuumwave: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	lickitung: {
 		learnset: {
@@ -9685,8 +9685,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			wrap: ["8L17"],
 			wringout: ["8L57"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	koffing: {
 		learnset: {
@@ -9743,8 +9743,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venomdrench: ["8T", "8E"],
 			venoshock: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	weezing: {
 		learnset: {
@@ -9799,8 +9799,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	weezinggalar: {
 		learnset: {
@@ -9865,8 +9865,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	rhyhorn: {
 		learnset: {
@@ -9945,8 +9945,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderfang: ["8T", "8E"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	rhydon: {
 		learnset: {
@@ -10042,8 +10042,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	chansey: {
 		learnset: {
@@ -10139,8 +10139,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	tangela: {
 		learnset: {
@@ -10205,8 +10205,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vinewhip: ["8L7"],
 			wakeupslap: ["8E"],
 			worryseed: ["8T"],
-			wringout: ["8L46"]
-		}
+			wringout: ["8L46"],
+		},
 	},
 	kangaskhan: {
 		learnset: {
@@ -10297,8 +10297,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			whirlpool: ["8T"],
 			wish: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	horsea: {
 		learnset: {
@@ -10350,8 +10350,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L13"],
 			waterpulse: ["8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	seadra: {
 		learnset: {
@@ -10397,8 +10397,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L17"],
 			waterfall: ["8M"],
 			watergun: ["8L1"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	goldeen: {
 		learnset: {
@@ -10453,8 +10453,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8L32", "8M"],
 			watersport: ["8L1"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	seaking: {
 		learnset: {
@@ -10504,8 +10504,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			waterfall: ["8L32", "8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	staryu: {
 		learnset: {
@@ -10561,8 +10561,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L4"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	starmie: {
 		learnset: {
@@ -10625,8 +10625,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	mrmime: {
 		learnset: {
@@ -10725,8 +10725,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8E"],
 			wideguard: ["8L1"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	mrmimegalar: {
 		learnset: {
@@ -10817,8 +10817,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uproar: ["8T"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	scyther: {
 		learnset: {
@@ -10881,8 +10881,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vacuumwave: ["8L1", "8T"],
 			wingattack: ["8L21"],
-			xscissor: ["8L41", "8M"]
-		}
+			xscissor: ["8L41", "8M"],
+		},
 	},
 	jynx: {
 		learnset: {
@@ -10962,8 +10962,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8L33"],
 			wonderroom: ["8T"],
 			wringout: ["8L49"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	electabuzz: {
 		learnset: {
@@ -11023,8 +11023,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	magmar: {
 		learnset: {
@@ -11080,8 +11080,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	pinsir: {
 		learnset: {
@@ -11151,8 +11151,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			visegrip: ["8L1"],
 			vitalthrow: ["8L18"],
-			xscissor: ["8L29", "8M"]
-		}
+			xscissor: ["8L29", "8M"],
+		},
 	},
 	tauros: {
 		learnset: {
@@ -11222,8 +11222,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8L29", "8M"],
-			zenheadbutt: ["8L41", "8T"]
-		}
+			zenheadbutt: ["8L41", "8T"],
+		},
 	},
 	magikarp: {
 		learnset: {
@@ -11232,8 +11232,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			flail: ["8L30"],
 			hydropump: ["8T"],
 			splash: ["8L1"],
-			tackle: ["8L15"]
-		}
+			tackle: ["8L15"],
+		},
 	},
 	gyarados: {
 		learnset: {
@@ -11303,8 +11303,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L24"],
 			uproar: ["8T"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	lapras: {
 		learnset: {
@@ -11381,13 +11381,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			whirlpool: ["8T", "8E"],
 			wish: ["8L60"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	ditto: {
 		learnset: {
-			transform: ["8L1"]
-		}
+			transform: ["8L1"],
+		},
 	},
 	eevee: {
 		learnset: {
@@ -11445,8 +11445,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			wish: ["8E"],
 			workup: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	vaporeon: {
 		learnset: {
@@ -11509,8 +11509,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L17"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	jolteon: {
 		learnset: {
@@ -11572,8 +11572,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	flareon: {
 		learnset: {
@@ -11636,8 +11636,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	porygon: {
 		learnset: {
@@ -11697,8 +11697,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			zapcannon: ["8L62"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	omanyte: {
 		learnset: {
@@ -11762,8 +11762,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8E"],
 			whirlpool: ["8T", "8E"],
 			withdraw: ["8L1"],
-			wringout: ["8E"]
-		}
+			wringout: ["8E"],
+		},
 	},
 	omastar: {
 		learnset: {
@@ -11827,8 +11827,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L10"],
 			whirlpool: ["8T"],
-			withdraw: ["8L1"]
-		}
+			withdraw: ["8L1"],
+		},
 	},
 	kabuto: {
 		learnset: {
@@ -11892,8 +11892,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			wringout: ["8L50"]
-		}
+			wringout: ["8L50"],
+		},
 	},
 	kabutops: {
 		learnset: {
@@ -11970,8 +11970,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	aerodactyl: {
 		learnset: {
@@ -12051,8 +12051,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			whirlwind: ["8E"],
 			wideguard: ["8E"],
-			wingattack: ["8L1"]
-		}
+			wingattack: ["8L1"],
+		},
 	},
 	snorlax: {
 		learnset: {
@@ -12145,8 +12145,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L65"],
 			workup: ["8M"],
 			yawn: ["8L20"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	articuno: {
 		learnset: {
@@ -12206,8 +12206,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8L64", "8T"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	articunogalar: {
 		learnset: {
@@ -12253,8 +12253,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			tailwind: ["8L30", "8T"],
 			trickroom: ["8L70", "8M"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	zapdos: {
 		learnset: {
@@ -12315,8 +12315,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L99"]
-		}
+			zapcannon: ["8L99"],
+		},
 	},
 	zapdosgalar: {
 		learnset: {
@@ -12360,8 +12360,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			taunt: ["8M"],
 			thunderouskick: ["8L45"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	moltres: {
 		learnset: {
@@ -12418,8 +12418,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			wingattack: ["8L1"]
-		}
+			wingattack: ["8L1"],
+		},
 	},
 	moltresgalar: {
 		learnset: {
@@ -12461,8 +12461,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			suckerpunch: ["8L30"],
 			tailwind: ["8T"],
 			uturn: ["8M"],
-			wingattack: ["8L15"]
-		}
+			wingattack: ["8L15"],
+		},
 	},
 	dratini: {
 		learnset: {
@@ -12524,8 +12524,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8E"],
 			whirlpool: ["8T"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	dragonair: {
 		learnset: {
@@ -12580,8 +12580,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L1"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	dragonite: {
 		learnset: {
@@ -12670,8 +12670,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L1"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	mewtwo: {
 		learnset: {
@@ -12777,8 +12777,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	mew: {
 		learnset: {
@@ -13029,8 +13029,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			worryseed: ["8T"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	chikorita: {
 		learnset: {
@@ -13088,8 +13088,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8E"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	bayleef: {
 		learnset: {
@@ -13141,8 +13141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	meganium: {
 		learnset: {
@@ -13209,8 +13209,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	cyndaquil: {
 		learnset: {
@@ -13262,8 +13262,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	quilava: {
 		learnset: {
@@ -13313,8 +13313,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	typhlosion: {
 		learnset: {
@@ -13384,8 +13384,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	totodile: {
 		learnset: {
@@ -13456,8 +13456,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8E"],
 			watersport: ["8E"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	croconaw: {
 		learnset: {
@@ -13524,8 +13524,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	feraligatr: {
 		learnset: {
@@ -13612,8 +13612,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L6"],
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	sentret: {
 		learnset: {
@@ -13686,8 +13686,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	furret: {
 		learnset: {
@@ -13762,8 +13762,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	hoothoot: {
 		learnset: {
@@ -13831,8 +13831,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8E"],
 			wingattack: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8L16", "8T"]
-		}
+			zenheadbutt: ["8L16", "8T"],
+		},
 	},
 	noctowl: {
 		learnset: {
@@ -13897,8 +13897,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8L39", "8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8L16", "8T"]
-		}
+			zenheadbutt: ["8L16", "8T"],
+		},
 	},
 	ledyba: {
 		learnset: {
@@ -13956,8 +13956,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	ledian: {
 		learnset: {
@@ -14018,8 +14018,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	spinarak: {
 		learnset: {
@@ -14082,8 +14082,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicthread: ["8L54"],
 			twineedle: ["8E"],
 			venoshock: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	ariados: {
 		learnset: {
@@ -14148,8 +14148,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicthread: ["8L63"],
 			venomdrench: ["8L1", "8T"],
 			venoshock: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	crobat: {
 		learnset: {
@@ -14215,8 +14215,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8L43", "8M"],
 			wingattack: ["8L13"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	chinchou: {
 		learnset: {
@@ -14275,8 +14275,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8E"],
 			whirlpool: ["8T", "8E"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	lanturn: {
 		learnset: {
@@ -14336,8 +14336,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	pichu: {
 		learnset: {
@@ -14396,8 +14396,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			wish: ["8E"]
-		}
+			wish: ["8E"],
+		},
 	},
 	cleffa: {
 		learnset: {
@@ -14467,8 +14467,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8E"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	igglybuff: {
 		learnset: {
@@ -14532,8 +14532,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			wish: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	togepi: {
 		learnset: {
@@ -14606,8 +14606,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8L29"],
 			workup: ["8M"],
 			yawn: ["8L13"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	togetic: {
 		learnset: {
@@ -14689,8 +14689,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8L29"],
 			workup: ["8M"],
 			yawn: ["8L13"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	natu: {
 		learnset: {
@@ -14767,8 +14767,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			wish: ["8L28"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	xatu: {
 		learnset: {
@@ -14841,8 +14841,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			wish: ["8L29"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	mareep: {
 		learnset: {
@@ -14891,8 +14891,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thundershock: ["8L8"],
 			thunderwave: ["8L4", "8M"],
 			toxic: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	flaaffy: {
 		learnset: {
@@ -14946,8 +14946,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L1", "8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	ampharos: {
 		learnset: {
@@ -15014,8 +15014,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L1"]
-		}
+			zapcannon: ["8L1"],
+		},
 	},
 	bellossom: {
 		learnset: {
@@ -15071,8 +15071,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	marill: {
 		learnset: {
@@ -15143,8 +15143,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			watersport: ["8L5", "8E"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	azumarill: {
 		learnset: {
@@ -15214,8 +15214,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			watersport: ["8L1"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	sudowoodo: {
 		learnset: {
@@ -15293,8 +15293,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			woodhammer: ["8L1"]
-		}
+			woodhammer: ["8L1"],
+		},
 	},
 	politoed: {
 		learnset: {
@@ -15349,8 +15349,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			waterfall: ["8M"],
 			weatherball: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	hoppip: {
 		learnset: {
@@ -15409,8 +15409,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L6"],
 			toxic: ["8M"],
 			uturn: ["8L37", "8M"],
-			worryseed: ["8L40", "8T", "8E"]
-		}
+			worryseed: ["8L40", "8T", "8E"],
+		},
 	},
 	skiploom: {
 		learnset: {
@@ -15463,8 +15463,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L6"],
 			toxic: ["8M"],
 			uturn: ["8L44", "8M"],
-			worryseed: ["8L48", "8T"]
-		}
+			worryseed: ["8L48", "8T"],
+		},
 	},
 	jumpluff: {
 		learnset: {
@@ -15523,8 +15523,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L6"],
 			toxic: ["8M"],
 			uturn: ["8L49", "8M"],
-			worryseed: ["8L54", "8T"]
-		}
+			worryseed: ["8L54", "8T"],
+		},
 	},
 	aipom: {
 		learnset: {
@@ -15604,8 +15604,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	sunkern: {
 		learnset: {
@@ -15657,8 +15657,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L28", "8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			worryseed: ["8L19", "8T"]
-		}
+			worryseed: ["8L19", "8T"],
+		},
 	},
 	sunflora: {
 		learnset: {
@@ -15721,8 +15721,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			weatherball: ["8T"],
-			worryseed: ["8L19", "8T"]
-		}
+			worryseed: ["8L19", "8T"],
+		},
 	},
 	yanma: {
 		learnset: {
@@ -15777,8 +15777,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L27", "8T"],
 			uturn: ["8L49", "8M"],
 			whirlwind: ["8E"],
-			wingattack: ["8L43"]
-		}
+			wingattack: ["8L43"],
+		},
 	},
 	wooper: {
 		learnset: {
@@ -15842,8 +15842,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			yawn: ["8L29"]
-		}
+			yawn: ["8L29"],
+		},
 	},
 	quagsire: {
 		learnset: {
@@ -15908,8 +15908,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			yawn: ["8L31"]
-		}
+			yawn: ["8L31"],
+		},
 	},
 	espeon: {
 		learnset: {
@@ -15974,8 +15974,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			weatherball: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	umbreon: {
 		learnset: {
@@ -16038,8 +16038,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			wonderroom: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	murkrow: {
 		learnset: {
@@ -16108,8 +16108,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			whirlwind: ["8E"],
-			wingattack: ["8L15", "8E"]
-		}
+			wingattack: ["8L15", "8E"],
+		},
 	},
 	slowking: {
 		learnset: {
@@ -16196,8 +16196,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wonderroom: ["8T"],
 			yawn: ["8L1"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	slowkinggalar: {
 		learnset: {
@@ -16261,8 +16261,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L18"],
 			weatherball: ["8T"],
 			yawn: ["8L9"],
-			zenheadbutt: ["8L24", "8T"]
-		}
+			zenheadbutt: ["8L24", "8T"],
+		},
 	},
 	misdreavus: {
 		learnset: {
@@ -16331,13 +16331,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			willowisp: ["8M"],
-			wonderroom: ["8T", "8E"]
-		}
+			wonderroom: ["8T", "8E"],
+		},
 	},
 	unown: {
 		learnset: {
-			hiddenpower: ["8L1", "8M"]
-		}
+			hiddenpower: ["8L1", "8M"],
+		},
 	},
 	wobbuffet: {
 		learnset: {
@@ -16345,8 +16345,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			destinybond: ["8L1"],
 			encore: ["8T"],
 			mirrorcoat: ["8L1"],
-			safeguard: ["8L1"]
-		}
+			safeguard: ["8L1"],
+		},
 	},
 	girafarig: {
 		learnset: {
@@ -16426,8 +16426,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wish: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	pineco: {
 		learnset: {
@@ -16486,8 +16486,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L12"],
 			toxic: ["8M"],
 			toxicspikes: ["8T", "8E"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	forretress: {
 		learnset: {
@@ -16555,8 +16555,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8L1", "8T"],
 			venoshock: ["8M"],
 			voltswitch: ["8M"],
-			zapcannon: ["8L1"]
-		}
+			zapcannon: ["8L1"],
+		},
 	},
 	dunsparce: {
 		learnset: {
@@ -16640,8 +16640,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trumpcard: ["8E"],
 			wildcharge: ["8M"],
 			yawn: ["8L16"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gligar: {
 		learnset: {
@@ -16720,8 +16720,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8L30", "8M"],
 			venoshock: ["8M"],
 			wingattack: ["8E"],
-			xscissor: ["8L40", "8M"]
-		}
+			xscissor: ["8L40", "8M"],
+		},
 	},
 	steelix: {
 		learnset: {
@@ -16802,8 +16802,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			taunt: ["8M"],
 			thunderfang: ["8L1", "8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	snubbull: {
 		learnset: {
@@ -16878,8 +16878,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	granbull: {
 		learnset: {
@@ -16964,8 +16964,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	qwilfish: {
 		learnset: {
@@ -17036,8 +17036,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			waterpulse: ["8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	scizor: {
 		learnset: {
@@ -17106,8 +17106,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			venoshock: ["8M"],
-			xscissor: ["8L41", "8M"]
-		}
+			xscissor: ["8L41", "8M"],
+		},
 	},
 	shuckle: {
 		learnset: {
@@ -17173,8 +17173,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			venoshock: ["8M"],
 			withdraw: ["8L1"],
-			wrap: ["8L9"]
-		}
+			wrap: ["8L9"],
+		},
 	},
 	heracross: {
 		learnset: {
@@ -17250,8 +17250,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vacuumwave: ["8T"],
 			venoshock: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	sneasel: {
 		learnset: {
@@ -17332,8 +17332,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	teddiursa: {
 		learnset: {
@@ -17406,8 +17406,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	ursaring: {
 		learnset: {
@@ -17483,8 +17483,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	slugma: {
 		learnset: {
@@ -17543,8 +17543,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swallow: ["8E"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	magcargo: {
 		learnset: {
@@ -17611,8 +17611,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	swinub: {
 		learnset: {
@@ -17670,8 +17670,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			takedown: ["8L28", "8E"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	piloswine: {
 		learnset: {
@@ -17730,8 +17730,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			takedown: ["8L28"],
 			thrash: ["8L41"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	corsola: {
 		learnset: {
@@ -17811,8 +17811,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			waterpulse: ["8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	corsolagalar: {
 		learnset: {
@@ -17881,8 +17881,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterpulse: ["8E"],
 			whirlpool: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	remoraid: {
 		learnset: {
@@ -17941,8 +17941,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8L26", "8E"],
 			waterspout: ["8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	octillery: {
 		learnset: {
@@ -18005,8 +18005,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			wringout: ["8L28"]
-		}
+			wringout: ["8L28"],
+		},
 	},
 	delibird: {
 		learnset: {
@@ -18071,8 +18071,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	mantine: {
 		learnset: {
@@ -18145,8 +18145,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8E"],
 			whirlpool: ["8T"],
 			wideguard: ["8L23", "8E"],
-			wingattack: ["8L14"]
-		}
+			wingattack: ["8L14"],
+		},
 	},
 	skarmory: {
 		learnset: {
@@ -18214,8 +18214,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			whirlwind: ["8E"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	houndour: {
 		learnset: {
@@ -18279,8 +18279,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T", "8E"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	houndoom: {
 		learnset: {
@@ -18344,8 +18344,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8L1", "8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	kingdra: {
 		learnset: {
@@ -18398,8 +18398,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	phanpy: {
 		learnset: {
@@ -18458,8 +18458,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			superpower: ["8M", "8T"],
 			swagger: ["8M"],
 			takedown: ["8L28"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	donphan: {
 		learnset: {
@@ -18529,8 +18529,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			superpower: ["8M", "8T"],
 			swagger: ["8M"],
 			thunderfang: ["8L1", "8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	porygon2: {
 		learnset: {
@@ -18590,8 +18590,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			zapcannon: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	stantler: {
 		learnset: {
@@ -18664,13 +18664,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8L38", "8T", "8E"]
-		}
+			zenheadbutt: ["8L38", "8T", "8E"],
+		},
 	},
 	smeargle: {
 		learnset: {
-			sketch: ["8L1"]
-		}
+			sketch: ["8L1"],
+		},
 	},
 	tyrogue: {
 		learnset: {
@@ -18717,8 +18717,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			vacuumwave: ["8T", "8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	hitmontop: {
 		learnset: {
@@ -18778,8 +18778,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			vacuumwave: ["8T"],
 			wideguard: ["8L46"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	smoochum: {
 		learnset: {
@@ -18849,8 +18849,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8E"],
 			wish: ["8E"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	elekid: {
 		learnset: {
@@ -18909,8 +18909,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	magby: {
 		learnset: {
@@ -18968,8 +18968,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T", "8E"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	miltank: {
 		learnset: {
@@ -19049,8 +19049,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8L50"],
 			whirlpool: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8L29", "8T"]
-		}
+			zenheadbutt: ["8L29", "8T"],
+		},
 	},
 	blissey: {
 		learnset: {
@@ -19141,8 +19141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	raikou: {
 		learnset: {
@@ -19205,8 +19205,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	entei: {
 		learnset: {
@@ -19269,8 +19269,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8L43", "8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	suicune: {
 		learnset: {
@@ -19331,8 +19331,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			weatherball: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	larvitar: {
 		learnset: {
@@ -19394,8 +19394,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thrash: ["8L28"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	pupitar: {
 		learnset: {
@@ -19452,8 +19452,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thrash: ["8L28"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	tyranitar: {
 		learnset: {
@@ -19552,8 +19552,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	lugia: {
 		learnset: {
@@ -19639,8 +19639,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			whirlwind: ["8L1"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	hooh: {
 		learnset: {
@@ -19718,8 +19718,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8L1", "8T"],
 			whirlwind: ["8L1"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	celebi: {
 		learnset: {
@@ -19800,8 +19800,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			wonderroom: ["8T"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	treecko: {
 		learnset: {
@@ -19871,8 +19871,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	grovyle: {
 		learnset: {
@@ -19939,8 +19939,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			xscissor: ["8L43", "8M"]
-		}
+			xscissor: ["8L43", "8M"],
+		},
 	},
 	sceptile: {
 		learnset: {
@@ -20029,8 +20029,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			xscissor: ["8L45", "8M"]
-		}
+			xscissor: ["8L45", "8M"],
+		},
 	},
 	torchic: {
 		learnset: {
@@ -20091,8 +20091,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8M"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	combusken: {
 		learnset: {
@@ -20159,8 +20159,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vacuumwave: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	blaziken: {
 		learnset: {
@@ -20246,8 +20246,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	mudkip: {
 		learnset: {
@@ -20313,8 +20313,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8L33", "8T", "8E"],
 			wideguard: ["8E"],
 			workup: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	marshtomp: {
 		learnset: {
@@ -20374,8 +20374,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	swampert: {
 		learnset: {
@@ -20451,8 +20451,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L4"],
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	poochyena: {
 		learnset: {
@@ -20509,8 +20509,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T", "8E"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			yawn: ["8L37", "8E"]
-		}
+			yawn: ["8L37", "8E"],
+		},
 	},
 	mightyena: {
 		learnset: {
@@ -20569,8 +20569,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8L1", "8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			yawn: ["8L44"]
-		}
+			yawn: ["8L44"],
+		},
 	},
 	zigzagoon: {
 		learnset: {
@@ -20635,8 +20635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T", "8E"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	zigzagoongalar: {
 		learnset: {
@@ -20694,8 +20694,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	linoone: {
 		learnset: {
@@ -20763,8 +20763,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	linoonegalar: {
 		learnset: {
@@ -20828,8 +20828,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	wurmple: {
 		learnset: {
@@ -20837,16 +20837,16 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			electroweb: ["8T"],
 			poisonsting: ["8L5"],
 			stringshot: ["8L1"],
-			tackle: ["8L1"]
-		}
+			tackle: ["8L1"],
+		},
 	},
 	silcoon: {
 		learnset: {
 			bugbite: ["8T"],
 			electroweb: ["8T"],
 			harden: ["8L0", "8L1"],
-			irondefense: ["8T"]
-		}
+			irondefense: ["8T"],
+		},
 	},
 	beautifly: {
 		learnset: {
@@ -20898,16 +20898,16 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			venoshock: ["8M"],
-			whirlwind: ["8L30"]
-		}
+			whirlwind: ["8L30"],
+		},
 	},
 	cascoon: {
 		learnset: {
 			bugbite: ["8T"],
 			electroweb: ["8T"],
 			harden: ["8L0", "8L1"],
-			irondefense: ["8T"]
-		}
+			irondefense: ["8T"],
+		},
 	},
 	dustox: {
 		learnset: {
@@ -20956,8 +20956,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			venomdrench: ["8T"],
 			venoshock: ["8L20", "8M"],
-			whirlwind: ["8L30"]
-		}
+			whirlwind: ["8L30"],
+		},
 	},
 	lotad: {
 		learnset: {
@@ -21012,8 +21012,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			watergun: ["8E"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8L33", "8T"]
-		}
+			zenheadbutt: ["8L33", "8T"],
+		},
 	},
 	lombre: {
 		learnset: {
@@ -21076,8 +21076,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watersport: ["8L20"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8L40", "8T"]
-		}
+			zenheadbutt: ["8L40", "8T"],
+		},
 	},
 	ludicolo: {
 		learnset: {
@@ -21141,8 +21141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	seedot: {
 		learnset: {
@@ -21192,8 +21192,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L21", "8T"],
 			takedown: ["8E"],
 			toxic: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	nuzleaf: {
 		learnset: {
@@ -21256,8 +21256,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			torment: ["8L9"],
 			toxic: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	shiftry: {
 		learnset: {
@@ -21334,8 +21334,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			whirlwind: ["8L1"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	taillow: {
 		learnset: {
@@ -21383,8 +21383,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			whirlwind: ["8E"],
 			wingattack: ["8L13"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	swellow: {
 		learnset: {
@@ -21430,8 +21430,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			wingattack: ["8L13"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	wingull: {
 		learnset: {
@@ -21485,8 +21485,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L15"],
 			watersport: ["8E"],
 			wideguard: ["8E"],
-			wingattack: ["8L8"]
-		}
+			wingattack: ["8L8"],
+		},
 	},
 	pelipper: {
 		learnset: {
@@ -21548,8 +21548,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L1"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			wingattack: ["8L1"]
-		}
+			wingattack: ["8L1"],
+		},
 	},
 	ralts: {
 		learnset: {
@@ -21625,8 +21625,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	kirlia: {
 		learnset: {
@@ -21693,8 +21693,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gardevoir: {
 		learnset: {
@@ -21772,8 +21772,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			wish: ["8L14"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	surskit: {
 		learnset: {
@@ -21823,8 +21823,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sweetscent: ["8L9"],
 			thief: ["8M"],
 			toxic: ["8M"],
-			watersport: ["8L14"]
-		}
+			watersport: ["8L14"],
+		},
 	},
 	masquerain: {
 		learnset: {
@@ -21884,8 +21884,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			watersport: ["8L1"],
-			whirlwind: ["8L1"]
-		}
+			whirlwind: ["8L1"],
+		},
 	},
 	shroomish: {
 		learnset: {
@@ -21932,8 +21932,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L33", "8M"],
 			venoshock: ["8M"],
 			wakeupslap: ["8E"],
-			worryseed: ["8L22", "8T", "8E"]
-		}
+			worryseed: ["8L22", "8T", "8E"],
+		},
 	},
 	breloom: {
 		learnset: {
@@ -22002,8 +22002,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["8T"],
 			venoshock: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	slakoth: {
 		learnset: {
@@ -22067,8 +22067,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	vigoroth: {
 		learnset: {
@@ -22135,8 +22135,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8L1", "8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	slaking: {
 		learnset: {
@@ -22217,8 +22217,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8M"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	nincada: {
 		learnset: {
@@ -22265,8 +22265,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["8M"],
 			swagger: ["8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	ninjask: {
 		learnset: {
@@ -22323,8 +22323,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			xscissor: ["8L47", "8M"]
-		}
+			xscissor: ["8L47", "8M"],
+		},
 	},
 	shedinja: {
 		learnset: {
@@ -22376,8 +22376,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			willowisp: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	whismur: {
 		learnset: {
@@ -22428,8 +22428,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L25", "8T"],
 			whirlwind: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	loudred: {
 		learnset: {
@@ -22486,8 +22486,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8L27", "8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	exploud: {
 		learnset: {
@@ -22559,8 +22559,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L27", "8T"],
 			whirlpool: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	makuhita: {
 		learnset: {
@@ -22633,8 +22633,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			whirlwind: ["8L16"],
 			wideguard: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	hariyama: {
 		learnset: {
@@ -22707,8 +22707,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8L38"],
 			whirlpool: ["8T"],
 			whirlwind: ["8L16"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	azurill: {
 		learnset: {
@@ -22764,8 +22764,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			watersport: ["8L5", "8E"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	nosepass: {
 		learnset: {
@@ -22830,8 +22830,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wideguard: ["8E"],
-			zapcannon: ["8L43"]
-		}
+			zapcannon: ["8L43"],
+		},
 	},
 	skitty: {
 		learnset: {
@@ -22901,8 +22901,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			wish: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	delcatty: {
 		learnset: {
@@ -22961,8 +22961,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sableye: {
 		learnset: {
@@ -23051,8 +23051,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T", "8E"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8L34", "8T"]
-		}
+			zenheadbutt: ["8L34", "8T"],
+		},
 	},
 	mawile: {
 		learnset: {
@@ -23141,8 +23141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T", "8E"],
 			thunderpunch: ["8T"],
 			tickle: ["8E"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	aron: {
 		learnset: {
@@ -23203,8 +23203,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			takedown: ["8L28"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	lairon: {
 		learnset: {
@@ -23264,8 +23264,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			takedown: ["8L28"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	aggron: {
 		learnset: {
@@ -23365,8 +23365,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	meditite: {
 		learnset: {
@@ -23444,8 +23444,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			vacuumwave: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	medicham: {
 		learnset: {
@@ -23523,8 +23523,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			vacuumwave: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8L0", "8L1", "8T"]
-		}
+			zenheadbutt: ["8L0", "8L1", "8T"],
+		},
 	},
 	electrike: {
 		learnset: {
@@ -23581,8 +23581,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T", "8E"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L39", "8M"]
-		}
+			wildcharge: ["8L39", "8M"],
+		},
 	},
 	manectric: {
 		learnset: {
@@ -23640,8 +23640,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L42", "8M"]
-		}
+			wildcharge: ["8L42", "8M"],
+		},
 	},
 	plusle: {
 		learnset: {
@@ -23702,8 +23702,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
 			wildcharge: ["8M"],
-			wish: ["8E"]
-		}
+			wish: ["8E"],
+		},
 	},
 	minun: {
 		learnset: {
@@ -23766,8 +23766,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			wish: ["8E"]
-		}
+			wish: ["8E"],
+		},
 	},
 	volbeat: {
 		learnset: {
@@ -23831,8 +23831,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T", "8E"],
 			uturn: ["8M"],
 			voltswitch: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	illumise: {
 		learnset: {
@@ -23899,8 +23899,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			wish: ["8L22"],
-			zenheadbutt: ["8L40", "8T"]
-		}
+			zenheadbutt: ["8L40", "8T"],
+		},
 	},
 	roselia: {
 		learnset: {
@@ -23964,8 +23964,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venoshock: ["8M"],
 			weatherball: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	gulpin: {
 		learnset: {
@@ -24021,8 +24021,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T", "8E"],
 			venoshock: ["8M"],
 			wringout: ["8L44"],
-			yawn: ["8L5"]
-		}
+			yawn: ["8L5"],
+		},
 	},
 	swalot: {
 		learnset: {
@@ -24082,8 +24082,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8L1", "8T"],
 			venoshock: ["8M"],
 			wringout: ["8L1"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	carvanha: {
 		learnset: {
@@ -24140,8 +24140,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sharpedo: {
 		learnset: {
@@ -24208,8 +24208,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	wailmer: {
 		learnset: {
@@ -24267,8 +24267,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterspout: ["8L33"],
 			weatherball: ["8T"],
 			whirlpool: ["8L13", "8T"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	wailord: {
 		learnset: {
@@ -24327,8 +24327,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterspout: ["8L33"],
 			weatherball: ["8T"],
 			whirlpool: ["8L13", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	numel: {
 		learnset: {
@@ -24392,8 +24392,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L31"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			yawn: ["8L36", "8E"]
-		}
+			yawn: ["8L36", "8E"],
+		},
 	},
 	camerupt: {
 		learnset: {
@@ -24462,8 +24462,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L31"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			yawn: ["8L39"]
-		}
+			yawn: ["8L39"],
+		},
 	},
 	torkoal: {
 		learnset: {
@@ -24530,8 +24530,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			willowisp: ["8M"],
 			withdraw: ["8L7"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	spoink: {
 		learnset: {
@@ -24592,8 +24592,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			whirlwind: ["8E"],
-			zenheadbutt: ["8L26", "8T", "8E"]
-		}
+			zenheadbutt: ["8L26", "8T", "8E"],
+		},
 	},
 	grumpig: {
 		learnset: {
@@ -24663,8 +24663,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			uproar: ["8T"],
-			zenheadbutt: ["8L26", "8T"]
-		}
+			zenheadbutt: ["8L26", "8T"],
+		},
 	},
 	spinda: {
 		learnset: {
@@ -24740,8 +24740,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			wish: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	trapinch: {
 		learnset: {
@@ -24789,8 +24789,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["8M"],
 			superpower: ["8L40", "8M", "8T"],
 			swagger: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	vibrava: {
 		learnset: {
@@ -24852,8 +24852,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			wingattack: ["8L40"]
-		}
+			wingattack: ["8L40"],
+		},
 	},
 	flygon: {
 		learnset: {
@@ -24933,8 +24933,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			wingattack: ["8L40"]
-		}
+			wingattack: ["8L40"],
+		},
 	},
 	cacnea: {
 		learnset: {
@@ -25008,8 +25008,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	cacturne: {
 		learnset: {
@@ -25080,8 +25080,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	swablu: {
 		learnset: {
@@ -25141,8 +25141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L23"],
 			thief: ["8M"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	altaria: {
 		learnset: {
@@ -25217,8 +25217,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	zangoose: {
 		learnset: {
@@ -25304,8 +25304,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	seviper: {
 		learnset: {
@@ -25381,8 +25381,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8L16", "8M"],
 			wrap: ["8L1"],
 			wringout: ["8L46", "8E"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	lunatone: {
 		learnset: {
@@ -25461,8 +25461,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	solrock: {
 		learnset: {
@@ -25544,8 +25544,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			willowisp: ["8M"],
 			wonderroom: ["8L49", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	barboach: {
 		learnset: {
@@ -25593,8 +25593,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L9"],
 			waterpulse: ["8L17"],
 			watersport: ["8L6"],
-			whirlpool: ["8T", "8E"]
-		}
+			whirlpool: ["8T", "8E"],
+		},
 	},
 	whiscash: {
 		learnset: {
@@ -25652,8 +25652,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L1"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8L1", "8T"]
-		}
+			zenheadbutt: ["8L1", "8T"],
+		},
 	},
 	corphish: {
 		learnset: {
@@ -25719,8 +25719,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L7"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	crawdaunt: {
 		learnset: {
@@ -25789,8 +25789,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L1"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	baltoy: {
 		learnset: {
@@ -25860,8 +25860,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	claydol: {
 		learnset: {
@@ -25942,8 +25942,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lileep: {
 		learnset: {
@@ -26004,8 +26004,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8M"],
 			worryseed: ["8T"],
-			wringout: ["8L52", "8E"]
-		}
+			wringout: ["8L52", "8E"],
+		},
 	},
 	cradily: {
 		learnset: {
@@ -26072,8 +26072,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			toxic: ["8M"],
 			worryseed: ["8T"],
-			wringout: ["8L1"]
-		}
+			wringout: ["8L1"],
+		},
 	},
 	anorith: {
 		learnset: {
@@ -26128,8 +26128,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			watergun: ["8L7"],
 			waterpulse: ["8E"],
-			xscissor: ["8L44", "8M"]
-		}
+			xscissor: ["8L44", "8M"],
+		},
 	},
 	armaldo: {
 		learnset: {
@@ -26196,8 +26196,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8M"],
 			toxic: ["8M"],
 			watergun: ["8L1"],
-			xscissor: ["8L46", "8M"]
-		}
+			xscissor: ["8L46", "8M"],
+		},
 	},
 	feebas: {
 		learnset: {
@@ -26239,8 +26239,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	milotic: {
 		learnset: {
@@ -26302,8 +26302,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L4"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	castform: {
 		learnset: {
@@ -26361,8 +26361,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			watergun: ["8L10"],
 			weatherball: ["8L25", "8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	kecleon: {
 		learnset: {
@@ -26449,8 +26449,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T", "8E"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	shuppet: {
 		learnset: {
@@ -26514,8 +26514,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			willowisp: ["8L16", "8M"]
-		}
+			willowisp: ["8L16", "8M"],
+		},
 	},
 	banette: {
 		learnset: {
@@ -26576,8 +26576,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			willowisp: ["8L16", "8M"]
-		}
+			willowisp: ["8L16", "8M"],
+		},
 	},
 	duskull: {
 		learnset: {
@@ -26638,8 +26638,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			willowisp: ["8L25", "8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	dusclops: {
 		learnset: {
@@ -26708,8 +26708,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			willowisp: ["8L25", "8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	tropius: {
 		learnset: {
@@ -26782,8 +26782,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			whirlwind: ["8L21"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	chimecho: {
 		learnset: {
@@ -26858,8 +26858,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8E"],
 			wrap: ["8L1"],
 			yawn: ["8L13"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	absol: {
 		learnset: {
@@ -26951,8 +26951,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			wish: ["8E"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	wynaut: {
 		learnset: {
@@ -26962,8 +26962,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			encore: ["8L1", "8T"],
 			mirrorcoat: ["8L15"],
 			safeguard: ["8L15"],
-			splash: ["8L1"]
-		}
+			splash: ["8L1"],
+		},
 	},
 	snorunt: {
 		learnset: {
@@ -27007,8 +27007,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			switcheroo: ["8E"],
 			toxic: ["8M"],
-			weatherball: ["8T", "8E"]
-		}
+			weatherball: ["8T", "8E"],
+		},
 	},
 	glalie: {
 		learnset: {
@@ -27066,8 +27066,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			taunt: ["8M"],
 			toxic: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	spheal: {
 		learnset: {
@@ -27122,8 +27122,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8E"],
 			watersport: ["8E"],
 			whirlpool: ["8T"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	sealeo: {
 		learnset: {
@@ -27171,8 +27171,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L1"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	walrein: {
 		learnset: {
@@ -27232,8 +27232,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L1"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	clamperl: {
 		learnset: {
@@ -27271,8 +27271,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			waterpulse: ["8E"],
-			whirlpool: ["8L1", "8T"]
-		}
+			whirlpool: ["8L1", "8T"],
+		},
 	},
 	huntail: {
 		learnset: {
@@ -27324,8 +27324,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			waterpulse: ["8L14"],
-			whirlpool: ["8L1", "8T"]
-		}
+			whirlpool: ["8L1", "8T"],
+		},
 	},
 	gorebyss: {
 		learnset: {
@@ -27376,8 +27376,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L14"],
 			watersport: ["8L5"],
-			whirlpool: ["8L1", "8T"]
-		}
+			whirlpool: ["8L1", "8T"],
+		},
 	},
 	relicanth: {
 		learnset: {
@@ -27447,8 +27447,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8E"],
 			whirlpool: ["8T"],
 			yawn: ["8L35"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	luvdisc: {
 		learnset: {
@@ -27504,8 +27504,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L4"],
 			waterpulse: ["8L17"],
 			watersport: ["8E"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	bagon: {
 		learnset: {
@@ -27561,8 +27561,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8E"],
 			toxic: ["8M"],
 			wish: ["8E"],
-			zenheadbutt: ["8L34", "8T"]
-		}
+			zenheadbutt: ["8L34", "8T"],
+		},
 	},
 	shelgon: {
 		learnset: {
@@ -27613,8 +27613,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["8M"],
 			swagger: ["8M"],
 			toxic: ["8M"],
-			zenheadbutt: ["8L35", "8T"]
-		}
+			zenheadbutt: ["8L35", "8T"],
+		},
 	},
 	salamence: {
 		learnset: {
@@ -27687,16 +27687,16 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			thunderfang: ["8L1", "8T"],
 			toxic: ["8M"],
-			zenheadbutt: ["8L35", "8T"]
-		}
+			zenheadbutt: ["8L35", "8T"],
+		},
 	},
 	beldum: {
 		learnset: {
 			irondefense: ["8T"],
 			ironhead: ["8T"],
 			takedown: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	metang: {
 		learnset: {
@@ -27765,8 +27765,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	metagross: {
 		learnset: {
@@ -27842,8 +27842,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	regirock: {
 		learnset: {
@@ -27909,8 +27909,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			zapcannon: ["8L55"]
-		}
+			zapcannon: ["8L55"],
+		},
 	},
 	regice: {
 		learnset: {
@@ -27974,8 +27974,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			zapcannon: ["8L55"]
-		}
+			zapcannon: ["8L55"],
+		},
 	},
 	registeel: {
 		learnset: {
@@ -28042,8 +28042,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			zapcannon: ["8L55"]
-		}
+			zapcannon: ["8L55"],
+		},
 	},
 	latias: {
 		learnset: {
@@ -28137,8 +28137,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L4"],
 			whirlpool: ["8T"],
 			wish: ["8L1"],
-			zenheadbutt: ["8L41", "8T"]
-		}
+			zenheadbutt: ["8L41", "8T"],
+		},
 	},
 	latios: {
 		learnset: {
@@ -28227,8 +28227,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8L41", "8T"]
-		}
+			zenheadbutt: ["8L41", "8T"],
+		},
 	},
 	kyogre: {
 		learnset: {
@@ -28285,8 +28285,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L1"],
 			waterspout: ["8L90"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	groudon: {
 		learnset: {
@@ -28359,8 +28359,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	rayquaza: {
 		learnset: {
@@ -28444,8 +28444,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L1"],
 			uproar: ["8T"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	jirachi: {
 		learnset: {
@@ -28520,8 +28520,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wish: ["8L1"],
-			zenheadbutt: ["8L35", "8T"]
-		}
+			zenheadbutt: ["8L35", "8T"],
+		},
 	},
 	deoxys: {
 		learnset: {
@@ -28611,8 +28611,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			wrap: ["8L1"],
-			zenheadbutt: ["8L49", "8T"]
-		}
+			zenheadbutt: ["8L49", "8T"],
+		},
 	},
 	deoxysattack: {
 		learnset: {
@@ -28702,8 +28702,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			wrap: ["8L1"],
-			zenheadbutt: ["8L49", "8T"]
-		}
+			zenheadbutt: ["8L49", "8T"],
+		},
 	},
 	deoxysdefense: {
 		learnset: {
@@ -28794,8 +28794,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			wrap: ["8L1"],
-			zenheadbutt: ["8L49", "8T"]
-		}
+			zenheadbutt: ["8L49", "8T"],
+		},
 	},
 	deoxysspeed: {
 		learnset: {
@@ -28885,8 +28885,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			wrap: ["8L1"],
-			zenheadbutt: ["8L49", "8T"]
-		}
+			zenheadbutt: ["8L49", "8T"],
+		},
 	},
 	turtwig: {
 		learnset: {
@@ -28949,8 +28949,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			withdraw: ["8L5"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	grotle: {
 		learnset: {
@@ -29003,8 +29003,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			withdraw: ["8L1"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	torterra: {
 		learnset: {
@@ -29075,8 +29075,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			withdraw: ["8L1"],
 			woodhammer: ["8L1"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	chimchar: {
 		learnset: {
@@ -29149,8 +29149,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	monferno: {
 		learnset: {
@@ -29226,8 +29226,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	infernape: {
 		learnset: {
@@ -29314,8 +29314,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vacuumwave: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	piplup: {
 		learnset: {
@@ -29375,8 +29375,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L11"],
 			whirlpool: ["8L32", "8T"],
 			workup: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	prinplup: {
 		learnset: {
@@ -29432,8 +29432,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			watersport: ["8L11"],
 			whirlpool: ["8L37", "8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	empoleon: {
 		learnset: {
@@ -29509,8 +29509,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpledge: ["8T"],
 			whirlpool: ["8L39", "8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	starly: {
 		learnset: {
@@ -29559,8 +29559,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			whirlwind: ["8L21"],
 			wingattack: ["8L9"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	staravia: {
 		learnset: {
@@ -29600,8 +29600,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			whirlwind: ["8L23"],
 			wingattack: ["8L9"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	staraptor: {
 		learnset: {
@@ -29648,8 +29648,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			whirlwind: ["8L23"],
 			wingattack: ["8L1"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	bidoof: {
 		learnset: {
@@ -29706,8 +29706,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			watersport: ["8E"],
 			workup: ["8M"],
-			yawn: ["8L21"]
-		}
+			yawn: ["8L21"],
+		},
 	},
 	bibarel: {
 		learnset: {
@@ -29774,8 +29774,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
 			workup: ["8M"],
-			yawn: ["8L23"]
-		}
+			yawn: ["8L23"],
+		},
 	},
 	kricketot: {
 		learnset: {
@@ -29786,8 +29786,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			growl: ["8L1"],
 			strugglebug: ["8L6", "8M"],
 			tackle: ["8L1"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	kricketune: {
 		learnset: {
@@ -29846,8 +29846,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			xscissor: ["8L30", "8M"]
-		}
+			xscissor: ["8L30", "8M"],
+		},
 	},
 	shinx: {
 		learnset: {
@@ -29903,8 +29903,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L45", "8M"]
-		}
+			wildcharge: ["8L45", "8M"],
+		},
 	},
 	luxio: {
 		learnset: {
@@ -29951,8 +29951,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L53", "8M"]
-		}
+			wildcharge: ["8L53", "8M"],
+		},
 	},
 	luxray: {
 		learnset: {
@@ -30011,8 +30011,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			volttackle: ["8L63"],
 			wildcharge: ["8M"],
 			zingzap: ["8L56"],
-			zippyzap: ["8L77"]
-		}
+			zippyzap: ["8L77"],
+		},
 	},
 	budew: {
 		learnset: {
@@ -30065,8 +30065,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			watersport: ["8L7"],
 			weatherball: ["8T"],
-			worryseed: ["8L16", "8T"]
-		}
+			worryseed: ["8L16", "8T"],
+		},
 	},
 	roserade: {
 		learnset: {
@@ -30124,8 +30124,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8L1", "8T"],
 			venoshock: ["8M"],
 			weatherball: ["8L1", "8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	cranidos: {
 		learnset: {
@@ -30198,8 +30198,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			whirlwind: ["8E"],
-			zenheadbutt: ["8L37", "8T"]
-		}
+			zenheadbutt: ["8L37", "8T"],
+		},
 	},
 	rampardos: {
 		learnset: {
@@ -30280,8 +30280,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8L43", "8T"]
-		}
+			zenheadbutt: ["8L43", "8T"],
+		},
 	},
 	shieldon: {
 		learnset: {
@@ -30344,8 +30344,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	bastiodon: {
 		learnset: {
@@ -30410,8 +30410,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8L1", "8M"],
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	burmy: {
 		learnset: {
@@ -30419,8 +30419,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			electroweb: ["8T"],
 			hiddenpower: ["8L20", "8M"],
 			protect: ["8L1", "8M"],
-			tackle: ["8L10"]
-		}
+			tackle: ["8L10"],
+		},
 	},
 	wormadam: {
 		learnset: {
@@ -30471,8 +30471,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	wormadamsandy: {
 		learnset: {
@@ -30524,8 +30524,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	wormadamtrash: {
 		learnset: {
@@ -30576,8 +30576,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	mothim: {
 		learnset: {
@@ -30626,8 +30626,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	combee: {
 		learnset: {
@@ -30639,8 +30639,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			hiddenpower: ["8M"],
 			snore: ["8T"],
 			sweetscent: ["8L1"],
-			tailwind: ["8T"]
-		}
+			tailwind: ["8T"],
+		},
 	},
 	vespiquen: {
 		learnset: {
@@ -30706,8 +30706,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			venoshock: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	pachirisu: {
 		learnset: {
@@ -30771,8 +30771,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			voltswitch: ["8M"]
-		}
+			voltswitch: ["8M"],
+		},
 	},
 	buizel: {
 		learnset: {
@@ -30833,8 +30833,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L15"],
 			watersport: ["8L7"],
-			whirlpool: ["8L31", "8T"]
-		}
+			whirlpool: ["8L31", "8T"],
+		},
 	},
 	floatzel: {
 		learnset: {
@@ -30894,8 +30894,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L15"],
-			whirlpool: ["8L35", "8T"]
-		}
+			whirlpool: ["8L35", "8T"],
+		},
 	},
 	cherubi: {
 		learnset: {
@@ -30949,8 +30949,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8M"],
 			weatherball: ["8T", "8E"],
-			worryseed: ["8L28", "8T"]
-		}
+			worryseed: ["8L28", "8T"],
+		},
 	},
 	cherrim: {
 		learnset: {
@@ -31000,8 +31000,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			worryseed: ["8L30", "8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	shellos: {
 		learnset: {
@@ -31050,8 +31050,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trumpcard: ["8E"],
 			waterpulse: ["8L7"],
 			whirlpool: ["8T"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	gastrodon: {
 		learnset: {
@@ -31104,8 +31104,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L1"],
 			weatherball: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	ambipom: {
 		learnset: {
@@ -31184,8 +31184,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	drifloon: {
 		learnset: {
@@ -31248,8 +31248,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			weatherball: ["8T", "8E"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	drifblim: {
 		learnset: {
@@ -31311,8 +31311,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			weatherball: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	buneary: {
 		learnset: {
@@ -31386,8 +31386,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	lopunny: {
 		learnset: {
@@ -31469,8 +31469,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	mismagius: {
 		learnset: {
@@ -31533,8 +31533,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	honchkrow: {
 		learnset: {
@@ -31594,8 +31594,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			wingattack: ["8L1"]
-		}
+			wingattack: ["8L1"],
+		},
 	},
 	glameow: {
 		learnset: {
@@ -31655,8 +31655,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			wakeupslap: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	purugly: {
 		learnset: {
@@ -31717,8 +31717,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	chingling: {
 		learnset: {
@@ -31779,8 +31779,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8E"],
 			wrap: ["8L1"],
 			yawn: ["8L13"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	stunky: {
 		learnset: {
@@ -31848,8 +31848,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8L27", "8M"],
 			venomdrench: ["8L37", "8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	skuntank: {
 		learnset: {
@@ -31914,8 +31914,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8L27", "8M"],
 			venomdrench: ["8L37", "8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	bronzor: {
 		learnset: {
@@ -31975,8 +31975,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	bronzong: {
 		learnset: {
@@ -32048,8 +32048,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			weatherball: ["8T"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	bonsly: {
 		learnset: {
@@ -32107,8 +32107,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tearfullook: ["8L22"],
 			thief: ["8M"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	mimejr: {
 		learnset: {
@@ -32183,8 +32183,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			wakeupslap: ["8E"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	happiny: {
 		learnset: {
@@ -32238,8 +32238,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wish: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	chatot: {
 		learnset: {
@@ -32292,8 +32292,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	spiritomb: {
 		learnset: {
@@ -32354,8 +32354,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8T"],
 			willowisp: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	gible: {
 		learnset: {
@@ -32413,8 +32413,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L15"],
 			thrash: ["8E"],
 			toxic: ["8M"],
-			twister: ["8E"]
-		}
+			twister: ["8E"],
+		},
 	},
 	gabite: {
 		learnset: {
@@ -32469,8 +32469,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			takedown: ["8L15"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	garchomp: {
 		learnset: {
@@ -32539,8 +32539,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			takedown: ["8L15"],
 			toxic: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	munchlax: {
 		learnset: {
@@ -32621,8 +32621,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			whirlwind: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	riolu: {
 		learnset: {
@@ -32696,8 +32696,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vacuumwave: ["8T", "8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lucario: {
 		learnset: {
@@ -32779,8 +32779,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vacuumwave: ["8T"],
 			workup: ["8L42", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	hippopotas: {
 		learnset: {
@@ -32829,8 +32829,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			whirlwind: ["8E"],
-			yawn: ["8L13"]
-		}
+			yawn: ["8L13"],
+		},
 	},
 	hippowdon: {
 		learnset: {
@@ -32881,8 +32881,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8L1", "8T"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			yawn: ["8L1"]
-		}
+			yawn: ["8L1"],
+		},
 	},
 	skorupi: {
 		learnset: {
@@ -32945,8 +32945,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twineedle: ["8E"],
 			venoshock: ["8L27", "8M"],
 			whirlwind: ["8E"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	drapion: {
 		learnset: {
@@ -33021,8 +33021,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T"],
 			venoshock: ["8L27", "8M"],
 			wickedblow: ["8L64"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	croagunk: {
 		learnset: {
@@ -33106,8 +33106,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8L36", "8M"],
 			wakeupslap: ["8E"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	toxicroak: {
 		learnset: {
@@ -33188,8 +33188,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T"],
 			venoshock: ["8L36", "8M"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	carnivine: {
 		learnset: {
@@ -33251,8 +33251,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8L11"],
 			worryseed: ["8T", "8E"],
-			wringout: ["8L47"]
-		}
+			wringout: ["8L47"],
+		},
 	},
 	finneon: {
 		learnset: {
@@ -33309,8 +33309,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L6"],
 			waterpulse: ["8L17"],
-			whirlpool: ["8L38", "8T"]
-		}
+			whirlpool: ["8L38", "8T"],
+		},
 	},
 	lumineon: {
 		learnset: {
@@ -33360,8 +33360,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L6"],
 			waterpulse: ["8L17"],
-			whirlpool: ["8L42", "8T"]
-		}
+			whirlpool: ["8L42", "8T"],
+		},
 	},
 	mantyke: {
 		learnset: {
@@ -33417,8 +33417,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8E"],
 			whirlpool: ["8T"],
 			wideguard: ["8L23", "8E"],
-			wingattack: ["8L14"]
-		}
+			wingattack: ["8L14"],
+		},
 	},
 	snover: {
 		learnset: {
@@ -33472,8 +33472,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			woodhammer: ["8L36"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	abomasnow: {
 		learnset: {
@@ -33539,8 +33539,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			woodhammer: ["8L36"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	weavile: {
 		learnset: {
@@ -33619,8 +33619,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			whirlpool: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	magnezone: {
 		learnset: {
@@ -33681,8 +33681,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L1"]
-		}
+			zapcannon: ["8L1"],
+		},
 	},
 	lickilicky: {
 		learnset: {
@@ -33763,8 +33763,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			wrap: ["8L17"],
 			wringout: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	rhyperior: {
 		learnset: {
@@ -33863,8 +33863,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	tangrowth: {
 		learnset: {
@@ -33936,8 +33936,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8L7"],
 			worryseed: ["8T"],
-			wringout: ["8L49"]
-		}
+			wringout: ["8L49"],
+		},
 	},
 	electivire: {
 		learnset: {
@@ -34014,8 +34014,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	magmortar: {
 		learnset: {
@@ -34087,8 +34087,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			weatherball: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	togekiss: {
 		learnset: {
@@ -34162,8 +34162,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	yanmega: {
 		learnset: {
@@ -34219,8 +34219,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8L27", "8T"],
-			uturn: ["8L49", "8M"]
-		}
+			uturn: ["8L49", "8M"],
+		},
 	},
 	leafeon: {
 		learnset: {
@@ -34285,8 +34285,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	glaceon: {
 		learnset: {
@@ -34345,8 +34345,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			weatherball: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	gliscor: {
 		learnset: {
@@ -34424,8 +34424,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L30", "8M"],
 			venoshock: ["8M"],
-			xscissor: ["8L40", "8M"]
-		}
+			xscissor: ["8L40", "8M"],
+		},
 	},
 	mamoswine: {
 		learnset: {
@@ -34491,8 +34491,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			takedown: ["8L28"],
 			thrash: ["8L41"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	porygonz: {
 		learnset: {
@@ -34554,8 +34554,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wonderroom: ["8T"],
 			zapcannon: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gallade: {
 		learnset: {
@@ -34660,8 +34660,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["8T"],
 			workup: ["8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8L31", "8T"]
-		}
+			zenheadbutt: ["8L31", "8T"],
+		},
 	},
 	probopass: {
 		learnset: {
@@ -34727,8 +34727,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L0", "8L1"],
 			voltswitch: ["8M"],
 			wideguard: ["8L1"],
-			zapcannon: ["8L43"]
-		}
+			zapcannon: ["8L43"],
+		},
 	},
 	dusknoir: {
 		learnset: {
@@ -34803,8 +34803,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			willowisp: ["8L25", "8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	froslass: {
 		learnset: {
@@ -34870,8 +34870,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			wakeupslap: ["8L37"],
 			weatherball: ["8T"],
-			willowisp: ["8L28", "8M"]
-		}
+			willowisp: ["8L28", "8M"],
+		},
 	},
 	rotom: {
 		learnset: {
@@ -34926,8 +34926,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8L8", "8T"],
 			voltswitch: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rotomfan: {
 		learnset: {
@@ -34983,8 +34983,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8L8", "8T"],
 			voltswitch: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rotomfrost: {
 		learnset: {
@@ -35040,8 +35040,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8L8", "8T"],
 			voltswitch: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rotomheat: {
 		learnset: {
@@ -35097,8 +35097,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8L8", "8T"],
 			voltswitch: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rotommow: {
 		learnset: {
@@ -35115,8 +35115,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8L36"],
 			thundershock: ["8L1"],
 			thunderwave: ["8L1"],
-			uproar: ["8L8"]
-		}
+			uproar: ["8L8"],
+		},
 	},
 	rotomwash: {
 		learnset: {
@@ -35172,8 +35172,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8L8", "8T"],
 			voltswitch: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	uxie: {
 		learnset: {
@@ -35250,8 +35250,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wonderroom: ["8T"],
 			yawn: ["8L31"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	mesprit: {
 		learnset: {
@@ -35325,8 +35325,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	azelf: {
 		learnset: {
@@ -35402,8 +35402,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L31", "8T"],
 			uturn: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	dialga: {
 		learnset: {
@@ -35477,8 +35477,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			trickroom: ["8M"]
-		}
+			trickroom: ["8M"],
+		},
 	},
 	palkia: {
 		learnset: {
@@ -35554,8 +35554,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			waterpulse: ["8L6"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	heatran: {
 		learnset: {
@@ -35619,8 +35619,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	regigigas: {
 		learnset: {
@@ -35685,8 +35685,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wideguard: ["8L40"],
-			zenheadbutt: ["8L50", "8T"]
-		}
+			zenheadbutt: ["8L50", "8T"],
+		},
 	},
 	giratina: {
 		learnset: {
@@ -35764,8 +35764,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	giratinaorigin: {},
 	cresselia: {
@@ -35824,8 +35824,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	phione: {
 		learnset: {
@@ -35872,8 +35872,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L46"],
 			watersport: ["8L1"],
-			whirlpool: ["8L39", "8T"]
-		}
+			whirlpool: ["8L39", "8T"],
+		},
 	},
 	manaphy: {
 		learnset: {
@@ -35931,8 +35931,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpulse: ["8L46"],
 			watersport: ["8L1"],
-			whirlpool: ["8L39", "8T"]
-		}
+			whirlpool: ["8L39", "8T"],
+		},
 	},
 	darkrai: {
 		learnset: {
@@ -36006,8 +36006,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	shaymin: {
 		learnset: {
@@ -36059,8 +36059,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			toxic: ["8M"],
 			worryseed: ["8L55", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	shayminsky: {
 		learnset: {
@@ -36109,8 +36109,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			tailwind: ["8T"],
 			worryseed: ["8L55", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	arceus: {
 		learnset: {
@@ -36227,8 +36227,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			workup: ["8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	arceusbug: {},
 	arceusdark: {},
@@ -36330,8 +36330,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8L49", "8T"]
-		}
+			zenheadbutt: ["8L49", "8T"],
+		},
 	},
 	snivy: {
 		learnset: {
@@ -36396,8 +36396,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			worryseed: ["8T"],
 			wrap: ["8L10"],
-			wringout: ["8L37"]
-		}
+			wringout: ["8L37"],
+		},
 	},
 	servine: {
 		learnset: {
@@ -36453,8 +36453,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			worryseed: ["8T"],
 			wrap: ["8L1"],
-			wringout: ["8L44"]
-		}
+			wringout: ["8L44"],
+		},
 	},
 	serperior: {
 		learnset: {
@@ -36521,8 +36521,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			worryseed: ["8T"],
 			wrap: ["8L1"],
-			wringout: ["8L50"]
-		}
+			wringout: ["8L50"],
+		},
 	},
 	tepig: {
 		learnset: {
@@ -36583,8 +36583,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			workup: ["8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pignite: {
 		learnset: {
@@ -36653,8 +36653,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	emboar: {
 		learnset: {
@@ -36735,8 +36735,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	oshawott: {
 		learnset: {
@@ -36796,8 +36796,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L23"],
 			watersport: ["8L11"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	dewott: {
 		learnset: {
@@ -36850,8 +36850,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L26"],
 			watersport: ["8L1"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	samurott: {
 		learnset: {
@@ -36919,8 +36919,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L25"],
 			watersport: ["8L1"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	patrat: {
 		learnset: {
@@ -36980,8 +36980,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
 			workup: ["8L28", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	watchog: {
 		learnset: {
@@ -37056,8 +37056,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lillipup: {
 		learnset: {
@@ -37115,8 +37115,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8L19", "8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	herdier: {
 		learnset: {
@@ -37168,8 +37168,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			wildcharge: ["8M"],
-			workup: ["8L20", "8M"]
-		}
+			workup: ["8L20", "8M"],
+		},
 	},
 	stoutland: {
 		learnset: {
@@ -37226,8 +37226,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			wildcharge: ["8M"],
-			workup: ["8L20", "8M"]
-		}
+			workup: ["8L20", "8M"],
+		},
 	},
 	purrloin: {
 		learnset: {
@@ -37292,8 +37292,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uturn: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	liepard: {
 		learnset: {
@@ -37357,8 +37357,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			torment: ["8L19"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	pansage: {
 		learnset: {
@@ -37429,8 +37429,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	simisage: {
 		learnset: {
@@ -37497,8 +37497,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	pansear: {
 		learnset: {
@@ -37569,8 +37569,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			willowisp: ["8M"],
 			workup: ["8M"],
-			yawn: ["8L16"]
-		}
+			yawn: ["8L16"],
+		},
 	},
 	simisear: {
 		learnset: {
@@ -37637,8 +37637,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	panpour: {
 		learnset: {
@@ -37709,8 +37709,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			waterpulse: ["8L10"],
 			watersport: ["8L16"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	simipour: {
 		learnset: {
@@ -37775,8 +37775,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			waterfall: ["8M"],
 			waterpledge: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	munna: {
 		learnset: {
@@ -37840,8 +37840,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["8T"],
 			worryseed: ["8T"],
 			yawn: ["8L7"],
-			zenheadbutt: ["8L23", "8T"]
-		}
+			zenheadbutt: ["8L23", "8T"],
+		},
 	},
 	musharna: {
 		learnset: {
@@ -37896,8 +37896,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pidove: {
 		learnset: {
@@ -37945,8 +37945,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wingattack: ["8L12"],
 			wish: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	tranquill: {
 		learnset: {
@@ -37990,8 +37990,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wingattack: ["8L15"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	unfezant: {
 		learnset: {
@@ -38039,8 +38039,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wingattack: ["8L15"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	blitzle: {
 		learnset: {
@@ -38090,8 +38090,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L15", "8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L39", "8M"]
-		}
+			wildcharge: ["8L39", "8M"],
+		},
 	},
 	zebstrika: {
 		learnset: {
@@ -38141,8 +38141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L1", "8M"],
 			toxic: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L47", "8M"]
-		}
+			wildcharge: ["8L47", "8M"],
+		},
 	},
 	roggenrola: {
 		learnset: {
@@ -38190,8 +38190,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			takedown: ["8E"],
 			toxic: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	boldore: {
 		learnset: {
@@ -38236,8 +38236,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			swagger: ["8M"],
 			tackle: ["8L1"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	gigalith: {
 		learnset: {
@@ -38290,8 +38290,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			throatchop: ["8T"],
 			toxic: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	woobat: {
 		learnset: {
@@ -38368,8 +38368,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			venomdrench: ["8T", "8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	swoobat: {
 		learnset: {
@@ -38446,8 +38446,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			venomdrench: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	drilbur: {
 		learnset: {
@@ -38498,8 +38498,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			swordsdance: ["8L36", "8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	excadrill: {
 		learnset: {
@@ -38554,8 +38554,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			swordsdance: ["8L42", "8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	audino: {
 		learnset: {
@@ -38652,8 +38652,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["8L53", "8E"],
 			workup: ["8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	timburr: {
 		learnset: {
@@ -38720,8 +38720,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wakeupslap: ["8L20"],
 			wideguard: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	gurdurr: {
 		learnset: {
@@ -38780,8 +38780,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			wakeupslap: ["8L20"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	conkeldurr: {
 		learnset: {
@@ -38846,8 +38846,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			wakeupslap: ["8L20"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	tympole: {
 		learnset: {
@@ -38895,8 +38895,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L23", "8T"],
 			venomdrench: ["8T", "8E"],
 			waterpulse: ["8E"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	palpitoad: {
 		learnset: {
@@ -38944,8 +38944,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8L23", "8T"],
 			venomdrench: ["8T"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	seismitoad: {
 		learnset: {
@@ -39015,8 +39015,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L23", "8T"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	throh: {
 		learnset: {
@@ -39082,8 +39082,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vitalthrow: ["8L9"],
 			wideguard: ["8L37"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sawk: {
 		learnset: {
@@ -39146,8 +39146,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sewaddle: {
 		learnset: {
@@ -39199,8 +39199,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			tackle: ["8L1"],
 			toxic: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	swadloon: {
 		learnset: {
@@ -39246,8 +39246,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			tackle: ["8L1"],
 			toxic: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	leavanny: {
 		learnset: {
@@ -39315,8 +39315,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			worryseed: ["8T"],
-			xscissor: ["8L39", "8M"]
-		}
+			xscissor: ["8L39", "8M"],
+		},
 	},
 	venipede: {
 		learnset: {
@@ -39362,8 +39362,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8T", "8E"],
 			twineedle: ["8E"],
 			venomdrench: ["8L38", "8T"],
-			venoshock: ["8L26", "8M"]
-		}
+			venoshock: ["8L26", "8M"],
+		},
 	},
 	whirlipede: {
 		learnset: {
@@ -39407,8 +39407,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L41", "8M"],
 			toxicspikes: ["8T"],
 			venomdrench: ["8L43", "8T"],
-			venoshock: ["8L28", "8M"]
-		}
+			venoshock: ["8L28", "8M"],
+		},
 	},
 	scolipede: {
 		learnset: {
@@ -39471,8 +39471,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8T"],
 			venomdrench: ["8L47", "8T"],
 			venoshock: ["8L28", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	cottonee: {
 		learnset: {
@@ -39527,8 +39527,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			tickle: ["8E"],
 			toxic: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	whimsicott: {
 		learnset: {
@@ -39582,8 +39582,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			weatherball: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	petilil: {
 		learnset: {
@@ -39635,8 +39635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sweetscent: ["8E"],
 			synthesis: ["8L17", "8T"],
 			toxic: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	lilligant: {
 		learnset: {
@@ -39689,8 +39689,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L1", "8T"],
 			teeterdance: ["8L10"],
 			toxic: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	basculin: {
 		learnset: {
@@ -39751,8 +39751,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T", "8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sandile: {
 		learnset: {
@@ -39814,8 +39814,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T", "8E"],
 			torment: ["8L10"],
 			toxic: ["8M"],
-			uproar: ["8T", "8E"]
-		}
+			uproar: ["8T", "8E"],
+		},
 	},
 	krokorok: {
 		learnset: {
@@ -39881,8 +39881,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T"],
 			torment: ["8L10"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	krookodile: {
 		learnset: {
@@ -39967,8 +39967,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			torment: ["8L10"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			wickedblow: ["8L60"]
-		}
+			wickedblow: ["8L60"],
+		},
 	},
 	darumaka: {
 		learnset: {
@@ -40031,8 +40031,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			workup: ["8L25", "8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	darumakagalar: {
 		learnset: {
@@ -40091,8 +40091,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			workup: ["8L16", "8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	darmanitan: {
 		learnset: {
@@ -40173,8 +40173,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8L25", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	darmanitangalar: {
 		learnset: {
@@ -40242,8 +40242,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8L32", "8T"],
 			uturn: ["8M"],
 			workup: ["8L16", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	maractus: {
 		learnset: {
@@ -40304,8 +40304,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			weatherball: ["8T"],
 			woodhammer: ["8E"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	dwebble: {
 		learnset: {
@@ -40362,8 +40362,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wideguard: ["8E"],
 			withdraw: ["8L7"],
-			xscissor: ["8L35", "8M"]
-		}
+			xscissor: ["8L35", "8M"],
+		},
 	},
 	crustle: {
 		learnset: {
@@ -40420,8 +40420,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8M"],
 			toxic: ["8M"],
 			withdraw: ["8L1"],
-			xscissor: ["8L38", "8M"]
-		}
+			xscissor: ["8L38", "8M"],
+		},
 	},
 	scraggy: {
 		learnset: {
@@ -40496,8 +40496,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T", "8E"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	scrafty: {
 		learnset: {
@@ -40571,8 +40571,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sigilyph: {
 		learnset: {
@@ -40645,8 +40645,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			whirlwind: ["8L14"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	yamask: {
 		learnset: {
@@ -40707,8 +40707,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			willowisp: ["8L21", "8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	yamaskgalar: {
 		learnset: {
@@ -40768,8 +40768,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	cofagrigus: {
 		learnset: {
@@ -40830,8 +40830,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			willowisp: ["8L21", "8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	tirtouga: {
 		learnset: {
@@ -40897,8 +40897,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T", "8E"],
 			wideguard: ["8L25"],
 			withdraw: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	carracosta: {
 		learnset: {
@@ -40967,8 +40967,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["8T"],
 			wideguard: ["8L25"],
 			withdraw: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	archen: {
 		learnset: {
@@ -41037,8 +41037,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8L41", "8M"],
 			wingattack: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	archeops: {
 		learnset: {
@@ -41113,8 +41113,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8L45", "8M"],
 			wingattack: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	trubbish: {
 		learnset: {
@@ -41167,8 +41167,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L36", "8M"],
 			toxicspikes: ["8L7", "8T"],
 			venomdrench: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	garbodor: {
 		learnset: {
@@ -41232,8 +41232,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L39", "8M"],
 			toxicspikes: ["8L1", "8T"],
 			venomdrench: ["8T"],
-			venoshock: ["8M"]
-		}
+			venoshock: ["8M"],
+		},
 	},
 	zorua: {
 		learnset: {
@@ -41298,8 +41298,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uproar: ["8T"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	zoroark: {
 		learnset: {
@@ -41369,8 +41369,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uproar: ["8T"],
-			uturn: ["8L1", "8M"]
-		}
+			uturn: ["8L1", "8M"],
+		},
 	},
 	minccino: {
 		learnset: {
@@ -41426,8 +41426,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wakeupslap: ["8L31"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	cinccino: {
 		learnset: {
@@ -41479,8 +41479,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	gothita: {
 		learnset: {
@@ -41550,8 +41550,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			uproar: ["8T", "8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gothorita: {
 		learnset: {
@@ -41616,8 +41616,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			uproar: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gothitelle: {
 		learnset: {
@@ -41690,8 +41690,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			uproar: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	solosis: {
 		learnset: {
@@ -41755,8 +41755,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T", "8E"],
 			trickroom: ["8M"],
 			wonderroom: ["8L48", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	duosion: {
 		learnset: {
@@ -41814,8 +41814,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8L53", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	reuniclus: {
 		learnset: {
@@ -41890,8 +41890,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8L59", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	ducklett: {
 		learnset: {
@@ -41941,8 +41941,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8L13"],
 			watersport: ["8L3"],
-			wingattack: ["8L9"]
-		}
+			wingattack: ["8L9"],
+		},
 	},
 	swanna: {
 		learnset: {
@@ -41987,8 +41987,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8L13"],
 			watersport: ["8L1"],
-			wingattack: ["8L1"]
-		}
+			wingattack: ["8L1"],
+		},
 	},
 	vanillite: {
 		learnset: {
@@ -42035,8 +42035,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8L22", "8M"],
 			toxic: ["8M"],
 			uproar: ["8L10", "8T"],
-			waterpulse: ["8E"]
-		}
+			waterpulse: ["8E"],
+		},
 	},
 	vanillish: {
 		learnset: {
@@ -42076,8 +42076,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			taunt: ["8L22", "8M"],
 			toxic: ["8M"],
-			uproar: ["8L1", "8T"]
-		}
+			uproar: ["8L1", "8T"],
+		},
 	},
 	vanilluxe: {
 		learnset: {
@@ -42121,8 +42121,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8L22", "8M"],
 			toxic: ["8M"],
 			uproar: ["8L1", "8T"],
-			weatherball: ["8L1", "8T"]
-		}
+			weatherball: ["8L1", "8T"],
+		},
 	},
 	deerling: {
 		learnset: {
@@ -42174,8 +42174,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	sawsbuck: {
 		learnset: {
@@ -42233,8 +42233,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	emolga: {
 		learnset: {
@@ -42296,8 +42296,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			voltswitch: ["8L42", "8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	karrablast: {
 		learnset: {
@@ -42347,8 +42347,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L52", "8M"],
 			takedown: ["8L37"],
 			toxic: ["8M"],
-			xscissor: ["8L44", "8M"]
-		}
+			xscissor: ["8L44", "8M"],
+		},
 	},
 	escavalier: {
 		learnset: {
@@ -42404,8 +42404,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			twineedle: ["8L1"],
-			xscissor: ["8L44", "8M"]
-		}
+			xscissor: ["8L44", "8M"],
+		},
 	},
 	foongus: {
 		learnset: {
@@ -42457,8 +42457,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L35", "8T"],
 			toxic: ["8L32", "8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	amoonguss: {
 		learnset: {
@@ -42510,8 +42510,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L35", "8T"],
 			toxic: ["8L32", "8M"],
 			venoshock: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	frillish: {
 		learnset: {
@@ -42572,8 +42572,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterspout: ["8L61"],
 			whirlpool: ["8T"],
 			willowisp: ["8M"],
-			wringout: ["8L55"]
-		}
+			wringout: ["8L55"],
+		},
 	},
 	jellicent: {
 		learnset: {
@@ -42632,8 +42632,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterspout: ["8L1"],
 			whirlpool: ["8T"],
 			willowisp: ["8M"],
-			wringout: ["8L1"]
-		}
+			wringout: ["8L1"],
+		},
 	},
 	alomomola: {
 		learnset: {
@@ -42692,8 +42692,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["8L1"],
 			whirlpool: ["8L49", "8T"],
 			wideguard: ["8L1"],
-			wish: ["8L37"]
-		}
+			wish: ["8L37"],
+		},
 	},
 	joltik: {
 		learnset: {
@@ -42751,8 +42751,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	galvantula: {
 		learnset: {
@@ -42810,8 +42810,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	ferroseed: {
 		learnset: {
@@ -42865,8 +42865,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	ferrothorn: {
 		learnset: {
@@ -42934,8 +42934,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	klink: {
 		learnset: {
@@ -42980,8 +42980,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L54"]
-		}
+			zapcannon: ["8L54"],
+		},
 	},
 	klang: {
 		learnset: {
@@ -43026,8 +43026,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L60"]
-		}
+			zapcannon: ["8L60"],
+		},
 	},
 	klinklang: {
 		learnset: {
@@ -43080,8 +43080,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			volttackle: ["8L64"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L66"]
-		}
+			zapcannon: ["8L66"],
+		},
 	},
 	tynamo: {
 		learnset: {
@@ -43091,8 +43091,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			risingvoltage: ["8M"],
 			spark: ["8L1"],
 			tackle: ["8L1"],
-			thunderwave: ["8L1", "8M"]
-		}
+			thunderwave: ["8L1", "8M"],
+		},
 	},
 	eelektrik: {
 		learnset: {
@@ -43140,8 +43140,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8L59", "8M"],
-			zapcannon: ["8L69"]
-		}
+			zapcannon: ["8L69"],
+		},
 	},
 	eelektross: {
 		learnset: {
@@ -43213,8 +43213,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L1"]
-		}
+			zapcannon: ["8L1"],
+		},
 	},
 	elgyem: {
 		learnset: {
@@ -43286,8 +43286,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			wonderroom: ["8L56", "8T"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	beheeyem: {
 		learnset: {
@@ -43357,8 +43357,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uproar: ["8T"],
 			wonderroom: ["8L1", "8T"],
-			zenheadbutt: ["8L32", "8T"]
-		}
+			zenheadbutt: ["8L32", "8T"],
+		},
 	},
 	litwick: {
 		learnset: {
@@ -43416,8 +43416,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			willowisp: ["8L16", "8M"]
-		}
+			willowisp: ["8L16", "8M"],
+		},
 	},
 	lampent: {
 		learnset: {
@@ -43468,8 +43468,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			willowisp: ["8L16", "8M"]
-		}
+			willowisp: ["8L16", "8M"],
+		},
 	},
 	chandelure: {
 		learnset: {
@@ -43517,8 +43517,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			trickroom: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	axew: {
 		learnset: {
@@ -43577,8 +43577,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L46", "8M"],
 			taunt: ["8L36", "8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	fraxure: {
 		learnset: {
@@ -43635,8 +43635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L48", "8M"],
 			taunt: ["8L36", "8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	haxorus: {
 		learnset: {
@@ -43706,8 +43706,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L50", "8M"],
 			taunt: ["8L36", "8M"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	cubchoo: {
 		learnset: {
@@ -43762,8 +43762,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			thrash: ["8L53"],
 			toxic: ["8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	beartic: {
 		learnset: {
@@ -43836,8 +43836,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L1"],
 			throatchop: ["8T"],
 			toxic: ["8M"],
-			tripleaxel: ["8M"]
-		}
+			tripleaxel: ["8M"],
+		},
 	},
 	cryogonal: {
 		learnset: {
@@ -43890,8 +43890,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			solarbeam: ["8L50", "8M"],
 			substitute: ["8M"],
 			swagger: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	shelmet: {
 		learnset: {
@@ -43938,8 +43938,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			toxicspikes: ["8T", "8E"],
 			venoshock: ["8M"],
-			yawn: ["8L25"]
-		}
+			yawn: ["8L25"],
+		},
 	},
 	accelgor: {
 		learnset: {
@@ -43992,8 +43992,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8L40", "8M"],
 			venomdrench: ["8T"],
 			venoshock: ["8M"],
-			watershuriken: ["8L1"]
-		}
+			watershuriken: ["8L1"],
+		},
 	},
 	stunfisk: {
 		learnset: {
@@ -44062,8 +44062,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			voltswitch: ["8M"],
 			watergun: ["8L1"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	stunfiskgalar: {
 		learnset: {
@@ -44125,8 +44125,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			watergun: ["8L1"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	mienfoo: {
 		learnset: {
@@ -44195,8 +44195,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L41", "8M"],
 			vitalthrow: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	mienshao: {
 		learnset: {
@@ -44265,8 +44265,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L41", "8M"],
 			wideguard: ["8L45"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	druddigon: {
 		learnset: {
@@ -44349,8 +44349,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thunderfang: ["8T", "8E"],
 			thunderpunch: ["8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	golett: {
 		learnset: {
@@ -44419,8 +44419,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			thief: ["8M"],
 			thunderpunch: ["8T"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	golurk: {
 		learnset: {
@@ -44505,8 +44505,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pawniard: {
 		learnset: {
@@ -44575,8 +44575,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			torment: ["8L14"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	bisharp: {
 		learnset: {
@@ -44647,8 +44647,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			torment: ["8L1"],
 			toxic: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	bouffalant: {
 		learnset: {
@@ -44717,8 +44717,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	rufflet: {
 		learnset: {
@@ -44771,8 +44771,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8L55"],
 			wingattack: ["8L10"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	braviary: {
 		learnset: {
@@ -44830,8 +44830,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8L1"],
 			wingattack: ["8L1"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	vullaby: {
 		learnset: {
@@ -44888,8 +44888,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			whirlwind: ["8L55"]
-		}
+			whirlwind: ["8L55"],
+		},
 	},
 	mandibuzz: {
 		learnset: {
@@ -44949,8 +44949,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			whirlwind: ["8L1"]
-		}
+			whirlwind: ["8L1"],
+		},
 	},
 	heatmor: {
 		learnset: {
@@ -45028,8 +45028,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8M"],
 			willowisp: ["8M"],
-			wrap: ["8E"]
-		}
+			wrap: ["8E"],
+		},
 	},
 	durant: {
 		learnset: {
@@ -45085,8 +45085,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			visegrip: ["8L1"],
-			xscissor: ["8L41", "8M"]
-		}
+			xscissor: ["8L41", "8M"],
+		},
 	},
 	deino: {
 		learnset: {
@@ -45144,8 +45144,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8L38", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zweilous: {
 		learnset: {
@@ -45199,8 +45199,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8L38", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	hydreigon: {
 		learnset: {
@@ -45288,8 +45288,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			workup: ["8L38", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	larvesta: {
 		learnset: {
@@ -45339,8 +45339,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T", "8E"]
-		}
+			zenheadbutt: ["8T", "8E"],
+		},
 	},
 	volcarona: {
 		learnset: {
@@ -45402,8 +45402,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8L40"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	cobalion: {
 		learnset: {
@@ -45468,8 +45468,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			workup: ["8L49", "8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	terrakion: {
 		learnset: {
@@ -45533,8 +45533,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			workup: ["8L49", "8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	virizion: {
 		learnset: {
@@ -45601,8 +45601,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8L49", "8M"],
 			worryseed: ["8T"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	tornadus: {
 		learnset: {
@@ -45666,8 +45666,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8L1", "8T"],
 			uturn: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	tornadustherian: {},
 	thundurus: {
@@ -45739,8 +45739,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	thundurustherian: {},
 	reshiram: {
@@ -45817,8 +45817,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zekrom: {
 		learnset: {
@@ -45895,8 +45895,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
 			wildcharge: ["8M"],
-			zenheadbutt: ["8L43", "8T"]
-		}
+			zenheadbutt: ["8L43", "8T"],
+		},
 	},
 	landorus: {
 		learnset: {
@@ -45959,8 +45959,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L31", "8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	landorustherian: {},
 	kyurem: {
@@ -46033,8 +46033,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	kyuremblack: {
 		learnset: {
@@ -46107,8 +46107,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	kyuremwhite: {
 		learnset: {
@@ -46181,8 +46181,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	keldeo: {
 		learnset: {
@@ -46248,8 +46248,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			workup: ["8L61", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	keldeoresolute: {},
 	meloetta: {
@@ -46341,8 +46341,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["8L50"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	genesect: {
 		learnset: {
@@ -46416,8 +46416,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			xscissor: ["8L51", "8M"],
 			zapcannon: ["8L66"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	genesectburn: {},
 	genesectchill: {},
@@ -46502,8 +46502,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L48"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	quilladin: {
 		learnset: {
@@ -46582,8 +46582,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L56"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	chesnaught: {
 		learnset: {
@@ -46675,8 +46675,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L66"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	fennekin: {
 		learnset: {
@@ -46727,8 +46727,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			willowisp: ["8L38", "8M"],
 			wish: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	braixen: {
 		learnset: {
@@ -46784,8 +46784,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8L45", "8M"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	delphox: {
 		learnset: {
@@ -46857,8 +46857,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8L51", "8M"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	froakie: {
 		learnset: {
@@ -46916,8 +46916,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			waterpulse: ["8L14"],
 			watersport: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	frogadier: {
 		learnset: {
@@ -46974,8 +46974,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			waterpledge: ["8T"],
 			waterpulse: ["8L14"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	greninja: {
 		learnset: {
@@ -47042,8 +47042,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			waterpulse: ["8L14"],
 			watershuriken: ["8L0", "8L1"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	greninjaash: {
 		learnset: {
@@ -47110,8 +47110,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			waterpulse: ["8L14"],
 			watershuriken: ["8L1"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	bunnelby: {
 		learnset: {
@@ -47171,8 +47171,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	diggersby: {
 		learnset: {
@@ -47253,8 +47253,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	fletchling: {
 		learnset: {
@@ -47297,8 +47297,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	fletchinder: {
 		learnset: {
@@ -47344,8 +47344,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	talonflame: {
 		learnset: {
@@ -47399,8 +47399,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	scatterbug: {
 		learnset: {
@@ -47408,8 +47408,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			silverwind: ["8M"],
 			stringshot: ["8L1"],
 			stunspore: ["8L6"],
-			tackle: ["8L1"]
-		}
+			tackle: ["8L1"],
+		},
 	},
 	spewpa: {
 		learnset: {
@@ -47418,8 +47418,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			harden: ["8L1"],
 			irondefense: ["8T"],
 			protect: ["8L0", "8L1", "8M"],
-			silverwind: ["8M"]
-		}
+			silverwind: ["8M"],
+		},
 	},
 	vivillon: {
 		learnset: {
@@ -47476,8 +47476,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			thief: ["8M"],
 			toxic: ["8M"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	litleo: {
 		learnset: {
@@ -47534,8 +47534,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8L8", "8M"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	pyroar: {
 		learnset: {
@@ -47593,8 +47593,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wildcharge: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8L1", "8M"]
-		}
+			workup: ["8L1", "8M"],
+		},
 	},
 	flabebe: {
 		learnset: {
@@ -47647,8 +47647,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8L1"],
 			wish: ["8L20"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	floette: {
 		learnset: {
@@ -47697,8 +47697,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8L1"],
 			wish: ["8L20"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	floetteeternal: {
 		learnset: {
@@ -47747,8 +47747,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			vinewhip: ["8L1"],
 			wish: ["8L20"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	florges: {
 		learnset: {
@@ -47799,8 +47799,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8T"],
 			toxic: ["8M"],
 			wish: ["8L1"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	skiddo: {
 		learnset: {
@@ -47855,8 +47855,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			workup: ["8M"],
 			worryseed: ["8L16", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	gogoat: {
 		learnset: {
@@ -47916,8 +47916,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["8M"],
 			workup: ["8M"],
 			worryseed: ["8L16", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pancham: {
 		learnset: {
@@ -47997,8 +47997,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			vitalthrow: ["8L27"],
 			workup: ["8L10", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pangoro: {
 		learnset: {
@@ -48095,8 +48095,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wickedblow: ["8L70"],
 			workup: ["8L1", "8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	furfrou: {
 		learnset: {
@@ -48150,8 +48150,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			wildcharge: ["8M"],
 			workup: ["8M", "8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	espurr: {
 		learnset: {
@@ -48211,8 +48211,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["8T"],
 			workup: ["8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	meowstic: {
 		learnset: {
@@ -48284,8 +48284,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	meowsticf: {
 		learnset: {
@@ -48355,8 +48355,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	honedge: {
 		learnset: {
@@ -48408,8 +48408,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["8L1", "8M"],
 			tackle: ["8L1"],
 			toxic: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	doublade: {
 		learnset: {
@@ -48458,8 +48458,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			swordsdance: ["8L1", "8M"],
 			tackle: ["8L1"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	aegislash: {
 		learnset: {
@@ -48513,8 +48513,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["8M"],
 			swagger: ["8M"],
 			swordsdance: ["8L1", "8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	spritzee: {
 		learnset: {
@@ -48572,8 +48572,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
 			trickroom: ["8M"],
-			wish: ["8E"]
-		}
+			wish: ["8E"],
+		},
 	},
 	aromatisse: {
 		learnset: {
@@ -48635,8 +48635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
-			trickroom: ["8M"]
-		}
+			trickroom: ["8M"],
+		},
 	},
 	swirlix: {
 		learnset: {
@@ -48688,8 +48688,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
 			wish: ["8L45"],
-			yawn: ["8E"]
-		}
+			yawn: ["8E"],
+		},
 	},
 	slurpuff: {
 		learnset: {
@@ -48741,8 +48741,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
-			wish: ["8L45"]
-		}
+			wish: ["8L45"],
+		},
 	},
 	inkay: {
 		learnset: {
@@ -48807,8 +48807,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			topsyturvy: ["8L15"],
 			toxic: ["8M"],
-			trickroom: ["8M"]
-		}
+			trickroom: ["8M"],
+		},
 	},
 	malamar: {
 		learnset: {
@@ -48876,8 +48876,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			topsyturvy: ["8L15"],
 			toxic: ["8M"],
-			trickroom: ["8M"]
-		}
+			trickroom: ["8M"],
+		},
 	},
 	binacle: {
 		learnset: {
@@ -48950,8 +48950,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L4"],
 			watersport: ["8E"],
 			withdraw: ["8L7"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	barbaracle: {
 		learnset: {
@@ -49037,8 +49037,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
 			withdraw: ["8L7"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	skrelp: {
 		learnset: {
@@ -49086,8 +49086,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L1"],
-			waterpulse: ["8L25"]
-		}
+			waterpulse: ["8L25"],
+		},
 	},
 	dragalge: {
 		learnset: {
@@ -49141,8 +49141,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			waterfall: ["8M"],
 			watergun: ["8L1"],
-			waterpulse: ["8L25"]
-		}
+			waterpulse: ["8L25"],
+		},
 	},
 	clauncher: {
 		learnset: {
@@ -49191,8 +49191,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			waterpulse: ["8L34"],
-			watersport: ["8L7"]
-		}
+			watersport: ["8L7"],
+		},
 	},
 	clawitzer: {
 		learnset: {
@@ -49248,8 +49248,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			waterpulse: ["8L34"],
-			watersport: ["8L1"]
-		}
+			watersport: ["8L1"],
+		},
 	},
 	helioptile: {
 		learnset: {
@@ -49307,8 +49307,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			voltswitch: ["8L40", "8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	heliolisk: {
 		learnset: {
@@ -49373,8 +49373,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			voltswitch: ["8M"],
 			weatherball: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	tyrunt: {
 		learnset: {
@@ -49441,8 +49441,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L40"],
 			thunderfang: ["8T", "8E"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	tyrantrum: {
 		learnset: {
@@ -49515,8 +49515,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L42"],
 			thunderfang: ["8T"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	amaura: {
 		learnset: {
@@ -49588,8 +49588,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L5", "8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	aurorus: {
 		learnset: {
@@ -49665,8 +49665,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L1", "8M"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sylveon: {
 		learnset: {
@@ -49724,8 +49724,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L1"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	hawlucha: {
 		learnset: {
@@ -49811,8 +49811,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wingattack: ["8L8"],
 			workup: ["8M"],
 			xscissor: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	dedenne: {
 		learnset: {
@@ -49869,8 +49869,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			voltswitch: ["8L26", "8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	carbink: {
 		learnset: {
@@ -49930,8 +49930,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			trickroom: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	goomy: {
 		learnset: {
@@ -49970,8 +49970,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			thunderbolt: ["8M"],
 			toxic: ["8M"],
-			wish: ["8E"]
-		}
+			wish: ["8E"],
+		},
 	},
 	sliggoo: {
 		learnset: {
@@ -50007,8 +50007,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			thunderbolt: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	goodra: {
 		learnset: {
@@ -50075,8 +50075,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
-			weatherball: ["8T"]
-		}
+			weatherball: ["8T"],
+		},
 	},
 	klefki: {
 		learnset: {
@@ -50132,8 +50132,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M", "8E"],
 			thunderwave: ["8M"],
 			torment: ["8L32"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	phantump: {
 		learnset: {
@@ -50200,8 +50200,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8T", "8E"],
 			willowisp: ["8L16", "8M"],
 			woodhammer: ["8L44"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	trevenant: {
 		learnset: {
@@ -50274,8 +50274,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8L16", "8M"],
 			woodhammer: ["8L44"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	pumpkaboo: {
 		learnset: {
@@ -50340,8 +50340,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickortreat: ["8L6"],
 			trickroom: ["8M"],
 			willowisp: ["8M"],
-			worryseed: ["8L11", "8T"]
-		}
+			worryseed: ["8L11", "8T"],
+		},
 	},
 	gourgeist: {
 		learnset: {
@@ -50409,8 +50409,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickortreat: ["8L6"],
 			trickroom: ["8M"],
 			willowisp: ["8M"],
-			worryseed: ["8L11", "8T"]
-		}
+			worryseed: ["8L11", "8T"],
+		},
 	},
 	bergmite: {
 		learnset: {
@@ -50463,8 +50463,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			tackle: ["8L1"],
 			takedown: ["8L15"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	avalugg: {
 		learnset: {
@@ -50530,8 +50530,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			takedown: ["8L15"],
 			toxic: ["8M"],
-			wideguard: ["8L1"]
-		}
+			wideguard: ["8L1"],
+		},
 	},
 	noibat: {
 		learnset: {
@@ -50592,8 +50592,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8L40"],
 			wildcharge: ["8M"],
 			wingattack: ["8L16"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	noivern: {
 		learnset: {
@@ -50665,8 +50665,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["8L40"],
 			wildcharge: ["8M"],
 			wingattack: ["8L16"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	xerneas: {
 		learnset: {
@@ -50729,8 +50729,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	yveltal: {
 		learnset: {
@@ -50789,8 +50789,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zygarde: {
 		learnset: {
@@ -50856,11 +50856,11 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thousandarrows: ["8L84"],
 			thousandwaves: ["8L1"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zygarde10: {
-		learnset: {}
+		learnset: {},
 	},
 	diancie: {
 		learnset: {
@@ -50931,8 +50931,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			trickroom: ["8L46", "8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	hoopa: {
 		learnset: {
@@ -51008,8 +51008,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8L1", "8M"],
 			uproar: ["8T"],
 			wonderroom: ["8L50", "8T"],
-			zenheadbutt: ["8L46", "8T"]
-		}
+			zenheadbutt: ["8L46", "8T"],
+		},
 	},
 	hoopaunbound: {
 		learnset: {
@@ -51085,8 +51085,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8L1", "8M"],
 			uproar: ["8T"],
 			wonderroom: ["8L50", "8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	volcanion: {
 		learnset: {
@@ -51154,8 +51154,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterpulse: ["8L21"],
 			weatherball: ["8L40", "8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	rowlet: {
 		learnset: {
@@ -51211,8 +51211,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	dartrix: {
 		learnset: {
@@ -51265,8 +51265,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	decidueye: {
 		learnset: {
@@ -51340,8 +51340,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L1", "8M"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	litten: {
 		learnset: {
@@ -51399,8 +51399,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	torracat: {
 		learnset: {
@@ -51455,8 +51455,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	incineroar: {
 		learnset: {
@@ -51543,8 +51543,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	popplio: {
 		learnset: {
@@ -51602,8 +51602,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
 			wonderroom: ["8T", "8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	brionne: {
 		learnset: {
@@ -51655,8 +51655,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			whirlpool: ["8T"],
 			wonderroom: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	primarina: {
 		learnset: {
@@ -51726,8 +51726,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
 			wonderroom: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	pikipek: {
 		learnset: {
@@ -51776,8 +51776,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T", "8E"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	trumbeak: {
 		learnset: {
@@ -51825,8 +51825,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	toucannon: {
 		learnset: {
@@ -51879,8 +51879,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	yungoos: {
 		learnset: {
@@ -51928,8 +51928,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			workup: ["8M"],
-			yawn: ["8L40"]
-		}
+			yawn: ["8L40"],
+		},
 	},
 	gumshoos: {
 		learnset: {
@@ -51988,8 +51988,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			workup: ["8M"],
 			yawn: ["8L47"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	grubbin: {
 		learnset: {
@@ -52030,8 +52030,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			xscissor: ["8L25", "8M"]
-		}
+			xscissor: ["8L25", "8M"],
+		},
 	},
 	charjabug: {
 		learnset: {
@@ -52073,8 +52073,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			visegrip: ["8L1"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			xscissor: ["8L31", "8M"]
-		}
+			xscissor: ["8L31", "8M"],
+		},
 	},
 	vikavolt: {
 		learnset: {
@@ -52135,8 +52135,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
 			xscissor: ["8M"],
-			zapcannon: ["8L41"]
-		}
+			zapcannon: ["8L41"],
+		},
 	},
 	crabrawler: {
 		learnset: {
@@ -52192,8 +52192,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wideguard: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	crabominable: {
 		learnset: {
@@ -52255,8 +52255,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	oricorio: {
 		learnset: {
@@ -52307,8 +52307,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			teeterdance: ["8L26"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	cutiefly: {
 		learnset: {
@@ -52369,8 +52369,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uturn: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	ribombee: {
 		learnset: {
@@ -52429,8 +52429,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uturn: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	rockruff: {
 		learnset: {
@@ -52481,8 +52481,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8E"],
 			thunderfang: ["8T", "8E"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lycanroc: {
 		learnset: {
@@ -52545,8 +52545,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thunderfang: ["8T"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lycanrocdusk: {
 		learnset: {
@@ -52611,8 +52611,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	lycanrocmidnight: {
 		learnset: {
@@ -52684,8 +52684,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	wishiwashi: {
 		learnset: {
@@ -52734,8 +52734,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["8L1"],
 			waterpulse: ["8E"],
 			watersport: ["8E"],
-			whirlpool: ["8T", "8E"]
-		}
+			whirlpool: ["8T", "8E"],
+		},
 	},
 	mareanie: {
 		learnset: {
@@ -52788,8 +52788,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8L13", "8T"],
 			venomdrench: ["8L41", "8T"],
 			venoshock: ["8L25", "8M"],
-			wideguard: ["8L17"]
-		}
+			wideguard: ["8L17"],
+		},
 	},
 	toxapex: {
 		learnset: {
@@ -52845,8 +52845,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8L1", "8T"],
 			venomdrench: ["8L44", "8T"],
 			venoshock: ["8L25", "8M"],
-			wideguard: ["8L17"]
-		}
+			wideguard: ["8L17"],
+		},
 	},
 	mudbray: {
 		learnset: {
@@ -52894,8 +52894,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			superpower: ["8L45", "8M", "8T"],
 			swagger: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	mudsdale: {
 		learnset: {
@@ -52947,8 +52947,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			superpower: ["8L60", "8M", "8T"],
 			swagger: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	dewpider: {
 		learnset: {
@@ -53001,8 +53001,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watersport: ["8L1"],
 			wonderroom: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	araquanid: {
 		learnset: {
@@ -53054,8 +53054,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			wideguard: ["8L1"],
 			wonderroom: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	fomantis: {
 		learnset: {
@@ -53104,8 +53104,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T", "8E"],
 			worryseed: ["8T"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	lurantis: {
 		learnset: {
@@ -53167,8 +53167,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			worryseed: ["8T"],
-			xscissor: ["8L1", "8M"]
-		}
+			xscissor: ["8L1", "8M"],
+		},
 	},
 	morelull: {
 		learnset: {
@@ -53221,8 +53221,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wonderroom: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	shiinotic: {
 		learnset: {
@@ -53279,8 +53279,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			weatherball: ["8T"],
 			wonderroom: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	salandit: {
 		learnset: {
@@ -53338,8 +53338,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L29", "8M"],
 			venomdrench: ["8L45", "8T"],
 			venoshock: ["8L37", "8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	salazzle: {
 		learnset: {
@@ -53405,8 +53405,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L29", "8M"],
 			venomdrench: ["8L51", "8T"],
 			venoshock: ["8L39", "8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	stufful: {
 		learnset: {
@@ -53465,8 +53465,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wideguard: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	bewear: {
 		learnset: {
@@ -53531,8 +53531,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	bounsweet: {
 		learnset: {
@@ -53580,8 +53580,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			teeterdance: ["8L25"],
 			toxic: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	steenee: {
 		learnset: {
@@ -53635,8 +53635,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	tsareena: {
 		learnset: {
@@ -53701,8 +53701,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tropkick: ["8L0", "8L1"],
 			uturn: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	comfey: {
 		learnset: {
@@ -53773,8 +53773,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			vinewhip: ["8L1"],
 			worryseed: ["8T"],
-			wrap: ["8L16"]
-		}
+			wrap: ["8L16"],
+		},
 	},
 	oranguru: {
 		learnset: {
@@ -53842,8 +53842,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["8T", "8E"],
 			workup: ["8M"],
 			yawn: ["8E"],
-			zenheadbutt: ["8L29", "8T"]
-		}
+			zenheadbutt: ["8L29", "8T"],
+		},
 	},
 	passimian: {
 		learnset: {
@@ -53920,8 +53920,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			uturn: ["8M"],
 			vitalthrow: ["8E"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	wimpod: {
 		learnset: {
@@ -53952,8 +53952,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			wideguard: ["8E"]
-		}
+			wideguard: ["8E"],
+		},
 	},
 	golisopod: {
 		learnset: {
@@ -54026,8 +54026,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			venoshock: ["8M"],
 			waterfall: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	sandygast: {
 		learnset: {
@@ -54082,8 +54082,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swagger: ["8M"],
 			swallow: ["8E"],
 			toxic: ["8M"],
-			trick: ["8T"]
-		}
+			trick: ["8T"],
+		},
 	},
 	palossand: {
 		learnset: {
@@ -54130,8 +54130,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			swagger: ["8M"],
 			toxic: ["8M"],
-			trick: ["8T"]
-		}
+			trick: ["8T"],
+		},
 	},
 	pyukumuku: {
 		learnset: {
@@ -54169,8 +54169,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8E"],
 			toxic: ["8L45", "8M"],
 			venomdrench: ["8T", "8E"],
-			watersport: ["8L1"]
-		}
+			watersport: ["8L1"],
+		},
 	},
 	typenull: {
 		learnset: {
@@ -54226,8 +54226,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			triattack: ["8L75"],
 			uturn: ["8M"],
 			workup: ["8M"],
-			xscissor: ["8L35", "8M"]
-		}
+			xscissor: ["8L35", "8M"],
+		},
 	},
 	silvally: {
 		learnset: {
@@ -54314,8 +54314,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["8T"],
 			workup: ["8M"],
 			xscissor: ["8L35", "8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	minior: {
 		learnset: {
@@ -54373,8 +54373,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L29"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	komala: {
 		learnset: {
@@ -54432,8 +54432,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L41"],
 			workup: ["8M"],
 			yawn: ["8L16"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	turtonator: {
 		learnset: {
@@ -54509,8 +54509,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			wideguard: ["8E"],
 			willowisp: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	togedemaru: {
 		learnset: {
@@ -54582,8 +54582,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["8M"],
 			zenheadbutt: ["8T"],
 			zingzap: ["8L33"],
-			zippyzap: ["8L47"]
-		}
+			zippyzap: ["8L47"],
+		},
 	},
 	mimikyu: {
 		learnset: {
@@ -54654,8 +54654,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["8M"],
 			woodhammer: ["8L1"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	bruxish: {
 		learnset: {
@@ -54720,8 +54720,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			waterpulse: ["8E"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	drampa: {
 		learnset: {
@@ -54802,8 +54802,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			twister: ["8L5"],
 			uproar: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	dhelmise: {
 		learnset: {
@@ -54873,8 +54873,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			whirlpool: ["8L27", "8T"],
-			wrap: ["8L9"]
-		}
+			wrap: ["8L9"],
+		},
 	},
 	jangmoo: {
 		learnset: {
@@ -54930,8 +54930,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8L29", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	hakamoo: {
 		learnset: {
@@ -54993,8 +54993,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8L29", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	kommoo: {
 		learnset: {
@@ -55078,8 +55078,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			workup: ["8L29", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	tapukoko: {
 		learnset: {
@@ -55148,8 +55148,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			wildcharge: ["8L32", "8M"],
 			withdraw: ["8L1"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	tapulele: {
 		learnset: {
@@ -55210,8 +55210,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tickle: ["8L38"],
 			toxic: ["8M"],
 			withdraw: ["8L1"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	tapubulu: {
 		learnset: {
@@ -55285,8 +55285,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["8L1"],
 			workup: ["8M"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8L48", "8T"]
-		}
+			zenheadbutt: ["8L48", "8T"],
+		},
 	},
 	tapufini: {
 		learnset: {
@@ -55351,20 +55351,20 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L8"],
 			whirlpool: ["8L14", "8T"],
 			withdraw: ["8L1"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	cosmog: {
 		learnset: {
 			splash: ["8L1"],
-			teleport: ["8L23"]
-		}
+			teleport: ["8L23"],
+		},
 	},
 	cosmoem: {
 		learnset: {
 			cosmicpower: ["8L0", "8L1", "8T"],
-			teleport: ["8L1", "8M"]
-		}
+			teleport: ["8L1", "8M"],
+		},
 	},
 	solgaleo: {
 		learnset: {
@@ -55445,8 +55445,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["8L67"],
 			wildcharge: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8L19", "8T"]
-		}
+			zenheadbutt: ["8L19", "8T"],
+		},
 	},
 	lunala: {
 		learnset: {
@@ -55526,8 +55526,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["8L67"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	nihilego: {
 		learnset: {
@@ -55594,8 +55594,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8L23", "8M"],
 			wonderroom: ["8L67", "8T"],
 			worryseed: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	buzzwole: {
 		learnset: {
@@ -55660,8 +55660,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8L1", "8T"],
 			toxic: ["8M"],
 			vitalthrow: ["8L19"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	pheromosa: {
 		learnset: {
@@ -55721,8 +55721,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			tripleaxel: ["8M"],
 			triplekick: ["8L43"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	xurkitree: {
 		learnset: {
@@ -55780,8 +55780,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
 			wrap: ["8L1"],
-			zapcannon: ["8L73"]
-		}
+			zapcannon: ["8L73"],
+		},
 	},
 	celesteela: {
 		learnset: {
@@ -55844,8 +55844,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			toxic: ["8M"],
 			wideguard: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	kartana: {
 		learnset: {
@@ -55888,8 +55888,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			toxic: ["8M"],
 			vacuumwave: ["8L1", "8T"],
-			xscissor: ["8L47", "8M"]
-		}
+			xscissor: ["8L47", "8M"],
+		},
 	},
 	guzzlord: {
 		learnset: {
@@ -55964,8 +55964,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L47"],
 			toxic: ["8M"],
 			wideguard: ["8L1"],
-			wringout: ["8L67"]
-		}
+			wringout: ["8L67"],
+		},
 	},
 	necrozma: {
 		learnset: {
@@ -56046,24 +56046,24 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			wringout: ["8L67"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	necrozmadawnwings: {
 		learnset: {
-			moongeistbeam: ["8R"]
-		}
+			moongeistbeam: ["8R"],
+		},
 	},
 	necrozmaduskmane: {
 		learnset: {
-			sunsteelstrike: ["8R"]
-		}
+			sunsteelstrike: ["8R"],
+		},
 	},
 	necrozmaultra: {
 		learnset: {
 			moongeistbeam: ["8R"],
-			sunsteelstrike: ["8R"]
-		}
+			sunsteelstrike: ["8R"],
+		},
 	},
 	magearna: {
 		learnset: {
@@ -56130,8 +56130,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			trumpcard: ["8L97"],
 			voltswitch: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	magearnaoriginal: {
 		learnset: {
@@ -56198,8 +56198,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			trumpcard: ["8L97"],
 			voltswitch: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	marshadow: {
 		learnset: {
@@ -56276,8 +56276,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			willowisp: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	poipole: {
 		learnset: {
@@ -56315,8 +56315,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxicspikes: ["8T"],
 			uproar: ["8T"],
 			venomdrench: ["8L23", "8T"],
-			venoshock: ["8L13", "8M"]
-		}
+			venoshock: ["8L13", "8M"],
+		},
 	},
 	naganadel: {
 		learnset: {
@@ -56387,8 +56387,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			venomdrench: ["8L23", "8T"],
 			venoshock: ["8L13", "8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	stakataka: {
 		learnset: {
@@ -56444,8 +56444,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			wideguard: ["8L53"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	blacephalon: {
 		learnset: {
@@ -56503,8 +56503,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			uproar: ["8T"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zeraora: {
 		learnset: {
@@ -56579,8 +56579,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8L15", "8M"],
 			wildcharge: ["8L36", "8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	meltan: {
 		learnset: {
@@ -56601,8 +56601,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderbolt: ["8M"],
 			thundershock: ["8L1"],
 			thunderwave: ["8L24", "8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	melmetal: {
 		learnset: {
@@ -56655,8 +56655,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			thundershock: ["8L1"],
 			thunderwave: ["8L24", "8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	grookey: {
 		learnset: {
@@ -56704,8 +56704,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			woodhammer: ["8L32"],
 			workup: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	thwackey: {
 		learnset: {
@@ -56748,8 +56748,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			woodhammer: ["8L42"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	rillaboom: {
 		learnset: {
@@ -56816,8 +56816,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["8M"],
 			woodhammer: ["8L46"],
 			workup: ["8M"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	scorbunny: {
 		learnset: {
@@ -56866,8 +56866,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	raboot: {
 		learnset: {
@@ -56915,8 +56915,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	cinderace: {
 		learnset: {
@@ -56978,8 +56978,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	sobble: {
 		learnset: {
@@ -57020,8 +57020,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L12"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	drizzile: {
 		learnset: {
@@ -57056,8 +57056,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L12"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	inteleon: {
 		learnset: {
@@ -57111,8 +57111,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["8L12"],
 			weatherball: ["8T"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	skwovet: {
 		learnset: {
@@ -57153,8 +57153,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwhip: ["8L1"],
 			thief: ["8M"],
 			toxic: ["8M"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	greedent: {
 		learnset: {
@@ -57206,8 +57206,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T"],
 			toxic: ["8M"],
 			uproar: ["8T"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	rookidee: {
 		learnset: {
@@ -57252,8 +57252,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	corvisquire: {
 		learnset: {
@@ -57296,8 +57296,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	corviknight: {
 		learnset: {
@@ -57355,8 +57355,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	blipbug: {
 		learnset: {
@@ -57371,8 +57371,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			stickyweb: ["8E"],
 			strugglebug: ["8L1"],
 			supersonic: ["8E"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	dottler: {
 		learnset: {
@@ -57412,8 +57412,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	orbeetle: {
 		learnset: {
@@ -57469,8 +57469,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			uturn: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	nickit: {
 		learnset: {
@@ -57507,8 +57507,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thief: ["8M"],
 			torment: ["8E"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	thievul: {
 		learnset: {
@@ -57555,8 +57555,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thief: ["8L0", "8L1", "8M"],
 			thunderfang: ["8T"],
 			toxic: ["8M"],
-			uturn: ["8M"]
-		}
+			uturn: ["8M"],
+		},
 	},
 	gossifleur: {
 		learnset: {
@@ -57598,8 +57598,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sweetscent: ["8L8"],
 			synthesis: ["8L24", "8T"],
 			toxic: ["8M"],
-			worryseed: ["8T", "8E"]
-		}
+			worryseed: ["8T", "8E"],
+		},
 	},
 	eldegoss: {
 		learnset: {
@@ -57642,8 +57642,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["8L28", "8T"],
 			toxic: ["8M"],
 			weatherball: ["8T"],
-			worryseed: ["8T"]
-		}
+			worryseed: ["8T"],
+		},
 	},
 	wooloo: {
 		learnset: {
@@ -57678,8 +57678,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["8L25"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	dubwool: {
 		learnset: {
@@ -57719,8 +57719,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	chewtle: {
 		learnset: {
@@ -57753,8 +57753,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			surf: ["8M"],
 			toxic: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	drednaw: {
 		learnset: {
@@ -57822,8 +57822,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	yamper: {
 		learnset: {
@@ -57865,8 +57865,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L40", "8M"]
-		}
+			wildcharge: ["8L40", "8M"],
+		},
 	},
 	boltund: {
 		learnset: {
@@ -57914,8 +57914,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			voltswitch: ["8M"],
-			wildcharge: ["8L48", "8M"]
-		}
+			wildcharge: ["8L48", "8M"],
+		},
 	},
 	rolycoly: {
 		learnset: {
@@ -57954,8 +57954,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			tackle: ["8L1"],
 			toxic: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	carkol: {
 		learnset: {
@@ -58006,8 +58006,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			tackle: ["8L1"],
 			toxic: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	coalossal: {
 		learnset: {
@@ -58069,8 +58069,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			tarshot: ["8L0", "8L1"],
 			toxic: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	applin: {
 		learnset: {
@@ -58087,8 +58087,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rollout: ["8E"],
 			suckerpunch: ["8E"],
 			toxic: ["8M"],
-			withdraw: ["8L1"]
-		}
+			withdraw: ["8L1"],
+		},
 	},
 	flapple: {
 		learnset: {
@@ -58137,8 +58137,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			twister: ["8L1"],
 			uturn: ["8M"],
 			wingattack: ["8L0", "8L1"],
-			withdraw: ["8L1"]
-		}
+			withdraw: ["8L1"],
+		},
 	},
 	appletun: {
 		learnset: {
@@ -58189,8 +58189,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			superpower: ["8M", "8T"],
 			sweetscent: ["8L1"],
 			toxic: ["8M"],
-			withdraw: ["8L1"]
-		}
+			withdraw: ["8L1"],
+		},
 	},
 	silicobra: {
 		learnset: {
@@ -58225,8 +58225,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			snore: ["8T"],
 			substitute: ["8M"],
 			toxic: ["8M"],
-			wrap: ["8L1"]
-		}
+			wrap: ["8L1"],
+		},
 	},
 	sandaconda: {
 		learnset: {
@@ -58276,8 +58276,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			toxic: ["8M"],
 			wrap: ["8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	cramorant: {
 		learnset: {
@@ -58331,8 +58331,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			watergun: ["8L7"],
 			weatherball: ["8T"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	arrokuda: {
 		learnset: {
@@ -58374,8 +58374,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8T"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	barraskewda: {
 		learnset: {
@@ -58420,8 +58420,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			throatchop: ["8L1", "8T"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			whirlpool: ["8T"]
-		}
+			whirlpool: ["8T"],
+		},
 	},
 	toxel: {
 		learnset: {
@@ -58447,8 +58447,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			snore: ["8T"],
 			substitute: ["8M"],
 			tearfullook: ["8L1"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	toxtricity: {
 		learnset: {
@@ -58510,8 +58510,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			venoshock: ["8L20", "8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	toxtricitylowkey: {
 		learnset: {
@@ -58574,8 +58574,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["8L20", "8T"],
 			venoshock: ["8M"],
 			voltswitch: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	sizzlipede: {
 		learnset: {
@@ -58618,8 +58618,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["8M"],
 			toxic: ["8M"],
 			venoshock: ["8M"],
-			wrap: ["8L5"]
-		}
+			wrap: ["8L5"],
+		},
 	},
 	centiskorch: {
 		learnset: {
@@ -58672,8 +58672,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			willowisp: ["8M"],
 			wrap: ["8L5"],
-			xscissor: ["8L0", "8L1", "8M"]
-		}
+			xscissor: ["8L0", "8L1", "8M"],
+		},
 	},
 	clobbopus: {
 		learnset: {
@@ -58719,8 +58719,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8L35", "8M"],
 			toxic: ["8M"],
 			waterfall: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	grapploct: {
 		learnset: {
@@ -58773,8 +58773,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			waterfall: ["8M"],
 			whirlpool: ["8T"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	sinistea: {
 		learnset: {
@@ -58811,8 +58811,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			willowisp: ["8M"],
 			withdraw: ["8L1"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	polteageist: {
 		learnset: {
@@ -58856,8 +58856,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			willowisp: ["8M"],
 			withdraw: ["8L1"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	polteageistantique: {
 		learnset: {
@@ -58901,8 +58901,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			willowisp: ["8M"],
 			withdraw: ["8L1"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	hatenna: {
 		learnset: {
@@ -58943,8 +58943,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			teleport: ["8M"],
 			thunderwave: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	hattrem: {
 		learnset: {
@@ -58983,8 +58983,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			teleport: ["8M"],
 			thunderwave: ["8L0", "8L1", "8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	hatterene: {
 		learnset: {
@@ -59036,8 +59036,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8L1", "8M"],
 			toxic: ["8M"],
 			trickroom: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	impidimp: {
 		learnset: {
@@ -59074,8 +59074,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			torment: ["8L28"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	morgrem: {
 		learnset: {
@@ -59117,8 +59117,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			torment: ["8L28"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			uproar: ["8T"]
-		}
+			uproar: ["8T"],
+		},
 	},
 	grimmsnarl: {
 		learnset: {
@@ -59182,8 +59182,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trick: ["8T"],
 			uproar: ["8T"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	obstagoon: {
 		learnset: {
@@ -59264,8 +59264,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			whirlpool: ["8T"],
 			workup: ["8M"],
-			xscissor: ["8M"]
-		}
+			xscissor: ["8M"],
+		},
 	},
 	perrserker: {
 		learnset: {
@@ -59329,8 +59329,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uproar: ["8T"],
 			uturn: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	cursola: {
 		learnset: {
@@ -59401,8 +59401,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			whirlpool: ["8T"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	sirfetchd: {
 		learnset: {
@@ -59458,8 +59458,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["8T"],
 			throatchop: ["8T"],
 			toxic: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	mrrime: {
 		learnset: {
@@ -59551,8 +59551,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uproar: ["8T"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	runerigus: {
 		learnset: {
@@ -59625,8 +59625,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["8M"],
 			willowisp: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	milcery: {
 		learnset: {
@@ -59656,8 +59656,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			sweetkiss: ["8L5"],
 			sweetscent: ["8L10"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	alcremie: {
 		learnset: {
@@ -59704,8 +59704,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sweetkiss: ["8L5"],
 			sweetscent: ["8L10"],
 			toxic: ["8M"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	falinks: {
 		learnset: {
@@ -59749,8 +59749,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["8L1"],
 			throatchop: ["8T"],
 			toxic: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	pincurchin: {
 		learnset: {
@@ -59801,8 +59801,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["8M"],
 			voltswitch: ["8M"],
 			watergun: ["8L5"],
-			zingzap: ["8L50"]
-		}
+			zingzap: ["8L50"],
+		},
 	},
 	snom: {
 		learnset: {
@@ -59820,8 +59820,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["8M"],
 			snore: ["8T"],
 			strugglebug: ["8L1"],
-			substitute: ["8M"]
-		}
+			substitute: ["8M"],
+		},
 	},
 	frosmoth: {
 		learnset: {
@@ -59876,8 +59876,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tripleaxel: ["8M"],
 			uturn: ["8M"],
 			weatherball: ["8T"],
-			wideguard: ["8L48"]
-		}
+			wideguard: ["8L48"],
+		},
 	},
 	stonjourner: {
 		learnset: {
@@ -59922,8 +59922,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			superpower: ["8M", "8T"],
 			toxic: ["8M"],
 			wideguard: ["8L48"],
-			wonderroom: ["8T"]
-		}
+			wonderroom: ["8T"],
+		},
 	},
 	eiscue: {
 		learnset: {
@@ -59970,8 +59970,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			weatherball: ["8L12", "8T"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	indeedee: {
 		learnset: {
@@ -60018,8 +60018,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["8T"],
 			trickroom: ["8M"],
 			wonderroom: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	indeedeef: {
 		learnset: {
@@ -60065,8 +60065,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			teleport: ["8M"],
 			toxic: ["8M"],
 			trick: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	morpeko: {
 		learnset: {
@@ -60132,8 +60132,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["8T"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zippyzap: ["8L65"]
-		}
+			zippyzap: ["8L65"],
+		},
 	},
 	cufant: {
 		learnset: {
@@ -60180,8 +60180,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			whirlwind: ["8E"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	copperajah: {
 		learnset: {
@@ -60238,8 +60238,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			toxic: ["8M"],
 			workup: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	dracozolt: {
 		learnset: {
@@ -60302,8 +60302,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thundershock: ["8L1"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	arctozolt: {
 		learnset: {
@@ -60362,8 +60362,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thundershock: ["8L1"],
 			thunderwave: ["8M"],
 			toxic: ["8M"],
-			wildcharge: ["8M"]
-		}
+			wildcharge: ["8M"],
+		},
 	},
 	dracovish: {
 		learnset: {
@@ -60417,8 +60417,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	arctovish: {
 		learnset: {
@@ -60468,8 +60468,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["8M"],
 			watergun: ["8L1"],
 			whirlpool: ["8T"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	duraludon: {
 		learnset: {
@@ -60527,8 +60527,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
 			thunderwave: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	dreepy: {
 		learnset: {
@@ -60555,8 +60555,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			suckerpunch: ["8E"],
 			thunderwave: ["8M"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	drakloak: {
 		learnset: {
@@ -60606,8 +60606,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8L36", "8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	dragapult: {
 		learnset: {
@@ -60669,8 +60669,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderwave: ["8M"],
 			toxic: ["8M"],
 			uturn: ["8L36", "8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	zacian: {
 		learnset: {
@@ -60722,13 +60722,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["8T"],
 			toxic: ["8M"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	zaciancrowned: {
 		learnset: {
-			behemothblade: ["8L33"]
-		}
+			behemothblade: ["8L33"],
+		},
 	},
 	zamazenta: {
 		learnset: {
@@ -60784,13 +60784,13 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			wideguard: ["8L1"],
 			wildcharge: ["8M"],
-			workup: ["8M"]
-		}
+			workup: ["8M"],
+		},
 	},
 	zamazentacrowned: {
 		learnset: {
-			behemothbash: ["8L33"]
-		}
+			behemothbash: ["8L33"],
+		},
 	},
 	eternatus: {
 		learnset: {
@@ -60833,8 +60833,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8L8"],
 			toxicspikes: ["8T"],
 			venomdrench: ["8T"],
-			venoshock: ["8L16", "8M"]
-		}
+			venoshock: ["8L16", "8M"],
+		},
 	},
 	kubfu: {
 		learnset: {
@@ -60880,8 +60880,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	urshifu: {
 		learnset: {
@@ -60931,8 +60931,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8M"],
 			wickedblow: ["8L0", "8L1"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	urshifurapidstrike: {
 		learnset: {
@@ -60982,8 +60982,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["8T"],
 			toxic: ["8M"],
 			uturn: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zarude: {
 		learnset: {
@@ -61034,8 +61034,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L48", "8M"],
 			vinewhip: ["8L12"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	zarudedada: {
 		learnset: {
@@ -61086,8 +61086,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			uturn: ["8L48", "8M"],
 			vinewhip: ["8L12"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	regieleki: {
 		learnset: {
@@ -61126,8 +61126,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8M"],
-			zapcannon: ["8L66"]
-		}
+			zapcannon: ["8L66"],
+		},
 	},
 	regidrago: {
 		learnset: {
@@ -61161,8 +61161,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thrash: ["8L54"],
 			toxic: ["8M"],
 			twister: ["8L1"],
-			visegrip: ["8L1"]
-		}
+			visegrip: ["8L1"],
+		},
 	},
 	glastrier: {
 		learnset: {
@@ -61205,8 +61205,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8L60", "8M"],
 			thrash: ["8L54"],
 			torment: ["8L24"],
-			toxic: ["8M"]
-		}
+			toxic: ["8M"],
+		},
 	},
 	spectrier: {
 		learnset: {
@@ -61244,8 +61244,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["8M"],
 			thrash: ["8L54"],
 			toxic: ["8M"],
-			willowisp: ["8M"]
-		}
+			willowisp: ["8M"],
+		},
 	},
 	calyrex: {
 		learnset: {
@@ -61287,8 +61287,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["8M"],
 			toxic: ["8M"],
 			trickroom: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	calyrexice: {
 		learnset: {
@@ -61350,8 +61350,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			torment: ["8L1"],
 			toxic: ["8M"],
 			trickroom: ["8M"],
-			zenheadbutt: ["8T"]
-		}
+			zenheadbutt: ["8T"],
+		},
 	},
 	calyrexshadow: {
 		learnset: {
@@ -61409,7 +61409,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			trickroom: ["8M"],
 			willowisp: ["8M"],
-			zenheadbutt: ["8T"]
-		}
-	}
+			zenheadbutt: ["8T"],
+		},
+	},
 };
