@@ -923,6 +923,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Electric"],
 		baseStats: {hp: 85, atk: 47, def: 75, spa: 90, spd: 85, spe: 100},
+		abilities: {0: "Prankster", 1: "Illuminate", H: "Prankster"},
 	},
 	illumise: {
 		inherit: true,

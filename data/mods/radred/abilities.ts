@@ -72,7 +72,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 			this.debug('Bull Rush attack boost');
-			return this.chainModify([5325, 4096]);
+			return this.chainModify([4915, 4096]);
 		},
 		onModifySpe(spe, pokemon) {
 			if (pokemon.activeMoveActions > 1) {

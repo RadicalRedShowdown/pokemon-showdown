@@ -43068,6 +43068,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["8M"],
 			snore: ["8T"],
 			substitute: ["8M"],
+			superpower: ["8M"],
 			swagger: ["8M"],
 			thunder: ["8M"],
 			thunderbolt: ["8M"],
