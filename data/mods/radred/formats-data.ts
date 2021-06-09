@@ -996,7 +996,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	laprasmega: {
 		randomBattleLevel: 86,
-		randomBattleMoves: ["boomburst", "dracometeor", "thunderbolt", "toxic", "freezedry", "wish", "protect"],
+		randomBattleMoves: ["boomburst", "dracometeor", "wish", "protect"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["boomburst", "dragonhammer", "irontail", "dragondance"],
 		tier: "UU",
