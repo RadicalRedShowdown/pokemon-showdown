@@ -9,6 +9,11 @@ interface SpeciesAbility {
 
 type SpeciesTag = "Mythical" | "Restricted Legendary" | "Sub-Legendary";
 
+interface SpeciesItems {
+	5: string;
+	50: string;
+}
+
 export interface SpeciesData extends Partial<Species> {
 	name: string;
 	/** National Dex number */
@@ -164,6 +169,8 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	readonly heightm: number;
 	/** Color. */
 	readonly color: string;
+	/** Wild Held Items */
+	readonly items: SpeciesItems;
 	/**
 	 * Tags, boolean data. Currently just legendary/mythical status.
 	 */
@@ -269,6 +276,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.weighthg = this.weightkg * 10;
 		this.heightm = data.heightm || 0;
 		this.color = data.color || '';
+		this.items = data.items || {5: "None", 50: "None"};
 		this.tags = data.tags || [];
 		this.unreleasedHidden = data.unreleasedHidden || false;
 		this.maleOnlyHidden = !!data.maleOnlyHidden;
