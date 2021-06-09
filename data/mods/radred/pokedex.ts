@@ -2501,7 +2501,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cursola: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 75, def: 50, spa: 145, spd: 130, spe: 40},
+		baseStats: {hp: 80, atk: 75, def: 50, spa: 145, spd: 130, spe: 55},
 		abilities: {0: "Weak Armor", 1: "Unburden", H: "Perish Body"},
 	},
 	sirfetchd: {

@@ -66,7 +66,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	bouncybubble: {
 		inherit: true,
 		pp: 5,
-		basePower: 95,
+		basePower: 90,
 		isNonstandard: null,
 	},
 	chargebeam: {
