@@ -647,6 +647,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 85,
 		basePower: 100,
 		pp: 5,
+		type: "Steel",
 	},
 	snipeshot: {
 		inherit: true,
