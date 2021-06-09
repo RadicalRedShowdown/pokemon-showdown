@@ -752,7 +752,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	houndoommega: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 110, def: 90, spa: 140, spd: 90, spe: 115},
-		abilities: {0: "Dark Aura", H: "Solar Power"},
+		abilities: {0: "Dark Aura", 1: "Solar Power", H: "Dark Aura"},
 	},
 	kingdra: {
 		inherit: true,
@@ -1073,7 +1073,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	absolmega: {
 		inherit: true,
 		types: ["Dark", "Fairy"],
-		abilities: {0: "Blademaster", H: "Magic Bounce"},
+		abilities: {0: "Magic Bounce", 1: "Blademaster", H: "Blademaster"},
 	},
 	snorunt: {
 		inherit: true,
@@ -1377,7 +1377,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gallademega: {
 		inherit: true,
 		baseStats: {hp: 68, atk: 165, def: 75, spa: 65, spd: 115, spe: 110},
-		abilities: {0: "Blademaster", H: "Inner Focus"},
+		abilities: {0: "Blademaster", 1: "Blademaster", H: "Inner Focus"},
 	},
 	probopass: {
 		inherit: true,
