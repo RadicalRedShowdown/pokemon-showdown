@@ -84,8 +84,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Bull Rush",
 		rating: 3.5,
 		gen: 8,
-		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.3x Attack boost.",
-		shortDesc: "On first turn out, 1.5x Speed and 1.3x Attack.",
+		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.2x Attack boost.",
+		shortDesc: "On first turn out, 1.5x Speed and 1.2x Attack.",
 	},
 	corrosion: {
 		inherit: true,
