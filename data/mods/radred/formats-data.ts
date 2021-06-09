@@ -3692,7 +3692,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["iciclecrash", "uturn", "flareblitz", "earthquake", "superpower"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["earthquake", "flareblitz", "iciclecrash", "rockslide", "superpower", "uturn"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	darmanitangalarzen: {
 		randomBattleLevel: 78,
@@ -4255,7 +4255,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["bulkup", "uturn", "closecombat", "knockoff", "return"],
 		randomDoubleBattleLevel: 83,
 		randomDoubleBattleMoves: ["bulkup", "closecombat", "return", "rockslide", "icepunch", "protect"],
-		tier: "UU",
+		tier: "Uber",
 	},
 	genesect: {
 		randomBattleLevel: 76,
@@ -5465,7 +5465,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["pyroball", "uturn", "gunkshot", "highjumpkick", "suckerpunch", "zenheadbutt", "bulkup"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["courtchange", "gunkshot", "highjumpkick", "protect", "pyroball", "suckerpunch", "uturn"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	cinderacegmax: {
 		isNonstandard: "Gigantamax",
