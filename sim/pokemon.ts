@@ -1309,6 +1309,8 @@ export class Pokemon {
 				const base = this.battle.dex.species.get(species.baseSpecies);
 				if (this.ability === toID(base.abilities['H']) && species.abilities['H']) {
 					this.setAbility(species.abilities['H'], null, true);
+				} else {
+					this.setAbility(species.abilities['0'], null, true);
 				}
 			} else {
 				this.setAbility(species.abilities['0'], null, true);
