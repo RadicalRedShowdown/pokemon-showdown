@@ -29,8 +29,8 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		move: "[POKEMON] used **[MOVE]**!",
 		abilityActivation: "[[POKEMON]'s [ABILITY]]",
 
-		mega: "  [POKEMON]'s [ITEM] is reacting to the Key Stone!",
-		megaNoItem: "  [POKEMON] is reacting to [TRAINER]'s Key Stone!",
+		mega: "  [POKEMON]'s [ITEM] is reacting to [TRAINER]'s Mega Ring!",
+		megaNoItem: "  [POKEMON] is reacting to [TRAINER]'s Mega Ring!",
 		megaGen6: "  [POKEMON]'s [ITEM] is reacting to [TRAINER]'s Mega Bracelet!",
 		transformMega: "[POKEMON] has Mega Evolved into Mega [SPECIES]!",
 		primal: "[POKEMON]'s Primal Reversion! It reverted to its primal state!",
