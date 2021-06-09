@@ -150,16 +150,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	raticate: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["frustration", "quickattack", "closecombat", "uturn"],
+		randomBattleMoves: ["return", "quickattack", "closecombat", "uturn"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["crunch", "facade", "protect", "stompingtantrum", "suckerpunch", "uturn"],
 		tier: "UU",
 	},
 	raticatealola: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["crunch", "closecombat", "frustration", "uturn"],
+		randomBattleMoves: ["crunch", "closecombat", "doubleedge", "return", "uturn"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["doubleedge", "knockoff", "protect", "suckerpunch", "uturn"],
+		randomDoubleBattleMoves: ["doubleedge", "return", "knockoff", "protect", "suckerpunch", "uturn"],
 		tier: "UU",
 	},
 	raticatealolatotem: {
@@ -3862,7 +3862,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sawsbuck: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["sunnyday", "frustration", "hornleech", "earthquake", "swordsdance"],
+		randomBattleMoves: ["sunnyday", "return", "hornleech", "earthquake", "swordsdance"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["hornleech", "jumpkick", "earthquake", "rockslide", "protect", "return", "swordsdance"],
 		tier: "UU",
@@ -5671,7 +5671,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	sandacondamega: {
 		randomBattleLevel: 83,
-		randomBattleMoves: ["coil", "glare", "earthquake", "frustration", "stealthrock", "skullbash", "stoneedge"],
+		randomBattleMoves: ["coil", "glare", "earthquake", "return", "stealthrock", "skullbash", "stoneedge"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["return", "highhorsepower", "rockslide", "coil", "protect"],
 		tier: "UU",
