@@ -322,7 +322,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	slowbromega: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 75, def: 180, spa: 130, spd: 80, spe: 30},
-		abilities: {0: "Regenerator", H: "Shell Armor"},
+		abilities: {0: "Regenerator", 1: "Regenerator", H: "Shell Armor"},
 	},
 	farfetchd: {
 		inherit: true,
