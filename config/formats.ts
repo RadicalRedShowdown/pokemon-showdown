@@ -94,9 +94,18 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] Anything Goes",
+		name: "[Gen 8] LC",
 		mod: 'radred',
-		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
+		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: [
+			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
+			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Scyther',
+			'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma',
+			// moves
+			'Baton Pass', 'Dragon Rage', 'Sonic Boom',
+			// items
+			'Leek Stick',
+		],
 	},
 	{
 		name: "[Gen 8] Monotype",
@@ -110,18 +119,9 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] LC",
+		name: "[Gen 8] Anything Goes",
 		mod: 'radred',
-		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: [
-			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
-			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Scyther',
-			'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma',
-			// moves
-			'Baton Pass', 'Dragon Rage', 'Sonic Boom',
-			// items
-			'Leek Stick',
-		],
+		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	{
 		name: "[Gen 8] Random Pool",
