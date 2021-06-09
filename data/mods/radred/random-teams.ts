@@ -772,19 +772,13 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Sweet Veil':
 			return types.has('Grass');
 		case 'Swift Swim':
-			if (isNoDynamax) {
-				const neverWantsSwim = !moves.has('raindance') && [
-					'Intimidate', 'Rock Head', 'Water Absorb',
-				].some(m => abilities.has(m));
-				const noSwimIfNoRain = !moves.has('raindance') && [
-					'Cloud Nine', 'Lightning Rod', 'Intimidate', 'Rock Head', 'Sturdy', 'Water Absorb', 'Weak Armor',
-				].some(m => abilities.has(m));
-				return teamDetails.rain ? neverWantsSwim : noSwimIfNoRain;
-			}
-			return (!moves.has('raindance') && (
-				['Intimidate', 'Rock Head', 'Slush Rush', 'Water Absorb'].some(abil => abilities.has(abil)) ||
-				(abilities.has('Lightning Rod') && !counter.setupType)
-			));
+			const neverWantsSwim = !moves.has('raindance') && [
+				'Intimidate', 'Rock Head', 'Water Absorb',
+			].some(m => abilities.has(m));
+			const noSwimIfNoRain = !moves.has('raindance') && [
+				'Cloud Nine', 'Lightning Rod', 'Intimidate', 'Rock Head', 'Sturdy', 'Water Absorb', 'Weak Armor', 'Technician'
+			].some(m => abilities.has(m));
+			return teamDetails.rain ? neverWantsSwim : noSwimIfNoRain;
 		case 'Synchronize':
 			return counter.get('Status') < 3;
 		case 'Technician':

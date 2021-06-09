@@ -4251,9 +4251,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	meloettapirouette: {
-		randomBattleLevel: 83,
+		randomBattleLevel: 80,
 		randomBattleMoves: ["bulkup", "uturn", "closecombat", "knockoff", "return"],
-		randomDoubleBattleLevel: 83,
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["bulkup", "closecombat", "return", "rockslide", "icepunch", "protect"],
 		tier: "Uber",
 	},
