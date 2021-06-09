@@ -504,6 +504,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Surprise!",
 		rating: 2,
 		gen: 8,
+		desc: "When this Pokemon enters the field, it activates one of the following effects: +1 Attack, +1 Speed, Hail, Intimidate, or Slow Start.",
 		shortDesc: "Random effect on switch-in.",
 	},
 	toxicboost: {
