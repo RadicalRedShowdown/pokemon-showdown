@@ -1294,10 +1294,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 108, atk: 170, def: 105, spa: 120, spd: 95, spe: 102}
 	},
-	lucariomega: {
-		inherit: true,
-		baseStats: {hp: 70, atk: 135, def: 88, spa: 140, spd: 70, spe: 112}
-	},
 	skorupi: {
 		inherit: true,
 		abilities: {0: "Battle Armor", 1: "Sniper", H: "Frisk"},
