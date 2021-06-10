@@ -3507,6 +3507,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Mineral", "Dragon"],
 		requiredItem: "Duraludonite",
 	},
+	/*
 	eternatuseternamax: {
 		num: 890,
 		name: "Eternatus-Eternamax",
@@ -3523,6 +3524,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		isPrimal: true,
 		requiredItem: "Eternamax Orb",
 	},
+	*/
 	urshifu: {
 		inherit: true,
 		evoType: "useItem",

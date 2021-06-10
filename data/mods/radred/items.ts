@@ -709,7 +709,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		isNonstandard: "Unobtainable",
 	},
 
-	// rr items
+	// RR items
 	leekstick: {
 		name: "Leek Stick",
 		fling: {
@@ -739,6 +739,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 30,
 		},
+		spritenum: 67,
 		gen: 8,
 		desc: "Evolves Pokemon that would normally be evolved via trade.",
 	},
@@ -963,4 +964,25 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Alcremie, this item allows it to Mega Evolve in battle.",
 	},
+	/*
+	eternamaxorb: {
+		name: "Eternamax Orb",
+		spritenum: 515,
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Eternatus') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Eternatus-Eternamax', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Eternatus') return false;
+			return true;
+		},
+		itemUser: ["Eternatus"],
+		gen: 8,
+		desc: "If held by a Eternatus, this item triggers its Primal Reversion in battle.",
+	},
+	*/
 };
