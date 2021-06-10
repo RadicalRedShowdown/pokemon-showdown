@@ -572,7 +572,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 82,
 		randomBattleMoves: ["scald", "sludgebomb", "rapidspin", "knockoff", "haze", "nastyplot", "icebeam", "flipturn"],
 		randomDoubleBattleLevel: 82,
-		randomDoubleBattleMoves: ["acidspray", "icywind", "knockoff", "bouncybubble", "flipturn", "rapidspin", "sludgebomb"],
+		randomDoubleBattleMoves: ["acidspray", "icywind", "knockoff", "scald", "flipturn", "rapidspin", "sludgebomb"],
 		tier: "UU",
 	},
 	geodude: {
@@ -2168,9 +2168,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	wailord: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["waterspout", "bouncybubble", "icebeam", "hiddenpowergrass", "scald", "toxic", "rest", "sleeptalk"],
+		randomBattleMoves: ["waterspout", "bouncybubble", "icebeam", "hiddenpowergrass", "toxic", "rest", "sleeptalk"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["bouncybubble", "hypervoice", "icebeam", "waterspout"],
+		randomDoubleBattleMoves: ["bouncybubble", "hypervoice", "icebeam", "waterspout", "focusblast"],
 		tier: "UU",
 	},
 	numel: {
@@ -2337,9 +2337,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	milotic: {
 		randomBattleLevel: 84,
-		randomBattleMoves: ["scald", "recover", "toxic", "icebeam", "haze", "flipturn"],
+		randomBattleMoves: ["bouncybubble", "recover", "toxic", "icebeam", "haze", "flipturn"],
 		randomDoubleBattleLevel: 84,
-		randomDoubleBattleMoves: ["coil", "hypnosis", "muddywater", "recover"],
+		randomDoubleBattleMoves: ["coil", "hypnosis", "bouncybubble", "icebeam", "recover"],
 		tier: "UU",
 	},
 	castform: {
@@ -2731,9 +2731,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	luxray: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["suckerpunch", "superpower", "zippyzap", "facade", "crunch", "icefang", "agility", "voltswitch"],
+		randomBattleMoves: ["suckerpunch", "superpower", "zingzap", "facade", "crunch", "icefang", "agility", "voltswitch"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["zippyzap", "crunch", "playrough", "protect", "superpower"],
+		randomDoubleBattleMoves: ["zingzap", "crunch", "playrough", "protect", "superpower"],
 		tier: "UU",
 	},
 	budew: {
@@ -3504,9 +3504,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	zebstrika: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["thunderbolt", "flamethrower", "hiddenpowerice", "voltswitch", "hiddenpowergrass"],
+		randomBattleMoves: ["overheat", "zippyzap", "boltstrike", "hiddenpowergrass", "hiddenpowerice"],
 		randomDoubleBattleLevel: 88,
-		randomDoubleBattleMoves: ["hiddenpowergrass", "overheat", "protect", "voltswitch", "boltstrike"],
+		randomDoubleBattleMoves: ["overheat", "zippyzap", "boltstrike", "hiddenpowergrass", "hiddenpowerice"],
 		tier: "UU",
 	},
 	roggenrola: {
@@ -5427,7 +5427,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	meltan: {
-		tier: "UU",
+		tier: "NFE",
 	},
 	melmetal: {
 		randomBattleLevel: 82,
