@@ -221,9 +221,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return {cull: movePool.includes('protect') || movePool.includes('wish')};
 		case 'fireblast':
 			// Special case for Togekiss, which always wants Aura Sphere
-			return {cull: 
+			return {cull:
 				(abilities.has('Serene Grace') && (!moves.has('trick') || counter.get('Status') > 1)) ||
-				(isDoubles && moves.has('heatwave'))
+				(isDoubles && moves.has('heatwave')),
 			};
 		case 'firepunch':
 			// Special case for Darmanitan-Zen-Galar, which doesn't always want Fire Punch
