@@ -119,15 +119,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
-			for (const side of this.sides) {
-				for (const active of side.active) {
-					active.switchFlag = false;
+			if (pokemon.hp && pokemon.getUndynamaxedHP() <= pokemon.maxhp / 2) {
+				if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
+				for (const side of this.sides) {
+					for (const active of side.active) {
+						active.switchFlag = false;
+					}
 				}
+				pokemon.switchFlag = true;
+				this.add('-activate', pokemon, 'ability: Emergency Exit');
 			}
-			pokemon.switchFlag = true;
-			this.add('-activate', pokemon, 'ability: Emergency Exit');
-		},
+		},	
 		onEmergencyExit() {},
 		desc: "At the end of the turn, if this Pokemon has less than 1/2 of its maximum HP, it switches out to a chosen ally.",
 		shortDesc: "If this Pokemon is below 1/2 HP at the end of the turn, it switches out.",
