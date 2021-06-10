@@ -6518,7 +6518,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			barrier: ["8L28"],
 			bind: ["8T"],
 			blizzard: ["8M"],
-			bouncybubble: ["8L73"],
 			brine: ["8L36"],
 			brutalswing: ["8M"],
 			bubblebeam: ["8L25"],
@@ -26251,6 +26250,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			bind: ["8T"],
 			blizzard: ["8M"],
 			bodyslam: ["8T"],
+			bouncybubble: ["8L70"],
 			breakingswipe: ["8T"],
 			brutalswing: ["8M"],
 			bulldoze: ["8M"],
@@ -30011,7 +30011,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			volttackle: ["8L63"],
 			wildcharge: ["8M"],
 			zingzap: ["8L56"],
-			zippyzap: ["8L77"],
 		},
 	},
 	budew: {
@@ -38142,6 +38141,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["8M"],
 			voltswitch: ["8M"],
 			wildcharge: ["8L47", "8M"],
+			zippyzap: ["8L58"],
 		},
 	},
 	roggenrola: {
