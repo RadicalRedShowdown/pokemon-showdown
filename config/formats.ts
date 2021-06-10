@@ -130,12 +130,13 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Incineroar', 'Primarina', 'Decidueye'];
+			const pool = ['Wailord', 'Gengar', 'Darmanitan-Zen', 'Decidueye', 'Muk-Alola'];
 			let fromPool = 0;
 			let stones = 0;
 			for (const set of team) {
 				const item = this.dex.items.get(set.item);
-				const species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
+				let species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
+				if (species === 'Darmanitan' && set.ability === 'Zen Mode') species = 'Darmanitan-Zen';
 				if (item.megaStone) stones++;
 				if (pool.includes(species)) fromPool++;
 			}
