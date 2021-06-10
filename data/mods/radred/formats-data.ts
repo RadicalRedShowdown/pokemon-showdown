@@ -5416,7 +5416,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 81,
 		randomBattleMoves: ["fireblast", "shadowball", "trick", "scorchingsands", "psyshock", "calmmind"],
 		randomDoubleBattleLevel: 81,
-		randomDoubleBattleMoves: ["fireblast", "protect", "psyshock", "scorchingsangs", "shadowball", "trick"],
+		randomDoubleBattleMoves: ["fireblast", "protect", "psyshock", "scorchingsands", "shadowball", "trick"],
 		tier: "UU",
 	},
 	zeraora: {
