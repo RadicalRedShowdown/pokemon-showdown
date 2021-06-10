@@ -918,7 +918,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mrmime: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["psychic", "sparklyswirl", "trick", "mistyexplosion", "healingwish", "nastyplot", "focusblast"],
+		randomBattleMoves: ["psychic", "sparklyswirl", "trick", "mistyexplosion", "nastyplot", "focusblast"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["sparklyswirl", "fakeout", "icywind", "lightscreen", "psychic", "reflect"],
 		tier: "UU",
@@ -1920,14 +1920,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	gardevoir: {
 		randomBattleLevel: 84,
-		randomBattleMoves: ["moonblast", "psyshock", "focusblast", "shadowball", "trick", "mysticalfire", "healingwish"],
+		randomBattleMoves: ["moonblast", "psyshock", "focusblast", "shadowball", "trick", "mysticalfire"],
 		randomDoubleBattleLevel: 84,
 		randomDoubleBattleMoves: ["calmmind", "dazzlinggleam", "moonblast", "mysticalfire", "protect", "psyshock", "trick"],
 		tier: "UU",
 	},
 	gardevoirmega: {
 		randomBattleLevel: 81,
-		randomBattleMoves: ["calmmind", "hypervoice", "psyshock", "focusblast", "mysticalfire", "willowisp", "healingwish"],
+		randomBattleMoves: ["calmmind", "hypervoice", "psyshock", "focusblast", "mysticalfire", "willowisp"],
 		randomDoubleBattleLevel: 81,
 		randomDoubleBattleMoves: ["calmmind", "focusblast", "hypervoice", "protect", "psyshock"],
 		tier: "UU",
@@ -2829,12 +2829,15 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	cherrim: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["sunnyday", "swordsdance", "gravapple", "playrough", "healingwish", "hiddenpowerice"],
+		randomBattleMoves: ["sunnyday", "swordsdance", "gravapple", "playrough", "hiddenpowerice"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["aromatherapy", "energyball", "helpinghand", "pollenpuff", "protect"],
 		tier: "UU",
 	},
-	cherrimsunshine: {},
+	cherrimsunshine: {
+		randomDoubleBattleLevel: 90,
+		randomDoubleBattleMoves: ["playrough", "solarblade", "sunnyday", "weatherball"],
+	},
 	shellos: {
 		tier: "LC",
 	},
@@ -5166,7 +5169,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	minior: {
 		randomBattleLevel: 86,
-		randomBattleMoves: ["shellsmash", "stoneedge", "earthquake", "acrobatics", "explosion"],
+		randomBattleMoves: ["shellsmash", "stoneedge", "earthquake", "acrobatics"],
 		randomDoubleBattleLevel: 86,
 		randomDoubleBattleMoves: ["acrobatics", "earthquake", "powergem", "protect", "shellsmash"],
 		tier: "UU",
@@ -5411,14 +5414,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	blacephalon: {
 		randomBattleLevel: 81,
-		randomBattleMoves: ["fireblast", "shadowball", "trick", "explosion", "scorchingsands", "calmmind", "substitute", "flamethrower", "flamecharge"],
+		randomBattleMoves: ["fireblast", "shadowball", "trick", "scorchingsands", "psyshock", "calmmind"],
 		randomDoubleBattleLevel: 81,
-		randomDoubleBattleMoves: ["fireblast", "protect", "psyshock", "shadowball", "trick"],
+		randomDoubleBattleMoves: ["fireblast", "protect", "psyshock", "scorchingsangs", "shadowball", "trick"],
 		tier: "UU",
 	},
 	zeraora: {
 		randomBattleLevel: 80,
-		randomBattleMoves: ["plasmafists", "knockoff", "voltswitch", "closecombat", "toxic", "grassknot", "playrough", "bulkup"],
+		randomBattleMoves: ["plasmafists", "knockoff", "voltswitch", "closecombat", "grassknot", "playrough", "bulkup"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["closecombat", "fakeout", "grassknot", "knockoff", "plasmafists", "playrough", "snarl"],
 		tier: "UU",
@@ -5839,7 +5842,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	mrrime: {
 		randomBattleLevel: 88,
-		randomBattleMoves: ["rapidspin", "freezedry", "freezyfrost", "psychic", "focusblast", "healingwish", "slackoff", "toxic"],
+		randomBattleMoves: ["rapidspin", "freezedry", "freezyfrost", "psychic", "focusblast", "slackoff", "toxic"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["fakeout", "focusblast", "freezedry", "freezyfrost", "icywind", "protect", "psychic", "rapidspin"],
 		tier: "UU",
@@ -5958,7 +5961,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracozolt: {
 		randomBattleLevel: 81,
-		randomBattleMoves: ["boltbeak", "outrage", "earthquake", "toxic", "dracometeor", "fireblast"],
+		randomBattleMoves: ["boltbeak", "outrage", "earthquake", "dracometeor", "fireblast"],
 		randomDoubleBattleLevel: 81,
 		randomDoubleBattleMoves: ["aerialace", "boltbeak", "dragonclaw", "highhorsepower", "rockslide"],
 		tier: "UU",
@@ -5972,7 +5975,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	},
 	dracovish: {
 		randomBattleLevel: 76,
-		randomBattleMoves: ["fishiousrend", "toxic", "crunch", "psychicfangs", "outrage"],
+		randomBattleMoves: ["fishiousrend", "crunch", "psychicfangs", "outrage", "lowkick", "icefang"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["crunch", "dragonrush", "fishiousrend", "icefang", "psychicfangs"],
 		tier: "Uber",

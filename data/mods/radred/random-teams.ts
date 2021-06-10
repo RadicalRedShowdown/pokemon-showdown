@@ -192,7 +192,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
-		isNoDynamax: boolean,
 	): {cull: boolean, isSetup?: boolean} {
 		if (isDoubles && species.baseStats.def >= 140 && movePool.includes('bodypress')) {
 			// In Doubles, Pokémon with Defense stats >= 140 should always have body press
@@ -566,7 +565,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'suckerpunch':
 			return {cull:
 				// Shiftry in No Dynamax would otherwise get Choice Scarf Sucker Punch sometimes.
-				(isNoDynamax && species.id === 'shiftry' && moves.has('defog')) ||
+				(species.id === 'shiftry' && moves.has('defog')) ||
 				moves.has('rest') ||
 				counter.damagingMoves.size < 2 ||
 				(counter.setupType === 'Special') ||
@@ -640,7 +639,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
 		isDoubles: boolean,
-		isNoDynamax: boolean
 	): boolean {
 		if ([
 			'Hydration', 'Ice Body', 'Innards Out', 'Insomnia', 'Misty Surge',
@@ -661,7 +659,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Chlorophyll':
 			return (species.baseStats.spe > 100 || !counter.get('Fire') && !moves.has('sunnyday') && !teamDetails.sun);
 		case 'Cloud Nine':
-			return (!isNoDynamax || species.id !== 'golduck');
+			return (species.id !== 'golduck');
 		case 'Competitive':
 			return (counter.get('Special') < 2 || (moves.has('rest') && moves.has('sleeptalk')));
 		case 'Compound Eyes': case 'No Guard':
@@ -694,7 +692,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Justified':
 			return (isDoubles && abilities.has('Inner Focus'));
 		case 'Lightning Rod':
-			return (species.types.includes('Ground') || (!isNoDynamax && counter.setupType === 'Physical'));
+			return (species.types.includes('Ground') || counter.setupType === 'Physical');
 		case 'Limber':
 			return species.types.includes('Electric') || moves.has('facade');
 		case 'Liquid Voice':
@@ -729,10 +727,8 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			return !counter.get('recoil') || moves.has('curse');
 		case 'Rock Head':
 			return !counter.get('recoil');
-		case 'Sand Force': case 'Sand Veil':
+		case 'Sand Force': case 'Sand Veil': case 'Sand Rush':
 			return !teamDetails.sand;
-		case 'Sand Rush':
-			return (!teamDetails.sand && (isNoDynamax || !counter.setupType || !counter.get('Rock') || moves.has('rapidspin')));
 		case 'Sap Sipper':
 			// For Drampa, which wants Berserk with Roost
 			return moves.has('roost');
@@ -755,16 +751,15 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// Inteleon wants Torrent unless it is Gmax
 			return (species.name === 'Inteleon' || (counter.get('Water') > 1 && !moves.has('focusenergy')));
 		case 'Solar Power':
-			return (isNoDynamax && !teamDetails.sun);
+			return !teamDetails.sun;
 		case 'Speed Boost':
-			return (isNoDynamax && species.id === 'ninjask');
+			return (species.id === 'ninjask');
 		case 'Steely Spirit':
 			return (moves.has('fakeout') && !isDoubles);
 		case 'Sturdy':
 			return (
 				moves.has('bulkup') ||
 				!!counter.get('recoil') ||
-				(!isNoDynamax && abilities.has('Solid Rock')) ||
 				abilities.has('Technician')
 			);
 		case 'Swarm':
@@ -818,7 +813,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		case 'Weak Armor':
 			// The Speed less than 50 case is intended for Cursola, but could apply to any slow Pokémon.
 			return (
-				(!isNoDynamax && species.baseStats.spe > 50) ||
+				species.baseStats.spe > 50 ||
 				species.id === 'skarmory' ||
 				moves.has('shellsmash') || moves.has('rapidspin')
 			);
@@ -998,7 +993,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
-		isNoDynamax: boolean
 	): string | undefined {
 		const defensiveStatTotal = species.baseStats.hp + species.baseStats.def + species.baseStats.spd;
 
@@ -1011,8 +1005,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			const scarfReqs = (
 				(species.baseStats.atk >= 100 || ability === 'Huge Power') &&
 				species.baseStats.spe >= 60 && species.baseStats.spe <= 108 &&
-				ability !== 'Speed Boost' && !counter.get('priority') &&
-				(isNoDynamax || ['bounce', 'dualwingbeat'].every(m => !moves.has(m)))
+				ability !== 'Speed Boost' && !counter.get('priority')
 			);
 			return (scarfReqs && this.randomChance(2, 3)) ? 'Choice Scarf' : 'Choice Band';
 		}
@@ -1075,7 +1068,6 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
-		isNoDynamax: boolean
 	): string | undefined {
 		const defensiveStatTotal = species.baseStats.hp + species.baseStats.def + species.baseStats.spd;
 
@@ -1114,7 +1106,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			['foulplay', 'rapidspin', 'substitute', 'uturn'].every(m => !moves.has(m)) && (
 				counter.get('speedsetup') ||
 				// No Dynamax Buzzwole doesn't want Life Orb with Bulk Up + 3 attacks
-				(counter.get('drain') && (!isNoDynamax || species.id !== 'buzzwole' || moves.has('roost'))) ||
+				(counter.get('drain') && (species.id !== 'buzzwole' || moves.has('roost'))) ||
 				moves.has('trickroom') || moves.has('psystrike') ||
 				(species.baseStats.spe > 40 && defensiveStatTotal < 275)
 			)
@@ -1142,8 +1134,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 		species: string | Species,
 		teamDetails: RandomTeamsTypes.TeamDetails = {},
 		isLead = false,
-		isDoubles = false,
-		isNoDynamax = false
+		isDoubles = false
 	): RandomTeamsTypes.RandomSet {
 		species = this.dex.species.get(species);
 		let forme = species.name;
@@ -1232,7 +1223,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 
 				let {cull, isSetup} = this.shouldCullMove(
 					move, types, moves, abilities, counter,
-					movePool, teamDetails, species, isLead, isDoubles, isNoDynamax
+					movePool, teamDetails, species, isLead, isDoubles
 				);
 
 				if (move.id !== 'photongeyser' && (
@@ -1360,7 +1351,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			let rejectAbility = false;
 			do {
 				rejectAbility = this.shouldCullAbility(
-					ability, types, moves, abilities, counter, movePool, teamDetails, species, isDoubles, isNoDynamax
+					ability, types, moves, abilities, counter, movePool, teamDetails, species, isDoubles
 				);
 
 				if (rejectAbility) {
@@ -1422,11 +1413,11 @@ export class RandomRadicalRedTeams extends RandomTeams {
 				item = this.getDoublesItem(ability, types, moves, abilities, counter, teamDetails, species);
 			}
 			if (item === undefined) {
-				item = this.getMediumPriorityItem(ability, moves, counter, species, isLead, isDoubles, isNoDynamax);
+				item = this.getMediumPriorityItem(ability, moves, counter, species, isLead, isDoubles);
 			}
 			if (item === undefined) {
 				item = this.getLowPriorityItem(
-					ability, types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, isNoDynamax
+					ability, types, moves, abilities, counter, teamDetails, species, isLead, isDoubles
 				);
 			}
 
@@ -1571,6 +1562,9 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			case 'Arceus': case 'Silvally':
 				if (this.randomChance(8, 9) && !isMonotype) continue;
 				break;
+			case 'Pikachu':
+				if (this.randomChance(5, 6)) continue;
+				break;
 			case 'Oricorio':
 				if (this.randomChance(3, 4)) continue;
 				break;
@@ -1580,7 +1574,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			case 'Necrozma': case 'Calyrex':
 				if (this.randomChance(2, 3)) continue;
 				break;
-			case 'Zacian': case 'Zamazenta':
+			case 'Zacian': case 'Zamazenta': case 'Eternatus':
 			case 'Urshifu': case 'Giratina': case 'Genesect':
 			case 'Kyogre': case 'Groudon': case 'Dialga':
 			case 'Aegislash': case 'Basculin': case 'Gourgeist':
@@ -1644,8 +1638,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 			// The Pokemon of the Day
 			if (potd?.exists && (pokemon.length === 1 || this.maxTeamSize === 1)) species = potd;
 
-			const set = this.randomSet(species, teamDetails, pokemon.length === 0,
-				this.format.gameType !== 'singles', this.dex.formats.getRuleTable(this.format).has('dynamaxclause'));
+			const set = this.randomSet(species, teamDetails, pokemon.length === 0, this.format.gameType !== 'singles');
 
 			const item = this.dex.items.get(set.item);
 
