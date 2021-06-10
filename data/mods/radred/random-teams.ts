@@ -774,7 +774,7 @@ export class RandomRadicalRedTeams extends RandomTeams {
 				'Intimidate', 'Rock Head', 'Water Absorb',
 			].some(m => abilities.has(m));
 			const noSwimIfNoRain = !moves.has('raindance') && [
-				'Cloud Nine', 'Lightning Rod', 'Intimidate', 'Rock Head', 'Sturdy', 'Water Absorb', 'Weak Armor', 'Technician'
+				'Cloud Nine', 'Lightning Rod', 'Intimidate', 'Rock Head', 'Sturdy', 'Water Absorb', 'Weak Armor',
 			].some(m => abilities.has(m));
 			return teamDetails.rain ? neverWantsSwim : noSwimIfNoRain;
 		case 'Synchronize':
