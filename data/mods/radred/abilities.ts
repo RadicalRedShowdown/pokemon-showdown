@@ -129,7 +129,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.switchFlag = true;
 				this.add('-activate', pokemon, 'ability: Emergency Exit');
 			}
-		},	
+		},
 		onEmergencyExit() {},
 		desc: "At the end of the turn, if this Pokemon has less than 1/2 of its maximum HP, it switches out to a chosen ally.",
 		shortDesc: "If this Pokemon is below 1/2 HP at the end of the turn, it switches out.",
@@ -557,6 +557,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.transformed = true;
 			}
 		},
+		onEnd() {},
 		isPermanent: true,
 		name: "Zen Mode",
 		rating: 0,
