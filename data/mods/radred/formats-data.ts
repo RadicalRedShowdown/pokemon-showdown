@@ -4901,7 +4901,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["toxicspikes", "knockoff", "scald", "banefulbunker", "haze", "recover"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["banefulbunker", "haze", "scald", "toxic", "toxicspikes", "recover"],
-		tier: "UU",
+		tier: "UUBL",
 	},
 	mudbray: {
 		tier: "LC",
