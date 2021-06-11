@@ -2317,7 +2317,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	yamaskgalar: {
 		inherit: true,
-		abilities: {0: "Wandering Spirit", H: "Shadow Shield"},
+		abilities: {0: "Mummy", H: "Shadow Shield"},
 	},
 	cofagrigus: {
 		inherit: true,
@@ -3366,7 +3366,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	runerigus: {
 		inherit: true,
-		abilities: {0: "Wandering Spirit", H: "Shadow Shield"},
+		abilities: {0: "Mummy", H: "Shadow Shield"},
 		evoType: null,
 		evoLevel: 35,
 		evoCondition: "",
