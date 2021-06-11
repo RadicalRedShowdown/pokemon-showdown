@@ -554,11 +554,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 			if (!pokemon.species.name.includes('Galar')) {
-				if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen', undefined, true);
-				pokemon.transformed = true;
+				if (pokemon.species.id !== 'darmanitanzen') {
+					this.add('-activate', pokemon, 'ability: Zen Mode');
+					pokemon.formeChange('Darmanitan-Zen', this.effect, true);
+				}
 			} else {
-				if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen', undefined, true);
-				pokemon.transformed = true;
+				if (pokemon.species.id !== 'darmanitangalarzen') {
+					this.add('-activate', pokemon, 'ability: Zen Mode');
+					pokemon.formeChange('Darmanitan-Galar-Zen', this.effect, true);
+				}
 			}
 		},
 		isPermanent: true,
