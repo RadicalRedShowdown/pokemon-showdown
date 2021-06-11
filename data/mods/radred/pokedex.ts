@@ -424,7 +424,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	geodudealola: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Magnet Pull", H: "Galvanize"},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Galvanize"},
 	},
 	graveler: {
 		inherit: true,
@@ -432,7 +432,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	graveleralola: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Magnet Pull", H: "Galvanize"},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Galvanize"},
 		items: {5: "everstone", 50: "Weakness Policy"},
 	},
 	golem: {
