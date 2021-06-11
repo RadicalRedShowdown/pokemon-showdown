@@ -115,11 +115,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "While this Pokemon has 1/3 or less of its max HP, its Attack and Sp. Atk are halved.",
 	},
 	emergencyexit: {
-		inherit: true,
+		onBeforeTurn(pokemon) {
+			pokemon.abilityState.originalHP = pokemon.hp;
+		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.hp && pokemon.getUndynamaxedHP() <= pokemon.maxhp / 2) {
+			if (pokemon.hp && pokemon.getUndynamaxedHP() <= pokemon.abilityState.originalHP / 2) {
 				if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
 				for (const side of this.sides) {
 					for (const active of side.active) {
@@ -130,7 +132,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				this.add('-activate', pokemon, 'ability: Emergency Exit');
 			}
 		},
-		onEmergencyExit() {},
+		name: "Emergency Exit",
+		rating: 1,
+		num: 194,
 		desc: "At the end of the turn, if this Pokemon has less than 1/2 of its maximum HP, it switches out to a chosen ally.",
 		shortDesc: "If this Pokemon is below 1/2 HP at the end of the turn, it switches out.",
 	},
@@ -557,7 +561,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.transformed = true;
 			}
 		},
-		onEnd() {},
 		isPermanent: true,
 		name: "Zen Mode",
 		rating: 0,
