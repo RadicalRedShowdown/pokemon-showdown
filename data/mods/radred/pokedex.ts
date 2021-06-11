@@ -3267,7 +3267,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: 849,
 		name: "Toxtricity-Low-Key-Mega",
 		baseSpecies: "Toxtricity-Low-Key",
-		forme: "Low-Key-Mega",
+		forme: "Mega",
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 155, spd: 80, spe: 111},
 		abilities: {0: "Punk Rock"},
@@ -3275,7 +3275,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 		color: "Purple",
 		eggGroups: ["Human-Like"],
-		isMega: true,
 		requiredItem: "Toxtricitite",
 	},
 	toxtricitymega: {
