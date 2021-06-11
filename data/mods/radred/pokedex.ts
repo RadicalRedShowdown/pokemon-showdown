@@ -822,6 +822,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		types: ["Bug", "Fighting"],
 		baseStats: {hp: 55, atk: 90, def: 50, spa: 35, spd: 100, spe: 85},
+		abilities: {0: "Swarm", 1: "Iron Fist"},
 		evoLevel: 16,
 	},
 	ariados: {
@@ -3263,10 +3264,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		otherFormes: ["Toxtricity-Mega", "Toxtricity-Low-Key", "Toxtricity-Low-Key-Mega"],
 		formeOrder: ["Toxtricity", "Toxtricity-Mega"],
 	},
-	toxtricitylowkeymega: {
+	toxtricitymega: {
 		num: 849,
-		name: "Toxtricity-Low-Key-Mega",
-		baseSpecies: "Toxtricity-Low-Key",
+		name: "Toxtricity-Mega",
+		baseSpecies: "Toxtricity",
 		forme: "Mega",
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 155, spd: 80, spe: 111},
@@ -3277,10 +3278,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		eggGroups: ["Human-Like"],
 		requiredItem: "Toxtricitite",
 	},
-	toxtricitymega: {
+	toxtricitylowkeymega: {
 		num: 849,
-		name: "Toxtricity-Mega",
-		baseSpecies: "Toxtricity",
+		name: "Toxtricity-Low-Key-Mega",
+		baseSpecies: "Toxtricity-Low-Key",
 		forme: "Mega",
 		types: ["Electric", "Poison"],
 		baseStats: {hp: 75, atk: 120, def: 80, spa: 155, spd: 80, spe: 111},
