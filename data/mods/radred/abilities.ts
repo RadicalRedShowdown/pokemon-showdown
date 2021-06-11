@@ -545,8 +545,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		desc: "This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move; Reduces water damage by 50%.",
-		shortDesc: "Raises defense by 2 stages when damaged by water-type move; Reduces water damage by 50%.",
+		desc: "This Pokemon takes 50% less damage from Water-type moves, and its Defense is raised 2 stages after it is hit by one.",
+		shortDesc: "Reduces water damage by 50%; +2 def when hit by water move.",
 	},
 	zenmode: {
 		onStart(pokemon) {
