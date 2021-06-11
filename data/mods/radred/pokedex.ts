@@ -51,16 +51,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pidgey: {
 		inherit: true,
-		abilities: {0: "Tangled Feet", H: "Frisk"},
+		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Frisk"},
 	},
 	pidgeotto: {
 		inherit: true,
-		abilities: {0: "Tangled Feet", H: "Frisk"},
+		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Frisk"},
 		evoLevel: 16,
 	},
 	pidgeot: {
 		inherit: true,
-		abilities: {0: "Tangled Feet", H: "Frisk"},
+		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Frisk"},
 	},
 	rattata: {
 		inherit: true,
