@@ -1653,12 +1653,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	kricketot: {
 		inherit: true,
 		baseStats: {hp: 37, atk: 40, def: 41, spa: 40, spd: 41, spe: 25},
-		abilities: {0: "Technician", H: "Run Away"},
+		abilities: {0: "Technician"},
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	kricketune: {
 		inherit: true,
 		baseStats: {hp: 77, atk: 95, def: 71, spa: 55, spd: 71, spe: 80},
+		abilities: {0: "Technician"},
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	luxray: {
