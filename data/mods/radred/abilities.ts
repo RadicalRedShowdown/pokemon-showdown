@@ -121,7 +121,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (pokemon.hp && pokemon.getUndynamaxedHP() <= pokemon.abilityState.originalHP / 2) {
+			if (pokemon.hp <= pokemon.maxhp / 2 && pokemon.abilityState.originalHP > pokemon.maxhp / 2) {
 				if (!this.canSwitch(pokemon.side) || pokemon.forceSwitchFlag || pokemon.switchFlag) return;
 				for (const side of this.sides) {
 					for (const active of side.active) {
