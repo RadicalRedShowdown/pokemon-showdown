@@ -73,11 +73,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	raticate: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 91, def: 60, spa: 50, spd: 70, spe: 97},
+		evoLevel: 16,
 		items: {5: "Chilan Berry", 50: "None"},
 	},
 	raticatealola: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 86, def: 70, spa: 40, spd: 80, spe: 77},
+		evoLevel: 16,
 		items: {5: "Pecha Berry", 50: "None"},
 	},
 	spearow: {
@@ -428,25 +430,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	graveler: {
 		inherit: true,
-		items: {5: "everstone", 50: "Weakness Policy"},
+		items: {5: "Everstone", 50: "Weakness Policy"},
 	},
 	graveleralola: {
 		inherit: true,
 		abilities: {0: "Rock Head", 1: "Sturdy", H: "Galvanize"},
-		items: {5: "everstone", 50: "Weakness Policy"},
+		items: {5: "Everstone", 50: "Weakness Policy"},
 	},
 	golem: {
 		inherit: true,
 		evoType: "useItem",
 		evoItem: "Link Cable",
-		items: {5: "everstone", 50: "Weakness Policy"},
+		items: {5: "Everstone", 50: "Weakness Policy"},
 	},
 	golemalola: {
 		inherit: true,
 		abilities: {0: "Rock Head", 1: "Magnet Pull", H: "Galvanize"},
 		evoType: "useItem",
 		evoItem: "Link Cable",
-		items: {5: "everstone", 50: "Weakness Policy"},
+		items: {5: "Everstone", 50: "Weakness Policy"},
 	},
 	ponytagalar: {
 		inherit: true,
@@ -813,6 +815,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 110, atk: 50, def: 50, spa: 86, spd: 96, spe: 70},
 		abilities: {0: "Insomnia", 1: "Frisk", H: "Tinted Lens"},
+		evoLevel: 16,
 	},
 	ledyba: {
 		inherit: true,
@@ -829,11 +832,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 60, spd: 70, spe: 70},
 		abilities: {0: "Swarm", 1: "No Guard", H: "Sniper"},
+		evoLevel: 16,
 	},
 	crobat: {
 		inherit: true,
 		baseStats: {hp: 85, atk: 90, def: 80, spa: 90, spd: 80, spe: 130},
 		abilities: {0: "Infiltrator", 1: "Sniper", H: "Corrosion"},
+	},
+	chinchou: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", H: "Water Absorb"},
+	},
+	lanturn: {
+		inherit: true,
+		abilities: {0: "Volt Absorb", H: "Water Absorb"},
 	},
 	pichu: {
 		inherit: true,
@@ -940,7 +952,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	snubbull: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Run Away", H: "Defiant"},
+		abilities: {0: "Intimidate", 1: "Strong Jaw", H: "Defiant"},
 		items: {5: "Pixie Plate", 50: "None"},
 	},
 	granbull: {
@@ -1683,21 +1695,25 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	wormadam: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 59, def: 85, spa: 79, spd: 105, spe: 50},
+		evoLevel: 16,
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	wormadamsandy: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 59, def: 105, spa: 79, spd: 85, spe: 50},
+		evoLevel: 16,
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	wormadamtrash: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 59, def: 95, spa: 79, spd: 95, spe: 50},
+		evoLevel: 16,
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	mothim: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 84, def: 50, spa: 94, spd: 50, spe: 80},
+		evoLevel: 16,
 		items: {5: "Silver Powder", 50: "None"},
 	},
 	vespiquen: {
@@ -1713,12 +1729,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	buizel: {
 		inherit: true,
+		abilities: {0: "Water Veil", H: "Technician"},
 		items: {5: "Wacan Berry", 50: "None"},
 	},
 	floatzel: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 90, def: 55, spa: 85, spd: 50, spe: 115},
-		abilities: {0: "Swift Swim", H: "Technician"},
+		abilities: {0: "Water Veil", H: "Technician"},
 		items: {5: "Wacan Berry", 50: "None"},
 	},
 	cherubi: {
@@ -1869,6 +1886,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	snover: {
 		inherit: true,
+		abilities: {0: "Soundproof", H: "Soundproof"},
 		items: {5: "Never-Melt Ice", 50: "None"},
 	},
 	abomasnow: {
@@ -2094,6 +2112,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 100, def: 74, spa: 60, spd: 74, spe: 77},
 		abilities: {0: "Analytic", 1: "Frisk", H: "No Guard"},
+		evoLevel: 16,
 	},
 	stoutland: {
 		inherit: true,
@@ -2161,13 +2180,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	boldore: {
 		inherit: true,
-		items: {5: "Hard Stone", 50: "everstone"},
+		items: {5: "Hard Stone", 50: "Everstone"},
 	},
 	gigalith: {
 		inherit: true,
 		evoType: "useItem",
 		evoItem: "Link Cable",
-		items: {5: "Hard Stone", 50: "everstone"},
+		items: {5: "Hard Stone", 50: "Everstone"},
 	},
 	swoobat: {
 		inherit: true,
@@ -2369,6 +2388,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	gothitelle: {
 		inherit: true,
+		evoLevel: 28,
 		items: {5: "None", 50: "Persim Berry"},
 	},
 	solosis: {
@@ -2592,6 +2612,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	floette: {
 		inherit: true,
 		abilities: {0: "Flower Veil", 1: "Natural Cure", H: "Symbiosis"},
+		evoLevel: 16,
 	},
 	floetteeternal: {
 		inherit: true,
@@ -2886,6 +2907,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	steenee: {
 		inherit: true,
+		baseStats: {hp: 52, atk: 70, def: 48, spa: 70, spd: 48, spe: 62},
 		items: {5: "Grassy Seed", 50: "None"},
 	},
 	tsareena: {
@@ -3516,7 +3538,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Eternamax",
 		types: ["Poison", "Dragon"],
 		gender: "N",
-		baseStats: {hp: 255, atk: 115, def: 250, spa: 125, spd: 250, spe: 130},
+		baseStats: {hp: 140, atk: 105, def: 110, spa: 185, spd: 110, spe: 140},
 		abilities: {0: "Levitate"},
 		heightm: 20,
 		weightkg: 950,
