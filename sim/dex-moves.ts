@@ -150,6 +150,10 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	contestType?: string;
 	noPPBoosts?: boolean;
 
+	// In-Game data (for dex purposes)
+	noTutor?: boolean;
+	noTM?: boolean;
+
 	// Z-move data
 	// -----------
 	/**

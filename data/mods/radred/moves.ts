@@ -90,6 +90,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	covet: {
 		inherit: true,
+		noTutor: true,
 		type: "Fairy",
 		isNonstandard: null,
 	},
@@ -351,6 +352,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	leafstorm: {
 		inherit: true,
+		noTutor: true,
 		accuracy: 100,
 	},
 	leaftornado: {
@@ -366,6 +368,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	lowkick: {
 		inherit: true,
+		noTutor: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
 	lowsweep: {
@@ -405,6 +408,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	mistyexplosion: {
 		inherit: true,
+		noTM: true,
 		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
 	},
@@ -418,6 +422,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	muddywater: {
 		inherit: true,
+		noTutor: true,
 		secondary: {
 			chance: 40,
 			boosts: {
@@ -494,6 +499,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	psychocut: {
 		inherit: true,
+		noTutor: true,
 		flags: {protect: 1, mirror: 1, blade: 1},
 	},
 	pyroball: {
@@ -508,6 +514,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		secondary: null,
 		desc: "Has a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio.",
+		noTutor: true,
 	},
 	revelationdance: {
 		inherit: true,
@@ -657,6 +664,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	solarblade: {
 		inherit: true,
+		noTutor: true,
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, blade: 1},
 	},
 	sonicslash: {
@@ -725,6 +733,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	spikes: {
 		inherit: true,
+		noTM: true,
+		noTutor: true,
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
@@ -789,6 +799,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	toxicspikes: {
+		noTutor: true,
 		inherit: true,
 		condition: {
 			// this is a side condition
@@ -855,6 +866,365 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
 	},
+
+	// set tm/tutor flags for moves that don't already change
+	// tms
+	payback: {
+		inherit: true,
+		noTM: true,
+	},
+	gigaimpact: {
+		inherit: true,
+		noTM: true,
+	},
+	avalanche: {
+		inherit: true,
+		noTM: true,
+	},
+	swagger: {
+		inherit: true,
+		noTM: true,
+	},
+	pluck: {
+		inherit: true,
+		noTM: true,
+	},
+	scaleshot: {
+		inherit: true,
+		noTM: true,
+	},
+	strugglebug: {
+		inherit: true,
+		noTM: true,
+	},
+	frostbreath: {
+		inherit: true,
+		noTM: true,
+	},
+	sludgewave: {
+		inherit: true,
+		noTM: true,
+	},
+	psyshock: {
+		inherit: true,
+		noTM: true,
+	},
+	brutalswing: {
+		inherit: true,
+		noTM: true,
+	},
+	smartstrike: {
+		inherit: true,
+		noTM: true,
+	},
+	snarl: {
+		inherit: true,
+		noTM: true,
+	},
+	smackdown: {
+		inherit: true,
+		noTM: true,
+	},
+	auroraveil: {
+		inherit: true,
+		noTM: true,
+	},
+	naturepower: {
+		inherit: true,
+		noTM: true,
+	},
+
+	// tutors
+	snore: {
+		inherit: true,
+		noTutor: true,
+	},
+	healbell: {
+		inherit: true,
+		noTutor: true,
+	},
+	electroweb: {
+		inherit: true,
+		noTutor: true,
+	},
+	uproar: {
+		inherit: true,
+		noTutor: true,
+	},
+	bind: {
+		inherit: true,
+		noTutor: true,
+	},
+	helpinghand: {
+		inherit: true,
+		noTutor: true,
+	},
+	block: {
+		inherit: true,
+		noTutor: true,
+	},
+	worryseed: {
+		inherit: true,
+		noTutor: true,
+	},
+	snatch: {
+		inherit: true,
+		noTutor: true,
+	},
+	spite: {
+		inherit: true,
+		noTutor: true,
+	},
+	afteryou: {
+		inherit: true,
+		noTutor: true,
+	},
+	synthesis: {
+		inherit: true,
+		noTutor: true,
+	},
+	signalbeam: {
+		inherit: true,
+		noTutor: true,
+	},
+	gravity: {
+		inherit: true,
+		noTutor: true,
+	},
+	irondefense: {
+		inherit: true,
+		noTutor: true,
+	},
+	celebrate: {
+		inherit: true,
+		noTutor: true,
+	},
+	magnetrise: {
+		inherit: true,
+		noTutor: true,
+	},
+	bounce: {
+		inherit: true,
+		noTutor: true,
+	},
+	roleplay: {
+		inherit: true,
+		noTutor: true,
+	},
+	aquatail: {
+		inherit: true,
+		noTutor: true,
+	},
+	endeavor: {
+		inherit: true,
+		noTutor: true,
+	},
+	icywind: {
+		inherit: true,
+		noTutor: true,
+	},
+	laserfocus: {
+		inherit: true,
+		noTutor: true,
+	},
+	trick: {
+		inherit: true,
+		noTutor: true,
+	},
+	magiccoat: {
+		inherit: true,
+		noTutor: true,
+	},
+	magicroom: {
+		inherit: true,
+		noTutor: true,
+	},
+	wonderroom: {
+		inherit: true,
+		noTutor: true,
+	},
+	gastroacid: {
+		inherit: true,
+		noTutor: true,
+	},
+	superfang: {
+		inherit: true,
+		noTutor: true,
+	},
+	outrage: {
+		inherit: true,
+		noTutor: true,
+	},
+	skyattack: {
+		inherit: true,
+		noTutor: true,
+	},
+	throatchop: {
+		inherit: true,
+		noTutor: true,
+	},
+	dualchop: {
+		inherit: true,
+		noTutor: true,
+	},
+	hypervoice: {
+		inherit: true,
+		noTutor: true,
+	},
+	superpower: {
+		inherit: true,
+		noTutor: true,
+	},
+	psychup: {
+		inherit: true,
+		noTutor: true,
+	},
+	vacuumwave: {
+		inherit: true,
+		noTutor: true,
+	},
+	lastresort: {
+		inherit: true,
+		noTutor: true,
+	},
+	confide: {
+		inherit: true,
+		noTutor: true,
+	},
+	grasspledge: {
+		inherit: true,
+		noTutor: true,
+	},
+	firepledge: {
+		inherit: true,
+		noTutor: true,
+	},
+	waterpledge: {
+		inherit: true,
+		noTutor: true,
+	},
+	frenzyplant: {
+		inherit: true,
+		noTutor: true,
+	},
+	blastburn: {
+		inherit: true,
+		noTutor: true,
+	},
+	hydrocannon: {
+		inherit: true,
+		noTutor: true,
+	},
+	focusenergy: {
+		inherit: true,
+		noTutor: true,
+	},
+	cosmicpower: {
+		inherit: true,
+		noTutor: true,
+	},
+	encore: {
+		inherit: true,
+		noTutor: true,
+	},
+	screech: {
+		inherit: true,
+		noTutor: true,
+	},
+	faketears: {
+		inherit: true,
+		noTutor: true,
+	},
+	scaryface: {
+		inherit: true,
+		noTutor: true,
+	},
+	venomdrench: {
+		inherit: true,
+		noTutor: true,
+	},
+	dragondance: {
+		inherit: true,
+		noTutor: true,
+	},
+	agility: {
+		inherit: true,
+		noTutor: true,
+	},
+	grassyterrain: {
+		inherit: true,
+		noTutor: true,
+	},
+	mistyterrain: {
+		inherit: true,
+		noTutor: true,
+	},
+	electricterrain: {
+		inherit: true,
+		noTutor: true,
+	},
+	psychicterrain: {
+		inherit: true,
+		noTutor: true,
+	},
+	whirlpool: {
+		inherit: true,
+		noTutor: true,
+	},
+	firespin: {
+		inherit: true,
+		noTutor: true,
+	},
+	sandtomb: {
+		inherit: true,
+		noTutor: true,
+	},
+	bodypress: {
+		inherit: true,
+		noTutor: true,
+	},
+	heatcrash: {
+		inherit: true,
+		noTutor: true,
+	},
+	heavyslam: {
+		inherit: true,
+		noTutor: true,
+	},
+	reversal: {
+		inherit: true,
+		noTutor: true,
+	},
+	electroball: {
+		inherit: true,
+		noTutor: true,
+	},
+	breakingswipe: {
+		inherit: true,
+		noTutor: true,
+	},
+	crosspoison: {
+		inherit: true,
+		noTutor: true,
+	},
+	crunch: {
+		inherit: true,
+		noTutor: true,
+	},
+	darkestlariat: {
+		inherit: true,
+		noTutor: true,
+	},
+	pollenpuff: {
+		inherit: true,
+		noTutor: true,
+	},
+
+	bravebird: {
+		inherit: true,
+		noTutor: true,
+	},
+
 
 	// allow all past moves
 	"10000000voltthunderbolt": {
@@ -1285,10 +1655,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
-	signalbeam: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	silverwind: {
 		inherit: true,
 		isNonstandard: null,
@@ -1302,6 +1668,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	skydrop: {
+		noTM: true,
 		inherit: true,
 		isNonstandard: null,
 	},
@@ -1310,10 +1677,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	smellingsalts: {
-		inherit: true,
-		isNonstandard: null,
-	},
-	snatch: {
 		inherit: true,
 		isNonstandard: null,
 	},
