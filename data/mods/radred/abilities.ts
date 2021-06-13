@@ -68,16 +68,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	bullrush: {
 		onModifyAtk(atk, attacker, defender, move) {
-			if (attacker.activeMoveActions > 1) {
-				return;
-			}
+			if (attacker.activeMoveActions > 1) return;
 			this.debug('Bull Rush attack boost');
 			return this.chainModify([4915, 4096]);
 		},
 		onModifySpe(spe, pokemon) {
-			if (pokemon.activeMoveActions > 1) {
-				return;
-			}
+			if (pokemon.activeMoveActions > 1) return;
 			this.debug('Bull Rush speed boost');
 			return this.chainModify(1.5);
 		},
