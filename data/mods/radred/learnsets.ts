@@ -46822,7 +46822,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			luckychant: ["8L28"],
 			magiccoat: ["8T"],
 			magicroom: ["8L68", "8T"],
-			mindblown: ["8L80"],
+			mindblown: ["8L85"],
 			mysticalfire: ["8L0", "8L1", "8T"],
 			nastyplot: ["8T"],
 			overheat: ["8M"],
