@@ -1747,6 +1747,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 70, atk: 100, def: 70, spa: 87, spd: 78, spe: 85},
 		items: {5: "Miracle Seed", 50: "Green Shard"},
 	},
+	cherrimsunshine: {
+		inherit: true,
+		baseStats: {hp: 70, atk: 100, def: 70, spa: 87, spd: 78, spe: 85},
+	},
 	ambipom: {
 		inherit: true,
 		items: {5: "Silk Scarf", 50: "None"},
