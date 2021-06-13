@@ -149,6 +149,13 @@ export const Formats: FormatList = [
 		},
 	},
 	{
+		name: "[Gen 8] Draft",
+		mod: 'radred',
+		searchShow: false,
+		debug: true,
+		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
+	},
+	{
 		name: "[Gen 8] Custom Game",
 		mod: 'radred',
 		searchShow: false,
