@@ -136,7 +136,6 @@ export const Formats: FormatList = [
 			for (const set of team) {
 				const item = this.dex.items.get(set.item);
 				let species = item.megaEvolves === set.species ? this.dex.species.get(item.megaStone).name : set.species;
-				if (species === 'Darmanitan' && set.ability === 'Zen Mode') species = 'Darmanitan-Zen';
 				if (item.megaStone) stones++;
 				if (pool.includes(species)) fromPool++;
 			}
