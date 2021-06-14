@@ -130,7 +130,7 @@ export const Formats: FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
-			const pool = ['Wailord', 'Gengar', 'Darmanitan-Zen', 'Decidueye', 'Muk-Alola'];
+			const pool = ['Regirock', 'Regice', 'Registeel'];
 			let fromPool = 0;
 			let stones = 0;
 			for (const set of team) {
