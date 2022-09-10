@@ -1,16 +1,5 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen8',
-	init() {
-		for (const id in this.data.Pokedex) {
-			const pokemon = this.modData('Pokedex', id);
-			for (const [key, ability] of Object.entries(pokemon.abilities)) {
-				if (ability === 'Shell Armor') {
-					pokemon.abilities[key] = 'Battle Armor';
-					this.modData('Pokedex', id).abilities = pokemon.abilities;
-				}
-			}
-		}
-	},
 	actions: {
 		canMegaEvo(pokemon: Pokemon) {
 			const species = pokemon.baseSpecies;

@@ -12,6 +12,7 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 			const base: {[k: string]: string} = {
 				airlock: 'cloudnine',
 				battlearmor: 'shellarmor',
+				bullrush: 'quillrush',
 				clearbody: 'whitesmoke',
 				dazzling: 'queenlymajesty',
 				filter: 'solidrock',
@@ -21,10 +22,12 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 				libero: 'protean',
 				minus: 'plus',
 				moxie: 'chillingneigh',
+				multiscale: 'blubberdefense',
 				powerofalchemy: 'receiver',
 				propellertail: 'stalwart',
 				teravolt: 'moldbreaker',
 				turboblaze: 'moldbreaker',
+				waterbubble: 'cashsplash',
 			};
 			for (const set of team) {
 				let ability = this.toID(set.ability);

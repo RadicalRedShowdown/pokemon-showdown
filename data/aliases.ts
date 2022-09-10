@@ -1830,4 +1830,10 @@ export const Aliases: {[alias: string]: string} = {
 	zugadoon: "Blacephalon",
 	merutan: "Meltan",
 	merumetaru: "Melmetal",
+
+	// RR Formes
+	exeggcutealola: "Exeggcute",
+	cubonealola: "Cubone",
+	koffinggalar: "Koffing",
+	mimejrgalar: "Mime Jr.",
 };

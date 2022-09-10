@@ -895,7 +895,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["fakeout", "return", "suckerpunch", "poweruppunch", "bodyslam", "earthquake", "crunch"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["drainpunch", "earthquake", "fakeout", "poweruppunch", "protect", "return", "suckerpunch"],
-		tier: "RU",
+		tier: "Uber",
 	},
 	horsea: {
 		tier: "LC",
@@ -968,7 +968,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "return", "quickattack", "closecombat", "earthquake"],
 		randomDoubleBattleLevel: 81,
 		randomDoubleBattleMoves: ["closecombat", "megahorn", "feint", "protect", "return", "rockslide", "swordsdance"],
-		tier: "UUBL",
+		tier: "Uber",
 	},
 	tauros: {
 		randomBattleLevel: 86,
@@ -3673,6 +3673,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["aquajet", "flipturn", "headsmash", "icebeam", "liquidation", "protect", "psychicfangs", "superpower"],
 		tier: "RU",
 	},
+	basculinwhitestriped: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+	},
 	sandile: {
 		tier: "LC",
 	},
@@ -4259,7 +4263,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	keldeoresolute: {
-		tier: "RU",
+		tier: "UU",
 	},
 	meloetta: {
 		randomBattleLevel: 83,
@@ -6162,7 +6166,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	basculegion: {
-		tier: "RU"
+		tier: "RU",
 	},
 	basculegionf: {
 		tier: "RU",
@@ -6234,19 +6238,19 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	centiskorchseviimega: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	wishiwashisevii: {
 		tier: "RU",
 	},
-	wishiwashischoolsevii: {
+	wishiwashiseviischool: {
 		tier: "RU",
 	},
 	dhelmisesevii: {
 		tier: "RU",
 	},
 	voltorbhisui: {
-		tier: "RU",
+		tier: "LC",
 	},
 	electrodehisui: {
 		tier: "RU",
@@ -6270,7 +6274,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	qwilfishhisui: {
-		tier: "RU",
+		tier: "LC",
 	},
 	overqwil: {
 		tier: "RU",

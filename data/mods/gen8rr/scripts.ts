@@ -1,18 +1,7 @@
 export const Scripts: ModdedBattleScriptsData = {
 	inherit: 'gen8',
-	init() {
-		for (const id in this.data.Pokedex) {
-			const pokemon = this.modData('Pokedex', id);
-			for (const [key, ability] of Object.entries(pokemon.abilities)) {
-				if (ability === 'Shell Armor') {
-					pokemon.abilities[key] = 'Battle Armor';
-					this.modData('Pokedex', id).abilities = pokemon.abilities;
-				}
-			}
-		}
-	},
 	actions: {
-		canMegaEvo(pokemon: Pokemon) {
+		canMegaEvo(pokemon) {
 			const species = pokemon.baseSpecies;
 			const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 			const item = pokemon.getItem();
@@ -50,10 +39,122 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return null;
 		},
-		getDamage(
-			source: Pokemon, target: Pokemon, move: string | number | ActiveMove,
-			suppressMessages = false
-		): number | undefined | null | false {
+		runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
+			pokemon.activeMoveActions++;
+			let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
+			let baseMove = this.dex.getActiveMove(moveOrMoveName);
+			const pranksterBoosted = baseMove.pranksterBoosted;
+			if (baseMove.id !== 'struggle' && !zMove && !maxMove && !externalMove) {
+				const changedMove = this.battle.runEvent('OverrideAction', pokemon, target, baseMove);
+				if (changedMove && changedMove !== true) {
+					baseMove = this.dex.getActiveMove(changedMove);
+					if (pranksterBoosted) baseMove.pranksterBoosted = pranksterBoosted;
+					target = this.battle.getRandomTarget(pokemon, baseMove);
+				}
+			}
+			let move = baseMove;
+			if (zMove) {
+				move = this.getActiveZMove(baseMove, pokemon);
+			} else if (maxMove) {
+				move = this.getActiveMaxMove(baseMove, pokemon);
+			}
+
+			move.isExternal = externalMove;
+
+			this.battle.setActiveMove(move, pokemon, target);
+
+			/* if (pokemon.moveThisTurn) {
+				// THIS IS PURELY A SANITY CHECK
+				// DO NOT TAKE ADVANTAGE OF THIS TO PREVENT A POKEMON FROM MOVING;
+				// USE this.queue.cancelMove INSTEAD
+				this.battle.debug('' + pokemon.id + ' INCONSISTENT STATE, ALREADY MOVED: ' + pokemon.moveThisTurn);
+				this.battle.clearActiveMove(true);
+				return;
+			} */
+			const willTryMove = this.battle.runEvent('BeforeMove', pokemon, target, move);
+			if (!willTryMove) {
+				this.battle.runEvent('MoveAborted', pokemon, target, move);
+				this.battle.clearActiveMove(true);
+				// The event 'BeforeMove' could have returned false or null
+				// false indicates that this counts as a move failing for the purpose of calculating Stomping Tantrum's base power
+				// null indicates the opposite, as the Pokemon didn't have an option to choose anything
+				pokemon.moveThisTurnResult = willTryMove;
+				return;
+			}
+			if (move.beforeMoveCallback) {
+				if (move.beforeMoveCallback.call(this.battle, pokemon, target, move)) {
+					this.battle.clearActiveMove(true);
+					pokemon.moveThisTurnResult = false;
+					return;
+				}
+			}
+			pokemon.lastDamage = 0;
+			let lockedMove;
+			if (!externalMove) {
+				lockedMove = this.battle.runEvent('LockMove', pokemon);
+				if (lockedMove === true) lockedMove = false;
+				if (!lockedMove) {
+					if (!pokemon.deductPP(baseMove, null, target) && (move.id !== 'struggle')) {
+						this.battle.add('cant', pokemon, 'nopp', move);
+						this.battle.clearActiveMove(true);
+						pokemon.moveThisTurnResult = false;
+						return;
+					}
+				} else {
+					sourceEffect = this.dex.conditions.get('lockedmove');
+				}
+				pokemon.moveUsed(move, targetLoc);
+			}
+
+			// Dancer Petal Dance hack
+			// TODO: implement properly
+			const noLock = externalMove && !pokemon.volatiles['lockedmove'];
+
+			if (zMove) {
+				if (pokemon.illusion) {
+					this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+				}
+				this.battle.add('-zpower', pokemon);
+				pokemon.side.zMoveUsed = true;
+			}
+			const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
+			this.battle.lastSuccessfulMoveThisTurn = moveDidSomething ? this.battle.activeMove && this.battle.activeMove.id : null;
+			if (this.battle.activeMove) move = this.battle.activeMove;
+			this.battle.singleEvent('AfterMove', move, null, pokemon, target, move);
+			this.battle.runEvent('AfterMove', pokemon, target, move);
+			// We send -mustrecharge here to account for the moves with no recharge turn if the target gets KOed
+			if (pokemon.volatiles['mustrecharge']) this.battle.add('-mustrecharge', pokemon);
+
+			// Dancer's activation order is completely different from any other event, so it's handled separately
+			if (move.flags['dance'] && moveDidSomething && !move.isExternal) {
+				const dancers = [];
+				for (const currentPoke of this.battle.getAllActive()) {
+					if (pokemon === currentPoke) continue;
+					if (currentPoke.hasAbility('dancer') && !currentPoke.isSemiInvulnerable()) {
+						dancers.push(currentPoke);
+					}
+				}
+				// Dancer activates in order of lowest speed stat to highest
+				// Note that the speed stat used is after any volatile replacements like Speed Swap,
+				// but before any multipliers like Agility or Choice Scarf
+				// Ties go to whichever Pokemon has had the ability for the least amount of time
+				dancers.sort(
+					(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
+				);
+				for (const dancer of dancers) {
+					if (this.battle.faintMessages()) break;
+					if (dancer.fainted) continue;
+					this.battle.add('-activate', dancer, 'ability: Dancer');
+					const dancersTarget = !target!.isAlly(dancer) && pokemon.isAlly(dancer) ? target! : pokemon;
+					const dancersTargetLoc = dancer.getLocOf(dancersTarget);
+					this.runMove(move.id, dancer, dancersTargetLoc, this.dex.abilities.get('dancer'), undefined, true);
+				}
+			}
+			if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
+			this.battle.faintMessages();
+			this.battle.checkWin();
+		},
+		getDamage(source, target, move, suppressMessages = false) {
 			if (typeof move === 'string') move = this.dex.getActiveMove(move);
 
 			if (typeof move === 'number') {
@@ -179,9 +280,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			// Calculate damage modifiers separately (order differs between generations)
 			return this.modifyDamage(baseDamage, source, target, move, suppressMessages);
 		},
-		modifyDamage(
-			baseDamage: number, pokemon: Pokemon, target: Pokemon, move: ActiveMove, suppressMessages = false
-		) {
+		modifyDamage(baseDamage, pokemon, target, move, suppressMessages = false) {
 			const tr = this.battle.trunc;
 			if (!move.type) move.type = '???';
 			const type = move.type;
@@ -273,7 +372,97 @@ export const Scripts: ModdedBattleScriptsData = {
 			// ...but 16-bit truncation happens even later, and can truncate to 0
 			return tr(baseDamage, 16);
 		},
-		hitStepStealBoosts(targets: Pokemon[], pokemon: Pokemon, move: ActiveMove) {
+		hitStepAccuracy(targets, pokemon, move) {
+			const hitResults = [];
+			for (const [i, target] of targets.entries()) {
+				this.battle.activeTarget = target;
+				// calculate true accuracy
+				let accuracy = move.accuracy;
+				if (move.ohko) { // bypasses accuracy modifiers
+					if (!target.isSemiInvulnerable()) {
+						accuracy = 30;
+						if (move.ohko === 'Ice' && this.battle.gen >= 7 && !pokemon.hasType('Ice')) {
+							accuracy = 20;
+						}
+						if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
+							(move.ohko === true || !target.hasType(move.ohko))) {
+							accuracy += (pokemon.level - target.level);
+						} else {
+							this.battle.add('-immune', target, '[ohko]');
+							hitResults[i] = false;
+							continue;
+						}
+					}
+				} else {
+					accuracy = this.battle.runEvent('ModifyAccuracy', target, pokemon, move, accuracy);
+					if (accuracy !== true) {
+						let boost = 0;
+						if (!move.ignoreAccuracy) {
+							const boosts = this.battle.runEvent('ModifyBoost', pokemon, null, null, {...pokemon.boosts});
+							boost = this.battle.clampIntRange(boosts['accuracy'], -6, 6);
+						}
+						if (!move.ignoreEvasion) {
+							const boosts = this.battle.runEvent('ModifyBoost', target, null, null, {...target.boosts});
+							boost = this.battle.clampIntRange(boost - boosts['evasion'], -6, 6);
+						}
+						if (boost > 0) {
+							accuracy = this.battle.trunc(accuracy * (3 + boost) / 3);
+						} else if (boost < 0) {
+							accuracy = this.battle.trunc(accuracy * 3 / (3 - boost));
+						}
+					}
+				}
+				if (
+					move.alwaysHit ||
+					(move.id === 'toxic' && this.battle.gen >= 8 && pokemon.hasType('Poison')) ||
+					(move.id === 'willowisp' && this.battle.gen >= 8 && pokemon.hasType('Fire')) ||
+					(move.id === 'thunderwave' && this.battle.gen >= 8 && pokemon.hasType('Electric')) ||
+					(move.target === 'self' && move.category === 'Status' && !target.isSemiInvulnerable())
+				) {
+					accuracy = true; // bypasses ohko accuracy modifiers
+				} else {
+					accuracy = this.battle.runEvent('Accuracy', target, pokemon, move, accuracy);
+				}
+				if (accuracy !== true && !this.battle.randomChance(accuracy, 100)) {
+					if (move.smartTarget) {
+						move.smartTarget = false;
+					} else {
+						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
+						this.battle.add('-miss', pokemon, target);
+					}
+					if (!move.ohko && pokemon.hasItem('blunderpolicy') && pokemon.useItem()) {
+						this.battle.boost({spe: 2}, pokemon);
+					}
+					hitResults[i] = false;
+					continue;
+				}
+				hitResults[i] = true;
+			}
+			return hitResults;
+		},
+		hitStepInvulnerabilityEvent(targets, pokemon, move) {
+			if (
+				move.id === 'helpinghand' ||
+				(this.battle.gen >= 8 && move.id === 'toxic' && pokemon.hasType('Poison')) ||
+				(this.battle.gen >= 8 && move.id === 'willowisp' && pokemon.hasType('Fire')) ||
+				(this.battle.gen >= 8 && move.id === 'thunderwave' && pokemon.hasType('Electric'))
+			) {
+				return new Array(targets.length).fill(true);
+			}
+			const hitResults = this.battle.runEvent('Invulnerability', targets, pokemon, move);
+			for (const [i, target] of targets.entries()) {
+				if (hitResults[i] === false) {
+					if (move.smartTarget) {
+						move.smartTarget = false;
+					} else {
+						if (!move.spreadHit) this.battle.attrLastMove('[miss]');
+						this.battle.add('-miss', pokemon, target);
+					}
+				}
+			}
+			return hitResults;
+		},
+		hitStepStealBoosts(targets, pokemon, move) {
 			const target = targets[0]; // hardcoded
 			if (move.stealsBoosts) {
 				const boosts: SparseBoostsTable = {};
@@ -304,7 +493,7 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	pokemon: {
-		transformInto(pokemon: Pokemon, effect: Effect | null) {
+		transformInto(pokemon, effect) {
 			const species = pokemon.species;
 			if (pokemon.fainted || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5)) {

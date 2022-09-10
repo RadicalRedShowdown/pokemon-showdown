@@ -2173,6 +2173,14 @@ export class TeamValidator {
 			return this.dex.species.get('Rockruff-Dusk');
 		} else if (species.name === 'Greninja-Ash') {
 			return null;
+		} else if (species.name === 'Exeggutor-Alola' && this.dex.currentMod === 'gen8rr') {
+			return this.dex.species.get('Exeggcute-Alola');
+		} else if (species.name === 'Marowak-Alola' && this.dex.currentMod === 'gen8rr') {
+			return this.dex.species.get('Cubone-Alola');
+		} else if (species.name === 'Weezing-Galar' && this.dex.currentMod === 'gen8rr') {
+			return this.dex.species.get('Koffing-Galar');
+		} else if (species.name === 'Mr. Mime-Galar' && this.dex.currentMod === 'gen8rr') {
+			return this.dex.species.get('Mime Jr.-Galar');
 		} else if (species.prevo) {
 			// there used to be a check for Hidden Ability here, but apparently it's unnecessary
 			// Shed Skin Pupitar can definitely evolve into Unnerve Tyranitar

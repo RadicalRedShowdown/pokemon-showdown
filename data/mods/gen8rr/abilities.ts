@@ -51,6 +51,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
 	},
+	blubberdefense: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Blubber Defense weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Blubber Defense",
+		rating: 3.5,
+		gen: 8,
+		shortDesc: "If this Pokemon is at full HP, damage taken from attacks is halved.",
+	},
 	bonezone: {
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -88,6 +101,49 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.2x Attack boost.",
 		shortDesc: "On first turn out, 1.5x Speed and 1.2x Attack.",
+	},
+	cashsplash: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Cash Splash');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if ((effect as Move)?.status) {
+				this.add('-immune', target, '[from] ability: Cash Splash');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Cash Splash",
+		rating: 4.5,
+		gen: 8,
+		desc: "This Pokemon's attacking stat is doubled while using a Water-type attack. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be burned. Gaining this Ability while burned cures it.",
+		shortDesc: "This Pokemon's Water power is 2x; it can't be burned; Fire power against it is halved.",
 	},
 	corrosion: {
 		inherit: true,
@@ -355,11 +411,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	parasiticwaste: {
 		onModifyMove(move) {
-			if (!move.secondaries) move.secondaries = [];
+			if (!move.secondaries) return;
 			for (const secondary of move.secondaries) {
 				if ((move.category !== 'Status') && (secondary.status === 'psn' || secondary.status === 'tox')) {
 					move.drain = [1, 2];
+					move.parasiticWasteBoosted = true;
 				}
+			}
+		},
+		onTryHeal(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.id === 'drain' && this.activeMove?.parasiticWasteBoosted) {
+				this.add('-activate', target, 'ability: Parasitic Waste');
 			}
 		},
 		name: "Parasitic Waste",
@@ -404,6 +467,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3,
 		desc: "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 2; the Speed drop from paralysis is ignored.",
 		shortDesc: "If this Pokemon is statused, its Speed is 2x; ignores Speed drop from paralysis.",
+	},
+	quillrush: {
+		onModifyAtk(atk, attacker, defender, move) {
+			if (attacker.activeMoveActions > 1) return;
+			this.debug('Quill Rush attack boost');
+			return this.chainModify([4915, 4096]);
+		},
+		onModifySpe(spe, pokemon) {
+			// probably not > 1 because speed is determined before the move action is run
+			if (pokemon.activeMoveActions > 0) return;
+			return this.chainModify(1.5);
+		},
+		name: "Quill Rush",
+		rating: 3.5,
+		gen: 8,
+		desc: "On the first turn this Pokemon is out on the field for, it gets a 1.5x Speed boost and a 1.2x Attack boost.",
+		shortDesc: "On first turn out, 1.5x Speed and 1.2x Attack.",
 	},
 	rivalry: {
 		inherit: true,
@@ -508,7 +588,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					pokemon.formeChange('Wishiwashi-Sevii');
 				}
 			}
-		}
+		},
 	},
 	scrappy: {
 		inherit: true,

@@ -182,6 +182,7 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		endFromItem: "  [POKEMON]'s [ITEM] defrosted it!",
 		endFromMove: "  [POKEMON]'s [MOVE] melted the ice!",
 		cant: "[POKEMON] is frozen solid!",
+		damage: "  [POKEMON] was hurt by its frostbite!",
 	},
 	par: {
 		start: "  [POKEMON] is paralyzed! It may be unable to move!",

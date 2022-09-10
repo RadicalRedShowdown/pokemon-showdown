@@ -861,7 +861,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		gen: 8,
 		desc: "If held by a Machamp, this item allows it to Mega Evolve in battle.",
-		num: -5
+		num: -5,
 	},
 	kinglerite: {
 		name: "Kinglerite",

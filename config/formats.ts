@@ -66,8 +66,12 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] OU",
 		mod: 'gen8rr',
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Misty Explosion', 'Dark Hole'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap',
+			'Swagger', 'Misty Explosion', 'Dark Hole', 'Draco Barrage', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
+		],
 	},
 	{
 		name: "[Gen 8] Ubers",
@@ -105,7 +109,7 @@ export const Formats: FormatList = [
 			'AG', 'Uber', 'Kartana', 'Medicham-Mega', 'Mawile-Mega', 'Hoopa-Unbound', 'Blaziken',
 			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Damp Rock', 'Heat Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
-			'Misty Explosion', 'Zen Mode',
+			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode',
 		],
 		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace'],
 	},
@@ -150,7 +154,7 @@ export const Formats: FormatList = [
 	},
 	// Past Gen
 	{
-		section: "Past Gens"
+		section: "Past Gens",
 	},
 	{
 		name: "[Gen 8] 2.3 OU",
@@ -161,14 +165,28 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] 2.3 UU",
 		mod: 'gen8rr2.3',
-		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock'],
+		ruleset: ['[Gen 8] 2.3 OU'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Light Clay'],
 	},
 	{
 		name: "[Gen 8] 2.3 Draft",
 		mod: 'gen8rr2.3',
 		searchShow: false,
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
+	},
+	{
+		name: "[Gen 8] 2.3 RRC",
+		mod: 'gen8rr2.3',
+		gameType: 'doubles',
+		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Z-Move Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
+		banlist: ['Restricted Legendary', 'Mythical'],
+	},
+	{
+		name: "[Gen 8] 2.3 RRC Draft",
+		mod: 'gen8rr2.3',
+		searchShow: false,
+		gameType: 'doubles',
+		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Z-Move Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
 	},
 
 	// Doubles
@@ -190,16 +208,7 @@ export const Formats: FormatList = [
 		mod: 'gen8rr',
 		gameType: 'doubles',
 		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Z-Move Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
-		banlist: [
-			'Mewtwo',
-			'Unown', 'Ho-Oh', 'Lugia',
-			'Groudon', 'Kyogre', 'Rayquaza', 'Deoxys',
-			'Dialga', 'Palkia', 'Heatran', 'Regigigas', 'Giratina', 'Cresselia', 'Darkrai', 'Shaymin', 'Arceus',
-			'Kyurem', 'Reshiram', 'Zekrom',
-			'Xerneas', 'Yveltal', 'Zygarde',
-			'Cosmog', 'Cosmoem', 'Solgaleo', 'Lunala', 'Necrozma', 'Magearna', 'Marshadow',
-			'Eternatus', 'Zacian', 'Zamazenta', 'Calyrex',
-		],
+		banlist: ['Restricted Legendary', 'Mythical'],
 	},
 	{
 		name: "[Gen 8] Doubles Custom Game",
@@ -311,7 +320,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Zacian-Crowned', 'Dialga-Primal', 'Cramorant-Gorging',
 			// abilities
-			'Arena Trap', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Psychic Surge', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard',
+			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Psychic Surge', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard',
 			// moves
 			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Fishious Rend', 'Dark Hole',
 			// items

@@ -279,7 +279,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.unreleasedHidden = data.unreleasedHidden || false;
 		this.maleOnlyHidden = !!data.maleOnlyHidden;
 		this.maxHP = data.maxHP || undefined;
-		this.isMega = !!(this.forme && ['Mega', 'Mega-X', 'Mega-Y'].includes(this.forme)) || undefined;
+		this.isMega = data.isMega || !!(this.forme && ['Mega', 'Mega-X', 'Mega-Y'].includes(this.forme)) || undefined;
 		this.isPrimal = !!(this.forme && ['Primal', 'Eternamax'].includes(this.forme)) || undefined;
 		this.canGigantamax = data.canGigantamax || undefined;
 		this.gmaxUnreleased = !!data.gmaxUnreleased;
@@ -371,7 +371,7 @@ export class DexSpecies {
 					...this.dex.data.FormatsData[id],
 					name: id,
 				});
-				species.abilities = {0: species.abilities['S']!};
+				if (species.abilities['S']) species.abilities = {0: species.abilities['S']};
 			} else {
 				species = this.get(this.dex.data.Aliases[id]);
 				if (species.cosmeticFormes) {

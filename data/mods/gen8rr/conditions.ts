@@ -16,7 +16,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onResidual(pokemon) {
 			let dmgmod = 16;
 			if (this.field.getWeather().id === "hail") dmgmod = 8;
-			if (pokemon.hasAbility("thickfat")) dmgmod = 32; 
+			if (pokemon.hasAbility("thickfat")) dmgmod = 32;
 			this.damage(pokemon.baseMaxhp / dmgmod);
 		},
 		onModifyMove(move, pokemon) {
@@ -41,15 +41,18 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onModifyMove(move) {
 			if (!move.secondaries) return;
 			for (const secondary of move.secondaries) {
-				if ((move.category !== 'Status') && (secondary.status === 'frz') && secondary.chance) {
-					secondary.chance = secondary.chance * 2;
+				if (secondary.status === 'frz' && secondary.chance) {
+					secondary.chance *= 2;
 				}
 			}
-		}
+		},
+	},
+	mustrecharge: {
+		inherit: true,
+		onStart() {},
 	},
 	gem: {
-		duration: 1,
-		affectsFainted: true,
+		inherit: true,
 		onBasePower(basePower, user, target, move) {
 			this.debug('Gem Boost');
 			return this.chainModify(1.5);
