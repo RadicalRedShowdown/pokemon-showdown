@@ -9,7 +9,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Raises the user's Attack by 1.",
 	},
 	aquafang: {
-		num: 850,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -21,6 +20,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "No additional effect.",
+		gen: 8,
 	},
 	armthrust: {
 		inherit: true,
@@ -41,6 +41,29 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			this.hint("Only a Pokemon whose form is Morpeko, Morpeko-Hangry, or Pikachu-Libre can use this move.");
 			return null;
 		},
+	},
+	barbbarrage: {
+		num: 839,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Barb Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'psn',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% psn. Power doubles if the target is statused.",
 	},
 	batonpass: {
 		inherit: true,
@@ -66,6 +89,29 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		contestType: "Tough",
 		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn.",
+	},
+	bittermalice: {
+		num: 841,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Bitter Malice",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'frz',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to freeze the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% frz. Power doubles if the target is statused.",
 	},
 	blazekick: {
 		inherit: true,
@@ -96,7 +142,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	ceaselessedge: {
 		name: "Ceaseless Edge",
-		num: 857,
+		num: 845,
 		priority: 0,
 		type: "Dark",
 		category: "Physical",
@@ -133,7 +179,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	chloroblast: {
-		num: 864,
+		num: 835,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -167,7 +213,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Steel",
 	},
 	darkhole: {
-		num: 851,
 		name: "Dark Hole",
 		category: "Special",
 		pp: 5,
@@ -182,6 +227,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			status: 'slp',
 		},
 		shortDesc: "40% chance to inflict sleep, bypasses substitute.",
+		gen: 8,
 	},
 	diamondstorm: {
 		inherit: true,
@@ -189,7 +235,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	direclaw: {
-		num: 867,
+		num: 827,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
@@ -223,23 +269,24 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Raises the user's Attack by 1.",
 	},
 	dracobarrage: {
-		name: "Draco Barrage",
-		type: "Dragon",
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
+		name: "Draco Barrage",
 		pp: 5,
 		priority: 0,
-		num: 855,
-		basePower: 100,
-		accuracy: 100,
-		ignoreImmunity: {'Dragon': true},
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
-		recoil: [1, 3],
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
+		recoil: [1, 3],
+		ignoreImmunity: {'Dragon': true},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
 		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP. This move can hit Fairy-type Pokemon.",
 		shortDesc: "Physical if Atk > Sp. Atk. 33% recoil. Hits fairies.",
+		gen: 8,
 	},
 	dracometeor: {
 		inherit: true,
@@ -265,7 +312,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 160},
 	},
 	esperwing: {
-		num: 866,
+		num: 840,
 		name: "Esper Wing",
 		type: "Psychic",
 		priority: 1,
@@ -361,23 +408,23 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	forbiddenspell: {
-		num: 853,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Forbidden Spell",
-		secondary: null,
-		target: "self",
-		type: "Psychic",
-		flags: {},
 		pp: 5,
 		priority: 0,
+		flags: {},
 		onHit(target) {
 			const possibleMoves = ['Dark Hole', 'Healing Wish', 'No Retreat', 'Quiver Dance', 'Roar of Time', 'Shell Smash', 'Soul Robbery', 'Tail Glow'];
 			this.actions.useMove(this.sample(possibleMoves), target);
 		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
 		desc: "Uses of one of these 8 moves: Shell Smash, Healing Wish, Dark Hole, Tail Glow, Roar of Time, Quiver Dance, No Retreat, or Soul Robbery",
 		shortDesc: "Isn't RNG fun?",
+		gen: 8,
 	},
 	freezyfrost: {
 		inherit: true,
@@ -441,7 +488,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Has 1/4 recoil. 10% chance to lower the target's Defense by 1.",
 	},
 	headlongrush: {
-		num: 861,
+		num: 838,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -488,6 +535,29 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		self: null,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
+	},
+	infernalparade: {
+		num: 844,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Infernal Parade",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'brn',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to burn the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% brn. Power doubles if the target is statused.",
 	},
 	inferno: {
 		inherit: true,
@@ -612,7 +682,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
 	},
 	mountaingale: {
-		num: 870,
+		num: 836,
 		accuracy: 90,
 		basePower: 120,
 		category: "Physical",
@@ -667,7 +737,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Type varies based on the user's primary type.",
 	},
 	mysticalpower: {
-		num: 869,
+		num: 832,
 		accuracy: 100,
 		basePower: 70,
 		category: "Special",
@@ -769,7 +839,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {protect: 1, mirror: 1, blade: 1},
 	},
 	psyshieldbash: {
-		num: 868,
+		num: 828,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
@@ -983,7 +1053,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, blade: 1},
 	},
 	sonicslash: {
-		num: 854,
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback(pokemon, target) {
@@ -1009,9 +1078,9 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		maxMove: {basePower: 140},
 		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 140 if the result is 3 or more, 120 if 2, 80 if less than 2. If the target's current Speed is 0, this move's power is 80.",
 		shortDesc: "140 BP if 3x target's speed; 120 BP if 2x; else 80 BP.",
+		gen: 8,
 	},
 	soulrobbery: {
-		num: 852,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
@@ -1026,6 +1095,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Psychic",
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage.",
 		shortDesc: "Steals target's boosts before dealing damage.",
+		gen: 8,
 	},
 	sparklyswirl: {
 		inherit: true,
@@ -1109,17 +1179,18 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, kick: 1},
 	},
 	stoneaxe: {
-		name: "Stone Axe",
-		num: 856,
-		priority: 0,
-		type: "Rock",
-		category: "Physical",
-		pp: 10,
+		num: 830,
 		accuracy: 100,
 		basePower: 65,
-		target: "normal",
+		category: "Physical",
+		name: "Stone Axe",
+		pp: 10,
+		priority: 0,
 		flags: {contact: 1, protect: 1, blade: 1, mirror: 1},
 		volatileStatus: "partiallytrapped",
+		secondary: null,
+		target: "normal",
+		type: "Rock",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
 	},
@@ -1165,14 +1236,13 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	triplearrows: {
-		num: 862,
+		num: 843,
 		basePower: 60,
 		accuracy: 100,
-		type: "Fighting",
-		target: "normal",
+		category: "Physical",
 		name: "Triple Arrows",
 		pp: 15,
-		category: "Physical",
+		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 		secondaries: [
 			{
@@ -1187,7 +1257,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				},
 			},
 		],
-		priority: 0,
+		target: "normal",
+		type: "Fighting",
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Raises the user's chance for a critical hit by 2 stages.",
 		shortDesc: "Lower target's Defense by 1. Crit Ratio +2.",
 	},
@@ -1210,7 +1281,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
 	victorydance: {
-		num: 865,
+		num: 837,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1267,76 +1338,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 		desc: "Will always result in a critical hit.",
 		shortDesc: "Usually goes first. Always crits.",
-	},
-	// fuck it theres a triple clone and i dont want to alphabetize these
-	infernalparade: {
-		num: 858,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Special",
-		name: "Infernal Parade",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'brn',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Ghost",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to burn the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% brn. Power doubles if the target is statused.",
-	},
-	bittermalice: {
-		num: 860,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Special",
-		name: "Bitter Malice",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'frz',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Ghost",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to freeze the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% frz. Power doubles if the target is statused.",
-	},
-	barbbarrage: {
-		num: 859,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Physical",
-		name: "Barb Barrage",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'psn',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Poison",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% psn. Power doubles if the target is statused.",
 	},
 	// small accuracy changes for 2.4
 	willowisp: {
