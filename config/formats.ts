@@ -83,7 +83,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] UU",
 		mod: 'gen8rr',
 		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock', 'Smooth Rock'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 8] LC",
