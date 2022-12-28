@@ -764,7 +764,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "liquidation", "meteormash", "aquajet", "closecombat", "knockoff", "icehammer", "flipturn", "agility"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["crabhammer", "meteormash", "icehammer", "aquajet", "closecombat", "protect", "swordsdance"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	kinglergmax: {
 		isNonstandard: "Gigantamax",
