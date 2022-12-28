@@ -64,6 +64,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 140},
 		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
 		shortDesc: "30% psn. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	batonpass: {
 		inherit: true,
@@ -112,6 +113,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 140},
 		desc: "Has a 30% chance to freeze the target. Power doubles if the target has a non-volatile status condition.",
 		shortDesc: "30% frz. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	blazekick: {
 		inherit: true,
@@ -154,6 +156,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		volatileStatus: "partiallytrapped",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+		gen: 8,
 	},
 	chargebeam: {
 		inherit: true,
@@ -193,6 +196,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Grass",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 33% recoil.",
+		gen: 8,
 	},
 	circlethrow: {
 		inherit: true,
@@ -255,6 +259,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Poison",
 		desc: "Has a 50% chance to either paralyze, poison, or burn the target. Has a higher chance for a critical hit.",
 		shortDesc: "50% chance to par/psn/brn. High critical hit ratio.",
+		gen: 8,
 	},
 	doublekick: {
 		inherit: true,
@@ -330,6 +335,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "Usually goes first. 10% chance to lower Sp. Def by 1.",
+		gen: 8,
 	},
 	explosion: {
 		inherit: true,
@@ -507,6 +513,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Ground",
 		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
 		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		gen: 8,
 	},
 	headsmash: {
 		inherit: true,
@@ -558,6 +565,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 140},
 		desc: "Has a 30% chance to burn the target. Power doubles if the target has a non-volatile status condition.",
 		shortDesc: "30% brn. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	inferno: {
 		inherit: true,
@@ -698,6 +706,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Ice",
 		desc: "Has a 30% chance to make the target flinch.",
 		shortDesc: "30% chance to make the target flinch.",
+		gen: 8,
 	},
 	mudbomb: {
 		inherit: true,
@@ -784,6 +793,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Psychic",
 		desc: "Raises the user's Attack and Special Attack or Defense and Special Defense by 1 stage, depending on which stats are higher.",
 		shortDesc: "+1 Atk/SpA or Def/SpD depending on higher stats.",
+		gen: 8,
 	},
 	needlearm: {
 		inherit: true,
@@ -859,6 +869,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Psychic",
 		desc: "Has a 50% chance to raise the user's Defense by 1 stage.",
 		shortDesc: "50% chance to raise the user's Defense by 1.",
+		gen: 8,
 	},
 	pyroball: {
 		inherit: true,
@@ -1193,6 +1204,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Rock",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+		gen: 8,
 	},
 	strengthsap: {
 		inherit: true,
@@ -1261,6 +1273,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Fighting",
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Raises the user's chance for a critical hit by 2 stages.",
 		shortDesc: "Lower target's Defense by 1. Crit Ratio +2.",
+		gen: 8,
 	},
 	tripleaxel: {
 		inherit: true,
@@ -1299,6 +1312,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Fighting",
 		desc: "Raises the user's Attack, Defense, and Speed by 1 stage.",
 		shortDesc: "Raises the user's Atk, Def, Speed by 1.",
+		gen: 8,
 	},
 	volttackle: {
 		inherit: true,
