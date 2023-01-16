@@ -69,7 +69,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			'Uber', 'AG',
-			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap',
+			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 			'Swagger', 'Misty Explosion', 'Dark Hole', 'Draco Barrage', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
 		],
 	},
@@ -83,7 +83,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] UU",
 		mod: 'gen8rr',
 		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 8] LC",
@@ -227,6 +227,7 @@ export const Formats: FormatList = [
 
 	{
 		section: "Draft",
+		column: 2,
 	},
 	{
 		name: "[Gen 8] RRDL",
@@ -243,7 +244,7 @@ export const Formats: FormatList = [
 			// complex bans
 			'Blastoise-Mega + Shell Smash', 'Blaziken + Speed Boost', 'Kangaskhan-Mega + Seismic Toss', 'Greninja + Protean', 'Cinderace + Libero', 'Kyurem-Black + Dragon Dance', 'Kyurem-Black + Scale Shot', 'Deoxys-Speed + Nasty Plot',
 			// Items
-			'Quick Claw', 'Razor Fang', 'Razor Claw', 'Kings Rock', 'Bright Powder', 'Lax Incense',
+			'Quick Claw', 'Razor Fang', 'Razor Claw', 'Kings Rock',
 		],
 	},
 	{
@@ -270,40 +271,6 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
 	},
 
-	// PLA Drafts
-
-	{
-		section: "PLA Draft",
-		column: 2,
-	},
-	{
-		name: "[Gen 8] PLA Draft",
-		mod: 'gen8pla',
-		searchShow: false,
-		ruleset: ['PLA NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
-	},
-	{
-		name: "[Gen 8] PLA Legacy Draft",
-		mod: 'gen8pla',
-		searchShow: false,
-		ruleset: ['PLA Legacy', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
-	},
-	{
-		name: "[Gen 8] PLA Doubles Draft",
-		mod: 'gen8pla',
-		gameType: "doubles",
-		searchShow: false,
-		ruleset: ['PLA NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Species Clause', 'Sleep Clause Mod', 'Dynamax Clause', 'Z-Move Clause'],
-	},
-	{
-		name: "[Gen 8] PLA VGC Draft",
-		mod: 'gen8pla',
-		gameType: "doubles",
-		searchShow: false,
-		ruleset: ['PLA NatDex', 'Flat Rules', '!! Adjust Level = 50', '!! Picked Team Size = 4', 'Z-Move Clause'],
-		unbanlist: ['Restricted Legendary', 'Mythical', 'Floette-Eternal', 'Pichu-Spiky-eared', 'Pikachu-Belle', 'Pikachu-Cosplay', 'Pikachu-Libre', 'Pikachu-PhD', 'Pikachu-Pop-Star', 'Pikachu-Rock-Star'],
-	},
-
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 
@@ -325,28 +292,10 @@ export const Formats: FormatList = [
 			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Fishious Rend', 'Dark Hole',
 			// items
 			'Gengarite', 'Kangaskhanite', 'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Red Orb',
+			'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 			// other stuff
 			'Comatose + Sleep Talk',
 		],
-		onChangeSet(set) {
-			const item = this.dex.toID(set.item);
-			if (set.species === 'Zacian' && item === 'rustedsword') {
-				set.species = 'Zacian-Crowned';
-				set.ability = 'Intrepid Sword';
-				const ironHead = set.moves.indexOf('ironhead');
-				if (ironHead >= 0) {
-					set.moves[ironHead] = 'behemothblade';
-				}
-			}
-			if (set.species === 'Zamazenta' && item === 'rustedshield') {
-				set.species = 'Zamazenta-Crowned';
-				set.ability = 'Dauntless Shield';
-				const ironHead = set.moves.indexOf('ironhead');
-				if (ironHead >= 0) {
-					set.moves[ironHead] = 'behemothbash';
-				}
-			}
-		},
 	},
 	{
 		name: "[Gen 8] Pure Hackmons",
@@ -392,7 +341,7 @@ export const Formats: FormatList = [
 		mod: 'gen8rr',
 		team: 'randomCC',
 		searchShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] Challenge Cup 1v1",
@@ -416,7 +365,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen8rr',
 		team: 'randomHC',
-		ruleset: ['Obtainable Formes', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Obtainable Formes', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] Doubles Hackmons Cup",
@@ -425,6 +374,6 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		team: 'randomHC',
 		searchShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 ];

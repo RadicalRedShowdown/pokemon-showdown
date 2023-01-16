@@ -14,7 +14,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		effectType: 'Status',
 		onStart(target) {
 			this.add('-status', target, 'brn');
-			target.addVolatile('brnattackdrop');
 		},
 		onAfterMoveSelfPriority: 2,
 		onAfterMoveSelf(pokemon) {
@@ -23,9 +22,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			if (pokemon.volatiles['residualdmg']) {
 				this.hint("In Gen 1, Toxic's counter is retained after Rest and applies to PSN/BRN.", true);
 			}
-		},
-		onSwitchIn(pokemon) {
-			pokemon.addVolatile('brnattackdrop');
 		},
 		onAfterSwitchInSelf(pokemon) {
 			this.damage(this.clampIntRange(Math.floor(pokemon.maxhp / 16), 1));
@@ -36,7 +32,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		effectType: 'Status',
 		onStart(target) {
 			this.add('-status', target, 'par');
-			target.addVolatile('parspeeddrop');
 		},
 		onBeforeMovePriority: 2,
 		onBeforeMove(pokemon) {
@@ -52,9 +47,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				return false;
 			}
 		},
-		onSwitchIn(pokemon) {
-			pokemon.addVolatile('parspeeddrop');
-		},
 	},
 	slp: {
 		name: 'slp',
@@ -68,6 +60,10 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			// 1-7 turns
 			this.effectState.startTime = this.random(1, 8);
 			this.effectState.time = this.effectState.startTime;
+
+			if (target.removeVolatile('nightmare')) {
+				this.add('-end', target, 'Nightmare', '[silent]');
+			}
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
@@ -78,6 +74,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			pokemon.lastMove = null;
 			return false;
 		},
+		onAfterMoveSelfPriority: 3,
 		onAfterMoveSelf(pokemon) {
 			if (pokemon.statusState.time <= 0) pokemon.cureStatus();
 		},
@@ -164,6 +161,9 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 	flinch: {
 		name: 'flinch',
 		duration: 1,
+		onStart(target) {
+			target.removeVolatile('mustrecharge');
+		},
 		onBeforeMovePriority: 4,
 		onBeforeMove(pokemon) {
 			if (!this.runEvent('Flinch', pokemon)) {

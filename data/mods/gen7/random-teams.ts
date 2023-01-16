@@ -1,4 +1,4 @@
-import {MoveCounter, RandomTeams, TeamData} from '../../random-teams';
+import {MoveCounter, RandomGen8Teams, TeamData} from '../gen8/random-teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {Utils} from '../../../lib';
 import {toID} from '../../../sim/dex';
@@ -29,9 +29,11 @@ const ZeroAttackHPIVs: {[k: string]: SparseStatsTable} = {
 	rock: {def: 30, spd: 30, spe: 30},
 };
 
-export class RandomGen7Teams extends RandomTeams {
+export class RandomGen7Teams extends RandomGen8Teams {
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
+
+		this.noStab = [...this.noStab, 'voltswitch'];
 
 		this.moveEnforcementCheckers = {
 			Bug: movePool => movePool.includes('megahorn') || movePool.includes('pinmissile'),
@@ -46,7 +48,7 @@ export class RandomGen7Teams extends RandomTeams {
 			),
 			Electric: (movePool, moves, abilities, types, counter) => !counter.get('Electric') || movePool.includes('thunder'),
 			Fairy: (movePool, moves, abilities, types, counter) => (
-				!counter.get('Fairy') && !types.has('Flying') && !abilities.has('Pixilate')
+				(!counter.get('Fairy') && !types.has('Flying') && !abilities.has('Pixilate'))
 			),
 			Fighting: (movePool, moves, abilities, types, counter) => !counter.get('Fighting') || !counter.get('stab'),
 			Fire: (movePool, moves, abilities, types, counter) => (
@@ -295,13 +297,7 @@ export class RandomGen7Teams extends RandomTeams {
 				(abilities.has('Speed Boost') && moves.has('protect')) ||
 				(abilities.has('Protean') && counter.get('Status') > 2) ||
 				!!counter.setupType ||
-				!!counter.get('speedsetup') || (
-					types.has('Bug') &&
-					counter.get('stab') < 2 &&
-					counter.damagingMoves.size > 2 &&
-					!abilities.has('Adaptability') &&
-					!abilities.has('Download')
-				)
+				!!counter.get('speedsetup')
 			)};
 		case 'voltswitch':
 			return {cull: (
@@ -331,7 +327,7 @@ export class RandomGen7Teams extends RandomTeams {
 				(moves.has('clangingscales') && !teamDetails.zMove)
 			)};
 		case 'thunderbolt':
-			return {cull: moves.has('discharge') || (moves.has('voltswitch') && moves.has('wildcharge'))};
+			return {cull: ['discharge', 'voltswitch', 'wildcharge'].some(m => moves.has(m))};
 		case 'moonblast':
 			return {cull: isDoubles && moves.has('dazzlinggleam')};
 		case 'aurasphere': case 'focusblast':
@@ -445,7 +441,12 @@ export class RandomGen7Teams extends RandomTeams {
 		case 'facade':
 			return {cull: moves.has('bulkup') || hasRestTalk};
 		case 'hiddenpower':
-			return {cull: moves.has('rest') || !counter.get('stab') && counter.damagingMoves.size < 2};
+			return {cull: (
+				moves.has('rest') ||
+				(!counter.get('stab') && counter.damagingMoves.size < 2) ||
+				// Force Moonblast on Special-setup Fairies
+				(counter.setupType === 'Special' && types.has('Fairy') && movePool.includes('moonblast'))
+			)};
 		case 'hypervoice':
 			return {cull: moves.has('blizzard')};
 		case 'judgment':
@@ -1028,7 +1029,7 @@ export class RandomGen7Teams extends RandomTeams {
 			// Random Multi Battle uses doubles move pools, but Ally Switch fails in multi battles
 			const allySwitch = movePool.indexOf('allyswitch');
 			if (allySwitch > -1) {
-				if (movePool.length > 4) {
+				if (movePool.length > this.maxMoveCount) {
 					this.fastPop(movePool, allySwitch);
 				} else {
 					// Ideally, we'll never get here, but better to have a move that usually does nothing than one that always does
@@ -1065,7 +1066,7 @@ export class RandomGen7Teams extends RandomTeams {
 
 		do {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			while (moves.size < 4 && movePool.length) {
+			while (moves.size < this.maxMoveCount && movePool.length) {
 				const moveid = this.sampleNoReplace(movePool);
 				if (moveid.startsWith('hiddenpower')) {
 					availableHP--;
@@ -1074,7 +1075,7 @@ export class RandomGen7Teams extends RandomTeams {
 				}
 				moves.add(moveid);
 			}
-			while (moves.size < 4 && rejectedPool.length) {
+			while (moves.size < this.maxMoveCount && rejectedPool.length) {
 				const moveid = this.sampleNoReplace(rejectedPool);
 				if (moveid.startsWith('hiddenpower')) {
 					if (hasHiddenPower) continue;
@@ -1230,7 +1231,7 @@ export class RandomGen7Teams extends RandomTeams {
 					break;
 				}
 			}
-		} while (moves.size < 4 && (movePool.length || rejectedPool.length));
+		} while (moves.size < this.maxMoveCount && (movePool.length || rejectedPool.length));
 
 		// Moveset modifications
 		if (moves.has('autotomize') && moves.has('heavyslam')) {
@@ -1292,7 +1293,7 @@ export class RandomGen7Teams extends RandomTeams {
 			} else if (abilities.has('Moxie') && (counter.get('Physical') > 3 || moves.has('bounce')) && !isDoubles) {
 				ability = 'Moxie';
 			} else if (isDoubles) {
-				if (abilities.has('Intimidate')) ability = 'Intimidate';
+				if (abilities.has('Intimidate') && !battleOnly) ability = 'Intimidate';
 				if (abilities.has('Guts') && ability !== 'Intimidate') ability = 'Guts';
 				if (abilities.has('Storm Drain')) ability = 'Storm Drain';
 				if (abilities.has('Harvest')) ability = 'Harvest';
@@ -1343,7 +1344,9 @@ export class RandomGen7Teams extends RandomTeams {
 		}
 
 		let level: number;
-		if (!isDoubles) {
+		if (this.adjustLevel) {
+			level = this.adjustLevel;
+		} else if (!isDoubles) {
 			const levelScale: {[k: string]: number} = {uber: 76, ou: 80, uu: 82, ru: 84, nu: 86, pu: 88};
 			const customScale: {[k: string]: number} = {
 				// Banned Ability
@@ -1713,7 +1716,7 @@ export class RandomGen7Teams extends RandomTeams {
 		const item = this.sampleIfArray(setData.set.item);
 		const ability = this.sampleIfArray(setData.set.ability);
 		const nature = this.sampleIfArray(setData.set.nature);
-		const level = setData.set.level || (tier === "LC" ? 5 : 100);
+		const level = this.adjustLevel || setData.set.level || (tier === "LC" ? 5 : 100);
 
 		return {
 			name: setData.set.name || species.baseSpecies,
@@ -1734,7 +1737,7 @@ export class RandomGen7Teams extends RandomTeams {
 	randomFactoryTeam(side: PlayerOptions, depth = 0): RandomTeamsTypes.RandomFactorySet[] {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const forceResult = (depth >= 4);
+		const forceResult = (depth >= 12);
 		const isMonotype = !!this.forceMonotype || this.dex.formats.getRuleTable(this.format).has('sametypeclause');
 
 		// The teams generated depend on the tier choice in such a way that

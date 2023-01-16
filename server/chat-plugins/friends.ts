@@ -312,7 +312,10 @@ export const commands: Chat.ChatCommands = {
 			Friends.checkCanUse(this);
 			target = toID(target);
 			if (!target) return this.parse('/help friends');
-			await Friends.removeRequest(user.id, target as ID);
+			const res = await Friends.removeRequest(user.id, target as ID);
+			if (!res.changes) {
+				return this.errorReply(`You do not have a friend request pending from '${target}'.`);
+			}
 			this.refreshPage('friends-received');
 			return sendPM(`You denied a friend request from '${target}'.`, user.id);
 		},
@@ -340,11 +343,6 @@ export const commands: Chat.ChatCommands = {
 		async undorequest(target, room, user, connection) {
 			Friends.checkCanUse(this);
 			target = toID(target);
-			if (user.settings.blockFriendRequests) {
-				return sendPM(
-					`/error ${this.tr`You are blocking friend requests, and so cannot undo requests, as you have none.`}`, user.id
-				);
-			}
 			await Friends.removeRequest(target as ID, user.id);
 			this.refreshPage('friends-sent');
 			return sendPM(`You removed your friend request to '${target}'.`, user.id);
@@ -459,6 +457,7 @@ export const commands: Chat.ChatCommands = {
 				`<code>/friend list</code> - View current friends.`,
 				`<code>/friend add [name]</code> OR <code>/friend [name]</code> - Send a friend request to [name], if you don't have them added.`,
 				`<code>/friend remove [username]</code> OR <code>/unfriend [username]</code>  - Unfriend the user.`,
+				`<details class="readmore"><summary>More commands...</summary>`,
 				`<code>/friend accept [username]</code> - Accepts the friend request from [username], if it exists.`,
 				`<code>/friend reject [username]</code> - Rejects the friend request from [username], if it exists.`,
 				`<code>/friend toggle [off/on]</code> - Enable or disable receiving of friend requests.`,
@@ -466,7 +465,7 @@ export const commands: Chat.ChatCommands = {
 				`<code>/friend viewnotifications</code> OR <code>viewnotifs</code> - Opts into view friend notifications.`,
 				`<code>/friend listdisplay [on/off]</code> - Opts [in/out] of letting others view your friends list.`,
 				`<code>/friend viewlist [user]</code> - View the given [user]'s friend list, if they're allowing others to see.`,
-				`<code>/friends sharebattles [on|off]</code> - Allow or disallow your friends from seeing your ongoing battles.`,
+				`<code>/friends sharebattles [on|off]</code> - Allow or disallow your friends from seeing your ongoing battles.</details>`,
 			].join('<br />'));
 		}
 		return this.parse('/join view-friends-help');
@@ -673,17 +672,18 @@ export const handlers: Chat.Handlers = {
 	},
 };
 
-export const loginfilter: Chat.LoginFilter = async user => {
+export const loginfilter: Chat.LoginFilter = user => {
 	if (!Config.usesqlitefriends || !Users.globalAuth.atLeast(user, Config.usesqlitefriends)) {
 		return;
 	}
+
 	// notify users of pending requests
-	await Friends.notifyPending(user);
+	void Friends.notifyPending(user);
 
 	// (quietly) notify their friends (that have opted in) that they are online
-	await Friends.notifyConnection(user);
+	void Friends.notifyConnection(user);
 	// write login time
-	await Chat.Friends.writeLogin(user.id);
+	void Chat.Friends.writeLogin(user.id);
 
-	await Chat.Friends.updateUserCache(user);
+	void Chat.Friends.updateUserCache(user);
 };

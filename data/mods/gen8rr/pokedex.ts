@@ -494,7 +494,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	slowbrogalar: {
 		inherit: true,
 		baseStats: {hp: 95, atk: 75, def: 105, spa: 115, spd: 70, spe: 30},
-		abilities: {0: "Gluttony", 1: "Own Tempo", H: "Regenerator"},
+		abilities: {0: "Quick Draw", 1: "Own Tempo", H: "Regenerator"},
 		evoType: null,
 		evoLevel: 37,
 		evoItem: "",
@@ -515,7 +515,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	farfetchd: {
 		inherit: true,
 		types: ["Fighting", "Flying"],
-		baseStats: {hp: 75, atk: 90, def: 70, spa: 58, spd: 77, spe: 60},
+		baseStats: {hp: 75, atk: 90, def: 70, spa: 58, spd: 77, spe: 65},
 		abilities: {0: "Frisk", 1: "Inner Focus", H: "Blademaster"},
 		items: {5: "Leek Stick", 50: "None"},
 	},
@@ -819,7 +819,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	flareon: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 130, def: 70, spa: 65, spd: 100, spe: 95},
-		abilities: {0: "Flash Fire", 1: "Toxic Boost"},
+		abilities: {0: "Flash Fire", H: "Toxic Boost"},
 	},
 	kabuto: {
 		inherit: true,
@@ -920,12 +920,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hoothoot: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Frisk", H: "Tinted Lens"},
+		abilities: {0: "Tinted Lens", 1: "Frisk", H: "Insomnia"},
 	},
 	noctowl: {
 		inherit: true,
 		baseStats: {hp: 110, atk: 50, def: 50, spa: 86, spd: 96, spe: 70},
-		abilities: {0: "Insomnia", 1: "Frisk", H: "Tinted Lens"},
+		abilities: {0: "Tinted Lens", 1: "Frisk", H: "Insomnia"},
 		evoLevel: 16,
 	},
 	ledyba: {
@@ -1164,7 +1164,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	corsolagalar: {
 		inherit: true,
-		baseStats: {hp: 60, atk: 55, def: 100, spa: 65, spd: 100, spe: 40},
+		baseStats: {hp: 60, atk: 55, def: 100, spa: 65, spd: 100, spe: 30},
 		abilities: {0: "Weak Armor", 1: "Unburden", H: "Cursed Body"},
 	},
 	remoraid: {
@@ -1266,6 +1266,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hooh: {
 		inherit: true,
+		abilities: {0: "Pressure", 1: "Regenerator", H: "Pheonix Down"},
 		items: {5: "Sacred Ash", 50: "Sacred Ash"},
 	},
 	celebi: {
@@ -1611,12 +1612,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	lunatone: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 55, def: 65, spa: 105, spd: 85, spe: 90},
-		items: {5: "Moon Stone", 50: "Stardust"},
+		items: {5: "Star Piece", 50: "Stardust"},
 	},
 	solrock: {
 		inherit: true,
 		baseStats: {hp: 90, atk: 105, def: 85, spa: 55, spd: 65, spe: 90},
-		items: {5: "Sun Stone", 50: "Stardust"},
+		items: {5: "Star Piece", 50: "Stardust"},
 	},
 	whiscash: {
 		inherit: true,
@@ -2031,10 +2032,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		items: {5: "Pecha Berry", 50: "None"},
 		evoLevel: 28,
 	},
-	bronzor: {
-		inherit: true,
-		items: {5: "Metal Coat", 50: "None"},
-	},
 	bronzong: {
 		inherit: true,
 		items: {5: "Metal Coat", 50: "None"},
@@ -2195,7 +2192,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	magmortar: {
 		inherit: true,
 		baseStats: {hp: 75, atk: 80, def: 67, spa: 125, spd: 95, spe: 98},
-		abilities: {0: "Flame Body", 1: "Magma Armor", H: "Mega Launcher"},
+		abilities: {0: "Flame Body", 1: "Quick Draw", H: "Mega Launcher"},
 		evoType: "useItem",
 		evoItem: "Link Cable",
 	},
@@ -2206,7 +2203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	leafeon: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 130, def: 110, spa: 60, spd: 65, spe: 95},
-		abilities: {0: "Sap Sipper", H: "Chlorophyll"},
+		abilities: {0: "Leaf Guard", 1: "Sap Sipper", H: "Chlorophyll"},
 	},
 	glaceon: {
 		inherit: true,
@@ -2253,8 +2250,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dialga: {
 		inherit: true,
-		otherFormes: ["Dialga-Primal"],
-		formeOrder: ["Dialga", "Dialga-Primal"],
+		otherFormes: ["Dialga-Origin", "Dialga-Primal"],
+		formeOrder: ["Dialga", "Dialga-Origin", "Dialga-Primal"],
 	},
 	dialgaprimal: {
 		num: 483,
@@ -2286,7 +2283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	emboar: {
 		inherit: true,
-		abilities: {0: "Bull Rush", H: "Reckless"},
+		abilities: {0: "Reckless", H: "Bull Rush"},
 	},
 	oshawott: {
 		inherit: true,
@@ -2573,12 +2570,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	scraggy: {
 		inherit: true,
 		abilities: {0: "Shed Skin", 1: "Intimidate", H: "Moxie"},
-		items: {5: "Shed Shell", 50: "None"},
 	},
 	scrafty: {
 		inherit: true,
 		abilities: {0: "Shed Skin", 1: "Intimidate", H: "Moxie"},
-		items: {5: "Shed Shell", 50: "None"},
 	},
 	yamask: {
 		inherit: true,
@@ -2587,7 +2582,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	yamaskgalar: {
 		inherit: true,
-		abilities: {0: "Mummy", H: "Shadow Shield"},
+		abilities: {0: "Wandering Spirit", H: "Shadow Shield"},
 	},
 	cofagrigus: {
 		inherit: true,
@@ -3949,10 +3944,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	morgrem: {
 		inherit: true,
 		abilities: {0: "Prankster", 1: "Frisk", H: "Infiltrator"},
+		evoLevel: 27,
 	},
 	grimmsnarl: {
 		inherit: true,
 		abilities: {0: "Prankster", 1: "Frisk", H: "Infiltrator"},
+		evoLevel: 36,
 	},
 	grimmsnarlgmax: {
 		inherit: true,
@@ -3980,7 +3977,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	runerigus: {
 		inherit: true,
-		abilities: {0: "Mummy", H: "Shadow Shield"},
+		abilities: {0: "Wandering Spirit", H: "Shadow Shield"},
 		evoType: null,
 		evoLevel: 35,
 		evoCondition: "",
@@ -4049,6 +4046,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		items: {5: "Terrain Extender", 50: "None"},
 	},
 	morpeko: {
+		inherit: true,
+		baseStats: {hp: 58, atk: 110, def: 58, spa: 70, spd: 58, spe: 97},
+	},
+	morpekohangry: {
 		inherit: true,
 		baseStats: {hp: 58, atk: 110, def: 58, spa: 70, spd: 58, spe: 97},
 	},

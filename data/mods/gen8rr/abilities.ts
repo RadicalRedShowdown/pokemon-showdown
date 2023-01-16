@@ -420,8 +420,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onTryHeal(damage, target, source, effect) {
-			if (!effect) return;
-			if (effect.id === 'drain' && this.activeMove?.parasiticWasteBoosted) {
+			if (effect?.id === 'drain' && this.activeMove?.parasiticWasteBoosted) {
 				this.add('-activate', target, 'ability: Parasitic Waste');
 			}
 		},
@@ -429,6 +428,28 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		rating: 2.5,
 		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
+	},
+	pheonixdown: {
+		onBeforeFaint(pokemon, effect) {
+			if (this.effectState.pheonixDownActivated) return;
+			this.effectState.pheonixDownActivated = true;
+			this.add('-activate', pokemon, 'ability: Pheonix Down', pokemon);
+			pokemon.hp = this.trunc(pokemon.maxhp / 2);
+			pokemon.clearStatus();
+			this.add('-sethp', pokemon, pokemon.getHealth, '[silent]');
+			pokemon.clearBoosts();
+			this.add('-clearboost', pokemon, '[silent]');
+			for (const moveSlot of pokemon.moveSlots) {
+				moveSlot.pp = moveSlot.maxpp;
+			}
+			return false;
+		},
+		isPermanent: true,
+		name: "Pheonix Down",
+		gen: 8,
+		rating: 5,
+		desc: "Once per battle, this Pokemon restores 1/2 of its maximum HP, rounded down, has its non-volatile status condition cured, and has its stat stages reset to 0 instead of fainting.",
+		shortDesc: "Heals to 50% hp and has stats and status reset instead of fainting; Only once per battle.",
 	},
 	pressure: {
 		inherit: true,

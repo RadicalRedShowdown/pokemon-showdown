@@ -19,6 +19,7 @@ export const ATTRIBUTES = {
 	"FLIRTATION": {},
 };
 
+
 export interface PerspectiveRequest {
 	languages: string[];
 	requestedAttributes: AnyObject;
@@ -26,51 +27,24 @@ export interface PerspectiveRequest {
 }
 
 function time() {
-	return Math.floor(Date.now() / 1000);
-}
-
-export class RollingCounter {
-	counts: number[] = [0];
-	readonly size: number;
-	constructor(limit: number) {
-		this.size = limit;
-	}
-	increment() {
-		this.counts[this.counts.length - 1]++;
-	}
-	rollOver(amount: number) {
-		if (amount > this.size) {
-			this.counts = Array(this.size).fill(0);
-			return;
-		}
-		for (let i = 0; i < amount; i++) {
-			this.counts.push(0);
-			if (this.counts.length > this.size) this.counts.shift();
-		}
-	}
-	mean() {
-		let total = 0;
-		for (const elem of this.counts) total += elem;
-		return total / this.counts.length;
-	}
+	return Math.floor(Math.floor(Date.now() / 1000) / 60);
 }
 
 export class Limiter {
-	readonly counter: RollingCounter;
 	readonly max: number;
-	lastCounterRoll = time();
-	constructor(max: number, period: number) {
+	lastTick = time();
+	count = 0;
+	constructor(max: number) {
 		this.max = max;
-		this.counter = new RollingCounter(period);
 	}
 	shouldRequest() {
 		const now = time();
-		this.counter.rollOver(now - this.lastCounterRoll);
-		this.lastCounterRoll = now;
-
-		if (this.counter.mean() > this.max) return false;
-		this.counter.increment();
-		return true;
+		if (this.lastTick !== now) {
+			this.count = 0;
+			this.lastTick = now;
+		}
+		this.count++;
+		return this.count < this.max;
 	}
 }
 
@@ -80,7 +54,7 @@ function isCommon(message: string) {
 }
 
 let throttleTime: number | null = null;
-export const limiter = new Limiter(15, 10);
+export const limiter = new Limiter(800);
 export const PM = new ProcessManager.QueryProcessManager<string, Record<string, number> | null>(module, async text => {
 	if (isCommon(text) || !limiter.shouldRequest()) return null;
 	if (throttleTime && (Date.now() - throttleTime < 10000)) {
@@ -129,7 +103,7 @@ export const PM = new ProcessManager.QueryProcessManager<string, Record<string, 
 
 // main module check necessary since this gets required in other non-parent processes sometimes
 // when that happens we do not want to take over or set up or anything
-if (!PM.isParentProcess && require.main === module) {
+if (require.main === module) {
 	// This is a child process!
 	global.Config = Config;
 	global.Monitor = {
@@ -149,7 +123,7 @@ if (!PM.isParentProcess && require.main === module) {
 	});
 	// eslint-disable-next-line no-eval
 	Repl.start(`abusemonitor-remote-${process.pid}`, cmd => eval(cmd));
-} else if (PM.isParentProcess) {
+} else if (!process.send) {
 	PM.spawn(Config.remoteartemisprocesses || 1);
 }
 
@@ -159,6 +133,31 @@ export class RemoteClassifier {
 	classify(text: string) {
 		if (!Config.perspectiveKey) return Promise.resolve(null);
 		return PM.query(text);
+	}
+	async suggestScore(text: string, data: Record<string, number>) {
+		if (!Config.perspectiveKey) return Promise.resolve(null);
+		const body: AnyObject = {
+			comment: {text},
+			attributeScores: {},
+		};
+		for (const k in data) {
+			body.attributeScores[k] = {summaryScore: {value: data[k]}};
+		}
+		try {
+			const raw = await Net(`https://commentanalyzer.googleapis.com/v1alpha1/comments:suggestscore`).post({
+				query: {
+					key: Config.perspectiveKey,
+				},
+				body: JSON.stringify(body),
+				headers: {
+					'Content-Type': "application/json",
+				},
+				timeout: 10 * 1000, // 10s
+			});
+			return JSON.parse(raw);
+		} catch (e: any) {
+			return {error: e.message};
+		}
 	}
 	destroy() {
 		return PM.destroy();

@@ -95,4 +95,31 @@ describe('[Gen 7] Random Battle', () => {
 	});
 
 	it('should always give Mega Glalie Return', () => testAlwaysHasMove('glaliemega', options, 'return'));
+
+	it('should not give Zebstrika Thunderbolt and Wild Charge', () => {
+		testNotBothMoves('zebstrika', options, 'thunderbolt', 'wildcharge');
+	});
+
+	it('should always give Mega Diancie Moonblast if it has Calm Mind', () => {
+		testSet('dianciemega', options, set => {
+			if (!set.moves.includes('calmmind')) return;
+			assert(set.moves.includes('moonblast'), `Diancie: got ${set.moves}`);
+		});
+	});
+});
+
+describe('[Gen 7] Random Doubles Battle', () => {
+	const options = {format: 'gen7randomdoublesbattle'};
+
+	it("shouldn't give Manectric Intimidate before Mega Evolving", () => {
+		testSet('manectricmega', options, set => {
+			assert.notEqual(set.ability, 'Intimidate');
+		});
+	});
+
+	it("should give Mawile Intimidate before Mega Evolving", () => {
+		testSet('mawilemega', options, set => {
+			assert.equal(set.ability, 'Intimidate');
+		});
+	});
 });

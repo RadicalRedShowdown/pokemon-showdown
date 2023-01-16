@@ -1,4 +1,4 @@
-import {MoveCounter, RandomTeams, TeamData} from '../../random-teams';
+import {MoveCounter, RandomGen8Teams, TeamData} from '../gen8/random-teams';
 import {PRNG, PRNGSeed} from '../../../sim/prng';
 import {Utils} from '../../../lib';
 import {Dex, toID} from '../../../sim/dex';
@@ -39,7 +39,7 @@ const Hazards = [
 	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
 ];
 
-export class RandomRadicalRedTeams extends RandomTeams {
+export class RandomRadicalRedTeams extends RandomGen8Teams {
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 

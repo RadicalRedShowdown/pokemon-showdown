@@ -1,9 +1,9 @@
 // BDSP team generation logic is currently largely shared with Swsh
 
 import {PRNG, PRNGSeed} from '../../../sim/prng';
-import {MoveCounter, RandomTeams} from '../../random-teams';
+import {MoveCounter, RandomGen8Teams} from '../gen8/random-teams';
 
-export class RandomBDSPTeams extends RandomTeams {
+export class RandomBDSPTeams extends RandomGen8Teams {
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
 		this.noStab = [...this.noStab, 'gigaimpact'];
@@ -58,7 +58,13 @@ export class RandomBDSPTeams extends RandomTeams {
 			}
 		}
 		if (moves.has('auroraveil') || moves.has('lightscreen') && moves.has('reflect')) return 'Light Clay';
-		if (moves.has('rest') && !moves.has('sleeptalk') && ability !== 'Shed Skin') return 'Chesto Berry';
+		const statusCuringAbility = (
+			ability === 'Shed Skin' ||
+			ability === 'Natural Cure' ||
+			(ability === 'Hydration' && moves.has('raindance'))
+		);
+		const restWithoutSleepTalk = (moves.has('rest') && !moves.has('sleeptalk'));
+		if (restWithoutSleepTalk && !statusCuringAbility) return 'Chesto Berry';
 		if (moves.has('bellydrum')) return 'Sitrus Berry';
 	}
 
@@ -226,7 +232,8 @@ export class RandomBDSPTeams extends RandomTeams {
 		case 'storedpower':
 			return {cull: !counter.setupType};
 		case 'switcheroo': case 'trick':
-			return {cull: counter.get('Physical') + counter.get('Special') < 3 || moves.has('rapidspin')};
+			// We cull Switcheroo + Fake Out because Switcheroo is often used with a Choice item
+			return {cull: counter.get('Physical') + counter.get('Special') < 3 || moves.has('rapidspin') || moves.has('fakeout')};
 		case 'trickroom':
 			const webs = !!teamDetails.stickyWeb;
 			return {cull:

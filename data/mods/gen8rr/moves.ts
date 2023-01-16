@@ -9,7 +9,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Raises the user's Attack by 1.",
 	},
 	aquafang: {
-		num: 850,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -21,6 +20,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "No additional effect.",
+		gen: 8,
 	},
 	armthrust: {
 		inherit: true,
@@ -41,6 +41,30 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			this.hint("Only a Pokemon whose form is Morpeko, Morpeko-Hangry, or Pikachu-Libre can use this move.");
 			return null;
 		},
+	},
+	barbbarrage: {
+		num: 839,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Physical",
+		name: "Barb Barrage",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'psn',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Poison",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% psn. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	batonpass: {
 		inherit: true,
@@ -66,6 +90,30 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		contestType: "Tough",
 		desc: "Hits two to five times. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times.",
 		shortDesc: "Hits 2-5 times in one turn.",
+	},
+	bittermalice: {
+		num: 841,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Bitter Malice",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'frz',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to freeze the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% frz. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	blazekick: {
 		inherit: true,
@@ -96,7 +144,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	ceaselessedge: {
 		name: "Ceaseless Edge",
-		num: 857,
+		num: 845,
 		priority: 0,
 		type: "Dark",
 		category: "Physical",
@@ -108,6 +156,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		volatileStatus: "partiallytrapped",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+		gen: 8,
 	},
 	chargebeam: {
 		inherit: true,
@@ -133,7 +182,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	chloroblast: {
-		num: 864,
+		num: 835,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -147,6 +196,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Grass",
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 33% recoil.",
+		gen: 8,
 	},
 	circlethrow: {
 		inherit: true,
@@ -167,7 +217,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Steel",
 	},
 	darkhole: {
-		num: 851,
 		name: "Dark Hole",
 		category: "Special",
 		pp: 5,
@@ -175,18 +224,42 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 100,
 		type: "Dark",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1, bypasssub: 1},
 		target: "normal",
 		secondary: {
 			chance: 40,
 			status: 'slp',
 		},
 		shortDesc: "40% chance to inflict sleep, bypasses substitute.",
+		gen: 8,
 	},
 	diamondstorm: {
 		inherit: true,
 		category: "Special",
 		accuracy: 100,
+	},
+	direclaw: {
+		num: 827,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Dire Claw",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		critRatio: 2,
+		secondary: {
+			chance: 50,
+			onHit(target, source) {
+				const statuses = ['par', 'psn', 'brn'];
+				target.trySetStatus(this.sample(statuses), source);
+			},
+		},
+		target: "normal",
+		type: "Poison",
+		desc: "Has a 50% chance to either paralyze, poison, or burn the target. Has a higher chance for a critical hit.",
+		shortDesc: "50% chance to par/psn/brn. High critical hit ratio.",
+		gen: 8,
 	},
 	doublekick: {
 		inherit: true,
@@ -201,9 +274,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Raises the user's Attack by 1.",
 	},
 	dracobarrage: {
-		name: "Draco Barrage",
-		type: "Dragon",
+		accuracy: 100,
+		basePower: 100,
 		category: "Special",
+		name: "Draco Barrage",
 		pp: 5,
 		priority: 0,
 		num: 855,
@@ -211,13 +285,17 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 		ignoreImmunity: {'Dragon': true},
 		flags: {protect: 1, mirror: 1},
-		target: "normal",
-		recoil: [1, 3],
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
+		recoil: [1, 3],
+		ignoreImmunity: {'Dragon': true},
+		secondary: null,
+		target: "normal",
+		type: "Dragon",
 		desc: "This move becomes a physical attack if the user's Attack is greater than its Special Attack, including stat stage changes. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP. This move can hit Fairy-type Pokemon.",
 		shortDesc: "Physical if Atk > Sp. Atk. 33% recoil. Hits fairies.",
+		gen: 8,
 	},
 	dracometeor: {
 		inherit: true,
@@ -243,7 +321,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 160},
 	},
 	esperwing: {
-		num: 866,
+		num: 840,
 		name: "Esper Wing",
 		type: "Psychic",
 		priority: 1,
@@ -261,6 +339,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
 		shortDesc: "Usually goes first. 10% chance to lower Sp. Def by 1.",
+		gen: 8,
 	},
 	explosion: {
 		inherit: true,
@@ -339,23 +418,23 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	forbiddenspell: {
-		num: 853,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Forbidden Spell",
-		secondary: null,
-		target: "self",
-		type: "Psychic",
-		flags: {},
 		pp: 5,
 		priority: 0,
+		flags: {},
 		onHit(target) {
 			const possibleMoves = ['Dark Hole', 'Healing Wish', 'No Retreat', 'Quiver Dance', 'Roar of Time', 'Shell Smash', 'Soul Robbery', 'Tail Glow'];
 			this.actions.useMove(this.sample(possibleMoves), target);
 		},
+		secondary: null,
+		target: "self",
+		type: "Psychic",
 		desc: "Uses of one of these 8 moves: Shell Smash, Healing Wish, Dark Hole, Tail Glow, Roar of Time, Quiver Dance, No Retreat, or Soul Robbery",
 		shortDesc: "Isn't RNG fun?",
+		gen: 8,
 	},
 	freezyfrost: {
 		inherit: true,
@@ -419,7 +498,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Has 1/4 recoil. 10% chance to lower the target's Defense by 1.",
 	},
 	headlongrush: {
-		num: 861,
+		num: 838,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -438,6 +517,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Ground",
 		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
 		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
+		gen: 8,
 	},
 	headsmash: {
 		inherit: true,
@@ -466,6 +546,30 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		self: null,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
+	},
+	infernalparade: {
+		num: 844,
+		accuracy: 100,
+		basePower: 60,
+		basePowerCallback(pokemon, target, move) {
+			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
+			return move.basePower;
+		},
+		category: "Special",
+		name: "Infernal Parade",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			status: 'brn',
+			chance: 30,
+		},
+		target: "normal",
+		type: "Ghost",
+		zMove: {basePower: 140},
+		desc: "Has a 30% chance to burn the target. Power doubles if the target has a non-volatile status condition.",
+		shortDesc: "30% brn. Power doubles if the target is statused.",
+		gen: 8,
 	},
 	inferno: {
 		inherit: true,
@@ -586,9 +690,27 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	mistyexplosion: {
 		inherit: true,
-		noTM: true,
 		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
+	},
+	mountaingale: {
+		num: 836,
+		accuracy: 90,
+		basePower: 120,
+		category: "Physical",
+		name: "Mountain Gale",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 30,
+			volatileStatus: 'flinch',
+		},
+		target: "normal",
+		type: "Ice",
+		desc: "Has a 30% chance to make the target flinch.",
+		shortDesc: "30% chance to make the target flinch.",
+		gen: 8,
 	},
 	mudbomb: {
 		inherit: true,
@@ -626,6 +748,56 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
 		shortDesc: "Type varies based on the user's primary type.",
+	},
+	mysticalpower: {
+		num: 832,
+		accuracy: 100,
+		basePower: 70,
+		category: "Special",
+		name: "Mystical Power",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onModifyMove(move, pokemon) {
+			move.secondaries = [];
+			const offense = pokemon.getStat('atk', true, true) + pokemon.getStat('spa', true, true);
+			const defense = pokemon.getStat('def', true, true) + pokemon.getStat('spd', true, true);
+			if (defense > offense) {
+				move.secondaries.push({
+					chance: 100,
+					self: {
+						boosts: {
+							def: 1,
+							spd: 1,
+						},
+					},
+				});
+			} else {
+				move.secondaries.push({
+					chance: 100,
+					self: {
+						boosts: {
+							atk: 1,
+							spa: 1,
+						},
+					},
+				});
+			}
+		},
+		secondary: {
+			chance: 100,
+			self: {
+				boosts: {
+					atk: 1,
+					spa: 1,
+				},
+			},
+		},
+		target: "normal",
+		type: "Psychic",
+		desc: "Raises the user's Attack and Special Attack or Defense and Special Defense by 1 stage, depending on which stats are higher.",
+		shortDesc: "+1 Atk/SpA or Def/SpD depending on higher stats.",
+		gen: 8,
 	},
 	needlearm: {
 		inherit: true,
@@ -679,6 +851,29 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		noTutor: true,
 		flags: {protect: 1, mirror: 1, blade: 1},
+	},
+	psyshieldbash: {
+		num: 828,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Psyshield Bash",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 50,
+			self: {
+				boosts: {
+					def: 1,
+				},
+			}
+		},
+		target: "normal",
+		type: "Psychic",
+		desc: "Has a 50% chance to raise the user's Defense by 1 stage.",
+		shortDesc: "50% chance to raise the user's Defense by 1.",
+		gen: 8,
 	},
 	pyroball: {
 		inherit: true,
@@ -873,7 +1068,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, blade: 1},
 	},
 	sonicslash: {
-		num: 854,
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback(pokemon, target) {
@@ -899,16 +1093,16 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		maxMove: {basePower: 140},
 		desc: "The power of this move depends on (user's current Speed / target's current Speed), rounded down. Power is equal to 140 if the result is 3 or more, 120 if 2, 80 if less than 2. If the target's current Speed is 0, this move's power is 80.",
 		shortDesc: "140 BP if 3x target's speed; 120 BP if 2x; else 80 BP.",
+		gen: 8,
 	},
 	soulrobbery: {
-		num: 852,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, bypasssub: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
 		secondary: null,
@@ -916,6 +1110,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Psychic",
 		desc: "The target's stat stages greater than 0 are stolen from it and applied to the user before dealing damage.",
 		shortDesc: "Steals target's boosts before dealing damage.",
+		gen: 8,
 	},
 	sparklyswirl: {
 		inherit: true,
@@ -999,19 +1194,21 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, kick: 1},
 	},
 	stoneaxe: {
-		name: "Stone Axe",
-		num: 856,
-		priority: 0,
-		type: "Rock",
-		category: "Physical",
-		pp: 10,
+		num: 830,
 		accuracy: 100,
 		basePower: 65,
-		target: "normal",
+		category: "Physical",
+		name: "Stone Axe",
+		pp: 10,
+		priority: 0,
 		flags: {contact: 1, protect: 1, blade: 1, mirror: 1},
 		volatileStatus: "partiallytrapped",
+		secondary: null,
+		target: "normal",
+		type: "Rock",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Rapid Spin or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
+		gen: 8,
 	},
 	strengthsap: {
 		inherit: true,
@@ -1055,14 +1252,13 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	triplearrows: {
-		num: 862,
+		num: 843,
 		basePower: 60,
 		accuracy: 100,
-		type: "Fighting",
-		target: "normal",
+		category: "Physical",
 		name: "Triple Arrows",
 		pp: 15,
-		category: "Physical",
+		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 		secondaries: [
 			{
@@ -1077,9 +1273,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				},
 			},
 		],
-		priority: 0,
+		target: "normal",
+		type: "Fighting",
 		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Raises the user's chance for a critical hit by 2 stages.",
 		shortDesc: "Lower target's Defense by 1. Crit Ratio +2.",
+		gen: 8,
 	},
 	tripleaxel: {
 		inherit: true,
@@ -1100,7 +1298,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
 	victorydance: {
-		num: 865,
+		num: 837,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1118,6 +1316,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Fighting",
 		desc: "Raises the user's Attack, Defense, and Speed by 1 stage.",
 		shortDesc: "Raises the user's Atk, Def, Speed by 1.",
+		gen: 8,
 	},
 	volttackle: {
 		inherit: true,
@@ -1158,76 +1357,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "Will always result in a critical hit.",
 		shortDesc: "Usually goes first. Always crits.",
 	},
-	// fuck it theres a triple clone and i dont want to alphabetize these
-	infernalparade: {
-		num: 858,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Special",
-		name: "Infernal Parade",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'brn',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Ghost",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to burn the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% brn. Power doubles if the target is statused.",
-	},
-	bittermalice: {
-		num: 860,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Special",
-		name: "Bitter Malice",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'frz',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Ghost",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to freeze the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% frz. Power doubles if the target is statused.",
-	},
-	barbbarrage: {
-		num: 859,
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback(pokemon, target, move) {
-			if (target.status || target.hasAbility('comatose')) return move.basePower * 2;
-			return move.basePower;
-		},
-		category: "Physical",
-		name: "Barb Barrage",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			status: 'psn',
-			chance: 30,
-		},
-		target: "normal",
-		type: "Poison",
-		zMove: {basePower: 140},
-		desc: "Has a 30% chance to poison the target. Power doubles if the target has a non-volatile status condition.",
-		shortDesc: "30% psn. Power doubles if the target is statused.",
-	},
 	// small accuracy changes for 2.4
 	willowisp: {
 		inherit: true,
@@ -1259,7 +1388,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				}
 			}
 		},
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
+		desc: "Has an 80% chance to badly poison the target. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
 		shortDesc: "80% tox. Can't move next turn if target is not KOed.",
 	},
 	blastburn: {
@@ -1279,7 +1408,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				}
 			}
 		},
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
+		desc: "Has a 60% chance to burn the target. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
 		shortDesc: "60% brn. Can't move next turn if target is not KOed.",
 	},
 	hydrocannon: {
@@ -1299,7 +1428,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				}
 			}
 		},
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
+		desc: "Has a 60% chance to freeze the target. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
 		shortDesc: "60% frz. Can't move next turn if target is not KOed.",
 	},
 	meteorassault: {
@@ -1319,8 +1448,26 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				}
 			}
 		},
-		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
+		desc: "Has a 60% chance to paralyze the target. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
 		shortDesc: "60% par. Can't move next turn if target is not KOed.",
+	},
+	prismaticlaser: {
+		inherit: true,
+		pp: 1,
+		noPPBoosts: true,
+		secondary: {
+			status: 'slp',
+			chance: 50,
+		},
+		onAfterMove(source, target, move) {
+			if (target && target.hp <= 0) {
+				if (source.volatiles['mustrecharge']) {
+					source.removeVolatile('mustrecharge');
+				}
+			}
+		},
+		desc: "Has a 50% chance to cause the target to fall asleep. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
+		shortDesc: "50% slp. Can't move next turn if target is not KOed.",
 	},
 	triattack: {
 		inherit: true,
@@ -1506,54 +1653,20 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		noTM: true,
 	},
-	payback: {
-		inherit: true,
-		noTM: true,
-	},
 	gigaimpact: {
 		inherit: true,
 		noTM: true,
 		accuracy: 100,
 	},
-	avalanche: {
-		inherit: true,
-		noTM: true,
-	},
 	swagger: {
 		inherit: true,
-		noTM: true,
 		accuracy: 90,
-	},
-	pluck: {
-		inherit: true,
-		noTM: true,
 	},
 	scaleshot: {
 		inherit: true,
-		noTM: true,
 		accuracy: 100,
 	},
-	strugglebug: {
-		inherit: true,
-		noTM: true,
-	},
-	sludgewave: {
-		inherit: true,
-		noTM: true,
-	},
-	psyshock: {
-		inherit: true,
-		noTM: true,
-	},
 	brutalswing: {
-		inherit: true,
-		noTM: true,
-	},
-	smartstrike: {
-		inherit: true,
-		noTM: true,
-	},
-	smackdown: {
 		inherit: true,
 		noTM: true,
 	},
@@ -1618,10 +1731,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	gravity: {
-		inherit: true,
-		noTutor: true,
-	},
-	irondefense: {
 		inherit: true,
 		noTutor: true,
 	},

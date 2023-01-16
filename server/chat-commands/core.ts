@@ -358,7 +358,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	blockpmshelp: [
 		`/blockpms - Blocks private messages except from staff. Unblock them with /unblockpms.`,
-		`/blockpms [unlocked/ac/trusted/+] - Blocks private messages except from staff and the specified group.`,
+		`/blockpms [unlocked/ac/trusted/+/friends] - Blocks private messages except from staff and the specified group.`,
 	],
 
 	unblockpm: 'unblockpms',
@@ -649,7 +649,7 @@ export const commands: Chat.ChatCommands = {
 			return;
 		}
 		this.checkCan('exportinputlog', null, room);
-		if (user.can('forcewin')) {
+		if (user.can('forcewin') || Dex.formats.get(battle.format).team) {
 			if (!battle.inputLog) return this.errorReply(this.tr`No input log found.`);
 			this.addModAction(room.tr`${user.name} has extracted the battle input log.`);
 			const inputLog = battle.inputLog.map(Utils.escapeHTML).join(`<br />`);
@@ -659,8 +659,8 @@ export const commands: Chat.ChatCommands = {
 			);
 		} else if (!battle.allowExtraction[user.id]) {
 			battle.allowExtraction[user.id] = new Set();
-			for (const player of battle.players) {
-				const playerUser = player.getUser();
+			for (const id in battle.playerTable) {
+				const playerUser = Users.get(id);
 				if (!playerUser) continue;
 				if (playerUser.id === user.id) {
 					battle.allowExtraction[user.id].add(user.id);
@@ -675,8 +675,8 @@ export const commands: Chat.ChatCommands = {
 		} else {
 			// Re-request to make the buttons appear again for users who have not allowed extraction
 			let logExported = true;
-			for (const player of battle.players) {
-				const playerUser = player.getUser();
+			for (const id in battle.playerTable) {
+				const playerUser = Users.get(id);
 				if (!playerUser || battle.allowExtraction[user.id].has(playerUser.id)) continue;
 				logExported = false;
 				playerUser.sendTo(
@@ -1395,11 +1395,9 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (!target) return this.errorReply(this.tr`Provide a valid format.`);
 		const originalFormat = Dex.formats.get(target);
-		// Note: The default here of [Gen 8] Anything Goes isn't normally hit; since the web client will send a default format
-		const format = originalFormat.effectType === 'Format' ? originalFormat : Dex.formats.get(
-			'[Gen 8] Anything Goes'
-		);
-		if (format.effectType !== this.tr`Format`) return this.popupReply(this.tr`Please provide a valid format.`);
+		// Note: The default here of Anything Goes isn't normally hit; since the web client will send a default format
+		const format = originalFormat.effectType === 'Format' ? originalFormat : Dex.formats.get('Anything Goes');
+		if (format.effectType !== 'Format') return this.popupReply(this.tr`Please provide a valid format.`);
 
 		return TeamValidatorAsync.get(format.id).validateTeam(user.battleSettings.team).then(result => {
 			const matchMessage = (originalFormat === format ? "" : this.tr`The format '${originalFormat.name}' was not found.`);

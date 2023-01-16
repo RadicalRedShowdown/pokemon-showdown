@@ -5,7 +5,7 @@
  */
 
 import * as child_process from 'child_process';
-import {ProcessManager, Streams, Utils, Repl} from '../../lib';
+import {ProcessManager, Streams, Utils, Repl, FS} from '../../lib';
 import {Config} from '../config-loader';
 import {toID} from '../../sim/dex-data';
 
@@ -15,7 +15,7 @@ class ArtemisStream extends Streams.ObjectReadWriteStream<string> {
 	constructor() {
 		super();
 		this.process = child_process.spawn('python3', [
-			'-u', __dirname + '/model.py', Config.debugartemisprocesses ? "debug" : "",
+			'-u', FS('server/artemis/model.py').path, Config.debugartemisprocesses ? "debug" : "",
 		].filter(Boolean));
 		this.listen();
 	}
@@ -40,6 +40,10 @@ class ArtemisStream extends Streams.ObjectReadWriteStream<string> {
 			}
 		});
 		this.process.stderr.on('data', data => {
+			if (/Downloading: ([0-9]+)%/i.test(data)) {
+				// this prints to stderr fsr and it should not be throwing
+				return;
+			}
 			Monitor.crashlog(new Error(data), "An Artemis process");
 		});
 		this.process.on('error', err => {
@@ -71,9 +75,18 @@ export const PM = new ProcessManager.StreamProcessManager(module, () => new Arte
 
 export class LocalClassifier {
 	static readonly PM = PM;
+	static readonly ATTRIBUTES: Record<string, unknown> = {
+		sexual_explicit: {},
+		severe_toxicity: {},
+		toxicity: {},
+		obscene: {},
+		identity_attack: {},
+		insult: {},
+		threat: {},
+	};
 	static classifiers: LocalClassifier[] = [];
 	static destroy() {
-		for (const classifier of this.classifiers) classifier.destroy();
+		for (const classifier of this.classifiers) void classifier.destroy();
 		return this.PM.destroy();
 	}
 	/** If stream exists, model is usable */
@@ -139,7 +152,7 @@ export class LocalClassifier {
 
 // main module check necessary since this gets required in other non-parent processes sometimes
 // when that happens we do not want to take over or set up or anything
-if (!PM.isParentProcess && require.main === module) {
+if (require.main === module) {
 	// This is a child process!
 	global.Config = Config;
 	global.Monitor = {
@@ -159,6 +172,6 @@ if (!PM.isParentProcess && require.main === module) {
 	});
 	// eslint-disable-next-line no-eval
 	Repl.start(`abusemonitor-local-${process.pid}`, cmd => eval(cmd));
-} else if (PM.isParentProcess) {
+} else if (!process.send) {
 	PM.spawn(Config.localartemisprocesses || 1);
 }

@@ -1,6 +1,6 @@
 import RandomGen2Teams from '../gen2/random-teams';
 import {Utils} from '../../../lib';
-import {MoveCounter} from '../../random-teams';
+import {MoveCounter} from '../gen8/random-teams';
 
 interface HackmonsCupEntry {
 	types: string[];
@@ -32,19 +32,24 @@ export class RandomGen1Teams extends RandomGen2Teams {
 			mbst += (stats["spd"] * 2 + 30 + 63 + 100) + 5;
 			mbst += (stats["spe"] * 2 + 30 + 63 + 100) + 5;
 
-			let level = Math.floor(100 * mbstmin / mbst); // Initial level guess will underestimate
+			let level;
+			if (this.adjustLevel) {
+				level = this.adjustLevel;
+			} else {
+				level = Math.floor(100 * mbstmin / mbst); // Initial level guess will underestimate
 
-			while (level < 100) {
-				mbst = Math.floor((stats["hp"] * 2 + 30 + 63 + 100) * level / 100 + 10);
-				// Since damage is roughly proportional to lvl
-				mbst += Math.floor(((stats["atk"] * 2 + 30 + 63 + 100) * level / 100 + 5) * level / 100);
-				mbst += Math.floor((stats["def"] * 2 + 30 + 63 + 100) * level / 100 + 5);
-				mbst += Math.floor(((stats["spa"] * 2 + 30 + 63 + 100) * level / 100 + 5) * level / 100);
-				mbst += Math.floor((stats["spd"] * 2 + 30 + 63 + 100) * level / 100 + 5);
-				mbst += Math.floor((stats["spe"] * 2 + 30 + 63 + 100) * level / 100 + 5);
+				while (level < 100) {
+					mbst = Math.floor((stats["hp"] * 2 + 30 + 63 + 100) * level / 100 + 10);
+					// Since damage is roughly proportional to lvl
+					mbst += Math.floor(((stats["atk"] * 2 + 30 + 63 + 100) * level / 100 + 5) * level / 100);
+					mbst += Math.floor((stats["def"] * 2 + 30 + 63 + 100) * level / 100 + 5);
+					mbst += Math.floor(((stats["spa"] * 2 + 30 + 63 + 100) * level / 100 + 5) * level / 100);
+					mbst += Math.floor((stats["spd"] * 2 + 30 + 63 + 100) * level / 100 + 5);
+					mbst += Math.floor((stats["spe"] * 2 + 30 + 63 + 100) * level / 100 + 5);
 
-				if (mbst >= mbstmin) break;
-				level++;
+					if (mbst >= mbstmin) break;
+					level++;
+				}
 			}
 
 			// Random DVs.
@@ -113,7 +118,6 @@ export class RandomGen1Teams extends RandomGen2Teams {
 
 		/** Pokémon that are not wholly incompatible with the team, but still pretty bad */
 		const rejectedButNotInvalidPool: string[] = [];
-		const handicapMons = ['magikarp', 'weedle', 'kakuna', 'caterpie', 'metapod'];
 		const nuTiers = ['UU', 'UUBL', 'NFE', 'LC', 'NU'];
 		const uuTiers = ['NFE', 'UU', 'UUBL', 'NU'];
 
@@ -122,7 +126,6 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		const weaknessCount: {[k: string]: number} = {Electric: 0, Psychic: 0, Water: 0, Ice: 0, Ground: 0};
 		let uberCount = 0;
 		let nuCount = 0;
-		let hasShitmon = false;
 
 		const pokemonPool = this.getPokemonPool(type, pokemon, isMonotype);
 		while (pokemonPool.length && pokemon.length < this.maxTeamSize) {
@@ -133,16 +136,6 @@ export class RandomGen1Teams extends RandomGen2Teams {
 			// to face each other.
 			if (species.id === 'ditto' && this.battleHasDitto) continue;
 
-			// Really bad Pokémon shouldn't be leads.
-			if (pokemon.length === 0 && handicapMons.includes(species.id)) continue;
-
-			// Bias the tiers so you get less shitmons and only one of the two Ubers.
-			// If you have a shitmon, don't get another
-			if (handicapMons.includes(species.id) && hasShitmon) {
-				rejectedButNotInvalidPool.push(species.id);
-				continue;
-			}
-
 			// Dynamically scale limits for different team sizes. The default and minimum value is 1.
 			const limitFactor = Math.round(this.maxTeamSize / 6) || 1;
 
@@ -150,13 +143,13 @@ export class RandomGen1Teams extends RandomGen2Teams {
 			switch (tier) {
 			case 'LC':
 			case 'NFE':
-				// Don't add pre-evo mon if already 4 or more non-OUs, or if already 3 or more non-OUs with one being a shitmon
+				// Don't add pre-evo mon if already 4 or more non-OUs
 				// Regardless, pre-evo mons are slightly less common.
-				if (nuCount >= 4 * limitFactor || (hasShitmon && nuCount >= 4 * limitFactor - 1) || this.randomChance(1, 3)) continue;
+				if (nuCount >= 4 * limitFactor || this.randomChance(1, 3)) continue;
 				break;
 			case 'Uber':
-				// If you have one of the worst mons we allow luck to give you all Ubers.
-				if (uberCount >= 1 * limitFactor && !hasShitmon) continue;
+				// Only allow a single Uber.
+				if (uberCount >= 1 * limitFactor) continue;
 				break;
 			default:
 				// OUs are fine. Otherwise 50% chance to skip mon if already 4 or more non-OUs.
@@ -227,9 +220,6 @@ export class RandomGen1Teams extends RandomGen2Teams {
 				nuCount++;
 			}
 
-			// Is it Magikarp or one of the useless bugs?
-			if (handicapMons.includes(species.id)) hasShitmon = true;
-
 			// Ditto check
 			if (species.id === 'ditto') this.battleHasDitto = true;
 		}
@@ -289,24 +279,24 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		const SpecialSetup = ['amnesia', 'growth'];
 
 		// Either add all moves or add none
-		if (species.comboMoves && this.randomChance(1, 2)) {
+		if (species.comboMoves && species.comboMoves.length <= this.maxMoveCount && this.randomChance(1, 2)) {
 			for (const m of species.comboMoves) moves.add(m);
 		}
 
 		// Add one of the semi-mandatory moves
 		// Often, these are used so that the Pokemon only gets one of the less useful moves
-		if (moves.size < 4 && species.exclusiveMoves) {
+		if (moves.size < this.maxMoveCount && species.exclusiveMoves) {
 			moves.add(this.sample(species.exclusiveMoves));
 		}
 
 		// Add the mandatory move. SD Mew and Amnesia Snorlax are exceptions.
-		if (moves.size < 4 && species.essentialMove) {
+		if (moves.size < this.maxMoveCount && species.essentialMove) {
 			moves.add(species.essentialMove);
 		}
 
-		while (moves.size < 4 && movePool.length) {
+		while (moves.size < this.maxMoveCount && movePool.length) {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			while (moves.size < 4 && movePool.length) {
+			while (moves.size < this.maxMoveCount && movePool.length) {
 				const moveid = this.sampleNoReplace(movePool);
 				moves.add(moveid);
 			}
@@ -339,10 +329,11 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		const levelScale: {[k: string]: number} = {
 			LC: 88,
 			NFE: 80,
+			PU: 77,
 			NU: 77,
 			NUBL: 76,
 			UU: 74,
-			'(OU)': 71,
+			UUBL: 71,
 			OU: 68,
 			Uber: 65,
 		};
@@ -350,10 +341,9 @@ export class RandomGen1Teams extends RandomGen2Teams {
 		const customScale: {[k: string]: number} = {
 			Mewtwo: 62,
 			Caterpie: 100, Metapod: 100, Weedle: 100, Kakuna: 100, Magikarp: 100,
-			Ditto: 88,
+			Ditto: 100,
 		};
-		let level = levelScale[species.tier] || 80;
-		if (customScale[species.name]) level = customScale[species.name];
+		const level = this.adjustLevel || customScale[species.name] || levelScale[species.tier] || 80;
 
 		return {
 			name: species.name,
@@ -411,7 +401,7 @@ export class RandomGen1Teams extends RandomGen2Teams {
 				if (move.gen <= this.gen && !move.isNonstandard && !move.name.startsWith('Hidden Power ')) {
 					moves.push(move.id);
 				}
-			} while (moves.length < 4);
+			} while (moves.length < this.maxMoveCount);
 
 			// Random EVs
 			const evs = {
@@ -454,16 +444,21 @@ export class RandomGen1Teams extends RandomGen2Teams {
 				mbst += calcStat(statName as StatID);
 				if (statName === 'hp') mbst += 5;
 			}
-			let level = Math.floor(100 * mbstmin / mbst);
-			while (level < 100) {
-				for (const statName of Object.keys(baseStats)) {
-					mbst += calcStat(statName as StatID, level);
-					if (statName === 'hp') mbst += 5;
+			let level;
+			if (this.adjustLevel) {
+				level = this.adjustLevel;
+			} else {
+				level = Math.floor(100 * mbstmin / mbst);
+				while (level < 100) {
+					for (const statName of Object.keys(baseStats)) {
+						mbst += calcStat(statName as StatID, level);
+						if (statName === 'hp') mbst += 5;
+					}
+					if (mbst >= mbstmin) break;
+					level++;
 				}
-				if (mbst >= mbstmin) break;
-				level++;
+				if (level > 100) level = 100;
 			}
-			if (level > 100) level = 100;
 
 			team.push({
 				name: species.baseSpecies,

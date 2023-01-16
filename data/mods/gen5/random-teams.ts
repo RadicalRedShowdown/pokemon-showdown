@@ -2,7 +2,7 @@ import RandomGen6Teams from '../gen6/random-teams';
 import {Utils} from '../../../lib';
 import {toID} from '../../../sim/dex';
 import {PRNG} from '../../../sim';
-import type {MoveCounter} from '../../random-teams';
+import type {MoveCounter} from '../gen8/random-teams';
 
 export class RandomGen5Teams extends RandomGen6Teams {
 	constructor(format: string | Format, prng: PRNG | PRNGSeed | null) {
@@ -32,6 +32,9 @@ export class RandomGen5Teams extends RandomGen6Teams {
 				!counter.get('Ground') && !moves.has('rest') && !moves.has('sleeptalk')
 			),
 			Ice: (movePool, moves, abilities, types, counter) => !counter.get('Ice'),
+			Normal: (movePool, moves, abilities, types, counter, species) => (
+				movePool.includes('return') && species.baseStats.atk > 80
+			),
 			Rock: (movePool, moves, abilities, types, counter, species) => !counter.get('Rock') && species.baseStats.atk >= 80,
 			Steel: (movePool, moves, abilities, types, counter) => !counter.get('Steel') && abilities.has('Technician'),
 			Water: (movePool, moves, abilities, types, counter) => (
@@ -476,7 +479,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 
 		do {
 			// Choose next 4 moves from learnset/viable moves and add them to moves list:
-			while (moves.size < 4 && movePool.length) {
+			while (moves.size < this.maxMoveCount && movePool.length) {
 				const moveid = this.sampleNoReplace(movePool);
 				if (moveid.startsWith('hiddenpower')) {
 					availableHP--;
@@ -486,7 +489,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 				moves.add(moveid);
 			}
 
-			while (moves.size < 4 && rejectedPool.length) {
+			while (moves.size < this.maxMoveCount && rejectedPool.length) {
 				const moveid = this.sampleNoReplace(rejectedPool);
 				if (moveid.startsWith('hiddenpower')) {
 					if (hasHiddenPower) {
@@ -641,7 +644,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 					break;
 				}
 			}
-		} while (moves.size < 4 && (movePool.length || rejectedPool.length));
+		} while (moves.size < this.maxMoveCount && (movePool.length || rejectedPool.length));
 
 		if (hasHiddenPower) {
 			let hpType;
@@ -726,8 +729,7 @@ export class RandomGen5Teams extends RandomGen6Teams {
 		const customScale: {[forme: string]: number} = {
 			Delibird: 100, 'Farfetch\u2019d': 100, Luvdisc: 100, Unown: 100,
 		};
-		let level = levelScale[species.tier] || (species.nfe ? 90 : 80);
-		if (customScale[species.name]) level = customScale[species.name];
+		const level = this.adjustLevel || customScale[species.name] || levelScale[species.tier] || (species.nfe ? 90 : 80);
 
 		// Prepare optimal HP
 		const srWeakness = this.dex.getEffectiveness('Rock', species);

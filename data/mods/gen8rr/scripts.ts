@@ -10,31 +10,11 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.baseMoves.includes(this.battle.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
-			// prevent Galarian Slowbro from mega evolving
-			if (item.id === "slowbronite" && species.name === "Slowbro-Galar") {
-				return null;
-			}
-			// prevent regular centiskorch from using centiskite seviian stone
-			if (item.id === "centiskitesevii" && species.name === "Centiskorch") {
-				return null;
-			}
-			if (item.id === "centiskitesevii" && species.name === "Centiskorch-Sevii") {
-				return "Centiskorch-Sevii-Mega";
-			}
-			// Prevent Amped Toxtricity from using the Low-Key mega stone
-			if (item.id === "toxtricititelowkey" && species.name === "Toxtricity") {
-				return null;
-			}
-			// Prevent Low-Key Toxtricity from using the Amped mega stone
-			if (item.id === "toxtricitite" && species.name === "Toxtricity-Low-Key") {
-				return null;
-			}
 			// There is no Low Key Mega Toxtricity in rr, the item is only different to fix team validation issues
 			if (item.id === "toxtricititelowkey" && species.name === "Toxtricity-Low-Key") {
 				return "Toxtricity-Mega";
 			}
-			// a hacked-in Megazard X can mega evolve into Megazard Y, but not into Megazard X
-			if (item.megaEvolves === species.baseSpecies && item.megaStone !== species.name) {
+			if (item.megaEvolves === species.name) {
 				return item.megaStone;
 			}
 			return null;
@@ -117,6 +97,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				this.battle.add('-zpower', pokemon);
 				pokemon.side.zMoveUsed = true;
 			}
+
 			const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
 			this.battle.lastSuccessfulMoveThisTurn = moveDidSomething ? this.battle.activeMove && this.battle.activeMove.id : null;
 			if (this.battle.activeMove) move = this.battle.activeMove;
@@ -141,11 +122,14 @@ export const Scripts: ModdedBattleScriptsData = {
 				dancers.sort(
 					(a, b) => -(b.storedStats['spe'] - a.storedStats['spe']) || b.abilityOrder - a.abilityOrder
 				);
+				const targetOf1stDance = this.battle.activeTarget!;
 				for (const dancer of dancers) {
 					if (this.battle.faintMessages()) break;
 					if (dancer.fainted) continue;
 					this.battle.add('-activate', dancer, 'ability: Dancer');
-					const dancersTarget = !target!.isAlly(dancer) && pokemon.isAlly(dancer) ? target! : pokemon;
+					const dancersTarget = !targetOf1stDance.isAlly(dancer) && pokemon.isAlly(dancer) ?
+						targetOf1stDance :
+						pokemon;
 					const dancersTargetLoc = dancer.getLocOf(dancersTarget);
 					this.runMove(move.id, dancer, dancersTargetLoc, this.dex.abilities.get('dancer'), undefined, true);
 				}
@@ -222,6 +206,18 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			if (!basePower) return 0;
 			basePower = this.battle.clampIntRange(basePower, 1);
+			// Hacked Max Moves have 0 base power, even if you Dynamax
+			if ((!source.volatiles['dynamax'] && move.isMax) || (move.isMax && this.dex.moves.get(move.baseMove).isMax)) {
+				basePower = 0;
+			}
+
+			if (
+				basePower < 60 && source.getTypes(true).includes(move.type) && source.terastallized && move.priority <= 0 &&
+				// Hard move.basePower check for moves like Dragon Energy that have variable BP
+				!move.multihit && !((move.basePower === 0 || move.basePower === 150) && move.basePowerCallback)
+			) {
+				basePower = 60;
+			}
 
 			const level = source.level;
 
@@ -265,13 +261,12 @@ export const Scripts: ModdedBattleScriptsData = {
 			attack = this.battle.runEvent('Modify' + statTable[attackStat], source, target, move, attack);
 			defense = this.battle.runEvent('Modify' + statTable[defenseStat], target, source, move, defense);
 
-			if (['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def') {
+			if (
+				(['explosion', 'selfdestruct'].includes(move.id) && defenseStat === 'def') ||
+				(move.id === 'mistyexplosion' && defenseStat === 'spd')
+			) {
 				defense = this.battle.clampIntRange(Math.floor(defense / 2), 1);
 			}
-			if (move.id === 'mistyexplosion' && defenseStat === 'spd') {
-				defense = this.battle.clampIntRange(Math.floor(defense / 2), 1);
-			}
-
 			const tr = this.battle.trunc;
 
 			// int(int(int(2 * L / 5 + 2) * A * P / D) / 50);
@@ -316,13 +311,23 @@ export const Scripts: ModdedBattleScriptsData = {
 			baseDamage = this.battle.randomizer(baseDamage);
 
 			// STAB
-			if (move.forceSTAB || (type !== '???' && pokemon.hasType(type))) {
+			if (move.forceSTAB || (type !== '???' &&
+				(pokemon.hasType(type) || (pokemon.terastallized && pokemon.getTypes(false, true).includes(type))))) {
 				// The "???" type never gets STAB
 				// Not even if you Roost in Gen 4 and somehow manage to use
 				// Struggle in the same turn.
 				// (On second thought, it might be easier to get a MissingNo.)
-				baseDamage = this.battle.modify(baseDamage, move.stab || 1.5);
+
+				let stab = move.stab || 1.5;
+				if (type === pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) {
+					// In my defense, the game hardcodes the Adaptability check like this, too.
+					stab = stab === 2 ? 2.25 : 2;
+				} else if (pokemon.terastallized && type !== pokemon.terastallized) {
+					stab = 1.5;
+				}
+				baseDamage = this.battle.modify(baseDamage, stab);
 			}
+
 			// types
 			let typeMod = target.runEffectiveness(move);
 			typeMod = this.battle.clampIntRange(typeMod, -6, 6);
@@ -495,8 +500,15 @@ export const Scripts: ModdedBattleScriptsData = {
 	pokemon: {
 		transformInto(pokemon, effect) {
 			const species = pokemon.species;
-			if (pokemon.fainted || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
+			if (pokemon.fainted || this.illusion || pokemon.illusion || (pokemon.volatiles['substitute'] && this.battle.gen >= 5) ||
 				(pokemon.transformed && this.battle.gen >= 2) || (this.transformed && this.battle.gen >= 5)) {
+				return false;
+			}
+
+			if (this.battle.dex.currentMod === 'gen1stadium' && (
+				species.name === 'Ditto' ||
+				(this.species.name === 'Ditto' && pokemon.moves.includes('transform'))
+			)) {
 				return false;
 			}
 
@@ -505,7 +517,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			this.transformed = true;
 			this.weighthg = pokemon.weighthg;
 
-			const types = pokemon.getTypes(true);
+			const types = pokemon.getTypes(true, true);
 			this.setType(pokemon.volatiles['roost'] ? pokemon.volatiles['roost'].typeWas : types, true);
 			this.addedType = pokemon.addedType;
 			this.knownType = this.isAlly(pokemon) && pokemon.knownType;
@@ -514,11 +526,13 @@ export const Scripts: ModdedBattleScriptsData = {
 			let statName: StatIDExceptHP;
 			for (statName in this.storedStats) {
 				this.storedStats[statName] = pokemon.storedStats[statName];
+				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
 			}
 			this.moveSlots = [];
 			this.set.ivs = (this.battle.gen >= 5 ? this.set.ivs : pokemon.set.ivs);
 			this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
 			this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
+			this.timesAttacked = pokemon.timesAttacked;
 			for (const moveSlot of pokemon.moveSlots) {
 				let moveName = moveSlot.move;
 				if (moveSlot.id === 'hiddenpower') {
@@ -537,7 +551,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			let boostName: BoostID;
 			for (boostName in pokemon.boosts) {
-				this.boosts[boostName] = pokemon.boosts[boostName]!;
+				this.boosts[boostName] = pokemon.boosts[boostName];
 			}
 			if (this.battle.gen >= 6) {
 				const volatilesToCopy = ['focusenergy', 'gmaxchistrike', 'laserfocus'];
@@ -555,7 +569,11 @@ export const Scripts: ModdedBattleScriptsData = {
 			} else {
 				this.battle.add('-transform', this, pokemon);
 			}
-			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, true);
+			if (this.terastallized) {
+				this.knownType = true;
+				this.apparentType = this.terastallized;
+			}
+			if (this.battle.gen > 2) this.setAbility(pokemon.ability, this, true, true);
 
 			// Change formes based on held items (for Transform)
 			// Only ever relevant in Generation 4 since Generation 3 didn't have item-based forme changes
