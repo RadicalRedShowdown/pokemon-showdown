@@ -3630,7 +3630,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["8T"],
 		},
 		eventData: [
-			{generation: 8, level: 100, shiny: 1, nature: "Modest", perfectIVs: 6, moves: ["lightofruin", "softboiled", "flamethrower", "thunderwave"], pokeball: "pokeball"},
+			{generation: 8, level: 100, shiny: 1, nature: "Modest", moves: ["lightofruin", "softboiled", "flamethrower", "thunderwave"], pokeball: "pokeball"},
 		],
 	},
 	vulpix: {

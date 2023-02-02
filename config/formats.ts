@@ -86,6 +86,12 @@ export const Formats: FormatList = [
 		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
+		name: "[Gen 8] RU",
+		mod: 'gen8rr',
+		ruleset: ['[Gen 8] UU'],
+		banlist: ['UU', 'RUBL', 'Trick Room', 'Ampharosite', 'Light Clay'],
+	},
+	{
 		name: "[Gen 8] LC",
 		mod: 'gen8rr',
 		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
