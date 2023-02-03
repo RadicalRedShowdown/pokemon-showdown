@@ -88,7 +88,6 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] RU",
 		mod: 'gen8rr',
-		searchShow: false,
 		ruleset: ['[Gen 8] UU'],
 		banlist: ['UU', 'RUBL', 'Trick Room', 'Ampharosite', 'Light Clay'],
 	},
