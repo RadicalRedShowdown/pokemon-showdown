@@ -1745,7 +1745,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["crunch", "dragondance", "earthquake", "icepunch", "stoneedge"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["crunch", "dragondance", "earthquake", "icepunch", "protect", "rockslide", "stoneedge"],
-		tier: "UU",
+		tier: "UUBL",
 	},
 	lugia: {
 		randomBattleLevel: 76,
@@ -2354,7 +2354,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	castform: {
-		tier: "UUBL",
+		tier: "NU",
 	},
 	castformsunny: {
 		randomBattleLevel: 88,

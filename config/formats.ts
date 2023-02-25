@@ -70,20 +70,22 @@ export const Formats: FormatList = [
 		banlist: [
 			'Uber', 'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
-			'Swagger', 'Misty Explosion', 'Dark Hole', 'Draco Barrage', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
+			'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
 		],
 	},
 	{
 		name: "[Gen 8] Ubers",
 		mod: 'gen8rr',
-		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
 		banlist: ['AG', 'Moody'],
 	},
 	{
 		name: "[Gen 8] UU",
 		mod: 'gen8rr',
 		ruleset: ['[Gen 8] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock',
+		'Misty Explosion', 'Draco Barrage',
+		],
 	},
 	{
 		name: "[Gen 8] RU",
