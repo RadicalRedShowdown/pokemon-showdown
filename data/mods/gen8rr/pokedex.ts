@@ -4210,4 +4210,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		evoCondition: "",
 		items: {5: "Poison Barb", 50: "None"},
 	},
+	kyurem: {
+		inherit: true,
+	},
+	kyuremblack: {
+		inherit: true,
+	},
+	kyuremwhite: {
+		inherit: true,
+	},
 };

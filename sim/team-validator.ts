@@ -406,7 +406,7 @@ export class TeamValidator {
 				tierSpecies = dex.species.get('Dialga-Primal');
 			} else if (item.id === 'eternamaxorb' && species.id === 'eternatus') {
 				tierSpecies = dex.species.get('Eternatus-Eternamax');
-			} else if (canMegaEvo && species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID)) {
+			} else if (canMegaEvo && species.id === 'rayquaza' && set.moves.map(toID).includes('dragonascent' as ID) && !ruleTable.has('megarayquazaclause')) {
 				tierSpecies = dex.species.get('Rayquaza-Mega');
 			} else if (item.id === 'rustedsword' && species.id === 'zacian') {
 				tierSpecies = dex.species.get('Zacian-Crowned');
