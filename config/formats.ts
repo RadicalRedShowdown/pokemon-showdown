@@ -215,7 +215,7 @@ export const Formats: FormatList = [
 		name: "[Gen 8] RRC",
 		mod: 'gen8rr',
 		gameType: 'doubles',
-		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Z-Move Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
+		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
 		banlist: ['Restricted Legendary', 'Mythical'],
 	},
 	{
