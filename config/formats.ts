@@ -103,7 +103,7 @@ export const Formats: FormatList = [
 			// abilities
 			'Chlorophyll',
 			// moves
-			'Baton Pass', 'Dragon Rage', 'Sonic Boom',
+			'Baton Pass', 'Dragon Rage', 'Sonic Boom', 'Sticky Web',
 			// items
 			'Leek Stick',
 		],
