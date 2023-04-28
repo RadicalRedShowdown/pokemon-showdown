@@ -351,7 +351,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	vulpixalola: {
-		tier: "NFE",
+		tier: "LC",
 	},
 	ninetales: {
 		randomBattleLevel: 88,
