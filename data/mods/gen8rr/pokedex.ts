@@ -977,7 +977,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	bellossom: {
 		inherit: true,
 		types: ["Grass", "Fairy"],
-		baseStats: {hp: 85, atk: 70, def: 95, spa: 90, spd: 100, spe: 50},
 	},
 	sudowoodo: {
 		inherit: true,
