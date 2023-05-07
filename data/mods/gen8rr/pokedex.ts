@@ -2689,7 +2689,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sawsbuck: {
 		inherit: true,
-		baseStats: {hp: 80, atk: 100, def: 70, spa: 60, spd: 70, spe: 105},
+		baseStats: {hp: 80, atk: 110, def: 70, spa: 60, spd: 70, spe: 105},
 		evoLevel: 28,
 	},
 	emolga: {
