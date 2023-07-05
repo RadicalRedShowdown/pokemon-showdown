@@ -15,7 +15,7 @@ export const Rulesets: {[k: string]: FormatData} = {
 		name: 'Standard',
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
-			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Abilities Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 			'Min Source Gen = 9',
 		],
 	},
@@ -809,9 +809,10 @@ export const Rulesets: {[k: string]: FormatData} = {
 				const species = this.dex.species.get(set.species);
 				if (species.name === "Orbeetle" && set.gigantamax) hasOrbeetle = true;
 				if (!hasOrbeetle && species.name === "Orbeetle-Gmax") hasOrbeetle = true;
+				const hasMissChanceOrNeverMisses = (move.accuracy < 100 || move.accuracy === true)
 				for (const moveid of set.moves) {
 					const move = this.dex.moves.get(moveid);
-					if (move.status && move.status === 'slp' && move.accuracy < 100) hasSleepMove = true;
+					if (move.status && move.status === 'slp' && hasMissChanceOrNeverMisses) hasSleepMove = true;
 				}
 			}
 			if (hasOrbeetle && hasSleepMove) {
