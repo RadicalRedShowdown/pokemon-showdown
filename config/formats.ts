@@ -90,7 +90,9 @@ export const Formats: FormatList = [
 		name: "[Gen 8] RU",
 		mod: 'gen8rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: ['UU', 'RUBL', 'Trick Room', 'Light Clay', 'Draco Barrage'],
+		banlist: ['UU', 'RUBL', 'Trick Room', 'Light Clay', 'Draco Barrage', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
+		'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 8] LC",
