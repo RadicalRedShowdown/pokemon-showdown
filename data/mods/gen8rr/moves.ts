@@ -281,15 +281,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		pp: 5,
 		priority: 0,
 		num: 855,
-		basePower: 100,
-		accuracy: 100,
 		ignoreImmunity: {'Dragon': true},
 		flags: {protect: 1, mirror: 1},
 		onModifyMove(move, pokemon) {
 			if (pokemon.getStat('atk', false, true) > pokemon.getStat('spa', false, true)) move.category = 'Physical';
 		},
 		recoil: [1, 3],
-		ignoreImmunity: {'Dragon': true},
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
@@ -353,6 +350,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			atk: 2,
 			spa: 2,
 			spe: 2,
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.species.baseSpecies === 'eevee') {
+				move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2};
+			}
 		},
 	},
 	facade: {
