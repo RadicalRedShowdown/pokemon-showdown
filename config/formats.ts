@@ -172,7 +172,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Misty Explosion'],
 	},
 	{
-		name: "[Gen 8] Ubers",
+		name: "[Gen 8] 2.3 Ubers",
 		mod: 'gen8rr2.3',
 		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
 		banlist: ['AG', 'Moody'],
