@@ -351,8 +351,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			spa: 2,
 			spe: 2,
 		},
+		selfBoost: {},
 		onModifyMove(move, pokemon) {
-			if (pokemon.species.baseSpecies === 'eevee') {
+			if (pokemon.species.baseSpecies === 'Eevee') {
+				delete move.boosts;
 				move.boosts = {atk: 2, def: 2, spa: 2, spd: 2, spe: 2};
 			}
 		},
