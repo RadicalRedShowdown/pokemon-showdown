@@ -97,7 +97,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] LC",
 		mod: 'gen8rr',
-		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause'],
+		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
@@ -174,7 +174,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] 2.3 Ubers",
 		mod: 'gen8rr2.3',
-		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause'],
 		banlist: ['AG', 'Moody'],
 	},
 	{
