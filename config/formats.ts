@@ -97,7 +97,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 8] LC",
 		mod: 'gen8rr',
-		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause'],
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
