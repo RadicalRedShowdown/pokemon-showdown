@@ -261,7 +261,7 @@ export const commands: Chat.ChatCommands = {
 		} else if (user === targetUser) {
 			buf += `<br /> IP: <a href="https://whatismyipaddress.com/ip/${connection.ip}" target="_blank">${connection.ip}</a>`;
 		}
-		if (canViewAlts && hiddenrooms) {
+		if ((user === targetUser || canViewAlts) && hiddenrooms) {
 			buf += `<br />Hidden rooms: ${hiddenrooms}`;
 		}
 		if (canViewSecretRooms && privaterooms) {
@@ -851,6 +851,7 @@ export const commands: Chat.ChatCommands = {
 	dt6: 'details',
 	dt7: 'details',
 	dt8: 'details',
+	dt9: 'details',
 	details(target) {
 		if (!target) return this.parse('/help details');
 		this.run('data');
@@ -1631,7 +1632,8 @@ export const commands: Chat.ChatCommands = {
 			`- <a href="https://github.com/smogon/pokemon-showdown/commits/master">What's new?</a><br />` +
 			`- <a href="https://github.com/smogon/pokemon-showdown">Server source code</a><br />` +
 			`- <a href="https://github.com/smogon/pokemon-showdown-client">Client source code</a><br />` +
-			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Dex">Dex source code</a>`
+			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Dex">Dex source code</a><br />` +
+			`- <a href="https://github.com/smogon/pokemon-showdown-loginserver">Login server source code</a>`
 		);
 	},
 	opensourcehelp: [
@@ -1747,13 +1749,10 @@ export const commands: Chat.ChatCommands = {
 		const DEFAULT_CALC_COMMANDS = ['honkalculator', 'honkocalc'];
 		const RANDOMS_CALC_COMMANDS = ['randomscalc', 'randbatscalc', 'rcalc'];
 		const BATTLESPOT_CALC_COMMANDS = ['bsscalc', 'cantsaycalc'];
-		const SUPPORTED_RANDOM_FORMATS = [
-			'gen8randombattle', 'gen8unratedrandombattle', 'gen7randombattle', 'gen6randombattle', 'gen5randombattle', 'gen4randombattle', 'gen3randombattle', 'gen2randombattle', 'gen1randombattle',
-		];
 		const SUPPORTED_BATTLESPOT_FORMATS = [
 			'gen5gbusingles', 'gen5gbudoubles', 'gen6battlespotsingles', 'gen6battlespotdoubles', 'gen6battlespottriples', 'gen7battlespotsingles', 'gen7battlespotdoubles', 'gen7bssfactory',
 		];
-		const isRandomBattle = (room?.battle && SUPPORTED_RANDOM_FORMATS.includes(room.battle.format));
+		const isRandomBattle = room?.battle?.format.endsWith('randombattle');
 		const isBattleSpotBattle = (room?.battle && (SUPPORTED_BATTLESPOT_FORMATS.includes(room.battle.format) ||
 			room.battle.format.includes("battlespotspecial")));
 		if (RANDOMS_CALC_COMMANDS.includes(cmd) ||
@@ -2083,6 +2082,9 @@ export const commands: Chat.ChatCommands = {
 		if (showAll || ['privacy', 'private'].includes(target)) {
 			buffer.push(`<a href="https://pokemonshowdown.com/${this.tr`pages/privacy`}">${this.tr`Pokémon Showdown privacy policy`}</a>`);
 		}
+		if (showAll || ['lostpassword', 'password', 'lostpass'].includes(target)) {
+			buffer.push(`If you need your Pokémon Showdown password reset, you can fill out a <a href="https://www.smogon.com/forums/password-reset-form/">${this.tr`Password Reset Form`}</a>. You will need to make a Smogon account to be able to fill out the form, as password resets are processed through the Smogon forums.`);
+		}
 		if (!buffer.length && target) {
 			this.errorReply(`'${target}' is an invalid FAQ.`);
 			return this.parse(`/help faq`);
@@ -2110,7 +2112,7 @@ export const commands: Chat.ChatCommands = {
 		const ability = Dex.abilities.get(targets[0]);
 		const format = Dex.formats.get(targets[0]);
 		let atLeastOne = false;
-		let generation = (targets[1] || 'ss').trim().toLowerCase();
+		let generation = (targets[1] || 'sv').trim().toLowerCase();
 		let genNumber = 9;
 		const extraFormat = Dex.formats.get(targets[2]);
 
@@ -2515,11 +2517,11 @@ export const commands: Chat.ChatCommands = {
 		if (!room.settings.requestShowEnabled) {
 			return this.errorReply(`Media approvals are disabled in this room.`);
 		}
-		if (user.can('showmedia', null, room, '/show')) return this.errorReply(`Use !show instead.`);
+		if (user.can('showmedia', null, room, 'show')) return this.errorReply(`Use !show instead.`);
 		if (room.pendingApprovals?.has(user.id)) return this.errorReply('You have a request pending already.');
 		if (!toID(target)) return this.parse(`/help requestshow`);
 
-		let [link, comment] = target.split(',');
+		let [link, comment] = this.splitOne(target);
 		if (!/^https?:\/\//.test(link)) link = `https://${link}`;
 		link = encodeURI(link);
 		let dimensions;
@@ -2532,6 +2534,9 @@ export const commands: Chat.ChatCommands = {
 			} catch {
 				throw new Chat.ErrorMessage('Invalid link.');
 			}
+		}
+		if (comment && this.checkChat(comment) !== comment) {
+			return this.errorReply(`You cannot use filtered words in comments.`);
 		}
 		if (!room.pendingApprovals) room.pendingApprovals = new Map();
 		room.pendingApprovals.set(user.id, {
@@ -2546,6 +2551,7 @@ export const commands: Chat.ChatCommands = {
 		room.sendRankedUsers(message, '%');
 		room.sendMods(
 			Utils.html`|uhtml|request-${user.id}|<div class="infobox">${user.name} wants to show <a href="${link}">${link}</a><br>` +
+			(comment ? Utils.html`Comment: ${comment}<br>` : '') +
 			`<button class="button" name="send" value="/approveshow ${user.id}">Approve</button><br>` +
 			`<button class="button" name="send" value="/denyshow ${user.id}">Deny</button></div>`
 		);
@@ -2575,7 +2581,7 @@ export const commands: Chat.ChatCommands = {
 			buf = Utils.html`<img src="${request.link}" width="${width}" height="${height}" />`;
 			if (resized) buf += Utils.html`<br /><a href="${request.link}" target="_blank">full-size image</a>`;
 		} else {
-			buf = await YouTube.generateVideoDisplay(request.link);
+			buf = await YouTube.generateVideoDisplay(request.link, false, true);
 			if (!buf) return this.errorReply('Could not get YouTube video');
 		}
 		buf += Utils.html`<br /><div class="infobox"><small>(Requested by ${request.name})</small>`;
@@ -2638,10 +2644,19 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		const [link, comment] = Utils.splitFirst(target, ',').map(f => f.trim());
+		this.checkBroadcast();
+		if (this.broadcastMessage) {
+			if (room) {
+				this.checkCan('show', null, room);
+			} else {
+				this.checkCan('altsself');
+			}
+		}
 
+		this.runBroadcast();
 		let buf;
 		if (YouTube.linkRegex.test(link)) {
-			buf = await YouTube.generateVideoDisplay(link);
+			buf = await YouTube.generateVideoDisplay(link, false, this.broadcasting);
 			this.message = this.message.replace(/&ab_channel=(.*)(&|)/ig, '').replace(/https:\/\/www\./ig, '');
 		} else if (Twitch.linkRegex.test(link)) {
 			const channelId = Twitch.linkRegex.exec(link)?.[2]?.trim();
@@ -2669,15 +2684,6 @@ export const commands: Chat.ChatCommands = {
 			buf += Utils.html`<br />(${comment})</div>`;
 		}
 
-		this.checkBroadcast();
-		if (this.broadcastMessage) {
-			if (room) {
-				this.checkCan('show', null, room);
-			} else {
-				this.checkCan('altsself');
-			}
-		}
-		this.runBroadcast();
 		this.sendReplyBox(buf);
 	},
 	showhelp: [
@@ -2984,7 +2990,7 @@ export const pages: Chat.PageTable = {
 		for (const id of userids) {
 			const ips = useridToIp.get(id) || [];
 			buf += `<tr><td>`;
-			buf += `<a href="https://${Config.routes.client}/users/${id}">${id}</a></td>`;
+			buf += `<a href="https://${Config.routes.root}/users/${id}">${id}</a></td>`;
 			const ipStr = ips.map(f => `<a href="https://whatismyipaddress.com/ip/${f}">${f}</a>`).join(', ');
 			buf += `${showIPs ? `<td>${ipStr}</td>` : ""}</tr>`;
 		}
@@ -3006,7 +3012,7 @@ export const pages: Chat.PageTable = {
 		const basics = [
 			`<p>Pok&eacute;mon Showdown! supports custom rules in three ways:</p>`,
 			`<ul><li>Challenging another user, using the command <code>/challenge USERNAME, FORMAT @@@ RULES</code></li>`,
-			`<li>Tournaments, using the command <code>/tour rules RULES</code> (see the <a href="${tourHelp}">Tournament command help)</a></li>`,
+			`<li>Tournaments, using the command <code>/tour rules RULES</code> (see the <a href="${tourHelp}">Tournament command help</a>)</li>`,
 			`<li>Custom rules on your own server</li></ul>`,
 			`<h2><u>Bans</u></h2>`,
 			`<p>Bans are just a <code>-</code> followed by the thing you want to ban.</p>`,

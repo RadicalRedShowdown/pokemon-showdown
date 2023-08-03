@@ -23,25 +23,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "Prevents self-lowering stat drops and recoil.",
 	},
-	blademaster: {
-		onBasePowerPriority: 23,
-		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['blade']) {
-				this.debug('Blademaster boost');
-				return this.chainModify([4915, 4096]);
-			}
-		},
-		onModifyCritRatio(critRatio, source, target, move: ActiveMove) {
-			if (move.flags['blade']) {
-				return (critRatio + 1);
-			}
-		},
-		name: "Blademaster",
-		rating: 3.5,
-		gen: 8,
-		desc: "This Pokemon's blade-based attacks have their power multiplied by 1.2 and get a +1 critical hit ratio.",
-		shortDesc: "Blade attacks have 1.2x power and +1 crit ratio.",
-	},
 	blazingsoul: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.type === 'Fire' && pokemon.hp === pokemon.maxhp) return priority + 1;
@@ -156,6 +137,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		rating: 3,
 		shortDesc: "This Pokemon can hit Steel types with Poison-type moves.",
+	},
+	dauntlessshield: {
+		inherit: true,
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
 	},
 	defeatist: {
 		inherit: true,
@@ -332,6 +319,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
+	intrepidsword: {
+		inherit: true,
+		onStart(pokemon) {
+			this.boost({atk: 1}, pokemon);
+		},
+	},
 	ironfist: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
@@ -477,6 +470,31 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		gen: 8,
 		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
+	},
+	protean: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		onSwitchIn() {},
+		rating: 4.5,
+	},
+	libero: {
+		inherit: true,
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		onSwitchIn() {},
 	},
 	quickfeet: {
 		inherit: true,

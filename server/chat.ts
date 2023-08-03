@@ -74,6 +74,7 @@ interface Handlers {
 	onBattleStart: (user: User, room: GameRoom) => void;
 	onBattleLeave: (user: User, room: GameRoom) => void;
 	onRoomJoin: (room: BasicRoom, user: User, connection: Connection) => void;
+	onBeforeRoomJoin: (room: BasicRoom, user: User, connection: Connection) => void;
 	onDisconnect: (user: User) => void;
 	onRoomDestroy: (roomid: RoomID) => void;
 	onBattleEnd: (battle: RoomBattle, winner: ID, players: ID[]) => void;
@@ -996,7 +997,7 @@ export class CommandContext extends MessageContext {
 	checkCan(permission: RoomPermission, target: User | ID | null, room: Room): undefined;
 	checkCan(permission: GlobalPermission, target?: User | ID | null): undefined;
 	checkCan(permission: string, target: User | ID | null = null, room: Room | null = null) {
-		if (!Users.Auth.hasPermission(this.user, permission, target, room, this.fullCmd)) {
+		if (!Users.Auth.hasPermission(this.user, permission, target, room, this.fullCmd, this.cmdToken)) {
 			throw new Chat.ErrorMessage(`${this.cmdToken}${this.fullCmd} - Access denied.`);
 		}
 	}
@@ -1004,7 +1005,7 @@ export class CommandContext extends MessageContext {
 	privatelyCheckCan(permission: GlobalPermission, target?: User | ID | null): boolean;
 	privatelyCheckCan(permission: string, target: User | ID | null = null, room: Room | null = null) {
 		this.handler!.isPrivate = true;
-		if (Users.Auth.hasPermission(this.user, permission, target, room, this.fullCmd)) {
+		if (Users.Auth.hasPermission(this.user, permission, target, room, this.fullCmd, this.cmdToken)) {
 			return true;
 		}
 		this.commandDoesNotExist();
@@ -1030,8 +1031,10 @@ export class CommandContext extends MessageContext {
 			throw new Chat.ErrorMessage(`To see it for yourself, use: /${this.message.slice(1)}`);
 		}
 
-		if (this.room && !this.user.can('show', null, this.room)) {
-			this.errorReply(`You need to be voiced to broadcast this command's information.`);
+		if (this.room && !this.user.can('show', null, this.room, this.cmd, this.cmdToken)) {
+			const perm = this.room.settings.permissions?.[`!${this.cmd}`];
+			const atLeast = perm ? `at least rank ${perm}` : 'voiced';
+			this.errorReply(`You need to be ${atLeast} to broadcast this command's information.`);
 			throw new Chat.ErrorMessage(`To see it for yourself, use: /${this.message.slice(1)}`);
 		}
 
@@ -2590,6 +2593,17 @@ export const Chat = new class {
 	readonly formatText = formatText;
 	readonly linkRegex = linkRegex;
 	readonly stripFormatting = stripFormatting;
+
+	/** Helper function to ensure no state issues occur when regex testing for links. */
+	isLink(possibleUrl: string) {
+		// if we don't do this, it starts spitting out false every other time even if it's a valid link
+		//  since global regexes are stateful.
+		// this took me so much pain to debug.
+		// Yes, that is intended JS behavior. Yes, it fills me with unyielding rage.
+		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test
+		this.linkRegex.lastIndex = -1;
+		return this.linkRegex.test(possibleUrl);
+	}
 
 	readonly filterWords: {[k: string]: FilterWord[]} = {};
 	readonly monitors: {[k: string]: Monitor} = {};

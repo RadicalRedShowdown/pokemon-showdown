@@ -15,7 +15,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onResidualOrder: 10,
 		onResidual(pokemon) {
 			let dmgmod = 16;
-			if (this.field.getWeather().id === "hail") dmgmod = 8;
 			if (pokemon.hasAbility("thickfat")) dmgmod = 32;
 			this.damage(pokemon.baseMaxhp / dmgmod);
 		},
@@ -38,14 +37,13 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 	hail: {
 		inherit: true,
-		onModifyMove(move) {
-			if (!move.secondaries) return;
-			for (const secondary of move.secondaries) {
-				if (secondary.status === 'frz' && secondary.chance) {
-					secondary.chance *= 2;
-				}
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Ice') && this.field.isWeather('hail')) {
+				return this.modify(def, 1.5);
 			}
 		},
+		onWeather(target) {},
 	},
 	mustrecharge: {
 		inherit: true,

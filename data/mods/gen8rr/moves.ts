@@ -1,3 +1,5 @@
+import { TriumvirateModeTrivia } from "../../../server/chat-plugins/trivia/trivia";
+
 export const Moves: {[k: string]: ModdedMoveData} =	{
 	acupressure: {
 		inherit: true,
@@ -184,18 +186,18 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	chloroblast: {
 		num: 835,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 150,
 		category: "Special",
 		name: "Chloroblast",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		recoil: [1, 3],
+		recoil: [1, 2],
 		secondary: null,
 		target: "normal",
 		type: "Grass",
-		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 33% recoil.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 50% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 50% recoil.",
 		gen: 8,
 	},
 	circlethrow: {
@@ -241,7 +243,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	direclaw: {
 		num: 827,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 80,
 		category: "Physical",
 		name: "Dire Claw",
 		pp: 15,
@@ -251,7 +253,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		secondary: {
 			chance: 50,
 			onHit(target, source) {
-				const statuses = ['par', 'psn', 'brn'];
+				const statuses = ['par', 'psn', 'brn', 'slp'];
 				target.trySetStatus(this.sample(statuses), source);
 			},
 		},
@@ -318,25 +320,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		zMove: {basePower: 160},
 	},
 	esperwing: {
-		num: 840,
-		name: "Esper Wing",
-		type: "Psychic",
-		priority: 1,
-		basePower: 40,
-		accuracy: 100,
-		flags: {protect: 1, mirror: 1},
-		target: "normal",
-		category: "Special",
-		pp: 20,
-		secondary: {
-			boosts: {
-				spd: -1,
-			},
-			chance: 10,
-		},
-		desc: "Has a 10% chance to lower the target's Special Defense by 1 stage.",
-		shortDesc: "Usually goes first. 10% chance to lower Sp. Def by 1.",
-		gen: 8,
+		inherit: true,
+		isNonstandard: null,
 	},
 	explosion: {
 		inherit: true,
@@ -478,6 +463,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			},
 		},
 		secondary: {},
+	},
+	glaciallance: {
+		inherit: true,
+		basePower: 120,
+	},
+	grassyglide: {
+		inherit: true,
+		basePower: 60,
 	},
 	guillotine: {
 		inherit: true,
@@ -726,6 +719,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	muddywater: {
 		inherit: true,
+		basePower: 95,
 		noTutor: true,
 		secondary: {
 			chance: 40,
@@ -754,54 +748,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Type varies based on the user's primary type.",
 	},
 	mysticalpower: {
-		num: 832,
-		accuracy: 100,
-		basePower: 70,
-		category: "Special",
-		name: "Mystical Power",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		onModifyMove(move, pokemon) {
-			move.secondaries = [];
-			const offense = pokemon.getStat('atk', true, true) + pokemon.getStat('spa', true, true);
-			const defense = pokemon.getStat('def', true, true) + pokemon.getStat('spd', true, true);
-			if (defense > offense) {
-				move.secondaries.push({
-					chance: 100,
-					self: {
-						boosts: {
-							def: 1,
-							spd: 1,
-						},
-					},
-				});
-			} else {
-				move.secondaries.push({
-					chance: 100,
-					self: {
-						boosts: {
-							atk: 1,
-							spa: 1,
-						},
-					},
-				});
-			}
-		},
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					atk: 1,
-					spa: 1,
-				},
-			},
-		},
-		target: "normal",
-		type: "Psychic",
-		desc: "Raises the user's Attack and Special Attack or Defense and Special Defense by 1 stage, depending on which stats are higher.",
-		shortDesc: "+1 Atk/SpA or Def/SpD depending on higher stats.",
-		gen: 8,
+		inherit: true,
+		isNonstandard: null,
 	},
 	needlearm: {
 		inherit: true,
@@ -866,7 +814,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		secondary: {
-			chance: 50,
 			self: {
 				boosts: {
 					def: 1,
@@ -1160,6 +1107,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			},
 		},
 	},
+	spinout: {
+		inherit: true,
+		basePower: 110,
+	},
 	stealthrock: {
 		inherit: true,
 		condition: {
@@ -1334,6 +1285,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	wickedblow: {
 		inherit: true,
+		basePower: 75,
 		flags: {contact: 1, protect: 1, mirror: 1},
 	},
 	wideguard: {
@@ -2462,4 +2414,29 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
+	// add gen 9 move changes
+	bleakwindstorm: {
+		inherit: true,
+		accuracy: 90,
+		secondary: {
+			chance: 20,
+			status: 'frz',
+		},
+	},
+	sandsearstorm: {
+		inherit: true,
+		accuracy: 90
+	},
+	wildboltstorm: {
+		inherit: true,
+		accuracy: 90,
+	},
+	springtidestorm: {
+		inherit: true,
+		accuracy: 90,
+		onModifyMove(move) {
+			if (this.field.isWeather(['raindance', 'primordialsea'])) move.accuracy = true;
+		},
+	}
 };
+

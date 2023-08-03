@@ -181,8 +181,12 @@ export class BattleActions {
 			this.battle.runEvent('SwitchIn', pokemon);
 		}
 
-		if (this.battle.gen <= 2 && !pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
-			this.battle.runEvent('AfterSwitchInSelf', pokemon);
+		if (this.battle.gen <= 2) {
+			// pokemon.lastMove is reset for all Pokemon on the field after a switch. This affects Mirror Move.
+			for (const poke of this.battle.getAllActive()) poke.lastMove = null;
+			if (!pokemon.side.faintedThisTurn && pokemon.draggedIn !== this.battle.turn) {
+				this.battle.runEvent('AfterSwitchInSelf', pokemon);
+			}
 		}
 		if (!pokemon.hp) return false;
 		pokemon.isStarted = true;
@@ -297,6 +301,8 @@ export class BattleActions {
 			pokemon.side.zMoveUsed = true;
 		}
 
+		const oldActiveMove = move;
+
 		const moveDidSomething = this.useMove(baseMove, pokemon, target, sourceEffect, zMove, maxMove);
 		this.battle.lastSuccessfulMoveThisTurn = moveDidSomething ? this.battle.activeMove && this.battle.activeMove.id : null;
 		if (this.battle.activeMove) move = this.battle.activeMove;
@@ -334,6 +340,11 @@ export class BattleActions {
 		if (noLock && pokemon.volatiles['lockedmove']) delete pokemon.volatiles['lockedmove'];
 		this.battle.faintMessages();
 		this.battle.checkWin();
+
+		if (this.battle.gen <= 4) {
+			// In gen 4, the outermost move is considered the last move for Copycat
+			this.battle.activeMove = oldActiveMove;
+		}
 	}
 	/**
 	 * useMove is the "inside" move caller. It handles effects of the
@@ -503,7 +514,7 @@ export class BattleActions {
 		if (
 			!move.negateSecondary &&
 			!(move.hasSheerForce && pokemon.hasAbility('sheerforce')) &&
-			!move.isFutureMove
+			!move.flags['futuremove']
 		) {
 			const originalHp = pokemon.hp;
 			this.battle.singleEvent('AfterMoveSecondarySelf', move, null, pokemon, target, move);
@@ -934,9 +945,9 @@ export class BattleActions {
 			this.battle.add('-hitcount', targets[0], hit - 1);
 		}
 
-		if (move.recoil && move.totalDamage) {
+		if ((move.recoil || move.id === 'chloroblast') && move.totalDamage) {
 			const hpBeforeRecoil = pokemon.hp;
-			this.battle.damage(this.calcRecoilDamage(move.totalDamage, move), pokemon, pokemon, 'recoil');
+			this.battle.damage(this.calcRecoilDamage(move.totalDamage, move, pokemon), pokemon, pokemon, 'recoil');
 			if (pokemon.hp <= pokemon.maxhp / 2 && hpBeforeRecoil > pokemon.maxhp / 2) {
 				this.battle.runEvent('EmergencyExit', pokemon, pokemon);
 			}
@@ -1260,7 +1271,7 @@ export class BattleActions {
 				this.battle.faint(source, source, move);
 			}
 			if (moveData.selfSwitch) {
-				if (this.battle.canSwitch(source.side)) {
+				if (this.battle.canSwitch(source.side) && !source.volatiles['commanded']) {
 					didSomething = true;
 				} else {
 					didSomething = this.combineResults(didSomething, false);
@@ -1280,7 +1291,7 @@ export class BattleActions {
 				}
 			}
 			this.battle.debug('move failed because it did nothing');
-		} else if (move.selfSwitch && source.hp) {
+		} else if (move.selfSwitch && source.hp && !source.volatiles['commanded']) {
 			source.switchFlag = move.id;
 		}
 
@@ -1348,7 +1359,8 @@ export class BattleActions {
 		return retVal === true ? undefined : retVal;
 	}
 
-	calcRecoilDamage(damageDealt: number, move: Move): number {
+	calcRecoilDamage(damageDealt: number, move: Move, pokemon: Pokemon): number {
+		if (move.id === 'chloroblast') return Math.round(pokemon.maxhp / 2);
 		return this.battle.clampIntRange(Math.round(damageDealt * move.recoil![0] / move.recoil![1]), 1);
 	}
 
@@ -1653,8 +1665,8 @@ export class BattleActions {
 			defBoosts = 0;
 		}
 
-		let attack = attacker.calculateStat(attackStat, atkBoosts);
-		let defense = defender.calculateStat(defenseStat, defBoosts);
+		let attack = attacker.calculateStat(attackStat, atkBoosts, 1, source);
+		let defense = defender.calculateStat(defenseStat, defBoosts, 1, target);
 
 		attackStat = (category === 'Physical' ? 'atk' : 'spa');
 
@@ -1801,7 +1813,7 @@ export class BattleActions {
 		const altForme = species.otherFormes && this.dex.species.get(species.otherFormes[0]);
 		const item = pokemon.getItem();
 		// Mega Rayquaza
-		if ((this.battle.gen <= 7 || this.battle.ruleTable.has('standardnatdex')) &&
+		if ((this.battle.gen <= 7 || this.battle.ruleTable.has('+pokemontag:past')) &&
 			altForme?.isMega && altForme?.requiredMove &&
 			pokemon.baseMoves.includes(toID(altForme.requiredMove)) && !item.zMove) {
 			return altForme.name;
@@ -1842,10 +1854,7 @@ export class BattleActions {
 	}
 
 	canTerastallize(pokemon: Pokemon) {
-		if (
-			pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra" ||
-			pokemon.getItem().zMove || pokemon.canMegaEvo || pokemon.side.canDynamaxNow() || this.dex.gen !== 9
-		) {
+		if (pokemon.getItem().zMove || pokemon.canMegaEvo || pokemon.side.canDynamaxNow() || this.dex.gen !== 9) {
 			return null;
 		}
 		return pokemon.teraType;
@@ -1859,6 +1868,7 @@ export class BattleActions {
 		for (const ally of pokemon.side.pokemon) {
 			ally.canTerastallize = null;
 		}
+		pokemon.addedType = '';
 		pokemon.knownType = true;
 		pokemon.apparentType = type;
 		this.battle.runEvent('AfterTerastallization', pokemon);
