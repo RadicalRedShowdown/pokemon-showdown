@@ -2437,6 +2437,16 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onModifyMove(move) {
 			if (this.field.isWeather(['raindance', 'primordialsea'])) move.accuracy = true;
 		},
-	}
+	},
+	armorcannon: {
+		inherit: true,
+		flags: {protect: 1, mirror: 1, pulse: 1},
+	},
+	ragingbull: {
+		inherit: true,
+		onModifyType(move, pokemon) {
+			move.type = pokemon.getTypes()[0]
+		},
+	},
 };
 

@@ -1,6 +1,6 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	badcompany: {
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (source && target !== source) return;
 			let i: BoostID;
 			for (i in boost) {
@@ -22,6 +22,26 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		gen: 8,
 		shortDesc: "Prevents self-lowering stat drops and recoil.",
+	},
+	battlebond: {
+		inherit: true,
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect?.effectType !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash' &&
+				!attacker.transformed) {
+				move.multihit = 3;
+			}
+		},
+		isNonstandard: null,
 	},
 	blazingsoul: {
 		onModifyPriority(priority, pokemon, target, move) {
@@ -312,7 +332,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	innerfocus: {
 		inherit: true,
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate' || effect.id === 'surprise') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
@@ -367,7 +387,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	oblivious: {
 		inherit: true,
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate' || effect.id === 'surprise') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
@@ -395,7 +415,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	owntempo: {
 		inherit: true,
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate' || effect.id === 'surprise') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
@@ -474,7 +494,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	protean: {
 		inherit: true,
 		onPrepareHit(source, target, move) {
-			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
@@ -487,7 +507,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	libero: {
 		inherit: true,
 		onPrepareHit(source, target, move) {
-			if (move.hasBounced || move.isFutureMove || move.sourceEffect === 'snatch') return;
+			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch') return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
@@ -631,7 +651,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	scrappy: {
 		inherit: true,
-		onBoost(boost, target, source, effect) {
+		onTryBoost(boost, target, source, effect) {
 			if (effect.id === 'intimidate' || effect.id === 'surprise') {
 				delete boost.atk;
 				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
