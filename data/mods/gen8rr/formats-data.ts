@@ -6370,7 +6370,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	espathra: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	wiglett: {
 		tier: "LC",
