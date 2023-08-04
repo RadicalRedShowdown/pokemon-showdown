@@ -70691,7 +70691,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["9M"],
 			taunt: ["9M"],
 			terablast: ["9M"],
-			trailblaze: ["9M"],
 			wildcharge: ["9M"],
 			workup: ["9L1"],
 			xscissor: ["9M"],
