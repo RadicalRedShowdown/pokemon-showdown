@@ -2078,7 +2078,7 @@ export class TeamValidator {
 		let minIVs = 15; // IVs range from 0 to 15 in Pokemon GO
 		const dex = this.dex;
 		const pokemonGoData = dex.species.getPokemonGoData(species.id);
-		if (dex.gen < 8 || this.format.mod === 'gen8dlc1') return null;
+		if (dex.gen < 8 || ['gen8dlc1', 'gen8rr2.3', 'gen8rr3.1', 'gen9rr'].includes(this.format.mod)) return null;
 		if (!pokemonGoData) {
 			// Handles forms and evolutions not obtainable from Pokemon GO
 			const otherSpecies = this.learnsetParent(species);
