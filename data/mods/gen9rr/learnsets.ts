@@ -28959,7 +28959,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			magiccoat: ["9T"],
 			meteorbeam: ["9M"],
 			mirrorcoat: ["9L73"],
-			mysticpower: ["9S0"],
+			mysticalpower: ["9S0"],
 			nastyplot: ["9T"],
 			nightshade: ["9L7"],
 			poisonjab: ["9M"],
@@ -29010,7 +29010,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9T", "9L49"],
 		},
 		eventData: [
-			{generation: 9, level: 85, nature: "Naive", perfectIVs: 6, moves: ["mysticpower", "extremespeed", "icebeam", "knockoff"], pokeball: "pokeball"},
+			{generation: 9, level: 85, nature: "Naive", perfectIVs: 6, moves: ["mysticalpower", "extremespeed", "icebeam", "knockoff"], pokeball: "pokeball"},
 		],
 	},
 	deoxysattack: {},
