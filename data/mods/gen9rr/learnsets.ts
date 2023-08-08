@@ -12981,7 +12981,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			snatch: ["9T"],
 			snore: ["9T"],
 			solarbeam: ["9M"],
-			soulstrike: ["9L100"],
+			soulrobbery: ["9L100"],
 			stoneedge: ["9M"],
 			storedpower: ["9T"],
 			strength: ["9M"],
