@@ -782,6 +782,20 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 75, atk: 100, def: 95, spa: 70, spd: 70, spe: 110},
 	},
+	taurospaldeacombat: {
+		inherit: true,
+		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
+	},
+	taurospaldeablaze: {
+		inherit: true,
+		types: ["Fire", "Fighting"],
+		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
+	},
+	taurospaldeaaqua: {
+		inherit: true,
+		types: ["Water", "Fighting"],
+		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
+	},
 	magikarp: {
 		inherit: true,
 		abilities: {0: "Swift Swim", H: "Hydration"},
