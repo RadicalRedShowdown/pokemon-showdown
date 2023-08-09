@@ -65548,7 +65548,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			scaryface: ["9T"],
 			scratch: ["9L1"],
 			shadowclaw: ["9M"],
-			sketch: ["9L82"],
 			slash: ["9L21"],
 			sleeptalk: ["9M"],
 			sludgebomb: ["9M"],
