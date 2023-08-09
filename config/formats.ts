@@ -25,17 +25,17 @@ export const Formats: FormatList = [
 		section: "Singles",
 	},
 	{
-		name: "[Gen 8] Random Battle",
+		name: "[Gen 9] Random Battle",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
 	{
-		name: "[Gen 8] Free-For-All Random Battle",
+		name: "[Gen 9] Free-For-All Random Battle",
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		team: 'random',
 		gameType: 'freeforall',
 		tournamentShow: false,
@@ -43,16 +43,16 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Dynamax Clause'],
 	},
 	{
-		name: "[Gen 8] Random Battle (Blitz)",
+		name: "[Gen 9] Random Battle (Blitz)",
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		team: 'random',
 		ruleset: ['[Gen 8] Random Battle', 'Blitz'],
 	},
 	{
-		name: "[Gen 8] Multi Random Battle",
+		name: "[Gen 9] Multi Random Battle",
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		team: 'random',
 		gameType: 'multi',
 		searchShow: false,
@@ -64,8 +64,8 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] OU",
-		mod: 'gen8rr',
+		name: "[Gen 9] OU",
+		mod: 'gen9rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause', 'Gems Clause'],
 		banlist: [
 			'Uber', 'AG',
@@ -74,29 +74,29 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] Ubers",
-		mod: 'gen8rr',
+		name: "[Gen 9] Ubers",
+		mod: 'gen9rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
 		banlist: ['AG', 'Moody'],
 	},
 	{
-		name: "[Gen 8] UU",
-		mod: 'gen8rr',
-		ruleset: ['[Gen 8] OU'],
+		name: "[Gen 9] UU",
+		mod: 'gen9rr',
+		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock',
 		],
 	},
 	{
-		name: "[Gen 8] RU",
-		mod: 'gen8rr',
+		name: "[Gen 9] RU",
+		mod: 'gen9rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: ['AG', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Trick Room', 'Light Clay', 'Draco Barrage', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
 		'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
-		name: "[Gen 8] LC",
-		mod: 'gen8rr',
+		name: "[Gen 9] LC",
+		mod: 'gen9rr',
 		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause'],
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
@@ -111,8 +111,8 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 8] Monotype",
-		mod: 'gen8rr',
+		name: "[Gen 9] Monotype",
+		mod: 'gen9rr',
 		ruleset: ['Standard', 'Same Type Clause', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: [
 			'AG', 'Uber', 'Kartana', 'Medicham-Mega', 'Mawile-Mega', 'Hoopa-Unbound', 'Blaziken',
@@ -123,14 +123,14 @@ export const Formats: FormatList = [
 		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace'],
 	},
 	{
-		name: "[Gen 8] Anything Goes",
-		mod: 'gen8rr',
+		name: "[Gen 9] Anything Goes",
+		mod: 'gen9rr',
 		ruleset: ['Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	{
-		name: "[Gen 8] Random Pool",
-		mod: 'gen8rr',
-		ruleset: ['[Gen 8] OU'],
+		name: "[Gen 9] Random Pool",
+		mod: 'gen9rr',
+		ruleset: ['[Gen 9] OU'],
 		searchShow: false,
 		challengeShow: false,
 		onValidateTeam(team, format) {
@@ -153,8 +153,8 @@ export const Formats: FormatList = [
 		},
 	},
 	{
-		name: "[Gen 8] Custom Game",
-		mod: 'gen8rr',
+		name: "[Gen 9] Custom Game",
+		mod: 'gen9rr',
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
@@ -170,6 +170,53 @@ export const Formats: FormatList = [
 		mod: 'gen8rr2.3',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
 		banlist: ['Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Swagger', 'Misty Explosion'],
+	},
+	{
+		name: "[Gen 8] OU",
+		mod: 'gen8rr3.1',
+		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause', 'Gems Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+			'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
+		],
+	},
+	{
+		name: "[Gen 8] Ubers",
+		mod: 'gen8rr3.1',
+		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
+		banlist: ['AG', 'Moody'],
+	},
+	{
+		name: "[Gen 8] UU",
+		mod: 'gen8rr3.1',
+		ruleset: ['[Gen 8] OU'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock',
+		],
+	},
+	{
+		name: "[Gen 8] RU",
+		mod: 'gen8rr3.1',
+		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
+		banlist: ['AG', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Trick Room', 'Light Clay', 'Draco Barrage', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
+		'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
+	},
+	{
+		name: "[Gen 8] LC",
+		mod: 'gen8rr3.1',
+		ruleset: ['Little Cup', 'Standard', 'Dynamax Clause'],
+		banlist: [
+			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
+			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
+			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Scraggy',
+			// abilities
+			'Chlorophyll',
+			// moves
+			'Baton Pass', 'Dragon Rage', 'Sonic Boom', 'Sticky Web',
+			// items
+			'Leek Stick',
+		],
 	},
 	{
 		name: "[Gen 8] 2.3 Ubers",
@@ -211,24 +258,24 @@ export const Formats: FormatList = [
 		section: "Doubles",
 	},
 	{
-		name: "[Gen 8] Random Doubles Battle",
+		name: "[Gen 9] Random Doubles Battle",
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		gameType: 'doubles',
 		team: 'random',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 	{
-		name: "[Gen 8] RRC",
-		mod: 'gen8rr',
+		name: "[Gen 9] RRC",
+		mod: 'gen9rr',
 		gameType: 'doubles',
 		ruleset: ['Standard', 'VGC Timer', 'Item Clause', 'Dynamax Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
 		banlist: ['Restricted Legendary', 'Mythical'],
 	},
 	{
-		name: "[Gen 8] Doubles Custom Game",
+		name: "[Gen 9] Doubles Custom Game",
 
-		mod: 'gen8rr',
+		mod: 'gen9rr',
 		gameType: 'doubles',
 		searchShow: false,
 		battle: {trunc: Math.trunc},
@@ -261,6 +308,12 @@ export const Formats: FormatList = [
 			// Items
 			'Quick Claw', 'Razor Fang', 'Razor Claw', 'Kings Rock',
 		],
+	},
+	{
+		name: "[Gen 9] Draft",
+		mod: 'gen9rr',
+		searchShow: false,
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
 	},
 	{
 		name: "[Gen 8] Draft",
