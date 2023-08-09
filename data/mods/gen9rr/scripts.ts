@@ -19,6 +19,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 			return null;
 		},
+		canTerastallize(pokemon) {
+			return null;
+		},
 		runMove(moveOrMoveName, pokemon, targetLoc, sourceEffect, zMove, externalMove, maxMove, originalTarget) {
 			pokemon.activeMoveActions++;
 			let target = this.battle.getTarget(pokemon, maxMove || zMove || moveOrMoveName, targetLoc, originalTarget);
