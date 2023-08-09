@@ -47,7 +47,7 @@ export const Formats: FormatList = [
 
 		mod: 'gen9rr',
 		team: 'random',
-		ruleset: ['[Gen 8] Random Battle', 'Blitz'],
+		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
 	},
 	{
 		name: "[Gen 9] Multi Random Battle",
