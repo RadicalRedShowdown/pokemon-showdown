@@ -764,7 +764,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "liquidation", "meteormash", "aquajet", "closecombat", "knockoff", "icehammer", "flipturn", "agility"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["crabhammer", "meteormash", "icehammer", "aquajet", "closecombat", "protect", "swordsdance"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	kinglergmax: {
 		isNonstandard: "Gigantamax",
@@ -1095,7 +1095,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["dragondance", "stoneedge", "earthquake", "dualwingbeat", "roost", "stealthrock", "uturn"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["aquatail", "protect", "rockslide", "dualwingbeat", "stoneedge", "tailwind", "wideguard", "uturn"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	snorlax: {
 		randomBattleLevel: 84,
@@ -2545,7 +2545,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["agility", "earthquake", "hammerarm", "icepunch", "meteormash", "zenheadbutt"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["icepunch", "meteormash", "protect", "stompingtantrum", "thunderpunch", "zenheadbutt"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	regirock: {
 		randomBattleLevel: 88,
@@ -6066,7 +6066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "crunch", "psychicfangs", "wildcharge", "bulkup", "bodypress"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["closecombat", "crunch", "playrough", "protect", "psychicfangs", "bulkup", "bodypress"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	zamazentacrowned: {
 		randomBattleLevel: 76,
@@ -6744,7 +6744,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	annihilape: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DUber",
 		natDexTier: "Uber",
 	},
