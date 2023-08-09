@@ -2681,10 +2681,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
-	hail: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	kinesis: {
 		inherit: true,
 		isNonstandard: null,
