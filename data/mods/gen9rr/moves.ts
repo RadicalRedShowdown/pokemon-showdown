@@ -130,6 +130,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	bonemerang: {
 		inherit: true,
 		accuracy: 100,
+		isNonstandard: null,
 		flags: {protect: 1, mirror: 1, bone: 1},
 	},
 	bonerush: {
@@ -303,6 +304,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	dragonhammer: {
 		inherit: true,
 		basePower: 100,
+		isNonstandard: null,
 	},
 	dragontail: {
 		inherit: true,
@@ -363,6 +365,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	fishiousrend: {
 		inherit: true,
+		isNonstandard: null,
 		pp: 5,
 	},
 	fissure: {
@@ -450,6 +453,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	geargrind: {
 		inherit: true,
 		accuracy: 100,
+		isNonstandard: null,
 	},
 	genesissupernova: {
 		inherit: true,
@@ -485,6 +489,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	headcharge: {
 		inherit: true,
+		isNonstandard: null,
 		secondary: {
 			chance: 10,
 			boosts: {
@@ -532,6 +537,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	horndrill: {
 		inherit: true,
 		basePower: 1,
+		isNonstandard: null,
 		ohko: false,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
@@ -589,6 +595,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	kingsshield: {
 		inherit: true,
+		isNonstandard: null,
 		condition: {
 			duration: 1,
 			onStart(target) {
@@ -632,10 +639,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 		secondary: null,
+		isNonstandard: null,
 		desc: "No additional effect.",
 		shortDesc: "No additional effect.",
 	},
 	lovelykiss: {
+		isNonstandard: null,
 		inherit: true,
 		accuracy: 85,
 	},
@@ -652,6 +661,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	lusterpurge: {
 		inherit: true,
 		basePower: 85,
+		isNonstandard: null,
 		pp: 10,
 	},
 	megakick: {
@@ -683,6 +693,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	mistball: {
 		inherit: true,
 		basePower: 85,
+		isNonstandard: null,
 		pp: 10,
 	},
 	mistyexplosion: {
@@ -739,6 +750,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	multiattack: {
 		inherit: true,
+		isNonstandard: null,
 		onModifyType(move, pokemon) {
 			let type = pokemon.getTypes()[0];
 			if (type === "Bird") type = "???";
@@ -772,6 +784,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 		basePower: 80,
+		isNonstandard: null,
 		flags: {bullet: 1, protect: 1, pulse: 1, mirror: 1},
 		secondary: {
 			chance: 100,
@@ -908,6 +921,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	secretsword: {
 		inherit: true,
+		isNonstandard: null,
 		flags: {protect: 1, mirror: 1, blade: 1},
 	},
 	selfdestruct: {
@@ -918,6 +932,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	shadowbone: {
 		inherit: true,
+		isNonstandard: null,
 		flags: {protect: 1, mirror: 1, bone: 1},
 	},
 	shadowclaw: {
@@ -957,6 +972,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	skullbash: {
 		inherit: true,
+		isNonstandard: null,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
@@ -1003,6 +1019,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	snaptrap: {
 		inherit: true,
 		accuracy: 85,
+		isNonstandard: null,
 		basePower: 100,
 		pp: 5,
 		type: "Steel",
@@ -1240,6 +1257,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	triplekick: {
 		inherit: true,
+		isNonstandard: null,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
 			return 20 * move.hit;
@@ -1389,6 +1407,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	meteorassault: {
 		inherit: true,
+		isNonstandard: null,
 		pp: 4,
 		noPPBoosts: true,
 		basePower: 160,
@@ -1411,6 +1430,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		pp: 1,
 		noPPBoosts: true,
+		isNonstandard: null,
 		secondary: {
 			status: 'slp',
 			chance: 50,
@@ -1461,6 +1481,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	rockwrecker: {
 		inherit: true,
 		accuracy: 100,
+		isNonstandard: null,
 	},
 	metalclaw: {
 		inherit: true,
@@ -1526,6 +1547,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	strangesteam: {
 		inherit: true,
 		accuracy: 100,
+		isNonstandard: null,
 	},
 	submission: {
 		inherit: true,
@@ -1540,6 +1562,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	glaciate: {
+		isNonstandard: null,
 		inherit: true,
 		accuracy: 100,
 	},
@@ -1579,6 +1602,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 90,
 	},
 	aeroblast: {
+		isNonstandard: null,
 		inherit: true,
 		accuracy: 100,
 	},
@@ -1631,6 +1655,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		noTM: true,
 	},
 	naturepower: {
+		isNonstandard: null,
 		inherit: true,
 		noTM: true,
 	},
@@ -1717,6 +1742,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	laserfocus: {
 		inherit: true,
+		isNonstandard: null,
 		noTutor: true,
 	},
 	trick: {
@@ -1726,6 +1752,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	magiccoat: {
 		inherit: true,
 		noTutor: true,
+		isNonstandard: null,
 	},
 	magicroom: {
 		inherit: true,
@@ -1757,6 +1784,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	dualchop: {
 		inherit: true,
+		isNonstandard: null,
 		noTutor: true,
 		accuracy: 100,
 	},
@@ -1822,6 +1850,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	venomdrench: {
 		inherit: true,
+		isNonstandard: null,
 		noTutor: true,
 	},
 	dragondance: {
@@ -2447,6 +2476,254 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onModifyType(move, pokemon) {
 			move.type = pokemon.getTypes()[0]
 		},
+	},
+	anchorshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	behemothbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	behemothblade: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boltbeak: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	boltstrike: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	crushgrip: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	doubleironbash: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	freezeshock: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fusionbolt: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	landswrath: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	poweruppunch: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	revenge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sacredfire: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spectralthief: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	spiritshackle: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	stormthrow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sunsteelstrike: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandarrows: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	thousandwaves: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	vitalthrow: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	blueflare: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	clangingscales: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coreenforcer: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	doomdesire: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	dynamaxcannon: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	eternabeam: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	fusionflare: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	iceburn: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mindblown: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	moongeistbeam: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	naturesmadness: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	oblivionwing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	photongeyser: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	searingshot: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	shelltrap: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sparklingaria: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	technoblast: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	aromatherapy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	autotomize: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	clangoroussoul: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	conversion: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	conversion2: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	craftyshield: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	decorate: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	electrify: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	floralhealing: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flowershield: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	forestscurse: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	gearup: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	geomancy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	grudge: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	hail: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kinesis: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	matblock: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	mindreader: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	obstruct: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	octolock: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	psychoshift: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	purify: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	takeheart: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	topsyturvy: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	trickortreat: {
+		inherit: true,
+		isNonstandard: null,
 	},
 };
 
