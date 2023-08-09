@@ -66,7 +66,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] OU",
 		mod: 'gen9rr',
-		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause', 'Gems Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause'],
 		banlist: [
 			'Uber', 'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
