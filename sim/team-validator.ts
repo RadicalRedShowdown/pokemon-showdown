@@ -396,7 +396,7 @@ export class TeamValidator {
 
 		if (ruleTable.has('obtainableformes')) {
 			const canMegaEvo = dex.gen <= 7 || ruleTable.has('standardnatdex') ||
-				dex.currentMod === 'gen8rr' || dex.currentMod === 'gen8rr2.3' || dex.currentMod === 'gen8ie';
+				dex.currentMod === 'gen8rr3.1'|| dex.currentMod === 'gen9rr' || dex.currentMod === 'gen8rr2.3' || dex.currentMod === 'gen8ie';
 			if (item.megaEvolves === species.name) {
 				if (!item.megaStone) throw new Error(`Item ${item.name} has no base form for mega evolution`);
 				tierSpecies = dex.species.get(item.megaStone);
@@ -2232,7 +2232,8 @@ export class TeamValidator {
 		 * The format allows Sketch to copy moves in Gen 8
 		 */
 		const canSketchPostGen7Moves = ruleTable.has('sketchpostgen7moves') ||
-			this.dex.currentMod === 'gen8rr' ||
+			this.dex.currentMod === 'gen8rr3.1' ||
+			this.dex.currentMod === 'gen9rr' ||
 			this.dex.currentMod === 'gen8rr2.3' ||
 			this.dex.currentMod === 'gen8ie' ||
 			this.dex.currentMod === 'gen8bdsp';
@@ -2550,19 +2551,20 @@ export class TeamValidator {
 		// different learnsets. To prevent a leak, we make them show up as their
 		// base forme, but hardcode their learnsets into Rockruff-Dusk and
 		// Greninja-Ash
+		let isRR = (this.dex.currentMod === 'gen8rr3.1'|| 'gen9rr')
 		if (['Gastrodon', 'Pumpkaboo', 'Sinistea'].includes(species.baseSpecies) && species.forme) {
 			return this.dex.species.get(species.baseSpecies);
 		} else if (species.name === 'Lycanroc-Dusk') {
 			return this.dex.species.get('Rockruff-Dusk');
 		} else if (species.name === 'Greninja-Bond') {
 			return null;
-		} else if (species.name === 'Exeggutor-Alola' && this.dex.currentMod === 'gen8rr') {
+		} else if (species.name === 'Exeggutor-Alola' && isRR) {
 			return this.dex.species.get('Exeggcute-Alola');
-		} else if (species.name === 'Marowak-Alola' && this.dex.currentMod === 'gen8rr') {
+		} else if (species.name === 'Marowak-Alola' && isRR) {
 			return this.dex.species.get('Cubone-Alola');
-		} else if (species.name === 'Weezing-Galar' && this.dex.currentMod === 'gen8rr') {
+		} else if (species.name === 'Weezing-Galar' && isRR) {
 			return this.dex.species.get('Koffing-Galar');
-		} else if (species.name === 'Mr. Mime-Galar' && this.dex.currentMod === 'gen8rr') {
+		} else if (species.name === 'Mr. Mime-Galar' && isRR) {
 			return this.dex.species.get('Mime Jr.-Galar');
 		} else if (species.prevo) {
 			// there used to be a check for Hidden Ability here, but apparently it's unnecessary
