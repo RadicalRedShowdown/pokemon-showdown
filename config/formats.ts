@@ -101,7 +101,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
-			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Scraggy',
+			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Scraggy', 'Dunsparce', 'Girafarig',
 			// abilities
 			'Chlorophyll',
 			// moves

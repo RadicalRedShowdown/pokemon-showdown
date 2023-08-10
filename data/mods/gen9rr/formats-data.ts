@@ -2545,7 +2545,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["agility", "earthquake", "hammerarm", "icepunch", "meteormash", "zenheadbutt"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["icepunch", "meteormash", "protect", "stompingtantrum", "thunderpunch", "zenheadbutt"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	regirock: {
 		randomBattleLevel: 88,
@@ -2632,7 +2632,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	rayquazamega: {
-		tier: "AG",
+		tier: "Uber",
 	},
 	jirachi: {
 		randomBattleLevel: 82,
@@ -6052,14 +6052,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["playrough", "closecombat", "wildcharge", "psychicfangs", "crunch", "swordsdance", "substitute"],
 		randomDoubleBattleLevel: 72,
 		randomDoubleBattleMoves: ["closecombat", "crunch", "playrough", "protect", "psychicfangs", "swordsdance"],
-		tier: "AG",
+		tier: "Uber",
 	},
 	zaciancrowned: {
 		randomBattleLevel: 65,
 		randomBattleMoves: ["swordsdance", "behemothblade", "playrough", "closecombat", "wildcharge", "substitute"],
 		randomDoubleBattleLevel: 66,
 		randomDoubleBattleMoves: ["behemothblade", "closecombat", "playrough", "protect", "psychicfangs", "swordsdance"],
-		tier: "AG",
+		tier: "Uber",
 	},
 	zamazenta: {
 		randomBattleLevel: 76,
