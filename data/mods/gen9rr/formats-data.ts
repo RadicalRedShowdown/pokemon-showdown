@@ -6066,7 +6066,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "crunch", "psychicfangs", "wildcharge", "bulkup", "bodypress"],
 		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["closecombat", "crunch", "playrough", "protect", "psychicfangs", "bulkup", "bodypress"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	zamazentacrowned: {
 		randomBattleLevel: 76,
