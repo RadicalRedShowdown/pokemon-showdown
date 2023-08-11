@@ -344,7 +344,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	primeape: {
 		inherit: true,
-		abilities: {0: "Vital Spirit", 1: "Anger Point", H: "Gorilla Tactics"},
+		abilities: {0: "Vital Spirit", 1: "Anger Point", H: "Defiant"},
 		items: {5: "Payapa Berry", 50: "None"},
 	},
 	growlithe: {
@@ -4265,7 +4265,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sandyshocks: {
 		inherit: true,
-		abilities: {0: "Quark Drive", H: "Water Compaction"},
+		abilities: {0: "Protosynthesis", H: "Water Compaction"},
 	},
 	armaldo: {
 		inherit: true,
@@ -4365,8 +4365,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		heightm: 1.5,
 		weightkg: 85,
 		color: "Purple",
-		prevo: "Noibat",
+		prevo: "Noibat-Sevii",
 		evoLevel: 48,
 		eggGroups: ["Flying", "Dragon"],
 	},
+	toedscool: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Mold Breaker"},
+	},
+	toedscruel: {
+		inherit: true,
+		abilities: {0: "Clear Body", H: "Mold Breaker"},
+	}
 };

@@ -669,6 +669,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "At the end of every turn, this Pokemon restores 1/16 of its max HP.",
 	},
+	sharpness: {
+		inherit: true,
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['slicing'] || move.flags['blade']) {
+				this.debug('Shapness boost');
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	shielddust: {
 		inherit: true,
 		rating: 3.5,
