@@ -232,6 +232,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	direclaw: {
 		inherit: true,
 		critRatio: 2,
+		desc: "Has a 50% chance to cause the target to either fall asleep, become poisoned, or become paralyzed. Has a higher chance for a critical hit.",
+		shortDesc: "50% chance to slp/psn/par. High critical hit ratio.",
 	},
 	doublekick: {
 		inherit: true,
