@@ -1095,7 +1095,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["dragondance", "stoneedge", "earthquake", "dualwingbeat", "roost", "stealthrock", "uturn"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["aquatail", "protect", "rockslide", "dualwingbeat", "stoneedge", "tailwind", "wideguard", "uturn"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	snorlax: {
 		randomBattleLevel: 84,
@@ -5463,7 +5463,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["protect", "doubleironbash", "earthquake", "toxic", "icepunch", "thunderwave", "thunderpunch", "superpower"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["acidarmor", "bodypress", "doubleironbash", "protect", "thunderpunch", "thunderwave"],
-		tier: "UUBL",
+		tier: "UU",
 	},
 	melmetalgmax: {
 		isNonstandard: "Gigantamax",
@@ -6277,7 +6277,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	samurotthisui: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	decidueyehisui: {
 		tier: "UU",
@@ -6749,7 +6749,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "Uber",
 	},
 	walkingwake: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DOU",
 		natDexTier: "Uber",
 	},
