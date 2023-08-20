@@ -230,27 +230,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		accuracy: 100,
 	},
 	direclaw: {
-		num: 827,
-		accuracy: 100,
-		basePower: 80,
-		category: "Physical",
-		name: "Dire Claw",
-		pp: 15,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
+		inherit: true,
 		critRatio: 2,
-		secondary: {
-			chance: 50,
-			onHit(target, source) {
-				const statuses = ['par', 'psn', 'brn', 'slp'];
-				target.trySetStatus(this.sample(statuses), source);
-			},
-		},
-		target: "normal",
-		type: "Poison",
-		desc: "Has a 50% chance to either paralyze, poison, or burn the target. Has a higher chance for a critical hit.",
-		shortDesc: "50% chance to par/psn/brn. High critical hit ratio.",
-		gen: 8,
 	},
 	doublekick: {
 		inherit: true,
