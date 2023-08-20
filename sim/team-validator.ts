@@ -2347,7 +2347,10 @@ export class TeamValidator {
 				} else if (move.gen > 7 && !canSketchPostGen7Moves) {
 					cantLearnReason = `can't be Sketched because it's a Gen ${move.gen} move and Sketch isn't available in Gen ${move.gen}.`;
 				} else {
-					if (!sources || !moveSources.size()) sketch = true;
+					const naturalSources = !!sources?.filter(source =>
+						parseInt(source.charAt(0)) <= dex.gen && parseInt(source.charAt(0)) > 1
+					).length;
+					if (!naturalSources) sketch = true;
 					sources = learnset['sketch'].concat(sources || []);
 				}
 			}
@@ -2446,7 +2449,10 @@ export class TeamValidator {
 					// Gen 8+ egg moves can be taught to any pokemon from any source
 					if (learnedGen >= 8 && learned.charAt(1) === 'E' && learned.slice(1) !== 'Eany' &&
 						learned.slice(1) !== 'Epomeg' || 'LMTR'.includes(learned.charAt(1))) {
-						if (learnedGen === dex.gen && learned.charAt(1) !== 'R') {
+						if (
+							learnedGen === dex.gen && learned.charAt(1) !== 'R' &&
+							!(dex.currentMod === 'gen9rr' && species.id === 'grafaiai' && sketch)
+						) {
 							// current-gen level-up, TM or tutor moves:
 							//   always available
 							if (!(learnedGen >= 8 && learned.charAt(1) === 'E') && babyOnly) {
@@ -2464,7 +2470,7 @@ export class TeamValidator {
 						if (learned.charAt(1) === 'R') {
 							moveSources.restrictedMove = moveid;
 						}
-						limit1 = false;
+						if (dex.currentMod !== 'gen9rr' || species.id !== 'grafaiai' || !sketch) limit1 = false;
 						moveSources.addGen(learnedGen);
 					} else if (learned.charAt(1) === 'E') {
 						// egg moves:
