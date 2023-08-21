@@ -4464,6 +4464,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	toedscruel: {
 		inherit: true,
+		baseStats: {hp: 80, atk: 60, def: 80, spa: 90, spd: 120, spe: 100},
 		abilities: {0: "Clear Body", H: "Mold Breaker"},
 	}
 };
