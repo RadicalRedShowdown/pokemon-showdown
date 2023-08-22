@@ -1,4 +1,19 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
+	obtainablemoves: {
+		inherit: true,
+		checkCanLearn(move, species, lsetData, set) {
+			if (species.id !== 'grafaiai') return this.checkCanLearn(move, species, lsetData, set);
+			const problem = this.checkCanLearn(move, species, lsetData, set);
+			if (!problem) return null;
+			if (move.isZ || move.isMax) return problem;
+			const sketchMove = (set as any).sketchMove;
+			if (sketchMove && sketchMove !== move.name) {
+				return ` can't Sketch ${move.name} and ${(set as any).sketchMove} because it can only Sketch 1 move.`;
+			}
+			(set as any).sketchMove = move.name;
+			return null;
+		},
+	},
 	arceusformeclause: {
 		name: "Arceus Forme Clause",
 		effectType: "ValidatorRule",
