@@ -4309,7 +4309,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 89, def: 92, spa: 32, spd: 86, spe: 35},
 	},
-	wigglet: {
+	wiglett: {
 		inherit: true,
 		abilities: {0: "Gooey", 1: "Arena Trap", H: "Sand Veil"},
 	},
