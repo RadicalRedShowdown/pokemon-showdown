@@ -1206,7 +1206,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	delibird: {
 		inherit: true,
 		baseStats: {hp: 45, atk: 100, def: 45, spa: 65, spd: 45, spe: 105},
-		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Surprise!"},
+		abilities: {0: "Vital Spirit", 1: "Hustle", H: "Refrigerate"},
 		items: {5: "Bottle Cap", 50: "Bottle Cap"},
 	},
 	mantine: {
@@ -4309,9 +4309,18 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 85, atk: 89, def: 92, spa: 32, spd: 86, spe: 35},
 	},
+	wigglet: {
+		inherit: true,
+		abilities: {0: "Gooey", 1: "Arena Trap", H: "Sand Veil"},
+	},
 	wugtrio: {
 		inherit: true,
+		abilities: {0: "Gooey", 1: "Arena Trap", H: "Sand Veil"},
 		baseStats: {hp: 35, atk: 115, def: 50, spa: 35, spd: 70, spe: 120},
+	},
+	gimmighoul: {
+		inherit: true,
+		abilities: {0: "Clear Body"},
 	},
 	ironthorns: {
 		inherit: true,
@@ -4457,6 +4466,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		prevo: "Noibat-Sevii",
 		evoLevel: 48,
 		eggGroups: ["Flying", "Dragon"],
+	},
+	dudunsparce: {
+		inherit: true,
+		abilities: {0: "Serene Grace", 1: "Run Away"},
 	},
 	toedscool: {
 		inherit: true,
