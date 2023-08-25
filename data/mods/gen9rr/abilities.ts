@@ -330,15 +330,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
 		shortDesc: "Appears as last Pokemon in party until damaged; 1.3x power when disguised.",
 	},
-	innerfocus: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
-			}
-		},
-	},
 	intrepidsword: {
 		inherit: true,
 		onStart(pokemon) {
@@ -385,15 +376,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 	},
-	oblivious: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
-			}
-		},
-	},
 	oraoraoraora: {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
@@ -412,15 +394,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		gen: 8,
 		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
-	},
-	owntempo: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
-			}
-		},
 	},
 	parasiticwaste: {
 		onModifyMove(move) {
@@ -649,15 +622,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 	},
-	scrappy: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
-			}
-		},
-	},
 	selfsufficient: {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
@@ -707,43 +671,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's kick-based attacks have 1.3x power.",
 	},
 	surprise: {
-		onStart(pokemon) {
-			const effectNum = this.random(5);
-			switch (effectNum) {
-			case 0:
-				this.boost({spe: 1}, pokemon);
-				break;
-			case 1:
-				this.boost({atk: 1}, pokemon);
-				break;
-			case 2:
-				this.field.setWeather('hail');
-				break;
-			case 3:
-				let activated = false;
-				for (const target of pokemon.adjacentFoes()) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Surprise!', 'boost');
-						activated = true;
-					}
-					if (target.volatiles['substitute']) {
-						this.add('-immune', target);
-					} else {
-						this.boost({atk: -1}, target, pokemon, null, true);
-					}
-				}
-				break;
-			case 4:
-				this.add('-ability', pokemon, 'Surprise!');
-				pokemon.addVolatile('slowstart');
-				break;
-			}
-		},
 		name: "Surprise!",
-		rating: 2,
 		gen: 8,
-		desc: "When this Pokemon enters the field, it activates one of the following effects: +1 Attack, +1 Speed, Hail, Intimidate, or Slow Start.",
-		shortDesc: "Random effect on switch-in.",
+		isNonstandard: "Past",
 	},
 	toxicboost: {
 		inherit: true,
