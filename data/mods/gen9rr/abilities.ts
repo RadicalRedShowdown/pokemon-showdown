@@ -673,7 +673,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	surprise: {
 		name: "Surprise!",
 		gen: 8,
-        isNonstandard: "Past",
+		isNonstandard: "Past",
 	},
 	toxicboost: {
 		inherit: true,
