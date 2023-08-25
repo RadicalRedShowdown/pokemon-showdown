@@ -147,7 +147,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	ceaselessedge: {
 		inherit: true,
-		accuracy: 100,
 	},
 	chargebeam: {
 		inherit: true,
@@ -1138,7 +1137,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	stoneaxe: {
 		inherit: true,
-		accuracy: 100,
 	},
 	strengthsap: {
 		inherit: true,
@@ -2434,6 +2432,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onModifyType(move, pokemon) {
 			move.type = pokemon.getTypes()[0]
 		},
+	},
+	tripledive: {
+		inherit: true,
+		basePower: 40,
+		accuracy: 90,
 	},
 	anchorshot: {
 		inherit: true,
