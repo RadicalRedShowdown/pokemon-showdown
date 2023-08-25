@@ -145,9 +145,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {protect: 1, mirror: 1},
 		isNonstandard: null,
 	},
-	ceaselessedge: {
-		inherit: true,
-	},
 	chargebeam: {
 		inherit: true,
 		accuracy: 100,
@@ -1135,9 +1132,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, kick: 1},
 	},
-	stoneaxe: {
-		inherit: true,
-	},
 	strengthsap: {
 		inherit: true,
 		pp: 5,
@@ -1210,6 +1204,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	tripleaxel: {
 		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
+	},
+	tripledive: {
+		inherit: true,
+		basePower: 40,
+		accuracy: 90,
 	},
 	triplekick: {
 		inherit: true,
@@ -2432,11 +2431,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onModifyType(move, pokemon) {
 			move.type = pokemon.getTypes()[0]
 		},
-	},
-	tripledive: {
-		inherit: true,
-		basePower: 40,
-		accuracy: 90,
 	},
 	anchorshot: {
 		inherit: true,

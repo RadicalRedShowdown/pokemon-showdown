@@ -330,15 +330,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon. This Pokemon's moves are given a 1.3x boost when disguised.",
 		shortDesc: "Appears as last Pokemon in party until damaged; 1.3x power when disguised.",
 	},
-	innerfocus: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
-			}
-		},
-	},
 	intrepidsword: {
 		inherit: true,
 		onStart(pokemon) {
@@ -385,15 +376,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "This Pokemon is immune to Rock; Avoids Stealth Rock.",
 	},
-	oblivious: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
-			}
-		},
-	},
 	oraoraoraora: {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
@@ -412,15 +394,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		gen: 8,
 		shortDesc: "This Pokemon's punch moves hit twice. The second hit has its damage halved.",
-	},
-	owntempo: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
-			}
-		},
 	},
 	parasiticwaste: {
 		onModifyMove(move) {
@@ -646,15 +619,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				if (pokemon.species.id === 'wishiwashiseviischool') {
 					pokemon.formeChange('Wishiwashi-Sevii');
 				}
-			}
-		},
-	},
-	scrappy: {
-		inherit: true,
-		onTryBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				delete boost.atk;
-				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
 			}
 		},
 	},

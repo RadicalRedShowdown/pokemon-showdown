@@ -32,14 +32,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "If held by a Dialga, this item triggers its Primal Reversion in battle.",
 		shortDesc: "If held by a Dialga, this item triggers its Primal Reversion in battle.",
 	},
-	adrenalineorb: {
-		inherit: true,
-		onAfterBoost(boost, target, source, effect) {
-			if (effect.id === 'intimidate' || effect.id === 'surprise') {
-				target.useItem();
-			}
-		},
-	},
 	aerodactylite: {
 		inherit: true,
 		isNonstandard: null,
