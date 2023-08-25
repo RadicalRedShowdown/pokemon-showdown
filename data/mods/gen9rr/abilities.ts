@@ -671,43 +671,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's kick-based attacks have 1.3x power.",
 	},
 	surprise: {
-		onStart(pokemon) {
-			const effectNum = this.random(5);
-			switch (effectNum) {
-			case 0:
-				this.boost({spe: 1}, pokemon);
-				break;
-			case 1:
-				this.boost({atk: 1}, pokemon);
-				break;
-			case 2:
-				this.field.setWeather('hail');
-				break;
-			case 3:
-				let activated = false;
-				for (const target of pokemon.adjacentFoes()) {
-					if (!activated) {
-						this.add('-ability', pokemon, 'Surprise!', 'boost');
-						activated = true;
-					}
-					if (target.volatiles['substitute']) {
-						this.add('-immune', target);
-					} else {
-						this.boost({atk: -1}, target, pokemon, null, true);
-					}
-				}
-				break;
-			case 4:
-				this.add('-ability', pokemon, 'Surprise!');
-				pokemon.addVolatile('slowstart');
-				break;
-			}
-		},
 		name: "Surprise!",
-		rating: 2,
 		gen: 8,
-		desc: "When this Pokemon enters the field, it activates one of the following effects: +1 Attack, +1 Speed, Hail, Intimidate, or Slow Start.",
-		shortDesc: "Random effect on switch-in.",
+        isNonstandard: "Past",
 	},
 	toxicboost: {
 		inherit: true,
