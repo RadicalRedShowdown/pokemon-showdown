@@ -1107,6 +1107,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		evoType: "useItem",
 		evoItem: "Metal Coat",
+		abilities: {0: "Swarm", 1: "Technician"},
 	},
 	shuckle: {
 		inherit: true,
@@ -1867,6 +1868,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	regice: {
 		inherit: true,
 		abilities: {0: "Clear Body", H: "Filter"},
+	},
+	registeel: {
+		inherit: true,
+		abilities: {0: "Clear Body"},
 	},
 	jirachi: {
 		inherit: true,
@@ -4174,6 +4179,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	duraludon: {
 		inherit: true,
+		abilities: {0: "Heavy Metal", H: "Stalwart"},
 		baseStats: {hp: 85, atk: 95, def: 115, spa: 120, spd: 50, spe: 85},
 		otherFormes: ["Duraludon-Mega"],
 		formeOrder: ["Duraludon", "Duraludon-Mega"],
