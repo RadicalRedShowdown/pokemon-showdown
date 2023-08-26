@@ -1036,6 +1036,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		items: {5: "Wide Lens", 50: "None"},
 	},
+	wooperpaldea: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Water Absorb", H: "Unaware"},
+	},
 	quagsire: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 85, def: 90, spa: 65, spd: 65, spe: 35},
@@ -4481,10 +4485,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dudunsparce: {
 		inherit: true,
 		abilities: {0: "Serene Grace", 1: "Run Away"},
-	},
-	wooperpaldea: {
-		inherit: true,
-		abilities: {0: "Poison Touch", 1: "Water Absorb", H: "Unaware"},
 	},
 	clodsire: {
 		inherit: true,
