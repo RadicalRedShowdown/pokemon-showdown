@@ -51,16 +51,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pidgey: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "No Guard"},
+		abilities: {0: "Frisk", H: "No Guard"},
 	},
 	pidgeotto: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "No Guard"},
+		abilities: {0: "Frisk", H: "No Guard"},
 		evoLevel: 16,
 	},
 	pidgeot: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "No Guard"},
+		abilities: {0: "Frisk", H: "No Guard"},
 	},
 	rattata: {
 		inherit: true,
@@ -523,6 +523,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	doduo: {
 		inherit: true,
+		abilities: {0: "Run Away", 1: "Early Bird"},
 		items: {5: "Sharp Beak", 50: "None"},
 		otherFormes: ["Doduo-Sevii"],
 		formeOrder: ["Doduo", "Doduo-Sevii"],
@@ -543,7 +544,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Rock Head", 1: "Early Bird", H: "Tangled Feet"},
+		abilities: {0: "Rock Head", 1: "Early Bird"},
 		items: {5: "Sharp Beak", 50: "None"},
 		otherFormes: ["Dodrio-Sevii"],
 		formeOrder: ["Dodrio", "Dodrio-Sevii"],
@@ -785,19 +786,19 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	taurospaldeacombat: {
 		inherit: true,
-		abilities: {0: "Intimidate", 1: "Anger Point"},
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Sheer Force"},
 		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
 	},
 	taurospaldeablaze: {
 		inherit: true,
 		types: ["Fire", "Fighting"],
-		abilities: {0: "Intimidate", 1: "Anger Point"},
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Gluttony"},
 		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
 	},
 	taurospaldeaaqua: {
 		inherit: true,
 		types: ["Water", "Fighting"],
-		abilities: {0: "Intimidate", 1: "Anger Point"},
+		abilities: {0: "Intimidate", 1: "Anger Point", H: "Gluttony"},
 		baseStats: {hp: 75, atk: 110, def: 105, spa: 60, spd: 70, spe: 100},
 	},
 	magikarp: {
@@ -1035,6 +1036,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		items: {5: "Wide Lens", 50: "None"},
 	},
+	wooperpaldea: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Water Absorb", H: "Unaware"},
+	},
 	quagsire: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 85, def: 90, spa: 65, spd: 65, spe: 35},
@@ -1106,6 +1111,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		evoType: "useItem",
 		evoItem: "Metal Coat",
+		abilities: {0: "Swarm", 1: "Technician"},
 	},
 	shuckle: {
 		inherit: true,
@@ -1590,6 +1596,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	spinda: {
 		inherit: true,
+		abilities: {0: "Own Tempo", H: "Contrary"},
 		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
 		items: {5: "Chesto Berry", 50: "None"},
 	},
@@ -1866,6 +1873,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body", H: "Filter"},
 	},
+	registeel: {
+		inherit: true,
+		abilities: {0: "Clear Body"},
+	},
 	jirachi: {
 		inherit: true,
 		items: {5: "Star Piece", 50: "Star Piece"},
@@ -2094,7 +2105,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	chatot: {
 		inherit: true,
 		baseStats: {hp: 76, atk: 65, def: 45, spa: 92, spd: 42, spe: 101},
-		abilities: {0: "Frisk", 1: "Tangled Feet", H: "Frisk"},
+		abilities: {0: "Frisk", H: "Frisk"},
 	},
 	spiritomb: {
 		inherit: true,
@@ -4172,6 +4183,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	duraludon: {
 		inherit: true,
+		abilities: {0: "Heavy Metal", H: "Stalwart"},
 		baseStats: {hp: 85, atk: 95, def: 115, spa: 120, spd: 50, spe: 85},
 		otherFormes: ["Duraludon-Mega"],
 		formeOrder: ["Duraludon", "Duraludon-Mega"],
@@ -4299,6 +4311,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	scovillain: {
 		inherit: true,
+		abilities: {0: "Chlorophyll", 1: "Insomnia"},
 		baseStats: {hp: 85, atk: 78, def: 65, spa: 118, spd: 65, spe: 75},
 	},
 	fidough: {
@@ -4324,6 +4337,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ironthorns: {
 		inherit: true,
+		baseStats: {hp: 110, atk: 134, def: 110, spa: 70, spd: 84, spe: 72},
 		abilities: {0: "Quark Drive", H: "Solid Rock"},
 	},
 	slitherwing: {
@@ -4353,7 +4367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mabosstiff: {
 		inherit: true,
-		abilities: {0: "Intimidate", H: "Stakeout"},	
+		abilities: {0: "Intimidate", 1: "Defiant", H: "Stakeout"},	
 	},
 	tinkaton: {
 		inherit: true,
@@ -4366,11 +4380,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	bombirdier: {
 		inherit: true,
+		abilities: {0: "Rocky Payload"},
 		baseStats: {hp: 85, atk: 103, def: 85, spa: 60, spd: 85, spe: 82},
 	},
 	flamigo: {
 		inherit: true,
-		abilities: {0: "Scrappy", 1: "Tangled Feet"},	
+		abilities: {0: "Scrappy"},	
 		baseStats: {hp: 92, atk: 115, def: 74, spa: 75, spd: 74, spe: 90},
 	},
 	flittle: {
@@ -4470,6 +4485,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	dudunsparce: {
 		inherit: true,
 		abilities: {0: "Serene Grace", 1: "Run Away"},
+	},
+	clodsire: {
+		inherit: true,
+		abilities: {0: "Poison Touch", 1: "Water Absorb", H: "Unaware"},
 	},
 	toedscool: {
 		inherit: true,
