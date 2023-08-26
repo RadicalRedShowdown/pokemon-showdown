@@ -4333,6 +4333,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ironthorns: {
 		inherit: true,
+		baseStats: {hp: 110, atk: 134, def: 110, spa: 70, spd: 84, spe: 72},
 		abilities: {0: "Quark Drive", H: "Solid Rock"},
 	},
 	slitherwing: {
