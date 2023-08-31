@@ -43,6 +43,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		isNonstandard: null,
 	},
+	blademaster: {
+		name: "Blademaster",
+		gen: 8,
+		isNonstandard: "Past",
+	},
 	blazingsoul: {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (move?.type === 'Fire' && pokemon.hp === pokemon.maxhp) return priority + 1;
@@ -637,7 +642,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if (move.flags['slicing'] || move.flags['blade']) {
+			if (move.flags['slicing']) {
 				this.debug('Shapness boost');
 				return this.chainModify(1.5);
 			}

@@ -200,7 +200,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		accuracy: 100,
 		basePower: 75,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		type: "Steel",
 	},
 	darkhole: {
@@ -324,7 +324,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	falseswipe: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	featherdance: {
 		inherit: true,
@@ -415,7 +415,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	furycutter: {
 		inherit: true,
-		flags: {blade: 1, contact: 1, protect: 1, mirror: 1},
+		flags: {slicing: 1, contact: 1, protect: 1, mirror: 1},
 	},
 	geargrind: {
 		inherit: true,
@@ -465,28 +465,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		desc: "Has a 10% chance to lower the target's Defense by 1 stage. If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 1/4 recoil. 10% chance to lower the target's Defense by 1.",
-	},
-	headlongrush: {
-		num: 838,
-		accuracy: 100,
-		basePower: 120,
-		category: "Physical",
-		name: "Headlong Rush",
-		pp: 5,
-		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1},
-		self: {
-			boosts: {
-				def: -1,
-				spd: -1,
-			},
-		},
-		secondary: null,
-		target: "normal",
-		type: "Ground",
-		desc: "Lowers the user's Defense and Special Defense by 1 stage.",
-		shortDesc: "Lowers the user's Defense and Sp. Def by 1.",
-		gen: 8,
 	},
 	headsmash: {
 		inherit: true,
@@ -595,7 +573,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	leafblade: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	leafstorm: {
 		inherit: true,
@@ -669,23 +647,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Sp. Def halved; Misty Terrain: 1.5x power.",
 	},
 	mountaingale: {
-		num: 836,
+		inherit: true,
 		accuracy: 90,
 		basePower: 120,
-		category: "Physical",
-		name: "Mountain Gale",
 		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: {
-			chance: 30,
-			volatileStatus: 'flinch',
-		},
-		target: "normal",
-		type: "Ice",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
-		gen: 8,
 	},
 	mudbomb: {
 		inherit: true,
@@ -745,7 +710,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	nightslash: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	octazooka: {
 		inherit: true,
@@ -782,7 +747,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	psychocut: {
 		inherit: true,
 		noTutor: true,
-		flags: {protect: 1, mirror: 1, blade: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 	},
 	psyshieldbash: {
 		num: 828,
@@ -813,7 +778,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	razorshell: {
 		inherit: true,
 		accuracy: 100,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		critRatio: 2,
 		secondary: null,
 		desc: "Has a higher chance for a critical hit.",
@@ -866,7 +831,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	sacredsword: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	sandattack: {
 		inherit: true,
@@ -889,7 +854,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	secretsword: {
 		inherit: true,
 		isNonstandard: null,
-		flags: {protect: 1, mirror: 1, blade: 1},
+		flags: {protect: 1, mirror: 1, slicing: 1},
 	},
 	selfdestruct: {
 		inherit: true,
@@ -905,7 +870,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	shadowclaw: {
 		inherit: true,
 		basePower: 80,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	shadowpunch: {
 		inherit: true,
@@ -966,7 +931,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	slash: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	smellingsalts: {
 		inherit: true,
@@ -1000,7 +965,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	solarblade: {
 		inherit: true,
 		noTutor: true,
-		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, charge: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	sonicslash: {
 		accuracy: 100,
@@ -1174,32 +1139,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	triplearrows: {
-		num: 843,
-		basePower: 60,
-		accuracy: 100,
-		category: "Physical",
-		name: "Triple Arrows",
-		pp: 15,
-		priority: 0,
+		inherit: true,
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
-		secondaries: [
-			{
-				chance: 100,
-				boosts: {
-					def: -1,
-				},
-			}, {
-				chance: 100,
-				self: {
-					volatileStatus: 'focusenergy',
-				},
-			},
-		],
-		target: "normal",
-		type: "Fighting",
-		desc: "Has a 100% chance to lower the target's Defense by 1 stage. Raises the user's chance for a critical hit by 2 stages.",
-		shortDesc: "Lower target's Defense by 1. Crit Ratio +2.",
-		gen: 8,
 	},
 	tripleaxel: {
 		inherit: true,
@@ -1226,25 +1167,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
 	},
 	victorydance: {
-		num: 837,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Victory Dance",
-		pp: 15,
-		priority: 0,
-		flags: {snatch: 1, dance: 1},
-		boosts: {
-			atk: 1,
-			def: 1,
-			spe: 1,
-		},
-		secondary: null,
-		target: "self",
-		type: "Fighting",
-		desc: "Raises the user's Attack, Defense, and Speed by 1 stage.",
-		shortDesc: "Raises the user's Atk, Def, Speed by 1.",
-		gen: 8,
+		inherit: true,
+		pp: 20,
 	},
 	volttackle: {
 		inherit: true,
@@ -1273,7 +1197,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	xscissor: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, blade: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 	},
 	zippyzap: {
 		inherit: true,
@@ -2406,6 +2330,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			chance: 20,
 			status: 'frz',
 		},
+		desc: "Has a 20% chance to freeze the target.",
+		shortDesc: "20% chance to freeze foe(s).",
 	},
 	sandsearstorm: {
 		inherit: true,
@@ -2431,6 +2357,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onModifyType(move, pokemon) {
 			move.type = pokemon.getTypes()[0]
 		},
+		desc: "This move's type depends on the user's primary type. If the user's primary type is typeless, this move's type is the user's secondary type if it has one, otherwise the added type from Forest's Curse or Trick-or-Treat. This move is typeless if the user's type is typeless alone.",
+		shortDesc: "Type varies based on the user's primary type.",
 	},
 	anchorshot: {
 		inherit: true,
