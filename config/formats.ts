@@ -77,7 +77,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Ubers",
 		mod: 'gen9rr',
-		ruleset: ['Standard', 'Dynamax Clause', 'Mega Rayquaza Clause', 'Arceus Forme Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Arceus Forme Clause',
 		banlist: ['AG', 'Moody'],
 	},
 	{
