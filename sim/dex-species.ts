@@ -35,6 +35,10 @@ export interface SpeciesFormatsData {
 	isNonstandard?: Nonstandard | null;
 	natDexTier?: TierTypes.Singles | TierTypes.Other;
 	tier?: TierTypes.Singles | TierTypes.Other;
+	randomBattleLevel?: number;
+	randomDoubleBattleLevel?: number;
+	randomBattleMoves?: string[];
+	randomDoubleBattleMoves?: string[];
 }
 
 export type ModdedSpeciesFormatsData = SpeciesFormatsData & {inherit?: true};
