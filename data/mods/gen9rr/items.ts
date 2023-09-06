@@ -836,7 +836,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
-
+	thickclub: {
+		inherit: true,
+		isNonstandard: null,
+	},	
 	// RR items
 	leekstick: {
 		name: "Leek Stick",

@@ -4272,7 +4272,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UUBL",
 	},
 	keldeoresolute: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	meloetta: {
 		randomBattleLevel: 83,
