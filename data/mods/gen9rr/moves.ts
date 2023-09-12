@@ -1324,6 +1324,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "Has a 50% chance to cause the target to fall asleep. If this move is successful, the user must recharge on the following turn and cannot select a move, unless the target or its substitute was knocked out by this move.",
 		shortDesc: "50% slp. Can't move next turn if target is not KOed.",
 	},
+	revivalblessing: {
+		inherit: true,
+		noSketch: true,
+	},
 	triattack: {
 		inherit: true,
 		basePower: 90,
