@@ -71,14 +71,14 @@ export const Formats: FormatList = [
 			'Uber', 'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
-			'Eevium Z', "Mewnium Z", "Revival Blessing",
+			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
 		],
 	},
 	{
 		name: "[Gen 9] Ubers",
 		mod: 'gen9rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Arceus Forme Clause',],
-		banlist: ['AG', 'Moody'],
+		banlist: ['AG', 'Moody', "Assist",],
 	},
 	{
 		name: "[Gen 9] UU",
