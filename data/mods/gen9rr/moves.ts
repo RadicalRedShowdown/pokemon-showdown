@@ -1332,7 +1332,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 90,
 	},
-	// acc changes
+	// acc changes	
+	darkvoid: {
+		inherit: true,
+		accuracy: 80,
+	},
 	belch: {
 		inherit: true,
 		accuracy: 100,

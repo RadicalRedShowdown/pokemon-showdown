@@ -77,8 +77,8 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Ubers",
 		mod: 'gen9rr',
-		ruleset: ['Standard', 'Dynamax Clause', 'Arceus Forme Clause',],
-		banlist: ['AG', 'Moody', "Assist",],
+		ruleset: ['Standard', 'Dynamax Clause', 'Arceus Forme Clause', "Mega Rayquaza Clause",],
+		banlist: ['AG', 'Moody', "Assist", "Phoenix Down", "Dark Hole",],
 	},
 	{
 		name: "[Gen 9] UU",
@@ -102,7 +102,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Drifloon', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
-			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Scraggy', 'Dunsparce', 'Girafarig',
+			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Scraggy', 'Dunsparce', 'Girafarig', 'Basculin-White-Striped',
 			// abilities
 			'Chlorophyll',
 			// moves
@@ -114,14 +114,14 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Monotype",
 		mod: 'gen9rr',
-		ruleset: ['Standard', 'Same Type Clause', 'Dynamax Clause', 'Z-Move Clause'],
+		ruleset: ['Standard', 'Same Type Clause', 'Dynamax Clause',],
 		banlist: [
 			'AG', 'Uber', 'Kartana', 'Medicham-Mega', 'Mawile-Mega', 'Hoopa-Unbound', 'Blaziken',
 			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag',
 			'Damp Rock', 'Heat Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
-			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode',
+			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode', 'Booster Energy',
 		],
-		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace'],
+		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace', 'Alakazam-Mega', 'Gallade-Mega', 'Pinsir-Mega', 'Walking Wake',],
 	},
 	{
 		name: "[Gen 9] Anything Goes",

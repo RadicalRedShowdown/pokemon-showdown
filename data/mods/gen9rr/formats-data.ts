@@ -2632,7 +2632,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	rayquazamega: {
-		tier: "Uber",
+		tier: "AG",
 	},
 	jirachi: {
 		randomBattleLevel: 82,
@@ -2984,7 +2984,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["swordsdance", "earthquake", "scaleshot", "stoneedge", "stealthrock", "firefang", "toxic", "fireblast"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["dragonclaw", "earthquake", "fireblast", "firefang", "protect", "rockslide", "swordsdance"],
-		tier: "UU",
+		tier: "UUBL",
 	},
 	garchompmega: {
 		randomBattleLevel: 80,
@@ -6295,7 +6295,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	lilliganthisui: {
-		tier: "UU",
+		tier: "UUBL",
 	},
 	avalugghisui: {
 		tier: "NU",
@@ -6695,7 +6695,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "Uber",
 	},
 	miraidon: {
-		tier: "Uber",
+		tier: "AG",
 		doublesTier: "DUber",
 		natDexTier: "AG",
 	},
