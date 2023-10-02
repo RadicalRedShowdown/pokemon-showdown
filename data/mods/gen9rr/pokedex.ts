@@ -4359,6 +4359,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	armaldo: {
 		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Skill Link", H: "Swift Swim"},
 		baseStats: {hp: 100, atk: 125, def: 100, spa: 45, spd: 80, spe: 45},
 	},
 	ironleaves: {

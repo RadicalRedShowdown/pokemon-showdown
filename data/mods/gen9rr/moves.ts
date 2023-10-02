@@ -34,6 +34,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	aurawheel: {
 		inherit: true,
+		isNonstandard: null,
 		onTry(source) {
 			if (source.species.baseSpecies === 'Morpeko' || source.species.name === "Pikachu-Libre") {
 				return;
