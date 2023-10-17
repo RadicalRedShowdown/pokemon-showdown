@@ -6292,7 +6292,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	sneasler: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	lilliganthisui: {
 		tier: "UUBL",
