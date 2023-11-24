@@ -117,7 +117,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'AG', 'Uber', 'Kartana', 'Medicham-Mega', 'Mawile-Mega', 'Hoopa-Unbound', 'Blaziken',
 			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Damp Rock', 'Heat Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
+			'Damp Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
 			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode', 'Booster Energy',
 		],
 		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace', 'Alakazam-Mega', 'Gallade-Mega', 'Pinsir-Mega', 'Walking Wake',],
