@@ -1109,7 +1109,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["curse", "bodyslam", "seedbomb", "rest", "heatcrash", "earthquake"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["bodyslam", "seedbomb", "crunch", "curse", "highhorsepower", "protect", "rest", "return"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	snorlaxgmax: {
 		isNonstandard: "Gigantamax",
@@ -2680,7 +2680,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["stealthrock", "gravapple", "earthquake", "synthesis", "shellsmash", "stoneedge", "leechseed", "protect"],
 		randomDoubleBattleLevel: 87,
 		randomDoubleBattleMoves: ["highhorsepower", "protect", "shellsmash", "rockslide", "stoneedge", "woodhammer"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	chimchar: {
 		tier: "LC",
@@ -3422,7 +3422,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["flareblitz", "closecombat", "wildcharge", "earthquake", "suckerpunch"],
 		randomDoubleBattleLevel: 85,
 		randomDoubleBattleMoves: ["flareblitz", "headsmash", "heatwave", "protect", "rockslide", "closecombat", "wildcharge"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	oshawott: {
 		tier: "LC",
@@ -3710,7 +3710,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
 		randomDoubleBattleLevel: 84,
 		randomDoubleBattleMoves: ["earthquake", "flareblitz", "rockslide", "superpower", "uturn"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	darmanitanzen: {
 		randomBattleLevel: 84,
@@ -3973,7 +3973,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["shiftgear", "geargrind", "volttackle", "substitute", "return"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["geargrind", "protect", "shiftgear", "thunderwave", "volttackle"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	tynamo: {
 		tier: "LC",
@@ -5993,7 +5993,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["boltbeak", "outrage", "earthquake", "dracometeor", "fireblast"],
 		randomDoubleBattleLevel: 81,
 		randomDoubleBattleMoves: ["aerialace", "boltbeak", "dragonclaw", "highhorsepower", "rockslide"],
-		tier: "NU",
+		tier: "NUBL",
 	},
 	arctozolt: {
 		randomBattleLevel: 88,
@@ -6472,7 +6472,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	cetitan: {
-		tier: "NUBL",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
