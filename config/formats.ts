@@ -84,16 +84,15 @@ export const Formats: FormatList = [
 		name: "[Gen 9] UU",
 		mod: 'gen9rr',
 		ruleset: ['[Gen 9] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock',
-		],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock',],
 	},
 	{
 		name: "[Gen 9] RU",
 		mod: 'gen9rr',
-		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
-		banlist: ['AG', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Trick Room', 'Light Clay', 'Draco Barrage', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
-		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',
-		'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
+		ruleset: ['Standard', 'Dynamax Clause',],
+		banlist: ['AG', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Trick Room', 'Light Clay', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',  'Last Respects', 'Shed Tail', 
+		'Drought', 'Drizzle', 'Forecast', 'Icy Rock',],
 	},
 	{
 		name: "[Gen 9] LC",
@@ -102,7 +101,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
-			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Dunsparce', 'Girafarig', 'Basculin-White-Striped', 'Stantler', 'Qwilfish-Hisui',
+			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Basculin', 'Basculin-Blue-Striped', 'Dunsparce', 'Girafarig', 'Basculin-White-Striped', 'Stantler', 'Qwilfish-Hisui',
 			// abilities
 			'Chlorophyll',
 			// moves
@@ -118,7 +117,7 @@ export const Formats: FormatList = [
 		banlist: [
 			'AG', 'Uber', 'Kartana', 'Medicham-Mega', 'Mawile-Mega', 'Hoopa-Unbound', 'Blaziken',
 			'Battle Bond', 'Moody', 'Power Construct', 'Shadow Tag',
-			'Damp Rock', 'Heat Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
+			'Damp Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
 			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode', 'Booster Energy',
 		],
 		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace', 'Alakazam-Mega', 'Gallade-Mega', 'Pinsir-Mega', 'Walking Wake',],
