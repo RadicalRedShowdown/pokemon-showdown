@@ -4337,6 +4337,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 80,
 		randomBattleMoves: ["darkpulse", "watershuriken", "hydropump", "icebeam", "uturn"],
 		tier: "OU",
+		isNonstandard: null,
 	},
 	bunnelby: {
 		tier: "LC",
