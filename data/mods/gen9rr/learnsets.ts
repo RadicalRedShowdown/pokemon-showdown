@@ -68157,12 +68157,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9M"],
 		},
 	},
-	ogerponhearthflame: {
-	},
-	ogerponwellspring: {
-	},
-	ogerponcornerstone: {
-	},
 	archaludon: {
 		learnset: {
 			aurasphere: ["9M"],

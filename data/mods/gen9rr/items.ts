@@ -226,6 +226,17 @@ export const Items: {[k: string]: ModdedItemData} = {
 		desc: "Holder's first successful Electric-type attack will have 1.5x power. Single use.",
 		shortDesc: "Holder's first successful Electric-type attack will have 1.5x power.",
 	},
+	electirizer: {
+		inherit: true,
+		isNonstandard: null,
+		itemUser: ["Electivire"],
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fighting' && user.species.baseSpecies === 'Electivire') {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	electriumz: {
 		inherit: true,
 		isNonstandard: null,
