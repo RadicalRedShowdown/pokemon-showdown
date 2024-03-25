@@ -3309,7 +3309,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["bodyslam", "darkestlariat", "thunderwave", "protect", "substitute", "toxic"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["bodyslam", "knockoff", "protect", "thunderwave"],
-		tier: "NU",
+		tier: "OU",
 	},
 	giratina: {
 		randomBattleLevel: 76,
@@ -3434,7 +3434,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["swordsdance", "cut", "sacredsword", "razorshell", "aquajet"],
 		randomDoubleBattleLevel: 86,
-		randomDoubleBattleMoves: ["protect", "swordsdance", "cut", "sacredsword", "razorshell", "aquajet"],
+		randomDoubleBattleMoves: ["shellsmash", "swordsdance", "cut", "sacredsword", "razorshell", "aquajet"],
 		tier: "UUBL",
 	},
 	patrat: {
@@ -5480,7 +5480,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["grassyglide", "knockoff", "uturn", "superpower", "swordsdance", "acrobatics"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["fakeout", "grassyglide", "highhorsepower", "protect", "uturn", "woodhammer"],
-		tier: "OU",
+		tier: "UU",
 	},
 	rillaboomgmax: {
 		isNonstandard: "Gigantamax",
@@ -6770,4 +6770,52 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	nymblesevii: {
 		tier: "LC",
 	},
+	ironboulder: {
+		tier: "OU",
+	},
+	ragingbolt: {
+		tier: "OU",
+	},
+	gougingfire: {
+		tier: "OU",
+	},
+	ironcrown: {
+		tier: "OU",
+	},
+	archadulon: {
+		tier: "OU",
+	},
+	ursalunabloodmoon: {
+		tier: "OU",
+	},
+	hydrapple: {
+		tier: "OU",
+	},
+	pecharunt: {
+		tier: "OU",
+	},
+	sinistcha: {
+		tier: "OU",
+   },
+	okidogi: {
+		tier: "OU",
+	},
+	munkidori: {
+		tier: "OU",
+	},
+	dipplin: {
+		tier: "UU",
+	},
+	fezandipiti: {
+		tier: "OU",
+	},
+	chillet: {
+		tier: "OU",
+	},
+	poltchageist: {
+		tier: "LC",
+	},
+
+
 };
+
