@@ -4185,8 +4185,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Heavy Metal", H: "Stalwart"},
 		baseStats: {hp: 85, atk: 95, def: 115, spa: 120, spd: 50, spe: 85},
-		otherFormes: ["Duraludon-Mega"],
-		formeOrder: ["Duraludon", "Duraludon-Mega"],
 	},
 	duraludongmax: {
 		inherit: true,
@@ -4205,6 +4203,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		color: "White",
 		eggGroups: ["Mineral", "Dragon"],
 		requiredItem: "Duraludonite",
+		isNonstandard: "Past",
 	},
 	eternatuseternamax: {
 		num: 890,
@@ -4499,5 +4498,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 80, atk: 60, def: 80, spa: 90, spd: 120, spe: 100},
 		abilities: {0: "Clear Body", H: "Mold Breaker"},
+	},
+	terapagos: {
+		inherit: true,
+		baseStats: {hp: 95, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
+		abilities: {0: "Tera Shell"},
 	}
 };

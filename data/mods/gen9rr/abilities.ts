@@ -64,7 +64,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
 		name: "Blubber Defense",
 		rating: 3.5,
 		gen: 8,
@@ -144,7 +143,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
 		name: "Cash Splash",
 		rating: 4.5,
 		gen: 8,
@@ -375,7 +373,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
 		name: "Mountaineer",
 		rating: 3.5,
 		gen: 8,
@@ -435,7 +432,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Pheonix Down",
 		gen: 8,
 		rating: 5,
@@ -732,11 +729,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
 		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
 		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
+	terashell: {
+		inherit: true,
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || target.species.name !== 'Terapagos-Terastal') return;
+			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
+			if (move.category === 'Status') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+
+			this.add('-activate', target, 'ability: Tera Shell');
+			this.effectState.resisted = true;
+			return -1;
+		},
+	},	
 };

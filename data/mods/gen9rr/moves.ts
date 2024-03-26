@@ -2614,5 +2614,9 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
+	supercellslam: {
+		inherit: true,
+		basePower: 120,
+	},
 };
 
