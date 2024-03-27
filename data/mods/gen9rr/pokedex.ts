@@ -172,6 +172,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	raichu: {
 		inherit: true,
+		types: ["Electric", "Normal"],
 		baseStats: {hp: 70, atk: 100, def: 55, spa: 100, spd: 80, spe: 110},
 		items: {5: "Oran Berry", 50: "None"},
 	},
@@ -629,7 +630,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hypno: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Psychic Surge"},
+		abilities: {0: "Insomnia", 1: "Bad Dreams", H: "Psychic Surge"},
 		items: {5: "Terrain Extender", 50: "None"},
 	},
 	kingler: {
@@ -1198,7 +1199,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	corsolagalar: {
 		inherit: true,
 		baseStats: {hp: 60, atk: 55, def: 100, spa: 65, spd: 100, spe: 30},
-		abilities: {0: "Weak Armor", 1: "Unburden", H: "Cursed Body"},
+		abilities: {0: "Weak Armor", 1: "Unburden", H: "Perish Body"},
 	},
 	remoraid: {
 		inherit: true,
@@ -1877,6 +1878,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body"},
 	},
+	regigigas: {
+		inherit: true,
+		abilities: {0: "Slow Start", H: "Comatose"},
+	},
 	jirachi: {
 		inherit: true,
 		items: {5: "Star Piece", 50: "Star Piece"},
@@ -2105,7 +2110,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	chatot: {
 		inherit: true,
 		baseStats: {hp: 76, atk: 65, def: 45, spa: 92, spd: 42, spe: 101},
-		abilities: {0: "Frisk", H: "Frisk"},
+		abilities: {0: "Punk Rock", H: "Frisk"},
 	},
 	spiritomb: {
 		inherit: true,
@@ -2297,6 +2302,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	froslass: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 95, spd: 70, spe: 110},
+		abilities: {0: "Snow Cloak", H: "Stakeout"},
 	},
 	rotomfan: {
 		inherit: true,
@@ -3004,6 +3010,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	litleo: {
 		inherit: true,
+		abilities: {0: "Rivalry", 1: "Unnerve", H: "Adaptability"},
 		items: {5: "Red Shard", 50: "Red Shard"},
 	},
 	pyroar: {
@@ -3360,7 +3367,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	lycanroc: {
 		inherit: true,
-		abilities: {0: "Frisk", 1: "Sand Rush", H: "Steadfast"},
+		abilities: {0: "Inner Focus", 1: "Sand Rush", H: "Steadfast"},
 	},
 	lycanrocdusk: {
 		inherit: true,
@@ -4461,7 +4468,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		types: ["Rock", "Ghost"],
 		forme: "Sevii",
 		baseStats: {hp: 40, atk: 45, def: 35, spa: 30, spd: 40, spe: 55},
-		abilities: {0: "Cursed Body", 1: "Sturdy", H: "Levitate"},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Levitate"},
 		heightm: 0.5,
 		weightkg: 8,
 		color: "Purple",
@@ -4474,7 +4481,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Sevii",
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 85, atk: 102, def: 80, spa: 70, spd: 80, spe: 123},
-		abilities: {0: "Cursed Body", 1: "Sturdy", H: "Levitate"},
+		abilities: {0: "Rock Head", 1: "Sturdy", H: "Levitate"},
 		heightm: 1.5,
 		weightkg: 85,
 		color: "Purple",
@@ -4503,5 +4510,41 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		baseStats: {hp: 95, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
 		abilities: {0: "Tera Shell"},
+	},
+	archaludon: {
+		inherit: true,
+		abilities: {0: "Stamina", 1: "Sturdy", H: "Bad Company"},
+	},
+	dreepy: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Infiltrator", H: "Run Away"},
+	},
+	drakloak: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Infiltrator", H: "Stalwart"},
+	},
+	dragapult: {
+		inherit: true,
+		abilities: {0: "Clear Body", 1: "Infiltrator", H: "Stalwart"},
+	},
+	fezandipiti: {
+		inherit: true,
+		baseStats: {hp: 88, atk: 70, def: 82, spa: 91, spd: 125, spe: 99},
+	},
+	frillish: {
+		inherit: true,
+		abilities: {0: "Water Absorb", 1: "Damp", H: "Damp"},
+	},
+	ironcrown: {
+		inherit: true,
+		abilities: {0: "Quark Drive", H: "Sharpness"},
+	},
+	okidogi: {
+		inherit: true,
+		abilities: {0: "Toxic Chain", H: "Defiant"},
+	},
+	pecharunt: {
+		inherit: true,
+		abilities: {0: "Toxic Chain"},
 	}
 };

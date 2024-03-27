@@ -1916,6 +1916,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	darkvoid: {
 		inherit: true,
 		accuracy: 80,
+		onTry(source, target, move) {},
 		isNonstandard: null,
 	},
 	devastatingdrake: {
