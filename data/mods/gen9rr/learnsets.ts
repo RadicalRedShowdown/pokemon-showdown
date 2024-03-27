@@ -11142,7 +11142,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			wringout: ["9L49"],
 			zenheadbutt: ["9T"],
-			alluringvoice: ["9M"]
+			alluringvoice: ["9M"],
 		},
 	},
 	electabuzz: {
@@ -23566,7 +23566,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
-			alluringvoice: ["9M"]
+			alluringvoice: ["9M"],
 		},
 	},
 	sableye: {
@@ -32497,7 +32497,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			uturn: ["9M"],
 			workup: ["9M"],
-			alluringvoice: ["9M"]
+			alluringvoice: ["9M"],
 		},
 	},
 	spiritomb: {
