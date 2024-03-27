@@ -408,7 +408,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			willowisp: ["9M"],
 			workup: ["9M"],
-			dracometeor: ["9M"]
+			dracometeor: ["9M"],
 		},
 	},
 	squirtle: {
