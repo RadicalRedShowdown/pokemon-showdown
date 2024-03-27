@@ -56654,7 +56654,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wringout: ["9L67"],
 			xscissor: ["9M"],
-			dracometeor: ["9M"]
+			dracometeor: ["9M"],
 		},
 	},
 	necrozmadawnwings: {
