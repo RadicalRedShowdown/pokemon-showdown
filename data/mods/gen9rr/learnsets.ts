@@ -3924,7 +3924,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			wildcharge: ["9M"],
 			workup: ["9M"],
-			alluringvoice: ["9M"]
+			alluringvoice: ["9M"],
 		},
 	},
 	zubat: {
