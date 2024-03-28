@@ -312,6 +312,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	meowthalola: {
 		inherit: true,
+		evoCondition: "",
+		evoLevel: 28,
 		abilities: {0: "Pickup", 1: "Technician", H: "Feline Prowess"},
 		items: {5: "Nugget", 50: "Nugget"},
 	},
@@ -521,6 +523,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 90, def: 70, spa: 58, spd: 77, spe: 65},
 		abilities: {0: "Frisk", 1: "Inner Focus", H: "Sharpness"},
 		items: {5: "Leek Stick", 50: "None"},
+	},
+	farfetchdgalar: {
+		inherit: true,
+		evoLevel: 30,
 	},
 	doduo: {
 		inherit: true,
@@ -1270,7 +1276,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	porygon2: {
 		inherit: true,
 		evoType: "useItem",
-		evoItem: "Up-Grade",
+		evoItem: "Link Cable",
 		items: {5: "Up-Grade", 50: "Up-Grade"},
 	},
 	stantler: {
@@ -2138,6 +2144,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	munchlax: {
 		inherit: true,
+		evoCondition: "",
+		evoLevel: 30,
 		items: {5: "Leftovers", 50: "Leftovers"},
 	},
 	hippowdon: {
@@ -4572,5 +4580,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	hydrapple: {
 		inherit: true,
 		abilities: {0: "Regenerator", H: "Sticky Hold"},
+	},
+	riolu: {
+		inherit: true,
+		evoLevel: 30,
+		evoCondition: "",
+	},
+	cosmoem: {
+		inherit: true,
+		evoLevel: 64, //lmao this mon
 	},
 };
