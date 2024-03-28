@@ -408,6 +408,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			willowisp: ["9M"],
 			workup: ["9M"],
+			dracometeor: ["9M"],
 		},
 	},
 	squirtle: {
@@ -2582,6 +2583,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			zippyzap: ["9L62"],
+			thunderclap: ["9L1"],
+			hypervoice: ["9M"],
 		},
 	},
 	raichualola: {
@@ -2853,6 +2856,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			workup: ["9M"],
 			xscissor: ["9M"],
+			highhorsepower: ["9M"],
 		},
 	},
 	sandslashalola: {
@@ -3689,6 +3693,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			willowisp: ["9M"],
 			zenheadbutt: ["9T"],
+			healingwish: ["9L45"],
 		},
 	},
 	ninetalesalola: {
@@ -3919,6 +3924,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			wildcharge: ["9M"],
 			workup: ["9M"],
+			alluringvoice: ["9M"],
 		},
 	},
 	zubat: {
@@ -5138,6 +5144,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T", "9L51"],
 			worryseed: ["9T"],
 			zenheadbutt: ["9T", "9L25"],
+			vacuumwave: ["9T"],
+			knockoff: ["9T"],
 		},
 	},
 	mankey: {
@@ -5820,6 +5828,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["9M"],
 			whirlpool: ["9T"],
 			workup: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	abra: {
@@ -6388,6 +6397,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			weatherball: ["9T"],
 			worryseed: ["9T"],
+			lunge: ["9L36"],
+			barbbarrage: ["9L1"],
 		},
 	},
 	tentacool: {
@@ -8752,6 +8763,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wakeupslap: ["9L29"],
 			zenheadbutt: ["9T"],
+			darkvoid: ["9L58"],
+			
 		},
 	},
 	krabby: {
@@ -9350,6 +9363,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["9L37"],
 			worryseed: ["9T"],
 			zenheadbutt: ["9T"],
+			ficklebeam: ["9L50"],
 		},
 	},
 	cubone: {
@@ -9909,6 +9923,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9T", "9E"],
 			venoshock: ["9M"],
 			willowisp: ["9M"],
+			gunkshot: ["9M"],
 		},
 	},
 	koffinggalar: {
@@ -9958,6 +9973,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9T"],
 			venoshock: ["9M"],
 			willowisp: ["9M"],
+			gunkshot: ["9M"],
 		},
 	},
 	weezing: {
@@ -10009,6 +10025,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9T"],
 			venoshock: ["9M"],
 			willowisp: ["9M"],
+			gunkshot: ["9M"],
 		},
 	},
 	weezinggalar: {
@@ -10070,6 +10087,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			willowisp: ["9M"],
 			wonderroom: ["9T"],
+			gunkshot: ["9M"],
 		},
 	},
 	rhyhorn: {
@@ -11124,6 +11142,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			wringout: ["9L49"],
 			zenheadbutt: ["9T"],
+			alluringvoice: ["9M"],
 		},
 	},
 	electabuzz: {
@@ -11236,6 +11255,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			uproar: ["9T"],
 			willowisp: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	pinsir: {
@@ -11427,6 +11447,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M", "9L5"],
 			zenheadbutt: ["9T", "9L29"],
+			highhorsepower: ["9M"],
+			lowkick: ["9M"],
+			brickbreak: ["9M"],
 		},
 	},
 	taurospaldeablaze: {
@@ -11480,6 +11503,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9M"],
 			workup: ["9M", "9L5"],
 			zenheadbutt: ["9T", "9L29"],
+			highhorsepower: ["9M"],
+			lowkick: ["9M"],
+			brickbreak: ["9M"],
 		},
 	},
 	taurospaldeaaqua: {
@@ -11531,6 +11557,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M", "9L5"],
 			zenheadbutt: ["9T", "9L29"],
+			highhorsepower: ["9M"],
+			lowkick: ["9M"],
+			brickbreak: ["9M"],
 		},
 	},
 	magikarp: {
@@ -14071,6 +14100,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			whirlpool: ["9T"],
 			workup: ["9M"],
+			tidyup: ["9L52"],
 		},
 	},
 	hoothoot: {
@@ -16694,6 +16724,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			hiddenpower: ["9M", "9L1"],
 			mysticalpower: ["9L1"],
+			ancientpower: ["9L47"],
 		},
 	},
 	wobbuffet: {
@@ -17089,6 +17120,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			yawn: ["9L16"],
 			zenheadbutt: ["9T"],
+			lunge: ["9L1"],
 		},
 	},
 	gligar: {
@@ -17244,6 +17276,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["9M"],
 			thunderfang: ["9T", "9L1"],
 			toxic: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	snubbull: {
@@ -17401,6 +17434,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			wildcharge: ["9M"],
 			workup: ["9M"],
+			drainpunch: ["9M"],
 		},
 	},
 	qwilfish: {
@@ -17472,6 +17506,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["9L1"],
 			waterpulse: ["9E"],
 			whirlpool: ["9T"],
+			barbbarrage: ["9L33"],
 		},
 	},
 	qwilfishhisui: {
@@ -18757,6 +18792,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			tripleaxel: ["9M"],
 			weatherball: ["9T"],
+			flipturn: ["9M"],
 		},
 	},
 	mantine: {
@@ -18874,6 +18910,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wideguard: ["9L23"],
 			wildcharge: ["9M"],
+			raindance: ["9M"],
+			electroshot: ["9L64"],
 		},
 	},
 	skarmory: {
@@ -19901,6 +19939,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			weatherball: ["9T"],
 			wildcharge: ["9M"],
+			electroshot: ["9L71"],
 		},
 	},
 	entei: {
@@ -20234,6 +20273,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			uproar: ["9T"],
 			whirlpool: ["9T"],
+			knockoff: ["9T"],
 		},
 	},
 	lugia: {
@@ -20690,6 +20730,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			worryseed: ["9T"],
 			xscissor: ["9M", "9L45"],
+			vacuumwave: ["9M"],
+			shedtail: ["9L85"],
 		},
 	},
 	torchic: {
@@ -21108,6 +21150,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpledge: ["9T"],
 			whirlpool: ["9T"],
 			workup: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	poochyena: {
@@ -21943,6 +21986,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["9L1"],
 			worryseed: ["9T"],
 			xscissor: ["9M"],
+			vacuumwave: ["9M"],
+			toxicspikes: ["9L50"],
+			taunt: ["9M"],
+			willowisp: ["9M"],
 		},
 	},
 	taillow: {
@@ -22368,6 +22415,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["9L14"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			vacuumwave: ["9T"],
+			psychicnoise: ["9L31"],
 		},
 	},
 	surskit: {
@@ -23275,6 +23324,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T"],
 			whirlwind: ["9L16"],
 			workup: ["9M"],
+			upperhand: ["9L1"],
 		},
 	},
 	azurill: {
@@ -23516,6 +23566,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			alluringvoice: ["9M"],
 		},
 	},
 	sableye: {
@@ -23909,6 +23960,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			uproar: ["9T"],
 			whirlpool: ["9T"],
+			supercellslam: ["9M"],
 		},
 	},
 	meditite: {
@@ -25431,6 +25483,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			uturn: ["9M"],
 			wingattack: ["9L40"],
+			vacuumwave: ["9M"],
+			stealthrock: ["9M"],
 		},
 	},
 	cacnea: {
@@ -25573,6 +25627,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			venoshock: ["9M"],
 			worryseed: ["9T"],
+			lunge: ["9L44"],
 		},
 	},
 	swablu: {
@@ -28005,6 +28060,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L17"],
 			watersport: ["9E"],
 			whirlpool: ["9T"],
+			moonblast: ["9L56"],
 		},
 	},
 	bagon: {
@@ -28336,6 +28392,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trick: ["9T"],
 			zenheadbutt: ["9T", "9L32"],
+			knockoff: ["9T"],
 		},
 	},
 	regirock: {
@@ -28712,6 +28769,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T", "9L41"],
+			flipturn: ["9M"],
 		},
 	},
 	kyogre: {
@@ -29278,6 +29336,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["9L1"],
 			workup: ["9M"],
 			worryseed: ["9T"],
+			grassyglide: ["9M"],
+			irondefense: ["9T"],
 		},
 	},
 	chimchar: {
@@ -29513,6 +29573,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["9T"],
 			willowisp: ["9M"],
 			workup: ["9M"],
+			switcheroo: ["9L45"],
 		},
 	},
 	piplup: {
@@ -29705,6 +29766,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T", "9L39"],
 			workup: ["9M"],
 			yawn: ["9L19"],
+			vacuumwave: ["9T"],
+			haze: ["9L48"],
+			airslash: ["9M"],
 		},
 	},
 	starly: {
@@ -30025,7 +30089,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trailblaze: ["9M"],
 			uproar: ["9T"],
-			xscissor: ["9M", "9L30"],
+			xscissor: ["9M"],
+			lunge: ["9L30"],
 		},
 	},
 	shinx: {
@@ -30854,6 +30919,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			venoshock: ["9M"],
 			xscissor: ["9M"],
+			lunge: ["9L39"],
 		},
 	},
 	pachirisu: {
@@ -32431,6 +32497,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			uturn: ["9M"],
 			workup: ["9M"],
+			alluringvoice: ["9M"],
 		},
 	},
 	spiritomb: {
@@ -33303,6 +33370,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M", "9L36"],
 			workup: ["9M"],
 			xscissor: ["9M"],
+			upperhand: ["9L1"],
 		},
 	},
 	carnivine: {
@@ -33423,6 +33491,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			worryseed: ["9E"],
 			wringout: ["9L47"],
+			barbbarrage: ["9L56"],
 		},
 	},
 	finneon: {
@@ -33631,6 +33700,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wideguard: ["9L23", "9E"],
 			wildcharge: ["9M"],
+			electroweb: ["9M"],
 		},
 	},
 	snover: {
@@ -34210,6 +34280,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			weatherball: ["9T"],
 			wildcharge: ["9M"],
+			knockoff: ["9T"],
+			trailblaze: ["9M"],
 		},
 	},
 	magmortar: {
@@ -34281,6 +34353,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			weatherball: ["9T"],
 			willowisp: ["9M"],
+			vacuumwave: ["9T"],
+			
 		},
 	},
 	togekiss: {
@@ -34603,6 +34677,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M", "9L30"],
 			venoshock: ["9M"],
 			xscissor: ["9M", "9L40"],
+			highhorsepower: ["9M"],
+			crabhammer: ["9L48"],
+			toxicspikes: ["9L75"],
+			
 		},
 	},
 	mamoswine: {
@@ -34669,6 +34747,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["9L28"],
 			thrash: ["9L41"],
 			toxic: ["9M"],
+			trailblaze: ["9M"],
 		},
 	},
 	porygonz: {
@@ -37058,6 +37137,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watersport: ["9L1"],
 			workup: ["9M"],
 			xscissor: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	samurotthisui: {
@@ -37119,6 +37199,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			watergun: ["9L7"],
 			watersport: ["9L1"],
 			xscissor: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	patrat: {
@@ -38287,6 +38368,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L39"],
+		   electroweb: ["9T"],
 		},
 	},
 	zebstrika: {
@@ -38375,6 +38457,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L47"],
+			electroweb: ["9T"],
 		},
 	},
 	roggenrola: {
@@ -39501,6 +39584,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			victorydance: ["9L73"],
 			worryseed: ["9T"],
 			xscissor: ["9M", "9L39"],
+			lunge: ["9L1"],
+			lowkick: ["9M"],
 		},
 	},
 	venipede: {
@@ -39867,6 +39952,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trailblaze: ["9M"],
 			worryseed: ["9T"],
+			weatherball: ["9T"],
+			
 		},
 	},
 	lilliganthisui: {
@@ -41721,6 +41808,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wakeupslap: ["9L31"],
 			workup: ["9M"],
+			tidyup: ["9L60"],
 		},
 	},
 	cinccino: {
@@ -42489,6 +42577,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M"],
 			worryseed: ["9T"],
+			highhorsepower: ["9M"],
 		},
 	},
 	emolga: {
@@ -43035,6 +43124,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			xscissor: ["9M"],
+			thundercage: ["9L50"]
 		},
 	},
 	ferroseed: {
@@ -43429,6 +43519,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			zapcannon: ["9L1"],
+			thunderclap: ["9L58"],
 		},
 	},
 	elgyem: {
@@ -44445,6 +44536,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M", "9L41"],
 			wideguard: ["9L45"],
 			workup: ["9M"],
+			icespinner: ["9M"],
 		},
 	},
 	druddigon: {
@@ -45129,6 +45221,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wingattack: ["9L10"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			vacuumwave: ["9M"],
 		},
 	},
 	vullaby: {
@@ -45570,6 +45663,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			workup: ["9M", "9L38"],
 			zenheadbutt: ["9T"],
+			ficklebeam: ["9L79"],
 		},
 	},
 	larvesta: {
@@ -45743,6 +45837,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M", "9L49"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			vacuumwave: ["9T"],
 		},
 	},
 	terrakion: {
@@ -45870,6 +45965,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			vacuumwave: ["9T"],
 		},
 	},
 	tornadus: {
@@ -46485,6 +46581,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			workup: ["9M", "9L61"],
 			xscissor: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	keldeoresolute: {},
@@ -46901,6 +46998,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			worryseed: ["9T"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	fennekin: {
@@ -47261,6 +47360,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
+			sludgewave: ["9M"],
 		},
 	},
 	greninjabond: {
@@ -47979,6 +48079,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			wish: ["9L1"],
 			worryseed: ["9T"],
+			mistyexplosion: ["9M"],
+			pollenpuff: ["9L1"],
 		},
 	},
 	skiddo: {
@@ -48089,6 +48191,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			worryseed: ["9T", "9L16"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
 		},
 	},
 	pancham: {
@@ -49159,6 +49262,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T"],
 			withdraw: ["9L7"],
 			xscissor: ["9M"],
+	      mightycleave: ["9L57"],
 		},
 	},
 	skrelp: {
@@ -50003,6 +50107,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			lunge: ["9E"],
 		},
 	},
 	dedenne: {
@@ -50303,6 +50408,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderpunch: ["9T"],
 			toxic: ["9M"],
 			weatherball: ["9T"],
+			knockoff: ["9T"],
 		},
 	},
 	goodrahisui: {
@@ -50358,6 +50464,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunder: ["9M"],
 			thunderbolt: ["9M"],
 			toxic: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	klefki: {
@@ -50546,6 +50653,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["9L44"],
 			worryseed: ["9T"],
 			xscissor: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	pumpkaboo: {
@@ -52550,6 +52658,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			yawn: ["9L47"],
 			zenheadbutt: ["9T"],
+			knockoff: ["9T"],
 		},
 	},
 	grubbin: {
@@ -52685,6 +52794,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			xscissor: ["9M"],
 			zapcannon: ["9L41"],
+			thunderclap: ["9L66"],
 		},
 	},
 	crabrawler: {
@@ -53150,6 +53260,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			mightycleave: ["9L68"],
 		},
 	},
 	lycanrocmidnight: {
@@ -53223,6 +53334,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			uproar: ["9T"],
 			zenheadbutt: ["9T"],
+			knockoff: ["9M"],
+			upperhand: ["9L1"],
 		},
 	},
 	wishiwashi: {
@@ -54443,6 +54556,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			vitalthrow: ["9E"],
 			workup: ["9M"],
+			upperhand: ["9L1"],
 		},
 	},
 	wimpod: {
@@ -55011,6 +55125,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["9E"],
 			willowisp: ["9M"],
 			workup: ["9M"],
+			burningbulwark: ["9L57"],
 		},
 	},
 	togedemaru: {
@@ -55617,6 +55732,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			workup: ["9M", "9L29"],
 			xscissor: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	tapukoko: {
@@ -55681,6 +55797,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L32"],
 			withdraw: ["9L1"],
 			workup: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	tapulele: {
@@ -56537,6 +56654,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wringout: ["9L67"],
 			xscissor: ["9M"],
+			dracometeor: ["9M"],
 		},
 	},
 	necrozmadawnwings: {
@@ -57049,6 +57167,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M", "9L15"],
 			wildcharge: ["9M", "9L36"],
 			workup: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	meltan: {
@@ -57596,6 +57715,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			whirlpool: ["9T"],
 			workup: ["9M"],
+			vacuumwave: ["9T"],
 		},
 	},
 	skwovet: {
@@ -57685,6 +57805,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trailblaze: ["9M"],
 			uproar: ["9T"],
 			wildcharge: ["9M"],
+			highhorsepower: ["9M"],
+			knockoff: ["9T"],
 		},
 	},
 	rookidee: {
@@ -58523,6 +58645,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tarshot: ["9L1"],
 			toxic: ["9M"],
 			willowisp: ["9M"],
+			burningbulwark: ["9L54"],
 		},
 	},
 	applin: {
@@ -59299,6 +59422,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["9M"],
 			whirlpool: ["9T"],
 			workup: ["9M"],
+			jetpunch: ["9L75"],
 		},
 	},
 	sinistea: {
@@ -59594,6 +59718,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
+			moonblast: ["9L54"],
 		},
 	},
 	impidimp: {
@@ -59822,6 +59947,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T"],
 			workup: ["9M"],
 			xscissor: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	perrserker: {
@@ -60302,6 +60428,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trailblaze: ["9M"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
+			knockoff: ["9T"],
+			lunge: ["9L48"],
 		},
 	},
 	pincurchin: {
@@ -60516,6 +60645,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T", "9L12"],
 			whirlpool: ["9T"],
 			zenheadbutt: ["9T"],
+			flipturn: ["9M"],
 		},
 	},
 	indeedee: {
@@ -60564,6 +60694,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+		   trickroom: ["9M"],
 		},
 	},
 	indeedeef: {
@@ -60678,6 +60809,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			zippyzap: ["9L65"],
+			knockoff: ["9T"],
 		},
 	},
 	cufant: {
@@ -60777,6 +60909,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			knockoff: ["9T"],
+
 		},
 	},
 	dracozolt: {
@@ -61318,6 +61452,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["9L1"],
 			wildcharge: ["9M"],
 			workup: ["9M"],
+			roar: ["9M"],
 		},
 	},
 	zamazentacrowned: {
@@ -62034,6 +62169,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M"],
 			zenheadbutt: ["9T", "9L38"],
+			lunge: ["9L44"],
 		},
 	},
 	kleavor: {
@@ -62925,6 +63061,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wavecrash: ["9L54"],
 			wingattack: ["9L12"],
 			workup: ["9M", "9L8"],
+			sleeptalk: ["9M"],
 		},
 	},
 	lechonk: {
@@ -63017,6 +63154,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M", "9L32"],
 			yawn: ["9L25"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
 		},
 	},
 	oinkolognef: {
@@ -63064,6 +63202,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M", "9L32"],
 			yawn: ["9L25"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
 		},
 	},
 	tarountula: {
@@ -64477,6 +64616,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["9L26"],
 			toxic: ["9M"],
 			wrap: ["9L1"],
+			highhorsepower: ["9M"],
 		},
 	},
 	tandemaus: {
@@ -64727,6 +64867,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tackle: ["9L1"],
 			takedown: ["9L20"],
 			toxic: ["9M"],
+			highhorsepower: ["9M"],
 		},
 	},
 	frigibax: {
@@ -64877,6 +65018,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["9T"],
 			toxic: ["9M"],
 			zenheadbutt: ["9T"],
+			scaleshot: ["9T"],
+			highhorsepower: ["9T"],
 		},
 	},
 	tatsugiri: {
@@ -65131,6 +65274,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L42"],
+			knockoff: ["9T"],
 		},
 	},
 	wattrel: {
@@ -65392,6 +65536,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wideguard: ["9L44"],
 			wingattack: ["9L12"],
+			lunge: ["9L33"],
 		},
 	},
 	klawf: {
@@ -66145,6 +66290,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			thunderfang: ["9T"],
 			toxic: ["9M"],
 			zenheadbutt: ["9T"],
+			roar: ["9M"],
 		},
 	},
 	brutebonnet: {
@@ -66318,6 +66464,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wish: ["9L70"],
 			zenheadbutt: ["9T"],
+			mistyexplosion: ["9M"],
+			teleport: ["9M"],
 		},
 	},
 	fluttermane: {
@@ -66418,6 +66566,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			willowisp: ["9M"],
 			zenheadbutt: ["9T"],
+			heatcrash: ["9M"],
+			highhorsepower: ["9M"],
 		},
 	},
 	roaringmoon: {
@@ -66484,6 +66634,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T", "9L35"],
+			knockoff: ["9T"],
 		},
 	},
 	irontreads: {
@@ -66532,6 +66683,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L63"],
 			zenheadbutt: ["9T"],
+			highhorsepower: ["9M"],
 		},
 	},
 	ironmoth: {
@@ -66768,6 +66920,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L56"],
+			highhorsepower: ["9M"],
 		},
 	},
 	ironbundle: {
@@ -66876,6 +67029,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wideguard: ["9L84"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			vacuumwave: ["9T"],
 		},
 	},
 	tinglu: {
@@ -67128,6 +67282,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wildcharge: ["9M"],
 			zenheadbutt: ["9T"],
+			scaleshot: ["9M"],
+			heatcrash: ["9M"],
+			dualwingbeat: ["9M"],
 		},
 	},
 	miraidon: {
@@ -67408,6 +67565,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wideguard: ["9L1"],
 			willowisp: ["9M", "9L16"],
+			vacuumwave: ["9M"],
 		},
 	},
 	ceruledge: {
@@ -67618,6 +67776,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterfall: ["9M"],
 			waterpulse: ["9L14"],
 			whirlpool: ["9T"],
+			knockoff: ["9T"],
+			flipturn: ["9M"],
 		},
 	},
 	ironleaves: {
@@ -67759,6 +67919,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
+			willowisp: ["9M"],
 		},
 	},
 	poltchageistartisan: {
@@ -67846,6 +68007,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
+			willowisp: ["9M"],
 		},
 	},
 	sinistchamasterpiece: {
@@ -67960,6 +68122,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			upperhand: ["9M"],
 			uproar: ["9M"],
+			machpunch: ["9L1"],
+			poweruppunch: ["9M"],
 		},
 	},
 	munkidori: {
@@ -68020,6 +68184,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9M"],
 			uturn: ["9M"],
 			venoshock: ["9M"],
+			psychicnoise: ["9L36"],
+			teleport: ["9M"],
+			mysticalfire: ["9T"],
 		},
 	},
 	fezandipiti: {
@@ -68087,6 +68254,10 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			venoshock: ["9M"],
 			wingattack: ["9L24"],
+			drainingkiss: ["9M"],
+			defog: ["9M"],
+			sludgewave: ["9M"],
+			clearsmog: ["9L36"],
 		},
 	},
 	ogerpon: {
@@ -68481,7 +68652,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			psyshock: ["9M", "9L28"],
 			quickguard: ["9L77"],
 			rest: ["9M"],
-			sacredsword: ["9L49", "9S0"],
+			sacredsword: ["9S0"],
 			scaryface: ["9M"],
 			slash: ["9L14"],
 			sleeptalk: ["9M"],
@@ -68498,6 +68669,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M", "9L70", "9S0"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9M"],
+			secretsword: ["9L49"],
 		},
 	},
 	terapagos: {
@@ -68560,6 +68732,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			withdraw: ["9L1"],
 			zenheadbutt: ["9M", "9S0"],
+			boomburst: ["9L60"],
 		},
 	},
 	pecharunt: {
