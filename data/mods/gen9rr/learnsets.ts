@@ -18910,7 +18910,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wideguard: ["9L23"],
 			wildcharge: ["9M"],
-			raindance: ["9M"],
 			electroshot: ["9L64"],
 		},
 	},
@@ -60694,7 +60693,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
-		   trickroom: ["9M"],
 		},
 	},
 	indeedeef: {
@@ -63061,7 +63059,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wavecrash: ["9L54"],
 			wingattack: ["9L12"],
 			workup: ["9M", "9L8"],
-			sleeptalk: ["9M"],
 		},
 	},
 	lechonk: {
@@ -68184,7 +68181,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9M"],
 			uturn: ["9M"],
 			venoshock: ["9M"],
-			psychicnoise: ["9L36"],
 			teleport: ["9M"],
 			mysticalfire: ["9T"],
 		},

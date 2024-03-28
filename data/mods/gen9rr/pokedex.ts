@@ -625,7 +625,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	drowzee: {
 		inherit: true,
-		abilities: {0: "Insomnia", 1: "Forewarn", H: "Psychic Surge"},
+		abilities: {0: "Insomnia", H: "Psychic Surge"},
 		items: {5: "Terrain Extender", 50: "None"},
 	},
 	hypno: {
@@ -715,13 +715,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	koffing: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Neutralizing Gas"},
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Toxic Debris"},
 		formeOrder: ["Koffing", "Koffing"],
 		items: {5: "Smoke Ball", 50: "None"},
 	},
 	weezing: {
 		inherit: true,
-		abilities: {0: "Levitate", 1: "Neutralizing Gas"},
+		abilities: {0: "Levitate", 1: "Neutralizing Gas", H: "Toxic Debris"},
 		items: {5: "Smoke Ball", 50: "None"},
 	},
 	chansey: {
@@ -768,7 +768,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jynx: {
 		inherit: true,
 		baseStats: {hp: 65, atk: 50, def: 50, spa: 115, spd: 95, spe: 100},
-		abilities: {0: "Dry Skin", 1: "Forewarn", H: "Dry Skin"},
+		abilities: {0: "Dry Skin", H: "Dry Skin"},
 		items: {5: "Heart Scale", 50: "Heart Scale"},
 		evoLevel: 27,
 	},
@@ -1142,7 +1142,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Sevii",
 		types: ["Ghost"],
 		baseStats: {hp: 55, atk: 80, def: 50, spa: 45, spd: 50, spe: 50},
-		abilities: {0: "Pickup", 1: "Quick Feet", H: "Cursed Body"},
+		abilities: {0: "Pickup", 1: "Quick Feet", H: "Iron Fist"},
 		heightm: 0.6,
 		weightkg: 8.8,
 		color: "Brown",
@@ -1164,7 +1164,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Sevii",
 		types: ["Ghost", "Fighting"],
 		baseStats: {hp: 100, atk: 110, def: 90, spa: 55, spd: 90, spe: 55},
-		abilities: {0: "Guts", 1: "Quick Feet", H: "Cursed Body"},
+		abilities: {0: "Guts", 1: "Quick Feet", H: "Iron Fist"},
 		heightm: 1.8,
 		weightkg: 125.8,
 		color: "Brown",
@@ -1283,6 +1283,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	smoochum: {
 		inherit: true,
+		abilities: {0: "Oblivious", H: "Hydration"},
 		items: {5: "Aspear Berry", 50: "Aspear Berry"},
 	},
 	magby: {
@@ -1749,11 +1750,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	shuppet: {
 		inherit: true,
+		abilities: {0: "Insomnia", 1: "Frisk", H: "Wandering Spirit"},
 		items: {5: "Spell Tag", 50: "None"},
 	},
 	banette: {
 		inherit: true,
 		items: {5: "Spell Tag", 50: "None"},
+		abilities: {0: "Insomnia", 1: "Frisk", H: "Wandering Spirit"},
 		evoLevel: 36,
 	},
 	banettemega: {
@@ -2208,7 +2211,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	snover: {
 		inherit: true,
-		abilities: {0: "Soundproof", H: "Soundproof"},
+		abilities: {0: "Ice Body", H: "Soundproof"},
 		items: {5: "Never-Melt Ice", 50: "None"},
 	},
 	abomasnow: {
@@ -2413,7 +2416,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	musharna: {
 		inherit: true,
-		abilities: {0: "Forewarn", 1: "Synchronize", H: "Unaware"},
+		abilities: {0: "Synchronize", H: "Unaware"},
 	},
 	pidove: {
 		inherit: true,
@@ -4008,10 +4011,12 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	polteageist: {
 		inherit: true,
+		abilities: {0: "Weak Armor", H: "Heatproof"},
 		evoItem: "Moon Stone",
 	},
 	polteageistantique: {
 		inherit: true,
+		abilities: {0: "Weak Armor", H: "Heatproof"},
 		evoItem: "Moon Stone",
 	},
 	hatenna: {
@@ -4546,5 +4551,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	pecharunt: {
 		inherit: true,
 		abilities: {0: "Toxic Chain"},
-	}
+	},
+	sinistea: {
+		inherit: true,
+		abilities: {0: "Weak Armor", H: "Heatproof"},
+	},
+	unown: {
+		inherit: true,
+		baseStats: {hp: 48, atk: 48, def: 48, spa: 96, spd: 48, spe: 96},
+		abilities: {0: "Levitate", H: "Simple"},
+	},
+	ursalunabloodmoon: {
+		inherit: true,
+		abilities: {0: "Scrappy"},
+	},
+	dipplin: {
+		inherit: true,
+		abilities: {0: "Gluttony", H: "Sticky Hold"},
+	},
+	hydrapple: {
+		inherit: true,
+		abilities: {0: "Regenerator", H: "Sticky Hold"},
+	},
 };
