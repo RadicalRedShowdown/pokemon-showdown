@@ -171,10 +171,8 @@ function getData(species: string | Species, format: string | Format): any | null
 	const dex = Dex.forFormat(format);
 	format = Dex.formats.get(format);
 	species = dex.species.get(species);
-	// Gen 7 Random Doubles has a separate file to Gen 7 singles but still uses the old system.
-	const isGen7Doubles = format.gameType === 'doubles' && dex.gen === 7;
 	const dataFile = JSON.parse(
-		FS(`data/mods/${dex.currentMod}/random-${isGen7Doubles ? 'doubles-' : ''}data.json`).readIfExistsSync() || '{}'
+		FS(`data/mods/${dex.currentMod}/random-data.json`).readIfExistsSync() || '{}'
 	);
 	const data = dataFile[species.id];
 	if (!data) return null;
@@ -834,38 +832,25 @@ export const commands: Chat.ChatCommands = {
 			const setsToCheck = [species];
 			if (dex.gen >= 8 && !isNoDMax) setsToCheck.push(dex.species.get(`${args[0]}gmax`));
 			if (species.otherFormes) setsToCheck.push(...species.otherFormes.map(pkmn => dex.species.get(pkmn)));
-			if ([3, 4, 5, 6, 9].includes(dex.gen) || (dex.gen === 7 && !isDoubles)) {
+			if ([2, 3, 4, 5, 6, 7, 9].includes(dex.gen)) {
 				for (const pokemon of setsToCheck) {
 					const data = getSets(pokemon, format.id);
 					if (!data) continue;
-					const {sets, level} = data;
+					const sets = data.sets;
+					const level = data.level || getLevel(pokemon, format);
 					let buf = `<span style="color:#999999;">Moves for ${pokemon.name} in ${format.name}:</span><br/>`;
 					buf += `<b>Level</b>: ${level}`;
 					for (const set of sets) {
 						buf += `<details><summary>${set.role}</summary>`;
 						if (dex.gen === 9) {
 							buf += `<b>Tera Type${Chat.plural(set.teraTypes)}</b>: ${set.teraTypes.join(', ')}<br/>`;
-						} else if (([3, 4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
+						} else if (([2, 3, 4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
 							buf += `<b>Preferred Type${Chat.plural(set.preferredTypes)}</b>: ${set.preferredTypes.join(', ')}<br/>`;
 						}
 						buf += `<b>Moves</b>: ${set.movepool.sort().map(formatMove).join(', ')}</details>`;
 						setCount++;
 					}
 					movesets.push(buf);
-				}
-			} else if (dex.gen === 7 && isDoubles) {
-				for (const pokemon of setsToCheck) {
-					const data = getData(pokemon, format.name);
-					if (!data) continue;
-					if (!data.moves) continue;
-					const randomMoves = data.moves;
-					const m = randomMoves.slice().sort().map(formatMove);
-					movesets.push(
-						`<details>` +
-						`<summary><span style="color:#999999;">Moves for ${pokemon.name} in ${format.name}:<span style="color:#999999;"></summary>` +
-						`${m.join(`, `)}</details>`
-					);
-					setCount++;
 				}
 			} else {
 				for (let pokemon of setsToCheck) {
@@ -906,7 +891,6 @@ export const commands: Chat.ChatCommands = {
 	randombattleshelp: [
 		`/randombattles OR /randbats [pokemon], [gen] - Displays a Pok\u00e9mon's Random Battle Moves. Defaults to Gen 9. If used in a battle, defaults to the gen of that battle.`,
 		`/randomdoublesbattle OR /randdubs [pokemon], [gen] - Same as above, but instead displays Random Doubles Battle moves.`,
-		`/randombattlenodmax OR /randsnodmax [pokemon] - Same as above, but instead displays moves for [Gen 8] Random Battle (No Dmax)`,
 	],
 
 	bssfactory: 'battlefactory',
@@ -964,9 +948,9 @@ export const commands: Chat.ChatCommands = {
 		}
 	},
 	battlefactoryhelp: [
-		`/battlefactory [pokemon], [tier], [gen] - Displays a Pok\u00e9mon's Battle Factory sets. Supports Gens 6-7. Defaults to Gen 7. If no tier is provided, defaults to OU.`,
+		`/battlefactory [pokemon], [tier], [gen] - Displays a Pok\u00e9mon's Battle Factory sets. Supports Gens 6-8. Defaults to Gen 8. If no tier is provided, defaults to OU.`,
 		`- Supported tiers: OU, Ubers, UU, RU, NU, PU, Monotype (Gen 7 only), LC (Gen 7 only)`,
-		`/bssfactory [pokemon], [gen] - Displays a Pok\u00e9mon's BSS Factory sets. Supports Gen 7. Defaults to Gen 7.`,
+		`/bssfactory [pokemon], [gen] - Displays a Pok\u00e9mon's BSS Factory sets. Supports Gen 7-8. Defaults to Gen 8.`,
 	],
 
 	cap1v1(target, room, user) {
@@ -1036,15 +1020,13 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		let setExists: boolean;
-		if ([3, 4, 5, 6, 9].includes(dex.gen) || dex.gen === 7 && format.gameType !== 'doubles') {
+		if ([2, 3, 4, 5, 6, 7, 9].includes(dex.gen)) {
 			setExists = !!getSets(species, format);
-		} else if (dex.gen === 7 && format.gameType === 'doubles') {
-			setExists = !!getData(species, format);
 		} else {
 			const data = getData(species, format);
 			if (!data) {
 				setExists = false;
-			} else if ((format.gameType === 'doubles' && dex.gen !== 7) || format.gameType === 'freeforall') {
+			} else if (format.gameType === 'doubles' || format.gameType === 'freeforall') {
 				setExists = !!data.doublesMoves;
 			} else {
 				setExists = !!data.moves;

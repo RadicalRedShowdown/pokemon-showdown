@@ -47,6 +47,7 @@ interface MoveFlags {
 	heal?: 1; // Prevented from being executed or selected during Heal Block's effect.
 	metronome?: 1; // Can be selected by Metronome.
 	kick?: 1; // Power is multiplied by 1.3 when used by a Pokemon with the Ability Striker.
+	metronome?: 1; // Can be selected by Metronome.
 	mirror?: 1; // Can be copied by Mirror Move.
 	mustpressure?: 1; // Additional PP is deducted due to Pressure when it ordinarily would not.
 	noassist?: 1; // Cannot be selected by Assist.

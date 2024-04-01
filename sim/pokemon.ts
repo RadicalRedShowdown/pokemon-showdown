@@ -1426,8 +1426,8 @@ export class Pokemon {
 			} else {
 				// Ogerpon's forme change doesn't override permanent abilities
 			if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
-			// However, its ability does reset upon switching out
 			}
+			// However, its ability does reset upon switching out
 			this.baseAbility = toID(species.abilities['0']);
 		}
 		if (this.terastallized) {
