@@ -812,7 +812,7 @@
         "doublesMoves": ["bodypress", "earthpower", "fireblast", "heatwave", "protect", "solarbeam", "willowisp"]
     },
     "flygon": {
-        "level": 80,
+        "level": 79,
         "moves": ["defog", "dragondance", "earthquake", "firepunch", "outrage", "uturn"],
         "doublesLevel": 86,
         "doublesMoves": ["dragonclaw", "dragondance", "earthquake", "firepunch", "protect", "rockslide", "tailwind"]
@@ -1023,7 +1023,7 @@
         "doublesMoves": ["allyswitch", "bodypress", "ironhead", "trickroom"]
     },
     "spiritomb": {
-        "level": 88,
+        "level": 89,
         "moves": ["foulplay", "poltergeist", "shadowsneak", "suckerpunch", "trick"],
         "doublesLevel": 88,
         "doublesMoves": ["foulplay", "poltergeist", "protect", "snarl", "suckerpunch", "willowisp"]
@@ -1348,7 +1348,7 @@
         "noDynamaxMoves": ["defog", "encore", "energyball", "leechseed", "moonblast", "stunspore", "taunt", "uturn"]
     },
     "lilligant": {
-        "level": 84,
+        "level": 83,
         "moves": ["gigadrain", "petaldance", "pollenpuff", "quiverdance", "sleeppowder"],
         "doublesLevel": 84,
         "doublesMoves": ["energyball", "pollenpuff", "quiverdance", "sleeppowder"]
@@ -2619,7 +2619,7 @@
         "doublesMoves": ["encore", "expandingforce", "hypervoice", "mysticalfire", "protect", "trick"]
     },
     "indeedeef": {
-        "level": 85,
+        "level": 84,
         "moves": ["calmmind", "expandingforce", "healingwish", "hypervoice", "mysticalfire"],
         "doublesLevel": 80,
         "doublesMoves": ["expandingforce", "followme", "healpulse", "helpinghand", "protect"]

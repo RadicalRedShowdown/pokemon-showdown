@@ -58,7 +58,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
 		name: "Blubber Defense",
 		rating: 3.5,
 		gen: 8,
@@ -138,7 +137,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isBreakable: true,
 		name: "Cash Splash",
 		rating: 4.5,
 		gen: 8,
@@ -366,7 +364,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return null;
 			}
 		},
-		isBreakable: true,
 		name: "Mountaineer",
 		rating: 3.5,
 		gen: 8,
@@ -444,7 +441,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 			return false;
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Pheonix Down",
 		gen: 8,
 		rating: 5,
@@ -749,7 +746,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,

@@ -1916,6 +1916,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	darkvoid: {
 		inherit: true,
 		accuracy: 80,
+		onTry(source, target, move) {},
 		isNonstandard: null,
 	},
 	devastatingdrake: {
@@ -2613,6 +2614,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	plasmafists: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	supercellslam: {
+		inherit: true,
+		basePower: 120,
 	},
 };
 

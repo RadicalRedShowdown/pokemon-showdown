@@ -126,6 +126,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
+	burntseed: {
+		num: -12,
+		name: "Burnt Seed",
+		onBasePower(basePower, user, target, move) {
+			if (user.species.baseSpecies !== 'Sunflora') return
+			if (move && move.type === 'Fire') {
+				return this.chainModify(1.5);
+			}
+		},
+	},
 	cameruptite: {
 		inherit: true,
 		isNonstandard: null,
@@ -495,6 +505,31 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
+	magmarizer: {
+		inherit: true,
+		itemUser: ["Magmortar"],
+		onHit(target, source, move) {
+			if (source.species.baseSpecies !== "Magmortar") return;
+			if (move.type === 'Fire' && move.category !== 'Status') {
+				if (target.volatiles['tarshot'] || target.boosts.spe === -6) return;
+				target.addVolatile('tarshot')
+				this.boost({spe: -1}, target)
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (pokemon.terastallized) return false;
+				this.add('-start', pokemon, 'Tar Shot');
+			},
+			onEffectivenessPriority: -2,
+			onEffectiveness(typeMod, target, type, move) {
+				if (move.type !== 'Fire') return;
+				if (!target) return;
+				if (type !== target.getTypes()[0]) return;
+				return typeMod + 1;
+			},
+		},
+	},
 	magostberry: {
 		inherit: true,
 		isNonstandard: "Unobtainable",
@@ -816,6 +851,26 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	upgrade: {
+		inherit: true,
+		itemUser: ["Porygon"],
+		onTryMove(source, target, move) {
+			if (source.species.baseSpecies !== 'porygonz') return;
+			source.addVolatile('upgrade')
+		},
+		onModifySpe(spe, pokemon) {
+			if (pokemon.species.baseSpecies !== 'porygonz') return;
+			return this.chainModify(1.5);
+		},
+		condition: {
+			duration: 1,
+			noCopy: true,
+			onDisableMove(pokemon) {
+				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
+			},
+		},
+		
+	},
 	venusaurite: {
 		inherit: true,
 		isNonstandard: null,
@@ -858,10 +913,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// RR items
 	leekstick: {
 		name: "Leek Stick",
-		fling: {
-			basePower: 60,
-		},
-		spritenum: 475,
 		onModifyCritRatio(critRatio, user) {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
 				return critRatio + 1;
@@ -875,6 +926,11 @@ export const Items: {[k: string]: ModdedItemData} = {
 				return this.chainModify(1.5);
 		    }
 		},
+		fling: {
+			basePower: 60,
+		},
+		spritenum: 475,
+		
 		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
 		gen: 8,
 		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages and its speed isn't changed.",
