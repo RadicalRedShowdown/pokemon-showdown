@@ -4590,4 +4590,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		evoLevel: 64, //lmao this mon
 	},
+	chillet: {
+		name: "Chillet",
+		types: ["Ice", "Dragon"],
+		baseStats: {hp: 85, atk: 100, def: 74, spa: 45, spd: 65, spe: 111},
+		abilities: {0: "Refrigerate"},
+		num: -420,
+		weightkg: 70,
+		eggGroups: ["Dragon"],
+	},
 };
