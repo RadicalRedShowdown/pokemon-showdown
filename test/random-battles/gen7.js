@@ -75,7 +75,7 @@ describe('[Gen 7] Random Battle (slow)', () => {
 					// Generate a moveset as the lead, teamDetails is always empty for this
 					const preferredType = preferredTypes ? preferredTypes[j % preferredTypes.length] : '';
 					const movePool = set.movepool.map(m => dex.moves.get(m).id);
-					const moveSet = generator.randomMoveset(types, abilities, {}, species, true, false, movePool, preferredType, role);
+					const moveSet = generator.randomMoveset(types, abilities, {}, species, true, movePool, preferredType, role);
 					for (const move of moveSet) moves.delete(move);
 					if (!moves.size) break;
 					// Generate a moveset for each combination of relevant teamDetails
@@ -86,7 +86,7 @@ describe('[Gen 7] Random Battle (slow)', () => {
 						teamDetails = {defog, stealthRock, stickyWeb};
 						// randomMoveset() deletes moves from the movepool, so recreate it every time
 						const movePool = set.movepool.map(m => dex.moves.get(m).id);
-						const moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, false, movePool, preferredType, role);
+						const moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, movePool, preferredType, role);
 						for (const move of moveSet) moves.delete(move);
 						if (!moves.size) break;
 					}
@@ -167,22 +167,6 @@ describe('[Gen 7] Random Battle (slow)', () => {
 		testSet('dianciemega', options, set => {
 			if (!set.moves.includes('calmmind')) return;
 			assert(set.moves.includes('moonblast'), `Diancie: got ${set.moves}`);
-		});
-	});
-});
-
-describe('[Gen 7] Random Doubles Battle (slow)', () => {
-	const options = {format: 'gen7randomdoublesbattle'};
-
-	it("shouldn't give Manectric Intimidate before Mega Evolving", () => {
-		testSet('manectricmega', options, set => {
-			assert.notEqual(set.ability, 'Intimidate');
-		});
-	});
-
-	it("should give Mawile Intimidate before Mega Evolving", () => {
-		testSet('mawilemega', options, set => {
-			assert.equal(set.ability, 'Intimidate');
 		});
 	});
 });

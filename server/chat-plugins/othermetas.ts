@@ -14,7 +14,7 @@ interface StoneDeltas {
 	type?: string;
 }
 
-type TierShiftTiers = 'UU' | 'RUBL' | 'RU' | 'NUBL' | 'NU' | 'PUBL' | 'PU' | 'NFE' | 'LC';
+type TierShiftTiers = 'UU' | 'RUBL' | 'RU' | 'NUBL' | 'NU' | 'PUBL' | 'PU' | 'ZUBL' | 'ZU' | 'NFE' | 'LC';
 
 function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 	let dex = Dex;
@@ -41,7 +41,7 @@ function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 		}
 	}
 	if (!item.megaStone && !item.onPrimal && !item.forcedForme?.endsWith('Epilogue') &&
-		!item.forcedForme?.endsWith('Origin') && !item.name.startsWith('Rusted')) return null;
+		!item.forcedForme?.endsWith('Origin') && !item.name.startsWith('Rusted') && !item.name.endsWith('Mask')) return null;
 	return item;
 }
 
@@ -98,7 +98,7 @@ export const commands: Chat.ChatCommands = {
 		const stone = getMegaStone(stoneName[0], mod);
 		const species = dex.species.get(sep[0]);
 		if (!stone) {
-			throw new Chat.ErrorMessage(`Error: Mega Stone/Primal Orb/Rusted Item/Origin Item not found.`);
+			throw new Chat.ErrorMessage(`Error: Mega Stone/Primal Orb/Rusted Item/Origin Item/Mask not found.`);
 		}
 		if (!species.exists) throw new Chat.ErrorMessage(`Error: Pok\u00e9mon not found.`);
 		let baseSpecies: Species;
@@ -122,7 +122,8 @@ export const commands: Chat.ChatCommands = {
 			break;
 		default:
 			const forcedForme = stone.forcedForme;
-			if (forcedForme && (forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
+			if (forcedForme &&
+				(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
 				megaSpecies = dex.species.get(forcedForme);
 				baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 			} else {
@@ -217,11 +218,15 @@ export const commands: Chat.ChatCommands = {
 		const stone = getMegaStone(targetid, sep[1]);
 		const stones = [];
 		if (!stone) {
-			const species = dex.species.get(targetid.replace(/(?:mega[xy]?|primal|origin|crowned|epilogue)$/, ''));
+			const species = dex.species.get(
+				targetid.replace(/(?:mega[xy]?|primal|origin|crowned|epilogue|cornerstone|wellspring|hearthflame)$/, '')
+			);
 			if (!species.exists) throw new Chat.ErrorMessage(`Error: Mega Stone not found.`);
 			if (!species.otherFormes) throw new Chat.ErrorMessage(`Error: Mega Evolution not found.`);
 			for (const poke of species.otherFormes) {
-				if (!/(?:-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XY])?)$/.test(poke)) continue;
+				if (!/(?:-Cornerstone|-Wellspring|-Hearthflame|-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XY])?)$/.test(poke)) {
+					continue;
+				}
 				const megaPoke = dex.species.get(poke);
 				const flag = megaPoke.requiredMove === 'Dragon Ascent' ? megaPoke.requiredMove : megaPoke.requiredItem;
 				if (/mega[xy]$/.test(targetid) && toID(megaPoke.name) !== toID(dex.species.get(targetid))) continue;
@@ -254,7 +259,8 @@ export const commands: Chat.ChatCommands = {
 				break;
 			default:
 				const forcedForme = aStone.forcedForme;
-				if (forcedForme && (forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
+				if (forcedForme &&
+					(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
 					megaSpecies = dex.species.get(forcedForme);
 					baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 				} else {
@@ -284,10 +290,12 @@ export const commands: Chat.ChatCommands = {
 				Weight: (deltas.weighthg < 0 ? "" : "+") + deltas.weighthg / 10 + " kg",
 			};
 			let tier;
-			if (['redorb', 'blueorb'].includes(aStone.id) || aStone.forcedForme?.endsWith('Origin')) {
+			if (['redorb', 'blueorb'].includes(aStone.id)) {
 				tier = "Orb";
 			} else if (aStone.name === "Dragon Ascent") {
 				tier = "Move";
+			} else if (aStone.name.endsWith('Mask')) {
+				tier = "Mask";
 			} else if (aStone.megaStone) {
 				tier = "Stone";
 			} else {
@@ -299,7 +307,7 @@ export const commands: Chat.ChatCommands = {
 				buf += `<span class="col itemiconcol"></span>`;
 			} else {
 				// temp image support until real images are uploaded
-				const itemName = aStone.forcedForme?.endsWith('Origin') ? aStone.name.split(' ')[0] + ' Orb' : aStone.name;
+				const itemName = aStone.name;
 				buf += `<span class="col itemiconcol"><psicon item="${toID(itemName)}"/></span> `;
 			}
 			if (aStone.name === "Dragon Ascent") {
@@ -399,6 +407,8 @@ export const commands: Chat.ChatCommands = {
 			NU: 25,
 			PUBL: 25,
 			PU: 30,
+			ZUBL: 30,
+			ZU: 30,
 			NFE: 30,
 			LC: 30,
 		};
@@ -815,34 +825,36 @@ export const commands: Chat.ChatCommands = {
 			throw new Chat.ErrorMessage(`Error: Pok\u00e9mon ${target} not found.`);
 		}
 		if (!evo.prevo) {
-			const evoBaseSpecies = Dex.species.get(evo.baseSpecies);
+			const evoBaseSpecies = Dex.species.get(
+				(Array.isArray(evo.battleOnly) ? evo.battleOnly[0] : evo.battleOnly) || evo.changesFrom || evo.name
+			);
 			if (!evoBaseSpecies.prevo) throw new Chat.ErrorMessage(`Error: ${evoBaseSpecies.name} is not an evolution.`);
 			const prevoSpecies = Dex.species.get(evoBaseSpecies.prevo);
 			const deltas = Utils.deepClone(evo);
-		    if (!isReEvo) {
-			    deltas.tier = 'CE';
-			    deltas.weightkg = evo.weightkg - prevoSpecies.weightkg;
-			    deltas.types = [];
-			    if (evo.types[0] !== prevoSpecies.types[0]) deltas.types[0] = evo.types[0];
-			    if (evo.types[1] !== prevoSpecies.types[1]) {
-				    deltas.types[1] = evo.types[1] || evo.types[0];
-			    }
-			    if (deltas.types.length) {
+			if (!isReEvo) {
+				deltas.tier = 'CE';
+				deltas.weightkg = evo.weightkg - prevoSpecies.weightkg;
+				deltas.types = [];
+				if (evo.types[0] !== prevoSpecies.types[0]) deltas.types[0] = evo.types[0];
+				if (evo.types[1] !== prevoSpecies.types[1]) {
+					deltas.types[1] = evo.types[1] || evo.types[0];
+				}
+				if (deltas.types.length) {
 					// Undefined type remover
-				    deltas.types = deltas.types.filter((type: string | undefined) => type !== undefined);
+					deltas.types = deltas.types.filter((type: string | undefined) => type !== undefined);
 
 					if (deltas.types[0] === deltas.types[1]) deltas.types = [deltas.types[0]];
-			    } else {
+				} else {
 					deltas.types = null;
-			    }
-		    }
-		    deltas.bst = 0;
-		    let i: StatID;
-		    for (i in evo.baseStats) {
+				}
+			}
+			deltas.bst = 0;
+			let i: StatID;
+			for (i in evo.baseStats) {
 				const statChange = evoBaseSpecies.baseStats[i] - prevoSpecies.baseStats[i];
 				const formeChange = evo.baseStats[i] - evoBaseSpecies.baseStats[i];
 				if (!isReEvo) {
-			    if (!evo.prevo) {
+					if (!evo.prevo) {
 						deltas.baseStats[i] = formeChange;
 					} else {
 						deltas.baseStats[i] = statChange;

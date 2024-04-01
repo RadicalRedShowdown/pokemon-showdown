@@ -107,6 +107,7 @@ function setProbability(
 
 const GEN_NAMES: {[k: string]: string} = {
 	gen1: '[Gen 1]', gen2: '[Gen 2]', gen3: '[Gen 3]', gen4: '[Gen 4]', gen5: '[Gen 5]', gen6: '[Gen 6]', gen7: '[Gen 7]',
+	gen8: '[Gen 8]', gen9: '[Gen 9]',
 };
 
 const STAT_NAMES: {[k: string]: string} = {
@@ -146,7 +147,10 @@ function formatItem(item: Item | string) {
  * Gets the sets for a Pokemon for a format that uses the new schema.
  * Old formats will use getData()
  */
-function getSets(species: string | Species, format: string | Format = 'gen9randombattle'): any[] | null {
+function getSets(species: string | Species, format: string | Format = 'gen9randombattle'): {
+	level: number,
+	sets: any[],
+} | null {
 	const dex = Dex.forFormat(format);
 	format = Dex.formats.get(format);
 	species = dex.species.get(species);
@@ -155,37 +159,60 @@ function getSets(species: string | Species, format: string | Format = 'gen9rando
 		FS(`data/${dex.isBase ? '' : `mods/${dex.currentMod}/`}random-${isDoubles ? `doubles-` : ``}sets.json`)
 			.readIfExistsSync() || '{}'
 	);
-	const sets = setsFile[species.id]?.sets;
-	if (!sets?.length) return null;
-	return sets;
+	const data = setsFile[species.id];
+	if (!data?.sets?.length) return null;
+	return data;
 }
 
 /**
- * Gets the random battles data for a Pokemon for formats other than gen9 and gen7singles.
+ * Gets the random battles data for a Pokemon for formats with the old schema.
  */
 function getData(species: string | Species, format: string | Format): any | null {
 	const dex = Dex.forFormat(format);
 	format = Dex.formats.get(format);
 	species = dex.species.get(species);
-	// Gen 7 Random Doubles has a separate file to Gen 7 singles but still uses the old system.
-	const isGen7Doubles = format.gameType === 'doubles' && dex.gen === 7;
 	const dataFile = JSON.parse(
-		FS(`data/mods/${dex.currentMod}/random-${isGen7Doubles ? 'doubles-' : ''}data.json`).readIfExistsSync() || '{}'
+		FS(`data/mods/${dex.currentMod}/random-data.json`).readIfExistsSync() || '{}'
 	);
 	const data = dataFile[species.id];
 	if (!data) return null;
 	return data;
 }
 
+/**
+ * Gets the default level for a Pokemon in the given format.
+ * Returns 0 if the format doesn't use default levels or it can't be determined.
+ */
+function getLevel(species: string | Species, format: string | Format): number {
+	const dex = Dex.forFormat(format);
+	format = Dex.formats.get(format);
+	species = dex.species.get(species);
+	switch (format.id) {
+	// Only formats where levels are not all manually assigned should be copied here
+	case 'gen2randombattle':
+		const levelScale: {[k: string]: number} = {
+			ZU: 81,
+			ZUBL: 79,
+			PU: 77,
+			PUBL: 75,
+			NU: 73,
+			NUBL: 71,
+			UU: 69,
+			UUBL: 67,
+			OU: 65,
+			Uber: 61,
+		};
+		return levelScale[species.tier] || 80;
+		// TODO: Gen 7 Doubles (currently uses BST-based scaling that accounts for the set's ability/item)
+	}
+	return 0;
+}
+
 function getRBYMoves(species: string | Species) {
 	species = Dex.mod(`gen1`).species.get(species);
 	const data = getData(species, 'gen1randombattle');
 	if (!data) return false;
-	let buf = ``;
-	if (data.moves) {
-		buf += `<br/><b>Randomized moves</b>: `;
-		buf += data.moves.map(formatMove).sort().join(", ");
-	}
+	let buf = `<br/><b>Level</b>: ${data.level}`;
 	if (data.comboMoves) {
 		buf += `<br/><b>Combo moves</b>: `;
 		buf += data.comboMoves.map(formatMove).sort().join(", ");
@@ -194,9 +221,13 @@ function getRBYMoves(species: string | Species) {
 		buf += `<br/><b>Exclusive moves</b>: `;
 		buf += data.exclusiveMoves.map(formatMove).sort().join(", ");
 	}
-	if (data.essentialMove) {
-		buf += `<br/><b>Essential move</b>: `;
-		buf += formatMove(data.essentialMove);
+	if (data.essentialMoves) {
+		buf += `<br/><b>Essential move${Chat.plural(data.essentialMoves)}</b>: `;
+		buf += data.essentialMoves.map(formatMove).sort().join(", ");
+	}
+	if (data.moves) {
+		buf += `<br/><b>Randomized moves</b>: `;
+		buf += data.moves.map(formatMove).sort().join(", ");
 	}
 	if (
 		!data.moves && !data.comboMoves &&
@@ -762,10 +793,18 @@ export const commands: Chat.ChatCommands = {
 		const {dex} = this.splitFormat(target, true);
 		const isLetsGo = (dex.currentMod === 'gen7letsgo');
 
-		const species = dex.species.get(args[0]);
-		if (!species.exists) {
-			return this.errorReply(`Error: Pok\u00e9mon '${args[0].trim()}' does not exist.`);
+		const searchResults = dex.dataSearch(args[0], ['Pokedex']);
+
+		if (!searchResults || !searchResults.length) {
+			this.errorReply(`No Pok\u00e9mon named '${args[0]}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. (Check your spelling?)`);
+			return;
 		}
+
+		let inexactMsg = '';
+		if (searchResults[0].isInexact) {
+			inexactMsg = `No Pok\u00e9mon named '${args[0]}' was found${Dex.gen > dex.gen ? ` in Gen ${dex.gen}` : ""}. Searching for '${searchResults[0].name}' instead.`;
+		}
+		const species = dex.species.get(searchResults[0].name);
 		const extraFormatModifier = isLetsGo ? 'letsgo' : (dex.currentMod === 'gen8bdsp' ? 'bdsp' : '');
 		const doublesModifier = isDoubles ? 'doubles' : '';
 		const noDMaxModifier = isNoDMax ? 'nodmax' : '';
@@ -776,6 +815,7 @@ export const commands: Chat.ChatCommands = {
 		if (dex.gen === 1) {
 			const rbyMoves = getRBYMoves(species);
 			if (!rbyMoves) {
+				this.sendReply(inexactMsg);
 				return this.errorReply(`Error: ${species.name} has no Random Battle data in ${GEN_NAMES[toID(args[1])]}`);
 			}
 			movesets.push(`<span style="color:#999999;">Moves for ${species.name} in ${format.name}:</span>${rbyMoves}`);
@@ -783,6 +823,7 @@ export const commands: Chat.ChatCommands = {
 		} else if (isLetsGo) {
 			const lgpeMoves = getLetsGoMoves(species);
 			if (!lgpeMoves) {
+				this.sendReply(inexactMsg);
 				return this.errorReply(`Error: ${species.name} has no Random Battle data in [Gen 7 Let's Go]`);
 			}
 			movesets.push(`<span style="color:#999999;">Moves for ${species.name} in ${format.name}:</span><br />${lgpeMoves}`);
@@ -791,36 +832,25 @@ export const commands: Chat.ChatCommands = {
 			const setsToCheck = [species];
 			if (dex.gen >= 8 && !isNoDMax) setsToCheck.push(dex.species.get(`${args[0]}gmax`));
 			if (species.otherFormes) setsToCheck.push(...species.otherFormes.map(pkmn => dex.species.get(pkmn)));
-			if (dex.gen >= 9 || (dex.gen === 7 && !isDoubles)) {
+			if ([2, 3, 4, 5, 6, 7, 9].includes(dex.gen)) {
 				for (const pokemon of setsToCheck) {
-					const sets = getSets(pokemon, format.id);
-					if (!sets) continue;
+					const data = getSets(pokemon, format.id);
+					if (!data) continue;
+					const sets = data.sets;
+					const level = data.level || getLevel(pokemon, format);
 					let buf = `<span style="color:#999999;">Moves for ${pokemon.name} in ${format.name}:</span><br/>`;
+					buf += `<b>Level</b>: ${level}`;
 					for (const set of sets) {
 						buf += `<details><summary>${set.role}</summary>`;
 						if (dex.gen === 9) {
 							buf += `<b>Tera Type${Chat.plural(set.teraTypes)}</b>: ${set.teraTypes.join(', ')}<br/>`;
-						} else if (dex.gen === 7 && set.preferredTypes) {
+						} else if (([2, 3, 4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
 							buf += `<b>Preferred Type${Chat.plural(set.preferredTypes)}</b>: ${set.preferredTypes.join(', ')}<br/>`;
 						}
 						buf += `<b>Moves</b>: ${set.movepool.sort().map(formatMove).join(', ')}</details>`;
 						setCount++;
 					}
 					movesets.push(buf);
-				}
-			} else if (dex.gen === 7 && isDoubles) {
-				for (const pokemon of setsToCheck) {
-					const data = getData(pokemon, format.name);
-					if (!data) continue;
-					if (!data.moves) continue;
-					const randomMoves = data.moves;
-					const m = randomMoves.slice().sort().map(formatMove);
-					movesets.push(
-						`<details>` +
-						`<summary><span style="color:#999999;">Moves for ${pokemon.name} in ${format.name}:<span style="color:#999999;"></summary>` +
-						`${m.join(`, `)}</details>`
-					);
-					setCount++;
 				}
 			} else {
 				for (let pokemon of setsToCheck) {
@@ -832,12 +862,14 @@ export const commands: Chat.ChatCommands = {
 					if (!data) continue;
 					if (!data.moves || pokemon.isNonstandard === 'Future') continue;
 					let randomMoves = data.moves;
+					const level = data.level || getLevel(pokemon, format);
 					if (isDoubles && data.doublesMoves) randomMoves = data.doublesMoves;
 					if (isNoDMax && data.noDynamaxMoves) randomMoves = data.noDynamaxMoves;
 					const m = randomMoves.slice().sort().map(formatMove);
 					movesets.push(
 						`<details>` +
 						`<summary><span style="color:#999999;">Moves for ${pokemon.name} in ${format.name}:<span style="color:#999999;"></summary>` +
+						(level ? `<b>Level</b>: ${level}<br>` : '') +
 						`${m.join(`, `)}</details>`
 					);
 					setCount++;
@@ -846,18 +878,19 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		if (!movesets.length) {
+			this.sendReply(inexactMsg);
 			return this.errorReply(`Error: ${species.name} has no Random Battle data in ${format.name}`);
 		}
 		let buf = movesets.join('<hr/>');
 		if (setCount <= 2) {
 			buf = buf.replace(/<details>/g, '<details open>');
 		}
+		this.sendReply(inexactMsg);
 		this.sendReplyBox(buf);
 	},
 	randombattleshelp: [
 		`/randombattles OR /randbats [pokemon], [gen] - Displays a Pok\u00e9mon's Random Battle Moves. Defaults to Gen 9. If used in a battle, defaults to the gen of that battle.`,
 		`/randomdoublesbattle OR /randdubs [pokemon], [gen] - Same as above, but instead displays Random Doubles Battle moves.`,
-		`/randombattlenodmax OR /randsnodmax [pokemon] - Same as above, but instead displays moves for [Gen 8] Random Battle (No Dmax)`,
 	],
 
 	bssfactory: 'battlefactory',
@@ -915,9 +948,9 @@ export const commands: Chat.ChatCommands = {
 		}
 	},
 	battlefactoryhelp: [
-		`/battlefactory [pokemon], [tier], [gen] - Displays a Pok\u00e9mon's Battle Factory sets. Supports Gens 6-7. Defaults to Gen 7. If no tier is provided, defaults to OU.`,
+		`/battlefactory [pokemon], [tier], [gen] - Displays a Pok\u00e9mon's Battle Factory sets. Supports Gens 6-8. Defaults to Gen 8. If no tier is provided, defaults to OU.`,
 		`- Supported tiers: OU, Ubers, UU, RU, NU, PU, Monotype (Gen 7 only), LC (Gen 7 only)`,
-		`/bssfactory [pokemon], [gen] - Displays a Pok\u00e9mon's BSS Factory sets. Supports Gen 7. Defaults to Gen 7.`,
+		`/bssfactory [pokemon], [gen] - Displays a Pok\u00e9mon's BSS Factory sets. Supports Gen 7-8. Defaults to Gen 8.`,
 	],
 
 	cap1v1(target, room, user) {
@@ -987,15 +1020,13 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		let setExists: boolean;
-		if (dex.gen >= 9 || dex.gen === 7 && format.gameType !== 'doubles') {
+		if ([2, 3, 4, 5, 6, 7, 9].includes(dex.gen)) {
 			setExists = !!getSets(species, format);
-		} else if (dex.gen === 7 && format.gameType === 'doubles') {
-			setExists = !!getData(species, format);
 		} else {
 			const data = getData(species, format);
 			if (!data) {
 				setExists = false;
-			} else if ((format.gameType === 'doubles' && dex.gen !== 7) || format.gameType === 'freeforall') {
+			} else if (format.gameType === 'doubles' || format.gameType === 'freeforall') {
 				setExists = !!data.doublesMoves;
 			} else {
 				setExists = !!data.moves;
