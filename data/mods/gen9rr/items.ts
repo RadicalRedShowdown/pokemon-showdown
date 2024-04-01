@@ -510,7 +510,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	magmarizer: {
 		inherit: true,
 		itemUser: ["Magmortar"],
-		onHit(target, source, move) {
+		onSourceHit(target, source, move) {
 			if (source.species.baseSpecies !== "Magmortar") return;
 			if (move.type === 'Fire' && move.category !== 'Status') {
 				if (target.volatiles['tarshot'] || target.boosts.spe === -6) return;
