@@ -166,6 +166,17 @@ export const Formats: FormatList = [
 		section: "Past Gens",
 	},
 	{
+		name: "[Gen 9] 4.0 OU",
+		mod: 'gen9rr4.0',
+		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
+			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
+		],
+	},
+	{
 		name: "[Gen 8] 2.3 OU",
 		mod: 'gen8rr2.3',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
@@ -310,8 +321,14 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Draft",
+		name: "[Gen 9] 4.1 Draft",
 		mod: 'gen9rr',
+		searchShow: false,
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
+	},
+	{
+		name: "[Gen 9] 4.0 Draft",
+		mod: 'gen9rr4.0',
 		searchShow: false,
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
 	},

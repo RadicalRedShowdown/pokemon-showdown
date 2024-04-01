@@ -6028,7 +6028,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "steelbeam", "bodypress", "thunderbolt", "stealthrock", "thunderwave"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["dracometeor", "steelbeam", "protect", "snarl", "thunderbolt"],
-		tier: "UU",
+		tier: "Illegal",
+		isNonstandard: "Past",
 	},
 	duraludongmax: {
 		isNonstandard: "Gigantamax",
@@ -6483,7 +6484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	baxcalibur: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -6815,7 +6816,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poltchageist: {
 		tier: "LC",
 	},
-
-
+	ogerpon: {
+		tier: "RU",
+	},
+	ogerponwellspring: {
+		tier: "UU",
+	},
+	ogerponcornerstone: {
+		tier: "UU"
+	},
+	ogerponhearthflame: {
+		tier: "OU"
+	}
 };
 
