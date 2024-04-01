@@ -127,14 +127,15 @@ export const Items: {[k: string]: ModdedItemData} = {
 		isNonstandard: "Unobtainable",
 	},
 	burntseed: {
-		num: -12,
 		name: "Burnt Seed",
+		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (user.species.baseSpecies !== 'Sunflora') return
-			if (move && move.type === 'Fire') {
+			if (user.species.baseSpecies === 'Sunflora' && move.type === 'Fire') {
 				return this.chainModify(1.5);
 			}
 		},
+		gen: 9,
+		shortDesc: "If held by a Sunflora, its Fire-type attacks have 1.5x power.",
 	},
 	cameruptite: {
 		inherit: true,
@@ -239,13 +240,14 @@ export const Items: {[k: string]: ModdedItemData} = {
 	electirizer: {
 		inherit: true,
 		isNonstandard: null,
-		itemUser: ["Electivire"],
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
-			if (move && move.type === 'Fighting' && user.species.baseSpecies === 'Electivire') {
+			if (user.species.baseSpecies === 'Electivire' && move.type === 'Fighting') {
 				return this.chainModify(1.5);
 			}
 		},
+		itemUser: ["Electivire"],
+		shortDesc: "If held by an Electivire, its Fighting-type attacks have 1.5x power."
 	},
 	electriumz: {
 		inherit: true,
@@ -516,19 +518,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				this.boost({spe: -1}, target)
 			}
 		},
-		condition: {
-			onStart(pokemon) {
-				if (pokemon.terastallized) return false;
-				this.add('-start', pokemon, 'Tar Shot');
-			},
-			onEffectivenessPriority: -2,
-			onEffectiveness(typeMod, target, type, move) {
-				if (move.type !== 'Fire') return;
-				if (!target) return;
-				if (type !== target.getTypes()[0]) return;
-				return typeMod + 1;
-			},
-		},
+		shortDesc: "If held by a Magmortar, its Fire-type attacks have Tar Shot's effects.",
 	},
 	magostberry: {
 		inherit: true,
@@ -913,6 +903,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	// RR items
 	leekstick: {
 		name: "Leek Stick",
+		spritenum: 475,
 		onModifyCritRatio(critRatio, user) {
 			if (this.toID(user.baseSpecies.baseSpecies) === 'farfetchd') {
 				return critRatio + 1;
@@ -929,8 +920,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		fling: {
 			basePower: 60,
 		},
-		spritenum: 475,
-		
 		itemUser: ["Farfetch\u2019d", "Farfetch\u2019d-Galar", "Sirfetch\u2019d"],
 		gen: 8,
 		desc: "If held by a Farfetch’d, its critical hit ratio is raised by 1 stage and it gets a 1.5x speed boost. If held by Sirfetch'd, its critical hit ratio is raised by 2 stages and its speed isn't changed.",
