@@ -67874,6 +67874,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["9M"],
 			terablast: ["9M"],
 			withdraw: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 		},
 	},
 	poltchageist: {
@@ -67917,6 +67920,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9M"],
 			withdraw: ["9L1"],
 			willowisp: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 		},
 	},
 	poltchageistartisan: {
@@ -67959,6 +67965,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 		},
 	},
 	sinistcha: {
@@ -68004,6 +68013,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			willowisp: ["9M"],
 		},
 	},
@@ -68049,6 +68061,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			terablast: ["9M"],
 			trickroom: ["9M"],
 			uproar: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			withdraw: ["9L1"],
 		},
 	},
@@ -68119,6 +68134,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			upperhand: ["9M"],
 			uproar: ["9M"],
+			hiddenpower: ["9M"],
+			return: ["9M"],
 			machpunch: ["9L1"],
 			poweruppunch: ["9M"],
 		},
@@ -68135,6 +68152,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			facade: ["9M"],
 			fakeout: ["9L1"],
 			flatter: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			fling: ["9M"],
 			focusblast: ["9M"],
 			futuresight: ["9M", "9L64", "9S0"],
@@ -68175,7 +68195,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["9M"],
 			terablast: ["9M"],
 			thief: ["9M"],
-			toxic: ["9M"],
 			trailblaze: ["9M"],
 			trick: ["9M"],
 			uproar: ["9M"],
@@ -68195,6 +68214,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			airslash: ["9M"],
 			alluringvoice: ["9M"],
 			attract: ["9L16"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			beatup: ["9L48", "9S0"],
 			bravebird: ["9M"],
 			calmmind: ["9M"],
@@ -68245,7 +68267,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			taunt: ["9M"],
 			terablast: ["9M"],
 			thief: ["9M"],
-			toxic: ["9M"],
 			uproar: ["9M"],
 			uturn: ["9M"],
 			venoshock: ["9M"],
@@ -68259,6 +68280,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	ogerpon: {
 		learnset: {
 			brickbreak: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			bulletseed: ["9M"],
 			charm: ["9M"],
 			counter: ["9L1"],
@@ -68334,6 +68358,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	archaludon: {
 		learnset: {
 			aurasphere: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			breakingswipe: ["9M", "9L24"],
@@ -68393,6 +68420,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	hydrapple: {
 		learnset: {
 			astonish: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			breakingswipe: ["9M"],
@@ -68450,6 +68480,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	gougingfire: {
 		learnset: {
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			ancientpower: ["9L1"],
 			bite: ["9L21"],
 			bodyslam: ["9M"],
@@ -68515,6 +68548,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	ragingbolt: {
 		learnset: {
 			ancientpower: ["9L1"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			bodypress: ["9M", "9L84"],
 			bodyslam: ["9M"],
 			breakingswipe: ["9M"],
@@ -68573,6 +68609,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	ironboulder: {
 		learnset: {
 			aerialace: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			agility: ["9M", "9L21"],
 			airslash: ["9M"],
 			bodyslam: ["9M"],
@@ -68627,6 +68666,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 		learnset: {
 			agility: ["9M"],
 			airslash: ["9M"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			bodyslam: ["9M"],
 			brickbreak: ["9M"],
 			bulldoze: ["9M"],
@@ -68680,6 +68722,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	terapagos: {
 		learnset: {
 			ancientpower: ["9L10"],
+			hiddenpower: ["9M"],
+			toxic: ["9M"],
+			return: ["9M"],
 			aurasphere: ["9M"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
@@ -68730,7 +68775,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			takedown: ["9M"],
 			thunder: ["9M"],
 			thunderbolt: ["9M"],
-			toxic: ["9M"],
 			triattack: ["9L1"],
 			waterpulse: ["9M", "9S0"],
 			weatherball: ["9M"],
@@ -68745,6 +68789,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			acidspray: ["9M"],
 			astonish: ["9L1"],
 			curse: ["9M"],
+			hiddenpower: ["9M"],
+			return: ["9M"],
 			defensecurl: ["9L1"],
 			destinybond: ["9L16"],
 			endure: ["9M"],

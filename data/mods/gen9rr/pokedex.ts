@@ -4521,7 +4521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	terapagos: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
+		baseStats: {hp: 110, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
 		abilities: {0: "Tera Shell"},
 	},
 	archaludon: {
