@@ -8303,6 +8303,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			cut: ["9M"],
 			explosion: ["9M"],
 			facade: ["9M"],
+			drillrun: ["9T"],
 			frostbreath: ["9M"],
 			snowscape: ["9M"],
 			hiddenpower: ["9M"],
@@ -16457,6 +16458,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			meanlook: ["9L41"],
 			mirrormove: ["9E"],
 			nightshade: ["9L21"],
+			nastyplot: ["9T"],
+			hurricane: ["9M"],
 			nightslash: ["9L35"],
 			peck: ["9L1"],
 			perishsong: ["9E"],
@@ -17869,6 +17872,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	sneaselhisui: {
 		learnset: {
+			acrobatics: ["9T"],
 			aerialace: ["9M"],
 			agility: ["9L20"],
 			aurasphere: ["9T"],
@@ -31266,6 +31270,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			blizzard: ["9M"],
 			block: ["9T"],
 			bodyslam: ["9T", "9L29"],
+			spikes: ["9M"],
 			bulldoze: ["9M"],
 			confide: ["9T"],
 			dig: ["9M"],
@@ -62419,6 +62424,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	sneasler: {
 		learnset: {
 			aerialace: ["9M"],
+			acrobatics: ["9T"],
 			agility: ["9L20"],
 			aurasphere: ["9T"],
 			brickbreak: ["9M"],
@@ -66722,6 +66728,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			screech: ["9T", "9L35"],
 			sleeptalk: ["9M"],
 			sludgewave: ["9M", "9L49"],
+			sludgebomb: ["9M"],
 			solarbeam: ["9M"],
 			strugglebug: ["9L7"],
 			substitute: ["9M"],
@@ -67010,6 +67017,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			return: ["9M"],
 			reversal: ["9T"],
 			shadowball: ["9M"],
+			swordsdance: ["9T"],
 			shadowclaw: ["9M"],
 			shadowsneak: ["9L1"],
 			sleeptalk: ["9M"],
