@@ -67880,7 +67880,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["9M"],
 			sweetscent: ["9L1"],
 			takedown: ["9M"],
-			terablast: ["9M"],
+			
 			withdraw: ["9L1"],
 			hiddenpower: ["9M"],
 			toxic: ["9M"],
@@ -67923,7 +67923,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			spite: ["9M"],
 			stunspore: ["9L1"],
 			substitute: ["9M"],
-			terablast: ["9M"],
+			
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
@@ -67969,7 +67969,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			spite: ["9M"],
 			stunspore: ["9L1"],
 			substitute: ["9M"],
-			terablast: ["9M"],
+			
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
@@ -68017,7 +68017,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			strengthsap: ["9L42"],
 			stunspore: ["9L1"],
 			substitute: ["9M"],
-			terablast: ["9M"],
+			
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			withdraw: ["9L1"],
@@ -68066,7 +68066,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			strengthsap: ["9L42"],
 			stunspore: ["9L1"],
 			substitute: ["9M"],
-			terablast: ["9M"],
+			
 			trickroom: ["9M"],
 			uproar: ["9M"],
 			hiddenpower: ["9M"],
@@ -68134,7 +68134,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			superpower: ["9L64", "9S0"],
 			takedown: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			thief: ["9M"],
 			throatchop: ["9M"],
 			thunderfang: ["9M"],
@@ -68201,7 +68201,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["9M"],
 			swift: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			thief: ["9M"],
 			trailblaze: ["9M"],
 			trick: ["9M"],
@@ -68273,7 +68273,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			tailwind: ["9M"],
 			takedown: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			thief: ["9M"],
 			uproar: ["9M"],
 			uturn: ["9M"],
@@ -68345,7 +68345,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			synthesis: ["9L42"],
 			takedown: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			throatchop: ["9M", "9L36"],
 			trailblaze: ["9M"],
 			uturn: ["9M"],
@@ -68419,7 +68419,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			substitute: ["9M"],
 			swordsdance: ["9M"],
 			takedown: ["9M"],
-			terablast: ["9M"],
+			
 			thunder: ["9M"],
 			thunderbolt: ["9M"],
 			thunderwave: ["9M"],
@@ -68480,7 +68480,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["9M"],
 			sweetscent: ["9L1"],
 			takedown: ["9M"],
-			terablast: ["9M"],
+			
 			uproar: ["9M"],
 			withdraw: ["9L1"],
 			yawn: ["9L1"],
@@ -68548,7 +68548,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sunnyday: ["9M", "9L1"],
 			takedown: ["9M"],
 			temperflare: ["9M"],
-			terablast: ["9M"],
+			
 			thunderfang: ["9M"],
 			weatherball: ["9M"],
 		},
@@ -68601,7 +68601,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			supercellslam: ["9M"],
 			takedown: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			thunder: ["9M", "9L91"],
 			thunderbolt: ["9M"],
 			thunderclap: ["9L49", "9S0"],
@@ -68663,7 +68663,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["9M", "9L63", "9S0"],
 			takedown: ["9M"],
 			taunt: ["9M"],
-			terablast: ["9M"],
+			
 			throatchop: ["9M"],
 			wildcharge: ["9M"],
 			xscissor: ["9M"],
@@ -68720,7 +68720,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["9M"],
 			tachyoncutter: ["9L56", "9S0"],
 			takedown: ["9M"],
-			terablast: ["9M"],
+			
 			voltswitch: ["9M", "9L70", "9S0"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9M"],
@@ -68827,7 +68827,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			smog: ["9L1"],
 			spite: ["9M"],
 			substitute: ["9M"],
-			terablast: ["9M"],
+			
 			toxic: ["9M", "9L56", "9S0"],
 			venoshock: ["9M"],
 			withdraw: ["9L8"],

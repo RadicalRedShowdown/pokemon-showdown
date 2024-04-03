@@ -177,6 +177,12 @@ export const Formats: FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] 4.0 UU",
+		mod: 'gen9rr4.0',
+		ruleset: ['[Gen 9] OU'],
+		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock',],
+	},
+	{
 		name: "[Gen 8] 2.3 OU",
 		mod: 'gen8rr2.3',
 		ruleset: ['Standard', 'Dynamax Clause', 'Z-Move Clause'],
