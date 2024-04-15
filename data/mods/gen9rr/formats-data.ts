@@ -6781,7 +6781,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ironcrown: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	archadulon: {
 		tier: "OU",
