@@ -3305,11 +3305,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	regigigas: {
-		randomBattleLevel: 88,
+		randomBattleLevel: 76,
 		randomBattleMoves: ["bodyslam", "darkestlariat", "thunderwave", "protect", "substitute", "toxic"],
-		randomDoubleBattleLevel: 88,
+		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["bodyslam", "knockoff", "protect", "thunderwave"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	giratina: {
 		randomBattleLevel: 76,
@@ -6787,7 +6787,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ursalunabloodmoon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	hydrapple: {
 		tier: "OU",
