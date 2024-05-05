@@ -21,6 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "No additional effect.",
+		isNonstandard: null,
 	},
 	armthrust: {
 		inherit: true,
@@ -120,7 +121,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 100,
 		type: "Dark",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: {
 			chance: 40,
@@ -713,7 +714,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
 		secondary: null,
