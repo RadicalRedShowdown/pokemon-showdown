@@ -1,15 +1,4 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
-	adaptability: {
-		inherit: true,
-		onModifySTAB(stab, source, target, move) {
-			if (move.forceSTAB || source.hasType(move.type)) {
-				if (stab === 2) {
-					return 2.25;
-				}
-				return 2;
-			}
-		},
-	},
 	badcompany: {
 		onTryBoost(boost, target, source, effect) {
 			if (source && target !== source) return;
