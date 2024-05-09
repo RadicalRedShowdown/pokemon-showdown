@@ -311,20 +311,17 @@ export const Scripts: ModdedBattleScriptsData = {
 			baseDamage = this.battle.randomizer(baseDamage);
 
 			// STAB
-			if (move.forceSTAB || (type !== '???' &&
-				(pokemon.hasType(type) || (pokemon.terastallized && pokemon.getTypes(false, true).includes(type))))) {
-				// The "???" type never gets STAB
-				// Not even if you Roost in Gen 4 and somehow manage to use
-				// Struggle in the same turn.
-				// (On second thought, it might be easier to get a MissingNo.)
-
-				let stab = move.stab || 1.5;
-				if (type === pokemon.terastallized && pokemon.getTypes(false, true).includes(type)) {
-					// In my defense, the game hardcodes the Adaptability check like this, too.
-					stab = stab === 2 ? 2.25 : 2;
-				} else if (pokemon.terastallized && type !== pokemon.terastallized) {
+			// The "???" type never gets STAB
+			// Not even if you Roost in Gen 4 and somehow manage to use
+			// Struggle in the same turn.
+			// (On second thought, it might be easier to get a MissingNo.)
+			if (type !== '???') {
+				let stab: number | [number, number] = 1;
+				const isSTAB = move.forceSTAB || pokemon.hasType(type) || pokemon.getTypes(false, true).includes(type);
+				if (isSTAB) {
 					stab = 1.5;
 				}
+				stab = this.battle.runEvent('ModifySTAB', pokemon, target, move, stab);
 				baseDamage = this.battle.modify(baseDamage, stab);
 			}
 
