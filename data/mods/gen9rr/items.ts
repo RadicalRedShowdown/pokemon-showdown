@@ -853,6 +853,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 			return this.chainModify(1.5);
 		},
 		condition: {
+			name: "upgrade",
 			duration: 1,
 			noCopy: true,
 			onDisableMove(pokemon) {

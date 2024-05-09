@@ -47,7 +47,6 @@ interface MoveFlags {
 	heal?: 1; // Prevented from being executed or selected during Heal Block's effect.
 	metronome?: 1; // Can be selected by Metronome.
 	kick?: 1; // Power is multiplied by 1.3 when used by a Pokemon with the Ability Striker.
-	metronome?: 1; // Can be selected by Metronome.
 	mirror?: 1; // Can be copied by Mirror Move.
 	mustpressure?: 1; // Additional PP is deducted due to Pressure when it ordinarily would not.
 	noassist?: 1; // Cannot be selected by Assist.
@@ -592,7 +591,7 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 
 		if (!this.gen) {
 			// special handling for gen8 gmax moves (all of them have num 1000 but they are part of gen8)
-			if (this.num >= 827 && !this.isMax) {
+			if ((this.num >= 827 && !this.isMax)) {
 				this.gen = 9;
 			} else if (this.num >= 743) {
 				this.gen = 8;

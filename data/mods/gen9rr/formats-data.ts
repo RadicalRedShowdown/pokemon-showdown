@@ -3305,11 +3305,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	regigigas: {
-		randomBattleLevel: 88,
+		randomBattleLevel: 76,
 		randomBattleMoves: ["bodyslam", "darkestlariat", "thunderwave", "protect", "substitute", "toxic"],
-		randomDoubleBattleLevel: 88,
+		randomDoubleBattleLevel: 76,
 		randomDoubleBattleMoves: ["bodyslam", "knockoff", "protect", "thunderwave"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	giratina: {
 		randomBattleLevel: 76,
@@ -6028,7 +6028,8 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["dracometeor", "steelbeam", "bodypress", "thunderbolt", "stealthrock", "thunderwave"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["dracometeor", "steelbeam", "protect", "snarl", "thunderbolt"],
-		tier: "UU",
+		tier: "Illegal",
+		isNonstandard: "Past",
 	},
 	duraludongmax: {
 		isNonstandard: "Gigantamax",
@@ -6483,7 +6484,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	baxcalibur: {
-		tier: "OU",
+		tier: "Uber",
 		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
@@ -6780,13 +6781,13 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "OU",
 	},
 	ironcrown: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	archadulon: {
 		tier: "OU",
 	},
 	ursalunabloodmoon: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	hydrapple: {
 		tier: "OU",
@@ -6815,7 +6816,17 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	poltchageist: {
 		tier: "LC",
 	},
-
-
+	ogerpon: {
+		tier: "RU",
+	},
+	ogerponwellspring: {
+		tier: "UU",
+	},
+	ogerponcornerstone: {
+		tier: "UU"
+	},
+	ogerponhearthflame: {
+		tier: "OU"
+	}
 };
 

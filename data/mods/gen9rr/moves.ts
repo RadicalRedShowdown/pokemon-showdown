@@ -199,6 +199,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	cut: {
 		inherit: true,
+		isNonstandard: null,
 		accuracy: 100,
 		basePower: 75,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
@@ -2615,9 +2616,17 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
+	vcreate: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	supercellslam: {
 		inherit: true,
 		basePower: 120,
+	},
+	matchagotcha: {
+		inherit: true,
+		accuracy: 100,
 	},
 };
 

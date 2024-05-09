@@ -2095,7 +2095,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	skuntank: {
 		inherit: true,
 		baseStats: {hp: 103, atk: 93, def: 67, spa: 91, spd: 61, spe: 84},
-		abilities: {0: "Stench", 1: "Aftermath", H: "Frisk"},
+		abilities: {0: "Stench", 1: "Aftermath", H: "Toxic Chain"},
 		items: {5: "Pecha Berry", 50: "None"},
 		evoLevel: 28,
 	},
@@ -4521,7 +4521,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	terapagos: {
 		inherit: true,
-		baseStats: {hp: 95, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
+		baseStats: {hp: 110, atk: 95, def: 110, spa: 105, spd: 110, spe: 85},
 		abilities: {0: "Tera Shell"},
 	},
 	archaludon: {

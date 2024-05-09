@@ -21,6 +21,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Water",
 		contestType: "Tough",
 		shortDesc: "No additional effect.",
+		gen: 8,
 	},
 	armthrust: {
 		inherit: true,
@@ -120,13 +121,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 100,
 		type: "Dark",
 		priority: 0,
-		flags: {protect: 1, mirror: 1, authentic: 1},
+		flags: {protect: 1, mirror: 1},
 		target: "normal",
 		secondary: {
 			chance: 40,
 			status: 'slp',
 		},
 		shortDesc: "40% chance to inflict sleep, bypasses substitute.",
+		gen: 8,
 	},
 	diamondstorm: {
 		inherit: true,
@@ -227,6 +229,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Psychic",
 		flags: {},
 		pp: 5,
+		gen: 8,
 		priority: 0,
 		onHit(target) {
 			const possibleMoves = ['Dark Hole', 'Healing Wish', 'No Retreat', 'Quiver Dance', 'Roar of Time', 'Shell Smash', 'Soul Robbery', 'Tail Glow'];
@@ -681,6 +684,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		num: 854,
 		accuracy: 100,
 		basePower: 0,
+		gen: 8,
 		basePowerCallback(pokemon, target) {
 			let ratio = Math.floor(pokemon.getStat('spe') / target.getStat('spe'));
 			if (!isFinite(ratio)) ratio = 0;
@@ -707,13 +711,14 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	soulrobbery: {
 		num: 852,
+		gen: 8,
 		accuracy: 100,
 		basePower: 100,
 		category: "Special",
 		name: "Soul Robbery",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, authentic: 1},
+		flags: {contact: 1, protect: 1, mirror: 1},
 		stealsBoosts: true,
 		// Boost stealing implemented in scripts.js
 		secondary: null,
