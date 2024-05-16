@@ -4546,7 +4546,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	frillish: {
 		inherit: true,
-		abilities: {0: "Water Absorb", 1: "Damp", H: "Damp"},
+		abilities: {0: "Water Absorb", 1: "Damp", H: "Water Bubble"},
 	},
 	ironcrown: {
 		inherit: true,

@@ -102,6 +102,7 @@ export const Formats: FormatList = [
 			'Aipom', 'Corsola-Galar', 'Cutiefly', 'Gligar', 'Goldeen', 'Gothita',
 			'Kubfu', 'Meditite', 'Meowth-Alola', 'Misdreavus', 'Murkrow', 'Rotom', 'Rufflet',
 			'Scyther', 'Sneasel', 'Swirlix', 'Tangela', 'Type: Null', 'Yanma', 'Poipole', 'Woobat', 'Cherubi', 'Basculin', 'Basculin-Blue-Striped', 'Dunsparce', 'Girafarig', 'Basculin-White-Striped', 'Stantler', 'Qwilfish-Hisui',
+			'Duraludon',
 			// abilities
 			'Chlorophyll',
 			// moves
@@ -109,6 +110,7 @@ export const Formats: FormatList = [
 			// items
 			'Leek Stick',
 		],
+		unbanlist: ['Berry Juice'],
 	},
 	{
 		name: "[Gen 9] Monotype",
