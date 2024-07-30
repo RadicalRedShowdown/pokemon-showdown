@@ -739,7 +739,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	terashell: {
 		inherit: true,
 		onEffectiveness(typeMod, target, type, move) {
-			if (!target || target.species.name !== 'Terapagos-Terastal') return;
+			if (!target || target.species.baseSpecies !== 'terapagos') return;
 			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
 			if (move.category === 'Status') return;
 			if (!target.runImmunity(move.type)) return; // immunity has priority
