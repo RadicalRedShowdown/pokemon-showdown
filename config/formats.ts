@@ -78,13 +78,22 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Ubers",
 		mod: 'gen9rr',
 		ruleset: ['Standard', 'Dynamax Clause', 'Arceus Forme Clause', "Mega Rayquaza Clause",],
-		banlist: ['AG', 'Moody', "Assist", "Pheonix Down", "Dark Hole",],
+		banlist: [
+			'AG', 'Moody', 
+			"Assist", "Pheonix Down", "Dark Hole",
+			'Koraidon'
+		],
 	},
 	{
 		name: "[Gen 9] UU",
 		mod: 'gen9rr',
 		ruleset: ['[Gen 9] OU'],
-		banlist: ['OU', 'UUBL', 'Drought', 'Drizzle', 'Forecast', 'Icy Rock',],
+		banlist: [
+			'OU', 'UUBL', 
+			'Drought', 'Drizzle', 'Arena Trap', 
+			'Icy Rock', 'Damp Rock', 'Heat Rock', 
+			'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker'
+		],
 	},
 	{
 		name: "[Gen 9] RU",
@@ -92,7 +101,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause',],
 		banlist: ['AG', 'Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Trick Room', 'Light Clay', 'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 		'Swagger', 'Dark Hole',  'Hydro Cannon', 'Blast Burn', 'Frenzy Plant',  'Last Respects', 'Shed Tail', 
-		'Drought', 'Drizzle', 'Forecast', 'Icy Rock',],
+		'Drought', 'Drizzle', 'Forecast', 'Icy Rock', 'Damp Rock', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 9] LC",
