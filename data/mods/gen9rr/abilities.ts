@@ -736,18 +736,4 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
 		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
-	terashell: {
-		inherit: true,
-		onEffectiveness(typeMod, target, type, move) {
-			if (!target || target.species.baseSpecies !== 'terapagos') return;
-			if (this.effectState.resisted) return -1; // all hits of multi-hit move should be not very effective
-			if (move.category === 'Status') return;
-			if (!target.runImmunity(move.type)) return; // immunity has priority
-			if (target.hp < target.maxhp) return;
-
-			this.add('-activate', target, 'ability: Tera Shell');
-			this.effectState.resisted = true;
-			return -1;
-		},
-	},	
 };

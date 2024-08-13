@@ -5958,6 +5958,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	alakazam: {
 		learnset: {
+			aurasphere: ["9T"],
 			bodyslam: ["9T"],
 			calmmind: ["9M", "9L41"],
 			chargebeam: ["9M"],
@@ -28379,6 +28380,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			poweruppunch: ["9M"],
 			protect: ["9M"],
 			psychic: ["9M", "9L38"],
+			psychicfangs: ["9M"],
 			psychocut: ["9T"],
 			psychup: ["9T"],
 			psyshock: ["9M"],
@@ -32760,7 +32762,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			whirlpool: ["9T"],
 			spikes: ["9M", "9T"],
-			
 		},
 	},
 	munchlax: {
@@ -47383,7 +47384,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
-			sludgewave: ["9M"],
 		},
 	},
 	greninjaash: {
@@ -68169,6 +68169,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	},
 	okidogi: {
 		learnset: {
+			aurasphere: ["9T"],
 			bite: ["9L1"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
@@ -68243,6 +68244,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 	munkidori: {
 		learnset: {
 			acidspray: ["9M"],
+			aurasphere: ["9T"],
 			batonpass: ["9M"],
 			calmmind: ["9M"],
 			clearsmog: ["9L24"],
