@@ -1127,7 +1127,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["futuresight", "recover", "hurricane", "uturn", "freezingglare", "calmmind", "focusblast"],
 		randomDoubleBattleLevel: 86,
 		randomDoubleBattleMoves: ["calmmind", "freezingglare", "hurricane", "recover", "tailwind", "focusblast"],
-		tier: "RU",
+		tier: "NU",
 	},
 	zapdos: {
 		randomBattleLevel: 80,
@@ -1593,7 +1593,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["powergem", "stealthrock", "recover", "scald", "toxic"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["icywind", "strengthsap", "recover", "scald", "toxic"],
-		tier: "RU",
+		tier: "NU",
 	},
 	corsolagalar: {
 		randomBattleLevel: 84,
@@ -4090,7 +4090,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["earthquake", "poltergeist", "dynamicpunch", "heatcrash", "stealthrock", "stoneedge"],
 		randomDoubleBattleLevel: 86,
 		randomDoubleBattleMoves: ["dynamicpunch", "earthquake", "highhorsepower", "icepunch", "poltergeist", "protect"],
-		tier: "RU",
+		tier: "NU",
 	},
 	pawniard: {
 		tier: "LC",
@@ -5860,7 +5860,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["meteorbeam", "shadowball", "icebeam", "earthpower"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["earthpower", "icebeam", "protect", "shadowball", "meteorbeam", "strengthsap"],
-		tier: "RU",
+		tier: "NU",
 	},
 	sirfetchd: {
 		randomBattleLevel: 86,
@@ -6263,7 +6263,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	electrodehisui: {
-		tier: "RU",
+		tier: "NU",
 	},
 	sliggoohisui: {
 		tier: "NFE",
@@ -6383,7 +6383,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	houndstone: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUU",
 		natDexTier: "RU",
 	},
@@ -6528,7 +6528,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	flamigo: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6572,7 +6572,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	dachsbun: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUU",
 		natDexTier: "RU",
 	},
@@ -6608,7 +6608,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	brutebonnet: {
 		tier: "RU",
 		doublesTier: "DUU",
-		natDexTier: "RU",
+		natDexTier: "NU",
 	},
 	sandyshocks: {
 		tier: "UU",
@@ -6805,7 +6805,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "RU",
 	},
 	dipplin: {
-		tier: "RU",
+		tier: "NU",
 	},
 	fezandipiti: {
 		tier: "UU",

@@ -90,7 +90,7 @@ export const Formats: FormatList = [
 		ruleset: ['[Gen 9] OU'],
 		banlist: [
 			'OU', 'UUBL', 
-			'Drought', 'Drizzle', 'Arena Trap', 
+			'Drought', 'Drizzle', 
 			'Icy Rock', 'Damp Rock', 'Heat Rock', 
 			'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker'
 		],
