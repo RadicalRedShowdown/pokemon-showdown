@@ -481,7 +481,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "uturn", "gunkshot", "icepunch", "stoneedge"],
 		randomDoubleBattleLevel: 85,
 		randomDoubleBattleMoves: ["closecombat", "icepunch", "poisonjab", "rockslide", "stompingtantrum", "stoneedge", "uturn"],
-		tier: "RU",
+		tier: "NU",
 	},
 	growlithe: {
 		tier: "LC",
@@ -975,16 +975,16 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["headcharge", "closecombat", "throatchop", "ironhead", "playrough", "flareblitz"],
 		randomDoubleBattleLevel: 86,
 		randomDoubleBattleMoves: ["headcharge", "playrough", "flareblitz", "closecombat", "throatchop", "protect", "rockslide"],
-		tier: "RU",
+		tier: "NU",
 	},
 	taurospaldeacombat: {
 		tier: "NU",
 	},
 	taurospaldeaaqua: {
-		tier: "RU"
+		tier: "NU"
 	},
 	taurospaldeablaze: {
-		tier: "RU",
+		tier: "NU",
 	},
 	magikarp: {
 		tier: "LC",
@@ -1910,7 +1910,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["fakeout", "knockoff", "leafblade", "suckerpunch", "swordsdance", "tailwind"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["fakeout", "knockoff", "leafblade", "suckerpunch", "swordsdance", "tailwind", "partingshot"],
-		tier: "RU",
+		tier: "NU",
 	},
 	taillow: {
 		tier: "LC",
@@ -3620,7 +3620,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["closecombat", "hammerarm", "knockoff", "earthquake", "stoneedge", "poisonjab"],
 		randomDoubleBattleLevel: 88,
 		randomDoubleBattleMoves: ["closecombat", "hammerarm", "knockoff", "poisonjab", "protect", "rockslide"],
-		tier: "RU",
+		tier: "NU",
 	},
 	sewaddle: {
 		tier: "LC",
@@ -6367,7 +6367,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lokix: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6457,7 +6457,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	orthworm: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6489,7 +6489,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	tatsugiri: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUber",
 		natDexTier: "RU",
 	},
@@ -6505,7 +6505,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	pawmot: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6513,7 +6513,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	kilowattrel: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6541,7 +6541,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	naclstack: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "NFE",
 		natDexTier: "NFE",
 	},
@@ -6606,7 +6606,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	brutebonnet: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "DUU",
 		natDexTier: "NU",
 	},
@@ -6656,7 +6656,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "RU",
 	},
 	ironthorns: {
-		tier: "RU",
+		tier: "NU",
 		doublesTier: "(DUU)",
 		natDexTier: "RU",
 	},
@@ -6766,7 +6766,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	lokixsevii: {
-		tier: "RU",
+		tier: "NU",
 	},
 	nymblesevii: {
 		tier: "LC",
