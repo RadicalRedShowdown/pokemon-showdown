@@ -2122,6 +2122,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zenheadbutt: ["9T"],
 			zippyzap: ["9L55"],
+			psychicnoise: ["9M"],
 		},
 	},
 	pikachupopstar: {
@@ -2655,6 +2656,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	sandshrew: {
@@ -3842,6 +3844,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["9L27"],
 			wildcharge: ["9M"],
 			workup: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	wigglytuff: {
@@ -3927,6 +3930,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			workup: ["9M"],
 			alluringvoice: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	zubat: {
@@ -4370,6 +4374,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9T"],
 			venoshock: ["9M"],
 			zenheadbutt: ["9T", "9L37"],
+			psychicnoise: ["9M"],
 		},
 	},
 	venomoth: {
@@ -4426,6 +4431,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venomdrench: ["9T"],
 			venoshock: ["9M"],
 			zenheadbutt: ["9T", "9L41"],
+			psychicnoise: ["9M"],
 		},
 	},
 	diglett: {
@@ -5071,6 +5077,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			yawn: ["9E"],
 			zenheadbutt: ["9T", "9L25"],
+			psychicnoise: ["9M"],
 		},
 	},
 	golduck: {
@@ -5148,6 +5155,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9T", "9L25"],
 			vacuumwave: ["9T"],
 			knockoff: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	mankey: {
@@ -7353,6 +7361,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			yawn: ["9L1"],
 			zenheadbutt: ["9T", "9L32"],
+			psychicnoise: ["9M"],
 		},
 	},
 	slowbrogalar: {
@@ -8552,6 +8561,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9M"],
 			wonderroom: ["9T"],
 			toxicspikes: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	onix: {
@@ -8696,6 +8706,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["9L29"],
 			wish: ["9E"],
 			zenheadbutt: ["9T", "9L41"],
+			psychicnoise: ["9M"],
 		},
 	},
 	hypno: {
@@ -8769,7 +8780,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wakeupslap: ["9L29"],
 			zenheadbutt: ["9T"],
 			darkvoid: ["9L58"],
-			
+			psychicnoise: ["9M"],
 		},
 	},
 	krabby: {
@@ -9188,6 +9199,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T", "9L1"],
 			wish: ["9E"],
 			worryseed: ["9T", "9L33"],
+			psychicnoise: ["9M"],
 		},
 	},
 	exeggcutealola: {
@@ -9300,6 +9312,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			woodhammer: ["9L37"],
 			worryseed: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	exeggutoralola: {
@@ -9369,6 +9382,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			zenheadbutt: ["9T"],
 			ficklebeam: ["9L50"],
+			psychicnoise: ["9M"],
 		},
 	},
 	cubone: {
@@ -11715,6 +11729,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T", "9E"],
 			wish: ["9L60"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	ditto: {
@@ -12566,6 +12581,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M", "9L70"],
 			uturn: ["9M"],
 			hiddenpower: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	zapdos: {
@@ -13078,6 +13094,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	mew: {
@@ -13327,6 +13344,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	chikorita: {
@@ -14241,6 +14259,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T", "9L39"],
 			workup: ["9M"],
 			zenheadbutt: ["9T", "9L16"],
+			psychicnoise: ["9M"],
 		},
 	},
 	ledyba: {
@@ -16070,6 +16089,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M", "9L49"],
 			whirlwind: ["9E"],
 			wingattack: ["9L43"],
+			psychicnoise: ["9M"],
 		},
 	},
 	wooperpaldea: {
@@ -16377,6 +16397,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	umbreon: {
@@ -16509,6 +16530,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			whirlwind: ["9E"],
 			wingattack: ["9L15", "9E"],
+			psychicnoise: ["9M"],
 		},
 	},
 	slowking: {
@@ -16597,6 +16619,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			yawn: ["9L1"],
 			zenheadbutt: ["9T", "9L32"],
+			psychicnoise: ["9M"],
 		},
 	},
 	slowkinggalar: {
@@ -16666,6 +16689,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			yawn: ["9L9"],
 			zenheadbutt: ["9T", "9L24"],
 			toxicspikes: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	misdreavus: {
@@ -16734,6 +16758,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			willowisp: ["9M"],
 			wonderroom: ["9T", "9E"],
+			psychicnoise: ["9M"],
 		},
 	},
 	unown: {
@@ -16831,6 +16856,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wish: ["9E"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	pineco: {
@@ -20371,6 +20397,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlwind: ["9L1"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	hooh: {
@@ -25236,6 +25263,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9T"],
 			zenheadbutt: ["9T", "9L26"],
+			psychicnoise: ["9M"],
 		},
 	},
 	spinda: {
@@ -25500,6 +25528,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wingattack: ["9L40"],
 			vacuumwave: ["9M"],
 			stealthrock: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	cacnea: {
@@ -27452,6 +27481,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wrap: ["9L1"],
 			yawn: ["9L13"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	absol: {
@@ -28336,6 +28366,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trick: ["9T"],
 			zenheadbutt: ["9T", "9L32"],
+			psychicnoise: ["9M"],
 		},
 	},
 	metagross: {
@@ -28790,6 +28821,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T", "9L41"],
 			flipturn: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	kyogre: {
@@ -29077,6 +29109,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wish: ["9L1"],
 			zenheadbutt: ["9T", "9L35"],
+			psychicnoise: ["9M"],
 		},
 	},
 	deoxys: {
@@ -29170,6 +29203,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wrap: ["9L1"],
 			zapcannon: ["9L61"],
 			zenheadbutt: ["9T", "9L49"],
+			psychicnoise: ["9M"],
 		},
 		eventData: [
 			{generation: 9, level: 85, nature: "Naive", perfectIVs: 6, moves: ["mysticalpower", "extremespeed", "icebeam", "knockoff"], pokeball: "pokeball"},
@@ -30942,6 +30976,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			xscissor: ["9M"],
 			lunge: ["9L39"],
+			psychicnoise: ["9M"],
 		},
 	},
 	pachirisu: {
@@ -31745,6 +31780,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			willowisp: ["9M"],
 			wonderroom: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	honchkrow: {
@@ -31804,6 +31840,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			uturn: ["9M"],
 			wingattack: ["9L1"],
+			psychicnoise: ["9M"],
 		},
 	},
 	glameow: {
@@ -31982,6 +32019,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wrap: ["9L1"],
 			yawn: ["9L13"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	stunky: {
@@ -32174,6 +32212,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["9T"],
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	bronzong: {
@@ -32248,6 +32287,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	bonsly: {
@@ -34507,6 +34547,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			uproar: ["9T", "9L27"],
 			uturn: ["9M", "9L49"],
+			psychicnoise: ["9M"],
 		},
 	},
 	leafeon: {
@@ -35555,6 +35596,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			yawn: ["9L31"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	mesprit: {
@@ -35629,6 +35671,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	azelf: {
@@ -35703,6 +35746,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uturn: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	dialga: {
@@ -41951,6 +41995,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9T", "9E"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	gothorita: {
@@ -42014,6 +42059,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	gothitelle: {
@@ -42083,6 +42129,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			uproar: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	solosis: {
@@ -42279,6 +42326,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wonderroom: ["9T", "9L59"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	ducklett: {
@@ -45246,6 +45294,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
 			vacuumwave: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	vullaby: {
@@ -47203,6 +47252,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	froakie: {
@@ -48171,6 +48221,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			mistyexplosion: ["9M"],
 			pollenpuff: ["9L1"],
+			psychicnoise: ["9M"],
 		},
 	},
 	skiddo: {
@@ -48572,6 +48623,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			yawn: ["9E"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	meowstic: {
@@ -48640,6 +48692,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	meowsticf: {
@@ -48706,6 +48759,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wonderroom: ["9T"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	honedge: {
@@ -49203,6 +49257,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			topsyturvy: ["9L15"],
 			toxic: ["9M"],
 			trickroom: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	binacle: {
@@ -50746,6 +50801,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			worryseed: ["9T"],
 			xscissor: ["9M"],
 			knockoff: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	pumpkaboo: {
@@ -51255,6 +51311,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M"],
 			wingattack: ["9L16"],
 			xscissor: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	noivernsevii: {
@@ -51730,6 +51787,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			wonderroom: ["9T", "9L50"],
 			zenheadbutt: ["9T", "9L46"],
+			psychicnoise: ["9M"],
 		},
 	},
 	hoopaunbound: {
@@ -51805,6 +51863,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			wonderroom: ["9T", "9L50"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	volcanion: {
@@ -52502,6 +52561,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			whirlpool: ["9T"],
 			wonderroom: ["9T"],
 			workup: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	pikipek: {
@@ -53175,6 +53235,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trick: ["9T"],
 			uturn: ["9M"],
 			wonderroom: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	rockruff: {
@@ -54573,6 +54634,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			yawn: ["9E"],
 			zenheadbutt: ["9T", "9L29"],
+			psychicnoise: ["9M"],
 		},
 	},
 	passimian: {
@@ -55419,6 +55481,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9E"],
 			wavecrash: ["9L44"],
 			wonderroom: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	drampa: {
@@ -59172,7 +59235,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			toxicspikes: ["9T"],
-			
+			psychicnoise: ["9M"],
 		},
 	},
 	toxtricitylowkey: {
@@ -59235,6 +59298,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M"],
 			toxicspikes: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	sizzlipede: {
@@ -59815,6 +59879,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
 			moonblast: ["9L54"],
+			psychicnoise: ["9M"],
 		},
 	},
 	impidimp: {
@@ -60790,6 +60855,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			trickroom: ["9M"],
 			wonderroom: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	indeedeef: {
@@ -60838,6 +60904,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			trick: ["9T"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	morpeko: {
@@ -62265,6 +62332,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			zenheadbutt: ["9T", "9L38"],
 			lunge: ["9L44"],
+			psychicnoise: ["9M"],
 		},
 	},
 	kleavor: {
@@ -63688,6 +63756,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			weatherball: ["9T"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	greavard: {
@@ -63965,6 +64034,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			uproar: ["9T"],
 			workup: ["9M"],
 			zenheadbutt: ["9T"],
+			psychicnoise: ["9M"],
 		},
 	},
 	wiglett: {
@@ -66562,6 +66632,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["9T"],
 			mistyexplosion: ["9M"],
 			teleport: ["9M"],
+			psychicnoise: ["9M"],
 		},
 	},
 	fluttermane: {
