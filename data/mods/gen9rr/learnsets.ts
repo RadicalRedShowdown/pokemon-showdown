@@ -65880,6 +65880,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			hiddenpower: ["9M"],
 			irondefense: ["9T"],
 			lightscreen: ["9M"],
+			meteorbeam: ["9T"],
 			mortalspin: ["9L1"],
 			powergem: ["9T", "9L39"],
 			protect: ["9M"],

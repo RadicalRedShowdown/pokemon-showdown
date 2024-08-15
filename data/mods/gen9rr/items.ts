@@ -843,7 +843,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 	},
 	upgrade: {
 		inherit: true,
-		itemUser: ["Porygon"],
+		itemUser: ["Porygon-Z"],
 		onTryMove(source, target, move) {
 			if (source.species.baseSpecies !== 'porygonz') return;
 			source.addVolatile('upgrade')
@@ -860,7 +860,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 				if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 			},
 		},
-		
+		shortDesc: "If held by a Porygon-Z, its Speed is multiplied by 1.5x."
 	},
 	venusaurite: {
 		inherit: true,
