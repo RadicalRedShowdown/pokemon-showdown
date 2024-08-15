@@ -131,7 +131,7 @@ export const Formats: FormatList = [
 			'Damp Rock', 'Icy Rock', 'Smooth Rock', 'Terrain Extender',
 			'Dark Hole', 'Draco Barrage', 'Misty Explosion', 'Zen Mode', 'Booster Energy',
 		],
-		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace', 'Alakazam-Mega', 'Gallade-Mega', 'Pinsir-Mega', 'Walking Wake',],
+		unbanlist: ['Landorus-Base', 'Darmanitan-Galar', 'Deoxys-Speed', 'Cinderace', 'Alakazam-Mega', 'Gallade-Mega', 'Pinsir-Mega', 'Walking Wake', 'Terapagos'],
 	},
 	{
 		name: "[Gen 9] Anything Goes",
