@@ -607,7 +607,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	lusterpurge: {
 		inherit: true,
-		basePower: 85,
+		basePower: 95,
 		isNonstandard: null,
 		pp: 10,
 	},
@@ -639,7 +639,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	mistball: {
 		inherit: true,
-		basePower: 85,
+		basePower: 95,
 		isNonstandard: null,
 		pp: 10,
 	},

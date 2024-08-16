@@ -9740,6 +9740,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			vacuumwave: ["9T"],
 			wideguard: ["9L41"],
 			workup: ["9M"],
+			swordsdance: ["9T"],
 		},
 	},
 	hitmonchan: {
@@ -17240,6 +17241,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			wingattack: ["9E"],
 			xscissor: ["9M", "9L40"],
+			spikes: ["9T"],
+			toxicspikes: ["9T"],
 		},
 	},
 	steelix: {
@@ -47500,7 +47503,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
-			sludgewave: ["9M"],
 		},
 	},
 	greninjabond: {
