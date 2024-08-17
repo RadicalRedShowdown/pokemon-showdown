@@ -147,8 +147,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	bullshitkomove: {
-		accuracy: true,
-		basePower: 0,
+		accuracy: 100,
+		basePower: 100000000000000,
 		category: "Special",
 		name: "Bullshit KO Move",
 		pp: 5,
@@ -156,7 +156,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {mirror: 1, metronome: 1, bypasssub: 1},
 		breaksProtect: true,
 		secondary: null,
-		ohko: 'Fire',
 		target: "normal",
 		type: "Fire",
 		contestType: "Beautiful",
