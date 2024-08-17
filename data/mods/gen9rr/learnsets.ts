@@ -47437,6 +47437,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
+			sludgewave: ["9M"],
 		},
 	},
 	greninjaash: {
@@ -47503,6 +47504,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
+			sludgewave: ["9M"],
 		},
 	},
 	greninjabond: {
@@ -47569,6 +47571,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			waterpulse: ["9L14"],
 			watershuriken: ["9L1"],
 			workup: ["9M"],
+			sludgewave: ["9M"],
 		},
 	},
 	bunnelby: {
