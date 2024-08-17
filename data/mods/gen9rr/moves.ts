@@ -153,7 +153,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		name: "Bullshit KO Move",
 		pp: 5,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, metronome: 1, bypasssub: 1},
+		flags: {mirror: 1, metronome: 1, bypasssub: 1},
 		breaksProtect: true,
 		secondary: null,
 		ohko: 'Fire',
