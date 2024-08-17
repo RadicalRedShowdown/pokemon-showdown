@@ -154,7 +154,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		pp: 1,
 		priority: 0,
 		flags: {mirror: 1, bypasssub: 1},
-		breaksProtect: true,
 		secondary: null,
 		ohko: 'Fire',
 		target: "normal",
