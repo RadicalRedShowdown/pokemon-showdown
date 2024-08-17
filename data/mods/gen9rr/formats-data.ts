@@ -3421,7 +3421,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleLevel: 85,
 		randomBattleMoves: ["flareblitz", "closecombat", "wildcharge", "earthquake", "suckerpunch"],
 		randomDoubleBattleLevel: 85,
-		randomDoubleBattleMoves: ["flareblitz", "headsmash", "heatwave", "protect", "rockslide", "closecombat", "wildcharge", "bsko"],
+		randomDoubleBattleMoves: ["flareblitz", "headsmash", "heatwave", "protect", "rockslide", "closecombat", "wildcharge", "bullshitkomove"],
 		tier: "NUBL",
 	},
 	oshawott: {
