@@ -162,6 +162,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		desc: "Emboar is the GOAT.",
 		shortDesc: "Emboar is the GOAT.",
 		gen: 9,
+		noSketch: true,
 	},
 	chargebeam: {
 		inherit: true,
