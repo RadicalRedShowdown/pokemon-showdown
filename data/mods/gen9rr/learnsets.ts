@@ -29633,6 +29633,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			willowisp: ["9M"],
 			workup: ["9M"],
 			switcheroo: ["9L45"],
+			knockoff: ['9T'],
 		},
 	},
 	piplup: {

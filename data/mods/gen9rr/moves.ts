@@ -1159,7 +1159,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	triplearrows: {
 		inherit: true,
-		flags: {contact: 1, protect: 1, mirror: 1, kick: 1},
+		flags: {protect: 1, mirror: 1, kick: 1},
 	},
 	tripleaxel: {
 		inherit: true,
