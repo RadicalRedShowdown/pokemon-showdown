@@ -738,5 +738,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	terashell: {
 		inherit: true,
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || target.species.name !== 'Terapagos-Terastal') return;
+			if (move.category === 'Status') return;
+			if (!target.runImmunity(move.type)) return; // immunity has priority
+			if (target.hp < target.maxhp) return;
+
+			this.add('-activate', target, 'ability: Tera Shell');
+			this.effectState.resisted = true;
+			return -1;
+		},
+		onAnyAfterMove() {
+			this.effectState.resisted = false;
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, breakable: 1},
+		name: "Tera Shell",
+		rating: 3.5,
+		num: 308,
 	}
 };
