@@ -736,4 +736,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
 		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
+	terashell: {
+		inherit: true,
+	}
 };
