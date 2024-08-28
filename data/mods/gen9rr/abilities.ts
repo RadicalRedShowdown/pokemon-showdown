@@ -466,6 +466,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "This Pokemon receives 1/2 damage from supereffective attacks.",
 	},
+	protosynthesis: {
+		inherit: true,
+		onWeatherChange(pokemon) {
+			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && this.field.weather !== ('sunnyday' || 'desolateland')) {
+				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isWeather respects supression)
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
+	},
 	protean: {
 		inherit: true,
 		onPrepareHit(source, target, move) {
