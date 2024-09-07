@@ -57735,6 +57735,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			swordsdance: ["9M"],
 			tackle: ["9L1"],
 			taunt: ["9M"],
+			temperflare: ["9T"],
 			toxic: ["9M"],
 			trailblaze: ["9M"],
 			uturn: ["9M"],
