@@ -460,7 +460,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	grassyglide: {
 		inherit: true,
-		basePower: 60,
+		basePower: 55,
 	},
 	guillotine: {
 		inherit: true,
