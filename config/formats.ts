@@ -414,6 +414,24 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause'],
 	},
 	{
+		name: "[Gen 9] Balanced Hackmons",
+		desc: `Anything that can be hacked in-game and is usable in local battles is allowed.`,
+
+		mod: 'gen9rr',
+		ruleset: ['-Nonexistent', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Forme Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'Arceus Forme Clause', 'Dynamax Clause', 'Z-Move Clause', 'CFZ Clause'],
+		banlist: [
+			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Dialga-Primal', 'Cramorant-Gorging',
+			// abilities
+			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard',
+			// moves
+			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Sappy Seed', 'Court Change', 'Phoenix Down', 'Belly Drum',
+			// items
+			'Gengarite', 'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Centiskite-Sevii',
+			// other stuff
+			'Comatose + Sleep Talk',
+		],
+	},
+	{
 		name: "[Gen 8] IEDL",
 		desc: `IE Draft League`,
 		mod: 'gen8ie',
