@@ -66857,6 +66857,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L63"],
 			zenheadbutt: ["9T"],
 			highhorsepower: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	ironmoth: {
