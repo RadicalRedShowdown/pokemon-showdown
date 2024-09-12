@@ -333,7 +333,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	dauntlessshield: {
 		name: "Dauntless Shield",
-		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage. Once per battle.",
+		shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
 		gen8: {
 			shortDesc: "On switch-in, this Pokemon's Defense is raised by 1 stage.",
 		},
@@ -800,7 +800,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	intrepidsword: {
 		name: "Intrepid Sword",
-		shortDesc: "On switch-in, this Pokemon's Attack is raised by 1 stage. Once per battle.",
+		shortDesc: "On switch-in, this Pokemon's Attack is raised by 1 stage.",
 		gen8: {
 			shortDesc: "On switch-in, this Pokemon's Attack is raised by 1 stage.",
 		},
