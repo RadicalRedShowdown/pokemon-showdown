@@ -36606,7 +36606,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			xscissor: ["9M"],
 			zenheadbutt: ["9T"],
-			drainingkiss: ["9M"],
 			supercellslam: ["9M"],
 			meteorbeam: ["9T"],
 		},
@@ -38458,7 +38457,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			voltswitch: ["9M"],
 			wildcharge: ["9M", "9L39"],
 			supercellslam: ["9M"],
-			doubleedge: ["9E"],
 		},
 	},
 	blitzlesevii: {
