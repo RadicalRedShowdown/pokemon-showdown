@@ -4389,8 +4389,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Intimidate", 1: "Defiant", H: "Stakeout"},	
 	},
+	tinkatink: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Own Tempo"},
+	},
+	tinkatuff: {
+		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Own Tempo"},
+	},
 	tinkaton: {
 		inherit: true,
+		abilities: {0: "Mold Breaker", 1: "Own Tempo"},
 		baseStats: {hp: 85, atk: 85, def: 87, spa: 70, spd: 105, spe: 94},
 	},
 	tatsugiri: {
