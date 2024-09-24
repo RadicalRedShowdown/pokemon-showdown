@@ -424,7 +424,7 @@ export const Formats: FormatList = [
 			// abilities
 			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Pheonix Down',
 			// moves
-			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Sappy Seed', 'Court Change', 'Belly Drum',
+			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Sappy Seed', 'Court Change', 'Belly Drum', 'Bullshit KO Move',
 			// items
 			'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Centiskite-Sevii',
 			// other stuff
