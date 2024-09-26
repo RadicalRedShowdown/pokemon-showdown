@@ -143,7 +143,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		basePower: 90,
 		pp: 5,
-		flags: {protect: 1, mirror: 1},
+		flags: {protect: 1, mirror: 1, heal: 1},
 		isNonstandard: null,
 	},
 	bullshitkomove: {
