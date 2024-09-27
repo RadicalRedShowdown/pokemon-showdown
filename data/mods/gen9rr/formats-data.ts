@@ -1282,7 +1282,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["nastyplot", "sludgebomb", "hurricane", "heatwave", "roost", "defog", "taunt"],
 		randomDoubleBattleLevel: 84,
 		randomDoubleBattleMoves: ["bravebird", "defog", "roost", "superfang", "tailwind", "taunt"],
-		tier: "UU",
+		tier: "UUBL",
 	},
 	chinchou: {
 		tier: "LC",
