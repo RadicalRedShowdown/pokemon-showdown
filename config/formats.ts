@@ -387,11 +387,11 @@ export const Formats: FormatList = [
 		mod: 'gen8rr3.1',
 		ruleset: ['-Nonexistent', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Forme Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'Arceus Forme Clause', 'Dynamax Clause', 'Z-Move Clause', 'CFZ Clause'],
 		banlist: [
-			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Zacian-Crowned', 'Dialga-Primal', 'Cramorant-Gorging',
+			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Zacian-Crowned', 'Cramorant-Gorging',
 			// abilities
 			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Psychic Surge', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard',
 			// moves
-			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Fishious Rend', 'Dark Hole',
+			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Fishious Rend', 'Dark Hole', 'Shed Tail',
 			// items
 			'Gengarite', 'Kangaskhanite', 'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Red Orb',
 			'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
@@ -420,11 +420,11 @@ export const Formats: FormatList = [
 		mod: 'gen9rr',
 		ruleset: ['-Nonexistent', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Forme Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'Arceus Forme Clause', 'Dynamax Clause', 'Z-Move Clause', 'CFZ Clause'],
 		banlist: [
-			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Dialga-Primal', 'Cramorant-Gorging',
+			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Cramorant-Gorging',
 			// abilities
 			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Pheonix Down',
 			// moves
-			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Sappy Seed', 'Court Change', 'Belly Drum', 'Bullshit KO Move',
+			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Court Change', 'Belly Drum', 'Bullshit KO Move', 'Shed Tail',
 			// items
 			'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Centiskite-Sevii',
 			// other stuff
