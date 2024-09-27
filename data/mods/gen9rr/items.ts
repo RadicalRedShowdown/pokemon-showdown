@@ -852,8 +852,8 @@ export const Items: {[k: string]: ModdedItemData} = {
 			if (pokemon.baseSpecies.id !== 'porygonz') return;
 			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') pokemon.disableMove(pokemon.lastMove.id);
 		},
-		desc: "If held by a Porygon-Z, its Speed is multiplied by 1.5x.",
-		shortDesc: "If held by a Porygon-Z, its Speed is multiplied by 1.5x."
+		desc: "If held by a Porygon-Z, its Speed is multiplied by 1.5x. However, it cannot use the same move consecutively.",
+		shortDesc: "If held by a Porygon-Z, its Speed is multiplied by 1.5x. No consecutive move."
 	},
 	venusaurite: {
 		inherit: true,
