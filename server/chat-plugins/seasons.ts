@@ -334,14 +334,14 @@ export const handlers: Chat.Handlers = {
 			room.add(`|badge|${slot}|${badge.type}|${badge.format}|${BADGE_THRESHOLDS[badge.type]}-${data.current.season}`);
 		}
 
-		if (checkPublicPhase() && !room.battle.forcedSettings.privacy) {
+	/* 	if (checkPublicPhase() && !room.battle.forcedSettings.privacy) {
 			room.battle.forcedSettings.privacy = 'medal';
 			room.add(
 				`|html|<div class="broadcast-red"><strong>This battle is required to be public due to one or more player having a season medal.</strong><br />` +
 				`During the public phase, you can discuss the state of the ladder <a href="/seasondiscussion">in a special chatroom.</a></div>`
 			);
 			room.setPrivate(false);
-		}
+		} */
 
 		room.add(
 			`|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons!` +
