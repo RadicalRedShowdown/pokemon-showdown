@@ -62936,6 +62936,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 				uturn: ["9M"],
 				weatherball: ["9T"],
 				alluringvoice: ["9M"],
+			},
 		},
 	sprigatito: {
 		learnset: {
