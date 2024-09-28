@@ -148,7 +148,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	bullshitkomove: {
 		accuracy: 100,
-		basePower: 1,
+		basePower: 100000000000,
 		category: "Special",
 		name: "Bullshit Move",
 		pp: 1,
