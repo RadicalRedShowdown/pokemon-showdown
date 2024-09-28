@@ -426,7 +426,7 @@ export const Formats: FormatList = [
 			// moves
 			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Court Change', 'Belly Drum', 'Bullshit KO Move', 'Shed Tail',
 			// items
-			'Rusted Sword', 'Adamant Orb', 'Eternamax Orb', 'Centiskite-Sevii',
+			'Rusted Sword', 'Eternamax Orb', 'Centiskite-Sevii',
 			// other stuff
 			'Comatose + Sleep Talk',
 		],
