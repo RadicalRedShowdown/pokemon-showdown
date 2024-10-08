@@ -420,11 +420,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 2.5,
 		shortDesc: "Attacks that can poison also heal for 50% of the damage dealt.",
 	},
-	pheonixdown: {
+	phoenixdown: {
 		onBeforeFaint(pokemon, effect) {
-			if (this.effectState.pheonixDownActivated) return;
-			this.effectState.pheonixDownActivated = true;
-			this.add('-activate', pokemon, 'ability: Pheonix Down', pokemon);
+			if (this.effectState.phoenixDownActivated) return;
+			this.effectState.phoenixDownActivated = true;
+			this.add('-activate', pokemon, 'ability: Phoenix Down', pokemon);
 			pokemon.hp = this.trunc(pokemon.maxhp / 2);
 			pokemon.clearStatus();
 			this.add('-sethp', pokemon, pokemon.getHealth, '[silent]');
@@ -436,7 +436,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return false;
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
-		name: "Pheonix Down",
+		name: "Phoenix Down",
 		gen: 8,
 		rating: 5,
 		desc: "Once per battle, this Pokemon restores 1/2 of its maximum HP, rounded down, has its non-volatile status condition cured, and has its stat stages reset to 0 instead of fainting.",

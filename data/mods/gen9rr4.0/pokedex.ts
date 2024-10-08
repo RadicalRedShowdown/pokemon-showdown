@@ -1300,7 +1300,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hooh: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Regenerator", H: "Pheonix Down"},
+		abilities: {0: "Pressure", 1: "Regenerator", H: "Phoenix Down"},
 		items: {5: "Sacred Ash", 50: "Sacred Ash"},
 	},
 	celebi: {

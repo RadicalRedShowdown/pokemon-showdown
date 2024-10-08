@@ -1308,7 +1308,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	hooh: {
 		inherit: true,
-		abilities: {0: "Pressure", 1: "Regenerator", H: "Pheonix Down"},
+		abilities: {0: "Pressure", 1: "Regenerator", H: "Phoenix Down"},
 		items: {5: "Sacred Ash", 50: "Sacred Ash"},
 	},
 	celebi: {
@@ -4580,6 +4580,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ursalunabloodmoon: {
 		inherit: true,
+		baseStats: {hp: 113, atk: 70, def: 120, spa: 140, spd: 65, spe: 52},
 		abilities: {0: "Scrappy"},
 	},
 	dipplin: {
