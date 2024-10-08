@@ -2545,10 +2545,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
-	conversion: {
-		inherit: true,
-		isNonstandard: null,
-	},
 	conversion2: {
 		inherit: true,
 		isNonstandard: null,
