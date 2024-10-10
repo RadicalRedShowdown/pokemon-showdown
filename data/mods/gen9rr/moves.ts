@@ -2636,7 +2636,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	supercellslam: {
 		num: 916,
 		accuracy: 95,
-		basePower: 100,
+		basePower: 120,
 		category: "Physical",
 		name: "Supercell Slam",
 		pp: 15,
