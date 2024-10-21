@@ -420,13 +420,13 @@ export const Formats: FormatList = [
 		mod: 'gen9rr',
 		ruleset: ['-Nonexistent', '2 Ability Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Forme Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Endless Battle Clause', 'Arceus Forme Clause', 'Dynamax Clause', 'Z-Move Clause', 'CFZ Clause'],
 		banlist: [
-			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Shedinja', 'Rayquaza-Mega', 'Cramorant-Gorging',
+			'Eternatus-Eternamax', 'Groudon-Primal', 'Calyrex-Shadow', 'Darmanitan-Galar-Zen', 'Rayquaza-Mega', 'Cramorant-Gorging',
 			// abilities
 			'Arena Trap', 'Cash Splash', 'Contrary', 'Feline Prowess', 'Gorilla Tactics', 'Huge Power', 'Illusion', 'Innards Out', 'Intrepid Sword', 'Libero', 'Magnet Pull', 'Moody', 'Neutralizing Gas', 'Parental Bond', 'Protean', 'Pure Power', 'Sage Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Phoenix Down',
 			// moves
-			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Court Change', 'Belly Drum', 'Bullshit KO Move', 'Shed Tail',
+			'Bolt Beak', 'Chatter', 'Double Iron Bash', 'Octolock', 'Shell Smash', 'Dark Hole', 'Forbidden Spell', 'Court Change', 'Belly Drum', 'Bullshit KO Move', 'Shed Tail', 'Revival Blessing',
 			// items
-			'Rusted Sword', 'Eternamax Orb', 'Centiskite-Sevii',
+			'Eternamax Orb', 'Centiskite-Sevii', 'Gengarite',
 			// other stuff
 			'Comatose + Sleep Talk',
 		],
