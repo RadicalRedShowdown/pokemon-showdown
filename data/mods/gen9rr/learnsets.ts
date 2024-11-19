@@ -1454,6 +1454,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachualola: {
@@ -1521,6 +1522,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachubelle: {
@@ -1551,6 +1553,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			helpinghand: ["9T"],
 			hiddenpower: ["9M"],
 			iciclespear: ["9T"],
+			iciclecrash: ["9M"],
 			irontail: ["9M"],
 			knockoff: ["9T"],
 			laserfocus: ["9T"],
@@ -1589,6 +1592,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
+			freezyfrost: ["9M"],
 		},
 	},
 	pikachucosplay: {
@@ -1656,6 +1661,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachuflying: {
@@ -1726,6 +1732,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachuhoenn: {
@@ -1793,6 +1800,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachukalos: {
@@ -1860,6 +1868,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachulibre: {
@@ -1929,6 +1938,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			flyingpress: ["9M"],
+			supercellslam: ["9M"],
 		},
 		eventData: [
 			{generation: 9, level: 85, shiny: true, nature: "Jolly", perfectIVs: 6, moves: ["aurawheel", "closecombat", "fakeout", "knockoff"], pokeball: "pokeball"},
@@ -1999,6 +2010,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachupartner: {
@@ -2066,6 +2078,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachuphd: {
@@ -2136,6 +2149,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zippyzap: ["9L55"],
 			psychicnoise: ["9M"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachupopstar: {
@@ -2204,6 +2218,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			sparklyswirl: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachurockstar: {
@@ -2273,6 +2289,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
+			meteormash: ["9M"],
 		},
 	},
 	pikachusinnoh: {
@@ -2340,6 +2358,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachusurfing: {
@@ -2347,6 +2366,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			agility: ["9T", "9L45"],
 			babydolleyes: ["9L3"],
 			bodyslam: ["9T"],
+			bouncybubble: ["9M"],
 			brickbreak: ["9M"],
 			chargebeam: ["9M"],
 			confide: ["9T"],
@@ -2407,6 +2427,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachuunova: {
@@ -2474,6 +2495,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	pikachuworld: {
@@ -2541,6 +2563,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			wildcharge: ["9M", "9L50"],
 			zippyzap: ["9L55"],
 			alluringvoice: ["9M"],
+			supercellslam: ["9M"],
 		},
 	},
 	raichu: {
