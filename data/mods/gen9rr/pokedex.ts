@@ -4446,8 +4446,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	nymblesevii: {
 		num: 919,
 		name: "Nymble-Sevii",
-		types: ["Bug", "Dragon"],
+		baseForme: "Nymble",
 		forme: "Sevii",
+		types: ["Bug", "Dragon"],
 		baseStats: {hp: 33, atk: 46, def: 40, spa: 21, spd: 25, spe: 45},
 		abilities: {0: "Swarm", H: "Tinted Lens"},
 		heightm: 0.2,
@@ -4459,6 +4460,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	lokixsevii: {
 		num: 920,
 		name: "Lokix-Sevii",
+		baseForme: "Lokix",
 		forme: "Sevii",
 		types: ["Bug", "Dragon"],
 		baseStats: {hp: 71, atk: 102, def: 78, spa: 52, spd: 55, spe: 92},
@@ -4487,8 +4489,9 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	noibatsevii: {
 		num: 714,
 		name: "Noibat-Sevii",
-		types: ["Rock", "Ghost"],
+		baseSpecies: "Noibat",
 		forme: "Sevii",
+		types: ["Rock", "Ghost"],
 		baseStats: {hp: 40, atk: 45, def: 35, spa: 30, spd: 40, spe: 55},
 		abilities: {0: "Rock Head", 1: "Sturdy", H: "Levitate"},
 		heightm: 0.5,
@@ -4500,6 +4503,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	noivernsevii: {
 		num: 715,
 		name: "Noivern-Sevii",
+		baseSpecies: "Noivern",
 		forme: "Sevii",
 		types: ["Rock", "Ghost"],
 		baseStats: {hp: 85, atk: 102, def: 80, spa: 70, spd: 80, spe: 123},
