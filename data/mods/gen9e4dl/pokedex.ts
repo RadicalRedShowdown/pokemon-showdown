@@ -4527,6 +4527,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Clear Body", H: "Mold Breaker"},
 		otherFormes: ["Toedscool-Cool"],
+		formeOrder: ["Toedscool", "Toedscool-Cool"],
 	},
 	toedscoolcool: {
 		num: 948,
@@ -4536,7 +4537,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Clear Body", H: "Mold Breaker"},
 		heightm: 0.9,
 		weightkg: 33,
-		otherFormes: ["Toedscool"],
 		color: "Yellow",
 		eggGroups: ["Field"],
 	},
