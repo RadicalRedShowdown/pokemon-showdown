@@ -1072,17 +1072,18 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			// This is a side condition
 			onSideStart(side) {
 				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 3; // Set the maximum layers directly
+				this.effectState.layers = 3; // Set directly to max layers
 			},
 			onSideRestart(side) {
-				return false; // No additional layers can be added
+				return false; // Prevent additional stacking
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				
+				// Directly use max layers for damage calculation
+				const maxLayers = 3;
 				const damageAmounts = [0, 3, 4, 6]; // 0 layers, 1/8, 1/6, 1/4
-				const layers = this.effectState.layers || 0; // Ensure layers are valid
-				const damageFraction = damageAmounts[layers] / 24; // Adjust for max HP fraction
-				this.damage(Math.floor(damageFraction * pokemon.maxhp));
+				this.damage(damageAmounts[maxLayers] * pokemon.maxhp / 24); // Apply damage for 3 layers
 			},
 		},
 		secondary: null,
