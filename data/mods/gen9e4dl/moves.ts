@@ -1071,11 +1071,18 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 3;
+				if (!this.effectState.layers) {
+					this.effectState.layers = 0;
+				}
+				const maxLayers = 3;
+				const layersToAdd = maxLayers - this.effectState.layers;
+				if (layersToAdd > 0) {
+					this.effectState.layers += layersToAdd;
+					this.add('-sidestart', side, 'Spikes');
+				}
 			},
 			onSideRestart(side) {
-				return false;
+				return false; // Prevent further activation since all layers are placed at once
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
