@@ -90,6 +90,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "Bone moves ignore immunities and deal double damage on not very effective.",
 	},
+	bullshitability: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('BS Ability Neutralize');
+				return this.chainModify(0.5);
+			}
+		},
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Mold Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		flags: {},
+		name: "Bullshit Ability",
+		rating: 4,
+		gen: 9,
+		shortDesc: "Unintended.",
+	},
 	bullrush: {
 		onModifyAtk(atk, attacker, defender, move) {
 			if (attacker.activeMoveActions > 1) return;
