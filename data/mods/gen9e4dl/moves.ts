@@ -1069,25 +1069,20 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
 		sideCondition: 'spikes',
 		condition: {
-			// this is a side condition
+			// This is a side condition
 			onSideStart(side) {
-				if (!this.effectState.layers) {
-					this.effectState.layers = 0;
-				}
-				const maxLayers = 3;
-				const layersToAdd = maxLayers - this.effectState.layers;
-				if (layersToAdd > 0) {
-					this.effectState.layers += layersToAdd;
-					this.add('-sidestart', side, 'Spikes');
-				}
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 3; // Set the maximum layers directly
 			},
 			onSideRestart(side) {
-				return false; // Prevent further activation since all layers are placed at once
+				return false; // No additional layers can be added
 			},
 			onEntryHazard(pokemon) {
 				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+				const damageAmounts = [0, 3, 4, 6]; // 0 layers, 1/8, 1/6, 1/4
+				const layers = this.effectState.layers || 0; // Ensure layers are valid
+				const damageFraction = damageAmounts[layers] / 24; // Adjust for max HP fraction
+				this.damage(Math.floor(damageFraction * pokemon.maxhp));
 			},
 		},
 		secondary: null,
