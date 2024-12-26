@@ -68163,6 +68163,9 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			toxic: ["9M"],
 			nuzzle: ["9M"],
 			thunderwave: ["9M"],
+			haze: ["9M"],
+			synthesis: ["9M"],
+			teleport: ["9M"],
 		},
 	},
 	toedscruel: {
