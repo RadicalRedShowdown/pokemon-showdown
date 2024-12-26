@@ -68166,6 +68166,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			haze: ["9M"],
 			synthesis: ["9M"],
 			teleport: ["9M"],
+			coolspikes: ["9M"],
 		},
 	},
 	toedscruel: {
