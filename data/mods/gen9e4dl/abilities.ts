@@ -98,7 +98,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onStart(pokemon) {
-			this.add('-ability', pokemon, 'Mold Breaker');
+			this.add('-ability', pokemon, 'Bullshit Ability');
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
