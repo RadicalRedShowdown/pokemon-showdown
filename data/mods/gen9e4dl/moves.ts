@@ -1071,12 +1071,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		condition: {
 			// this is a side condition
 			onSideStart(side) {
-				this.add('-sidestart', side, 'Spikes');
+				this.add('-sidestart', side, 'Cool Spikes');
 				this.effectState.layers = 3;
 			},
 			onSideRestart(side) {
 				if (this.effectState.layers >= 3) return false;
-				this.add('-sidestart', side, 'Spikes');
+				this.add('-sidestart', side, 'Cool Spikes');
 				this.effectState.layers++;
 			},
 			onSwitchIn(pokemon) {
