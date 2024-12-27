@@ -1064,21 +1064,21 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		onTryHit(target, source) {
 			const side = target.side;
 	
-			// Ensure 'spikes' condition exists
+			// Check if 'spikes' condition exists, if not, add it
 			if (!side.sideConditions['spikes']) {
 				side.addSideCondition('spikes');
 			}
 	
-			// Force layers to 3 directly here
+			// Set layers to 3 directly here, overriding any existing layers
 			side.sideConditions['spikes'].state.layers = 3;
 	
-			// Output debug message to confirm layer set correctly
-			this.add(`|info| Cool Spikes set layers: 3`);
+			// Debug message to show layers set to 3
+			this.add(`|info| Cool Spikes set layers to 3`);
 	
-			// Add the side condition
+			// Notify the battle that the spikes have been set
 			this.add('-sidestart', side, 'Spikes');
-			
-			return null; // Prevent further execution
+	
+			return null; // Prevent further execution for this move
 		},
 		secondary: null,
 		target: "foeSide",
