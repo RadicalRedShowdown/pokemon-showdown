@@ -1036,30 +1036,23 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	spikes: {
-		inherit: true,
-		noTM: true,
-		noTutor: true,
-		condition: {
-			// this is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 1;
-			},
-			onSideRestart(side) {
-				if (this.effectState.layers >= 3) return false;
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers++;
-			},
-			onSwitchIn(pokemon) {
-				if (!pokemon.isGrounded()) return;
-				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('Shield Dust')) return;
-				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
-				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
-			},
-		},
+		num: 191,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Spikes",
+		pp: 20,
+		priority: 0,
+		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
+		sideCondition: 'spikes', // This points to the same 'spikes' condition
+		secondary: null,
+		target: "foeSide",
+		type: "Ground",
+		zMove: {boost: {def: 1}},
+		contestType: "Clever",
 	},
 	coolspikes: {
-		num: -1, // Use a negative or unique number to avoid conflicts
+		num: -1, // Unique ID
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1067,7 +1060,17 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
-		sideCondition: 'coolspikes',
+		sideCondition: 'spikes', // Uses the same side condition as Spikes
+		onTryHit(target, source) {
+			// Directly set layers to 3 for Cool Spikes
+			const side = target.side;
+			if (!side.sideConditions['spikes']) {
+				side.addSideCondition('spikes');
+			}
+			side.sideConditions['spikes'].state.layers = 3;
+			this.add('-sidestart', target.side, 'Spikes');
+			return null; // Prevents regular spikes logic from triggering
+		},
 		secondary: null,
 		target: "foeSide",
 		type: "Ground",

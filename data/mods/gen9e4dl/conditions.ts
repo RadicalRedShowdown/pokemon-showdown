@@ -1,14 +1,18 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
-	coolspikes: {
+	spikes: {
 		onSideStart(side) {
-			this.add('-sidestart', side, 'Cool Spikes');
-			this.effectState.layers = 3; // Always set to 3 layers
+			if (!this.effectState.layers) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1; // Default to one layer for Spikes move
+			}
 		},
 		onSideRestart(side) {
-			return false; // Prevent further stacking
+			if (this.effectState.layers >= 3) return false;
+			this.effectState.layers = Math.min(this.effectState.layers + 1, 3); // Increment layers up to max
+			this.add('-sidestart', side, 'Spikes');
 		},
 		onEntryHazard(pokemon) {
-			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('Shield Dust')) return;
 			const damageAmounts = [0, 3, 4, 6]; // Damage fractions for 0, 1, 2, 3 layers
 			this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
 		},
