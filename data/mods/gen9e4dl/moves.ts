@@ -1063,12 +1063,19 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		sideCondition: 'spikes', // Uses the same side condition as Spikes
 		onTryHit(target, source) {
 			const side = target.side;
+			
+			// Ensure 'spikes' condition exists and set layers to 3
 			if (!side.sideConditions['spikes']) {
 				side.addSideCondition('spikes');
 			}
-			side.sideConditions['spikes'].state.layers = 3; // Force 3 layers
+			
+			// Force 3 layers of spikes
+			side.sideConditions['spikes'].state.layers = 3; 
+	
+			// Add side condition
 			this.add('-sidestart', side, 'Spikes');
-			return null; // Prevent additional logic from running
+			
+			return null; // Prevent additional logic for the side effect
 		},
 		secondary: null,
 		target: "foeSide",
