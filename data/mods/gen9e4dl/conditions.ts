@@ -1,4 +1,18 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
+	coolspikes: {
+		onSideStart(side) {
+			this.add('-sidestart', side, 'Cool Spikes');
+			this.effectState.layers = 3; // Always set to 3 layers
+		},
+		onSideRestart(side) {
+			return false; // Prevent further stacking
+		},
+		onEntryHazard(pokemon) {
+			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+			const damageAmounts = [0, 3, 4, 6]; // Damage fractions for 0, 1, 2, 3 layers
+			this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+		},
+	},
 	frz: {
 		name: 'frz',
 		effectType: 'Status',

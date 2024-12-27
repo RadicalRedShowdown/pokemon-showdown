@@ -1059,7 +1059,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	coolspikes: {
-		num: 917,
+		num: -1, // Use a negative or unique number to avoid conflicts
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1067,24 +1067,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		pp: 20,
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
-		sideCondition: 'spikes',
-		condition: {
-			// This is a side condition
-			onSideStart(side) {
-				this.add('-sidestart', side, 'Spikes');
-				this.effectState.layers = 3; // Set directly to max layers
-			},
-			onSideRestart(side) {
-				return false; // Prevent further stacking
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-	
-				// Force maximum damage for 3 layers of Spikes
-				const maxDamageFraction = 6 / 24; // Equivalent to 25% HP
-				this.damage(pokemon.maxhp * maxDamageFraction);
-			},
-		},
+		sideCondition: 'coolspikes',
 		secondary: null,
 		target: "foeSide",
 		type: "Ground",
