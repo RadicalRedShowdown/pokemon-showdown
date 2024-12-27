@@ -1067,8 +1067,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				side.addSideCondition('spikes');
 			}
 			side.sideConditions['spikes'].state.layers = 3; // Set to max layers
-			this.add('-sidestart', target.side, 'Spikes');
-			return null; // Prevent additional side effect handling
+			this.add('-sidestart', side, 'Spikes');
+			return null; // Prevent additional logic
 		},
 		secondary: null,
 		target: "foeSide",

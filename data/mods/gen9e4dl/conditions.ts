@@ -1,20 +1,21 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
 	spikes: {
 		onSideStart(side) {
-			this.add('-sidestart', side, 'Spikes');
 			if (!this.effectState.layers) {
-				this.effectState.layers = 1; // Default to one layer if not specified
+				this.effectState.layers = 1;
 			}
+			this.add('-sidestart', side, 'Spikes');
 		},
 		onSideRestart(side) {
-			if (this.effectState.layers >= 3) return false; // Prevent exceeding max layers
-			this.effectState.layers = Math.min(this.effectState.layers + 1, 3); // Increment layers
+			if (this.effectState.layers >= 3) return false;
+			this.effectState.layers = Math.min(this.effectState.layers + 1, 3);
 			this.add('-sidestart', side, 'Spikes');
 		},
 		onEntryHazard(pokemon) {
 			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-			const damageAmounts = [0, 3, 4, 6]; // Damage fractions: 0, 1/8, 1/6, 1/4
-			this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			const layers = this.effectState.layers || 1; // Default to 1 if not set
+			const damageAmounts = [0, 3, 4, 6]; // Damage fractions for 0, 1, 2, 3 layers
+			this.damage(damageAmounts[layers] * pokemon.maxhp / 24);
 		},
 	},
 	frz: {
