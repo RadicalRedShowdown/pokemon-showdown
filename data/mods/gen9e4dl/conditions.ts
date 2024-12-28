@@ -1,7 +1,7 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
 	coolspikes: {
 		onSideStart(side, source) {
-			const opponentName = source?.side.name || 'Your opponent'; // Safely get the opponent's name
+			const opponentName = side.foe.name; // Correctly reference the foe's name
 			this.add('-sidestart', side, 'Cool Spikes');
 			this.add('message', `${opponentName} was trapped in Cool Spikes!`);
 		},
