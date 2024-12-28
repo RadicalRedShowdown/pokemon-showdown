@@ -1069,7 +1069,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'coolspikes',
 		onTry(target, source) {
-			this.add('message', `${source.side.foe.name} was blown away by Coolness!`); // Display opponent's username
+			this.add('message', `${target.side.name} was blown away by Coolness!`); // Display opponent's username
 		},
 		secondary: null,
 		target: "foeSide",
