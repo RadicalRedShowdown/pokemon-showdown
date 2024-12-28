@@ -1074,6 +1074,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		secondary: null,
 		target: "foeSide",
 		type: "Ground",
+		zMove: {boost: {def: 1}},
 	},
 	spinout: {
 		inherit: true,
