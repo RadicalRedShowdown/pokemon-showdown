@@ -1068,9 +1068,10 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'coolspikes',
-		onHit(target, source) {
-			const opponentName = source.side.foe.name; // Access the opponent's username
+		onTry(source) {
+			const opponentName = source.side.foe.name; // Get the opponent's username
 			this.add('message', `${opponentName} was trapped in Cool Spikes!`);
+			return true; // Ensure the move can proceed
 		},
 		secondary: null,
 		target: "foeSide",
