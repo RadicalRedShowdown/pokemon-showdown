@@ -1,26 +1,15 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
-	spikes: {
+	coolspikes: {
 		onSideStart(side) {
-			if (!this.effectState.layers) {
-				this.effectState.layers = 1; // Default to one layer
-			}
-			this.add('-sidestart', side, 'Spikes');
+			this.add('-sidestart', side, 'Cool Spikes');
+			side.sideConditions['coolspikes'] = { layers: 1 }; // Define layers here
 		},
 		onSideRestart(side) {
-			if (this.effectState.layers >= 3) return false; // Prevent exceeding 3 layers
-			this.effectState.layers = Math.min(this.effectState.layers + 1, 3); // Increment layers
-			this.add('-sidestart', side, 'Spikes');
+			return false; // Prevent stacking
 		},
 		onEntryHazard(pokemon) {
 			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-			const layers = this.effectState.layers || 0; // Default to 0 if layers aren't set
-			const damageAmounts = [0, 3, 4, 6]; // Damage fractions for 0, 1, 2, 3 layers
-			const damage = damageAmounts[layers] * pokemon.maxhp / 24;
-	
-			// Add debug info to show the number of layers
-			this.add(`|info| Spikes layers: ${layers}`);  // This will display in battle chat
-	
-			this.damage(damage); // Apply the calculated damage
+			this.damage(pokemon.maxhp / 4); // Deal 25% damage
 		},
 	},
 	frz: {

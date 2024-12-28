@@ -1036,55 +1036,54 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	spikes: {
-		num: 191,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Spikes",
-		pp: 20,
-		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
-		sideCondition: 'spikes', // This points to the same 'spikes' condition
-		secondary: null,
-		target: "foeSide",
-		type: "Ground",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
+		inherit: true,
+		noTM: true,
+		noTutor: true,
+		condition: {
+			// this is a side condition
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers = 1;
+			},
+			onSideRestart(side) {
+				if (this.effectState.layers >= 3) return false;
+				this.add('-sidestart', side, 'Spikes');
+				this.effectState.layers++;
+			},
+			onSwitchIn(pokemon) {
+				if (!pokemon.isGrounded()) return;
+				if (pokemon.hasItem('heavydutyboots') || pokemon.hasAbility('Shield Dust')) return;
+				const damageAmounts = [0, 3, 4, 6]; // 1/8, 1/6, 1/4
+				this.damage(damageAmounts[this.effectState.layers] * pokemon.maxhp / 24);
+			},
+		},
 	},
 	coolspikes: {
-		num: -1, // Unique ID
+		num: -1, // Custom number for this move
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Cool Spikes",
 		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, nonsky: 1, metronome: 1, mustpressure: 1},
-		sideCondition: 'spikes', // Uses the same side condition as Spikes
-		onTryHit(target, source) {
-			const side = target.side;
-	
-			// Check if 'spikes' condition exists, if not, add it
-			if (!side.sideConditions['spikes']) {
-				side.addSideCondition('spikes');
-			}
-	
-			// Set layers to 3 directly here, overriding any existing layers
-			side.sideConditions['spikes'].state.layers = 3;
-	
-			// Debug message to show layers set to 3
-			this.add(`|info| Cool Spikes set layers to 3`);
-	
-			// Notify the battle that the spikes have been set
-			this.add('-sidestart', side, 'Spikes');
-	
-			return null; // Prevent further execution for this move
+		flags: {reflectable: 1, nonsky: 1},
+		sideCondition: 'coolspikes',
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'Cool Spikes');
+				side.sideConditions['coolspikes'] = { layers: 1 };
+			},
+			onSideRestart(side) {
+				return false; // Prevent stacking
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				this.damage(pokemon.maxhp / 4); // 25% damage
+			},
 		},
 		secondary: null,
 		target: "foeSide",
 		type: "Ground",
-		zMove: {boost: {def: 1}},
-		contestType: "Clever",
 	},
 	spinout: {
 		inherit: true,
