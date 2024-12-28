@@ -1059,7 +1059,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	coolspikes: {
-		num: -1, // Custom move ID
+		num: -1,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1068,8 +1068,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'coolspikes',
-		onTry(source) {
-			this.add('message', `${source.name} planted Cool Spikes!`); // Custom message when used
+		onTryHit(target, source) {
+			this.add('message', `${source.side.foe.name} was blown away by Coolness!`); // Display opponent's username
 		},
 		secondary: null,
 		target: "foeSide",

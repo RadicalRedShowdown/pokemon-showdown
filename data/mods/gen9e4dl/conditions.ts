@@ -2,7 +2,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	coolspikes: {
 		onSideStart(side) {
 			this.add('-sidestart', side, 'Cool Spikes');
-			this.add('message', 'custom message test!'); // Adds the custom message
 			side.sideConditions['coolspikes'] = { layers: 1 }; // Initialize with one layer
 		},
 		onSideRestart(side) {
