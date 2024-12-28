@@ -1059,7 +1059,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 	},
 	coolspikes: {
-		num: -1, // Custom number for this move
+		num: -1, // Custom move ID
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -1068,18 +1068,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {reflectable: 1, nonsky: 1},
 		sideCondition: 'coolspikes',
-		condition: {
-			onSideStart(side) {
-				this.add('-sidestart', side, 'Cool Spikes');
-				side.sideConditions['coolspikes'] = { layers: 1 };
-			},
-			onSideRestart(side) {
-				return false; // Prevent stacking
-			},
-			onEntryHazard(pokemon) {
-				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-				this.damage(pokemon.maxhp / 4); // 25% damage
-			},
+		onTry(source) {
+			this.add('message', `${source.name} planted Cool Spikes!`); // Custom message when used
 		},
 		secondary: null,
 		target: "foeSide",
