@@ -2,14 +2,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	coolspikes: {
 		onSideStart(side) {
 			this.add('-sidestart', side, 'Cool Spikes');
-			side.sideConditions['coolspikes'] = { layers: 1 }; // Define layers here
+			this.add('message', 'custom message test!'); // Adds the custom message
+			side.sideConditions['coolspikes'] = { layers: 1 }; // Initialize with one layer
 		},
 		onSideRestart(side) {
 			return false; // Prevent stacking
 		},
 		onEntryHazard(pokemon) {
 			if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
-			this.damage(pokemon.maxhp / 4); // Deal 25% damage
+			this.damage(pokemon.maxhp / 4); // 25% damage
 		},
 	},
 	frz: {
