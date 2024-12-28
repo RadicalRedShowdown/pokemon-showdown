@@ -1,8 +1,9 @@
 export const Conditions: {[k: string]: ModdedConditionData} = {
 	coolspikes: {
-		onSideStart(side) {
+		onSideStart(side, source) {
+			const opponentName = source?.side.name || 'Your opponent'; // Safely get the opponent's name
 			this.add('-sidestart', side, 'Cool Spikes');
-			side.sideConditions['coolspikes'] = { layers: 1 }; // Initialize with one layer
+			this.add('message', `${opponentName} was trapped in Cool Spikes!`);
 		},
 		onSideRestart(side) {
 			return false; // Prevent stacking
