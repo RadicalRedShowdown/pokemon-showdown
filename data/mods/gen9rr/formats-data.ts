@@ -4269,10 +4269,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["secretsword", "hydropump", "scald", "flipturn", "airslash", "icywind", "substitute", "calmmind"],
 		randomDoubleBattleLevel: 82,
 		randomDoubleBattleMoves: ["airslash", "calmmind", "icywind", "muddywater", "protect", "secretsword"],
-		tier: "OU",
+		tier: "Uber",
 	},
 	keldeoresolute: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	meloetta: {
 		randomBattleLevel: 83,
@@ -6293,7 +6293,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	sneasler: {
-		tier: "OU",
+		tier: "Uber",
 	},
 	lilliganthisui: {
 		tier: "UUBL",
@@ -6417,7 +6417,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "LC",
 	},
 	palafin: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "Uber",
 	},
