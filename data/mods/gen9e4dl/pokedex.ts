@@ -4535,7 +4535,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Toedscool",
 		forme: "Cool",
 		types: ["Ground", "Grass"],
-		baseStats: {hp: 120, atk: 120, def: 120, spa: 120, spd: 120, spe: 255},
+		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 255},
 		abilities: {0: "Clear Body", 1: "Bullshit Ability", H: "Mold Breaker"},
 		heightm: 0.9,
 		weightkg: 33,
