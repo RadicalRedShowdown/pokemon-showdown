@@ -393,12 +393,12 @@ export const Formats: FormatList = [
 		mod: 'mixandmega',
 		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause'],
 		banlist: [
-			'Uber', 'AG',
+			'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
 			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
 		],
-		unbanlist: ['Palafin', 'Palafin-Hero'],
+		unbanlist: ['Miraidon'],
 	},
 	{
 		name: "[Gen 8] Balanced Hackmons",
