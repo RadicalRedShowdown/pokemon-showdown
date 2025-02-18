@@ -6729,6 +6729,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	toedscool: {
 		tier: "LC",
 	},
+	toedscoolcool: {
+		tier: "CAP",
+	},
 	toedscruel: {
 		tier: "RU",
 		doublesTier: "(DUU)",

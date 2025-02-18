@@ -68110,7 +68110,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sleeptalk: ["9M"],
 			sludgebomb: ["9M"],
 			solarbeam: ["9M"],
-			spore: ["9L40"],
 			stunspore: ["9L8"],
 			supersonic: ["9L4"],
 			tickle: ["9E"],
