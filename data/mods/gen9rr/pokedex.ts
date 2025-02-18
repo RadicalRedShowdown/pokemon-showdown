@@ -183,7 +183,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	sandshrewalola: {
 		inherit: true,
-		abilities: {0: "Slush Rush", H: "Snow Cloak"},
+		abilities: {0: "Slush Rush", H: "Ice Body"},
 	},
 	sandslash: {
 		inherit: true,
@@ -236,7 +236,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	ninetalesalola: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Serene Grace", H: "Snow Warning"},
+		abilities: {0: "Serene Grace", H: "Snow Warning"},
 		items: {5: "Icy Rock", 50: "None"},
 	},
 	jigglypuff: {
@@ -2278,7 +2278,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	glaceon: {
 		inherit: true,
 		baseStats: {hp: 80, atk: 45, def: 100, spa: 130, spd: 95, spe: 75},
-		abilities: {0: "Snow Cloak", 1: "Ice Body", H: "Slush Rush"},
+		abilities: {0: "Ice Body", H: "Slush Rush"},
 	},
 	gliscor: {
 		inherit: true,
@@ -2313,7 +2313,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	froslass: {
 		inherit: true,
 		baseStats: {hp: 70, atk: 95, def: 70, spa: 95, spd: 70, spe: 110},
-		abilities: {0: "Snow Cloak", H: "Stakeout"},
+		abilities: {0: "Ice Body", H: "Stakeout"},
 	},
 	rotomfan: {
 		inherit: true,
@@ -2845,7 +2845,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	cubchoo: {
 		inherit: true,
-		abilities: {0: "Snow Cloak", 1: "Slush Rush", H: "Swift Swim"},
+		abilities: {0: "Slush Rush", H: "Swift Swim"},
 		items: {5: "None", 50: "Aspear Berry"},
 	},
 	beartic: {

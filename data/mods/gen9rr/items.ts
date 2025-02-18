@@ -1194,4 +1194,16 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by an Eternatus, this item triggers its Primal Reversion in battle.",
 	},
+	cornerstonemask: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	hearthflamemask: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	wellspringtonemask: {
+		inherit: true,
+		isNonstandard: null,
+	},
 };
