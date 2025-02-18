@@ -387,6 +387,20 @@ export const Formats: FormatList = [
 		column: 2,
 	},
 	{
+		name: "[Gen 9] Mix and Mega",
+		desc: `Mix and Mega.`,
+
+		mod: 'mixandmega',
+		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause'],
+		banlist: [
+			'Uber', 'AG',
+			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
+			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
+			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
+		],
+		unbanlist: ['Palafin', 'Palafin-Hero'],
+	},
+	{
 		name: "[Gen 8] Balanced Hackmons",
 		desc: `Anything that can be hacked in-game and is usable in local battles is allowed.`,
 
