@@ -1202,7 +1202,7 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
-	wellspringtonemask: {
+	wellspringmask: {
 		inherit: true,
 		isNonstandard: null,
 	},
