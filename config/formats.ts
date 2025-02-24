@@ -377,6 +377,8 @@ export const Formats: FormatList = [
 		mod: 'gen9e4dl',
 		searchShow: false,
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
+
+		unbanlist: ['Ultranecrozium Z'],
 	},
 
 	// Other Metagames
@@ -398,7 +400,7 @@ export const Formats: FormatList = [
 			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
 			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
 		],
-		unbanlist: ['Miraidon'],
+		unbanlist: ['Miraidon', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite'],
 	},
 	{
 		name: "[Gen 8] Balanced Hackmons",
