@@ -376,7 +376,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] E4DL",
 		mod: 'gen9e4dl',
 		searchShow: false,
-		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
 
 		unbanlist: ['Ultranecrozium Z'],
 	},
