@@ -5455,7 +5455,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["protect", "doubleironbash", "earthquake", "toxic", "icepunch", "thunderwave", "thunderpunch", "superpower"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["acidarmor", "bodypress", "doubleironbash", "protect", "thunderpunch", "thunderwave"],
-		tier: "UUBL",
+		tier: "UU",
 	},
 	melmetalgmax: {
 		isNonstandard: "Gigantamax",
