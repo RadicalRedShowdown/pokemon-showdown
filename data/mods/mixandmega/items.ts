@@ -306,4 +306,83 @@ export const Items: {[k: string]: ModdedItemData} = {
 		},
 		onTakeItem: false,
 	},
+
+	// rr items
+	butterfrite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	machampite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	garbodorite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	kinglerite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	snorlaxite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	laprasite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	drednawite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	coalossite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	orbeetlite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	toxtricitite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	toxtricititelowkey: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	duraludonite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	copperajite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	centiskite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	centiskitesevii: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	sandacondite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	flapplite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	appletunite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+	alcremite: {
+		inherit: true,
+		isNonstandard: null,
+	},
+
 };
