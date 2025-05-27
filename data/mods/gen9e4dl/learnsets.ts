@@ -22760,6 +22760,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			workup: ["9M"],
 			worryseed: ["9T"],
 			trailblaze: ["9M"],
+			armthrust: ["9M"],
 		},
 	},
 	slakoth: {
