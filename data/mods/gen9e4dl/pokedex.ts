@@ -1441,6 +1441,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	breloom: {
 		inherit: true,
+		baseStats: {hp: 118, atk: 143, def: 109, spa: 43, spd: 99, spe: 88},
 		items: {5: "Kebia Berry", 50: "Big Mushroom"},
 	},
 	nincada: {
@@ -4535,7 +4536,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Toedscool",
 		forme: "Cool",
 		types: ["Ground", "Grass"],
-		baseStats: {hp: 100, atk: 100, def: 100, spa: 100, spd: 100, spe: 255},
+		baseStats: {hp: 70, atk: 70, def: 70, spa: 70, spd: 70, spe: 100},
 		abilities: {0: "Clear Body", 1: "Bullshit Ability", H: "Mold Breaker"},
 		heightm: 0.9,
 		weightkg: 33,

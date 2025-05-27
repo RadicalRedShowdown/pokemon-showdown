@@ -22759,6 +22759,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			venoshock: ["9M"],
 			workup: ["9M"],
 			worryseed: ["9T"],
+			trailblaze: ["9M"],
 		},
 	},
 	slakoth: {
@@ -68149,6 +68150,8 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			sludgebomb: ["9M"],
 			solarbeam: ["9M"],
 			spikes: ["9M", "9T"],
+			coolspikes: ["9M"],
+			spore: ["9L40"],
 			stunspore: ["9L8"],
 			substitute: ["9M"],
 			supersonic: ["9L4"],
