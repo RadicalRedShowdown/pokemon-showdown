@@ -1441,7 +1441,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	breloom: {
 		inherit: true,
-		baseStats: {hp: 118, atk: 143, def: 109, spa: 43, spd: 99, spe: 88},
+		baseStats: {hp: 102, atk: 143, def: 114, spa: 47, spd: 106, spe: 88},
 		items: {5: "Kebia Berry", 50: "Big Mushroom"},
 	},
 	nincada: {
