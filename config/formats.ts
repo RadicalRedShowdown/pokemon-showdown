@@ -341,7 +341,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] 4.1 Draft",
 		mod: 'gen9rr',
 		searchShow: false,
-		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
 	},
 	{
 		name: "[Gen 9] 4.0 Draft",
