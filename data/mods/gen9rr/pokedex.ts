@@ -2095,7 +2095,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	skuntank: {
 		inherit: true,
 		baseStats: {hp: 103, atk: 93, def: 67, spa: 91, spd: 61, spe: 84},
-		abilities: {0: "Stench", 1: "Aftermath", H: "Toxic Chain"},
+		abilities: {0: "Stench", 1: "Aftermath", H: "Frisk"},
 		items: {5: "Pecha Berry", 50: "None"},
 		evoLevel: 28,
 	},

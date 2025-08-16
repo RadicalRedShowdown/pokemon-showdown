@@ -76,6 +76,10 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: "Unobtainable",
 	},
+	berryjuice: {
+		inherit: true,
+		isNonstandard: null,
+	},
 	bigmushroom: {
 		name: "Big Mushroom",
 		spritenum: 26,
