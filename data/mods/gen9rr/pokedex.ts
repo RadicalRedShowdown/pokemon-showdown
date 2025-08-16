@@ -2816,7 +2816,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	jellicent: {
 		inherit: true,
 		baseStats: {hp: 100, atk: 60, def: 80, spa: 75, spd: 105, spe: 60},
-		abilities: {0: "Water Absorb", 1: "Cursed Body", H: "Water Bubble"},
+		abilities: {0: "Water Absorb", 1: "Damp", H: "Water Bubble"},
 	},
 	alomomola: {
 		inherit: true,
