@@ -4616,6 +4616,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Weak Armor", H: "Heatproof"},
 	},
+	sinisteaantique: {
+		inherit: true,
+		abilities: {0: "Weak Armor", H: "Heatproof"},
+	},
 	unown: {
 		inherit: true,
 		baseStats: {hp: 48, atk: 48, def: 48, spa: 96, spd: 48, spe: 96},
