@@ -2160,6 +2160,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		inherit: true,
 		isNonstandard: null,
 	},
+	pounce: {
+		inherit: true, 
+		basePower: 60,
+		isNonstandard: null,
+	},
 	powder: {
 		inherit: true,
 		isNonstandard: null,
