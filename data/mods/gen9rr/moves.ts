@@ -2161,9 +2161,23 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		isNonstandard: null,
 	},
 	pounce: {
-		inherit: true, 
+		num: 884,
+		accuracy: 100,
 		basePower: 60,
-		isNonstandard: null,
+		category: "Physical",
+		name: "Pounce",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		secondary: {
+			chance: 100,
+			boosts: {
+				spe: -1,
+			},
+		},
+		target: "normal",
+		type: "Bug",
+		contestType: "Cute",
 	},
 	powder: {
 		inherit: true,
