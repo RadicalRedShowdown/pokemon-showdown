@@ -2797,7 +2797,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	alomomola: {
 		inherit: true,
-		abilities: {0: "Hydration", 1: "Regenerator"},
+		abilities: {0: "Hydration", H: "Regenerator"},
 		items: {5: "Heart Scale", 50: "Heart Scale"},
 	},
 	galvantula: {
