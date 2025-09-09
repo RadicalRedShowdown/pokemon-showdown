@@ -398,7 +398,6 @@ export const Formats: FormatList = [
 			'Delta Stream',
 		],
 		restricted: [
-			''
 		], 
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
