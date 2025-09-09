@@ -372,14 +372,6 @@ export const Formats: FormatList = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Z-Move Clause', 'Arceus Forme Clause'],
 	},
-	{
-		name: "[Gen 9] E4DL",
-		mod: 'gen9e4dl',
-		searchShow: false,
-		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
-
-		unbanlist: ['Ultranecrozium Z'],
-	},
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
@@ -393,14 +385,21 @@ export const Formats: FormatList = [
 		desc: `Mix and Mega.`,
 
 		mod: 'mixandmega',
-		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause'],
+		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause', 'Terastal Clause'],
 		banlist: [
 			'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
-			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects',
+			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects', 'Calyrex-Shadow', 'Miraidon', 'Appletunite',
 			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
 		],
-		unbanlist: ['Miraidon', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite'],
+		unbanlist: [
+			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite', 
+			'Zygarde', 'Keldeo', 'Pheromosa', 'Chien-Pao', 'Chi-Yu', 'Darkrai', 'Enamorus', 'Espathra', 'Iron Crown', 'Landorus', 'Spectrier', 'Solgaleo', 'Flutter Mane',
+			'Delta Stream',
+		],
+		restricted: [
+			''
+		], 
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 				pokemon.m.originalSpecies = pokemon.baseSpecies.name;
