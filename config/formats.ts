@@ -398,6 +398,9 @@ export const Formats: FormatList = [
 			'Delta Stream', 
 		],
 		restricted: [
+			'Arceus', 'Calyrex-Ice', 'Deoxys', 'Darmanitan-Galar-Zen', 'Deoxys-Attack', 'Deoxys-Defense', 
+			'Deoxys-Speed', 'Dialga', 'Eternatus', 'Giratina', 'Giratina-Origin', 'Groudon', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 
+			'Lunala', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Palkia', 'Regigigas', 'Reshiram', 'Xerneas', 'Yveltal', 'Zekrom', 'Slaking'
 		], 
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
