@@ -394,8 +394,8 @@ export const Formats: FormatList = [
 		],
 		unbanlist: [
 			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Mawilite', 'Medichamite', 'Pidgeotite', 
-			'Zygarde', 'Keldeo', 'Pheromosa', 'Chien-Pao', 'Chi-Yu', 'Darkrai', 'Enamorus', 'Espathra', 'Iron Crown', 'Landorus', 'Spectrier', 'Solgaleo', 'Flutter Mane',
-			'Delta Stream',
+			'Zygarde', 'Keldeo', 'Pheromosa', 'Chien-Pao', 'Chi-Yu', 'Darkrai', 'Enamorus', 'Espathra', 'Iron Crown', 'Landorus', 'Spectrier', 'Solgaleo', 'Flutter Mane', 'Rayquaza-Mega', 
+			'Delta Stream', 
 		],
 		restricted: [
 		], 
