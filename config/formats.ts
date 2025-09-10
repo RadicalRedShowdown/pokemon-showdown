@@ -387,7 +387,6 @@ export const Formats: FormatList = [
 		mod: 'mixandmega',
 		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause', 'Terastal Clause'],
 		banlist: [
-			'AG',
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
 			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects', 'Calyrex-Shadow', 'Miraidon', 'Appletunite',
 			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
