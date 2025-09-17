@@ -4126,7 +4126,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Mega",
 		types: ["Fairy"],
 		gender: "F",
-		baseStats: {hp: 65, atk: 70, def: 90, spa: 140, spd: 131, spe: 84},
+		baseStats: {hp: 65, atk: 70, def: 95, spa: 140, spd: 131, spe: 84},
 		abilities: {0: "Self Sufficient"},
 		heightm: 0.3,
 		weightkg: 0.5,
