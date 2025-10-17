@@ -3113,6 +3113,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		inherit: true,
 		abilities: {0: "Sharpness"},
 	},
+	spritzee: {
+		inherit: true,
+		abilities: {0: "Fairy Aura", H: "Aroma Veil"},
+	},
 	aromatisse: {
 		inherit: true,
 		baseStats: {hp: 101, atk: 62, def: 82, spa: 99, spd: 89, spe: 29},
@@ -4374,6 +4378,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "Gooey", 1: "Arena Trap", H: "Sand Veil"},
 		baseStats: {hp: 35, atk: 115, def: 50, spa: 35, spd: 70, spe: 120},
 	},
+	varoom: {
+		inherit: true,
+		abilities: {0: "Overcoat", H: "Filter"},
+	},
 	gimmighoul: {
 		inherit: true,
 		abilities: {0: "Clear Body"},
@@ -4399,6 +4407,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	sandyshocks: {
 		inherit: true,
 		abilities: {0: "Protosynthesis", H: "Water Compaction"},
+	},
+	anorith: {
+		inherit: true,
+		abilities: {0: "Battle Armor", 1: "Skill Link", H: "Swift Swim"}, 
 	},
 	armaldo: {
 		inherit: true,
@@ -4456,6 +4468,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	ceruledge: {
 		inherit: true,
 		abilities: {0: "Flash Fire", 1: "Weak Armor", H: "Sharpness"},	
+	},
+	wattrel: {
+		inherit: true,
+		abilities: {0: "Static", 1: "Volt Absorb", H: "Competitive"},
 	},
 	nymble: {
 		inherit: true,
