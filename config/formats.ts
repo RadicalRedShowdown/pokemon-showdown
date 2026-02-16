@@ -388,7 +388,7 @@ export const Formats: FormatList = [
 		ruleset: ['Standard', 'Dynamax Clause', 'Gems Clause', 'Terastal Clause'],
 		banlist: [
 			'Moody', 'Power Construct', 'Shadow Tag', 'Arena Trap', 'Centiskorch-Sevii + Shed Skin', 'Centiskorch-Sevii + Mold Breaker',
-			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects', 'Calyrex-Shadow', 'Miraidon',
+			'Swagger', 'Dark Hole', 'Hydro Cannon', 'Blast Burn', 'Frenzy Plant', 'Shed Tail', 'Last Respects', 'Miraidon',
 			'Eevium Z', "Mewnium Z", "Revival Blessing", "Assist",
 		],
 		unbanlist: [
@@ -397,7 +397,7 @@ export const Formats: FormatList = [
 			'Delta Stream',
 		],
 		restricted: [
-			'Arceus', 'Calyrex-Ice', 'Deoxys', 'Darmanitan-Galar-Zen', 'Deoxys-Attack', 'Deoxys-Defense', 
+			'Arceus', 'Calyrex-Ice','Calyrex-Shadow', 'Deoxys', 'Darmanitan-Galar-Zen', 'Deoxys-Attack', 'Deoxys-Defense', 
 			'Dialga', 'Eternatus', 'Giratina', 'Giratina-Origin', 'Groudon', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 
 			'Lunala', 'Necrozma-Dusk-Mane', 'Necrozma-Dawn-Wings', 'Palkia', 'Regigigas', 'Reshiram', 'Xerneas', 'Yveltal', 'Zekrom', 'Slaking', 
 		], 
