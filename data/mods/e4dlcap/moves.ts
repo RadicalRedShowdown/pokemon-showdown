@@ -2699,14 +2699,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				return null;
 			}
 		},
-		onHit(target, pokemon, move) {
-			move.willChangeForme = true;
-		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
-			if (move.willChangeForme) {
-				this.add('-message', `${pokemon.name} gets baited by Yash!`);
-				pokemon.formeChange('Hornet-Agro', this.effect, false, '[from] move: Garama');
-			}
+			this.add('-message', `${pokemon.name} gets baited by Yash!`);
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
