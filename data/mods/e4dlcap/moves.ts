@@ -2685,13 +2685,13 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	},
 	garama: {
 		num: -555,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
+		accuracy: 100,
+		basePower: 75,
+		category: "Special",
 		name: "Garama",
 		pp: 10,
 		priority: 0,
-		flags: {snatch: 1},
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
 		onTry(source) {
 			if (source.species.id !== 'hornet') {
 				this.add('-fail', source);
@@ -2699,21 +2699,20 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				return null;
 			}
 		},
-		onHit(target, source, move) {
-			this.boost({atk: 1, spa: 1}, source, source, move);
+		onHit(target, pokemon, move) {
 			move.willChangeForme = true;
 		},
-		onAfterMoveSecondarySelf(source, target, move) {
+		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
-				this.add('-message', `${source.name} gets baited by Yash!`);
-				source.formeChange('Hornet-Agro', this.effect, false, '[from] move: Garama');
+				this.add('-message', `${pokemon.name} gets baited by Yash!`);
+				pokemon.formeChange('Hornet-Agro', this.effect, false, '[from] move: Garama');
 			}
 		},
 		secondary: null,
-		target: "self",
-		type: "Bug",
-		desc: "Raises the user's Attack and Special Attack by 1 stage and permanently changes Hornet into Hornet-Agro.",
-		shortDesc: "Raises Atk/Sp. Atk by 1; Hornet becomes Hornet-Agro.",
+		target: "allAdjacentFoes",
+		type: "Normal",
+		desc: "If this move hits, Hornet changes into Hornet-Agro after damage.",
+		shortDesc: "If this move hits, Hornet becomes Hornet-Agro.",
 		gen: 9,
 	},
 	matchagotcha: {
