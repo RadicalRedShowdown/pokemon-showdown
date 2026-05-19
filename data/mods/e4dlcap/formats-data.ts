@@ -6816,6 +6816,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	chillet: {
 		tier: "UU",
 	},
+	hornet: {
+		tier: "OU",
+	},
 	poltchageist: {
 		tier: "LC",
 	},
