@@ -344,6 +344,13 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
 	},
 	{
+		name: "[Gen 9] E4DL CAP",
+		mod: 'e4dlcap',
+		searchShow: false,
+		challengeShow: true,
+		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
+	},
+	{
 		name: "[Gen 9] 4.0 Draft",
 		mod: 'gen9rr4.0',
 		searchShow: false,
