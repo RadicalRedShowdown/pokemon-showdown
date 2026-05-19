@@ -2730,11 +2730,25 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			atk: 1,
 			spa: 1,
 		},
+		onHit(pokemon, source, move) {
+			this.add('-message', `${pokemon.name} gets baited by Yash!`);
+			if (pokemon.species.id === 'hornet' && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
+				const oldAbility = pokemon.ability;
+				if (pokemon.formeChange('Hornet-Agro', this.effect, true, '[msg]')) {
+					pokemon.setAbility(oldAbility, pokemon, true);
+				}
+			}
+		},
 		secondary: null,
 		target: "self",
 		type: "Bug",
-		desc: "Raises the user's Attack and Special Attack by 1 stage.",
-		shortDesc: "Raises the user's Atk and Sp. Atk by 1.",
+		desc: "Raises the user's Attack and Special Attack by 1 stage. If used by Hornet, it changes into Hornet-Agro.",
+		shortDesc: "Raises user's Atk/Sp. Atk by 1; Hornet becomes Agro.",
 		gen: 9,
 	},
 	matchagotcha: {
