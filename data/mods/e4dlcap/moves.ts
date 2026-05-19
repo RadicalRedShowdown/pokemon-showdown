@@ -2651,6 +2651,38 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		target: "normal",
 		type: "Electric",
 	},
+	ironcladimpact: {
+		num: -987,
+		accuracy: 100,
+		basePower: 60,
+		category: "Physical",
+		name: "Ironclad Impact",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		onHit(target, source, move) {
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			let bestStat: StatIDExceptHP = 'atk';
+			let bestValue = target.getStat(bestStat, false, true);
+			for (const stat of stats.slice(1)) {
+				const value = target.getStat(stat, false, true);
+				if (value > bestValue) {
+					bestStat = stat;
+					bestValue = value;
+				}
+			}
+			const boosts: SparseBoostsTable = {};
+			boosts[bestStat] = -1;
+			this.boost(boosts, target, source, move);
+		},
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+		type: "Bug",
+		desc: "Lowers the target's highest current non-HP stat by 1 stage, then the user switches out.",
+		shortDesc: "Lowers target's highest current stat by 1; user switches.",
+		gen: 9,
+	},
 	matchagotcha: {
 		inherit: true,
 		accuracy: 100,

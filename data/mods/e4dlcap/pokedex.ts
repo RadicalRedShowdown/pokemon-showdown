@@ -4725,6 +4725,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 70,
 		eggGroups: ["Dragon"],
 	},
+	gryllith: {
+		name: "Gryllith",
+		types: ["Bug", "Ground"],
+		baseStats: {hp: 110, atk: 80, def: 105, spa: 45, spd: 80, spe: 45},
+		abilities: {0: "Unbothered", 1: "Iron Barbs"},
+		num: -987,
+		weightkg: 62.5,
+		eggGroups: ["Bug"],
+	},
 	flegrea: {
 		name: "Flegrea",
 		types: ["Ghost", "Dark"],

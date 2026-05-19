@@ -767,6 +767,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 308,
 	},
+	unbothered: {
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+			if (status.id === 'taunt') {
+				this.add('-message', `${pokemon.name} does not care!`);
+				return null;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.id === 'taunt') {
+				this.add('-message', `${target.name} does not care!`);
+				return null;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Unbothered",
+		rating: 2,
+		num: -987,
+		desc: "This Pokemon cannot be made to flinch or become affected by Taunt.",
+		shortDesc: "This Pokemon cannot be taunted or flinched.",
+	},
 	jumpscare: {
 		onBeforeSwitchIn(pokemon) {
 			pokemon.illusion = null;
