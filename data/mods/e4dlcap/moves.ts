@@ -2683,30 +2683,61 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Lowers target's highest current stat by 1; user switches.",
 		gen: 9,
 	},
+	flintblade: {
+		num: -556,
+		accuracy: 100,
+		basePower: 70,
+		category: "Physical",
+		name: "Flint Blade",
+		pp: 15,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: {
+			chance: 10,
+			status: 'brn',
+		},
+		target: "normal",
+		type: "Fire",
+		desc: "Has a 10% chance to burn the target.",
+		shortDesc: "10% chance to burn the target.",
+		gen: 9,
+	},
+	sawbladeslice: {
+		num: -557,
+		accuracy: 100,
+		basePower: 85,
+		category: "Physical",
+		name: "Sawblade Slice",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		shortDesc: "No additional effect.",
+		gen: 9,
+	},
 	garama: {
 		num: -555,
-		accuracy: 100,
-		basePower: 75,
-		category: "Special",
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
 		name: "Garama",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
-		onTry(source) {
-			if (source.species.id !== 'hornet') {
-				this.add('-fail', source);
-				this.hint("Only Hornet can use Garama.");
-				return null;
-			}
+		flags: {snatch: 1},
+		boosts: {
+			atk: 1,
+			spa: 1,
 		},
-		onAfterMoveSecondarySelf(pokemon, target, move) {
+		onHit(pokemon) {
 			this.add('-message', `${pokemon.name} gets baited by Yash!`);
 		},
 		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Normal",
-		desc: "If this move hits, Hornet changes into Hornet-Agro after damage.",
-		shortDesc: "If this move hits, Hornet becomes Hornet-Agro.",
+		target: "self",
+		type: "Bug",
+		desc: "Raises the user's Attack and Special Attack by 1 stage.",
+		shortDesc: "Raises the user's Atk and Sp. Atk by 1.",
 		gen: 9,
 	},
 	matchagotcha: {
