@@ -809,7 +809,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1},
-		name: "Jump Scare",
+		name: "Jumpscare",
 		gen: 9,
 		rating: 3,
 		desc: "When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's attacks have their damage multiplied by 1.3. When this Pokemon's disguise breaks, a GIF is displayed.",
