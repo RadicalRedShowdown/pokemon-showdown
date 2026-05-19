@@ -792,7 +792,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
-				this.add('-end', pokemon, 'Jump Scare');
+				this.add('-end', pokemon, 'Jumpscare');
 				this.add('raw|<center><img src="https://tenor.com/ov3OPTanb3P.gif" height="96" alt="Jump Scare" /></center>');
 				if (this.ruleTable.has('illusionlevelmod')) {
 					this.hint("Illusion Level Mod is active, so this Pokemon's true level was hidden.", true);
