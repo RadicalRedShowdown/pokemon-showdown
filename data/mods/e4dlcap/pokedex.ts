@@ -4737,6 +4737,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	hornet: {
 		name: "Hornet",
 		types: ["Bug", "Steel"],
+		gender: "F",
 		baseStats: {hp: 85, atk: 115, def: 57, spa: 80, spd: 73, spe: 115},
 		abilities: {0: "Sharpness", 1: "Dry Skin"},
 		num: -555,
@@ -4750,6 +4751,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseSpecies: "Hornet",
 		forme: "Agro",
 		types: ["Fighting", "Steel"],
+		gender: "F",
 		baseStats: {hp: 85, atk: 126, def: 60, spa: 60, spd: 70, spe: 124},
 		abilities: {0: "Sharpness", 1: "Dry Skin"},
 		num: -555,

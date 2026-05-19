@@ -2699,10 +2699,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 				return null;
 			}
 		},
-		onHit(source, target, move) {
+		onHit(target, source, move) {
 			this.boost({atk: 1, spa: 1}, source, source, move);
-			if (source.formeChange('Hornet-Agro', move, true)) {
-				this.add('-formechange', source, 'Hornet-Agro', '[from] move: Garama');
+			if (source.formeChange('Hornet-Agro', move, false, '[from] move: Garama')) {
+				source.baseSpecies = source.species;
+				source.details = source.species.name + (source.level === 100 ? '' : ', L' + source.level) +
+					(source.gender === '' ? '' : ', ' + source.gender) + (source.set.shiny ? ', shiny' : '');
 			}
 		},
 		secondary: null,
