@@ -2689,7 +2689,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 70,
 		category: "Physical",
 		name: "Flint Blade",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, slicing: 1},
 		secondary: {
@@ -2738,10 +2738,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
-				const oldAbility = pokemon.ability;
-				if (pokemon.formeChange('Hornet-Agro', this.effect, true, '[msg]')) {
-					pokemon.setAbility(oldAbility, pokemon, true);
-				}
+				pokemon.formeChange('Hornet-Agro', this.effect, true, '[msg]');
 			}
 		},
 		secondary: null,
