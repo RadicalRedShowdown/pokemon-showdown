@@ -4744,18 +4744,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 40,
 		eggGroups: ["Monster"],
 	},
-	hornetagro: {
-		name: "Hornet-Agro",
-		baseSpecies: "Hornet",
-		forme: "Agro",
-		types: ["Fighting", "Steel"],
-		gender: "F",
-		baseStats: {hp: 85, atk: 126, def: 60, spa: 60, spd: 70, spe: 124},
-		abilities: {0: "Sharpness", 1: "Dry Skin"},
-		num: -555,
-		weightkg: 40,
-		eggGroups: ["Monster"],
-	},
 	flegrea: {
 		name: "Flegrea",
 		types: ["Ghost", "Dark"],
