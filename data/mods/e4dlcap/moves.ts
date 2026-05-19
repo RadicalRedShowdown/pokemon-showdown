@@ -2657,7 +2657,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 60,
 		category: "Physical",
 		name: "Ironclad Impact",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		onHit(target, source, move) {
@@ -2701,10 +2701,12 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		},
 		onHit(target, source, move) {
 			this.boost({atk: 1, spa: 1}, source, source, move);
-			if (source.formeChange('Hornet-Agro', move, false, '[from] move: Garama')) {
-				source.baseSpecies = source.species;
-				source.details = source.species.name + (source.level === 100 ? '' : ', L' + source.level) +
-					(source.gender === '' ? '' : ', ' + source.gender) + (source.set.shiny ? ', shiny' : '');
+			move.willChangeForme = true;
+		},
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (move.willChangeForme) {
+				this.add('-message', `${source.name} gets baited by Yash!`);
+				source.formeChange('Hornet-Agro', this.effect, false, '[from] move: Garama');
 			}
 		},
 		secondary: null,
