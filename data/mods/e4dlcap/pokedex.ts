@@ -4743,8 +4743,6 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -555,
 		weightkg: 40,
 		eggGroups: ["Monster"],
-		otherFormes: ["Hornet-Agro"],
-		formeOrder: ["Hornet", "Hornet-Agro"],
 	},
 	hornetagro: {
 		name: "Hornet-Agro",
