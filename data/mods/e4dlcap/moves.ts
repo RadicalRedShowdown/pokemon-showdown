@@ -2683,6 +2683,35 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Lowers target's highest current stat by 1; user switches.",
 		gen: 9,
 	},
+	garama: {
+		num: -555,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Garama",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		onTry(source) {
+			if (source.species.id !== 'hornet') {
+				this.add('-fail', source);
+				this.hint("Only Hornet can use Garama.");
+				return null;
+			}
+		},
+		onHit(source, target, move) {
+			this.boost({atk: 1, spa: 1}, source, source, move);
+			if (source.formeChange('Hornet-Agro', move, true)) {
+				this.add('-formechange', source, 'Hornet-Agro', '[from] move: Garama');
+			}
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		desc: "Raises the user's Attack and Special Attack by 1 stage and permanently changes Hornet into Hornet-Agro.",
+		shortDesc: "Raises Atk/Sp. Atk by 1; Hornet becomes Hornet-Agro.",
+		gen: 9,
+	},
 	matchagotcha: {
 		inherit: true,
 		accuracy: 100,
