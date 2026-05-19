@@ -2730,9 +2730,6 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			atk: 1,
 			spa: 1,
 		},
-		onHit(pokemon) {
-			this.add('-message', `${pokemon.name} gets baited by Yash!`);
-		},
 		secondary: null,
 		target: "self",
 		type: "Bug",
