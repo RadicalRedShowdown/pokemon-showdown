@@ -1495,6 +1495,13 @@ export const commands: Chat.ChatCommands = {
 	async accept(target, room, user, connection) {
 		const {targetUser, targetUsername, rest} = this.splitUser(target);
 		if (rest) return this.popupReply(this.tr`This command does not support specifying multiple users`);
+		const targetid = toID(targetUsername);
+		if (targetid) {
+			const customChall = Ladders.challenges.search(user.id, targetid);
+			if (customChall?.to === user.id && customChall.acceptCommand) {
+				return this.parse(customChall.acceptCommand);
+			}
+		}
 		this.pmTarget = targetUser || this.pmTarget;
 		if (!this.pmTarget) return this.popupReply(this.tr`User "${targetUsername}" not found.`);
 
@@ -1517,6 +1524,13 @@ export const commands: Chat.ChatCommands = {
 	reject(target, room, user, connection) {
 		const {targetUser, targetUsername, rest} = this.splitUser(target);
 		if (rest) return this.popupReply(this.tr`This command does not support specifying multiple users`);
+		const targetid = toID(targetUsername);
+		if (targetid) {
+			const customChall = Ladders.challenges.search(user.id, targetid);
+			if (customChall?.to === user.id && customChall.acceptCommand) {
+				return Ladders.challenges.remove(customChall, false);
+			}
+		}
 		this.pmTarget = targetUser || this.pmTarget;
 		if (!this.pmTarget) return this.popupReply(this.tr`User "${targetUsername}" not found.`);
 

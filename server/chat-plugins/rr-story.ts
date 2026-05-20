@@ -5,6 +5,7 @@ const FORMAT_ID = 'gen9storymode';
 const FORMAT_NAME = '[Gen 9] Story Mode';
 const BOT_NAME = 'RR Story Bot';
 const BOT_AVATAR = '101';
+const STORY_CHALLENGER_ID = 'rrstorybot' as ID;
 const STORY_ACCEPT_COMMAND = '/storyaccept';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
 const LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
@@ -171,14 +172,19 @@ function packStoryTeam(level: StoryLevel) {
 }
 
 function isStoryChallenge(challenge: Ladders.Challenge) {
-	return challenge.from === challenge.to && challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `);
+	return challenge.from === STORY_CHALLENGER_ID && challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `);
 }
 
 function clearStoryChallenge(userid: ID) {
 	const challenges = Ladders.challenges.get(userid);
 	if (!challenges) return;
 	for (const challenge of [...challenges]) {
-		if (isStoryChallenge(challenge)) Ladders.challenges.remove(challenge);
+		if (isStoryChallenge(challenge) || (
+			challenge.from === userid && challenge.to === userid &&
+			challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `)
+		)) {
+			Ladders.challenges.remove(challenge);
+		}
 	}
 }
 
@@ -191,7 +197,7 @@ function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
 		...user.battleSettings,
 		team: '',
 	});
-	const challenge = new Ladders.BattleChallenge(user.id, user.id, ready, {
+	const challenge = new Ladders.BattleChallenge(STORY_CHALLENGER_ID, user.id, ready, {
 		acceptCommand: command,
 		message:
 			`Choose a ${FORMAT_NAME} team for Story Level ${levelIndex + 1}: ${level.name}` +
