@@ -767,6 +767,72 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 308,
 	},
+	commissioner: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			const target = this.sample(pokemon.foes().filter(foe => !foe.fainted));
+			switch (this.sample(['docs', 'applicant', 'flagg', 'johner', 'promo'])) {
+			case 'docs':
+				this.add('-message', `${pokemon.name} has finally updated docs`);
+				this.boost({spe: 1}, pokemon, pokemon);
+				break;
+			case 'applicant':
+				this.add('-message', `${pokemon.name} rejects another applicant`);
+				if (target) target.addVolatile('torment', pokemon);
+				break;
+			case 'flagg':
+				this.add('-message', `${pokemon.name} pledges allegiance to the Flagg`);
+				this.boost({def: 1}, pokemon, pokemon);
+				break;
+			case 'johner':
+				this.add('-message', `${pokemon.name} disqualifies a Johner`);
+				if (target && this.canSwitch(target.side) && !target.forceSwitchFlag && !target.switchFlag) {
+					target.forceSwitchFlag = true;
+				}
+				break;
+			case 'promo':
+				this.add('-message', `${pokemon.name} promotes RRDL to a promo channel`);
+				pokemon.addVolatile('aquaring');
+				break;
+			}
+		},
+		flags: {},
+		name: "Commissioner",
+		rating: 3,
+		num: -472,
+		desc: "At the end of each turn, this Pokemon randomly gains +1 Speed, gives a foe Torment, gains +1 Defense, forces a foe out, or gains Aqua Ring.",
+		shortDesc: "End of turn: random +Spe, foe Torment, +Def, force foe out, or Aqua Ring.",
+	},
+	gobeyond: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Go Beyond');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Go Beyond",
+		rating: 4,
+		num: -135,
+		desc: "This Pokemon's moves ignore abilities, and this Pokemon ignores other Pokemon's stat changes when taking or dealing damage.",
+		shortDesc: "Mold Breaker + Unaware.",
+	},
 	unbothered: {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;

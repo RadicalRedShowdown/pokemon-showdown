@@ -3164,6 +3164,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["earthquake", "facade", "knockoff", "protect", "tailwind", "taunt"],
 		tier: "OU",
 	},
+	gliscorrazor: {
+		tier: "OU",
+	},
 	mamoswine: {
 		randomBattleLevel: 82,
 		randomBattleMoves: ["earthquake", "iceshard", "iciclecrash", "knockoff", "stealthrock", "endeavor"],
@@ -6817,6 +6820,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	hornet: {
+		tier: "OU",
+	},
+	softwet: {
+		tier: "OU",
+	},
+	frieza: {
 		tier: "OU",
 	},
 	poltchageist: {

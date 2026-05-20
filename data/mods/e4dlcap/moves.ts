@@ -1,5 +1,7 @@
 import { TriumvirateModeTrivia } from "../../../server/chat-plugins/trivia/trivia";
 
+const TANKWATCH_WORKS = true;
+
 export const Moves: {[k: string]: ModdedMoveData} =	{
 	acupressure: {
 		inherit: true,
@@ -144,6 +146,11 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 90,
 		pp: 5,
 		flags: {protect: 1, mirror: 1, heal: 1},
+		onPrepareHit(target, source) {
+			if (source.species.id === 'softwet') {
+				this.add('c', source.name, 'ORA ORA ORA!');
+			}
+		},
 		isNonstandard: null,
 	},
 	chargebeam: {
@@ -2681,6 +2688,85 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		type: "Bug",
 		desc: "Lowers the target's highest current non-HP stat by 1 stage, then the user switches out.",
 		shortDesc: "Lowers target's highest current stat by 1; user switches.",
+		gen: 9,
+	},
+	tankwatch: {
+		num: -472,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Tankwatch",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		onTryMove(source) {
+			if (TANKWATCH_WORKS) return;
+			this.add('-fail', source, 'move: Tankwatch');
+			this.add('-message', 'Unfortunately the Dallas Mavericks are not tanking.');
+			return null;
+		},
+		overrideOffensiveStat: 'def',
+		secondary: null,
+		target: "normal",
+		type: "Ground",
+		desc: "Only works when the Dallas Mavericks are tanking. Uses the user's Defense as the attacking stat.",
+		shortDesc: "Ground-type Body Press. Only works if Mavs are tanking.",
+		gen: 9,
+	},
+	bubbleblast: {
+		num: -135,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Bubble Blast",
+		pp: 20,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onPrepareHit(target, source) {
+			if (source.species.id === 'softwet') {
+				this.add('c', source.name, 'ORA ORA ORA!');
+			}
+		},
+		onBasePower(basePower, source, target, move) {
+			const item = target.getItem();
+			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return;
+			if (item.id) return this.chainModify(1.5);
+		},
+		onAfterHit(target, source) {
+			if (source.hp) {
+				const item = target.takeItem();
+				if (item) {
+					this.add('-enditem', target, item.name, '[from] move: Bubble Blast', '[of] ' + source);
+					this.add('-message', `${source.name} blasted off ${target.name}'s item!`);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+		type: "Water",
+		desc: "Deals more damage if the target is holding an item, then removes that item.",
+		shortDesc: "Special Knock Off. Blocked by Bulletproof.",
+		gen: 9,
+	},
+	deathball: {
+		num: -667,
+		accuracy: 100,
+		basePower: 130,
+		category: "Special",
+		name: "Death Ball",
+		pp: 5,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, bullet: 1},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (!target || target.hp > 0) return;
+			this.add('-message', `The blast was too strong, ${pokemon.name} takes some damage from the blast!`);
+			this.damage(pokemon.baseMaxhp / 3, pokemon, pokemon, move);
+		},
+		secondary: null,
+		target: "normal",
+		type: "Dark",
+		desc: "If this move knocks out the target, the user loses 1/3 of its maximum HP.",
+		shortDesc: "If this KOs the target, user loses 1/3 max HP. Bullet.",
 		gen: 9,
 	},
 	flintblade: {
