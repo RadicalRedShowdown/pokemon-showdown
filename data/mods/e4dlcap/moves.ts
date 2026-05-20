@@ -2690,6 +2690,33 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Lowers target's highest current stat by 1; user switches.",
 		gen: 9,
 	},
+	honeysip: {
+		num: -555,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Honey Sip",
+		pp: 8,
+		noPPBoosts: true,
+		priority: 0,
+		flags: {heal: 1, snatch: 1},
+		onTryMove(pokemon) {
+			if (pokemon.hasItem('honey')) return;
+			this.add('-fail', pokemon, 'move: Honey Sip');
+			return null;
+		},
+		onHit(pokemon) {
+			this.heal(pokemon.baseMaxhp / 2);
+			pokemon.cureStatus();
+			pokemon.useItem(pokemon, this.effect);
+		},
+		secondary: null,
+		target: "self",
+		type: "Bug",
+		desc: "If the user is holding Honey, it restores 50% of its max HP, cures its status, and consumes the Honey.",
+		shortDesc: "Consumes held Honey to heal 50% and cure status.",
+		gen: 9,
+	},
 	tankwatch: {
 		num: -472,
 		accuracy: 100,

@@ -3721,6 +3721,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleLevel: 84,
 		randomDoubleBattleMoves: ["psychic", "fireblast", "trickroom", "heatwave", "grassknot", "hiddenpowerice", "protect"],
 	},
+	darmanitanbee: {
+		tier: "OU",
+	},
 	darmanitangalar: {
 		randomBattleLevel: 78,
 		randomBattleMoves: ["iciclecrash", "uturn", "flareblitz", "earthquake", "superpower"],

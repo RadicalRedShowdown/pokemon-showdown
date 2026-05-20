@@ -725,7 +725,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	zenmode: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+			if (
+				!['Darmanitan', 'Darmanitan-Bee'].includes(pokemon.baseSpecies.baseSpecies) ||
+				pokemon.transformed
+			) {
+				return;
+			}
+			if (pokemon.species.id === 'darmanitanbeezen') return;
+			if (pokemon.species.id === 'darmanitanbee') {
+				this.add('-activate', pokemon, 'ability: Zen Mode');
+				pokemon.formeChange('Darmanitan-Bee-Zen', this.effect, true);
 				return;
 			}
 			if (!pokemon.species.name.includes('Galar')) {
@@ -744,7 +753,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Zen Mode",
 		rating: 0,
 		num: 161,
-		desc: "If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
+		desc: "If this Pokemon is a Darmanitan, Darmanitan-Galar, or Darmanitan-Bee, it changes to Zen Mode on switch-in. This Ability cannot be removed or suppressed.",
 		shortDesc: "If Darmanitan, changes to Zen Mode on switch-in.",
 	},
 	terashell: {
@@ -774,25 +783,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const target = this.sample(pokemon.foes().filter(foe => !foe.fainted));
 			switch (this.sample(['docs', 'applicant', 'flagg', 'johner', 'promo'])) {
 			case 'docs':
-				this.add('-message', `${pokemon.name} has finally updated docs`);
+				this.add('-message', `${pokemon.name} has finally updated docs.`);
 				this.boost({spe: 1}, pokemon, pokemon);
 				break;
 			case 'applicant':
-				this.add('-message', `${pokemon.name} rejects another applicant`);
+				this.add('-message', `${pokemon.name} rejects another applicant.`);
 				if (target) target.addVolatile('torment', pokemon);
 				break;
 			case 'flagg':
-				this.add('-message', `${pokemon.name} pledges allegiance to the Flagg`);
+				this.add('-message', `${pokemon.name} pledges allegiance to the Flagg!`);
 				this.boost({def: 1}, pokemon, pokemon);
 				break;
 			case 'johner':
-				this.add('-message', `${pokemon.name} disqualifies a Johner`);
+				this.add('-message', `${pokemon.name} disqualifies a Johner.`);
 				if (target && this.canSwitch(target.side) && !target.forceSwitchFlag && !target.switchFlag) {
 					target.forceSwitchFlag = true;
 				}
 				break;
 			case 'promo':
-				this.add('-message', `${pokemon.name} promotes RRDL to a promo channel`);
+				this.add('-message', `${pokemon.name} promotes RRDL to a promo channel.`);
 				pokemon.addVolatile('aquaring');
 				break;
 			}

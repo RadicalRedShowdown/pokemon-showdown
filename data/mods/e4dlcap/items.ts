@@ -1,4 +1,15 @@
 export const Items: {[k: string]: ModdedItemData} = {
+	honey: {
+		name: "Honey",
+		spritenum: 205,
+		fling: {
+			basePower: 30,
+		},
+		num: 94,
+		gen: 4,
+		desc: "Can be consumed by Honey Sip.",
+		shortDesc: "Can be consumed by Honey Sip.",
+	},
 	// past items
 	abomasite: {
 		inherit: true,
