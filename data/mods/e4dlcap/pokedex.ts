@@ -4773,6 +4773,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	gryllith: {
 		name: "Gryllith",
 		types: ["Bug", "Ground"],
+		gender: "F",
 		baseStats: {hp: 110, atk: 80, def: 105, spa: 45, spd: 80, spe: 45},
 		abilities: {0: "Unbothered", 1: "Iron Barbs"},
 		num: -987,
