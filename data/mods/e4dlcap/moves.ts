@@ -2696,8 +2696,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 0,
 		category: "Status",
 		name: "Honey Sip",
-		pp: 8,
-		noPPBoosts: true,
+		pp: 5,
 		priority: 0,
 		flags: {heal: 1, snatch: 1},
 		onTryMove(pokemon) {

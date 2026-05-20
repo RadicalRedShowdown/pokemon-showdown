@@ -1,0 +1,22 @@
+export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+	marowakalola: {
+		inherit: true,
+		otherFormes: ["Marowak-Alola-Boss"],
+		formeOrder: ["Marowak-Alola", "Marowak-Alola-Boss"],
+	},
+	marowakalolaboss: {
+		num: 105,
+		name: "Marowak-Alola-Boss",
+		baseSpecies: "Marowak-Alola",
+		forme: "Boss",
+		types: ["Fire", "Ghost"],
+		baseStats: {hp: 60, atk: 80, def: 110, spa: 50, spd: 80, spe: 45},
+		abilities: {0: "Familial Revenge"},
+		heightm: 1,
+		weightkg: 34,
+		color: "Purple",
+		eggGroups: ["Monster"],
+		spriteid: "marowakalola",
+		changesFrom: "Marowak-Alola",
+	},
+};
