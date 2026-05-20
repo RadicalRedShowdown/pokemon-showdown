@@ -1,10 +1,11 @@
 import {FS, Utils} from '../../lib';
-import {TeamValidatorAsync} from '../team-validator-async';
+import {Ladders} from '../ladders';
 
 const FORMAT_ID = 'gen9storymode';
 const FORMAT_NAME = '[Gen 9] Story Mode';
 const BOT_NAME = 'RR Story Bot';
 const BOT_AVATAR = '101';
+const STORY_ACCEPT_COMMAND = '/storyaccept';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
 const LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
 const PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
@@ -169,20 +170,51 @@ function packStoryTeam(level: StoryLevel) {
 	return Teams.pack(importedTeam);
 }
 
-async function validatePlayerTeam(team: string, user?: ID) {
-	if (!team) {
-		throw new Chat.ErrorMessage(
-			`You need to select a ${FORMAT_NAME} team in the teambuilder before using /story.`
-		);
+function isStoryChallenge(challenge: Ladders.Challenge) {
+	return challenge.from === challenge.to && challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `);
+}
+
+function clearStoryChallenge(userid: ID) {
+	const challenges = Ladders.challenges.get(userid);
+	if (!challenges) return;
+	for (const challenge of [...challenges]) {
+		if (isStoryChallenge(challenge)) Ladders.challenges.remove(challenge);
 	}
-	const result = await TeamValidatorAsync.get(FORMAT_ID).validateTeam(team, user ? {user} : undefined);
-	if (result.charAt(0) !== '1') {
-		throw new Chat.ErrorMessage(
-			`Your selected team is not valid for ${FORMAT_NAME}. ` +
-			`Make or select a ${FORMAT_NAME} team in the teambuilder, then use /story again.\n\n${result.slice(1)}`
-		);
+}
+
+function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
+	clearStoryChallenge(user.id);
+	user.battleSettings.team = '';
+	const level = levels[levelIndex];
+	const command = `${STORY_ACCEPT_COMMAND} ${levelIndex + 1}`;
+	const ready = new Ladders.BattleReady(user.id, FORMAT_ID, {
+		...user.battleSettings,
+		team: '',
+	});
+	const challenge = new Ladders.BattleChallenge(user.id, user.id, ready, {
+		acceptCommand: command,
+		message:
+			`Choose a ${FORMAT_NAME} team for Story Level ${levelIndex + 1}: ${level.name}` +
+			`${replay ? ' (replay)' : ''}.`,
+		acceptButton: 'Start Story',
+		rejectButton: 'Cancel',
+	});
+	const challenges = Ladders.challenges.get(user.id) || [];
+	challenges.push(challenge);
+	Ladders.challenges.set(user.id, challenges);
+
+	const identity = user.getIdentity();
+	user.send(`|pm|${identity}|${identity}|${Ladders.challenges.getUpdate(challenge)}`);
+}
+
+async function prepareStoryTeam(connection: Connection) {
+	if (!connection.user.battleSettings.team) {
+		connection.popup(`Select a ${FORMAT_NAME} team first.`);
+		return null;
 	}
-	return result.slice(1);
+	const ready = await Ladders(FORMAT_ID).prepBattle(connection, 'challenge');
+	if (!ready) return null;
+	return ready.settings;
 }
 
 function chooseRandom<T>(choices: T[]) {
@@ -279,18 +311,19 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 }
 
 async function startStoryBattle(
-	context: Chat.CommandContext, user: User, levelIndex: number, replay: boolean
+	context: Chat.CommandContext, user: User, connection: Connection, levelIndex: number, replay: boolean
 ) {
 	const level = levels[levelIndex];
-	const playerTeam = await validatePlayerTeam(user.battleSettings.team, user.id);
+	const playerSettings = await prepareStoryTeam(connection);
+	if (!playerSettings) return;
 	const botTeam = packStoryTeam(level);
 	const battleRoom = Rooms.createBattle({
 		format: FORMAT_ID,
 		players: [{
 			user,
-			team: playerTeam,
-			hidden: user.battleSettings.hidden,
-			inviteOnly: user.battleSettings.inviteOnly,
+			team: playerSettings.team,
+			hidden: playerSettings.hidden,
+			inviteOnly: playerSettings.inviteOnly,
 		}],
 		delayedStart: true,
 		rated: 0,
@@ -331,7 +364,7 @@ export const commands: Chat.ChatCommands = {
 		if (cmd === 'format' || cmd === 'team' || cmd === 'teambuilder') {
 			return this.sendReplyBox(
 				`Make a team with the <strong>${FORMAT_NAME}</strong> teambuilder format, ` +
-				`select that team as your active team, then use <code>/story</code>. ` +
+				`then use <code>/story</code> to open the Story team selector. ` +
 				`Story Mode is challenge-selectable, but it is not on the ladder.`
 			);
 		}
@@ -363,11 +396,39 @@ export const commands: Chat.ChatCommands = {
 			);
 		}
 		const replay = levelIndex < cleared;
-		await startStoryBattle(this, user, levelIndex, replay);
+		sendStoryTeamRequest(user, levelIndex, replay);
+		this.sendReply(`Choose a ${FORMAT_NAME} team in the challenge popup to start Story Level ${levelIndex + 1}.`);
+	},
+	async storyaccept(target, room, user, connection) {
+		const levelIndex = parseInt(target) - 1;
+		const challenge = (Ladders.challenges.get(user.id) || []).find(challenge => (
+			isStoryChallenge(challenge) && challenge.acceptCommand === `${STORY_ACCEPT_COMMAND} ${levelIndex + 1}`
+		));
+		if (!challenge) {
+			return this.errorReply(`Story team request not found. Use /story to open the Story Mode team selector.`);
+		}
+		Ladders.challenges.remove(challenge, true);
+
+		const activeBattle = getCurrentStoryBattle(user.id);
+		if (activeBattle) {
+			return this.errorReply(`You already have an active Story battle: ${activeBattle.title}`);
+		}
+
+		const cleared = getCleared(user.id);
+		if (isNaN(levelIndex) || levelIndex < 0 || !levels.length || levelIndex >= levels.length) {
+			return this.sendReply(`You've done all available levels.`);
+		}
+		if (levelIndex > cleared) {
+			return this.errorReply(
+				`You have not unlocked Level ${levelIndex + 1} yet. Your next level is Level ${cleared + 1}.`
+			);
+		}
+		const replay = levelIndex < cleared;
+		await startStoryBattle(this, user, connection, levelIndex, replay);
 	},
 	storyhelp: [
-		`/story - Starts your next Story level.`,
-		`/story [level] - Replays an unlocked Story level.`,
+		`/story - Opens the Story Mode team selector for your next Story level.`,
+		`/story [level] - Opens the Story Mode team selector to replay an unlocked Story level.`,
 		`/story team - Explains which teambuilder format to select.`,
 		`/story levels - Shows Story levels and locks.`,
 		`/story progress - Shows your current Story progress.`,
