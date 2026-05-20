@@ -18,6 +18,24 @@ The column value will be ignored for repeat sections.
 import {Utils} from '../lib';
 
 export const Formats: FormatList = [
+	// Story
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "Story",
+		column: 1,
+	},
+	{
+		name: "[Gen 9] Story Mode",
+
+		mod: 'gen9rrstory',
+		searchShow: false,
+		challengeShow: true,
+		tournamentShow: false,
+		rated: false,
+		ruleset: ['[Gen 9] OU'],
+	},
+
 	// Singles
 	///////////////////////////////////////////////////////////////////
 
@@ -48,16 +66,6 @@ export const Formats: FormatList = [
 		mod: 'gen9rr',
 		team: 'random',
 		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
-	},
-	{
-		name: "[Gen 9] Story Mode",
-
-		mod: 'gen9rrstory',
-		searchShow: false,
-		challengeShow: true,
-		tournamentShow: false,
-		rated: false,
-		ruleset: ['[Gen 9] OU'],
 	},
 	{
 		name: "[Gen 9] Multi Random Battle",

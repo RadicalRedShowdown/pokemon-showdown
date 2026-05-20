@@ -519,11 +519,13 @@ function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject
 	const ignoresBoneImmunity = ability === 'familialrevenge' && move.flags['bone'];
 	let typeMod = 0;
 	for (const targetType of getPokemonTypes(targetData)) {
+		if (!dex.getImmunity(type, targetType)) {
+			if (ignoresBoneImmunity) continue;
+			return 0;
+		}
 		const effectiveness = dex.getEffectiveness(type, targetType);
-		if (ignoresBoneImmunity && effectiveness <= -6) continue;
 		typeMod += effectiveness;
 	}
-	if (typeMod <= -6) return 0;
 	if (ignoresBoneImmunity && typeMod < 0) typeMod++;
 	const typeMultiplier = Math.pow(2, typeMod);
 	const category = move.category;
