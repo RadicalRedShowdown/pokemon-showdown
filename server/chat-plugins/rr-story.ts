@@ -1,7 +1,8 @@
 import {FS, Utils} from '../../lib';
 import {TeamValidatorAsync} from '../team-validator-async';
 
-const FORMAT_ID = 'gen9rrstory';
+const FORMAT_ID = 'gen9storymode';
+const FORMAT_NAME = '[Gen 9] Story Mode';
 const BOT_NAME = 'RR Story Bot';
 const BOT_AVATAR = '101';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
@@ -168,9 +169,19 @@ function packStoryTeam(level: StoryLevel) {
 	return Teams.pack(importedTeam);
 }
 
-async function validatePackedTeam(team: string, user?: ID) {
+async function validatePlayerTeam(team: string, user?: ID) {
+	if (!team) {
+		throw new Chat.ErrorMessage(
+			`You need to select a ${FORMAT_NAME} team in the teambuilder before using /story.`
+		);
+	}
 	const result = await TeamValidatorAsync.get(FORMAT_ID).validateTeam(team, user ? {user} : undefined);
-	if (result.charAt(0) !== '1') throw new Chat.ErrorMessage(result.slice(1));
+	if (result.charAt(0) !== '1') {
+		throw new Chat.ErrorMessage(
+			`Your selected team is not valid for ${FORMAT_NAME}. ` +
+			`Make or select a ${FORMAT_NAME} team in the teambuilder, then use /story again.\n\n${result.slice(1)}`
+		);
+	}
 	return result.slice(1);
 }
 
@@ -271,7 +282,7 @@ async function startStoryBattle(
 	context: Chat.CommandContext, user: User, levelIndex: number, replay: boolean
 ) {
 	const level = levels[levelIndex];
-	const playerTeam = await validatePackedTeam(user.battleSettings.team, user.id);
+	const playerTeam = await validatePlayerTeam(user.battleSettings.team, user.id);
 	const botTeam = packStoryTeam(level);
 	const battleRoom = Rooms.createBattle({
 		format: FORMAT_ID,
@@ -317,6 +328,13 @@ export const commands: Chat.ChatCommands = {
 			});
 			return this.sendReplyBox(`<strong>Story Levels</strong><br />${rows.join('<br />')}`);
 		}
+		if (cmd === 'format' || cmd === 'team' || cmd === 'teambuilder') {
+			return this.sendReplyBox(
+				`Make a team with the <strong>${FORMAT_NAME}</strong> teambuilder format, ` +
+				`select that team as your active team, then use <code>/story</code>. ` +
+				`Story Mode is challenge-selectable, but it is not on the ladder.`
+			);
+		}
 		if (cmd === 'reset') {
 			delete progress[user.id];
 			saveProgress();
@@ -350,6 +368,7 @@ export const commands: Chat.ChatCommands = {
 	storyhelp: [
 		`/story - Starts your next Story level.`,
 		`/story [level] - Replays an unlocked Story level.`,
+		`/story team - Explains which teambuilder format to select.`,
 		`/story levels - Shows Story levels and locks.`,
 		`/story progress - Shows your current Story progress.`,
 		`/story reset - Resets your own Story progress.`,

@@ -50,11 +50,11 @@ export const Formats: FormatList = [
 		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
 	},
 	{
-		name: "[Gen 9] RR Story",
+		name: "[Gen 9] Story Mode",
 
 		mod: 'gen9rrstory',
 		searchShow: false,
-		challengeShow: false,
+		challengeShow: true,
 		tournamentShow: false,
 		rated: false,
 		ruleset: ['[Gen 9] OU'],
