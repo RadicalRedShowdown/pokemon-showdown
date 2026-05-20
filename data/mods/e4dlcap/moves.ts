@@ -147,7 +147,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		pp: 5,
 		flags: {protect: 1, mirror: 1, heal: 1},
 		onPrepareHit(target, source) {
-			if (source.species.id === 'softwet') {
+			if (source.species.id === 'softandwet') {
 				this.add('c', source.name, 'ORA ORA ORA!');
 			}
 		},
@@ -2749,7 +2749,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {protect: 1, mirror: 1, bullet: 1},
 		onPrepareHit(target, source) {
-			if (source.species.id === 'softwet') {
+			if (source.species.id === 'softandwet') {
 				this.add('c', source.name, 'ORA ORA ORA!');
 			}
 		},

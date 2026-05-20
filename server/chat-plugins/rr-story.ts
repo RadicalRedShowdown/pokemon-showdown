@@ -3,6 +3,7 @@ import {TeamValidatorAsync} from '../team-validator-async';
 
 const FORMAT_ID = 'gen9rrstory';
 const BOT_NAME = 'RR Story Bot';
+const BOT_AVATAR = '101';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
 const LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
 const PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
@@ -87,6 +88,14 @@ Impish Nature
 	{
 		name: "Marowak-Alola-Boss",
 		team: `
+Gengar @ Gengarite
+Ability: Levitate
+Tera Type: Ghost
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Perish Song
+
 Marowak-Alola-Boss (Marowak-Alola-Boss) @ Thick Club
 Ability: Familial Revenge
 Level: 200
@@ -97,14 +106,6 @@ Adamant Nature
 - Shadow Bone
 - Flare Blitz
 - Knock Off
-
-Gengar @ Gengarite
-Ability: Levitate
-Tera Type: Ghost
-EVs: 252 SpA / 4 SpD / 252 Spe
-Timid Nature
-IVs: 0 Atk
-- Perish Song
 `,
 	},
 ];
@@ -213,7 +214,8 @@ function chooseMove(request: AnyObject) {
 			.map((move: AnyObject, moveIndex: number) => ({slot: moveIndex + 1, move}))
 			.filter(({move}: {move: AnyObject}) => !move.disabled);
 		if (!moves.length) return 'pass';
-		return `move ${chooseRandom(moves).slot}`;
+		const moveChoice = `move ${chooseRandom(moves).slot}`;
+		return active.canMegaEvo ? `${moveChoice} mega` : moveChoice;
 	});
 	return choices.join(', ');
 }
@@ -257,7 +259,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 	battle.p2.hasTeam = true;
 	battle.room.title = `${battle.p1.name} vs. ${BOT_NAME}`;
 	battle.room.send(`|title|${battle.room.title}`);
-	void battle.stream.write(`>player p2 ${JSON.stringify({name: BOT_NAME, team: botTeam})}`);
+	void battle.stream.write(`>player p2 ${JSON.stringify({name: BOT_NAME, avatar: BOT_AVATAR, team: botTeam})}`);
 	battle.started = true;
 	Rooms.global.onCreateBattleRoom([Users.get(userid)!], room, {rated: 0});
 	battle.checkActive();

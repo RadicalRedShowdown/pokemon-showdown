@@ -1,4 +1,33 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
+	gobeyond: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Go Beyond');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		flags: {breakable: 1},
+		name: "Go Beyond",
+		rating: 4,
+		num: -135,
+		desc: "This Pokemon's moves ignore abilities, and this Pokemon ignores other Pokemon's stat changes when taking or dealing damage.",
+		shortDesc: "Mold Breaker + Unaware.",
+	},
 	familialrevenge: {
 		onStart(pokemon) {
 			if (pokemon.species.id === 'marowakalolaboss') {

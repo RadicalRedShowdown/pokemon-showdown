@@ -4805,8 +4805,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		requiredMove: "Garama",
 		battleOnly: "Hornet",
 	},
-	softwet: {
-		name: "Soft & Wet",
+	softandwet: {
+		name: "Soft and Wet",
 		types: ["Water"],
 		baseStats: {hp: 70, atk: 90, def: 80, spa: 120, spd: 100, spe: 90},
 		abilities: {0: "Go Beyond"},

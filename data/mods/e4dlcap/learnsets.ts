@@ -69477,7 +69477,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			spikes: ["9L1"],
 		},
 	},
-	softwet: {
+	softandwet: {
 		learnset: {
 			bubbleblast: ["9L1"],
 			bouncybubble: ["9L1"],

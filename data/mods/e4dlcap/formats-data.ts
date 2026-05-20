@@ -6825,7 +6825,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hornet: {
 		tier: "OU",
 	},
-	softwet: {
+	softandwet: {
 		tier: "OU",
 	},
 	frieza: {
