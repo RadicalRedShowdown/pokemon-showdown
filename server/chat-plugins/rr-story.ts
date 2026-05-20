@@ -199,12 +199,7 @@ function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
 		acceptButton: 'Start Story',
 		rejectButton: 'Cancel',
 	});
-	const challenges = Ladders.challenges.get(user.id) || [];
-	challenges.push(challenge);
-	Ladders.challenges.set(user.id, challenges);
-
-	const identity = user.getIdentity();
-	user.send(`|pm|${identity}|${identity}|${Ladders.challenges.getUpdate(challenge)}`);
+	Ladders.challenges.add(challenge);
 }
 
 async function prepareStoryTeam(connection: Connection) {
