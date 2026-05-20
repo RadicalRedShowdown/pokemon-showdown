@@ -116,6 +116,7 @@ Adamant Nature
 let levels = loadLevels();
 const progress: {[userid: string]: number} = loadProgress();
 const storyBattles = new Map<RoomID, StoryBattleState>();
+const storyRequests = new Map<ID, {level: number, replay: boolean}>();
 
 function loadLevels() {
 	const data = FS(LEVELS_FILE).readIfExistsSync();
@@ -176,6 +177,7 @@ function isStoryChallenge(challenge: Ladders.Challenge) {
 }
 
 function clearStoryChallenge(userid: ID) {
+	storyRequests.delete(userid);
 	const challenges = Ladders.challenges.get(userid);
 	if (!challenges) return;
 	for (const challenge of [...challenges]) {
@@ -191,6 +193,7 @@ function clearStoryChallenge(userid: ID) {
 function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
 	clearStoryChallenge(user.id);
 	user.battleSettings.team = '';
+	storyRequests.set(user.id, {level: levelIndex, replay});
 	const level = levels[levelIndex];
 	const command = `${STORY_ACCEPT_COMMAND} ${levelIndex + 1}`;
 	const ready = new Ladders.BattleReady(user.id, FORMAT_ID, {
@@ -206,6 +209,17 @@ function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
 		rejectButton: 'Cancel',
 	});
 	Ladders.challenges.add(challenge);
+}
+
+function resolveStoryRequest(user: User, target: string) {
+	const requestedLevel = parseInt(target);
+	if (!isNaN(requestedLevel)) {
+		const level = requestedLevel - 1;
+		const request = storyRequests.get(user.id);
+		if (request?.level !== level) return null;
+		return request;
+	}
+	return storyRequests.get(user.id) || null;
 }
 
 async function prepareStoryTeam(connection: Connection) {
@@ -401,14 +415,15 @@ export const commands: Chat.ChatCommands = {
 		this.sendReply(`Choose a ${FORMAT_NAME} team in the challenge popup to start Story Level ${levelIndex + 1}.`);
 	},
 	async storyaccept(target, room, user, connection) {
-		const levelIndex = parseInt(target) - 1;
-		const challenge = (Ladders.challenges.get(user.id) || []).find(challenge => (
-			isStoryChallenge(challenge) && challenge.acceptCommand === `${STORY_ACCEPT_COMMAND} ${levelIndex + 1}`
-		));
-		if (!challenge) {
+		const request = resolveStoryRequest(user, target);
+		if (!request) {
 			return this.errorReply(`Story team request not found. Use /story to open the Story Mode team selector.`);
 		}
-		Ladders.challenges.remove(challenge, true);
+		const levelIndex = request.level;
+		storyRequests.delete(user.id);
+		for (const challenge of Ladders.challenges.get(user.id) || []) {
+			if (isStoryChallenge(challenge)) Ladders.challenges.remove(challenge, true);
+		}
 
 		const activeBattle = getCurrentStoryBattle(user.id);
 		if (activeBattle) {
@@ -424,8 +439,11 @@ export const commands: Chat.ChatCommands = {
 				`You have not unlocked Level ${levelIndex + 1} yet. Your next level is Level ${cleared + 1}.`
 			);
 		}
-		const replay = levelIndex < cleared;
-		await startStoryBattle(this, user, connection, levelIndex, replay);
+		await startStoryBattle(this, user, connection, levelIndex, request.replay);
+	},
+	storycancel() {
+		clearStoryChallenge(this.user.id);
+		this.sendReply(`Story request cancelled.`);
 	},
 	storyhelp: [
 		`/story - Opens the Story Mode team selector for your next Story level.`,
