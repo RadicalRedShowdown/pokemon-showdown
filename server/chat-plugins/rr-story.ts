@@ -20,6 +20,24 @@ interface StoryBattleState {
 	userid: ID;
 	level: number;
 	timer: NodeJS.Timer;
+	logIndex: number;
+	hazards: {
+		p1: StorySideHazards,
+		p2: StorySideHazards,
+	};
+	perish: {
+		p1: number,
+		p2: number,
+	};
+	setupUsed: {[ident: string]: boolean};
+}
+
+interface StorySideHazards {
+	stealthrock: boolean;
+	spikes: number;
+	toxicspikes: number;
+	stickyweb: boolean;
+	gmaxsteelsurge: boolean;
 }
 
 const DEFAULT_LEVELS: StoryLevel[] = [
@@ -91,14 +109,6 @@ Impish Nature
 	{
 		name: "Marowak-Alola-Boss",
 		team: `
-Gengar @ Gengarite
-Ability: Levitate
-Tera Type: Ghost
-EVs: 252 SpA / 4 SpD / 252 Spe
-Timid Nature
-IVs: 0 Atk
-- Perish Song
-
 Marowak-Alola-Boss (Marowak-Alola-Boss) @ Thick Club
 Ability: Familial Revenge
 Level: 200
@@ -109,6 +119,63 @@ Adamant Nature
 - Shadow Bone
 - Flare Blitz
 - Knock Off
+
+Gengar @ Gengarite
+Ability: Levitate
+Level: 150
+Tera Type: Ghost
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Perish Song
+- Sludge Wave
+- Shadow Ball
+- Taunt
+
+Raticate-Alola @ Life Orb
+Ability: Hustle
+Level: 150
+Tera Type: Dark
+EVs: 252 HP / 252 Atk / 4 Def
+Adamant Nature
+- Knock Off
+- Double-Edge
+- U-turn
+- Quick Attack
+
+Rotom-Wash @ Choice Scarf
+Ability: Levitate
+Level: 150
+Tera Type: Electric
+EVs: 252 HP / 4 SpD / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Volt Switch
+- Hydro Pump
+- Defog
+- Scald
+
+Dragapult @ Ghostium Z
+Ability: Infiltrator
+Level: 150
+Tera Type: Dragon
+EVs: 252 Atk / 252 Spe
+Jolly Nature
+- Spirit Shackle
+- U-turn
+- Psychic Fangs
+- Dragon Darts
+
+Weavile @ Heavy-Duty Boots
+Ability: Pressure
+Level: 150
+Tera Type: Dark
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- Swords Dance
+- Knock Off
+- Triple Axel
+- Low Kick
 `,
 	},
 ];
@@ -236,7 +303,77 @@ function chooseRandom<T>(choices: T[]) {
 	return choices[Math.floor(Math.random() * choices.length)];
 }
 
-function chooseTeamPreview() {
+function newHazards(): StorySideHazards {
+	return {stealthrock: false, spikes: 0, toxicspikes: 0, stickyweb: false, gmaxsteelsurge: false};
+}
+
+function toHazardID(name: string) {
+	return toID(name.replace(/^move:\s*/i, '')) as keyof StorySideHazards;
+}
+
+function updateHazardState(state: StoryBattleState, sideid: 'p1' | 'p2', hazardid: keyof StorySideHazards, started: boolean) {
+	const hazards = state.hazards[sideid];
+	if (!hazards || !(hazardid in hazards)) return;
+	const mutableHazards = hazards as AnyObject;
+	if (!started) {
+		if (typeof hazards[hazardid] === 'number') {
+			mutableHazards[hazardid] = 0;
+		} else {
+			mutableHazards[hazardid] = false;
+		}
+		return;
+	}
+	if (hazardid === 'spikes') {
+		hazards.spikes = Math.min(3, hazards.spikes + 1);
+	} else if (hazardid === 'toxicspikes') {
+		hazards.toxicspikes = Math.min(2, hazards.toxicspikes + 1);
+	} else {
+		mutableHazards[hazardid] = true;
+	}
+}
+
+function syncBattleState(room: GameRoom, state: StoryBattleState) {
+	const logs = room.log.log;
+	for (let i = state.logIndex; i < logs.length; i++) {
+		const line = logs[i];
+		const parts = line.split('|');
+		if (line.startsWith('|-sidestart|') || line.startsWith('|-sideend|')) {
+			const sideid = parts[2]?.slice(0, 2);
+			if (sideid !== 'p1' && sideid !== 'p2') continue;
+			const hazardid = toHazardID(parts[3] || '');
+			updateHazardState(state, sideid, hazardid, line.startsWith('|-sidestart|'));
+		} else if (line.startsWith('|-start|')) {
+			const sideid = parts[2]?.slice(0, 2);
+			if (sideid !== 'p1' && sideid !== 'p2') continue;
+			const perishMatch = (parts[3] || '').match(/^perish([0-3])$/);
+			if (perishMatch) state.perish[sideid] = parseInt(perishMatch[1]);
+		} else if (line.startsWith('|switch|') || line.startsWith('|faint|')) {
+			const sideid = parts[2]?.slice(0, 2);
+			if (sideid === 'p1' || sideid === 'p2') state.perish[sideid] = 0;
+		}
+	}
+	state.logIndex = logs.length;
+}
+
+function hasHazards(hazards: StorySideHazards) {
+	return !!(
+		hazards.stealthrock || hazards.spikes || hazards.toxicspikes ||
+		hazards.stickyweb || hazards.gmaxsteelsurge
+	);
+}
+
+function chooseTeamPreview(request: AnyObject, state: StoryBattleState) {
+	if (state.level === 1) {
+		const pokemon = request.side?.pokemon || [];
+		const leadIndex = pokemon.findIndex((pokemonData: AnyObject) => toID(getSpeciesName(pokemonData)) === 'gengar');
+		if (leadIndex >= 0) {
+			const order = [leadIndex + 1];
+			for (let i = 0; i < pokemon.length; i++) {
+				if (i !== leadIndex) order.push(i + 1);
+			}
+			return `team ${order.join(', ')}`;
+		}
+	}
 	return 'default';
 }
 
@@ -263,26 +400,264 @@ function chooseSwitch(request: AnyObject) {
 	return choices.join(', ');
 }
 
-function chooseMove(request: AnyObject) {
+function chooseBestSwitchSlot(request: AnyObject, activeSlots: number, chosen: number[] = []) {
 	const pokemon = request.side.pokemon;
+	let bestSlot = 0;
+	let bestHPFraction = -1;
+	for (const [index, switchOption] of pokemon.entries()) {
+		const slot = index + 1;
+		if (
+			slot <= activeSlots ||
+			chosen.includes(slot) ||
+			switchOption.active ||
+			switchOption.condition.endsWith(' fnt') ||
+			switchOption.commanding ||
+			switchOption.reviving
+		) {
+			continue;
+		}
+		const hpData = getHPData(switchOption);
+		const hpFraction = hpData.hp / hpData.maxhp;
+		if (hpFraction > bestHPFraction) {
+			bestSlot = slot;
+			bestHPFraction = hpFraction;
+		}
+	}
+	return bestSlot;
+}
+
+function getActivePokemonData(request: AnyObject, index = 0) {
+	const activePokemon = request.side.pokemon.filter((pokemon: AnyObject) => pokemon.active);
+	return activePokemon[index] || request.side.pokemon[index];
+}
+
+function getHPData(pokemonData: AnyObject) {
+	const condition = pokemonData.condition || '';
+	if (condition.endsWith(' fnt')) return {hp: 0, maxhp: 1};
+	const [hpText, maxhpText] = condition.split(' ')[0].split('/');
+	const hp = parseInt(hpText) || 1;
+	const maxhp = parseInt(maxhpText) || hp || 1;
+	return {hp, maxhp};
+}
+
+function getLevel(details: string) {
+	const match = details.match(/(?:^|, )L(\d+)/);
+	return match ? parseInt(match[1]) : 100;
+}
+
+function getSpeciesName(pokemonData: AnyObject) {
+	return (pokemonData.details || pokemonData.ident || '').split(',')[0].replace(/^p\d[a-z]?: /, '');
+}
+
+function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
+	const ability = toID(pokemonData.ability || pokemonData.baseAbility);
+	if (move.type === 'Normal') {
+		if (ability === 'refrigerate') return 'Ice';
+		if (ability === 'pixilate') return 'Fairy';
+		if (ability === 'aerilate') return 'Flying';
+		if (ability === 'galvanize') return 'Electric';
+	}
+	return move.type;
+}
+
+function getPokemonTypes(pokemonData: AnyObject) {
+	if (pokemonData.terastallized) return [pokemonData.terastallized];
+	const dex = Dex.mod('gen9rrstory');
+	return dex.species.get(getSpeciesName(pokemonData)).types;
+}
+
+function getPokemonWeight(pokemonData: AnyObject) {
+	const dex = Dex.mod('gen9rrstory');
+	return dex.species.get(getSpeciesName(pokemonData)).weightkg || 0;
+}
+
+function getWeightBasedBasePower(weightkg: number) {
+	if (weightkg >= 200) return 120;
+	if (weightkg >= 100) return 100;
+	if (weightkg >= 50) return 80;
+	if (weightkg >= 25) return 60;
+	if (weightkg >= 10) return 40;
+	return 20;
+}
+
+function getBoostModifier(boost: number) {
+	boost = Math.max(-6, Math.min(6, boost || 0));
+	return boost >= 0 ? (2 + boost) / 2 : 2 / (2 - boost);
+}
+
+function getStat(pokemonData: AnyObject, stat: StatIDExceptHP) {
+	const base = pokemonData.stats?.[stat] || 1;
+	return Math.max(1, Math.floor(base * getBoostModifier(pokemonData.boosts?.[stat] || 0)));
+}
+
+function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject, useZMove = false) {
+	const dex = Dex.mod('gen9rrstory');
+	const sourceSpecies = dex.species.get(getSpeciesName(sourceData));
+	let move = dex.moves.get(moveid);
+	if (!move.exists || move.category === 'Status') return 0;
+	let basePower = move.basePower || 0;
+	if (useZMove) {
+		if (!move.zMove?.basePower) return 0;
+		basePower = move.zMove.basePower;
+	}
+	if (!useZMove && ['lowkick', 'grassknot'].includes(moveid)) {
+		basePower = getWeightBasedBasePower(getPokemonWeight(targetData));
+	}
+	if (!useZMove && moveid === 'knockoff' && targetData.item) {
+		basePower = Math.floor(basePower * 1.5);
+	}
+	if (move.multihit === 2) basePower *= 2;
+	if (moveid === 'tripleaxel') basePower = 120;
+	const type = getModifiedMoveType(move, sourceData);
+	const ability = toID(sourceData.ability || sourceData.baseAbility);
+	if (ability === 'technician' && basePower <= 60) basePower = Math.floor(basePower * 1.5);
+	if (['refrigerate', 'pixilate', 'aerilate', 'galvanize'].includes(ability) && move.type === 'Normal') {
+		basePower = Math.floor(basePower * 1.2);
+	}
+	if (ability === 'sharpness' && move.flags['slicing']) basePower = Math.floor(basePower * 1.5);
+
+	const ignoresBoneImmunity = ability === 'familialrevenge' && move.flags['bone'];
+	let typeMod = 0;
+	for (const targetType of getPokemonTypes(targetData)) {
+		const effectiveness = dex.getEffectiveness(type, targetType);
+		if (ignoresBoneImmunity && effectiveness <= -6) continue;
+		typeMod += effectiveness;
+	}
+	if (typeMod <= -6) return 0;
+	if (ignoresBoneImmunity && typeMod < 0) typeMod++;
+	const typeMultiplier = Math.pow(2, typeMod);
+	const category = move.category;
+	const offensiveStat = (move as AnyObject).overrideOffensiveStat || (category === 'Physical' ? 'atk' : 'spa');
+	const defensiveStat = (move as AnyObject).overrideDefensiveStat || (category === 'Physical' ? 'def' : 'spd');
+	let attack = getStat(sourceData, offensiveStat);
+	const defense = getStat(targetData, defensiveStat);
+	const item = toID(sourceData.item);
+	if (category === 'Physical') {
+		if (item === 'thickclub' && ['Cubone', 'Marowak', 'Marowak-Alola'].includes(sourceSpecies.baseSpecies)) attack *= 2;
+		if (item === 'choiceband') attack *= 1.5;
+		if (ability === 'hustle') attack *= 1.5;
+	} else if (item === 'choicespecs') {
+		attack *= 1.5;
+	}
+	const level = getLevel(sourceData.details || '');
+	let damage = Math.floor(Math.floor(Math.floor((2 * level / 5 + 2) * basePower * attack / defense) / 50) + 2);
+	if (getPokemonTypes(sourceData).includes(type)) damage = Math.floor(damage * 1.5);
+	damage = Math.floor(damage * typeMultiplier);
+	if (item === 'lifeorb') damage = Math.floor(damage * 1.3);
+	return Math.max(0, damage);
+}
+
+function isSetupMove(moveid: ID) {
+	return [
+		'swordsdance', 'dragondance', 'nastyplot', 'calmmind', 'bulkup',
+		'quiverdance', 'victorydance', 'shellsmash',
+	].includes(moveid);
+}
+
+function canUseHazard(moveid: ID, targetHazards: StorySideHazards) {
+	if (moveid === 'stealthrock') return !targetHazards.stealthrock;
+	if (moveid === 'spikes') return targetHazards.spikes < 3;
+	if (moveid === 'toxicspikes') return targetHazards.toxicspikes < 2;
+	if (moveid === 'stickyweb') return !targetHazards.stickyweb;
+	return true;
+}
+
+function chooseBestMove(
+	active: AnyObject, pokemonData: AnyObject, targetData: AnyObject | null,
+	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState
+) {
+	const moves = active.moves
+		.map((move: AnyObject, moveIndex: number) => ({slot: moveIndex + 1, move}))
+		.filter(({move}: {move: AnyObject}) => !move.disabled);
+	if (!moves.length) return 'pass';
+	const damagingMoves = targetData ? moves.filter(({move}: {move: AnyObject}) => (
+		Dex.mod('gen9rrstory').moves.get(move.id).category !== 'Status'
+	)) : [];
+	const zMoveSlots = new Map<number, AnyObject>();
+	if (active.canZMove) {
+		for (const [i, zMove] of active.canZMove.entries()) {
+			if (zMove) zMoveSlots.set(i + 1, zMove);
+		}
+	}
+	const targetHP = targetData ? getHPData(targetData).hp : 1;
+	let bestDamage = -1;
+	let bestChoice = moves[0];
+	let bestIsZ = false;
+	for (const choice of damagingMoves) {
+		const damage = estimateDamage(choice.move.id, pokemonData, targetData);
+		if (damage > bestDamage) {
+			bestDamage = damage;
+			bestChoice = choice;
+			bestIsZ = false;
+		}
+		if (zMoveSlots.has(choice.slot)) {
+			const zDamage = estimateDamage(choice.move.id, pokemonData, targetData, true);
+			if (zDamage > bestDamage) {
+				bestDamage = zDamage;
+				bestChoice = choice;
+				bestIsZ = true;
+			}
+		}
+	}
+	const setupMove = moves.find(({move}: {move: AnyObject}) => isSetupMove(move.id));
+	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
+	if (setupMove && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
+		bestChoice = setupMove;
+		bestIsZ = false;
+	}
+	const utilityMove = moves.find(({move}: {move: AnyObject}) => {
+		const moveid = move.id as ID;
+		if (moveid === 'defog') return hasHazards(ownHazards);
+		if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(moveid)) {
+			return canUseHazard(moveid, targetHazards);
+		}
+		return false;
+	});
+	if (utilityMove && (!damagingMoves.length || bestDamage * 2 < targetHP)) {
+		bestChoice = utilityMove;
+		bestIsZ = false;
+	}
+	let moveChoice = `move ${bestChoice.slot}`;
+	if (bestIsZ) moveChoice += ' zmove';
+	if (active.canMegaEvo) moveChoice += ' mega';
+	if (isSetupMove(bestChoice.move.id)) state.setupUsed[setupKey] = true;
+	return moveChoice;
+}
+
+function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState) {
+	const foeSideid = request.side.id === 'p1' ? 'p2' : 'p1';
+	const ownSideid = request.side.id as 'p1' | 'p2';
+	const foe = room.battle?.[foeSideid];
+	let foeRequest: AnyObject | null = null;
+	try {
+		if (foe?.request.request) foeRequest = JSON.parse(foe.request.request);
+	} catch {}
+	const targetData = foeRequest ? getActivePokemonData(foeRequest) : null;
+	const pokemon = request.side.pokemon;
+	const switchChoices: number[] = [];
 	const choices = request.active.map((active: AnyObject, index: number) => {
-		const pokemonData = pokemon[index];
+		const pokemonData = getActivePokemonData(request, index) || pokemon[index];
 		if (!pokemonData || pokemonData.condition.endsWith(' fnt') || pokemonData.commanding) return 'pass';
-		const moves = active.moves
-			.map((move: AnyObject, moveIndex: number) => ({slot: moveIndex + 1, move}))
-			.filter(({move}: {move: AnyObject}) => !move.disabled);
-		if (!moves.length) return 'pass';
-		const moveChoice = `move ${chooseRandom(moves).slot}`;
-		return active.canMegaEvo ? `${moveChoice} mega` : moveChoice;
+		if (!active.trapped && state.perish[ownSideid] === 1) {
+			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices);
+			if (switchSlot) {
+				switchChoices.push(switchSlot);
+				return `switch ${switchSlot}`;
+			}
+		}
+		return chooseBestMove(
+			active, pokemonData, targetData,
+			state.hazards[ownSideid], state.hazards[foeSideid], state
+		);
 	});
 	return choices.join(', ');
 }
 
-function chooseBotRequest(request: AnyObject) {
+function chooseBotRequest(request: AnyObject, room: GameRoom, state: StoryBattleState) {
 	if (request.wait) return '';
 	if (request.forceSwitch) return chooseSwitch(request);
-	if (request.active) return chooseMove(request);
-	return chooseTeamPreview();
+	if (request.active) return chooseMove(request, room, state);
+	return chooseTeamPreview(request, state);
 }
 
 function advanceBot(room: GameRoom) {
@@ -293,6 +668,9 @@ function advanceBot(room: GameRoom) {
 		storyBattles.delete(room.roomid);
 		return;
 	}
+	const state = storyBattles.get(room.roomid);
+	if (!state) return;
+	syncBattleState(room, state);
 	const bot = battle.p2;
 	if (bot.request.isWait !== false || !bot.request.request) return;
 	let request: AnyObject;
@@ -301,7 +679,7 @@ function advanceBot(room: GameRoom) {
 	} catch {
 		return;
 	}
-	const choice = chooseBotRequest(request);
+	const choice = chooseBotRequest(request, room, state);
 	if (!choice) return;
 	bot.request.isWait = true;
 	bot.request.choice = choice;
@@ -322,7 +700,15 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 	Rooms.global.onCreateBattleRoom([Users.get(userid)!], room, {rated: 0});
 	battle.checkActive();
 	const timer = setInterval(() => advanceBot(room), 500);
-	storyBattles.set(room.roomid, {userid, level, timer});
+	storyBattles.set(room.roomid, {
+		userid,
+		level,
+		timer,
+		logIndex: room.log.log.length,
+		hazards: {p1: newHazards(), p2: newHazards()},
+		perish: {p1: 0, p2: 0},
+		setupUsed: {},
+	});
 }
 
 async function startStoryBattle(

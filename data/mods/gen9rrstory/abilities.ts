@@ -45,6 +45,6 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 5,
 		gen: 9,
 		desc: "Bone moves ignore immunities and deal double damage when resisted. Super Fang, Ruination, and Nature's Madness fail against this Pokemon. At the end of each turn, this Pokemon cures its own status.",
-		shortDesc: "Bone Zone plus blocks halving moves; cures status at end of turn.",
+		shortDesc: "Bone moves ignore immunities; resists take 2x. Blocks halving moves; cures status.",
 	},
 };
