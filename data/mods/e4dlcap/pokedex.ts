@@ -4780,6 +4780,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 62.5,
 		eggGroups: ["Bug"],
 	},
+	shieluon: {
+		name: "Shieluon",
+		types: ["Steel"],
+		baseStats: {hp: 96, atk: 70, def: 85, spa: 131, spd: 92, spe: 86},
+		abilities: {0: "Plus", 1: "Minus", H: "Gears Turning"},
+		num: -99,
+		weightkg: 364,
+		eggGroups: ["Mineral"],
+	},
 	hornet: {
 		name: "Hornet",
 		types: ["Bug", "Steel"],

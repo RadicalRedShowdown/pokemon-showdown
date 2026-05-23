@@ -842,6 +842,17 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's moves ignore abilities, and this Pokemon ignores other Pokemon's stat changes when taking or dealing damage.",
 		shortDesc: "Mold Breaker + Unaware.",
 	},
+	gearsturning: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.hp === pokemon.maxhp) return this.chainModify(1.5);
+		},
+		flags: {breakable: 1},
+		name: "Gears Turning",
+		rating: 3,
+		num: -99,
+		desc: "If this Pokemon is at full HP, its Speed is multiplied by 1.5.",
+		shortDesc: "If this Pokemon is at full HP, its Speed is 1.5x.",
+	},
 	unbothered: {
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
