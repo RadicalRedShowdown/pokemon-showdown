@@ -167,6 +167,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.boost({def: 1}, pokemon);
 		},
 	},
+	damp: {
+		inherit: true,
+		onAnyTryMove(target, source, effect) {
+			if (['explosion', 'mindblown', 'mistyexplosion', 'myentireskeleton', 'selfdestruct'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+	},
 	defeatist: {
 		inherit: true,
 		onModifyAtk(atk, pokemon) {
