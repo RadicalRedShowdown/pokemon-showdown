@@ -170,7 +170,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	damp: {
 		inherit: true,
 		onAnyTryMove(target, source, effect) {
-			if (['explosion', 'mindblown', 'mistyexplosion', 'myentireskeleton', 'selfdestruct'].includes(effect.id)) {
+			if ([
+				'explosion', 'mindblown', 'mistyexplosion', 'myentireskeleton', 'sacrificialroom', 'selfdestruct',
+			].includes(effect.id)) {
 				this.attrLastMove('[still]');
 				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
 				return false;
@@ -862,6 +864,27 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: -99,
 		desc: "If this Pokemon is at full HP, its Speed is multiplied by 1.5.",
 		shortDesc: "If this Pokemon is at full HP, its Speed is 1.5x.",
+	},
+	vocalizer: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Vocalizer boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound']) {
+				this.debug('Vocalizer weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Vocalizer",
+		rating: 3.5,
+		num: -6,
+		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
+		shortDesc: "This Pokemon's sound moves deal 1.3x damage; sound damage taken is halved.",
 	},
 	unbothered: {
 		onTryAddVolatile(status, pokemon) {

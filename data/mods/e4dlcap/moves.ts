@@ -1833,6 +1833,30 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "20% chance to lower the target's Defense by 1.",
 		gen: 9,
 	},
+	sacrificialroom: {
+		num: -67,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Sacrificial Room",
+		pp: 5,
+		priority: -7,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, source, move) {
+			for (const room of ['trickroom', 'magicroom', 'wonderroom']) {
+				if (this.field.pseudoWeather[room]) this.field.removePseudoWeather(room);
+				this.field.addPseudoWeather(room, source, move);
+				if (this.field.pseudoWeather[room]) this.field.pseudoWeather[room].duration = 3;
+			}
+		},
+		selfdestruct: "always",
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
+		desc: "Sets Trick Room, Magic Room, and Wonder Room for 3 turns. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+		shortDesc: "Sets all rooms for 3 turns. User faints. Blocked by Damp.",
+		gen: 9,
+	},
 	darkestlariat: {
 		inherit: true,
 		noTutor: true,
