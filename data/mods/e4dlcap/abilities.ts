@@ -828,6 +828,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	gobeyond: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Go Beyond');
+			this.add('-message', `${pokemon.name} goes above and beyond!`);
 		},
 		onModifyMove(move) {
 			move.ignoreAbility = true;
@@ -855,6 +856,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Mold Breaker + Unaware.",
 	},
 	gearsturning: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Gears Turning');
+			this.add('-message', `${pokemon.name}'s gears are turning!`);
+		},
 		onModifySpe(spe, pokemon) {
 			if (pokemon.hp === pokemon.maxhp) return this.chainModify(1.5);
 		},
@@ -887,6 +892,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's sound moves deal 1.3x damage; sound damage taken is halved.",
 	},
 	unbothered: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Unbothered');
+			this.add('-message', `${pokemon.name} doesn't care!`);
+		},
 		onTryAddVolatile(status, pokemon) {
 			if (status.id === 'flinch') return null;
 			if (status.id === 'taunt') {
