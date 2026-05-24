@@ -862,6 +862,7 @@ export const Aliases: {[alias: string]: string} = {
 	cm: "Calm Mind",
 	dbond: "Destiny Bond",
 	dd: "Dragon Dance",
+	divinepunishment: "Divine Judgment",
 	dv: "Dark Void",
 	eq: "Earthquake",
 	espeed: "ExtremeSpeed",

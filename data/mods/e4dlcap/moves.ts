@@ -1857,6 +1857,33 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Sets all rooms for 3 turns. User faints. Blocked by Damp.",
 		gen: 9,
 	},
+	divinejudgment: {
+		num: -994,
+		accuracy: 100,
+		basePower: 160,
+		category: "Special",
+		name: "Divine Judgment",
+		pp: 10,
+		priority: 0,
+		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
+		onTryMove(attacker, defender, move) {
+			if (attacker.removeVolatile(move.id)) return;
+			this.add('-prepare', attacker, move.name);
+			if (!this.runEvent('ChargeMove', attacker, defender, move)) return;
+			attacker.addVolatile('twoturnmove', defender);
+			return null;
+		},
+		ignoreImmunity: {'Normal': true},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Ghost') return 1;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+		desc: "This attack charges on the first turn and executes on the second. This move can hit Ghost-type Pokemon and is super effective against them. If the user is holding a Power Herb, the move completes in one turn.",
+		shortDesc: "Charges turn 1. Hits Ghost super effectively.",
+		gen: 9,
+	},
 	darkestlariat: {
 		inherit: true,
 		noTutor: true,
@@ -2580,7 +2607,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 25,
 		category: "Special",
 		name: "Pea Burst",
-		pp: 10,
+		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, pulse: 1},
 		multihit: 4,
