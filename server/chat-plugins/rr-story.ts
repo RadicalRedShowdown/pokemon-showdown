@@ -299,10 +299,6 @@ async function prepareStoryTeam(connection: Connection) {
 	return ready.settings;
 }
 
-function chooseRandom<T>(choices: T[]) {
-	return choices[Math.floor(Math.random() * choices.length)];
-}
-
 function newHazards(): StorySideHazards {
 	return {stealthrock: false, spikes: 0, toxicspikes: 0, stickyweb: false, gmaxsteelsurge: false};
 }
@@ -311,7 +307,9 @@ function toHazardID(name: string) {
 	return toID(name.replace(/^move:\s*/i, '')) as keyof StorySideHazards;
 }
 
-function updateHazardState(state: StoryBattleState, sideid: 'p1' | 'p2', hazardid: keyof StorySideHazards, started: boolean) {
+function updateHazardState(
+	state: StoryBattleState, sideid: 'p1' | 'p2', hazardid: keyof StorySideHazards, started: boolean
+) {
 	const hazards = state.hazards[sideid];
 	if (!hazards || !(hazardid in hazards)) return;
 	const mutableHazards = hazards as AnyObject;
@@ -345,7 +343,7 @@ function syncBattleState(room: GameRoom, state: StoryBattleState) {
 		} else if (line.startsWith('|-start|')) {
 			const sideid = parts[2]?.slice(0, 2);
 			if (sideid !== 'p1' && sideid !== 'p2') continue;
-			const perishMatch = (parts[3] || '').match(/^perish([0-3])$/);
+			const perishMatch = /^perish([0-3])$/.exec(parts[3] || '');
 			if (perishMatch) state.perish[sideid] = parseInt(perishMatch[1]);
 		} else if (line.startsWith('|switch|') || line.startsWith('|faint|')) {
 			const sideid = parts[2]?.slice(0, 2);
@@ -377,7 +375,46 @@ function chooseTeamPreview(request: AnyObject, state: StoryBattleState) {
 	return 'default';
 }
 
-function chooseSwitch(request: AnyObject) {
+function getFoeRequest(room: GameRoom, sideid: 'p1' | 'p2') {
+	const foeSideid = sideid === 'p1' ? 'p2' : 'p1';
+	const foe = room.battle?.[foeSideid];
+	try {
+		if (foe?.request.request) return JSON.parse(foe.request.request);
+	} catch {}
+	return null;
+}
+
+function getPokemonMoveIDs(pokemonData: AnyObject) {
+	const moves = pokemonData.moves || [];
+	return moves.map((move: AnyObject) => toID(typeof move === 'string' ? move : move.id || move.move)).filter(Boolean);
+}
+
+function estimateBestDamageFromPokemon(sourceData: AnyObject, targetData: AnyObject | null) {
+	if (!targetData) return 0;
+	let bestDamage = 0;
+	for (const moveid of getPokemonMoveIDs(sourceData)) {
+		const move = Dex.mod('gen9rrstory').moves.get(moveid);
+		if (!move.exists || move.category === 'Status') continue;
+		bestDamage = Math.max(bestDamage, estimateDamage(moveid, sourceData, targetData));
+	}
+	return bestDamage;
+}
+
+function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null) {
+	const hpData = getHPData(switchOption);
+	let score = (hpData.hp / hpData.maxhp) * 25;
+	if (!targetData) return score;
+	const targetHP = getHPData(targetData);
+	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData);
+	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption);
+	score += Math.min(damageOut, targetHP.hp) / targetHP.maxhp * 100;
+	score -= Math.min(damageIn, hpData.hp) / hpData.maxhp * 75;
+	if (damageOut >= targetHP.hp) score += 40;
+	if (damageIn >= hpData.hp) score -= 40;
+	return score;
+}
+
+function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null) {
 	const pokemon = request.side.pokemon;
 	const chosen: number[] = [];
 	const choices = request.forceSwitch.map((mustSwitch: boolean, i: number) => {
@@ -393,17 +430,28 @@ function chooseSwitch(request: AnyObject) {
 			!pokemon[i].reviving
 		));
 		if (!switches.length) return 'pass';
-		const slot = chooseRandom(switches).slot;
+		let bestSwitch = switches[0];
+		let bestScore = -Infinity;
+		for (const switchChoice of switches) {
+			const score = scoreSwitchOption(switchChoice.pokemon, targetData);
+			if (score > bestScore) {
+				bestScore = score;
+				bestSwitch = switchChoice;
+			}
+		}
+		const slot = bestSwitch.slot;
 		chosen.push(slot);
 		return `switch ${slot}`;
 	});
 	return choices.join(', ');
 }
 
-function chooseBestSwitchSlot(request: AnyObject, activeSlots: number, chosen: number[] = []) {
+function chooseBestSwitchSlot(
+	request: AnyObject, activeSlots: number, chosen: number[] = [], targetData: AnyObject | null = null
+) {
 	const pokemon = request.side.pokemon;
 	let bestSlot = 0;
-	let bestHPFraction = -1;
+	let bestScore = -Infinity;
 	for (const [index, switchOption] of pokemon.entries()) {
 		const slot = index + 1;
 		if (
@@ -416,11 +464,10 @@ function chooseBestSwitchSlot(request: AnyObject, activeSlots: number, chosen: n
 		) {
 			continue;
 		}
-		const hpData = getHPData(switchOption);
-		const hpFraction = hpData.hp / hpData.maxhp;
-		if (hpFraction > bestHPFraction) {
+		const score = scoreSwitchOption(switchOption, targetData);
+		if (score > bestScore) {
 			bestSlot = slot;
-			bestHPFraction = hpFraction;
+			bestScore = score;
 		}
 	}
 	return bestSlot;
@@ -441,7 +488,7 @@ function getHPData(pokemonData: AnyObject) {
 }
 
 function getLevel(details: string) {
-	const match = details.match(/(?:^|, )L(\d+)/);
+	const match = /(?:^|, )L(\d+)/.exec(details);
 	return match ? parseInt(match[1]) : 100;
 }
 
@@ -493,7 +540,7 @@ function getStat(pokemonData: AnyObject, stat: StatIDExceptHP) {
 function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject, useZMove = false) {
 	const dex = Dex.mod('gen9rrstory');
 	const sourceSpecies = dex.species.get(getSpeciesName(sourceData));
-	let move = dex.moves.get(moveid);
+	const move = dex.moves.get(moveid);
 	if (!move.exists || move.category === 'Status') return 0;
 	let basePower = move.basePower || 0;
 	if (useZMove) {
@@ -585,20 +632,33 @@ function chooseBestMove(
 	let bestDamage = -1;
 	let bestChoice = moves[0];
 	let bestIsZ = false;
-	for (const choice of damagingMoves) {
-		const damage = estimateDamage(choice.move.id, pokemonData, targetData);
-		if (damage > bestDamage) {
-			bestDamage = damage;
-			bestChoice = choice;
-			bestIsZ = false;
-		}
-		if (zMoveSlots.has(choice.slot)) {
-			const zDamage = estimateDamage(choice.move.id, pokemonData, targetData, true);
-			if (zDamage > bestDamage) {
-				bestDamage = zDamage;
+	let bestZDamage = -1;
+	let bestZChoice = null as {slot: number, move: AnyObject} | null;
+	let bestZRegularDamage = -1;
+	if (targetData) {
+		for (const choice of damagingMoves) {
+			const damage = estimateDamage(choice.move.id, pokemonData, targetData);
+			if (damage > bestDamage) {
+				bestDamage = damage;
 				bestChoice = choice;
-				bestIsZ = true;
+				bestIsZ = false;
 			}
+			if (zMoveSlots.has(choice.slot)) {
+				const zDamage = estimateDamage(choice.move.id, pokemonData, targetData, true);
+				if (zDamage > bestZDamage) {
+					bestZDamage = zDamage;
+					bestZChoice = choice;
+					bestZRegularDamage = damage;
+				}
+			}
+		}
+		if (bestZChoice && (
+			(bestZDamage >= targetHP && bestZRegularDamage < targetHP) ||
+			bestZDamage > bestDamage
+		)) {
+			bestDamage = bestZDamage;
+			bestChoice = bestZChoice;
+			bestIsZ = true;
 		}
 	}
 	const setupMove = moves.find(({move}: {move: AnyObject}) => isSetupMove(move.id));
@@ -627,13 +687,9 @@ function chooseBestMove(
 }
 
 function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState) {
-	const foeSideid = request.side.id === 'p1' ? 'p2' : 'p1';
 	const ownSideid = request.side.id as 'p1' | 'p2';
-	const foe = room.battle?.[foeSideid];
-	let foeRequest: AnyObject | null = null;
-	try {
-		if (foe?.request.request) foeRequest = JSON.parse(foe.request.request);
-	} catch {}
+	const foeSideid = ownSideid === 'p1' ? 'p2' : 'p1';
+	const foeRequest = getFoeRequest(room, ownSideid);
 	const targetData = foeRequest ? getActivePokemonData(foeRequest) : null;
 	const pokemon = request.side.pokemon;
 	const switchChoices: number[] = [];
@@ -641,8 +697,24 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 		const pokemonData = getActivePokemonData(request, index) || pokemon[index];
 		if (!pokemonData || pokemonData.condition.endsWith(' fnt') || pokemonData.commanding) return 'pass';
 		if (!active.trapped && state.perish[ownSideid] === 1) {
-			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices);
+			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData);
 			if (switchSlot) {
+				switchChoices.push(switchSlot);
+				return `switch ${switchSlot}`;
+			}
+		}
+		if (!active.trapped && targetData) {
+			const targetHP = getHPData(targetData);
+			const activeHP = getHPData(pokemonData);
+			const bestDamage = estimateBestDamageFromPokemon(pokemonData, targetData);
+			const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData);
+			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData);
+			const switchOption = switchSlot ? request.side.pokemon[switchSlot - 1] : null;
+			const switchDamage = switchOption ? estimateBestDamageFromPokemon(switchOption, targetData) : 0;
+			if (switchSlot && (
+				(bestDamage <= 0 && switchDamage > 0) ||
+				(targetThreat >= activeHP.hp && bestDamage < targetHP.hp && switchDamage > bestDamage)
+			)) {
 				switchChoices.push(switchSlot);
 				return `switch ${switchSlot}`;
 			}
@@ -657,7 +729,11 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 
 function chooseBotRequest(request: AnyObject, room: GameRoom, state: StoryBattleState) {
 	if (request.wait) return '';
-	if (request.forceSwitch) return chooseSwitch(request);
+	if (request.forceSwitch) {
+		const foeRequest = getFoeRequest(room, request.side.id);
+		const targetData = foeRequest ? getActivePokemonData(foeRequest) : null;
+		return chooseSwitch(request, targetData);
+	}
 	if (request.active) return chooseMove(request, room, state);
 	return chooseTeamPreview(request, state);
 }
@@ -741,7 +817,7 @@ async function startStoryBattle(
 
 export const commands: Chat.ChatCommands = {
 	rrstory: 'story',
-	async story(target, room, user) {
+	story(target, room, user) {
 		target = target.trim();
 		const cmd = toID(target);
 		if (cmd === 'help') return this.parse('/help story');
@@ -768,7 +844,7 @@ export const commands: Chat.ChatCommands = {
 			return this.sendReplyBox(
 				`Make a team with the <strong>${FORMAT_NAME}</strong> teambuilder format, ` +
 				`then use <code>/story</code> to open the Story team selector. ` +
-				`Story Mode is challenge-selectable, but it is not on the ladder.`
+				`Story Mode is not challengeable or laddered.`
 			);
 		}
 		if (cmd === 'reset') {
@@ -777,7 +853,7 @@ export const commands: Chat.ChatCommands = {
 			return this.sendReply(`Story progress reset.`);
 		}
 		if (cmd === 'reload') {
-			this.checkCan('hotpatch');
+			this.checkCan('console');
 			levels = loadLevels();
 			return this.sendReply(`Reloaded ${levels.length} Story level${levels.length === 1 ? '' : 's'}.`);
 		}
@@ -840,7 +916,7 @@ export const commands: Chat.ChatCommands = {
 		`/story levels - Shows Story levels and locks.`,
 		`/story progress - Shows your current Story progress.`,
 		`/story reset - Resets your own Story progress.`,
-		`/story reload - Reloads story levels from the optional config override. Requires: hotpatch permission`,
+		`/story reload - Reloads story levels from the optional config override. Requires: console permission`,
 	],
 };
 
