@@ -2604,7 +2604,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	peaburst: {
 		num: -59,
 		accuracy: 100,
-		basePower: 25,
+		basePower: 22,
 		category: "Special",
 		name: "Pea Burst",
 		pp: 5,
