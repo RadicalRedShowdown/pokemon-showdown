@@ -2952,7 +2952,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 			spa: 1,
 		},
 		onHit(pokemon, source, move) {
-			this.add('-message', `${pokemon.name} gets baited by Yash!`);
+			this.add('c', pokemon.name, 'Shaw!');
 			if (pokemon.species.id === 'hornet' && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
