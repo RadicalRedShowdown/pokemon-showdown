@@ -32,6 +32,10 @@ interface StoryBattleState {
 	};
 	setupUsed: {[ident: string]: boolean};
 	decisions: StoryDecision[];
+	lastDecisionByPokemon: {[ident: string]: StoryDecision};
+	lastBotMoveDecision: StoryDecision | null;
+	lastBotMoveByTarget: {[ident: string]: StoryDecision};
+	memoryChanged: boolean;
 }
 
 interface StorySideHazards {
@@ -44,6 +48,8 @@ interface StorySideHazards {
 
 interface StoryDecision {
 	key: string;
+	actor: string;
+	action: string;
 }
 
 interface StoryAIMemoryEntry {
@@ -260,6 +266,13 @@ function memoryScore(key: string) {
 	return aiMemory[key]?.score || 0;
 }
 
+function applyAIMemoryDelta(key: string, delta: number) {
+	const entry = aiMemory[key] || {score: 0, uses: 0};
+	entry.score = Math.max(-3, Math.min(3, entry.score + delta));
+	entry.uses++;
+	aiMemory[key] = entry;
+}
+
 function updateAIMemory(decisions: StoryDecision[], won: boolean) {
 	if (!decisions.length) return;
 	const seen = new Set<string>();
@@ -267,12 +280,15 @@ function updateAIMemory(decisions: StoryDecision[], won: boolean) {
 	for (const decision of decisions) {
 		if (seen.has(decision.key)) continue;
 		seen.add(decision.key);
-		const entry = aiMemory[decision.key] || {score: 0, uses: 0};
-		entry.score = Math.max(-3, Math.min(3, entry.score + delta));
-		entry.uses++;
-		aiMemory[decision.key] = entry;
+		applyAIMemoryDelta(decision.key, delta);
 	}
 	saveAIMemory();
+}
+
+function rewardDecision(state: StoryBattleState, decision: StoryDecision | null | undefined, delta: number) {
+	if (!decision) return;
+	applyAIMemoryDelta(decision.key, delta);
+	state.memoryChanged = true;
 }
 
 function getCleared(userid: ID) {
@@ -385,11 +401,43 @@ function updateHazardState(
 	}
 }
 
+function getLineSideID(ident: string | undefined) {
+	const match = /^(p[1-4])[a-z]?:/.exec(ident || '');
+	return match?.[1] || '';
+}
+
+function trackStoryOutcome(line: string, parts: string[], state: StoryBattleState) {
+	if (line.startsWith('|move|')) {
+		const actorSideid = getLineSideID(parts[2]);
+		if (actorSideid !== 'p2') return;
+		const decision = state.lastDecisionByPokemon[getBattleIdentID(parts[2])];
+		if (!decision?.action.startsWith('move:')) return;
+		state.lastBotMoveDecision = decision;
+		const targetSideid = getLineSideID(parts[4]);
+		if (targetSideid === 'p1') {
+			state.lastBotMoveByTarget[getBattleIdentID(parts[4])] = decision;
+		}
+		return;
+	}
+	if (!line.startsWith('|faint|')) return;
+	const faintedSideid = getLineSideID(parts[2]);
+	const faintedID = getBattleIdentID(parts[2]);
+	if (faintedSideid === 'p1') {
+		const decision = state.lastBotMoveByTarget[faintedID] || state.lastBotMoveDecision;
+		rewardDecision(state, decision, decision?.action.endsWith(':z') ? 0.85 : 0.6);
+		delete state.lastBotMoveByTarget[faintedID];
+	} else if (faintedSideid === 'p2') {
+		rewardDecision(state, state.lastDecisionByPokemon[faintedID], -0.55);
+		delete state.lastDecisionByPokemon[faintedID];
+	}
+}
+
 function syncBattleState(room: GameRoom, state: StoryBattleState) {
 	const logs = room.log.log;
 	for (let i = state.logIndex; i < logs.length; i++) {
 		const line = logs[i];
 		const parts = line.split('|');
+		trackStoryOutcome(line, parts, state);
 		if (line.startsWith('|-sidestart|') || line.startsWith('|-sideend|')) {
 			const sideid = parts[2]?.slice(0, 2);
 			if (sideid !== 'p1' && sideid !== 'p2') continue;
@@ -556,6 +604,18 @@ function getSpeciesName(pokemonData: AnyObject) {
 	return (pokemonData.details || pokemonData.ident || '').split(',')[0].replace(/^p\d[a-z]?: /, '');
 }
 
+function getBattleIdentID(ident: string | undefined) {
+	if (!ident) return 'unknown';
+	const match = /^(p[1-4])[a-z]?:\s*(.*)$/.exec(ident);
+	if (match) return `${match[1]}:${toID(match[2])}`;
+	return toID(ident);
+}
+
+function getPokemonDecisionID(pokemonData: AnyObject | null) {
+	if (!pokemonData) return 'unknown';
+	return getBattleIdentID(pokemonData.ident || getSpeciesName(pokemonData));
+}
+
 function getSpeciesID(pokemonData: AnyObject | null) {
 	if (!pokemonData) return 'none';
 	return toID(getSpeciesName(pokemonData));
@@ -568,7 +628,13 @@ function getMemoryKey(state: StoryBattleState, pokemonData: AnyObject, targetDat
 function rememberDecision(
 	state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string
 ) {
-	state.decisions.push({key: getMemoryKey(state, pokemonData, targetData, action)});
+	const decision = {
+		key: getMemoryKey(state, pokemonData, targetData, action),
+		actor: getPokemonDecisionID(pokemonData),
+		action,
+	};
+	state.decisions.push(decision);
+	state.lastDecisionByPokemon[decision.actor] = decision;
 }
 
 function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
@@ -931,6 +997,10 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 		perish: {p1: 0, p2: 0},
 		setupUsed: {},
 		decisions: [],
+		lastDecisionByPokemon: {},
+		lastBotMoveDecision: null,
+		lastBotMoveByTarget: {},
+		memoryChanged: false,
 	});
 }
 
