@@ -1,5 +1,1 @@
-export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
-	marowakalolaboss: {
-		tier: "Illegal",
-	},
-};
+export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {};

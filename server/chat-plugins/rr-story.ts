@@ -1,5 +1,6 @@
 import {FS, Utils} from '../../lib';
 import {Ladders} from '../ladders';
+import {POKEPASTE_LEVELS} from './rr-story-levels';
 
 const FORMAT_ID = 'gen9storymode';
 const FORMAT_NAME = '[Gen 9] Story Mode';
@@ -15,6 +16,7 @@ const AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
 interface StoryLevel {
 	name: string;
 	team: string;
+	boss?: boolean;
 }
 
 interface StoryBattleState {
@@ -35,6 +37,7 @@ interface StoryBattleState {
 	lastDecisionByPokemon: {[ident: string]: StoryDecision};
 	lastBotMoveDecision: StoryDecision | null;
 	lastBotMoveByTarget: {[ident: string]: StoryDecision};
+	redMistSouls: {[ident: string]: number};
 	memoryChanged: boolean;
 }
 
@@ -57,10 +60,9 @@ interface StoryAIMemoryEntry {
 	uses: number;
 }
 
-const DEFAULT_LEVELS: StoryLevel[] = [
-	{
-		name: "Level 1",
-		team: `
+const INITIAL_LEVEL: StoryLevel = {
+	name: "Level 1",
+	team: `
 Lawsuit plushie (Chillet) @ Choice Band
 Ability: Refrigerate
 Tera Type: Ice
@@ -122,11 +124,13 @@ Impish Nature
 - U-turn
 - Roost
 `,
-	},
-	{
-		name: "Marowak-Alola-Boss",
-		team: `
-Marowak-Alola-Boss (Marowak-Alola-Boss) @ Thick Club
+};
+
+const MAROWAK_LEVEL: StoryLevel = {
+	name: "Marowak-Alola",
+	boss: true,
+	team: `
+Marowak-Alola @ Thick Club
 Ability: Familial Revenge
 Level: 200
 Tera Type: Fire
@@ -194,9 +198,33 @@ Jolly Nature
 - Triple Axel
 - Low Kick
 `,
-	},
-];
+};
 
+const RADICAL_RED_LEVEL: StoryLevel = {
+	name: "The Radical Red",
+	boss: true,
+	team: `
+The Radical Red (Houndoom-Mega) @ Houndoominite
+Ability: Radical Aura
+Level: 300
+Tera Type: Dark
+EVs: 252 HP / 252 SpA / 252 Spe
+Modest Nature
+IVs: 0 Atk
+- Dark Pulse
+- Fire Blast
+- Scorching Sands
+- Red Mist
+`,
+};
+
+const DEFAULT_LEVELS: StoryLevel[] = [
+	INITIAL_LEVEL,
+	...POKEPASTE_LEVELS.slice(0, 15),
+	MAROWAK_LEVEL,
+	...POKEPASTE_LEVELS.slice(15),
+	RADICAL_RED_LEVEL,
+];
 let levels = loadLevels();
 const progress: {[userid: string]: number} = loadProgress();
 const aiMemory: {[key: string]: StoryAIMemoryEntry} = loadAIMemory();
@@ -293,6 +321,12 @@ function rewardDecision(state: StoryBattleState, decision: StoryDecision | null 
 
 function getCleared(userid: ID) {
 	return progress[userid] || 0;
+}
+
+function getStoryLevelLabel(level: StoryLevel, index: number, html = false) {
+	const name = html ? Utils.escapeHTML(level.name) : level.name;
+	if (level.boss) return `Boss Battle: ${name}`;
+	return `Level ${index + 1}: ${name}`;
 }
 
 function getCurrentStoryBattle(userid: ID) {
@@ -412,6 +446,7 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 		if (actorSideid !== 'p2') return;
 		const decision = state.lastDecisionByPokemon[getBattleIdentID(parts[2])];
 		if (!decision?.action.startsWith('move:')) return;
+		if (decision.action === 'move:redmist') state.redMistSouls[decision.actor] = 0;
 		state.lastBotMoveDecision = decision;
 		const targetSideid = getLineSideID(parts[4]);
 		if (targetSideid === 'p1') {
@@ -425,6 +460,7 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 	if (faintedSideid === 'p1') {
 		const decision = state.lastBotMoveByTarget[faintedID] || state.lastBotMoveDecision;
 		rewardDecision(state, decision, decision?.action.endsWith(':z') ? 0.85 : 0.6);
+		if (decision) state.redMistSouls[decision.actor] = Math.min(99, (state.redMistSouls[decision.actor] || 0) + 1);
 		delete state.lastBotMoveByTarget[faintedID];
 	} else if (faintedSideid === 'p2') {
 		rewardDecision(state, state.lastDecisionByPokemon[faintedID], -0.55);
@@ -703,6 +739,7 @@ function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject
 		basePower = Math.floor(basePower * 1.2);
 	}
 	if (ability === 'sharpness' && move.flags['slicing']) basePower = Math.floor(basePower * 1.5);
+	if (ability === 'radicalaura' && type === 'Dark') basePower = Math.floor(basePower * 5448 / 4096);
 
 	const ignoresBoneImmunity = ability === 'familialrevenge' && move.flags['bone'];
 	let typeMod = 0;
@@ -792,6 +829,9 @@ function scoreStatusMove(
 
 	if (moveid === 'perishsong' && getSpeciesID(pokemonData) === 'gengar') {
 		score = 115;
+	} else if (moveid === 'redmist') {
+		const souls = state.redMistSouls[getPokemonDecisionID(pokemonData)] || 0;
+		if (souls && hpFraction <= 0.25) score = 500 + souls * 40;
 	} else if (isSetupMove(moveid) && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
 		score = 80;
 	} else if (moveid === 'defog' && hasHazards(ownHazards)) {
@@ -1000,6 +1040,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 		lastDecisionByPokemon: {},
 		lastBotMoveDecision: null,
 		lastBotMoveByTarget: {},
+		redMistSouls: {},
 		memoryChanged: false,
 	});
 }
@@ -1025,16 +1066,18 @@ async function startStoryBattle(
 	if (!battleRoom) return;
 	attachBot(battleRoom, botTeam, user.id, levelIndex);
 	battleRoom.add(
-		`|-message|Story Level ${levelIndex + 1}: ${level.name}${replay ? ' (replay)' : ''}`
+		`|-message|Story ${getStoryLevelLabel(level, levelIndex)}${replay ? ' (replay)' : ''}`
 	).update();
-	context.sendReply(`Starting Story Level ${levelIndex + 1}: ${level.name}.`);
+	context.sendReply(`Starting Story ${getStoryLevelLabel(level, levelIndex)}.`);
 }
 
 export const commands: Chat.ChatCommands = {
 	rrstory: 'story',
 	story(target, room, user) {
 		target = target.trim();
-		const cmd = toID(target);
+		const [cmdTarget = ""] = target.split(' ');
+		const cmd = toID(cmdTarget);
+		const cmdArgs = target.slice(cmdTarget.length).trim();
 		if (cmd === 'help') return this.parse('/help story');
 		if (cmd === 'progress' || cmd === 'status') {
 			const cleared = getCleared(user.id);
@@ -1042,7 +1085,7 @@ export const commands: Chat.ChatCommands = {
 			if (!levels.length || !next) {
 				return this.sendReply(`You've done all available levels.`);
 			}
-			return this.sendReply(`Story progress: ${cleared} cleared. Next: Level ${cleared + 1}: ${next.name}.`);
+			return this.sendReply(`Story progress: ${cleared} cleared. Next: ${getStoryLevelLabel(next, cleared)}.`);
 		}
 		if (cmd === 'levels' || cmd === 'list') {
 			this.runBroadcast();
@@ -1051,7 +1094,8 @@ export const commands: Chat.ChatCommands = {
 			const rows = levels.map((level, index) => {
 				const levelNumber = index + 1;
 				const status = index < cleared ? 'Cleared' : index === cleared ? 'Next' : 'Locked';
-				return `${levelNumber}. ${Utils.escapeHTML(level.name)} - ${status}`;
+				const label = level.boss ? getStoryLevelLabel(level, index, true) : `${levelNumber}. ${Utils.escapeHTML(level.name)}`;
+				return `${label} - ${status}`;
 			});
 			return this.sendReplyBox(`<strong>Story Levels</strong><br />${rows.join('<br />')}`);
 		}
@@ -1072,6 +1116,13 @@ export const commands: Chat.ChatCommands = {
 			levels = loadLevels();
 			return this.sendReply(`Reloaded ${levels.length} Story level${levels.length === 1 ? '' : 's'}.`);
 		}
+		if (cmd === 'complete') {
+			this.checkCan('bypassall');
+			const targetID = toID(cmdArgs) || user.id;
+			progress[targetID] = levels.length;
+			saveProgress();
+			return this.sendReply(`Story progress completed for ${targetID}.`);
+		}
 
 		const activeBattle = getCurrentStoryBattle(user.id);
 		if (activeBattle) {
@@ -1086,12 +1137,16 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (levelIndex > cleared) {
 			return this.errorReply(
-				`You have not unlocked Level ${levelIndex + 1} yet. Your next level is Level ${cleared + 1}.`
+				`You have not unlocked ${getStoryLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
+				`Your next level is ${getStoryLevelLabel(levels[cleared], cleared)}.`
 			);
 		}
 		const replay = levelIndex < cleared;
 		sendStoryTeamRequest(user, levelIndex, replay);
-		this.sendReply(`Choose a ${FORMAT_NAME} team in the challenge popup to start Story Level ${levelIndex + 1}.`);
+		this.sendReply(
+			`Choose a ${FORMAT_NAME} team in the challenge popup to start Story ` +
+			`${getStoryLevelLabel(levels[levelIndex], levelIndex)}.`
+		);
 	},
 	async storyaccept(target, room, user, connection) {
 		const request = resolveStoryRequest(user, target);
@@ -1115,7 +1170,8 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (levelIndex > cleared) {
 			return this.errorReply(
-				`You have not unlocked Level ${levelIndex + 1} yet. Your next level is Level ${cleared + 1}.`
+				`You have not unlocked ${getStoryLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
+				`Your next level is ${getStoryLevelLabel(levels[cleared], cleared)}.`
 			);
 		}
 		await startStoryBattle(this, user, connection, levelIndex, request.replay);
@@ -1145,7 +1201,7 @@ export const handlers: Chat.Handlers = {
 		if (!level) return;
 		updateAIMemory(state.decisions, winner !== state.userid);
 		if (winner !== state.userid) {
-			battle.room.add(`|-message|Story Level ${state.level + 1} was not cleared.`).update();
+			battle.room.add(`|-message|Story ${getStoryLevelLabel(level, state.level)} was not cleared.`).update();
 			return;
 		}
 		const cleared = getCleared(state.userid);
@@ -1155,13 +1211,18 @@ export const handlers: Chat.Handlers = {
 			const next = levels[cleared + 1];
 			if (next) {
 				battle.room.add(
-					`|-message|Story Level ${state.level + 1} cleared. Level ${cleared + 2}: ${next.name} unlocked.`
+					`|-message|Story ${getStoryLevelLabel(level, state.level)} cleared. ` +
+					`${getStoryLevelLabel(next, cleared + 1)} unlocked.`
 				).update();
 			} else {
-				battle.room.add(`|-message|Story Level ${state.level + 1} cleared. You've done all available levels.`).update();
+				battle.room.add(
+					`|-message|Story ${getStoryLevelLabel(level, state.level)} cleared. You've done all available levels.`
+				).update();
 			}
 		} else {
-			battle.room.add(`|-message|Story Level ${state.level + 1} replay cleared. Progress unchanged.`).update();
+			battle.room.add(
+				`|-message|Story ${getStoryLevelLabel(level, state.level)} replay cleared. Progress unchanged.`
+			).update();
 		}
 	},
 };
