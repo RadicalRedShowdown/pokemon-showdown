@@ -326,7 +326,7 @@ function getCleared(userid: ID) {
 function getStoryLevelLabel(level: StoryLevel, index: number, html = false) {
 	const name = html ? Utils.escapeHTML(level.name) : level.name;
 	if (level.boss) return `Boss Battle: ${name}`;
-	return `Level ${index + 1}: ${name}`;
+	return `Level ${index + 1}`;
 }
 
 function getCurrentStoryBattle(userid: ID) {
@@ -1094,7 +1094,9 @@ export const commands: Chat.ChatCommands = {
 			const rows = levels.map((level, index) => {
 				const levelNumber = index + 1;
 				const status = index < cleared ? 'Cleared' : index === cleared ? 'Next' : 'Locked';
-				const label = level.boss ? getStoryLevelLabel(level, index, true) : `${levelNumber}. ${Utils.escapeHTML(level.name)}`;
+				const label = level.boss ?
+					getStoryLevelLabel(level, index, true) :
+					`${levelNumber}. ${getStoryLevelLabel(level, index)}`;
 				return `${label} - ${status}`;
 			});
 			return this.sendReplyBox(`<strong>Story Levels</strong><br />${rows.join('<br />')}`);
