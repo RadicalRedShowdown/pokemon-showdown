@@ -10,6 +10,7 @@ const STORY_ACCEPT_COMMAND = '/storyaccept';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
 const LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
 const PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
+const AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
 
 interface StoryLevel {
 	name: string;
@@ -30,6 +31,7 @@ interface StoryBattleState {
 		p2: number,
 	};
 	setupUsed: {[ident: string]: boolean};
+	decisions: StoryDecision[];
 }
 
 interface StorySideHazards {
@@ -38,6 +40,15 @@ interface StorySideHazards {
 	toxicspikes: number;
 	stickyweb: boolean;
 	gmaxsteelsurge: boolean;
+}
+
+interface StoryDecision {
+	key: string;
+}
+
+interface StoryAIMemoryEntry {
+	score: number;
+	uses: number;
 }
 
 const DEFAULT_LEVELS: StoryLevel[] = [
@@ -182,6 +193,7 @@ Jolly Nature
 
 let levels = loadLevels();
 const progress: {[userid: string]: number} = loadProgress();
+const aiMemory: {[key: string]: StoryAIMemoryEntry} = loadAIMemory();
 const storyBattles = new Map<RoomID, StoryBattleState>();
 const storyRequests = new Map<ID, {level: number, replay: boolean}>();
 
@@ -218,6 +230,49 @@ function loadProgress() {
 
 function saveProgress() {
 	FS(PROGRESS_FILE).writeUpdate(() => JSON.stringify(progress, null, 2));
+}
+
+function loadAIMemory() {
+	try {
+		const parsed = JSON.parse(FS(AI_MEMORY_FILE).readIfExistsSync() || "{}");
+		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+		const result: {[key: string]: StoryAIMemoryEntry} = {};
+		for (const [key, entry] of Object.entries(parsed)) {
+			if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
+			const score = Number((entry as AnyObject).score);
+			const uses = Number((entry as AnyObject).uses);
+			if (Number.isFinite(score) && Number.isFinite(uses)) {
+				result[key] = {score, uses};
+			}
+		}
+		return result;
+	} catch (e: any) {
+		Monitor.warn(`Could not load ${AI_MEMORY_FILE}: ${e.message}`);
+		return {};
+	}
+}
+
+function saveAIMemory() {
+	FS(AI_MEMORY_FILE).writeUpdate(() => JSON.stringify(aiMemory, null, 2));
+}
+
+function memoryScore(key: string) {
+	return aiMemory[key]?.score || 0;
+}
+
+function updateAIMemory(decisions: StoryDecision[], won: boolean) {
+	if (!decisions.length) return;
+	const seen = new Set<string>();
+	const delta = won ? 0.35 : -0.2;
+	for (const decision of decisions) {
+		if (seen.has(decision.key)) continue;
+		seen.add(decision.key);
+		const entry = aiMemory[decision.key] || {score: 0, uses: 0};
+		entry.score = Math.max(-3, Math.min(3, entry.score + delta));
+		entry.uses++;
+		aiMemory[decision.key] = entry;
+	}
+	saveAIMemory();
 }
 
 function getCleared(userid: ID) {
@@ -400,9 +455,12 @@ function estimateBestDamageFromPokemon(sourceData: AnyObject, targetData: AnyObj
 	return bestDamage;
 }
 
-function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null) {
+function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null, state?: StoryBattleState) {
 	const hpData = getHPData(switchOption);
 	let score = (hpData.hp / hpData.maxhp) * 25;
+	if (state) {
+		score += memoryScore(getMemoryKey(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`)) * 12;
+	}
 	if (!targetData) return score;
 	const targetHP = getHPData(targetData);
 	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData);
@@ -414,7 +472,7 @@ function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null
 	return score;
 }
 
-function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null) {
+function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null, state?: StoryBattleState) {
 	const pokemon = request.side.pokemon;
 	const chosen: number[] = [];
 	const choices = request.forceSwitch.map((mustSwitch: boolean, i: number) => {
@@ -433,7 +491,7 @@ function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null) {
 		let bestSwitch = switches[0];
 		let bestScore = -Infinity;
 		for (const switchChoice of switches) {
-			const score = scoreSwitchOption(switchChoice.pokemon, targetData);
+			const score = scoreSwitchOption(switchChoice.pokemon, targetData, state);
 			if (score > bestScore) {
 				bestScore = score;
 				bestSwitch = switchChoice;
@@ -441,13 +499,15 @@ function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null) {
 		}
 		const slot = bestSwitch.slot;
 		chosen.push(slot);
+		if (state) rememberDecision(state, bestSwitch.pokemon, targetData, `switch:${getSpeciesID(bestSwitch.pokemon)}`);
 		return `switch ${slot}`;
 	});
 	return choices.join(', ');
 }
 
 function chooseBestSwitchSlot(
-	request: AnyObject, activeSlots: number, chosen: number[] = [], targetData: AnyObject | null = null
+	request: AnyObject, activeSlots: number, chosen: number[] = [], targetData: AnyObject | null = null,
+	state?: StoryBattleState
 ) {
 	const pokemon = request.side.pokemon;
 	let bestSlot = 0;
@@ -464,7 +524,7 @@ function chooseBestSwitchSlot(
 		) {
 			continue;
 		}
-		const score = scoreSwitchOption(switchOption, targetData);
+		const score = scoreSwitchOption(switchOption, targetData, state);
 		if (score > bestScore) {
 			bestSlot = slot;
 			bestScore = score;
@@ -494,6 +554,21 @@ function getLevel(details: string) {
 
 function getSpeciesName(pokemonData: AnyObject) {
 	return (pokemonData.details || pokemonData.ident || '').split(',')[0].replace(/^p\d[a-z]?: /, '');
+}
+
+function getSpeciesID(pokemonData: AnyObject | null) {
+	if (!pokemonData) return 'none';
+	return toID(getSpeciesName(pokemonData));
+}
+
+function getMemoryKey(state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string) {
+	return `${state.level + 1}|${getSpeciesID(pokemonData)}|${getSpeciesID(targetData)}|${action}`;
+}
+
+function rememberDecision(
+	state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string
+) {
+	state.decisions.push({key: getMemoryKey(state, pokemonData, targetData, action)});
 }
 
 function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
@@ -611,6 +686,71 @@ function canUseHazard(moveid: ID, targetHazards: StorySideHazards) {
 	return true;
 }
 
+function getAccuracyFactor(move: Move) {
+	if (move.accuracy === true) return 1;
+	if (typeof move.accuracy === 'number') return Math.max(0.5, move.accuracy / 100);
+	return 0.9;
+}
+
+function hasStatus(pokemonData: AnyObject | null) {
+	if (!pokemonData) return false;
+	return !!(pokemonData.condition || '').split(' ')[1];
+}
+
+function scoreDamagingMove(
+	move: Move, damage: number, pokemonData: AnyObject, targetData: AnyObject,
+	state: StoryBattleState, action: string
+) {
+	const targetHP = getHPData(targetData);
+	const targetMaxHP = Math.max(1, targetHP.maxhp);
+	let score = Math.min(damage, targetHP.hp) / targetMaxHP * 120;
+	if (damage >= targetHP.hp) score += 90;
+	if (move.priority > 0) score += 10 + move.priority * 5;
+	if (move.volatileStatus === 'flinch') score += 6;
+	if ((move as AnyObject).selfSwitch) score += 10;
+	score *= getAccuracyFactor(move);
+	score += memoryScore(getMemoryKey(state, pokemonData, targetData, action)) * 15;
+	return score;
+}
+
+function scoreStatusMove(
+	moveid: ID, pokemonData: AnyObject, targetData: AnyObject | null,
+	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState,
+	bestDamage: number
+) {
+	const activeHP = getHPData(pokemonData);
+	const hpFraction = activeHP.hp / Math.max(1, activeHP.maxhp);
+	const targetHP = targetData ? getHPData(targetData).hp : 1;
+	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
+	let score = -Infinity;
+
+	if (moveid === 'perishsong' && getSpeciesID(pokemonData) === 'gengar') {
+		score = 115;
+	} else if (isSetupMove(moveid) && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
+		score = 80;
+	} else if (moveid === 'defog' && hasHazards(ownHazards)) {
+		score = 78;
+	} else if (
+		['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(moveid) &&
+		canUseHazard(moveid, targetHazards)
+	) {
+		score = 66 - targetHazards.spikes * 4;
+	} else if (
+		['recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'synthesis'].includes(moveid) &&
+		hpFraction < 0.55
+	) {
+		score = 72 + (0.55 - hpFraction) * 80;
+	} else if (['toxic', 'willowisp', 'thunderwave'].includes(moveid) && targetData && !hasStatus(targetData)) {
+		score = 52;
+	} else if (['taunt', 'encore', 'torment'].includes(moveid) && targetData) {
+		score = 38;
+	} else if (['protect', 'substitute'].includes(moveid) && hpFraction > 0.35) {
+		score = 26;
+	}
+	score += memoryScore(getMemoryKey(state, pokemonData, targetData, `move:${moveid}`)) * 15;
+	return score;
+}
+
 function chooseBestMove(
 	active: AnyObject, pokemonData: AnyObject, targetData: AnyObject | null,
 	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState
@@ -632,57 +772,58 @@ function chooseBestMove(
 	let bestDamage = -1;
 	let bestChoice = moves[0];
 	let bestIsZ = false;
-	let bestZDamage = -1;
-	let bestZChoice = null as {slot: number, move: AnyObject} | null;
-	let bestZRegularDamage = -1;
+	let bestScore = -Infinity;
+	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
 	if (targetData) {
 		for (const choice of damagingMoves) {
-			const damage = estimateDamage(choice.move.id, pokemonData, targetData);
-			if (damage > bestDamage) {
+			const move = Dex.mod('gen9rrstory').moves.get(choice.move.id);
+			const moveid = choice.move.id as ID;
+			const damage = estimateDamage(moveid, pokemonData, targetData);
+			if (damage > bestDamage) bestDamage = damage;
+			const action = `move:${moveid}`;
+			const score = scoreDamagingMove(move, damage, pokemonData, targetData, state, action);
+			if (score > bestScore) {
+				bestScore = score;
 				bestDamage = damage;
 				bestChoice = choice;
 				bestIsZ = false;
 			}
 			if (zMoveSlots.has(choice.slot)) {
-				const zDamage = estimateDamage(choice.move.id, pokemonData, targetData, true);
-				if (zDamage > bestZDamage) {
-					bestZDamage = zDamage;
-					bestZChoice = choice;
-					bestZRegularDamage = damage;
+				const zDamage = estimateDamage(moveid, pokemonData, targetData, true);
+				const zAction = `move:${moveid}:z`;
+				const targetMaxHP = Math.max(1, getHPData(targetData).maxhp);
+				const zUpgrade = Math.min(80, Math.max(0, zDamage - damage) / targetMaxHP * 80);
+				const zScore = scoreDamagingMove(move, zDamage, pokemonData, targetData, state, zAction) + zUpgrade + (
+					zDamage >= targetHP && damage < targetHP ? 55 : 0
+				);
+				if (zScore > bestScore) {
+					bestScore = zScore;
+					bestDamage = zDamage;
+					bestChoice = choice;
+					bestIsZ = true;
 				}
 			}
 		}
-		if (bestZChoice && (
-			(bestZDamage >= targetHP && bestZRegularDamage < targetHP) ||
-			bestZDamage > bestDamage
-		)) {
-			bestDamage = bestZDamage;
-			bestChoice = bestZChoice;
-			bestIsZ = true;
-		}
 	}
-	const setupMove = moves.find(({move}: {move: AnyObject}) => isSetupMove(move.id));
-	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
-	if (setupMove && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
-		bestChoice = setupMove;
-		bestIsZ = false;
-	}
-	const utilityMove = moves.find(({move}: {move: AnyObject}) => {
-		const moveid = move.id as ID;
-		if (moveid === 'defog') return hasHazards(ownHazards);
-		if (['stealthrock', 'spikes', 'toxicspikes', 'stickyweb'].includes(moveid)) {
-			return canUseHazard(moveid, targetHazards);
+	for (const choice of moves) {
+		const moveid = choice.move.id as ID;
+		const move = Dex.mod('gen9rrstory').moves.get(moveid);
+		if (move.category !== 'Status') continue;
+		const score = scoreStatusMove(moveid, pokemonData, targetData, ownHazards, targetHazards, state, bestDamage);
+		if (score > bestScore) {
+			bestScore = score;
+			bestChoice = choice;
+			bestIsZ = false;
 		}
-		return false;
-	});
-	if (utilityMove && (!damagingMoves.length || bestDamage * 2 < targetHP)) {
-		bestChoice = utilityMove;
-		bestIsZ = false;
 	}
 	let moveChoice = `move ${bestChoice.slot}`;
 	if (bestIsZ) moveChoice += ' zmove';
 	if (active.canMegaEvo) moveChoice += ' mega';
 	if (isSetupMove(bestChoice.move.id)) state.setupUsed[setupKey] = true;
+	rememberDecision(
+		state, pokemonData, targetData,
+		bestIsZ ? `move:${bestChoice.move.id}:z` : `move:${bestChoice.move.id}`
+	);
 	return moveChoice;
 }
 
@@ -697,9 +838,11 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 		const pokemonData = getActivePokemonData(request, index) || pokemon[index];
 		if (!pokemonData || pokemonData.condition.endsWith(' fnt') || pokemonData.commanding) return 'pass';
 		if (!active.trapped && state.perish[ownSideid] === 1) {
-			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData);
+			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData, state);
 			if (switchSlot) {
 				switchChoices.push(switchSlot);
+				const switchOption = request.side.pokemon[switchSlot - 1];
+				rememberDecision(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`);
 				return `switch ${switchSlot}`;
 			}
 		}
@@ -708,7 +851,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 			const activeHP = getHPData(pokemonData);
 			const bestDamage = estimateBestDamageFromPokemon(pokemonData, targetData);
 			const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData);
-			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData);
+			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData, state);
 			const switchOption = switchSlot ? request.side.pokemon[switchSlot - 1] : null;
 			const switchDamage = switchOption ? estimateBestDamageFromPokemon(switchOption, targetData) : 0;
 			if (switchSlot && (
@@ -716,6 +859,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 				(targetThreat >= activeHP.hp && bestDamage < targetHP.hp && switchDamage > bestDamage)
 			)) {
 				switchChoices.push(switchSlot);
+				rememberDecision(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`);
 				return `switch ${switchSlot}`;
 			}
 		}
@@ -732,7 +876,7 @@ function chooseBotRequest(request: AnyObject, room: GameRoom, state: StoryBattle
 	if (request.forceSwitch) {
 		const foeRequest = getFoeRequest(room, request.side.id);
 		const targetData = foeRequest ? getActivePokemonData(foeRequest) : null;
-		return chooseSwitch(request, targetData);
+		return chooseSwitch(request, targetData, state);
 	}
 	if (request.active) return chooseMove(request, room, state);
 	return chooseTeamPreview(request, state);
@@ -786,6 +930,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 		hazards: {p1: newHazards(), p2: newHazards()},
 		perish: {p1: 0, p2: 0},
 		setupUsed: {},
+		decisions: [],
 	});
 }
 
@@ -928,6 +1073,7 @@ export const handlers: Chat.Handlers = {
 		storyBattles.delete(battle.roomid);
 		const level = levels[state.level];
 		if (!level) return;
+		updateAIMemory(state.decisions, winner !== state.userid);
 		if (winner !== state.userid) {
 			battle.room.add(`|-message|Story Level ${state.level + 1} was not cleared.`).update();
 			return;
