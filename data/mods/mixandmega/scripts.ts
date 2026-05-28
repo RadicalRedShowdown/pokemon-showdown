@@ -57,12 +57,23 @@ export const Scripts: ModdedBattleScriptsData = {
 			const subFormat = this.dex.formats.get(rule);
 			if (subFormat.onBegin) subFormat.onBegin.call(this);
 		}
+		const formeItems: {[k: string]: string} = {
+			adamantcrystal: 'Dialga-Origin',
+			adamantorb: 'Dialga-Primal',
+			griseouscore: 'Giratina-Origin',
+			lustrousglobe: 'Palkia-Origin',
+			vilevial: 'Venomicon-Epilogue',
+			cornerstonemask: 'Ogerpon-Cornerstone',
+			hearthflamemask: 'Ogerpon-Hearthflame',
+			wellspringmask: 'Ogerpon-Wellspring',
+			eternamaxorb: 'Eternatus-Eternamax',
+		};
 		for (const pokemon of this.getAllPokemon()) {
 			const item = pokemon.getItem();
-			if (['adamantcrystal', 'griseouscore', 'lustrousglobe', 'vilevial'].includes(item.id) &&
-				item.forcedForme !== pokemon.species.name) {
+			const forcedForme = formeItems[item.id];
+			if (forcedForme && forcedForme !== pokemon.species.name) {
 				// @ts-ignore
-				const rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, item.forcedForme!, pokemon);
+				const rawSpecies = this.actions.getMixedSpecies(pokemon.m.originalSpecies, forcedForme, pokemon);
 				const species = pokemon.setSpecies(rawSpecies);
 				if (!species) continue;
 				pokemon.baseSpecies = rawSpecies;
@@ -419,7 +430,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				const oMegaSpecies = this.dex.species.get(species.originalSpecies);
 				pokemon.formeChange(species, pokemon.getItem(), true);
 				this.battle.add('-start', pokemon, oMegaSpecies.requiredItem, '[silent]');
-				if (oSpecies.types.length !== pokemon.species.types.length || oSpecies.types[1] !== pokemon.species.types[1]) {
+				if (oSpecies.types.join('/') !== pokemon.species.types.join('/')) {
 					this.battle.add('-start', pokemon, 'typechange', pokemon.species.types.join('/'), '[silent]');
 				}
 			}
@@ -445,6 +456,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				weighthg: number,
 				originalSpecies: string,
 				requiredItem: string | undefined,
+				type0?: string,
 				type?: string,
 				formeType?: string,
 			} = {
@@ -457,6 +469,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			let statId: StatID;
 			for (statId in formeChangeSpecies.baseStats) {
 				deltas.baseStats[statId] = formeChangeSpecies.baseStats[statId] - baseSpecies.baseStats[statId];
+			}
+			if (formeChangeSpecies.types[0] !== baseSpecies.types[0]) {
+				deltas.type0 = formeChangeSpecies.types[0];
 			}
 			if (formeChangeSpecies.types.length > baseSpecies.types.length) {
 				deltas.type = formeChangeSpecies.types[1];
@@ -480,6 +495,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			if (!deltas) throw new TypeError("Must specify deltas!");
 			const species = this.dex.deepClone(this.dex.species.get(speciesOrForme));
 			species.abilities = {'0': deltas.ability};
+			if (deltas.type0) species.types[0] = deltas.type0;
 			if (species.types[0] === deltas.type) {
 				species.types = [deltas.type];
 			} else if (deltas.type === 'mono') {
