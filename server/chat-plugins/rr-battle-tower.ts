@@ -1,9 +1,9 @@
 import {FS, Utils} from '../../lib';
 import {Ladders} from '../ladders';
 import {POKEPASTE_LEVELS} from './rr-battle-tower-levels';
+import {grantRRBadge, type RRBadgeID} from './rr-custom-badges';
 
 const FORMAT_ID = 'gen9rrbattletower';
-const BADGE_FORMAT_ID = 'gen9rrbt';
 const FORMAT_NAME = '[Gen 9] RR Battle Tower';
 const BOT_NAME = 'RR BT Bot';
 const BOT_AVATAR = '101';
@@ -35,6 +35,11 @@ const BT_MEDALS = {
 } as const;
 
 type BTMedalID = keyof typeof BT_MEDALS;
+
+const BT_CUSTOM_BADGES: {[k in BTMedalID]: RRBadgeID} = {
+	marowak: 'marowakboss',
+	radicalred: 'houndoomboss',
+};
 
 interface BTLevel {
 	name: string;
@@ -387,6 +392,7 @@ function getBTMedals(userid: ID) {
 }
 
 function awardBTMedal(userid: ID, medal: BTMedalID) {
+	grantRRBadge(userid, BT_CUSTOM_BADGES[medal]);
 	const medals = new Set(getBTMedals(userid));
 	if (medals.has(medal)) return false;
 	medals.add(medal);
@@ -431,6 +437,16 @@ function syncBTMedalsFromProgress() {
 }
 
 syncBTMedalsFromProgress();
+
+function syncBTMedalsToRRBadges() {
+	for (const [userid, medals] of Object.entries(btMedals)) {
+		for (const medal of medals) {
+			grantRRBadge(toID(userid), BT_CUSTOM_BADGES[medal]);
+		}
+	}
+}
+
+syncBTMedalsToRRBadges();
 
 function getBTLevelLabel(level: BTLevel, index: number, html = false) {
 	const name = html ? Utils.escapeHTML(level.name) : level.name;
@@ -1472,18 +1488,6 @@ export const commands: Chat.ChatCommands = {
 };
 
 export const handlers: Chat.Handlers = {
-	onBattleStart(user, room) {
-		if (!room.battle) return;
-		const medals = getBTMedals(user.id);
-		if (!medals.length) return;
-		const slot = room.battle.playerTable[user.id]?.slot;
-		if (!slot) return;
-		for (const medalid of medals) {
-			const medal = BT_MEDALS[medalid];
-			room.add(`|badge|${slot}|${medal.badgeType}|${BADGE_FORMAT_ID}|${medal.badgeDetail}`);
-		}
-		room.update();
-	},
 	onBattleEnd(battle, winner) {
 		const state = btBattles.get(battle.roomid);
 		if (!state) return;

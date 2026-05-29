@@ -4,7 +4,7 @@ const BADGE_FILE = 'config/chat-plugins/rr-custom-badges.json';
 const BADGE_FORMAT = 'rrcustom';
 const MAX_DISPLAYED_BADGES = 3;
 
-const RR_BADGES = {
+export const RR_BADGES = {
 	rrgt: {name: "RRGT Champion"},
 	rrgt2: {name: "RRGT II Champion"},
 	rrgt3: {name: "RRGT III Champion"},
@@ -20,6 +20,8 @@ const RR_BADGES = {
 	rrdlcommissioner: {name: "RRDL Commissioner Badge"},
 	council: {name: "Council Badge"},
 	clementino: {name: "Clementino Badge"},
+	marowakboss: {name: "Marowak-Alola Boss Badge"},
+	houndoomboss: {name: "Mega Houndoom Boss Badge"},
 	dhelmise1: {name: "Dhelmise Season I Champion"},
 	dhelmise2: {name: "Dhelmise Season II Champion"},
 	dhelmise3: {name: "Dhelmise Season III Champion"},
@@ -34,7 +36,7 @@ const RR_BADGES = {
 	feebas4: {name: "Feebas Season IV Champion"},
 } as const;
 
-type RRBadgeID = keyof typeof RR_BADGES;
+export type RRBadgeID = keyof typeof RR_BADGES;
 
 interface RRBadgeEntry {
 	owned: RRBadgeID[];
@@ -77,6 +79,21 @@ const BADGE_ALIASES: {[k: string]: RRBadgeID} = {
 	rrcouncil: 'council',
 	clementinobadge: 'clementino',
 	melmetal: 'clementino',
+	alolanmarowak: 'marowakboss',
+	alolanmarowakboss: 'marowakboss',
+	marowak: 'marowakboss',
+	marowakalola: 'marowakboss',
+	marowakalolaboss: 'marowakboss',
+	marowakbossbadge: 'marowakboss',
+	rrbtmarowak: 'marowakboss',
+	houndoom: 'houndoomboss',
+	houndoombossbadge: 'houndoomboss',
+	megahoundoom: 'houndoomboss',
+	megahoundoomboss: 'houndoomboss',
+	radicalred: 'houndoomboss',
+	radicalredboss: 'houndoomboss',
+	radicalredbadge: 'houndoomboss',
+	rrbthoundoom: 'houndoomboss',
 	dhelmiseseason1: 'dhelmise1',
 	dhelmiseseasoni: 'dhelmise1',
 	dhelmiseseason2: 'dhelmise2',
@@ -192,6 +209,18 @@ function getDisplayedRRBadges(userid: ID) {
 	const entry = getRRBadgeEntry(userid);
 	if (entry.display.length) return entry.display.filter(badge => entry.owned.includes(badge)).slice(0, MAX_DISPLAYED_BADGES);
 	return entry.owned.slice(0, MAX_DISPLAYED_BADGES);
+}
+
+export function grantRRBadge(userid: ID, badge: RRBadgeID) {
+	const targetID = toID(userid);
+	if (!targetID) return false;
+	const entry = getRRBadgeEntry(targetID);
+	if (entry.owned.includes(badge)) return false;
+	const owned = [...entry.owned, badge];
+	const display = entry.display.slice();
+	if (display.length && display.length < MAX_DISPLAYED_BADGES && !display.includes(badge)) display.push(badge);
+	setRRBadgeEntry(targetID, {owned, display});
+	return true;
 }
 
 function badgeHTML(badge: RRBadgeID) {
