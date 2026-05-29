@@ -2,7 +2,8 @@ import {FS, Utils} from '../../lib';
 import {Ladders} from '../ladders';
 import {POKEPASTE_LEVELS} from './rr-battle-tower-levels';
 
-const FORMAT_ID = 'gen9rrbt';
+const FORMAT_ID = 'gen9rrbattletower';
+const BADGE_FORMAT_ID = 'gen9rrbt';
 const FORMAT_NAME = '[Gen 9] RR Battle Tower';
 const BOT_NAME = 'RR BT Bot';
 const BOT_AVATAR = '101';
@@ -1479,7 +1480,7 @@ export const handlers: Chat.Handlers = {
 		if (!slot) return;
 		for (const medalid of medals) {
 			const medal = BT_MEDALS[medalid];
-			room.add(`|badge|${slot}|${medal.badgeType}|${FORMAT_ID}|${medal.badgeDetail}`);
+			room.add(`|badge|${slot}|${medal.badgeType}|${BADGE_FORMAT_ID}|${medal.badgeDetail}`);
 		}
 		room.update();
 	},
