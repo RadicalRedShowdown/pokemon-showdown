@@ -992,9 +992,12 @@ function chooseBestMove(
 	active: AnyObject, pokemonData: AnyObject, targetData: AnyObject | null,
 	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState
 ) {
+	const decisionID = getPokemonDecisionID(pokemonData);
 	const moves = active.moves
 		.map((move: AnyObject, moveIndex: number) => ({slot: moveIndex + 1, move}))
-		.filter(({move}: {move: AnyObject}) => !move.disabled);
+		.filter(({move}: {move: AnyObject}) => (
+			!move.disabled && (move.id !== 'redmist' || !!state.redMistSouls[decisionID])
+		));
 	if (!moves.length) return 'pass';
 	const damagingMoves = targetData ? moves.filter(({move}: {move: AnyObject}) => (
 		Dex.mod('gen9rrstory').moves.get(move.id).category !== 'Status'

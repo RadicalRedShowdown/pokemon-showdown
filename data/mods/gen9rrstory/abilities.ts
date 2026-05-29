@@ -47,8 +47,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (this.suppressingAbility(pokemon)) return;
 			if (pokemon.m.radicalAuraAnnounced) return;
 			pokemon.m.radicalAuraAnnounced = true;
+			if (pokemon.m.redMistFoeFaintedSpent === undefined) {
+				pokemon.m.redMistFoeFaintedSpent = pokemon.side.foe.totalFainted;
+			}
+			if (pokemon.species.id === 'houndoommega' && !pokemon.m.radicalAuraDynamaxVisual) {
+				pokemon.m.radicalAuraDynamaxVisual = true;
+				this.add('-start', pokemon, 'Dynamax', '[silent]');
+			}
 			this.add('-ability', pokemon, 'Radical Aura');
 			this.add('-message', `${pokemon.name} eminates a redness aura so radical.`);
+		},
+		onEnd(pokemon) {
+			pokemon.m.redMistFoeFaintedSpent = pokemon.side.foe.totalFainted;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
