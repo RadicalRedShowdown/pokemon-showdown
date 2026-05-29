@@ -22,7 +22,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onHit(pokemon) {
 			const souls = getRedMistSouls(pokemon);
 			if (!souls) return false;
-			const healAmount = Math.floor(pokemon.maxhp * souls / 4);
+			const healAmount = Math.floor(pokemon.maxhp * souls / 5);
 			pokemon.m.redMistSouls = 0;
 			pokemon.m.redMistFoeFaintedSpent = pokemon.side.foe.totalFainted;
 			this.add('-message', `${pokemon.name} siphons through the red mist and receives ${souls} ${souls === 1 ? 'soul' : 'souls'}.`);
@@ -31,8 +31,8 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		secondary: null,
 		target: "self",
 		type: "Dark",
-		desc: "Heals the user by 25% of its maximum HP for each KO it has scored since it last used Red Mist, then resets that count.",
-		shortDesc: "Heals 25% per KO scored, then resets the count.",
+		desc: "Heals the user by 20% of its maximum HP for each KO it has scored since it last used Red Mist, then resets that count.",
+		shortDesc: "Heals 20% per KO scored, then resets the count.",
 		gen: 9,
 	},
 };

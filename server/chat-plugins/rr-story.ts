@@ -215,7 +215,7 @@ Modest Nature
 IVs: 0 Atk
 - Fiery Wrath
 - Fire Blast
-- Scorching Sands
+- Nasty Plot
 - Red Mist
 `,
 };
