@@ -1501,7 +1501,7 @@ export const commands: Chat.ChatCommands = {
 			if (customChall?.to === user.id && customChall.acceptCommand) {
 				return this.parse(customChall.acceptCommand);
 			}
-			if (targetid === 'rrstorybot') return this.parse('/storyaccept');
+			if (targetid === 'rrbtbot') return this.parse('/btaccept');
 		}
 		this.pmTarget = targetUser || this.pmTarget;
 		if (!this.pmTarget) return this.popupReply(this.tr`User "${targetUsername}" not found.`);
@@ -1531,7 +1531,7 @@ export const commands: Chat.ChatCommands = {
 			if (customChall?.to === user.id && customChall.acceptCommand) {
 				return Ladders.challenges.remove(customChall, false);
 			}
-			if (targetid === 'rrstorybot') return this.parse('/storycancel');
+			if (targetid === 'rrbtbot') return this.parse('/btcancel');
 		}
 		this.pmTarget = targetUser || this.pmTarget;
 		if (!this.pmTarget) return this.popupReply(this.tr`User "${targetUsername}" not found.`);

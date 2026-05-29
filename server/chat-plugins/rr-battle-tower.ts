@@ -1,49 +1,71 @@
 import {FS, Utils} from '../../lib';
 import {Ladders} from '../ladders';
-import {POKEPASTE_LEVELS} from './rr-story-levels';
+import {POKEPASTE_LEVELS} from './rr-battle-tower-levels';
 
-const FORMAT_ID = 'gen9storymode';
-const FORMAT_NAME = '[Gen 9] Story Mode';
-const BOT_NAME = 'RR Story Bot';
+const FORMAT_ID = 'gen9rrbt';
+const FORMAT_NAME = '[Gen 9] RR Battle Tower';
+const BOT_NAME = 'RR BT Bot';
 const BOT_AVATAR = '101';
-const STORY_CHALLENGER_ID = 'rrstorybot' as ID;
-const STORY_ACCEPT_COMMAND = '/storyaccept';
+const BT_CHALLENGER_ID = 'rrbtbot' as ID;
+const BT_ACCEPT_COMMAND = '/btaccept';
 // Optional override. If this file exists, it replaces DEFAULT_LEVELS below.
-const LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
-const PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
-const AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
+const LEVELS_FILE = 'config/chat-plugins/rr-battle-tower-levels.json';
+const PROGRESS_FILE = 'config/chat-plugins/rr-battle-tower-progress.json';
+const AI_MEMORY_FILE = 'config/chat-plugins/rr-battle-tower-ai-memory.json';
+const MEDALS_FILE = 'config/chat-plugins/rr-battle-tower-medals.json';
+const LEGACY_LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
+const LEGACY_PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
+const LEGACY_AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
+const LEGACY_MEDALS_FILE = 'config/chat-plugins/rr-story-medals.json';
 
-interface StoryLevel {
+const BT_MEDALS = {
+	marowak: {
+		name: "Marowak Boss Medal",
+		desc: "Cleared Boss Battle: Marowak-Alola.",
+		badgeType: "silver",
+		badgeDetail: "marowak-boss",
+	},
+	radicalred: {
+		name: "Radical Red Medal",
+		desc: "Cleared Boss Battle: The Radical Red.",
+		badgeType: "gold",
+		badgeDetail: "radical-red-boss",
+	},
+} as const;
+
+type BTMedalID = keyof typeof BT_MEDALS;
+
+interface BTLevel {
 	name: string;
 	team: string;
 	boss?: boolean;
+	medal?: BTMedalID;
 }
 
-interface StoryBattleState {
+interface BTBattleState {
 	userid: ID;
 	level: number;
 	timer: NodeJS.Timer;
 	logIndex: number;
 	hazards: {
-		p1: StorySideHazards,
-		p2: StorySideHazards,
+		p1: BTSideHazards,
+		p2: BTSideHazards,
 	};
 	perish: {
 		p1: number,
 		p2: number,
 	};
 	setupUsed: {[ident: string]: boolean};
-	decisions: StoryDecision[];
-	lastDecisionByPokemon: {[ident: string]: StoryDecision};
-	lastBotMoveDecision: StoryDecision | null;
-	lastBotMoveByTarget: {[ident: string]: StoryDecision};
-	redMistSouls: {[ident: string]: number};
+	decisions: BTDecision[];
+	lastDecisionByPokemon: {[ident: string]: BTDecision};
+	lastBotMoveDecision: BTDecision | null;
+	lastBotMoveByTarget: {[ident: string]: BTDecision};
 	stallMoveCounters: {[ident: string]: number};
 	pendingStallMoves: {[ident: string]: boolean};
 	memoryChanged: boolean;
 }
 
-interface StorySideHazards {
+interface BTSideHazards {
 	stealthrock: boolean;
 	spikes: number;
 	toxicspikes: number;
@@ -51,18 +73,18 @@ interface StorySideHazards {
 	gmaxsteelsurge: boolean;
 }
 
-interface StoryDecision {
+interface BTDecision {
 	key: string;
 	actor: string;
 	action: string;
 }
 
-interface StoryAIMemoryEntry {
+interface BTAIMemoryEntry {
 	score: number;
 	uses: number;
 }
 
-const INITIAL_LEVEL: StoryLevel = {
+const INITIAL_LEVEL: BTLevel = {
 	name: "Level 1",
 	team: `
 Lawsuit plushie (Chillet) @ Choice Band
@@ -128,9 +150,10 @@ Impish Nature
 `,
 };
 
-const MAROWAK_LEVEL: StoryLevel = {
+const MAROWAK_LEVEL: BTLevel = {
 	name: "Marowak-Alola",
 	boss: true,
+	medal: 'marowak',
 	team: `
 Marowak-Alola @ Thick Club
 Ability: Familial Revenge
@@ -202,9 +225,10 @@ Jolly Nature
 `,
 };
 
-const RADICAL_RED_LEVEL: StoryLevel = {
+const RADICAL_RED_LEVEL: BTLevel = {
 	name: "The Radical Red",
 	boss: true,
+	medal: 'radicalred',
 	team: `
 The Radical Red (Houndoom-Mega) @ Houndoominite
 Ability: Radical Aura
@@ -215,12 +239,11 @@ Modest Nature
 IVs: 0 Atk
 - Fiery Wrath
 - Fire Blast
-- Nasty Plot
-- Red Mist
+- Scorching Sands
 `,
 };
 
-const DEFAULT_LEVELS: StoryLevel[] = [
+const DEFAULT_LEVELS: BTLevel[] = [
 	INITIAL_LEVEL,
 	...POKEPASTE_LEVELS.slice(0, 15),
 	MAROWAK_LEVEL,
@@ -229,12 +252,17 @@ const DEFAULT_LEVELS: StoryLevel[] = [
 ];
 let levels = loadLevels();
 const progress: {[userid: string]: number} = loadProgress();
-const aiMemory: {[key: string]: StoryAIMemoryEntry} = loadAIMemory();
-const storyBattles = new Map<RoomID, StoryBattleState>();
-const storyRequests = new Map<ID, {level: number, replay: boolean}>();
+const aiMemory: {[key: string]: BTAIMemoryEntry} = loadAIMemory();
+const btMedals: {[userid: string]: BTMedalID[]} = loadBTMedals();
+const btBattles = new Map<RoomID, BTBattleState>();
+const btRequests = new Map<ID, {level: number, replay: boolean}>();
+
+function readConfigFile(path: string, legacyPath: string) {
+	return FS(path).readIfExistsSync() || FS(legacyPath).readIfExistsSync();
+}
 
 function loadLevels() {
-	const data = FS(LEVELS_FILE).readIfExistsSync();
+	const data = readConfigFile(LEVELS_FILE, LEGACY_LEVELS_FILE);
 	if (!data) return DEFAULT_LEVELS.slice();
 	try {
 		const parsed = JSON.parse(data);
@@ -242,7 +270,10 @@ function loadLevels() {
 		const loaded = parsed.filter(level => (
 			level && typeof level.name === 'string' && typeof level.team === 'string'
 		));
-		return loaded as StoryLevel[];
+		for (const level of loaded) {
+			if (level.medal && !isBTMedalID(level.medal)) delete level.medal;
+		}
+		return loaded as BTLevel[];
 	} catch (e: any) {
 		Monitor.warn(`Could not load ${LEVELS_FILE}: ${e.message}`);
 		return DEFAULT_LEVELS.slice();
@@ -251,7 +282,7 @@ function loadLevels() {
 
 function loadProgress() {
 	try {
-		const parsed = JSON.parse(FS(PROGRESS_FILE).readIfExistsSync() || "{}");
+		const parsed = JSON.parse(readConfigFile(PROGRESS_FILE, LEGACY_PROGRESS_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
 		const result: {[userid: string]: number} = {};
 		for (const [userid, cleared] of Object.entries(parsed)) {
@@ -268,11 +299,36 @@ function saveProgress() {
 	FS(PROGRESS_FILE).writeUpdate(() => JSON.stringify(progress, null, 2));
 }
 
+function isBTMedalID(medal: string): medal is BTMedalID {
+	return medal in BT_MEDALS;
+}
+
+function loadBTMedals() {
+	try {
+		const parsed = JSON.parse(readConfigFile(MEDALS_FILE, LEGACY_MEDALS_FILE) || "{}");
+		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+		const result: {[userid: string]: BTMedalID[]} = {};
+		for (const [userid, medals] of Object.entries(parsed)) {
+			if (!Array.isArray(medals)) continue;
+			const validMedals = medals.filter(medal => typeof medal === 'string' && isBTMedalID(medal));
+			if (validMedals.length) result[toID(userid)] = [...new Set(validMedals)];
+		}
+		return result;
+	} catch (e: any) {
+		Monitor.warn(`Could not load ${MEDALS_FILE}: ${e.message}`);
+		return {};
+	}
+}
+
+function saveBTMedals() {
+	FS(MEDALS_FILE).writeUpdate(() => JSON.stringify(btMedals, null, 2));
+}
+
 function loadAIMemory() {
 	try {
-		const parsed = JSON.parse(FS(AI_MEMORY_FILE).readIfExistsSync() || "{}");
+		const parsed = JSON.parse(readConfigFile(AI_MEMORY_FILE, LEGACY_AI_MEMORY_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-		const result: {[key: string]: StoryAIMemoryEntry} = {};
+		const result: {[key: string]: BTAIMemoryEntry} = {};
 		for (const [key, entry] of Object.entries(parsed)) {
 			if (!entry || typeof entry !== 'object' || Array.isArray(entry)) continue;
 			const score = Number((entry as AnyObject).score);
@@ -303,7 +359,7 @@ function applyAIMemoryDelta(key: string, delta: number) {
 	aiMemory[key] = entry;
 }
 
-function updateAIMemory(decisions: StoryDecision[], won: boolean) {
+function updateAIMemory(decisions: BTDecision[], won: boolean) {
 	if (!decisions.length) return;
 	const seen = new Set<string>();
 	const delta = won ? 0.35 : -0.2;
@@ -315,7 +371,7 @@ function updateAIMemory(decisions: StoryDecision[], won: boolean) {
 	saveAIMemory();
 }
 
-function rewardDecision(state: StoryBattleState, decision: StoryDecision | null | undefined, delta: number) {
+function rewardDecision(state: BTBattleState, decision: BTDecision | null | undefined, delta: number) {
 	if (!decision) return;
 	applyAIMemoryDelta(decision.key, delta);
 	state.memoryChanged = true;
@@ -325,14 +381,64 @@ function getCleared(userid: ID) {
 	return progress[userid] || 0;
 }
 
-function getStoryLevelLabel(level: StoryLevel, index: number, html = false) {
+function getBTMedals(userid: ID) {
+	return btMedals[userid] || [];
+}
+
+function awardBTMedal(userid: ID, medal: BTMedalID) {
+	const medals = new Set(getBTMedals(userid));
+	if (medals.has(medal)) return false;
+	medals.add(medal);
+	btMedals[userid] = [...medals];
+	saveBTMedals();
+	return true;
+}
+
+function awardBTMedalsThrough(userid: ID, cleared: number) {
+	let awarded = false;
+	for (let i = 0; i < Math.min(cleared, levels.length); i++) {
+		const medal = levels[i].medal;
+		if (medal) awarded = awardBTMedal(userid, medal) || awarded;
+	}
+	return awarded;
+}
+
+function getBTMedalsHTML(userid: ID) {
+	const medals = getBTMedals(userid);
+	if (!medals.length) return `No Battle Tower medals yet.`;
+	return medals.map(medalid => {
+		const medal = BT_MEDALS[medalid];
+		return `<strong>${Utils.escapeHTML(medal.name)}</strong> - ${Utils.escapeHTML(medal.desc)}`;
+	}).join('<br />');
+}
+
+function syncBTMedalsFromProgress() {
+	let changed = false;
+	for (const [userid, cleared] of Object.entries(progress)) {
+		const targetID = toID(userid);
+		const medals = new Set(getBTMedals(targetID));
+		for (let i = 0; i < Math.min(cleared, levels.length); i++) {
+			const medal = levels[i].medal;
+			if (medal && !medals.has(medal)) {
+				medals.add(medal);
+				changed = true;
+			}
+		}
+		if (medals.size) btMedals[targetID] = [...medals];
+	}
+	if (changed) saveBTMedals();
+}
+
+syncBTMedalsFromProgress();
+
+function getBTLevelLabel(level: BTLevel, index: number, html = false) {
 	const name = html ? Utils.escapeHTML(level.name) : level.name;
 	if (level.boss) return `Boss Battle: ${name}`;
 	return `Level ${index + 1}`;
 }
 
-function getCurrentStoryBattle(userid: ID) {
-	for (const [roomid, state] of storyBattles) {
+function getCurrentBTBattle(userid: ID) {
+	for (const [roomid, state] of btBattles) {
 		const room = Rooms.get(roomid);
 		if (!room?.battle || room.battle.ended) continue;
 		if (state.userid === userid) return room;
@@ -340,15 +446,15 @@ function getCurrentStoryBattle(userid: ID) {
 	return null;
 }
 
-function packStoryTeam(level: StoryLevel) {
+function packBTTeam(level: BTLevel) {
 	const importedTeam = Teams.import(level.team);
-	if (!importedTeam) throw new Chat.ErrorMessage(`Story level "${level.name}" does not have a valid team.`);
-	normalizeStoryTeam(importedTeam);
+	if (!importedTeam) throw new Chat.ErrorMessage(`Battle Tower level "${level.name}" does not have a valid team.`);
+	normalizeBTTeam(importedTeam);
 	return Teams.pack(importedTeam);
 }
 
-function normalizeStoryTeam(importedTeam: PokemonSet[]) {
-	const dex = Dex.mod('gen9rrstory');
+function normalizeBTTeam(importedTeam: PokemonSet[]) {
+	const dex = Dex.mod('gen9rrbt');
 	for (const set of importedTeam) {
 		const species = dex.species.get(set.species);
 		if (!species.isMega) continue;
@@ -366,57 +472,57 @@ function normalizeStoryTeam(importedTeam: PokemonSet[]) {
 	}
 }
 
-function isStoryChallenge(challenge: Ladders.Challenge) {
-	return challenge.from === STORY_CHALLENGER_ID && challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `);
+function isBTChallenge(challenge: Ladders.Challenge) {
+	return challenge.from === BT_CHALLENGER_ID && challenge.acceptCommand?.startsWith(`${BT_ACCEPT_COMMAND} `);
 }
 
-function clearStoryChallenge(userid: ID) {
-	storyRequests.delete(userid);
+function clearBTChallenge(userid: ID) {
+	btRequests.delete(userid);
 	const challenges = Ladders.challenges.get(userid);
 	if (!challenges) return;
 	for (const challenge of [...challenges]) {
-		if (isStoryChallenge(challenge) || (
+		if (isBTChallenge(challenge) || (
 			challenge.from === userid && challenge.to === userid &&
-			challenge.acceptCommand?.startsWith(`${STORY_ACCEPT_COMMAND} `)
+			challenge.acceptCommand?.startsWith(`${BT_ACCEPT_COMMAND} `)
 		)) {
 			Ladders.challenges.remove(challenge);
 		}
 	}
 }
 
-function sendStoryTeamRequest(user: User, levelIndex: number, replay: boolean) {
-	clearStoryChallenge(user.id);
+function sendBTTeamRequest(user: User, levelIndex: number, replay: boolean) {
+	clearBTChallenge(user.id);
 	user.battleSettings.team = '';
-	storyRequests.set(user.id, {level: levelIndex, replay});
+	btRequests.set(user.id, {level: levelIndex, replay});
 	const level = levels[levelIndex];
-	const command = `${STORY_ACCEPT_COMMAND} ${levelIndex + 1}`;
+	const command = `${BT_ACCEPT_COMMAND} ${levelIndex + 1}`;
 	const ready = new Ladders.BattleReady(user.id, FORMAT_ID, {
 		...user.battleSettings,
 		team: '',
 	});
-	const challenge = new Ladders.BattleChallenge(STORY_CHALLENGER_ID, user.id, ready, {
+	const challenge = new Ladders.BattleChallenge(BT_CHALLENGER_ID, user.id, ready, {
 		acceptCommand: command,
 		message:
-			`Choose a ${FORMAT_NAME} team for Story Level ${levelIndex + 1}: ${level.name}` +
+			`Choose a ${FORMAT_NAME} team for Battle Tower ${getBTLevelLabel(level, levelIndex)}` +
 			`${replay ? ' (replay)' : ''}.`,
-		acceptButton: 'Start Story',
+		acceptButton: 'Start Battle Tower',
 		rejectButton: 'Cancel',
 	});
 	Ladders.challenges.add(challenge);
 }
 
-function resolveStoryRequest(user: User, target: string) {
+function resolveBTRequest(user: User, target: string) {
 	const requestedLevel = parseInt(target);
 	if (!isNaN(requestedLevel)) {
 		const level = requestedLevel - 1;
-		const request = storyRequests.get(user.id);
+		const request = btRequests.get(user.id);
 		if (request?.level !== level) return null;
 		return request;
 	}
-	return storyRequests.get(user.id) || null;
+	return btRequests.get(user.id) || null;
 }
 
-async function prepareStoryTeam(connection: Connection) {
+async function prepareBTTeam(connection: Connection) {
 	if (!connection.user.battleSettings.team) {
 		connection.popup(`Select a ${FORMAT_NAME} team first.`);
 		return null;
@@ -426,16 +532,16 @@ async function prepareStoryTeam(connection: Connection) {
 	return ready.settings;
 }
 
-function newHazards(): StorySideHazards {
+function newHazards(): BTSideHazards {
 	return {stealthrock: false, spikes: 0, toxicspikes: 0, stickyweb: false, gmaxsteelsurge: false};
 }
 
 function toHazardID(name: string) {
-	return toID(name.replace(/^move:\s*/i, '')) as keyof StorySideHazards;
+	return toID(name.replace(/^move:\s*/i, '')) as keyof BTSideHazards;
 }
 
 function updateHazardState(
-	state: StoryBattleState, sideid: 'p1' | 'p2', hazardid: keyof StorySideHazards, started: boolean
+	state: BTBattleState, sideid: 'p1' | 'p2', hazardid: keyof BTSideHazards, started: boolean
 ) {
 	const hazards = state.hazards[sideid];
 	if (!hazards || !(hazardid in hazards)) return;
@@ -462,7 +568,7 @@ function getLineSideID(ident: string | undefined) {
 	return match?.[1] || '';
 }
 
-function trackStoryOutcome(line: string, parts: string[], state: StoryBattleState) {
+function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 	if (line.startsWith('|move|')) {
 		const actorSideid = getLineSideID(parts[2]);
 		if (actorSideid !== 'p2') return;
@@ -476,7 +582,6 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 		}
 		const decision = state.lastDecisionByPokemon[actorID];
 		if (!decision?.action.startsWith('move:')) return;
-		if (decision.action === 'move:redmist') state.redMistSouls[decision.actor] = 0;
 		state.lastBotMoveDecision = decision;
 		const targetSideid = getLineSideID(parts[4]);
 		if (targetSideid === 'p1') {
@@ -505,7 +610,6 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 	if (faintedSideid === 'p1') {
 		const decision = state.lastBotMoveByTarget[faintedID] || state.lastBotMoveDecision;
 		rewardDecision(state, decision, decision?.action.endsWith(':z') ? 0.85 : 0.6);
-		if (decision) state.redMistSouls[decision.actor] = Math.min(99, (state.redMistSouls[decision.actor] || 0) + 1);
 		delete state.lastBotMoveByTarget[faintedID];
 	} else if (faintedSideid === 'p2') {
 		rewardDecision(state, state.lastDecisionByPokemon[faintedID], -0.55);
@@ -515,12 +619,12 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 	}
 }
 
-function syncBattleState(room: GameRoom, state: StoryBattleState) {
+function syncBattleState(room: GameRoom, state: BTBattleState) {
 	const logs = room.log.log;
 	for (let i = state.logIndex; i < logs.length; i++) {
 		const line = logs[i];
 		const parts = line.split('|');
-		trackStoryOutcome(line, parts, state);
+		trackBTOutcome(line, parts, state);
 		if (line.startsWith('|-sidestart|') || line.startsWith('|-sideend|')) {
 			const sideid = parts[2]?.slice(0, 2);
 			if (sideid !== 'p1' && sideid !== 'p2') continue;
@@ -544,15 +648,15 @@ function syncBattleState(room: GameRoom, state: StoryBattleState) {
 	state.logIndex = logs.length;
 }
 
-function hasHazards(hazards: StorySideHazards) {
+function hasHazards(hazards: BTSideHazards) {
 	return !!(
 		hazards.stealthrock || hazards.spikes || hazards.toxicspikes ||
 		hazards.stickyweb || hazards.gmaxsteelsurge
 	);
 }
 
-function chooseTeamPreview(request: AnyObject, state: StoryBattleState) {
-	if (state.level === 1) {
+function chooseTeamPreview(request: AnyObject, state: BTBattleState) {
+	if (levels[state.level]?.medal === 'marowak') {
 		const pokemon = request.side?.pokemon || [];
 		const leadIndex = pokemon.findIndex((pokemonData: AnyObject) => toID(getSpeciesName(pokemonData)) === 'gengar');
 		if (leadIndex >= 0) {
@@ -584,14 +688,14 @@ function estimateBestDamageFromPokemon(sourceData: AnyObject, targetData: AnyObj
 	if (!targetData) return 0;
 	let bestDamage = 0;
 	for (const moveid of getPokemonMoveIDs(sourceData)) {
-		const move = Dex.mod('gen9rrstory').moves.get(moveid);
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
 		if (!move.exists || move.category === 'Status') continue;
 		bestDamage = Math.max(bestDamage, estimateDamage(moveid, sourceData, targetData));
 	}
 	return bestDamage;
 }
 
-function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null, state?: StoryBattleState) {
+function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null, state?: BTBattleState) {
 	const hpData = getHPData(switchOption);
 	let score = (hpData.hp / hpData.maxhp) * 25;
 	if (state) {
@@ -608,7 +712,7 @@ function scoreSwitchOption(switchOption: AnyObject, targetData: AnyObject | null
 	return score;
 }
 
-function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null, state?: StoryBattleState) {
+function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null, state?: BTBattleState) {
 	const pokemon = request.side.pokemon;
 	const chosen: number[] = [];
 	const choices = request.forceSwitch.map((mustSwitch: boolean, i: number) => {
@@ -643,7 +747,7 @@ function chooseSwitch(request: AnyObject, targetData: AnyObject | null = null, s
 
 function chooseBestSwitchSlot(
 	request: AnyObject, activeSlots: number, chosen: number[] = [], targetData: AnyObject | null = null,
-	state?: StoryBattleState
+	state?: BTBattleState
 ) {
 	const pokemon = request.side.pokemon;
 	let bestSlot = 0;
@@ -709,11 +813,11 @@ function getSpeciesID(pokemonData: AnyObject | null) {
 	return toID(getSpeciesName(pokemonData));
 }
 
-function getMemoryKey(state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string) {
+function getMemoryKey(state: BTBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string) {
 	return `${state.level + 1}|${getSpeciesID(pokemonData)}|${getSpeciesID(targetData)}|${action}`;
 }
 
-function parseStoryCompleteArgs(target: string, user: User) {
+function parseBTCompleteArgs(target: string, user: User) {
 	let targetName = '';
 	let levelText = '';
 	const parts = target.split(',').map(part => part.trim()).filter(Boolean);
@@ -741,13 +845,13 @@ function parseStoryCompleteArgs(target: string, user: User) {
 	if (levelText && toID(levelText) !== 'all') {
 		cleared = parseInt(levelText);
 		if (isNaN(cleared) || cleared < 1 || cleared > levels.length) {
-			throw new Chat.ErrorMessage(`Story level must be between 1 and ${levels.length}, or "all".`);
+			throw new Chat.ErrorMessage(`Battle Tower level must be between 1 and ${levels.length}, or "all".`);
 		}
 	}
 	return {targetID, cleared};
 }
 
-function parseStorySetLevelArgs(target: string, user: User) {
+function parseBTSetLevelArgs(target: string, user: User) {
 	let targetName = '';
 	let levelText = '1';
 	const parts = target.split(',').map(part => part.trim()).filter(Boolean);
@@ -774,18 +878,18 @@ function parseStorySetLevelArgs(target: string, user: User) {
 	if (toID(levelText) === 'all') return {targetID, cleared: levels.length};
 	const nextLevel = parseInt(levelText);
 	if (isNaN(nextLevel) || nextLevel < 1 || nextLevel > levels.length + 1) {
-		throw new Chat.ErrorMessage(`Story level must be between 1 and ${levels.length + 1}, or "all".`);
+		throw new Chat.ErrorMessage(`Battle Tower level must be between 1 and ${levels.length + 1}, or "all".`);
 	}
 	return {targetID, cleared: nextLevel - 1};
 }
 
-function getStoryProgressLabel(cleared: number) {
+function getBTProgressLabel(cleared: number) {
 	if (cleared >= levels.length) return 'all available levels cleared';
-	return `next level is ${getStoryLevelLabel(levels[cleared], cleared)}`;
+	return `next level is ${getBTLevelLabel(levels[cleared], cleared)}`;
 }
 
 function rememberDecision(
-	state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string
+	state: BTBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string
 ) {
 	const decision = {
 		key: getMemoryKey(state, pokemonData, targetData, action),
@@ -809,12 +913,12 @@ function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
 
 function getPokemonTypes(pokemonData: AnyObject) {
 	if (pokemonData.terastallized) return [pokemonData.terastallized];
-	const dex = Dex.mod('gen9rrstory');
+	const dex = Dex.mod('gen9rrbt');
 	return dex.species.get(getSpeciesName(pokemonData)).types;
 }
 
 function getPokemonWeight(pokemonData: AnyObject) {
-	const dex = Dex.mod('gen9rrstory');
+	const dex = Dex.mod('gen9rrbt');
 	return dex.species.get(getSpeciesName(pokemonData)).weightkg || 0;
 }
 
@@ -838,7 +942,7 @@ function getStat(pokemonData: AnyObject, stat: StatIDExceptHP) {
 }
 
 function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject, useZMove = false) {
-	const dex = Dex.mod('gen9rrstory');
+	const dex = Dex.mod('gen9rrbt');
 	const sourceSpecies = dex.species.get(getSpeciesName(sourceData));
 	const move = dex.moves.get(moveid);
 	if (!move.exists || move.category === 'Status') return 0;
@@ -906,10 +1010,10 @@ function isSetupMove(moveid: ID) {
 }
 
 function isStallingMove(moveid: ID) {
-	return !!(Dex.mod('gen9rrstory').moves.get(moveid) as AnyObject).stallingMove;
+	return !!(Dex.mod('gen9rrbt').moves.get(moveid) as AnyObject).stallingMove;
 }
 
-function canUseHazard(moveid: ID, targetHazards: StorySideHazards) {
+function canUseHazard(moveid: ID, targetHazards: BTSideHazards) {
 	if (moveid === 'stealthrock') return !targetHazards.stealthrock;
 	if (moveid === 'spikes') return targetHazards.spikes < 3;
 	if (moveid === 'toxicspikes') return targetHazards.toxicspikes < 2;
@@ -930,7 +1034,7 @@ function hasStatus(pokemonData: AnyObject | null) {
 
 function scoreDamagingMove(
 	move: Move, damage: number, pokemonData: AnyObject, targetData: AnyObject,
-	state: StoryBattleState, action: string
+	state: BTBattleState, action: string
 ) {
 	const targetHP = getHPData(targetData);
 	const targetMaxHP = Math.max(1, targetHP.maxhp);
@@ -946,7 +1050,7 @@ function scoreDamagingMove(
 
 function scoreStatusMove(
 	moveid: ID, pokemonData: AnyObject, targetData: AnyObject | null,
-	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState,
+	ownHazards: BTSideHazards, targetHazards: BTSideHazards, state: BTBattleState,
 	bestDamage: number
 ) {
 	const activeHP = getHPData(pokemonData);
@@ -957,9 +1061,6 @@ function scoreStatusMove(
 
 	if (moveid === 'perishsong' && getSpeciesID(pokemonData) === 'gengar') {
 		score = 115;
-	} else if (moveid === 'redmist') {
-		const souls = state.redMistSouls[getPokemonDecisionID(pokemonData)] || 0;
-		if (souls && hpFraction <= 0.25) score = 500 + souls * 40;
 	} else if (isSetupMove(moveid) && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
 		score = 80;
 	} else if (moveid === 'defog' && hasHazards(ownHazards)) {
@@ -990,17 +1091,14 @@ function scoreStatusMove(
 
 function chooseBestMove(
 	active: AnyObject, pokemonData: AnyObject, targetData: AnyObject | null,
-	ownHazards: StorySideHazards, targetHazards: StorySideHazards, state: StoryBattleState
+	ownHazards: BTSideHazards, targetHazards: BTSideHazards, state: BTBattleState
 ) {
-	const decisionID = getPokemonDecisionID(pokemonData);
 	const moves = active.moves
 		.map((move: AnyObject, moveIndex: number) => ({slot: moveIndex + 1, move}))
-		.filter(({move}: {move: AnyObject}) => (
-			!move.disabled && (move.id !== 'redmist' || !!state.redMistSouls[decisionID])
-		));
+		.filter(({move}: {move: AnyObject}) => !move.disabled);
 	if (!moves.length) return 'pass';
 	const damagingMoves = targetData ? moves.filter(({move}: {move: AnyObject}) => (
-		Dex.mod('gen9rrstory').moves.get(move.id).category !== 'Status'
+		Dex.mod('gen9rrbt').moves.get(move.id).category !== 'Status'
 	)) : [];
 	const zMoveSlots = new Map<number, AnyObject>();
 	if (active.canZMove) {
@@ -1016,7 +1114,7 @@ function chooseBestMove(
 	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
 	if (targetData) {
 		for (const choice of damagingMoves) {
-			const move = Dex.mod('gen9rrstory').moves.get(choice.move.id);
+			const move = Dex.mod('gen9rrbt').moves.get(choice.move.id);
 			const moveid = choice.move.id as ID;
 			const damage = estimateDamage(moveid, pokemonData, targetData);
 			if (damage > bestDamage) bestDamage = damage;
@@ -1047,7 +1145,7 @@ function chooseBestMove(
 	}
 	for (const choice of moves) {
 		const moveid = choice.move.id as ID;
-		const move = Dex.mod('gen9rrstory').moves.get(moveid);
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
 		if (move.category !== 'Status') continue;
 		const score = scoreStatusMove(moveid, pokemonData, targetData, ownHazards, targetHazards, state, bestDamage);
 		if (score > bestScore) {
@@ -1067,7 +1165,7 @@ function chooseBestMove(
 	return moveChoice;
 }
 
-function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState) {
+function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 	const ownSideid = request.side.id as 'p1' | 'p2';
 	const foeSideid = ownSideid === 'p1' ? 'p2' : 'p1';
 	const foeRequest = getFoeRequest(room, ownSideid);
@@ -1111,7 +1209,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: StoryBattleState)
 	return choices.join(', ');
 }
 
-function chooseBotRequest(request: AnyObject, room: GameRoom, state: StoryBattleState) {
+function chooseBotRequest(request: AnyObject, room: GameRoom, state: BTBattleState) {
 	if (request.wait) return '';
 	if (request.forceSwitch) {
 		const foeRequest = getFoeRequest(room, request.side.id);
@@ -1125,12 +1223,12 @@ function chooseBotRequest(request: AnyObject, room: GameRoom, state: StoryBattle
 function advanceBot(room: GameRoom) {
 	const battle = room.battle;
 	if (!battle || battle.ended) {
-		const state = storyBattles.get(room.roomid);
+		const state = btBattles.get(room.roomid);
 		if (state) clearInterval(state.timer);
-		storyBattles.delete(room.roomid);
+		btBattles.delete(room.roomid);
 		return;
 	}
-	const state = storyBattles.get(room.roomid);
+	const state = btBattles.get(room.roomid);
 	if (!state) return;
 	syncBattleState(room, state);
 	const bot = battle.p2;
@@ -1150,11 +1248,15 @@ function advanceBot(room: GameRoom) {
 
 function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 	const battle = room.battle;
-	if (!battle) throw new Chat.ErrorMessage(`Story battle could not be created.`);
+	if (!battle) throw new Chat.ErrorMessage(`Battle Tower battle could not be created.`);
+	(battle.p2 as AnyObject).id = BT_CHALLENGER_ID;
 	battle.p2.name = BOT_NAME;
 	battle.p2.active = true;
 	battle.p2.knownActive = true;
 	battle.p2.hasTeam = true;
+	battle.p2.invite = '';
+	battle.playerTable[BT_CHALLENGER_ID] = battle.p2;
+	room.auth.set(BT_CHALLENGER_ID, Users.PLAYER_SYMBOL);
 	battle.room.title = `${battle.p1.name} vs. ${BOT_NAME}`;
 	battle.room.send(`|title|${battle.room.title}`);
 	void battle.stream.write(`>player p2 ${JSON.stringify({name: BOT_NAME, avatar: BOT_AVATAR, team: botTeam})}`);
@@ -1162,7 +1264,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 	Rooms.global.onCreateBattleRoom([Users.get(userid)!], room, {rated: 0});
 	battle.checkActive();
 	const timer = setInterval(() => advanceBot(room), 500);
-	storyBattles.set(room.roomid, {
+	btBattles.set(room.roomid, {
 		userid,
 		level,
 		timer,
@@ -1174,20 +1276,19 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 		lastDecisionByPokemon: {},
 		lastBotMoveDecision: null,
 		lastBotMoveByTarget: {},
-		redMistSouls: {},
 		stallMoveCounters: {},
 		pendingStallMoves: {},
 		memoryChanged: false,
 	});
 }
 
-async function startStoryBattle(
+async function startBTBattle(
 	context: Chat.CommandContext, user: User, connection: Connection, levelIndex: number, replay: boolean
 ) {
 	const level = levels[levelIndex];
-	const playerSettings = await prepareStoryTeam(connection);
+	const playerSettings = await prepareBTTeam(connection);
 	if (!playerSettings) return;
-	const botTeam = packStoryTeam(level);
+	const botTeam = packBTTeam(level);
 	const battleRoom = Rooms.createBattle({
 		format: FORMAT_ID,
 		players: [{
@@ -1202,174 +1303,200 @@ async function startStoryBattle(
 	if (!battleRoom) return;
 	attachBot(battleRoom, botTeam, user.id, levelIndex);
 	battleRoom.add(
-		`|-message|Story ${getStoryLevelLabel(level, levelIndex)}${replay ? ' (replay)' : ''}`
+		`|-message|Battle Tower ${getBTLevelLabel(level, levelIndex)}${replay ? ' (replay)' : ''}`
 	).update();
-	context.sendReply(`Starting Story ${getStoryLevelLabel(level, levelIndex)}.`);
+	context.sendReply(`Starting Battle Tower ${getBTLevelLabel(level, levelIndex)}.`);
 }
 
 export const commands: Chat.ChatCommands = {
-	rrstory: 'story',
-	story(target, room, user) {
+	bt: 'battletower',
+	battletower(target, room, user) {
 		target = target.trim();
 		const [cmdTarget = ""] = target.split(' ');
 		const cmd = toID(cmdTarget);
 		const cmdArgs = target.slice(cmdTarget.length).trim();
-		if (cmd === 'help') return this.parse('/help story');
+		if (cmd === 'help') return this.parse('/help battletower');
 		if (cmd === 'progress' || cmd === 'status') {
 			const cleared = getCleared(user.id);
 			const next = levels[cleared];
 			if (!levels.length || !next) {
-				return this.sendReply(`You've done all available levels.`);
+				return this.sendReply(`You've cleared all available Battle Tower levels.`);
 			}
-			return this.sendReply(`Story progress: ${cleared} cleared. Next: ${getStoryLevelLabel(next, cleared)}.`);
+			return this.sendReply(`Battle Tower progress: ${cleared} cleared. Next: ${getBTLevelLabel(next, cleared)}.`);
+		}
+		if (cmd === 'medals' || cmd === 'medal') {
+			const targetID = toID(cmdArgs) || user.id;
+			const targetName = Users.get(targetID)?.name || targetID;
+			return this.sendReplyBox(
+				`<strong>Battle Tower Medals for ${Utils.escapeHTML(targetName)}</strong><br />` +
+				getBTMedalsHTML(targetID)
+			);
 		}
 		if (cmd === 'levels' || cmd === 'list') {
 			this.runBroadcast();
 			const cleared = getCleared(user.id);
-			if (!levels.length) return this.sendReplyBox(`No Story levels are configured.`);
+			if (!levels.length) return this.sendReplyBox(`No Battle Tower levels are configured.`);
 			const rows = levels.map((level, index) => {
 				const levelNumber = index + 1;
 				const status = index < cleared ? 'Cleared' : index === cleared ? 'Next' : 'Locked';
 				const label = level.boss ?
-					getStoryLevelLabel(level, index, true) :
-					`${levelNumber}. ${getStoryLevelLabel(level, index)}`;
+					getBTLevelLabel(level, index, true) :
+					`${levelNumber}. ${getBTLevelLabel(level, index)}`;
 				return `${label} - ${status}`;
 			});
-			return this.sendReplyBox(`<strong>Story Levels</strong><br />${rows.join('<br />')}`);
+			return this.sendReplyBox(`<strong>Battle Tower Levels</strong><br />${rows.join('<br />')}`);
 		}
 		if (cmd === 'format' || cmd === 'team' || cmd === 'teambuilder') {
 			return this.sendReplyBox(
 				`Make a team with the <strong>${FORMAT_NAME}</strong> teambuilder format, ` +
-				`then use <code>/story</code> to open the Story team selector. ` +
-				`Story Mode is not challengeable or laddered.`
+				`then use <code>/battletower</code> to open the Battle Tower team selector. ` +
+				`Battle Tower Mode is not challengeable or laddered.`
 			);
 		}
 		if (cmd === 'reset') {
 			if (cmdArgs) {
 				this.checkCan('bypassall');
-				if (!levels.length) return this.sendReply(`No Story levels are configured.`);
-				const {targetID, cleared} = parseStorySetLevelArgs(cmdArgs, user);
+				if (!levels.length) return this.sendReply(`No Battle Tower levels are configured.`);
+				const {targetID, cleared} = parseBTSetLevelArgs(cmdArgs, user);
 				if (cleared) {
 					progress[targetID] = cleared;
 				} else {
 					delete progress[targetID];
 				}
 				saveProgress();
-				return this.sendReply(`Story progress reset for ${targetID}: ${getStoryProgressLabel(cleared)}.`);
+				return this.sendReply(`Battle Tower progress reset for ${targetID}: ${getBTProgressLabel(cleared)}.`);
 			}
 			delete progress[user.id];
 			saveProgress();
-			return this.sendReply(`Story progress reset.`);
+			return this.sendReply(`Battle Tower progress reset.`);
 		}
 		if (cmd === 'setlevel' || cmd === 'set') {
 			this.checkCan('bypassall');
-			if (!levels.length) return this.sendReply(`No Story levels are configured.`);
-			const {targetID, cleared} = parseStorySetLevelArgs(cmdArgs, user);
+			if (!levels.length) return this.sendReply(`No Battle Tower levels are configured.`);
+			const {targetID, cleared} = parseBTSetLevelArgs(cmdArgs, user);
 			if (cleared) {
 				progress[targetID] = cleared;
 			} else {
 				delete progress[targetID];
 			}
 			saveProgress();
-			return this.sendReply(`Story progress set for ${targetID}: ${getStoryProgressLabel(cleared)}.`);
+			return this.sendReply(`Battle Tower progress set for ${targetID}: ${getBTProgressLabel(cleared)}.`);
 		}
 		if (cmd === 'reload') {
 			this.checkCan('console');
 			levels = loadLevels();
-			return this.sendReply(`Reloaded ${levels.length} Story level${levels.length === 1 ? '' : 's'}.`);
+			return this.sendReply(`Reloaded ${levels.length} Battle Tower level${levels.length === 1 ? '' : 's'}.`);
 		}
 		if (cmd === 'complete') {
 			this.checkCan('bypassall');
-			if (!levels.length) return this.sendReply(`No Story levels are configured.`);
-			const {targetID, cleared} = parseStoryCompleteArgs(cmdArgs, user);
+			if (!levels.length) return this.sendReply(`No Battle Tower levels are configured.`);
+			const {targetID, cleared} = parseBTCompleteArgs(cmdArgs, user);
 			progress[targetID] = Math.max(getCleared(targetID), cleared);
 			saveProgress();
-			return this.sendReply(`Story progress completed for ${targetID}: ${getStoryProgressLabel(progress[targetID])}.`);
+			awardBTMedalsThrough(targetID, progress[targetID]);
+			return this.sendReply(`Battle Tower progress completed for ${targetID}: ${getBTProgressLabel(progress[targetID])}.`);
 		}
 
-		const activeBattle = getCurrentStoryBattle(user.id);
+		const activeBattle = getCurrentBTBattle(user.id);
 		if (activeBattle) {
-			return this.errorReply(`You already have an active Story battle: ${activeBattle.title}`);
+			return this.errorReply(`You already have an active Battle Tower battle: ${activeBattle.title}`);
 		}
 
 		const cleared = getCleared(user.id);
 		const levelIndex = target ? parseInt(target) - 1 : cleared;
-		if (isNaN(levelIndex) || levelIndex < 0) return this.parse('/help story');
+		if (isNaN(levelIndex) || levelIndex < 0) return this.parse('/help battletower');
 		if (!levels.length || levelIndex >= levels.length) {
-			return this.sendReply(`You've done all available levels.`);
+			return this.sendReply(`You've cleared all available Battle Tower levels.`);
 		}
 		if (levelIndex > cleared) {
 			return this.errorReply(
-				`You have not unlocked ${getStoryLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
-				`Your next level is ${getStoryLevelLabel(levels[cleared], cleared)}.`
+				`You have not unlocked ${getBTLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
+				`Your next level is ${getBTLevelLabel(levels[cleared], cleared)}.`
 			);
 		}
 		const replay = levelIndex < cleared;
-		sendStoryTeamRequest(user, levelIndex, replay);
+		sendBTTeamRequest(user, levelIndex, replay);
 		this.sendReply(
-			`Choose a ${FORMAT_NAME} team in the challenge popup to start Story ` +
-			`${getStoryLevelLabel(levels[levelIndex], levelIndex)}.`
+			`Choose a ${FORMAT_NAME} team in the challenge popup to start Battle Tower ` +
+			`${getBTLevelLabel(levels[levelIndex], levelIndex)}.`
 		);
 	},
-	async storyaccept(target, room, user, connection) {
-		const request = resolveStoryRequest(user, target);
+	async btaccept(target, room, user, connection) {
+		const request = resolveBTRequest(user, target);
 		if (!request) {
-			return this.errorReply(`Story team request not found. Use /story to open the Story Mode team selector.`);
+			return this.errorReply(`Battle Tower team request not found. Use /battletower to open the Battle Tower Mode team selector.`);
 		}
 		const levelIndex = request.level;
-		storyRequests.delete(user.id);
+		btRequests.delete(user.id);
 		for (const challenge of Ladders.challenges.get(user.id) || []) {
-			if (isStoryChallenge(challenge)) Ladders.challenges.remove(challenge, true);
+			if (isBTChallenge(challenge)) Ladders.challenges.remove(challenge, true);
 		}
 
-		const activeBattle = getCurrentStoryBattle(user.id);
+		const activeBattle = getCurrentBTBattle(user.id);
 		if (activeBattle) {
-			return this.errorReply(`You already have an active Story battle: ${activeBattle.title}`);
+			return this.errorReply(`You already have an active Battle Tower battle: ${activeBattle.title}`);
 		}
 
 		const cleared = getCleared(user.id);
 		if (isNaN(levelIndex) || levelIndex < 0 || !levels.length || levelIndex >= levels.length) {
-			return this.sendReply(`You've done all available levels.`);
+			return this.sendReply(`You've cleared all available Battle Tower levels.`);
 		}
 		if (levelIndex > cleared) {
 			return this.errorReply(
-				`You have not unlocked ${getStoryLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
-				`Your next level is ${getStoryLevelLabel(levels[cleared], cleared)}.`
+				`You have not unlocked ${getBTLevelLabel(levels[levelIndex], levelIndex)} yet. ` +
+				`Your next level is ${getBTLevelLabel(levels[cleared], cleared)}.`
 			);
 		}
-		await startStoryBattle(this, user, connection, levelIndex, request.replay);
+		await startBTBattle(this, user, connection, levelIndex, request.replay);
 	},
-	storycancel() {
-		clearStoryChallenge(this.user.id);
-		this.sendReply(`Story request cancelled.`);
+	btcancel() {
+		clearBTChallenge(this.user.id);
+		this.sendReply(`Battle Tower request cancelled.`);
 	},
-	storyhelp: [
-		`/story - Opens the Story Mode team selector for your next Story level.`,
-		`/story [level] - Opens the Story Mode team selector to replay an unlocked Story level.`,
-		`/story team - Explains which teambuilder format to select.`,
-		`/story levels - Shows Story levels and locks.`,
-		`/story progress - Shows your current Story progress.`,
-		`/story reset - Resets your own Story progress.`,
-		`/story reset [user], [level] - Sets a user's next Story level. Requires: global administrator`,
-		`/story setlevel [user], [level] - Sets a user's next Story level. Requires: global administrator`,
-		`/story complete [user], [level|all] - Marks a user's Story progress complete through a level. Requires: global administrator`,
-		`/story reload - Reloads story levels from the optional config override. Requires: console permission`,
+	battletowercancel: 'btcancel',
+	bthelp: 'battletowerhelp',
+	battletowerhelp: [
+		`/battletower - Opens the Battle Tower Mode team selector for your next Battle Tower level.`,
+		`/battletower [level] - Opens the Battle Tower Mode team selector to replay an unlocked Battle Tower level.`,
+		`/battletower team - Explains which teambuilder format to select.`,
+		`/battletower medals [user] - Shows Battle Tower boss medals for a user.`,
+		`/battletower levels - Shows Battle Tower levels and locks.`,
+		`/battletower progress - Shows your current Battle Tower progress.`,
+		`/battletower reset - Resets your own Battle Tower progress.`,
+		`/battletower reset [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
+		`/battletower setlevel [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
+		`/battletower complete [user], [level|all] - Marks a user's Battle Tower progress complete through a level. Requires: global administrator`,
+		`/battletower reload - Reloads Battle Tower levels from the optional config override. Requires: console permission`,
 	],
 };
 
 export const handlers: Chat.Handlers = {
+	onBattleStart(user, room) {
+		if (!room.battle) return;
+		const medals = getBTMedals(user.id);
+		if (!medals.length) return;
+		const slot = room.battle.playerTable[user.id]?.slot;
+		if (!slot) return;
+		for (const medalid of medals) {
+			const medal = BT_MEDALS[medalid];
+			room.add(`|badge|${slot}|${medal.badgeType}|${FORMAT_ID}|${medal.badgeDetail}`);
+		}
+		room.update();
+	},
 	onBattleEnd(battle, winner) {
-		const state = storyBattles.get(battle.roomid);
+		const state = btBattles.get(battle.roomid);
 		if (!state) return;
 		clearInterval(state.timer);
-		storyBattles.delete(battle.roomid);
+		btBattles.delete(battle.roomid);
 		const level = levels[state.level];
 		if (!level) return;
 		updateAIMemory(state.decisions, winner !== state.userid);
 		if (winner !== state.userid) {
-			battle.room.add(`|-message|Story ${getStoryLevelLabel(level, state.level)} was not cleared.`).update();
+			battle.room.add(`|-message|Battle Tower ${getBTLevelLabel(level, state.level)} was not cleared.`).update();
 			return;
 		}
+		const medalAwarded = level.medal ? awardBTMedal(state.userid, level.medal) : false;
+		const medalMessage = medalAwarded ? ` ${BT_MEDALS[level.medal!].name} awarded.` : ``;
 		const cleared = getCleared(state.userid);
 		if (state.level === cleared) {
 			progress[state.userid] = cleared + 1;
@@ -1377,17 +1504,17 @@ export const handlers: Chat.Handlers = {
 			const next = levels[cleared + 1];
 			if (next) {
 				battle.room.add(
-					`|-message|Story ${getStoryLevelLabel(level, state.level)} cleared. ` +
-					`${getStoryLevelLabel(next, cleared + 1)} unlocked.`
+					`|-message|Battle Tower ${getBTLevelLabel(level, state.level)} cleared. ` +
+					`${getBTLevelLabel(next, cleared + 1)} unlocked.${medalMessage}`
 				).update();
 			} else {
 				battle.room.add(
-					`|-message|Story ${getStoryLevelLabel(level, state.level)} cleared. You've done all available levels.`
+					`|-message|Battle Tower ${getBTLevelLabel(level, state.level)} cleared. You've cleared all available Battle Tower levels.${medalMessage}`
 				).update();
 			}
 		} else {
 			battle.room.add(
-				`|-message|Story ${getStoryLevelLabel(level, state.level)} replay cleared. Progress unchanged.`
+				`|-message|Battle Tower ${getBTLevelLabel(level, state.level)} replay cleared. Progress unchanged.${medalMessage}`
 			).update();
 		}
 	},

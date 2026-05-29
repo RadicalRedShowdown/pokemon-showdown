@@ -561,17 +561,17 @@ export const Formats: FormatList = [
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause'],
 	},
 
-	// Story
+	// Battle Tower
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "Story",
+		section: "Battle Tower",
 		column: 1,
 	},
 	{
-		name: "[Gen 9] Story Mode",
+		name: "[Gen 9] RR Battle Tower",
 
-		mod: 'gen9rrstory',
+		mod: 'gen9rrbt',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: true,
