@@ -11,10 +11,23 @@ interface StoneDeltas {
 	baseStats: {[stat in StatID]: number};
 	bst: number;
 	weighthg: number;
+	type0?: string;
 	type?: string;
 }
 
 type TierShiftTiers = 'UU' | 'RUBL' | 'RU' | 'NUBL' | 'NU' | 'PUBL' | 'PU' | 'ZUBL' | 'ZU' | 'NFE' | 'LC';
+
+const PRIMAL_ITEM_FORMES: {[itemid: string]: string} = {
+	blueorb: 'Kyogre-Primal',
+	redorb: 'Groudon-Primal',
+	adamantorb: 'Dialga-Primal',
+	eternamaxorb: 'Eternatus-Eternamax',
+};
+
+const RUSTED_ITEM_FORMES: {[itemid: string]: string} = {
+	rustedshield: 'Zamazenta-Crowned',
+	rustedsword: 'Zacian-Crowned',
+};
 
 function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 	let dex = Dex;
@@ -40,9 +53,43 @@ function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 			return null;
 		}
 	}
+	if (PRIMAL_ITEM_FORMES[item.id] && dex.species.get(PRIMAL_ITEM_FORMES[item.id]).exists) return item;
 	if (!item.megaStone && !item.onPrimal && !item.forcedForme?.endsWith('Epilogue') &&
 		!item.forcedForme?.endsWith('Origin') && !item.name.startsWith('Rusted') && !item.name.endsWith('Mask')) return null;
 	return item;
+}
+
+function getMegaStoneSpecies(stone: Item, dex: ModdedDex): {baseSpecies: Species, megaSpecies: Species} {
+	const forme = PRIMAL_ITEM_FORMES[stone.id] || RUSTED_ITEM_FORMES[stone.id] || stone.forcedForme;
+	if (forme) {
+		const megaSpecies = dex.species.get(forme);
+		return {baseSpecies: dex.species.get(megaSpecies.baseSpecies), megaSpecies};
+	}
+	const megaSpecies = dex.species.get(stone.megaStone);
+	return {baseSpecies: dex.species.get(stone.megaEvolves), megaSpecies};
+}
+
+function getMegaStoneDeltas(baseSpecies: Species, megaSpecies: Species): StoneDeltas {
+	const deltas: StoneDeltas = {
+		baseStats: Object.create(null),
+		weighthg: megaSpecies.weighthg - baseSpecies.weighthg,
+		bst: megaSpecies.bst - baseSpecies.bst,
+	};
+	let statId: StatID;
+	for (statId in megaSpecies.baseStats) {
+		deltas.baseStats[statId] = megaSpecies.baseStats[statId] - baseSpecies.baseStats[statId];
+	}
+	if (megaSpecies.types[0] !== baseSpecies.types[0]) {
+		deltas.type0 = megaSpecies.types[0];
+	}
+	if (megaSpecies.types.length > baseSpecies.types.length) {
+		deltas.type = megaSpecies.types[1];
+	} else if (megaSpecies.types.length < baseSpecies.types.length) {
+		deltas.type = 'mono';
+	} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
+		deltas.type = megaSpecies.types[1];
+	}
+	return deltas;
 }
 
 export const commands: Chat.ChatCommands = {
@@ -101,55 +148,11 @@ export const commands: Chat.ChatCommands = {
 			throw new Chat.ErrorMessage(`Error: Mega Stone/Primal Orb/Rusted Item/Origin Item/Mask not found.`);
 		}
 		if (!species.exists) throw new Chat.ErrorMessage(`Error: Pok\u00e9mon not found.`);
-		let baseSpecies: Species;
-		let megaSpecies: Species;
-		switch (stone.id) {
-		case 'blueorb':
-			megaSpecies = dex.species.get("Kyogre-Primal");
-			baseSpecies = dex.species.get("Kyogre");
-			break;
-		case 'redorb':
-			megaSpecies = dex.species.get("Groudon-Primal");
-			baseSpecies = dex.species.get("Groudon");
-			break;
-		case 'rustedshield':
-			megaSpecies = dex.species.get("Zamazenta-Crowned");
-			baseSpecies = dex.species.get("Zamazenta");
-			break;
-		case 'rustedsword':
-			megaSpecies = dex.species.get("Zacian-Crowned");
-			baseSpecies = dex.species.get("Zacian");
-			break;
-		default:
-			const forcedForme = stone.forcedForme;
-			if (forcedForme &&
-				(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
-				megaSpecies = dex.species.get(forcedForme);
-				baseSpecies = dex.species.get(forcedForme.split('-')[0]);
-			} else {
-				megaSpecies = dex.species.get(stone.megaStone);
-				baseSpecies = dex.species.get(stone.megaEvolves);
-			}
-			break;
-		}
-		const deltas: StoneDeltas = {
-			baseStats: Object.create(null),
-			weighthg: megaSpecies.weighthg - baseSpecies.weighthg,
-			bst: megaSpecies.bst - baseSpecies.bst,
-		};
-		let statId: StatID;
-		for (statId in megaSpecies.baseStats) {
-			deltas.baseStats[statId] = megaSpecies.baseStats[statId] - baseSpecies.baseStats[statId];
-		}
-		if (megaSpecies.types.length > baseSpecies.types.length) {
-			deltas.type = megaSpecies.types[1];
-		} else if (megaSpecies.types.length < baseSpecies.types.length) {
-			deltas.type = 'mono';
-		} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
-			deltas.type = megaSpecies.types[1];
-		}
+		const {baseSpecies, megaSpecies} = getMegaStoneSpecies(stone, dex);
+		const deltas = getMegaStoneDeltas(baseSpecies, megaSpecies);
 		const mixedSpecies = Utils.deepClone(species);
 		mixedSpecies.abilities = Utils.deepClone(megaSpecies.abilities);
+		if (deltas.type0) mixedSpecies.types[0] = deltas.type0;
 		if (mixedSpecies.types[0] === deltas.type) { // Add any type gains
 			mixedSpecies.types = [deltas.type];
 		} else if (deltas.type === 'mono') {
@@ -238,59 +241,14 @@ export const commands: Chat.ChatCommands = {
 		const toDisplay = (stones.length ? stones : [stone]);
 		for (const aStone of toDisplay) {
 			if (!aStone) return;
-			let baseSpecies: Species;
-			let megaSpecies: Species;
-			switch (aStone.id) {
-			case 'blueorb':
-				megaSpecies = dex.species.get("Kyogre-Primal");
-				baseSpecies = dex.species.get("Kyogre");
-				break;
-			case 'redorb':
-				megaSpecies = dex.species.get("Groudon-Primal");
-				baseSpecies = dex.species.get("Groudon");
-				break;
-			case 'rustedshield':
-				megaSpecies = dex.species.get("Zamazenta-Crowned");
-				baseSpecies = dex.species.get("Zamazenta");
-				break;
-			case 'rustedsword':
-				megaSpecies = dex.species.get("Zacian-Crowned");
-				baseSpecies = dex.species.get("Zacian");
-				break;
-			default:
-				const forcedForme = aStone.forcedForme;
-				if (forcedForme &&
-					(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
-					megaSpecies = dex.species.get(forcedForme);
-					baseSpecies = dex.species.get(forcedForme.split('-')[0]);
-				} else {
-					megaSpecies = dex.species.get(aStone.megaStone);
-					baseSpecies = dex.species.get(aStone.megaEvolves);
-				}
-				break;
-			}
-			const deltas: StoneDeltas = {
-				baseStats: Object.create(null),
-				weighthg: megaSpecies.weighthg - baseSpecies.weighthg,
-				bst: megaSpecies.bst - baseSpecies.bst,
-			};
-			let statId: StatID;
-			for (statId in megaSpecies.baseStats) {
-				deltas.baseStats[statId] = megaSpecies.baseStats[statId] - baseSpecies.baseStats[statId];
-			}
-			if (megaSpecies.types.length > baseSpecies.types.length) {
-				deltas.type = megaSpecies.types[1];
-			} else if (megaSpecies.types.length < baseSpecies.types.length) {
-				deltas.type = dex.gen >= 8 ? 'mono' : megaSpecies.types[0];
-			} else if (megaSpecies.types[1] !== baseSpecies.types[1]) {
-				deltas.type = megaSpecies.types[1];
-			}
+			const {baseSpecies, megaSpecies} = getMegaStoneSpecies(aStone, dex);
+			const deltas = getMegaStoneDeltas(baseSpecies, megaSpecies);
 			const details = {
 				Gen: aStone.gen,
 				Weight: (deltas.weighthg < 0 ? "" : "+") + deltas.weighthg / 10 + " kg",
 			};
 			let tier;
-			if (['redorb', 'blueorb'].includes(aStone.id)) {
+			if (PRIMAL_ITEM_FORMES[aStone.id]) {
 				tier = "Orb";
 			} else if (aStone.name === "Dragon Ascent") {
 				tier = "Move";
@@ -315,8 +273,11 @@ export const commands: Chat.ChatCommands = {
 			} else {
 				buf += `<span class="col pokemonnamecol" style="white-space:nowrap"><a href="https://${Config.routes.dex}/items/${aStone.id}" target="_blank">${aStone.name}</a></span> `;
 			}
-			if (deltas.type && deltas.type !== 'mono') {
-				buf += `<span class="col typecol"><img src="https://${Config.routes.client}/sprites/types/${deltas.type}.png" alt="${deltas.type}" height="14" width="32"></span> `;
+			if (deltas.type0 || (deltas.type && deltas.type !== 'mono')) {
+				const types = [deltas.type0, deltas.type].filter(type => type && type !== 'mono');
+				buf += `<span class="col typecol">${types.map(type => (
+					`<img src="https://${Config.routes.client}/sprites/types/${type}.png" alt="${type}" height="14" width="32">`
+				)).join('')}</span> `;
 			} else {
 				buf += `<span class="col typecol"></span>`;
 			}

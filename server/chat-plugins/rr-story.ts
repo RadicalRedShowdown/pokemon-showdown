@@ -38,6 +38,8 @@ interface StoryBattleState {
 	lastBotMoveDecision: StoryDecision | null;
 	lastBotMoveByTarget: {[ident: string]: StoryDecision};
 	redMistSouls: {[ident: string]: number};
+	stallMoveCounters: {[ident: string]: number};
+	pendingStallMoves: {[ident: string]: boolean};
 	memoryChanged: boolean;
 }
 
@@ -341,7 +343,26 @@ function getCurrentStoryBattle(userid: ID) {
 function packStoryTeam(level: StoryLevel) {
 	const importedTeam = Teams.import(level.team);
 	if (!importedTeam) throw new Chat.ErrorMessage(`Story level "${level.name}" does not have a valid team.`);
+	normalizeStoryTeam(importedTeam);
 	return Teams.pack(importedTeam);
+}
+
+function normalizeStoryTeam(importedTeam: PokemonSet[]) {
+	const dex = Dex.mod('gen9rrstory');
+	for (const set of importedTeam) {
+		const species = dex.species.get(set.species);
+		if (!species.isMega) continue;
+		const item = dex.items.get(set.item);
+		const canMegaFromItem = item.megaStone === species.name;
+		const canMegaFromMove = species.requiredMove && set.moves.some(move => toID(move) === toID(species.requiredMove));
+		if (!canMegaFromItem && !canMegaFromMove) continue;
+		const baseSpecies = dex.species.get(species.baseSpecies);
+		if (!baseSpecies.exists) continue;
+		set.species = baseSpecies.name;
+		if (!Object.values(baseSpecies.abilities).some(ability => toID(ability) === toID(set.ability))) {
+			set.ability = baseSpecies.abilities['0'];
+		}
+	}
 }
 
 function isStoryChallenge(challenge: Ladders.Challenge) {
@@ -444,7 +465,15 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 	if (line.startsWith('|move|')) {
 		const actorSideid = getLineSideID(parts[2]);
 		if (actorSideid !== 'p2') return;
-		const decision = state.lastDecisionByPokemon[getBattleIdentID(parts[2])];
+		const actorID = getBattleIdentID(parts[2]);
+		const moveid = toID(parts[3]);
+		if (isStallingMove(moveid)) {
+			state.pendingStallMoves[actorID] = true;
+		} else {
+			state.stallMoveCounters[actorID] = 1;
+			delete state.pendingStallMoves[actorID];
+		}
+		const decision = state.lastDecisionByPokemon[actorID];
 		if (!decision?.action.startsWith('move:')) return;
 		if (decision.action === 'move:redmist') state.redMistSouls[decision.actor] = 0;
 		state.lastBotMoveDecision = decision;
@@ -452,6 +481,21 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 		if (targetSideid === 'p1') {
 			state.lastBotMoveByTarget[getBattleIdentID(parts[4])] = decision;
 		}
+		return;
+	}
+	if (line.startsWith('|-singleturn|')) {
+		const actorID = getBattleIdentID(parts[2]);
+		if (!state.pendingStallMoves[actorID]) return;
+		const nextCounter = (state.stallMoveCounters[actorID] || 1) * 3;
+		state.stallMoveCounters[actorID] = Math.min(nextCounter, 729);
+		delete state.pendingStallMoves[actorID];
+		return;
+	}
+	if (line.startsWith('|-fail|')) {
+		const actorID = getBattleIdentID(parts[2]);
+		if (!state.pendingStallMoves[actorID]) return;
+		state.stallMoveCounters[actorID] = 1;
+		delete state.pendingStallMoves[actorID];
 		return;
 	}
 	if (!line.startsWith('|faint|')) return;
@@ -465,6 +509,8 @@ function trackStoryOutcome(line: string, parts: string[], state: StoryBattleStat
 	} else if (faintedSideid === 'p2') {
 		rewardDecision(state, state.lastDecisionByPokemon[faintedID], -0.55);
 		delete state.lastDecisionByPokemon[faintedID];
+		delete state.pendingStallMoves[faintedID];
+		delete state.stallMoveCounters[faintedID];
 	}
 }
 
@@ -487,6 +533,11 @@ function syncBattleState(room: GameRoom, state: StoryBattleState) {
 		} else if (line.startsWith('|switch|') || line.startsWith('|faint|')) {
 			const sideid = parts[2]?.slice(0, 2);
 			if (sideid === 'p1' || sideid === 'p2') state.perish[sideid] = 0;
+			if (sideid === 'p2') {
+				const actorID = getBattleIdentID(parts[2]);
+				delete state.pendingStallMoves[actorID];
+				delete state.stallMoveCounters[actorID];
+			}
 		}
 	}
 	state.logIndex = logs.length;
@@ -661,6 +712,40 @@ function getMemoryKey(state: StoryBattleState, pokemonData: AnyObject, targetDat
 	return `${state.level + 1}|${getSpeciesID(pokemonData)}|${getSpeciesID(targetData)}|${action}`;
 }
 
+function parseStoryCompleteArgs(target: string, user: User) {
+	let targetName = '';
+	let levelText = '';
+	const parts = target.split(',').map(part => part.trim()).filter(Boolean);
+	if (parts.length >= 2) {
+		if (/^(?:all|\d+)$/i.test(parts[0])) {
+			levelText = parts[0];
+			targetName = parts.slice(1).join(',');
+		} else {
+			targetName = parts[0];
+			levelText = parts[1];
+		}
+	} else if (parts.length === 1) {
+		const match = /^(.*)\s+(all|\d+)$/i.exec(parts[0]);
+		if (match && toID(match[1])) {
+			targetName = match[1];
+			levelText = match[2];
+		} else if (/^(?:all|\d+)$/i.test(parts[0])) {
+			levelText = parts[0];
+		} else {
+			targetName = parts[0];
+		}
+	}
+	const targetID = toID(targetName) || user.id;
+	let cleared = levels.length;
+	if (levelText && toID(levelText) !== 'all') {
+		cleared = parseInt(levelText);
+		if (isNaN(cleared) || cleared < 1 || cleared > levels.length) {
+			throw new Chat.ErrorMessage(`Story level must be between 1 and ${levels.length}, or "all".`);
+		}
+	}
+	return {targetID, cleared};
+}
+
 function rememberDecision(
 	state: StoryBattleState, pokemonData: AnyObject, targetData: AnyObject | null, action: string
 ) {
@@ -742,6 +827,7 @@ function estimateDamage(moveid: ID, sourceData: AnyObject, targetData: AnyObject
 	if (ability === 'radicalaura' && type === 'Dark') basePower = Math.floor(basePower * 5448 / 4096);
 
 	const ignoresBoneImmunity = ability === 'familialrevenge' && move.flags['bone'];
+	if (type === 'Ground' && toID(targetData.item) === 'airballoon' && !ignoresBoneImmunity) return 0;
 	let typeMod = 0;
 	for (const targetType of getPokemonTypes(targetData)) {
 		if (!dex.getImmunity(type, targetType)) {
@@ -779,6 +865,10 @@ function isSetupMove(moveid: ID) {
 		'swordsdance', 'dragondance', 'nastyplot', 'calmmind', 'bulkup',
 		'quiverdance', 'victorydance', 'shellsmash',
 	].includes(moveid);
+}
+
+function isStallingMove(moveid: ID) {
+	return !!(Dex.mod('gen9rrstory').moves.get(moveid) as AnyObject).stallingMove;
 }
 
 function canUseHazard(moveid: ID, targetHazards: StorySideHazards) {
@@ -850,7 +940,10 @@ function scoreStatusMove(
 		score = 52;
 	} else if (['taunt', 'encore', 'torment'].includes(moveid) && targetData) {
 		score = 38;
-	} else if (['protect', 'substitute'].includes(moveid) && hpFraction > 0.35) {
+	} else if (isStallingMove(moveid) && hpFraction > 0.35) {
+		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
+		score = 26 / counter;
+	} else if (moveid === 'substitute' && hpFraction > 0.35) {
 		score = 26;
 	}
 	score += memoryScore(getMemoryKey(state, pokemonData, targetData, `move:${moveid}`)) * 15;
@@ -1041,6 +1134,8 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number) {
 		lastBotMoveDecision: null,
 		lastBotMoveByTarget: {},
 		redMistSouls: {},
+		stallMoveCounters: {},
+		pendingStallMoves: {},
 		memoryChanged: false,
 	});
 }
@@ -1120,10 +1215,14 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (cmd === 'complete') {
 			this.checkCan('bypassall');
-			const targetID = toID(cmdArgs) || user.id;
-			progress[targetID] = levels.length;
+			if (!levels.length) return this.sendReply(`No Story levels are configured.`);
+			const {targetID, cleared} = parseStoryCompleteArgs(cmdArgs, user);
+			progress[targetID] = Math.max(getCleared(targetID), cleared);
 			saveProgress();
-			return this.sendReply(`Story progress completed for ${targetID}.`);
+			const label = progress[targetID] >= levels.length ?
+				'all available levels' :
+				getStoryLevelLabel(levels[progress[targetID] - 1], progress[targetID] - 1);
+			return this.sendReply(`Story progress completed for ${targetID} through ${label}.`);
 		}
 
 		const activeBattle = getCurrentStoryBattle(user.id);
