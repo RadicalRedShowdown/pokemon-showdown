@@ -208,12 +208,12 @@ const RADICAL_RED_LEVEL: StoryLevel = {
 	team: `
 The Radical Red (Houndoom-Mega) @ Houndoominite
 Ability: Radical Aura
-Level: 300
+Level: 222
 Tera Type: Dark
 EVs: 252 HP / 252 SpA / 252 Spe
 Modest Nature
 IVs: 0 Atk
-- Dark Pulse
+- Fiery Wrath
 - Fire Blast
 - Scorching Sands
 - Red Mist
@@ -352,6 +352,7 @@ function normalizeStoryTeam(importedTeam: PokemonSet[]) {
 	for (const set of importedTeam) {
 		const species = dex.species.get(set.species);
 		if (!species.isMega) continue;
+		if (toID(set.name) === 'theradicalred' && species.id === 'houndoommega') continue;
 		const item = dex.items.get(set.item);
 		const canMegaFromItem = item.megaStone === species.name;
 		const canMegaFromMove = species.requiredMove && set.moves.some(move => toID(move) === toID(species.requiredMove));
@@ -744,6 +745,43 @@ function parseStoryCompleteArgs(target: string, user: User) {
 		}
 	}
 	return {targetID, cleared};
+}
+
+function parseStorySetLevelArgs(target: string, user: User) {
+	let targetName = '';
+	let levelText = '1';
+	const parts = target.split(',').map(part => part.trim()).filter(Boolean);
+	if (parts.length >= 2) {
+		if (/^(?:all|\d+)$/i.test(parts[0])) {
+			levelText = parts[0];
+			targetName = parts.slice(1).join(',');
+		} else {
+			targetName = parts[0];
+			levelText = parts[1];
+		}
+	} else if (parts.length === 1) {
+		const match = /^(.*)\s+(all|\d+)$/i.exec(parts[0]);
+		if (match && toID(match[1])) {
+			targetName = match[1];
+			levelText = match[2];
+		} else if (/^(?:all|\d+)$/i.test(parts[0])) {
+			levelText = parts[0];
+		} else {
+			targetName = parts[0];
+		}
+	}
+	const targetID = toID(targetName) || user.id;
+	if (toID(levelText) === 'all') return {targetID, cleared: levels.length};
+	const nextLevel = parseInt(levelText);
+	if (isNaN(nextLevel) || nextLevel < 1 || nextLevel > levels.length + 1) {
+		throw new Chat.ErrorMessage(`Story level must be between 1 and ${levels.length + 1}, or "all".`);
+	}
+	return {targetID, cleared: nextLevel - 1};
+}
+
+function getStoryProgressLabel(cleared: number) {
+	if (cleared >= levels.length) return 'all available levels cleared';
+	return `next level is ${getStoryLevelLabel(levels[cleared], cleared)}`;
 }
 
 function rememberDecision(
@@ -1204,9 +1242,33 @@ export const commands: Chat.ChatCommands = {
 			);
 		}
 		if (cmd === 'reset') {
+			if (cmdArgs) {
+				this.checkCan('bypassall');
+				if (!levels.length) return this.sendReply(`No Story levels are configured.`);
+				const {targetID, cleared} = parseStorySetLevelArgs(cmdArgs, user);
+				if (cleared) {
+					progress[targetID] = cleared;
+				} else {
+					delete progress[targetID];
+				}
+				saveProgress();
+				return this.sendReply(`Story progress reset for ${targetID}: ${getStoryProgressLabel(cleared)}.`);
+			}
 			delete progress[user.id];
 			saveProgress();
 			return this.sendReply(`Story progress reset.`);
+		}
+		if (cmd === 'setlevel' || cmd === 'set') {
+			this.checkCan('bypassall');
+			if (!levels.length) return this.sendReply(`No Story levels are configured.`);
+			const {targetID, cleared} = parseStorySetLevelArgs(cmdArgs, user);
+			if (cleared) {
+				progress[targetID] = cleared;
+			} else {
+				delete progress[targetID];
+			}
+			saveProgress();
+			return this.sendReply(`Story progress set for ${targetID}: ${getStoryProgressLabel(cleared)}.`);
 		}
 		if (cmd === 'reload') {
 			this.checkCan('console');
@@ -1219,10 +1281,7 @@ export const commands: Chat.ChatCommands = {
 			const {targetID, cleared} = parseStoryCompleteArgs(cmdArgs, user);
 			progress[targetID] = Math.max(getCleared(targetID), cleared);
 			saveProgress();
-			const label = progress[targetID] >= levels.length ?
-				'all available levels' :
-				getStoryLevelLabel(levels[progress[targetID] - 1], progress[targetID] - 1);
-			return this.sendReply(`Story progress completed for ${targetID} through ${label}.`);
+			return this.sendReply(`Story progress completed for ${targetID}: ${getStoryProgressLabel(progress[targetID])}.`);
 		}
 
 		const activeBattle = getCurrentStoryBattle(user.id);
@@ -1288,6 +1347,9 @@ export const commands: Chat.ChatCommands = {
 		`/story levels - Shows Story levels and locks.`,
 		`/story progress - Shows your current Story progress.`,
 		`/story reset - Resets your own Story progress.`,
+		`/story reset [user], [level] - Sets a user's next Story level. Requires: global administrator`,
+		`/story setlevel [user], [level] - Sets a user's next Story level. Requires: global administrator`,
+		`/story complete [user], [level|all] - Marks a user's Story progress complete through a level. Requires: global administrator`,
 		`/story reload - Reloads story levels from the optional config override. Requires: console permission`,
 	],
 };

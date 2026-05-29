@@ -45,6 +45,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	radicalaura: {
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
+			if (pokemon.m.radicalAuraAnnounced) return;
+			pokemon.m.radicalAuraAnnounced = true;
 			this.add('-ability', pokemon, 'Radical Aura');
 			this.add('-message', `${pokemon.name} eminates a redness aura so radical.`);
 		},
@@ -79,6 +81,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${target.name}'s radical aura is preventing ${statusNames[status.id] || status.name}.`);
 			return false;
 		},
+		onTryBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let blocked = false;
+			let stat: BoostID;
+			for (stat in boost) {
+				if (boost[stat]! < 0) {
+					delete boost[stat];
+					blocked = true;
+				}
+			}
+			if (blocked) this.add('-message', `${target.name}'s radical aura is preventing stat drops.`);
+		},
 		onSourceAfterFaint(length, target, source, effect) {
 			if (effect?.effectType !== 'Move') return;
 			source.m.redMistSouls = Math.min(99, (source.m.redMistSouls || 0) + length);
@@ -87,7 +101,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Radical Aura",
 		rating: 5,
 		gen: 9,
-		desc: "This Pokemon has Solar Power and Dark Aura. It is immune to status and HP-halving moves, and tracks KOs for Red Mist.",
-		shortDesc: "Solar Power + Dark Aura; immune to status/halving moves. Tracks KOs for Red Mist.",
+		desc: "This Pokemon has Solar Power and Dark Aura. It is immune to status, stat drops, and HP-halving moves, and tracks KOs for Red Mist.",
+		shortDesc: "Solar Power + Dark Aura; immune to status/stat drops/halving moves. Tracks KOs.",
 	},
 };
