@@ -1366,14 +1366,17 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 	randomPresetSet(species: Species): RandomTeamsTypes.RandomSet {
 		const set = this.sample(radicalRedRandomSets[species.id]);
 		const setSpecies = this.dex.species.get(set.species);
+		const battleSpecies = setSpecies.isMega ? this.dex.species.get(setSpecies.baseSpecies) : setSpecies;
+		const battleAbilities = Object.values(battleSpecies.abilities);
+		const ability = battleAbilities.includes(set.ability) ? set.ability : battleSpecies.abilities[0];
 		return {
-			name: setSpecies.baseSpecies,
-			species: setSpecies.name,
-			gender: setSpecies.gender,
+			name: battleSpecies.baseSpecies,
+			species: battleSpecies.name,
+			gender: battleSpecies.gender,
 			shiny: this.randomChance(1, 1024),
 			level: set.level,
 			moves: set.moves.slice(),
-			ability: set.ability,
+			ability,
 			evs: {...set.evs},
 			ivs: {...set.ivs},
 			item: set.item || '',
@@ -1895,6 +1898,7 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 			const set = this.randomSet(species, teamDetails, pokemon.length === 0, this.format.gameType !== 'singles');
 
 			const item = this.dex.items.get(set.item);
+			if (hasMega && item.megaStone) continue;
 
 			// Okay, the set passes, add it to our team
 			pokemon.push(set);
