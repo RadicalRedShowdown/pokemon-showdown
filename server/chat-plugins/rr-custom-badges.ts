@@ -41,6 +41,7 @@ export type RRBadgeID = keyof typeof RR_BADGES;
 interface RRBadgeEntry {
 	owned: RRBadgeID[];
 	display: RRBadgeID[];
+	hidden?: boolean;
 }
 
 interface RRBadgeStore {
@@ -137,7 +138,8 @@ function normalizeBadgeEntry(entry: Partial<RRBadgeEntry> | null | undefined): R
 			display.push(badge);
 		}
 	}
-	return {owned: [...owned], display};
+	const hidden = !!entry?.hidden;
+	return {owned: [...owned], display, hidden};
 }
 
 function loadRRBadgeStore() {
@@ -207,6 +209,7 @@ function parseUserAndBadges(target: string) {
 
 function getDisplayedRRBadges(userid: ID) {
 	const entry = getRRBadgeEntry(userid);
+	if (entry.hidden) return [];
 	if (entry.display.length) return entry.display.filter(badge => entry.owned.includes(badge)).slice(0, MAX_DISPLAYED_BADGES);
 	return entry.owned.slice(0, MAX_DISPLAYED_BADGES);
 }
@@ -218,8 +221,8 @@ export function grantRRBadge(userid: ID, badge: RRBadgeID) {
 	if (entry.owned.includes(badge)) return false;
 	const owned = [...entry.owned, badge];
 	const display = entry.display.slice();
-	if (display.length && display.length < MAX_DISPLAYED_BADGES && !display.includes(badge)) display.push(badge);
-	setRRBadgeEntry(targetID, {owned, display});
+	if (!entry.hidden && display.length && display.length < MAX_DISPLAYED_BADGES && !display.includes(badge)) display.push(badge);
+	setRRBadgeEntry(targetID, {owned, display, hidden: entry.hidden});
 	return true;
 }
 
@@ -262,9 +265,9 @@ export const commands: Chat.ChatCommands = {
 			for (const badge of badges) owned.add(badge);
 			const display = entry.display.filter(badge => owned.has(badge));
 			for (const badge of badges) {
-				if (display.length < MAX_DISPLAYED_BADGES && !display.includes(badge)) display.push(badge);
+				if (!entry.hidden && display.length < MAX_DISPLAYED_BADGES && !display.includes(badge)) display.push(badge);
 			}
-			setRRBadgeEntry(targetID, {owned: [...owned], display});
+			setRRBadgeEntry(targetID, {owned: [...owned], display, hidden: entry.hidden});
 			return this.sendReply(`Gave ${badges.map(badge => RR_BADGES[badge].name).join(', ')} to ${targetID}.`);
 		}
 		if (cmd === 'remove' || cmd === 'revoke' || cmd === 'delete') {
@@ -275,6 +278,7 @@ export const commands: Chat.ChatCommands = {
 			setRRBadgeEntry(targetID, {
 				owned: entry.owned.filter(badge => !remove.has(badge)),
 				display: entry.display.filter(badge => !remove.has(badge)),
+				hidden: entry.hidden,
 			});
 			return this.sendReply(`Removed ${badges.map(badge => RR_BADGES[badge].name).join(', ')} from ${targetID}.`);
 		}
@@ -285,9 +289,22 @@ export const commands: Chat.ChatCommands = {
 					`<strong>Your displayed RR Badges</strong><br />${badgeListHTML(getDisplayedRRBadges(user.id))}`
 				);
 			}
-			if (toID(cmdArgs) === 'clear' || toID(cmdArgs) === 'none') {
-				setRRBadgeEntry(user.id, {owned: entry.owned, display: []});
-				return this.sendReply(`Your RR badge display was cleared.`);
+			if (['clear', 'none', 'hide', 'off'].includes(toID(cmdArgs))) {
+				setRRBadgeEntry(user.id, {owned: entry.owned, display: [], hidden: true});
+				return this.sendReply(`Your RR badge display was hidden.`);
+			}
+			if (['auto', 'default', 'reset'].includes(toID(cmdArgs))) {
+				setRRBadgeEntry(user.id, {owned: entry.owned, display: [], hidden: false});
+				return this.sendReply(`Your RR badge display was reset to your first ${MAX_DISPLAYED_BADGES} owned badges.`);
+			}
+			const [displayCmdTarget = ""] = cmdArgs.split(' ');
+			const displayCmd = toID(displayCmdTarget);
+			if (displayCmd === 'remove' || displayCmd === 'delete' || displayCmd === 'hide') {
+				const badges = parseBadgeList(cmdArgs.slice(displayCmdTarget.length).trim());
+				const remove = new Set(badges);
+				const display = getDisplayedRRBadges(user.id).filter(badge => !remove.has(badge));
+				setRRBadgeEntry(user.id, {owned: entry.owned, display, hidden: !display.length});
+				return this.sendReply(`Your RR badge display was updated.`);
 			}
 			const badges = parseBadgeList(cmdArgs);
 			if (badges.length > MAX_DISPLAYED_BADGES) {
@@ -297,7 +314,7 @@ export const commands: Chat.ChatCommands = {
 			if (missing.length) {
 				throw new Chat.ErrorMessage(`You do not own: ${missing.map(badge => RR_BADGES[badge].name).join(', ')}.`);
 			}
-			setRRBadgeEntry(user.id, {owned: entry.owned, display: badges});
+			setRRBadgeEntry(user.id, {owned: entry.owned, display: badges, hidden: false});
 			return this.sendReply(`Your RR badge display was updated.`);
 		}
 		return this.parse('/help rrbadges');
@@ -307,7 +324,9 @@ export const commands: Chat.ChatCommands = {
 		`/rrbadges [user] - Shows another user's RR badges.`,
 		`/rrbadges available - Lists all RR badge IDs.`,
 		`/rrbadges display [badge], [badge], [badge] - Chooses up to 3 of your RR badges to show in battles.`,
-		`/rrbadges display clear - Clears your custom display order; your first 3 owned badges show instead.`,
+		`/rrbadges display remove [badge] - Removes a badge from your current battle display without revoking it.`,
+		`/rrbadges display none - Shows no RR badges in battles.`,
+		`/rrbadges display auto - Shows your first 3 owned badges in battles.`,
 		`/rrbadges give [user], [badge] - Gives a badge. Requires: global administrator.`,
 		`/rrbadges remove [user], [badge] - Removes a badge. Requires: global administrator.`,
 	],
