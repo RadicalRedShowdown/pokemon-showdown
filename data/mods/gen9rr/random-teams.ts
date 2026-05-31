@@ -39,6 +39,20 @@ const Hazards = [
 	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes',
 ];
 
+interface RadicalRedRandomPreset {
+	species: string;
+	item: string;
+	ability: string;
+	level: number;
+	teraType?: string;
+	evs: SparseStatsTable;
+	ivs: SparseStatsTable;
+	nature?: string;
+	moves: string[];
+}
+
+const radicalRedRandomSets = require('./random-sets.json') as {[speciesid: string]: RadicalRedRandomPreset[]};
+
 export class RandomRadicalRedTeams extends RandomGen8Teams {
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
@@ -1349,6 +1363,25 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 		) return 'Lum Berry';
 	}
 
+	randomPresetSet(species: Species): RandomTeamsTypes.RandomSet {
+		const set = this.sample(radicalRedRandomSets[species.id]);
+		const setSpecies = this.dex.species.get(set.species);
+		return {
+			name: setSpecies.baseSpecies,
+			species: setSpecies.name,
+			gender: setSpecies.gender,
+			shiny: this.randomChance(1, 1024),
+			level: set.level,
+			moves: set.moves.slice(),
+			ability: set.ability,
+			evs: {...set.evs},
+			ivs: {...set.ivs},
+			item: set.item || '',
+			nature: set.nature,
+			teraType: set.teraType,
+		};
+	}
+
 	randomSet(
 		species: string | Species,
 		teamDetails: RandomTeamsTypes.TeamDetails = {},
@@ -1356,6 +1389,8 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 		isDoubles = false
 	): RandomTeamsTypes.RandomSet {
 		species = this.dex.species.get(species);
+		if (!isDoubles && radicalRedRandomSets[species.id]) return this.randomPresetSet(species);
+
 		let forme = species.name;
 		let gmax = false;
 
@@ -1764,7 +1799,7 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 
 			// Check if the forme has moves for random battle
 			if (this.format.gameType === 'singles') {
-				if (!species.randomBattleMoves) continue;
+				if (!species.randomBattleMoves && !radicalRedRandomSets[species.id]) continue;
 			} else {
 				if (!species.randomDoubleBattleMoves) continue;
 			}
