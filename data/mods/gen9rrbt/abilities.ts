@@ -56,9 +56,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				pokemon.m.radicalAuraDynamaxVisual = true;
 				this.add('-start', pokemon, 'Dynamax', '[silent]');
 			}
-			this.add('-ability', pokemon, 'Radical Aura');
 			this.add('-message', `${pokemon.name} eminates a redness aura so radical.`);
-			this.field.addPseudoWeather('redmist', pokemon, this.effect);
+			if (!this.field.getPseudoWeather('redmist')) this.field.addPseudoWeather('redmist', pokemon, this.effect);
 		},
 		flags: {},
 		name: "Radical Aura",
