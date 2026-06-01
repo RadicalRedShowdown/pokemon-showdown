@@ -1075,12 +1075,6 @@ export const Items: {[k: string]: ModdedItemData} = {
 		gen: 8,
 		desc: "If held by a Toxtricity-Low-Key, this item allows it to Mega Evolve in battle.",
 	},
-	duraludonite: {
-		name: "Duraludonite",
-		spritenum: 577,
-		gen: 8,
-		desc: "If held by a Duraludon, this item allows it to Mega Evolve in battle. (3.1)",
-	},
 	copperajite: {
 		name: "Copperajite",
 		spritenum: 605,

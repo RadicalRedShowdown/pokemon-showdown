@@ -1848,10 +1848,10 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 			}
 
 			// Illusion shouldn't be on the last slot
-			if (species.name === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
+			if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
 			// The sixth slot should not be Zacian/Zamazenta/Eternatus if a Zoroark is present
 			if (
-				pokemon.some(pkmn => pkmn.species === 'Zoroark') &&
+				pokemon.some(pkmn => this.dex.species.get(pkmn.species).baseSpecies === 'Zoroark') &&
 				['Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Eternatus'].includes(species.name)
 			) {
 				continue;
@@ -1903,14 +1903,7 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 			// Okay, the set passes, add it to our team
 			pokemon.push(set);
 
-			if (pokemon.length === this.maxTeamSize) {
-				// Set Zoroark's level to be the same as the last Pokemon
-				const illusion = teamDetails.illusion;
-				if (illusion) pokemon[illusion - 1].level = pokemon[this.maxTeamSize - 1].level;
-
-				// Don't bother tracking details for the last Pokemon
-				break;
-			}
+			if (pokemon.length === this.maxTeamSize) break;
 
 			// Now that our Pokemon has passed all checks, we can increment our counters
 			baseFormes[species.baseSpecies] = 1;
@@ -1952,7 +1945,7 @@ export class RandomRadicalRedTeams extends RandomGen8Teams {
 				teamDetails.screens = 1;
 			}
 
-			// For setting Zoroark's level
+			// Track Illusion users so the final slot avoids obvious giveaway Pokemon.
 			if (set.ability === 'Illusion') teamDetails.illusion = pokemon.length;
 		}
 		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) { // large teams sometimes cannot be built

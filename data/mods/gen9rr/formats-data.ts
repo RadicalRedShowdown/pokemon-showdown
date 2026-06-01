@@ -6023,14 +6023,6 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["bodypress", "dracometeor", "dragonpulse", "flashcannon", "protect", "snarl", "thunderbolt"],
 		tier: "NU",
 	},
-	duraludonmega: {
-		randomBattleLevel: 83,
-		randomBattleMoves: ["dracometeor", "steelbeam", "bodypress", "thunderbolt", "stealthrock", "thunderwave"],
-		randomDoubleBattleLevel: 82,
-		randomDoubleBattleMoves: ["dracometeor", "steelbeam", "protect", "snarl", "thunderbolt"],
-		tier: "Illegal",
-		isNonstandard: "Past",
-	},
 	duraludongmax: {
 		isNonstandard: "Gigantamax",
 		tier: "AG",
