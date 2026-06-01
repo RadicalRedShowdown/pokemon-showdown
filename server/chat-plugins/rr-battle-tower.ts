@@ -460,6 +460,54 @@ function getBTLevelLabel(level: BTLevel, index: number, html = false) {
 	return `Level ${index + 1}`;
 }
 
+function getBTLevelPageBounds(page: number) {
+	const marowakIndex = levels.findIndex(level => level.medal === 'marowak');
+	if (page === 1) {
+		return {
+			start: 0,
+			end: marowakIndex >= 0 ? marowakIndex + 1 : levels.length,
+			desc: marowakIndex >= 0 ? `through Marowak-Alola` : `all configured levels`,
+		};
+	}
+	return {
+		start: marowakIndex >= 0 ? marowakIndex + 1 : levels.length,
+		end: levels.length,
+		desc: `through the final boss`,
+	};
+}
+
+function getBTLevelSpritesHTML(level: BTLevel) {
+	const importedTeam = Teams.import(level.team);
+	if (!importedTeam?.length) return '';
+	const dex = Dex.mod('gen9rrbt');
+	return importedTeam.map(set => {
+		const species = dex.species.get(set.species || set.name);
+		const pokemonid = species.exists ? species.id : toID(set.species || set.name);
+		const title = Utils.escapeHTML(set.name || species.name || set.species || pokemonid);
+		return `<span title="${title}"><psicon pokemon="${pokemonid}" /></span>`;
+	}).join(' ');
+}
+
+function getBTLevelsPageHTML(userid: ID, page: number) {
+	const cleared = getCleared(userid);
+	const bounds = getBTLevelPageBounds(page);
+	const rows = [];
+	for (let index = bounds.start; index < bounds.end; index++) {
+		const level = levels[index];
+		const levelNumber = index + 1;
+		const status = index < cleared ? 'Cleared' : index === cleared ? 'Next' : 'Locked';
+		const label = level.boss ?
+			getBTLevelLabel(level, index, true) :
+			`${levelNumber}. ${getBTLevelLabel(level, index)}`;
+		const sprites = index < cleared ? getBTLevelSpritesHTML(level) : '';
+		rows.push(`${label} - ${status}${sprites ? ` ${sprites}` : ''}`);
+	}
+	const otherPage = page === 1 ? 2 : 1;
+	const header = `<strong>Battle Tower Levels - Page ${page}</strong> <em>(${bounds.desc})</em>`;
+	const nav = `Use <code>/bt levels ${otherPage}</code> for page ${otherPage}.`;
+	return `${header}<br />${rows.length ? rows.join('<br />') : `No levels on this page.`}<br /><br />${nav}`;
+}
+
 function getCurrentBTBattle(userid: ID) {
 	for (const [roomid, state] of btBattles) {
 		const room = Rooms.get(roomid);
@@ -1484,17 +1532,10 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (cmd === 'levels' || cmd === 'list') {
 			this.runBroadcast();
-			const cleared = getCleared(user.id);
 			if (!levels.length) return this.sendReplyBox(`No Battle Tower levels are configured.`);
-			const rows = levels.map((level, index) => {
-				const levelNumber = index + 1;
-				const status = index < cleared ? 'Cleared' : index === cleared ? 'Next' : 'Locked';
-				const label = level.boss ?
-					getBTLevelLabel(level, index, true) :
-					`${levelNumber}. ${getBTLevelLabel(level, index)}`;
-				return `${label} - ${status}`;
-			});
-			return this.sendReplyBox(`<strong>Battle Tower Levels</strong><br />${rows.join('<br />')}`);
+			const page = cmdArgs ? parseInt(cmdArgs) : 1;
+			if (page !== 1 && page !== 2) return this.errorReply(`Battle Tower levels only has pages 1 and 2.`);
+			return this.sendReplyBox(getBTLevelsPageHTML(user.id, page));
 		}
 		if (cmd === 'format' || cmd === 'team' || cmd === 'teambuilder') {
 			return this.sendReplyBox(
@@ -1610,7 +1651,7 @@ export const commands: Chat.ChatCommands = {
 		`/battletower [level] - Opens the Battle Tower Mode team selector to replay an unlocked Battle Tower level.`,
 		`/battletower team - Explains which teambuilder format to select.`,
 		`/battletower medals [user] - Shows Battle Tower boss medals for a user.`,
-		`/battletower levels - Shows Battle Tower levels and locks.`,
+		`/battletower levels [1|2] - Shows Battle Tower levels and locks. Page 1 ends at Marowak-Alola; page 2 ends at the final boss.`,
 		`/battletower progress - Shows your current Battle Tower progress.`,
 		`/battletower reset - Resets your own Battle Tower progress.`,
 		`/battletower reset [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
