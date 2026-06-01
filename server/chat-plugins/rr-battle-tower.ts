@@ -484,7 +484,14 @@ function getBTLevelSpritesHTML(level: BTLevel) {
 		const species = dex.species.get(set.species || set.name);
 		const pokemonid = species.exists ? species.id : toID(set.species || set.name);
 		const title = Utils.escapeHTML(set.name || species.name || set.species || pokemonid);
-		return `<span title="${title}"><psicon pokemon="${pokemonid}" /></span>`;
+		const bossSprite = (
+			(level.medal === 'marowak' && pokemonid === 'marowakalola') ||
+			(level.medal === 'radicalred' && pokemonid === 'houndoommega')
+		);
+		const style = bossSprite ?
+			` style="vertical-align:-12px;margin:0 10px;transform:scale(1.7);transform-origin:center center"` :
+			``;
+		return `<span title="${title}"><psicon pokemon="${pokemonid}"${style} /></span>`;
 	}).join(' ');
 }
 
