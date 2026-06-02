@@ -358,7 +358,7 @@ export const Formats: FormatList = [
 				return [`Darmanitan-Bee can only learn Stealth Rock with Zen Mode.`];
 			}
 		},
-		ruleset: ['Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
+		ruleset: ['Obtainable', '+CAP', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
 	},
 	{
 		name: "[Gen 9] 4.0 Draft",
