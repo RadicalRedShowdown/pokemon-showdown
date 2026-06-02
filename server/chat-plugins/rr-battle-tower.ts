@@ -1857,6 +1857,13 @@ async function startBTBattle(
 }
 
 export const commands: Chat.ChatCommands = {
+	rrstory: 'story',
+	story() {
+		this.commandDoesNotExist();
+	},
+	storyhelp() {
+		throw new Chat.ErrorMessage(`The command "/story" does not exist.`);
+	},
 	bt: 'battletower',
 	battletower(target, room, user) {
 		target = target.trim();
