@@ -1,9 +1,11 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	familialrevenge: {
 		onStart(pokemon) {
-			if (pokemon.species.id !== 'marowakalola' || pokemon.m.familialRevengeDynamaxVisual) return;
-			pokemon.m.familialRevengeDynamaxVisual = true;
-			this.add('-start', pokemon, 'Dynamax', '[silent]');
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-message', `${pokemon.name}'s Familial Revenge burns hotter.`);
+			if (pokemon.species.id === 'marowakalola') {
+				this.add('-start', pokemon, 'Dynamax', '[silent]');
+			}
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {

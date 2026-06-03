@@ -99,13 +99,18 @@ interface BTBattleState {
 		p1: number,
 		p2: number,
 	};
+	futureMoves: BTFutureMoveState;
 	setupUsed: {[ident: string]: boolean};
 	decisions: BTDecision[];
 	lastDecisionByPokemon: {[ident: string]: BTDecision};
 	lastBotMoveDecision: BTDecision | null;
 	lastBotMoveByTarget: {[ident: string]: BTDecision};
+	lastBotMoveOutcome: BTMoveOutcome | null;
+	lastBotMoveOutcomeByTarget: {[ident: string]: BTMoveOutcome};
 	lastLoggedMoveWasBot: boolean;
 	lastLoggedMoveDecision: BTDecision | null;
+	lastBotSwitch: BTSwitchDecision | null;
+	pivotPunishedSwitches: {[key: string]: number};
 	stallMoveCounters: {[ident: string]: number};
 	pendingStallMoves: {[ident: string]: boolean};
 	playerStyle: BTPlayerStyle;
@@ -123,10 +128,33 @@ interface BTSideHazards {
 	gmaxsteelsurge: boolean;
 }
 
+interface BTFutureMoveState {
+	p1: boolean[];
+	p2: boolean[];
+}
+
 interface BTDecision {
 	key: string;
 	actor: string;
 	action: string;
+}
+
+interface BTSwitchDecision {
+	fromSpecies: ID;
+	toSpecies: ID;
+	toIdent: string;
+	targetSpecies: ID;
+}
+
+interface BTMoveOutcome {
+	decision: BTDecision;
+	moveid: ID;
+	target: string;
+	crit: boolean;
+	missed: boolean;
+	status: boolean;
+	flinch: boolean;
+	secondary: boolean;
 }
 
 interface BTAIMemoryEntry {
@@ -247,7 +275,7 @@ Adamant Nature
 
 Gengar @ Gengarite
 Ability: Levitate
-Level: 150
+Level: 125
 Tera Type: Ghost
 EVs: 252 SpA / 4 SpD / 252 Spe
 Timid Nature
@@ -259,7 +287,7 @@ IVs: 0 Atk
 
 Raticate-Alola @ Life Orb
 Ability: Hustle
-Level: 150
+Level: 125
 Tera Type: Dark
 EVs: 252 HP / 252 Atk / 4 Def
 Adamant Nature
@@ -270,7 +298,7 @@ Adamant Nature
 
 Rotom-Wash @ Choice Scarf
 Ability: Levitate
-Level: 150
+Level: 125
 Tera Type: Electric
 EVs: 252 HP / 4 SpD / 252 Spe
 Timid Nature
@@ -282,7 +310,7 @@ IVs: 0 Atk
 
 Dragapult @ Ghostium Z
 Ability: Infiltrator
-Level: 150
+Level: 125
 Tera Type: Dragon
 EVs: 252 Atk / 252 Spe
 Jolly Nature
@@ -293,7 +321,7 @@ Jolly Nature
 
 Weavile @ Heavy-Duty Boots
 Ability: Pressure
-Level: 150
+Level: 125
 Tera Type: Dark
 EVs: 252 Atk / 4 SpD / 252 Spe
 Jolly Nature
@@ -495,6 +523,12 @@ function countMemoryValue(table: {[id: string]: number}, id: ID) {
 	return true;
 }
 
+function countTableValue(table: {[id: string]: number}, id: string, amount = 1) {
+	if (!id) return false;
+	table[id] = Math.min(9999, (table[id] || 0) + amount);
+	return true;
+}
+
 function getOpponentMemoryEntry(speciesid: ID) {
 	if (!opponentMemory[speciesid]) opponentMemory[speciesid] = {moves: {}, abilities: {}, items: {}, tags: {}};
 	if (!opponentMemory[speciesid].tags) opponentMemory[speciesid].tags = {};
@@ -583,6 +617,31 @@ function rewardDecision(state: BTBattleState, decision: BTDecision | null | unde
 	if (!decision) return;
 	applyAIMemoryDelta(decision.key, delta);
 	state.memoryChanged = true;
+}
+
+function adjustOutcomeReward(outcome: BTMoveOutcome | null | undefined, delta: number) {
+	if (!outcome) return delta;
+	let adjusted = delta;
+	if (adjusted > 0) {
+		if (outcome.crit) adjusted *= 0.35;
+		if (outcome.flinch) adjusted *= 0.75;
+		if (outcome.status) adjusted *= 0.85;
+		if (outcome.missed) adjusted = 0;
+	} else if (adjusted < 0 && outcome.missed) {
+		adjusted *= 0.25;
+	}
+	return adjusted;
+}
+
+function rewardMoveOutcome(
+	state: BTBattleState, outcome: BTMoveOutcome | null | undefined, delta: number, adjust = true
+) {
+	if (!outcome) return;
+	rewardDecision(state, outcome.decision, adjust ? adjustOutcomeReward(outcome, delta) : delta);
+}
+
+function getLastBotOutcomeForTarget(state: BTBattleState, ident: string | undefined) {
+	return state.lastBotMoveOutcomeByTarget[getBattleIdentID(ident)] || state.lastBotMoveOutcome;
 }
 
 function getCleared(userid: ID) {
@@ -815,6 +874,10 @@ function newHazards(): BTSideHazards {
 	return {stealthrock: false, spikes: 0, toxicspikes: 0, stickyweb: false, gmaxsteelsurge: false};
 }
 
+function newFutureMoveState(): BTFutureMoveState {
+	return {p1: [], p2: []};
+}
+
 function newPlayerStyle(): BTPlayerStyle {
 	return {
 		threatenedSwitches: 2,
@@ -874,16 +937,34 @@ function recordPlayerAction(state: BTBattleState, switched: boolean) {
 	state.pendingPlayerAction = null;
 }
 
+function trackPivotPunishedSwitch(state: BTBattleState, parts: string[], moveid: ID) {
+	const lastSwitch = state.lastBotSwitch;
+	if (!lastSwitch) return;
+	if (getBattleIdentID(parts[4]) !== lastSwitch.toIdent) return;
+	const move = Dex.mod('gen9rrbt').moves.get(moveid) as AnyObject;
+	if (move.selfSwitch) {
+		if (!state.pivotPunishedSwitches) state.pivotPunishedSwitches = {};
+		countTableValue(state.pivotPunishedSwitches, getPivotPunishKey(lastSwitch.targetSpecies, lastSwitch.toSpecies));
+	}
+	state.lastBotSwitch = null;
+}
+
 function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 	if (line.startsWith('|move|')) {
 		const actorSideid = getLineSideID(parts[2]);
 		if (actorSideid !== 'p2') {
-			if (actorSideid === 'p1') recordPlayerAction(state, false);
+			if (actorSideid === 'p1') {
+				recordPlayerAction(state, false);
+				trackPivotPunishedSwitch(state, parts, toID(parts[3]));
+			}
 			state.lastLoggedMoveWasBot = false;
 			state.lastLoggedMoveDecision = null;
+			state.lastBotMoveOutcome = null;
+			state.lastBotMoveOutcomeByTarget = {};
 			return;
 		}
 		const actorID = getBattleIdentID(parts[2]);
+		state.lastBotSwitch = null;
 		const moveid = toID(parts[3]);
 		if (isStallingMove(moveid)) {
 			state.pendingStallMoves[actorID] = true;
@@ -895,19 +976,40 @@ function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 		if (!decision?.action.startsWith('move:')) {
 			state.lastLoggedMoveWasBot = false;
 			state.lastLoggedMoveDecision = null;
+			state.lastBotMoveOutcome = null;
+			state.lastBotMoveOutcomeByTarget = {};
 			return;
 		}
+		const targetID = getBattleIdentID(parts[4]);
+		const outcome: BTMoveOutcome = {
+			decision,
+			moveid,
+			target: targetID,
+			crit: false,
+			missed: false,
+			status: false,
+			flinch: false,
+			secondary: false,
+		};
 		state.lastBotMoveDecision = decision;
+		state.lastBotMoveOutcome = outcome;
+		state.lastBotMoveOutcomeByTarget = {};
 		state.lastLoggedMoveWasBot = true;
 		state.lastLoggedMoveDecision = decision;
 		const targetSideid = getLineSideID(parts[4]);
 		if (targetSideid === 'p1') {
 			state.lastBotMoveByTarget[getBattleIdentID(parts[4])] = decision;
+			state.lastBotMoveOutcomeByTarget[targetID] = outcome;
 		}
 		return;
 	}
 	if (line.startsWith('|switch|') && getLineSideID(parts[2]) === 'p1') {
 		recordPlayerAction(state, true);
+		state.lastBotSwitch = null;
+		state.lastLoggedMoveWasBot = false;
+		state.lastLoggedMoveDecision = null;
+		state.lastBotMoveOutcome = null;
+		state.lastBotMoveOutcomeByTarget = {};
 		return;
 	}
 	if (line.startsWith('|-singleturn|')) {
@@ -920,23 +1022,72 @@ function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 	}
 	if (line.startsWith('|-fail|')) {
 		const actorID = getBattleIdentID(parts[2]);
-		if (state.lastLoggedMoveWasBot) rewardDecision(state, state.lastLoggedMoveDecision, -0.45);
+		if (state.lastLoggedMoveWasBot) rewardMoveOutcome(state, state.lastBotMoveOutcome, -0.45, false);
 		if (!state.pendingStallMoves[actorID]) return;
 		state.stallMoveCounters[actorID] = 1;
 		delete state.pendingStallMoves[actorID];
 		return;
 	}
 	if (line.startsWith('|-immune|')) {
-		if (state.lastLoggedMoveWasBot) rewardDecision(state, state.lastLoggedMoveDecision, -0.55);
+		if (state.lastLoggedMoveWasBot) rewardMoveOutcome(state, getLastBotOutcomeForTarget(state, parts[2]), -0.55, false);
+		return;
+	}
+	if (line.startsWith('|-miss|')) {
+		if (getLineSideID(parts[2]) === 'p2') {
+			const outcome = state.lastBotMoveOutcome;
+			if (outcome) {
+				outcome.missed = true;
+				rewardMoveOutcome(state, outcome, -0.04, false);
+			}
+		}
+		return;
+	}
+	if (line.startsWith('|-crit|')) {
+		if (getLineSideID(parts[2]) === 'p1') {
+			const outcome = getLastBotOutcomeForTarget(state, parts[2]);
+			if (outcome) outcome.crit = true;
+		}
+		return;
+	}
+	if (line.startsWith('|-status|') && getLineSideID(parts[2]) === 'p1') {
+		const outcome = getLastBotOutcomeForTarget(state, parts[2]);
+		if (outcome) {
+			outcome.status = true;
+			outcome.secondary = true;
+			rewardMoveOutcome(state, outcome, 0.14, false);
+		}
+		return;
+	}
+	if (line.startsWith('|-activate|') && getLineSideID(parts[2]) === 'p1' && toID(parts[3]) === 'moveflinch') {
+		const outcome = getLastBotOutcomeForTarget(state, parts[2]);
+		if (outcome) {
+			outcome.flinch = true;
+			outcome.secondary = true;
+			rewardMoveOutcome(state, outcome, 0.12, false);
+		}
+		return;
+	}
+	if (line.startsWith('|-boost|') || line.startsWith('|-unboost|')) {
+		const sideid = getLineSideID(parts[2]);
+		if (state.lastLoggedMoveWasBot && (sideid === 'p1' || sideid === 'p2')) {
+			const outcome = sideid === 'p1' ? getLastBotOutcomeForTarget(state, parts[2]) : state.lastBotMoveOutcome;
+			if (outcome) {
+				outcome.secondary = true;
+				rewardMoveOutcome(state, outcome, 0.08, false);
+			}
+		}
 		return;
 	}
 	if (!line.startsWith('|faint|')) return;
 	const faintedSideid = getLineSideID(parts[2]);
 	const faintedID = getBattleIdentID(parts[2]);
 	if (faintedSideid === 'p1') {
-		const decision = state.lastBotMoveByTarget[faintedID] || state.lastBotMoveDecision;
-		rewardDecision(state, decision, decision?.action.endsWith(':z') ? 0.85 : 0.6);
+		const outcome = state.lastBotMoveOutcomeByTarget[faintedID] || state.lastBotMoveOutcome;
+		const decision = outcome?.decision || state.lastBotMoveByTarget[faintedID] || state.lastBotMoveDecision;
+		const delta = decision?.action.endsWith(':z') ? 0.85 : 0.6;
+		outcome ? rewardMoveOutcome(state, outcome, delta) : rewardDecision(state, decision, delta);
 		delete state.lastBotMoveByTarget[faintedID];
+		delete state.lastBotMoveOutcomeByTarget[faintedID];
 	} else if (faintedSideid === 'p2') {
 		delete state.lastDecisionByPokemon[faintedID];
 		delete state.pendingStallMoves[faintedID];
@@ -985,6 +1136,16 @@ function syncBattleState(room: GameRoom, state: BTBattleState) {
 			if (sideid !== 'p1' && sideid !== 'p2') continue;
 			const perishMatch = /^perish([0-3])$/.exec(parts[3] || '');
 			if (perishMatch) state.perish[sideid] = parseInt(perishMatch[1]);
+			if (isFutureMoveEffect(parts[3])) {
+				const targetSideid = sideid === 'p1' ? 'p2' : 'p1';
+				setTrackedFutureMove(state, targetSideid, 0, true);
+			}
+		} else if (line.startsWith('|-end|')) {
+			const sideid = parts[2]?.slice(0, 2);
+			if (sideid !== 'p1' && sideid !== 'p2') continue;
+			if (isFutureMoveEffect(parts[3])) {
+				setTrackedFutureMove(state, sideid, getPositionFromIdent(parts[2]), false);
+			}
 		} else if (line.startsWith('|switch|') || line.startsWith('|faint|')) {
 			const sideid = parts[2]?.slice(0, 2);
 			if (sideid === 'p1' || sideid === 'p2') state.perish[sideid] = 0;
@@ -1277,6 +1438,28 @@ function getPokemonItemID(pokemonData: AnyObject | null) {
 	return toID(pokemonData.item);
 }
 
+function itemUserMatchesPokemon(item: AnyObject, species: AnyObject) {
+	const itemUsers = ((item.itemUser || []) as string[]).map(itemUser => toID(itemUser));
+	const speciesIDs = [species.id, toID(species.name), toID(species.baseSpecies)];
+	return itemUsers.some(itemUser => speciesIDs.includes(itemUser));
+}
+
+function pokemonItemCanBeKnockedOff(pokemonData: AnyObject | null) {
+	const itemid = getPokemonItemID(pokemonData);
+	if (!itemid || !pokemonData) return false;
+	const dex = Dex.mod('gen9rrbt');
+	const item = dex.items.get(itemid) as AnyObject;
+	if (!item.exists) return false;
+	if (item.onTakeItem === false || item.megaStone || item.zMove) return false;
+	const species = dex.species.get(getSpeciesName(pokemonData)) as AnyObject;
+	if (item.forcedForme && (itemUserMatchesPokemon(item, species) || toID(species.baseSpecies) === 'ogerpon')) {
+		return false;
+	}
+	if (typeof item.onTakeItem === 'function' && itemUserMatchesPokemon(item, species)) return false;
+	if (item.megaEvolves && toID(item.megaEvolves) === toID(species.baseSpecies)) return false;
+	return true;
+}
+
 function hasWeather(context: BTAIContext | undefined, weather: ID) {
 	if (!context?.weather) return false;
 	if (weather === 'sunnyday') return ['sunnyday', 'desolateland'].includes(context.weather);
@@ -1299,6 +1482,19 @@ function countFaintedAllies(context: BTAIContext | undefined) {
 function sourceIgnoresTargetAbility(sourceData: AnyObject, move: Move) {
 	return !!(move as AnyObject).ignoreAbility ||
 		(['moldbreaker', 'teravolt', 'turboblaze'] as ID[]).some(ability => pokemonCanHaveAbility(sourceData, ability));
+}
+
+function moveIgnoresTypeImmunity(move: Move, type: string, sourceData: AnyObject, targetType?: string) {
+	if (move.flags['futuremove']) return false;
+	const ignoreImmunity = (move as AnyObject).ignoreImmunity;
+	if (ignoreImmunity === true) return true;
+	if (ignoreImmunity && typeof ignoreImmunity === 'object' && ignoreImmunity[type]) return true;
+	if (
+		targetType === 'Ghost' &&
+		['Normal', 'Fighting'].includes(type) &&
+		pokemonCanHaveAbility(sourceData, 'scrappy' as ID)
+	) return true;
+	return false;
 }
 
 function moveHasSelfKO(move: Move) {
@@ -1329,7 +1525,11 @@ function abilityBlocksDamagingMove(move: Move, type: string, sourceData: AnyObje
 	if (sourceIgnoresTargetAbility(sourceData, move)) return false;
 	const targetHasAbility = (ability: ID) => pokemonCanHaveAbility(targetData, ability);
 	if (moveHasSelfKO(move) && targetHasAbility('damp' as ID)) return true;
-	if (type === 'Ground' && (['levitate', 'eartheater'] as ID[]).some(targetHasAbility)) return true;
+	if (estimateMovePriority(move, sourceData) > 0 && (['armortail', 'dazzling', 'queenlymajesty'] as ID[]).some(targetHasAbility)) {
+		return true;
+	}
+	if (type === 'Ground' && targetHasAbility('levitate' as ID) && !moveIgnoresTypeImmunity(move, type, sourceData)) return true;
+	if (type === 'Ground' && targetHasAbility('eartheater' as ID)) return true;
 	if (type === 'Water' && (['dryskin', 'stormdrain', 'waterabsorb'] as ID[]).some(targetHasAbility)) return true;
 	if (type === 'Electric' && (['lightningrod', 'motordrive', 'voltabsorb'] as ID[]).some(targetHasAbility)) return true;
 	if (type === 'Fire' && (['flashfire', 'wellbakedbody'] as ID[]).some(targetHasAbility)) return true;
@@ -1337,6 +1537,18 @@ function abilityBlocksDamagingMove(move: Move, type: string, sourceData: AnyObje
 	if (move.flags['bullet'] && targetHasAbility('bulletproof' as ID)) return true;
 	if (move.flags['sound'] && targetHasAbility('soundproof' as ID)) return true;
 	if (move.flags['wind'] && targetHasAbility('windrider' as ID)) return true;
+	return false;
+}
+
+function abilityBlocksMoveType(move: Move, type: string, sourceData: AnyObject, targetData: AnyObject) {
+	if (sourceIgnoresTargetAbility(sourceData, move)) return false;
+	const targetHasAbility = (ability: ID) => pokemonCanHaveAbility(targetData, ability);
+	if (type === 'Ground' && targetHasAbility('levitate' as ID) && !moveIgnoresTypeImmunity(move, type, sourceData)) return true;
+	if (type === 'Ground' && targetHasAbility('eartheater' as ID)) return true;
+	if (type === 'Water' && (['dryskin', 'stormdrain', 'waterabsorb'] as ID[]).some(targetHasAbility)) return true;
+	if (type === 'Electric' && (['lightningrod', 'motordrive', 'voltabsorb'] as ID[]).some(targetHasAbility)) return true;
+	if (type === 'Fire' && (['flashfire', 'wellbakedbody'] as ID[]).some(targetHasAbility)) return true;
+	if (type === 'Grass' && targetHasAbility('sapsipper' as ID)) return true;
 	return false;
 }
 
@@ -1356,6 +1568,51 @@ function pokemonHasVolatile(pokemon: Pokemon | null, volatile: string | undefine
 	return !!(volatile && pokemon?.volatiles?.[volatile]);
 }
 
+function pokemonDataHasVolatile(pokemonData: AnyObject | null, volatile: string | undefined) {
+	return !!(volatile && pokemonData?.volatileState?.[volatile]);
+}
+
+function pokemonOrDataHasVolatile(pokemonData: AnyObject | null, pokemon: Pokemon | null, volatile: string | undefined) {
+	return pokemonHasVolatile(pokemon, volatile) || pokemonDataHasVolatile(pokemonData, volatile);
+}
+
+function statusMoveTypeBlocked(
+	move: Move, moveid: ID, type: string, sourceData: AnyObject,
+	targetData: AnyObject, targetPokemon: Pokemon | null, targetsPokemon: boolean
+) {
+	const targetHasAbility = (ability: ID) => pokemonCanHaveAbility(targetData, ability);
+	const powderMove = !!move.flags['powder'] || ['spore', 'sleeppowder', 'stunspore', 'poisonpowder'].includes(moveid);
+	if (
+		targetsPokemon &&
+		(['Electric', 'Fire', 'Grass', 'Water'] as string[]).includes(type) &&
+		abilityBlocksMoveType(move, type, sourceData, targetData)
+	) return true;
+	if (powderMove) {
+		if (
+			pokemonHasType(targetData, targetPokemon, 'Grass') ||
+			targetHasAbility('overcoat' as ID) ||
+			getPokemonItemID(targetData) === 'safetygoggles'
+		) return true;
+	}
+	if (move.status === 'par' && pokemonHasType(targetData, targetPokemon, 'Electric')) return true;
+	if (move.status === 'brn' && pokemonHasType(targetData, targetPokemon, 'Fire')) return true;
+	if (
+		(move.status === 'psn' || move.status === 'tox') &&
+		!pokemonCanHaveAbility(sourceData, 'corrosion' as ID) &&
+		pokemonHasAnyType(targetData, targetPokemon, ['Poison', 'Steel'])
+	) return true;
+	if (type === 'Electric' && moveid === 'thunderwave') {
+		if (!moveIgnoresTypeImmunity(move, type, sourceData) && pokemonHasType(targetData, targetPokemon, 'Ground')) return true;
+	}
+	if (type === 'Fire' && (move.status === 'brn' || moveid === 'willowisp')) {
+		if (abilityBlocksMoveType(move, type, sourceData, targetData)) return true;
+	}
+	if (type === 'Grass' && (powderMove || moveid === 'leechseed')) {
+		if (abilityBlocksMoveType(move, type, sourceData, targetData)) return true;
+	}
+	return false;
+}
+
 function statusMoveBlocked(
 	move: Move, moveid: ID, sourceData: AnyObject, targetData: AnyObject | null, targetPokemon: Pokemon | null = null,
 	context?: BTAIContext
@@ -1365,13 +1622,23 @@ function statusMoveBlocked(
 	const ignoresAbility = sourceIgnoresTargetAbility(sourceData, move);
 	const targetHasAbility = (ability: ID) => pokemonCanHaveAbility(targetData, ability);
 	const targetsPokemon = !['all', 'allySide', 'foeSide', 'self'].includes(move.target);
+	const type = getModifiedMoveType(move, sourceData);
 	if (move.status && pokemonIsGrounded(targetData)) {
 		if (context?.terrain === 'mistyterrain') return true;
 		if (context?.terrain === 'electricterrain' && move.status === 'slp') return true;
 	}
+	if (statusMoveTypeBlocked(move, moveid, type, sourceData, targetData, targetPokemon, targetsPokemon)) return true;
 	if (!ignoresAbility && targetHasAbility('goodasgold' as ID) && targetsPokemon) return true;
 	if (!ignoresAbility && targetHasAbility('magicbounce' as ID) && move.flags['reflectable']) return true;
 	if (!ignoresAbility && targetHasAbility('mirrorarmor' as ID) && move.flags['reflectable']) return true;
+	if (!ignoresAbility && move.flags['sound'] && targetHasAbility('soundproof' as ID)) return true;
+	if (
+		!ignoresAbility &&
+		targetsPokemon &&
+		move.category === 'Status' &&
+		pokemonCanHaveAbility(sourceData, 'prankster' as ID) &&
+		pokemonHasType(targetData, targetPokemon, 'Dark')
+	) return true;
 	if (!ignoresAbility && getPossiblePokemonAbilityIDs(targetData).some(ability => STAT_DROP_PUNISHING_ABILITIES.has(ability))) {
 		const boosts = move.boosts as SparseBoostsTable | null | undefined;
 		if (boosts && Object.values(boosts).some(boost => boost < 0)) return true;
@@ -1387,15 +1654,27 @@ function statusMoveBlocked(
 		}
 	}
 	if (moveid === 'toxic' || moveid === 'poisongas' || move.status === 'tox' || move.status === 'psn') {
-		const sourceAbility = getPokemonAbilityID(sourceData);
 		if ((['magicguard', 'poisonheal', 'radicalaura', 'familialrevenge'] as ID[]).some(targetHasAbility)) return true;
-		if (sourceAbility !== 'corrosion' && pokemonHasAnyType(targetData, targetPokemon, ['Poison', 'Steel'])) return true;
+		if (!pokemonCanHaveAbility(sourceData, 'corrosion' as ID) && pokemonHasAnyType(targetData, targetPokemon, ['Poison', 'Steel'])) {
+			return true;
+		}
 	}
+	if (!ignoresAbility && move.status === 'slp' && (['comatose', 'insomnia', 'sweetveil', 'vitalspirit'] as ID[]).some(targetHasAbility)) {
+		return true;
+	}
+	if (!ignoresAbility && move.status === 'par' && targetHasAbility('limber' as ID)) return true;
+	if (!ignoresAbility && move.status === 'brn' && (['thermalexchange', 'waterbubble', 'waterveil'] as ID[]).some(targetHasAbility)) {
+		return true;
+	}
+	if (!ignoresAbility && (move.status === 'tox' || move.status === 'psn') && (['immunity', 'pastelveil'] as ID[]).some(targetHasAbility)) {
+		return true;
+	}
+	if (!ignoresAbility && move.status === 'frz' && targetHasAbility('magmaarmor' as ID)) return true;
 	if (moveid === 'willowisp' && pokemonHasType(targetData, targetPokemon, 'Fire')) return true;
 	if (moveid === 'thunderwave' && pokemonHasAnyType(targetData, targetPokemon, ['Electric', 'Ground'])) return true;
 	if (moveid === 'leechseed' && pokemonHasType(targetData, targetPokemon, 'Grass')) return true;
-	if (pokemonHasVolatile(targetPokemon, move.volatileStatus)) return true;
-	if (['leechseed', 'taunt', 'encore', 'torment'].includes(moveid) && pokemonHasVolatile(targetPokemon, moveid)) {
+	if (pokemonOrDataHasVolatile(targetData, targetPokemon, move.volatileStatus)) return true;
+	if (['leechseed', 'taunt', 'encore', 'torment'].includes(moveid) && pokemonOrDataHasVolatile(targetData, targetPokemon, moveid)) {
 		return true;
 	}
 	if (
@@ -1413,10 +1692,26 @@ function getPositionFromIdent(ident: string | undefined) {
 	return match?.[1] ? match[1].charCodeAt(0) - 97 : 0;
 }
 
-function hasFutureMoveOnTargetSlot(room: GameRoom, targetSideid: 'p1' | 'p2', targetData: AnyObject | null) {
+function getFutureMoveID(effectName: string | undefined) {
+	return toID((effectName || '').replace(/^move:\s*/i, ''));
+}
+
+function isFutureMoveEffect(effectName: string | undefined) {
+	return ['futuresight', 'doomdesire'].includes(getFutureMoveID(effectName));
+}
+
+function setTrackedFutureMove(state: BTBattleState, targetSideid: 'p1' | 'p2', position: number, active: boolean) {
+	if (!state.futureMoves) state.futureMoves = newFutureMoveState();
+	state.futureMoves[targetSideid][Math.max(0, position)] = active;
+}
+
+function hasFutureMoveOnTargetSlot(
+	room: GameRoom, targetSideid: 'p1' | 'p2', targetData: AnyObject | null, state?: BTBattleState
+) {
 	const side = (room.battle as AnyObject | null)?.[targetSideid];
 	const position = getPositionFromIdent(targetData?.ident);
-	return !!side?.slotConditions?.[position]?.futuremove;
+	if (state && !state.futureMoves) state.futureMoves = newFutureMoveState();
+	return !!side?.slotConditions?.[position]?.futuremove || !!state?.futureMoves[targetSideid]?.[position];
 }
 
 function estimateBestDamageFromPokemon(sourceData: AnyObject, targetData: AnyObject | null, context?: BTAIContext) {
@@ -1565,6 +1860,51 @@ function estimateBestDamageActingBefore(
 	return bestDamage;
 }
 
+function getBestSelfSwitchThreat(sourceData: AnyObject | null, targetData: AnyObject | null, context?: BTAIContext) {
+	if (!sourceData || !targetData) return {hasPivot: false, damage: 0};
+	let hasPivot = false;
+	let damage = 0;
+	for (const moveid of getPokemonMoveIDs(sourceData)) {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid) as AnyObject;
+		if (!move.exists || !move.selfSwitch) continue;
+		hasPivot = true;
+		if (move.category !== 'Status') {
+			damage = Math.max(damage, estimateDamage(moveid, sourceData, targetData, false, context));
+		}
+	}
+	return {hasPivot, damage};
+}
+
+function getSwitchPivotPenalty(
+	switchOption: AnyObject | null, targetData: AnyObject | null, state?: BTBattleState, context?: BTAIContext
+) {
+	if (!switchOption || !targetData) return 0;
+	const threatContext = context ? {...context, sourceSide: undefined} : undefined;
+	const pivot = getBestSelfSwitchThreat(targetData, switchOption, threatContext);
+	if (!pivot.hasPivot) return 0;
+	const switchHP = getHPData(switchOption);
+	let penalty = 18;
+	if (pivot.damage > 0) {
+		penalty += Math.min(65, Math.min(pivot.damage, switchHP.hp) / Math.max(1, switchHP.maxhp) * 110);
+	}
+	const key = getPivotPunishKeyForPokemon(targetData, switchOption);
+	const punishCount = key && state?.pivotPunishedSwitches ? state.pivotPunishedSwitches[key] || 0 : 0;
+	if (punishCount) penalty += Math.min(95, punishCount * 38);
+	return penalty;
+}
+
+function isPivotBaitSwitch(
+	activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, targetThreat: number, pivotPenalty: number
+) {
+	if (!switchOption || pivotPenalty < 35) return false;
+	const activeHP = getHPData(activeData);
+	const targetHP = getHPData(targetData);
+	if (targetThreat >= activeHP.hp && activeDamage < targetHP.hp) return false;
+	if (switchDamage >= targetHP.hp && pivotPenalty < 60) return false;
+	return true;
+}
+
 function scoreSwitchOption(
 	switchOption: AnyObject, targetData: AnyObject | null, state?: BTBattleState, context?: BTAIContext
 ) {
@@ -1579,6 +1919,7 @@ function scoreSwitchOption(
 	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, context ? {...context, sourceSide: undefined} : undefined);
 	score += Math.min(damageOut, targetHP.hp) / targetHP.maxhp * 100;
 	score -= Math.min(damageIn, hpData.hp) / hpData.maxhp * 75;
+	score -= getSwitchPivotPenalty(switchOption, targetData, state, context);
 	if (damageOut >= targetHP.hp) score += 40;
 	if (damageIn >= hpData.hp) score -= 40;
 	if (pokemonCanHaveAbility(switchOption, 'magicbounce' as ID)) {
@@ -1704,6 +2045,15 @@ function getMemoryKey(state: BTBattleState, pokemonData: AnyObject, targetData: 
 	return `${state.level + 1}|${getSpeciesID(pokemonData)}|${getSpeciesID(targetData)}|${action}`;
 }
 
+function getPivotPunishKey(targetSpecies: ID, switchSpecies: ID) {
+	return `${targetSpecies}|${switchSpecies}`;
+}
+
+function getPivotPunishKeyForPokemon(targetData: AnyObject | null, switchOption: AnyObject | null) {
+	if (!targetData || !switchOption) return '';
+	return getPivotPunishKey(getSpeciesID(targetData), getSpeciesID(switchOption));
+}
+
 function parseBTCompleteArgs(target: string, user: User) {
 	let targetName = '';
 	let levelText = '';
@@ -1787,8 +2137,20 @@ function rememberDecision(
 	state.lastDecisionByPokemon[decision.actor] = decision;
 }
 
+function rememberBotSwitch(
+	state: BTBattleState, activeData: AnyObject, switchOption: AnyObject, targetData: AnyObject | null
+) {
+	state.lastBotSwitch = {
+		fromSpecies: getSpeciesID(activeData),
+		toSpecies: getSpeciesID(switchOption),
+		toIdent: getPokemonDecisionID(switchOption),
+		targetSpecies: getSpeciesID(targetData),
+	};
+}
+
 function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
 	if (pokemonCanHaveAbility(pokemonData, 'liquidvoice' as ID) && move.flags['sound']) return 'Water';
+	if (pokemonCanHaveAbility(pokemonData, 'normalize' as ID) && move.id !== 'struggle') return 'Normal';
 	if (move.type === 'Normal') {
 		if (pokemonCanHaveAbility(pokemonData, 'refrigerate' as ID)) return 'Ice';
 		if (pokemonCanHaveAbility(pokemonData, 'pixilate' as ID)) return 'Fairy';
@@ -1900,7 +2262,7 @@ function estimateDamage(
 	if (!useZMove && ['lowkick', 'grassknot'].includes(moveid)) {
 		basePower = getWeightBasedBasePower(getPokemonWeight(targetData));
 	}
-	if (!useZMove && moveid === 'knockoff' && targetData.item) {
+	if (!useZMove && moveid === 'knockoff' && pokemonItemCanBeKnockedOff(targetData)) {
 		basePower = Math.floor(basePower * 1.5);
 	}
 	if (move.multihit === 2) basePower *= 2;
@@ -1913,6 +2275,7 @@ function estimateDamage(
 	if ((['refrigerate', 'pixilate', 'aerilate', 'galvanize'] as ID[]).some(sourceHasAbility) && move.type === 'Normal') {
 		basePower = Math.floor(basePower * 1.2);
 	}
+	if (sourceHasAbility('normalize' as ID) && move.id !== 'struggle') basePower = Math.floor(basePower * 1.2);
 	if (sourceHasAbility('liquidvoice' as ID) && move.flags['sound']) basePower = Math.floor(basePower * 1.2);
 	if (sourceHasAbility('sharpness' as ID) && move.flags['slicing']) basePower = Math.floor(basePower * 1.5);
 	if (sourceHasAbility('megalauncher' as ID) && move.flags['pulse']) basePower = Math.floor(basePower * 1.5);
@@ -1959,14 +2322,19 @@ function estimateDamage(
 	}
 
 	const ignoresBoneImmunity = sourceHasAbility('familialrevenge' as ID) && move.flags['bone'];
-	if (type === 'Ground' && getPokemonItemID(targetData) === 'airballoon' && !ignoresBoneImmunity) return 0;
+	if (
+		type === 'Ground' &&
+		getPokemonItemID(targetData) === 'airballoon' &&
+		!ignoresBoneImmunity &&
+		!moveIgnoresTypeImmunity(move, type, sourceData)
+	) return 0;
 	if (!ignoresBoneImmunity && abilityBlocksDamagingMove(move, type, sourceData, targetData)) return 0;
 	let typeMod = 0;
 	for (const targetType of getPokemonTypes(targetData)) {
 		if (!dex.getImmunity(type, targetType)) {
 			if (
 				ignoresBoneImmunity ||
-				(sourceHasAbility('scrappy' as ID) && targetType === 'Ghost' && ['Normal', 'Fighting'].includes(type))
+				moveIgnoresTypeImmunity(move, type, sourceData, targetType)
 			) continue;
 			return 0;
 		}
@@ -1975,6 +2343,11 @@ function estimateDamage(
 	}
 	if (ignoresBoneImmunity && typeMod < 0) typeMod++;
 	const typeMultiplier = Math.pow(2, typeMod);
+	if (
+		targetHasAbility('wonderguard' as ID) &&
+		typeMultiplier <= 1 &&
+		!sourceIgnoresTargetAbility(sourceData, move)
+	) return 0;
 	const category = move.category;
 	const offensiveStat = (move as AnyObject).overrideOffensiveStat || (category === 'Physical' ? 'atk' : 'spa');
 	const defensiveStat = (move as AnyObject).overrideDefensiveStat || (category === 'Physical' ? 'def' : 'spd');
@@ -2339,6 +2712,73 @@ function shouldMegaEvolve(
 	return true;
 }
 
+function getSecondaryChance(effect: AnyObject, sourceAbility: ID) {
+	let chance = typeof effect.chance === 'number' ? effect.chance / 100 : 1;
+	if (sourceAbility === 'serenegrace' && typeof effect.chance === 'number') chance = Math.min(1, chance * 2);
+	return chance;
+}
+
+function getStatusEffectValue(status: ID, sourceData: AnyObject, targetData: AnyObject, context?: BTAIContext) {
+	if (status === 'brn') {
+		const physical = estimateBestDamageByCategory(targetData, sourceData, 'Physical', getPhazerContext(context));
+		const special = estimateBestDamageByCategory(targetData, sourceData, 'Special', getPhazerContext(context));
+		return physical >= special ? 30 : 16;
+	}
+	if (status === 'par') {
+		return estimateSpeed(targetData, getPhazerContext(context)) > estimateSpeed(sourceData, context) ? 28 : 18;
+	}
+	if (status === 'tox') return 30;
+	if (status === 'psn') return 18;
+	if (status === 'slp') return 38;
+	if (status === 'frz') return 35;
+	return 12;
+}
+
+function scoreBoostTable(boosts: SparseBoostsTable | null | undefined, positive: boolean) {
+	if (!boosts) return 0;
+	let score = 0;
+	for (const boost of Object.values(boosts)) {
+		const value = boost as number;
+		if (positive && value > 0) score += value * 10;
+		if (!positive && value < 0) score += Math.abs(value) * 9;
+	}
+	return score;
+}
+
+function scoreMoveEffects(
+	move: Move, moveid: ID, pokemonData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null,
+	sourceActsBeforeTarget: boolean, context?: BTAIContext
+) {
+	const sourceAbility = getPokemonAbilityID(pokemonData);
+	let score = 0;
+	const effects: AnyObject[] = [];
+	if (move.secondary) effects.push(move.secondary as AnyObject);
+	if (move.secondaries) effects.push(...move.secondaries as AnyObject[]);
+	if (move.volatileStatus) effects.push({volatileStatus: move.volatileStatus, chance: 100});
+	if ((move as AnyObject).self?.boosts) effects.push({self: (move as AnyObject).self, chance: 100});
+	for (const effect of effects) {
+		const chance = getSecondaryChance(effect, sourceAbility);
+		if (effect.volatileStatus === 'flinch' && sourceActsBeforeTarget && !pokemonHasVolatile(targetPokemon, 'flinch')) {
+			score += 24 * chance;
+		}
+		if (effect.status) {
+			const status = toID(effect.status);
+			const statusMove = {...move, status} as Move;
+			if (!statusMoveBlocked(statusMove, moveid, pokemonData, targetData, targetPokemon, context)) {
+				score += getStatusEffectValue(status, pokemonData, targetData, context) * chance;
+			}
+		}
+		if (effect.boosts && !getPossiblePokemonAbilityIDs(targetData).some(ability => STAT_DROP_PUNISHING_ABILITIES.has(ability))) {
+			score += scoreBoostTable(effect.boosts, false) * chance;
+		}
+		if (effect.self?.boosts) score += scoreBoostTable(effect.self.boosts, true) * chance;
+	}
+	if ((move as AnyObject).critRatio && (move as AnyObject).critRatio > 1) {
+		score += Math.min(14, ((move as AnyObject).critRatio - 1) * 5);
+	}
+	return score;
+}
+
 function scoreDamagingMove(
 	move: Move, moveid: ID, damage: number, pokemonData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null,
 	state: BTBattleState, action: string, context?: BTAIContext, useZMove = false
@@ -2349,6 +2789,7 @@ function scoreDamagingMove(
 	const movePriority = estimateMovePriority(move, pokemonData);
 	const sourceSpeed = estimateSpeed(pokemonData, context);
 	const targetSpeed = estimateSpeed(targetData, getPhazerContext(context));
+	const sourceActsBeforeTarget = movePriority > 0 || (movePriority === 0 && sourceSpeed > targetSpeed);
 	const targetMovesFirst = movePriority <= 0 && targetSpeed > sourceSpeed;
 	let score = Math.min(damage, targetHP.hp) / targetMaxHP * 120;
 	if (damage >= targetHP.hp) score += 90;
@@ -2374,15 +2815,37 @@ function scoreDamagingMove(
 	}
 	const switchChance = getSwitchPredictionChance(state, pokemonData, targetData, context);
 	const predictedSwitch = switchChance ? getPredictedSwitchTarget(pokemonData, targetData, context) : null;
+	let predictedSwitchDamage = 0;
+	let predictedSwitchHP: {hp: number, maxhp: number} | null = null;
 	if (predictedSwitch) {
-		const switchHP = getHPData(predictedSwitch);
-		const switchDamage = estimateDamage(moveid, pokemonData, predictedSwitch, useZMove, context);
+		predictedSwitchHP = getHPData(predictedSwitch);
+		predictedSwitchDamage = estimateDamage(moveid, pokemonData, predictedSwitch, useZMove, context);
 		const currentValue = Math.min(damage, targetHP.hp) / targetMaxHP;
-		const switchValue = Math.min(switchDamage, switchHP.hp) / Math.max(1, switchHP.maxhp);
+		const switchValue = Math.min(predictedSwitchDamage, predictedSwitchHP.hp) / Math.max(1, predictedSwitchHP.maxhp);
 		score += (switchValue - currentValue) * 120 * switchChance;
-		if (damage >= targetHP.hp && switchDamage < switchHP.hp) score -= 65 * switchChance;
-		if (switchDamage >= switchHP.hp) score += 45 * switchChance;
+		if (damage >= targetHP.hp && predictedSwitchDamage < predictedSwitchHP.hp) score -= 65 * switchChance;
+		if (predictedSwitchDamage >= predictedSwitchHP.hp) score += 45 * switchChance;
 		if ((move as AnyObject).selfSwitch) score += 14 * switchChance;
+	}
+	if (damage <= 0) {
+		const usefulPredictedSwitchHit = !!(
+			predictedSwitch &&
+			predictedSwitchHP &&
+			predictedSwitchDamage > 0 &&
+			switchChance >= 0.35
+		);
+		if (!usefulPredictedSwitchHit) return -Infinity;
+		if ((move as AnyObject).selfSwitch) score -= 90;
+	}
+	if (!useZMove && moveid === 'knockoff' && getPokemonItemID(targetData) && !pokemonItemCanBeKnockedOff(targetData)) {
+		const damageFraction = Math.min(damage, targetHP.hp) / targetMaxHP;
+		const predictsUsefulSwitch =
+			!!predictedSwitch &&
+			(pokemonItemCanBeKnockedOff(predictedSwitch) ||
+				Math.min(predictedSwitchDamage, predictedSwitchHP?.hp || 0) / Math.max(1, predictedSwitchHP?.maxhp || 1) >= 0.35);
+		if (!predictsUsefulSwitch && damage < targetHP.hp) {
+			score -= damageFraction >= 0.35 ? 18 : 52;
+		}
 	}
 	if (moveHasSelfKO(move)) {
 		score += damage >= targetHP.hp ? -35 : -220;
@@ -2409,13 +2872,13 @@ function scoreDamagingMove(
 			score -= 4;
 		}
 	}
-	if (move.volatileStatus === 'flinch') score += 6;
+	score += scoreMoveEffects(move, moveid, pokemonData, targetData, targetPokemon, sourceActsBeforeTarget, context);
 	if (sourceAbility === 'serenegrace' && (move.secondaries || move.secondary)) score += 8;
 	if (sourceAbility === 'contrary' && Object.values((move.self as AnyObject | null)?.boosts || {}).some(boost => (boost as number) < 0)) {
 		score += 18;
 	}
 	if (damage >= targetHP.hp && ['battlebond', 'beastboost'].includes(sourceAbility)) score += 22;
-	if (moveAppliesHealBlock(move, moveid) && pokemonCanRecover(targetData) && !pokemonHasVolatile(targetPokemon, 'healblock')) {
+	if (moveAppliesHealBlock(move, moveid) && pokemonCanRecover(targetData) && !pokemonOrDataHasVolatile(targetData, targetPokemon, 'healblock')) {
 		score += 28;
 	}
 	if ((move as AnyObject).selfSwitch) score += 10;
@@ -2605,7 +3068,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 	};
 	const targetData = getTargetPokemonData(room, ownSideid, 0, state);
 	const targetPokemon = getTargetPokemon(room, ownSideid);
-	const futureMoveActive = hasFutureMoveOnTargetSlot(room, foeSideid, targetData);
+	const futureMoveActive = hasFutureMoveOnTargetSlot(room, foeSideid, targetData, state);
 	const pokemon = request.side.pokemon;
 	const primaryActive = getBattleActivePokemonData(room, ownSideid, 0, 'own') || getActivePokemonData(request, 0) || pokemon[0];
 	state.pendingPlayerAction = targetData && primaryActive ? {
@@ -2623,6 +3086,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 				switchChoices.push(switchSlot);
 				const switchOption = request.side.pokemon[switchSlot - 1];
 				rememberDecision(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`);
+				rememberBotSwitch(state, pokemonData, switchOption, targetData);
 				return `switch ${switchSlot}`;
 			}
 		}
@@ -2635,18 +3099,23 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData, state, context);
 			const switchOption = switchSlot ? request.side.pokemon[switchSlot - 1] : null;
 			const switchDamage = switchOption ? estimateBestDamageFromPokemon(switchOption, targetData, context) : 0;
-			if (switchSlot && (
-				!hasAvailableMoves ||
+			const lethalSwitch = !!(
+				switchOption &&
+				targetThreat >= activeHP.hp && bestDamage < targetHP.hp &&
+				shouldSwitchOutOfLethalThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, context)
+			);
+			const pivotPenalty = switchOption ? getSwitchPivotPenalty(switchOption, targetData, state, context) : 0;
+			const pivotBait = isPivotBaitSwitch(
+				pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, pivotPenalty
+			);
+			const progressSwitch =
 				(bestDamage <= 0 && switchDamage > 0) ||
 				shouldSwitchForBetterMatchup(pokemonData, targetData, bestDamage, switchDamage, targetThreat) ||
-				(
-					targetThreat >= activeHP.hp && bestDamage < targetHP.hp &&
-					shouldSwitchOutOfLethalThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, context)
-				)
-				|| shouldSwitchForAbility(pokemonData, switchDamage, bestDamage)
-			)) {
+				shouldSwitchForAbility(pokemonData, switchDamage, bestDamage);
+			if (switchSlot && (!hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch))) {
 				switchChoices.push(switchSlot);
 				rememberDecision(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`);
+				rememberBotSwitch(state, pokemonData, switchOption, targetData);
 				return `switch ${switchSlot}`;
 			}
 		}
@@ -2769,13 +3238,18 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		logIndex: room.log.log.length,
 		hazards: {p1: newHazards(), p2: newHazards()},
 		perish: {p1: 0, p2: 0},
+		futureMoves: newFutureMoveState(),
 		setupUsed: {},
 		decisions: [],
 		lastDecisionByPokemon: {},
 		lastBotMoveDecision: null,
 		lastBotMoveByTarget: {},
+		lastBotMoveOutcome: null,
+		lastBotMoveOutcomeByTarget: {},
 		lastLoggedMoveWasBot: false,
 		lastLoggedMoveDecision: null,
+		lastBotSwitch: null,
+		pivotPunishedSwitches: {},
 		stallMoveCounters: {},
 		pendingStallMoves: {},
 		playerStyle: newPlayerStyle(),
