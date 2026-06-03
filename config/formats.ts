@@ -348,16 +348,6 @@ export const Formats: FormatList = [
 		mod: 'e4dlcap',
 		searchShow: false,
 		challengeShow: true,
-		onValidateSet(set) {
-			const species = this.toID(set.species);
-			if (
-				(species === 'darmanitanbee' || species === 'darmanitanbeezen') &&
-				set.moves.map(this.toID).includes('stealthrock') &&
-				this.toID(set.ability) !== 'zenmode'
-			) {
-				return [`Darmanitan-Bee can only learn Stealth Rock with Zen Mode.`];
-			}
-		},
 		ruleset: ['Obtainable', '+CAP', 'Team Preview', 'Sleep Clause Mod', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod', 'Dynamax Clause', 'Arceus Forme Clause'],
 	},
 	{
