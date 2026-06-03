@@ -91,6 +91,7 @@ interface BTBattleState {
 	pendingStallMoves: {[ident: string]: boolean};
 	playerStyle: BTPlayerStyle;
 	pendingPlayerAction: BTPendingPlayerAction | null;
+	lastBotError: string;
 	memoryChanged: boolean;
 }
 
@@ -1070,7 +1071,7 @@ function getBattlePokemonByIdent(room: GameRoom, ident: string | undefined) {
 	const sideid = getLineSideID(ident);
 	if (sideid !== 'p1' && sideid !== 'p2') return null;
 	const side = room.battle[sideid];
-	return side.pokemon.find((pokemon: Pokemon) => pokemon.fullname === ident) || null;
+	return side?.pokemon?.find((pokemon: Pokemon) => pokemon.fullname === ident) || null;
 }
 
 function getBattleActivePokemon(room: GameRoom, sideid: 'p1' | 'p2', index = 0) {
@@ -2388,6 +2389,22 @@ function submitBotChoice(battle: AnyObject, room: GameRoom, choice: string) {
 	}
 }
 
+function getReadyBotRequest(bot: AnyObject) {
+	if (!bot.request.request) return null;
+	let request: AnyObject;
+	try {
+		request = JSON.parse(bot.request.request);
+	} catch {
+		return null;
+	}
+	if (request.wait) return null;
+	if (bot.request.isWait !== false) {
+		if (bot.request.choice) return null;
+		bot.request.isWait = false;
+	}
+	return request;
+}
+
 function advanceBot(room: GameRoom) {
 	const battle = room.battle;
 	if (!battle || battle.ended) {
@@ -2398,18 +2415,28 @@ function advanceBot(room: GameRoom) {
 	}
 	const state = btBattles.get(room.roomid);
 	if (!state) return;
-	syncBattleState(room, state);
-	const bot = battle.p2;
-	if (bot.request.isWait !== false || !bot.request.request) return;
-	let request: AnyObject;
 	try {
-		request = JSON.parse(bot.request.request);
-	} catch {
-		return;
+		syncBattleState(room, state);
+	} catch (e: any) {
+		Monitor.warn(`${BOT_NAME} state sync error in ${room.roomid}: ${e?.message || e}`);
 	}
-	const choice = chooseBotRequest(request, room, state);
-	if (!choice) return;
-	submitBotChoice(battle, room, choice);
+	const bot = battle.p2;
+	try {
+		const request = getReadyBotRequest(bot);
+		if (!request) return;
+		const choice = chooseBotRequest(request, room, state);
+		if (!choice) return;
+		submitBotChoice(battle, room, choice);
+		state.lastBotError = '';
+	} catch (e: any) {
+		const message = e?.message || String(e);
+		if (state.lastBotError !== message) {
+			state.lastBotError = message;
+			room.add(`|-message|${BOT_NAME} hit an AI error: ${message}`);
+			room.update();
+			Monitor.warn(`${BOT_NAME} AI error in ${room.roomid}: ${message}`);
+		}
+	}
 }
 
 function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, replay: boolean) {
@@ -2449,6 +2476,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		pendingStallMoves: {},
 		playerStyle: newPlayerStyle(),
 		pendingPlayerAction: null,
+		lastBotError: '',
 		memoryChanged: false,
 	});
 }
