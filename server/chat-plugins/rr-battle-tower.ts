@@ -5,6 +5,8 @@ import {grantRRBadge, type RRBadgeID} from './rr-custom-badges';
 
 const FORMAT_ID = 'gen9rrbattletower';
 const FORMAT_NAME = '[Gen 9] RR Battle Tower';
+const TEAMBUILDER_FORMAT_ID = 'gen9ou';
+const TEAMBUILDER_FORMAT_NAME = '[Gen 9] OU';
 const BOT_NAME = 'RR BT Bot';
 const BOT_AVATAR = '101';
 const BT_CHALLENGER_ID = 'rrbtbot' as ID;
@@ -743,14 +745,14 @@ function sendBTTeamRequest(user: User, levelIndex: number, replay: boolean) {
 	btRequests.set(user.id, {level: levelIndex, replay});
 	const level = levels[levelIndex];
 	const command = `${BT_ACCEPT_COMMAND} ${levelIndex + 1}`;
-	const ready = new Ladders.BattleReady(user.id, FORMAT_ID, {
+	const ready = new Ladders.BattleReady(user.id, TEAMBUILDER_FORMAT_ID, {
 		...user.battleSettings,
 		team: '',
 	});
 	const challenge = new Ladders.BattleChallenge(BT_CHALLENGER_ID, user.id, ready, {
 		acceptCommand: command,
 		message:
-			`Choose a ${FORMAT_NAME} team for Battle Tower ${getBTLevelLabel(level, levelIndex)}` +
+			`Choose a ${TEAMBUILDER_FORMAT_NAME} team for Battle Tower ${getBTLevelLabel(level, levelIndex)}` +
 			`${replay ? ' (replay)' : ''}.`,
 		acceptButton: 'Start Battle Tower',
 		rejectButton: 'Cancel',
@@ -771,7 +773,7 @@ function resolveBTRequest(user: User, target: string) {
 
 async function prepareBTTeam(connection: Connection) {
 	if (!connection.user.battleSettings.team) {
-		connection.popup(`Select a ${FORMAT_NAME} team first.`);
+		connection.popup(`Select a ${TEAMBUILDER_FORMAT_NAME} team first.`);
 		return null;
 	}
 	const ready = await Ladders(FORMAT_ID).prepBattle(connection, 'challenge');
@@ -2576,9 +2578,9 @@ export const commands: Chat.ChatCommands = {
 		}
 		if (cmd === 'format' || cmd === 'team' || cmd === 'teambuilder') {
 			return this.sendReplyBox(
-				`Make a team with the <strong>${FORMAT_NAME}</strong> teambuilder format, ` +
+				`Make a team with the <strong>${TEAMBUILDER_FORMAT_NAME}</strong> teambuilder format, ` +
 				`then use <code>/battletower</code> to open the Battle Tower team selector. ` +
-				`Battle Tower Mode is not challengeable or laddered.`
+				`Battle Tower Mode is hidden, not challengeable, and not laddered.`
 			);
 		}
 		if (cmd === 'reset') {
@@ -2645,7 +2647,7 @@ export const commands: Chat.ChatCommands = {
 		const replay = levelIndex < cleared;
 		sendBTTeamRequest(user, levelIndex, replay);
 		this.sendReply(
-			`Choose a ${FORMAT_NAME} team in the challenge popup to start Battle Tower ` +
+			`Choose a ${TEAMBUILDER_FORMAT_NAME} team in the challenge popup to start Battle Tower ` +
 			`${getBTLevelLabel(levels[levelIndex], levelIndex)}.`
 		);
 	},

@@ -564,7 +564,7 @@ export const Formats: FormatList = [
 		mod: 'gen9rrbt',
 		searchShow: false,
 		challengeShow: false,
-		tournamentShow: true,
+		tournamentShow: false,
 		rated: false,
 		ruleset: ['[Gen 9] OU', 'Item Clause'],
 	},
