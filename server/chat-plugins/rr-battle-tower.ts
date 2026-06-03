@@ -1050,6 +1050,12 @@ function pokemonCanHaveAbility(pokemonData: AnyObject | null, ability: ID) {
 	return getPossiblePokemonAbilityIDs(pokemonData).includes(ability);
 }
 
+function speciesCanHaveAbility(pokemonData: AnyObject | null, ability: ID) {
+	if (!pokemonData) return false;
+	const species = Dex.mod('gen9rrbt').species.get(getSpeciesName(pokemonData));
+	return Object.values(species.abilities).some(speciesAbility => toID(speciesAbility) === ability);
+}
+
 function getPokemonItemID(pokemonData: AnyObject | null) {
 	if (!pokemonData) return '' as ID;
 	return toID(pokemonData.item);
@@ -1081,6 +1087,26 @@ function sourceIgnoresTargetAbility(sourceData: AnyObject, move: Move) {
 
 function moveHasSelfKO(move: Move) {
 	return !!move.selfdestruct || !!(move as AnyObject).mindBlownRecoil;
+}
+
+function moveCanHitThroughSturdy(move: Move, sourceData: AnyObject, useZMove = false) {
+	if (!useZMove) {
+		const multihit = move.multihit as number | number[] | null | undefined;
+		if (typeof multihit === 'number' && multihit > 1) return true;
+		if (Array.isArray(multihit) && multihit[1] > 1) return true;
+		if (pokemonCanHaveAbility(sourceData, 'parentalbond' as ID)) return true;
+	}
+	return false;
+}
+
+function sturdyPreventsOHKO(move: Move, sourceData: AnyObject, targetData: AnyObject, damage: number, useZMove = false) {
+	const targetHP = getHPData(targetData);
+	if (targetHP.hp < targetHP.maxhp) return false;
+	if (damage < targetHP.hp) return false;
+	if (!speciesCanHaveAbility(targetData, 'sturdy' as ID)) return false;
+	if (sourceIgnoresTargetAbility(sourceData, move)) return false;
+	if (moveCanHitThroughSturdy(move, sourceData, useZMove)) return false;
+	return true;
 }
 
 function abilityBlocksDamagingMove(move: Move, type: string, sourceData: AnyObject, targetData: AnyObject) {
@@ -1674,6 +1700,9 @@ function estimateDamage(
 		damage = Math.floor(damage * 0.5);
 	}
 	if (item === 'lifeorb') damage = Math.floor(damage * 1.3);
+	if (sturdyPreventsOHKO(move, sourceData, targetData, damage, useZMove)) {
+		damage = Math.max(0, getHPData(targetData).hp - 1);
+	}
 	return Math.max(0, damage);
 }
 
