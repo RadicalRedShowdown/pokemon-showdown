@@ -15,6 +15,7 @@ const PROGRESS_FILE = 'config/chat-plugins/rr-battle-tower-progress.json';
 const AI_MEMORY_FILE = 'config/chat-plugins/rr-battle-tower-ai-memory.json';
 const OPPONENT_MEMORY_FILE = 'config/chat-plugins/rr-battle-tower-opponent-memory.json';
 const MEDALS_FILE = 'config/chat-plugins/rr-battle-tower-medals.json';
+const ACCESS_FILE = 'config/chat-plugins/rr-battle-tower-access.json';
 const LEGACY_LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
 const LEGACY_PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
 const LEGACY_AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
@@ -313,6 +314,7 @@ const progress: {[userid: string]: number} = loadProgress();
 const aiMemory: {[key: string]: BTAIMemoryEntry} = loadAIMemory();
 const opponentMemory: {[speciesid: string]: BTOpponentMemoryEntry} = loadOpponentMemory();
 const btMedals: {[userid: string]: BTMedalID[]} = loadBTMedals();
+const btAccess = new Set<ID>(loadBTAccess());
 const btBattles = new Map<RoomID, BTBattleState>();
 const btRequests = new Map<ID, {level: number, replay: boolean}>();
 
@@ -381,6 +383,32 @@ function loadBTMedals() {
 
 function saveBTMedals() {
 	FS(MEDALS_FILE).writeUpdate(() => JSON.stringify(btMedals, null, 2));
+}
+
+function loadBTAccess() {
+	try {
+		const parsed = JSON.parse(FS(ACCESS_FILE).readIfExistsSync() || "[]");
+		const users = Array.isArray(parsed) ? parsed : parsed?.users;
+		if (!Array.isArray(users)) return [] as ID[];
+		return users.map(userid => toID(userid)).filter(Boolean);
+	} catch (e: any) {
+		Monitor.warn(`Could not load ${ACCESS_FILE}: ${e.message}`);
+		return [] as ID[];
+	}
+}
+
+function saveBTAccess() {
+	FS(ACCESS_FILE).writeUpdate(() => JSON.stringify([...btAccess].sort(), null, 2));
+}
+
+function userCanUseBT(user: User) {
+	return user.can('bypassall') || btAccess.has(user.id);
+}
+
+function checkBTAccess(context: Chat.CommandContext, user: User) {
+	if (userCanUseBT(user)) return true;
+	context.commandDoesNotExist();
+	return false;
 }
 
 function loadAIMemory() {
@@ -2517,6 +2545,7 @@ export const commands: Chat.ChatCommands = {
 	},
 	bt: 'battletower',
 	battletower(target, room, user) {
+		if (!checkBTAccess(this, user)) return;
 		target = target.trim();
 		const [cmdTarget = ""] = target.split(' ');
 		const cmd = toID(cmdTarget);
@@ -2621,6 +2650,7 @@ export const commands: Chat.ChatCommands = {
 		);
 	},
 	async btaccept(target, room, user, connection) {
+		if (!checkBTAccess(this, user)) return;
 		const request = resolveBTRequest(user, target);
 		if (!request) {
 			return this.errorReply(`Battle Tower team request not found. Use /battletower to open the Battle Tower Mode team selector.`);
@@ -2648,25 +2678,56 @@ export const commands: Chat.ChatCommands = {
 		}
 		await startBTBattle(this, user, connection, levelIndex, request.replay);
 	},
-	btcancel() {
+	btcancel(target, room, user) {
+		if (!checkBTAccess(this, user)) return;
 		clearBTChallenge(this.user.id);
 		this.sendReply(`Battle Tower request cancelled.`);
 	},
 	battletowercancel: 'btcancel',
+	btaccess(target, room, user) {
+		if (!user.can('bypassall')) return this.commandDoesNotExist();
+		const [cmdTarget = ""] = target.trim().split(' ');
+		const cmd = toID(cmdTarget);
+		const cmdArgs = target.trim().slice(cmdTarget.length).trim();
+		if (cmd === 'add' || cmd === 'grant' || cmd === 'allow') {
+			const targetID = toID(cmdArgs);
+			if (!targetID) throw new Chat.ErrorMessage(`Usage: /btaccess add [user]`);
+			btAccess.add(targetID);
+			saveBTAccess();
+			return this.sendReply(`Battle Tower access granted to ${targetID}.`);
+		}
+		if (cmd === 'remove' || cmd === 'revoke' || cmd === 'delete' || cmd === 'deny') {
+			const targetID = toID(cmdArgs);
+			if (!targetID) throw new Chat.ErrorMessage(`Usage: /btaccess remove [user]`);
+			btAccess.delete(targetID);
+			btRequests.delete(targetID);
+			saveBTAccess();
+			return this.sendReply(`Battle Tower access removed from ${targetID}.`);
+		}
+		if (cmd === 'list' || cmd === 'show' || cmd === '') {
+			return this.sendReplyBox(
+				`<strong>Battle Tower access</strong><br />${[...btAccess].sort().join('<br />') || '<em>No users allowed.</em>'}`
+			);
+		}
+		return this.sendReply(`/btaccess add [user], /btaccess remove [user], /btaccess list`);
+	},
 	bthelp: 'battletowerhelp',
-	battletowerhelp: [
-		`/battletower - Opens the Battle Tower Mode team selector for your next Battle Tower level.`,
-		`/battletower [level] - Opens the Battle Tower Mode team selector to replay an unlocked Battle Tower level.`,
-		`/battletower team - Explains which teambuilder format to select.`,
-		`/battletower medals [user] - Shows Battle Tower boss medals for a user.`,
-		`/battletower levels [1|2] - Shows Battle Tower levels and locks. Page 1 ends at Marowak-Alola; page 2 ends at the final boss.`,
-		`/battletower progress - Shows your current Battle Tower progress.`,
-		`/battletower reset - Resets your own Battle Tower progress.`,
-		`/battletower reset [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
-		`/battletower setlevel [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
-		`/battletower complete [user], [level|all] - Marks a user's Battle Tower progress complete through a level. Requires: global administrator`,
-		`/battletower reload - Reloads Battle Tower levels from the optional config override. Requires: console permission`,
-	],
+	battletowerhelp(target, room, user) {
+		if (!checkBTAccess(this, user)) return;
+		this.sendReplyBox([
+			`/battletower - Opens the Battle Tower Mode team selector for your next Battle Tower level.`,
+			`/battletower [level] - Opens the Battle Tower Mode team selector to replay an unlocked Battle Tower level.`,
+			`/battletower team - Explains which teambuilder format to select.`,
+			`/battletower medals [user] - Shows Battle Tower boss medals for a user.`,
+			`/battletower levels [1|2] - Shows Battle Tower levels and locks. Page 1 ends at Marowak-Alola; page 2 ends at the final boss.`,
+			`/battletower progress - Shows your current Battle Tower progress.`,
+			`/battletower reset - Resets your own Battle Tower progress.`,
+			`/battletower reset [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
+			`/battletower setlevel [user], [level] - Sets a user's next Battle Tower level. Requires: global administrator`,
+			`/battletower complete [user], [level|all] - Marks a user's Battle Tower progress complete through a level. Requires: global administrator`,
+			`/battletower reload - Reloads Battle Tower levels from the optional config override. Requires: console permission`,
+		].join('<br />'));
+	},
 };
 
 export const handlers: Chat.Handlers = {
