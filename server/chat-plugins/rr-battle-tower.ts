@@ -2205,6 +2205,14 @@ function chooseBotRequest(request: AnyObject, room: GameRoom, state: BTBattleSta
 	return chooseTeamPreview(request, state);
 }
 
+function getBotUser() {
+	return Users.get(BT_CHALLENGER_ID) || {
+		id: BT_CHALLENGER_ID,
+		name: BOT_NAME,
+		popup() {},
+	} as User;
+}
+
 function advanceBot(room: GameRoom) {
 	const battle = room.battle;
 	if (!battle || battle.ended) {
@@ -2226,16 +2234,7 @@ function advanceBot(room: GameRoom) {
 	}
 	const choice = chooseBotRequest(request, room, state);
 	if (!choice) return;
-	const rqid = bot.request.rqid;
-	bot.request.isWait = true;
-	bot.request.choice = choice;
-	void battle.stream.write(`>p2 ${choice}`).then(() => {
-		if (battle.ended || bot.request.rqid !== rqid || bot.request.choice !== choice) return;
-		if ((battle.p2.choice as AnyObject).error || !battle.p2.isChoiceDone()) {
-			bot.request.isWait = false;
-			bot.request.choice = '';
-		}
-	});
+	battle.choose(getBotUser(), `${choice}|${bot.request.rqid}`);
 }
 
 function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, replay: boolean) {
