@@ -89,6 +89,8 @@ interface BTBattleState {
 	lastLoggedMoveDecision: BTDecision | null;
 	stallMoveCounters: {[ident: string]: number};
 	pendingStallMoves: {[ident: string]: boolean};
+	playerStyle: BTPlayerStyle;
+	pendingPlayerAction: BTPendingPlayerAction | null;
 	memoryChanged: boolean;
 }
 
@@ -115,6 +117,18 @@ interface BTOpponentMemoryEntry {
 	moves: {[moveid: string]: number};
 	abilities: {[abilityid: string]: number};
 	items: {[itemid: string]: number};
+}
+
+interface BTPlayerStyle {
+	threatenedSwitches: number;
+	threatenedStays: number;
+	neutralSwitches: number;
+	neutralStays: number;
+}
+
+interface BTPendingPlayerAction {
+	target: string;
+	threatened: boolean;
 }
 
 interface BTAIContext {
@@ -740,6 +754,15 @@ function newHazards(): BTSideHazards {
 	return {stealthrock: false, spikes: 0, toxicspikes: 0, stickyweb: false, gmaxsteelsurge: false};
 }
 
+function newPlayerStyle(): BTPlayerStyle {
+	return {
+		threatenedSwitches: 2,
+		threatenedStays: 1,
+		neutralSwitches: 1,
+		neutralStays: 3,
+	};
+}
+
 function toHazardID(name: string) {
 	return toID(name.replace(/^move:\s*/i, '')) as keyof BTSideHazards;
 }
@@ -772,10 +795,29 @@ function getLineSideID(ident: string | undefined) {
 	return match?.[1] || '';
 }
 
+function recordPlayerAction(state: BTBattleState, switched: boolean) {
+	const pending = state.pendingPlayerAction;
+	if (!pending) return;
+	const style = state.playerStyle;
+	if (pending.threatened) {
+		if (switched) {
+			style.threatenedSwitches++;
+		} else {
+			style.threatenedStays++;
+		}
+	} else if (switched) {
+		style.neutralSwitches++;
+	} else {
+		style.neutralStays++;
+	}
+	state.pendingPlayerAction = null;
+}
+
 function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 	if (line.startsWith('|move|')) {
 		const actorSideid = getLineSideID(parts[2]);
 		if (actorSideid !== 'p2') {
+			if (actorSideid === 'p1') recordPlayerAction(state, false);
 			state.lastLoggedMoveWasBot = false;
 			state.lastLoggedMoveDecision = null;
 			return;
@@ -801,6 +843,10 @@ function trackBTOutcome(line: string, parts: string[], state: BTBattleState) {
 		if (targetSideid === 'p1') {
 			state.lastBotMoveByTarget[getBattleIdentID(parts[4])] = decision;
 		}
+		return;
+	}
+	if (line.startsWith('|switch|') && getLineSideID(parts[2]) === 'p1') {
+		recordPlayerAction(state, true);
 		return;
 	}
 	if (line.startsWith('|-singleturn|')) {
@@ -921,7 +967,8 @@ function getAIContext(room: GameRoom, request?: AnyObject): BTAIContext {
 	const ownSideid = request?.side?.id as 'p1' | 'p2' | undefined;
 	const foeSideid = ownSideid === 'p1' ? 'p2' : 'p1';
 	const ownSide = ownSideid ? getBattleSidePokemonData(room, ownSideid, 'own') : request?.side?.pokemon;
-	const targetSide = ownSideid ? getBattleSidePokemonData(room, foeSideid, 'opponent') : [];
+	let targetSide = ownSideid ? getBattleSidePokemonData(room, foeSideid, 'opponent') : [];
+	if (!targetSide.length && ownSideid) targetSide = getSanitizedFoeRequestSideData(room, ownSideid);
 	return {
 		weather: toID(field.weather),
 		terrain: toID(field.terrain),
@@ -954,9 +1001,7 @@ function getEstimatedStat(base: number, level: number, hp = false) {
 	return Math.floor(((2 * base + 31 + 21) * level) / 100) + 5;
 }
 
-function getEstimatedStats(pokemon: Pokemon) {
-	const species = pokemon.species;
-	const level = pokemon.level || 100;
+function getEstimatedStatsForSpecies(species: Species, level: number) {
 	return {
 		atk: getEstimatedStat(species.baseStats.atk, level),
 		def: getEstimatedStat(species.baseStats.def, level),
@@ -964,6 +1009,12 @@ function getEstimatedStats(pokemon: Pokemon) {
 		spd: getEstimatedStat(species.baseStats.spd, level),
 		spe: getEstimatedStat(species.baseStats.spe, level),
 	};
+}
+
+function getEstimatedStats(pokemon: Pokemon) {
+	const species = pokemon.species;
+	const level = pokemon.level || 100;
+	return getEstimatedStatsForSpecies(species, level);
 }
 
 function getSanitizedOpponentPokemonData(pokemon: Pokemon) {
@@ -982,6 +1033,28 @@ function getSanitizedOpponentPokemonData(pokemon: Pokemon) {
 		ability: '',
 		baseAbility: '',
 	};
+}
+
+function getSanitizedRequestPokemonData(pokemonData: AnyObject) {
+	const species = Dex.mod('gen9rrbt').species.get(getSpeciesName(pokemonData));
+	const level = getLevel(pokemonData.details || '');
+	return {
+		ident: pokemonData.ident,
+		details: pokemonData.details,
+		condition: pokemonData.condition,
+		active: !!pokemonData.active,
+		stats: getEstimatedStatsForSpecies(species, level),
+		boosts: {...(pokemonData.boosts || {})},
+		moves: [],
+		item: '',
+		ability: '',
+		baseAbility: '',
+	};
+}
+
+function getSanitizedFoeRequestSideData(room: GameRoom, ownSideid: 'p1' | 'p2') {
+	const foeRequest = getFoeRequest(room, ownSideid);
+	return (foeRequest?.side?.pokemon || []).map((pokemonData: AnyObject) => getSanitizedRequestPokemonData(pokemonData));
 }
 
 function getBattleSidePokemonData(room: GameRoom, sideid: 'p1' | 'p2', visibility: 'own' | 'opponent' = 'own') {
@@ -1022,7 +1095,8 @@ function getTargetPokemonData(room: GameRoom, ownSideid: 'p1' | 'p2', index = 0)
 	const battleData = getBattleActivePokemonData(room, foeSideid, index, 'opponent');
 	if (battleData) return battleData;
 	const foeRequest = getFoeRequest(room, ownSideid);
-	return foeRequest ? getActivePokemonData(foeRequest, index) : null;
+	const requestData = foeRequest ? getActivePokemonData(foeRequest, index) : null;
+	return requestData ? getSanitizedRequestPokemonData(requestData) : null;
 }
 
 function getPokemonAbilityID(pokemonData: AnyObject | null) {
@@ -1212,6 +1286,67 @@ function estimateBestDamageFromPokemon(sourceData: AnyObject, targetData: AnyObj
 		bestDamage = Math.max(bestDamage, estimateDamage(moveid, sourceData, targetData, false, context));
 	}
 	return bestDamage;
+}
+
+function getPlayerSwitchRate(state: BTBattleState, threatened: boolean) {
+	const style = state.playerStyle;
+	const switches = threatened ? style.threatenedSwitches : style.neutralSwitches;
+	const stays = threatened ? style.threatenedStays : style.neutralStays;
+	return switches / Math.max(1, switches + stays);
+}
+
+function targetIsThreatenedByPokemon(sourceData: AnyObject, targetData: AnyObject | null, context?: BTAIContext) {
+	if (!targetData) return false;
+	const hp = getHPData(targetData);
+	if (hp.hp <= 0) return false;
+	const damage = estimateBestDamageFromPokemon(sourceData, targetData, context);
+	return damage >= hp.hp || damage >= hp.maxhp * 0.55 || damage >= hp.hp * 0.7;
+}
+
+function getSwitchPredictionChance(
+	state: BTBattleState, sourceData: AnyObject, targetData: AnyObject | null, context?: BTAIContext
+) {
+	if (!targetData) return 0;
+	const candidates = getPredictedSwitchCandidates(targetData, context);
+	if (!candidates.length) return 0;
+	const threatened = targetIsThreatenedByPokemon(sourceData, targetData, context);
+	const hp = getHPData(targetData);
+	const bestDamage = estimateBestDamageFromPokemon(sourceData, targetData, context);
+	let chance = getPlayerSwitchRate(state, threatened);
+	if (threatened && bestDamage >= hp.hp) chance += 0.12;
+	if (!threatened && bestDamage < hp.maxhp * 0.3) chance -= 0.08;
+	return Math.max(0.08, Math.min(0.88, chance));
+}
+
+function getPredictedSwitchCandidates(targetData: AnyObject | null, context?: BTAIContext) {
+	if (!targetData || !context?.targetSide) return [] as AnyObject[];
+	const activeID = getPokemonDecisionID(targetData);
+	return context.targetSide.filter(pokemonData => {
+		const hp = getHPData(pokemonData);
+		return hp.hp > 0 && !pokemonData.active && getPokemonDecisionID(pokemonData) !== activeID;
+	});
+}
+
+function getPredictedSwitchTarget(sourceData: AnyObject, targetData: AnyObject | null, context?: BTAIContext) {
+	const candidates = getPredictedSwitchCandidates(targetData, context);
+	if (!candidates.length) return null;
+	const sourceHP = getHPData(sourceData);
+	let bestCandidate = candidates[0];
+	let bestScore = -Infinity;
+	for (const candidate of candidates) {
+		const candidateHP = getHPData(candidate);
+		const damageTaken = estimateBestDamageFromPokemon(sourceData, candidate, context);
+		const threatBack = estimateBestDamageFromPokemon(candidate, sourceData, context ? {...context, sourceSide: undefined} : undefined);
+		const score =
+			(candidateHP.hp / candidateHP.maxhp) * 18 -
+			Math.min(damageTaken, candidateHP.hp) / candidateHP.maxhp * 95 +
+			Math.min(threatBack, sourceHP.hp) / sourceHP.maxhp * 70;
+		if (score > bestScore) {
+			bestScore = score;
+			bestCandidate = candidate;
+		}
+	}
+	return bestCandidate;
 }
 
 function estimateBestDamageByCategory(
@@ -1932,12 +2067,24 @@ function shouldMegaEvolve(
 
 function scoreDamagingMove(
 	move: Move, moveid: ID, damage: number, pokemonData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null,
-	state: BTBattleState, action: string, context?: BTAIContext
+	state: BTBattleState, action: string, context?: BTAIContext, useZMove = false
 ) {
 	const targetHP = getHPData(targetData);
 	const targetMaxHP = Math.max(1, targetHP.maxhp);
 	let score = Math.min(damage, targetHP.hp) / targetMaxHP * 120;
 	if (damage >= targetHP.hp) score += 90;
+	const switchChance = getSwitchPredictionChance(state, pokemonData, targetData, context);
+	const predictedSwitch = switchChance ? getPredictedSwitchTarget(pokemonData, targetData, context) : null;
+	if (predictedSwitch) {
+		const switchHP = getHPData(predictedSwitch);
+		const switchDamage = estimateDamage(moveid, pokemonData, predictedSwitch, useZMove, context);
+		const currentValue = Math.min(damage, targetHP.hp) / targetMaxHP;
+		const switchValue = Math.min(switchDamage, switchHP.hp) / Math.max(1, switchHP.maxhp);
+		score += (switchValue - currentValue) * 120 * switchChance;
+		if (damage >= targetHP.hp && switchDamage < switchHP.hp) score -= 65 * switchChance;
+		if (switchDamage >= switchHP.hp) score += 45 * switchChance;
+		if ((move as AnyObject).selfSwitch) score += 14 * switchChance;
+	}
 	if (moveHasSelfKO(move)) {
 		score += damage >= targetHP.hp ? -35 : -220;
 	}
@@ -2094,7 +2241,9 @@ function chooseBestMove(
 				const zAction = `move:${moveid}:z`;
 				const targetMaxHP = Math.max(1, getHPData(targetData).maxhp);
 				const zUpgrade = Math.min(80, Math.max(0, zDamage - damage) / targetMaxHP * 80);
-				const zScore = scoreDamagingMove(move, moveid, zDamage, pokemonData, targetData, targetPokemon, state, zAction, context) + zUpgrade + (
+				const zScore = scoreDamagingMove(
+					move, moveid, zDamage, pokemonData, targetData, targetPokemon, state, zAction, context, true
+				) + zUpgrade + (
 					zDamage >= targetHP && damage < targetHP ? 55 : 0
 				) - zMoveConservationPenalty(damage, zDamage, targetData, context);
 				if (zScore > bestScore) {
@@ -2150,6 +2299,11 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 	const targetPokemon = getTargetPokemon(room, ownSideid);
 	const futureMoveActive = hasFutureMoveOnTargetSlot(room, foeSideid, targetData);
 	const pokemon = request.side.pokemon;
+	const primaryActive = getActivePokemonData(request, 0) || pokemon[0];
+	state.pendingPlayerAction = targetData && primaryActive ? {
+		target: getPokemonDecisionID(targetData),
+		threatened: targetIsThreatenedByPokemon(primaryActive, targetData, context),
+	} : null;
 	const switchChoices: number[] = [];
 	const choices = request.active.map((active: AnyObject, index: number) => {
 		const pokemonData = getActivePokemonData(request, index) || pokemon[index];
@@ -2213,6 +2367,27 @@ function getBotUser() {
 	} as User;
 }
 
+function submitBotChoice(battle: AnyObject, room: GameRoom, choice: string) {
+	const bot = battle.p2;
+	const rqid = bot.request.rqid;
+	battle.choose(getBotUser(), `${choice}|${rqid}`);
+	if (bot.request.rqid === rqid && bot.request.isWait === false) {
+		bot.request.isWait = true;
+		bot.request.choice = choice;
+		void battle.stream.write(`>p2 ${choice}`).then(() => {
+			if (battle.ended || bot.request.rqid !== rqid || bot.request.choice !== choice) return;
+			if ((battle.p2.choice as AnyObject)?.error || !battle.p2.isChoiceDone?.()) {
+				bot.request.isWait = false;
+				bot.request.choice = '';
+			}
+		});
+	}
+	if (bot.request.rqid === rqid && bot.request.choice === choice) {
+		room.add(`|-message|${BOT_NAME} queued its action.`);
+		room.update();
+	}
+}
+
 function advanceBot(room: GameRoom) {
 	const battle = room.battle;
 	if (!battle || battle.ended) {
@@ -2234,7 +2409,7 @@ function advanceBot(room: GameRoom) {
 	}
 	const choice = chooseBotRequest(request, room, state);
 	if (!choice) return;
-	battle.choose(getBotUser(), `${choice}|${bot.request.rqid}`);
+	submitBotChoice(battle, room, choice);
 }
 
 function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, replay: boolean) {
@@ -2272,6 +2447,8 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		lastLoggedMoveDecision: null,
 		stallMoveCounters: {},
 		pendingStallMoves: {},
+		playerStyle: newPlayerStyle(),
+		pendingPlayerAction: null,
 		memoryChanged: false,
 	});
 }
