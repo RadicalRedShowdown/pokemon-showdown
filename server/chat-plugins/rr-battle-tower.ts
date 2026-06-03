@@ -2413,10 +2413,6 @@ function submitBotChoice(battle: AnyObject, room: GameRoom, choice: string) {
 			}
 		});
 	}
-	if (bot.request.rqid === rqid && bot.request.choice === choice) {
-		room.add(`|-message|${BOT_NAME} queued its action.`);
-		room.update();
-	}
 }
 
 function getReadyBotRequest(bot: AnyObject) {
