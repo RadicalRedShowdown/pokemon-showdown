@@ -61,7 +61,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-message', `${pokemon.name} eminates a redness aura so radical.`);
 			if (!this.field.getPseudoWeather('redmist')) this.field.addPseudoWeather('redmist', pokemon, this.effect);
 		},
-		flags: {},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Radical Aura",
 		rating: 5,
 		gen: 9,

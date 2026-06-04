@@ -72,11 +72,22 @@ const STATUS_AILMENT_IDS = new Set<ID>(['brn' as ID, 'par' as ID, 'psn' as ID, '
 const WEATHER_SPEED_ABILITIES: {[k: string]: ID} = {
 	chlorophyll: 'sunnyday' as ID,
 	sandrush: 'sandstorm' as ID,
+	slushrush: 'snow' as ID,
 	swiftswim: 'raindance' as ID,
+};
+const WEATHER_SETTER_ABILITIES: {[k: string]: ID} = {
+	deltastream: 'deltastream' as ID,
+	desolateland: 'desolateland' as ID,
+	drizzle: 'raindance' as ID,
+	drought: 'sunnyday' as ID,
+	primordialsea: 'primordialsea' as ID,
+	sandstream: 'sandstorm' as ID,
+	snowwarning: 'snow' as ID,
 };
 let damagingPriorityMoveIDs: Set<ID> | null = null;
 const learnsetPriorityMoveCache = new Map<ID, ID[]>();
 type BTMoveTag = 'disruption' | 'hazard' | 'priority' | 'setup' | 'status';
+type BTTeamArchetype = 'weather' | 'stall' | 'hyperoffense' | 'bulkyoffense' | 'balance';
 
 interface BTLevel {
 	name: string;
@@ -1460,11 +1471,53 @@ function pokemonItemCanBeKnockedOff(pokemonData: AnyObject | null) {
 	return true;
 }
 
+function normalizeWeather(weather: string | undefined) {
+	const weatherid = toID(weather);
+	if (weatherid === 'hail') return 'snow' as ID;
+	if (weatherid === 'raindance' || weatherid === 'rain') return 'raindance' as ID;
+	if (weatherid === 'sunnyday' || weatherid === 'sun') return 'sunnyday' as ID;
+	return weatherid;
+}
+
+function getWeatherGroup(weather: string | undefined) {
+	const weatherid = normalizeWeather(weather);
+	if (weatherid === 'desolateland') return 'sunnyday' as ID;
+	if (weatherid === 'primordialsea') return 'raindance' as ID;
+	return weatherid;
+}
+
 function hasWeather(context: BTAIContext | undefined, weather: ID) {
 	if (!context?.weather) return false;
-	if (weather === 'sunnyday') return ['sunnyday', 'desolateland'].includes(context.weather);
-	if (weather === 'raindance') return ['raindance', 'primordialsea'].includes(context.weather);
-	return context.weather === weather;
+	return getWeatherGroup(context.weather) === getWeatherGroup(weather);
+}
+
+function weatherCanOverride(currentWeather: ID, nextWeather: ID) {
+	if (!nextWeather || getWeatherGroup(currentWeather) === getWeatherGroup(nextWeather)) return false;
+	const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+	return !strongWeathers.includes(currentWeather) || strongWeathers.includes(nextWeather);
+}
+
+function applyWeatherContext(context: BTAIContext | undefined, weather: ID) {
+	if (!weather) return context;
+	const currentWeather = normalizeWeather(context?.weather);
+	if (!weatherCanOverride(currentWeather, weather)) return context;
+	return {...(context || {terrain: '' as ID}), weather} as BTAIContext;
+}
+
+function getMoveWeather(move: Move) {
+	return normalizeWeather((move as AnyObject).weather);
+}
+
+function getPokemonWeatherAbilityWeather(pokemonData: AnyObject | null) {
+	for (const abilityid of getPossiblePokemonAbilityIDs(pokemonData)) {
+		const weather = WEATHER_SETTER_ABILITIES[abilityid];
+		if (weather) return weather;
+	}
+	return '' as ID;
+}
+
+function getWeatherContextAfterPokemonSwitch(pokemonData: AnyObject | null, context?: BTAIContext) {
+	return applyWeatherContext(context, getPokemonWeatherAbilityWeather(pokemonData));
 }
 
 function pokemonIsGrounded(pokemonData: AnyObject | null) {
@@ -1622,7 +1675,7 @@ function statusMoveBlocked(
 	const ignoresAbility = sourceIgnoresTargetAbility(sourceData, move);
 	const targetHasAbility = (ability: ID) => pokemonCanHaveAbility(targetData, ability);
 	const targetsPokemon = !['all', 'allySide', 'foeSide', 'self'].includes(move.target);
-	const type = getModifiedMoveType(move, sourceData);
+	const type = getModifiedMoveType(move, sourceData, context);
 	if (move.status && pokemonIsGrounded(targetData)) {
 		if (context?.terrain === 'mistyterrain') return true;
 		if (context?.terrain === 'electricterrain' && move.status === 'slp') return true;
@@ -1875,6 +1928,155 @@ function getBestSelfSwitchThreat(sourceData: AnyObject | null, targetData: AnyOb
 	return {hasPivot, damage};
 }
 
+function getReverseContext(context?: BTAIContext) {
+	if (!context) return undefined;
+	return {
+		...context,
+		sourceSide: context.targetSide,
+		ownSide: context.targetSide,
+		targetSide: context.ownSide,
+	};
+}
+
+function sideWeatherSpeedValue(side: AnyObject[] | undefined, weather: ID) {
+	if (!side?.length) return 0;
+	let value = 0;
+	for (const pokemonData of side) {
+		const hp = getHPData(pokemonData);
+		if (hp.hp <= 0) continue;
+		for (const [ability, abilityWeather] of Object.entries(WEATHER_SPEED_ABILITIES)) {
+			if (getWeatherGroup(abilityWeather) === getWeatherGroup(weather) && pokemonCanHaveAbility(pokemonData, ability as ID)) {
+				value += 18;
+				break;
+			}
+		}
+	}
+	return value;
+}
+
+function pokemonSetsWeather(pokemonData: AnyObject | null) {
+	if (!pokemonData) return false;
+	if (getPokemonWeatherAbilityWeather(pokemonData)) return true;
+	return getPokemonMoveIDs(pokemonData).some(moveid => getMoveWeather(Dex.mod('gen9rrbt').moves.get(moveid)));
+}
+
+function pokemonBenefitsFromWeather(pokemonData: AnyObject | null, weather: ID) {
+	if (!pokemonData || !weather) return false;
+	const weatherGroup = getWeatherGroup(weather);
+	for (const [ability, abilityWeather] of Object.entries(WEATHER_SPEED_ABILITIES)) {
+		if (getWeatherGroup(abilityWeather) === weatherGroup && pokemonCanHaveAbility(pokemonData, ability as ID)) return true;
+	}
+	const weatherAbilityMap: {[k: string]: ID[]} = {
+		raindance: ['dryskin', 'hydration', 'raindish'],
+		sunnyday: ['flowergift', 'leafguard', 'solarpower'],
+		sandstorm: ['sandforce', 'sandrush', 'sandveil'],
+		snow: ['icebody', 'snowcloak', 'slushrush'],
+	};
+	return (weatherAbilityMap[weatherGroup] || []).some(ability => pokemonCanHaveAbility(pokemonData, ability as ID));
+}
+
+function sideHasWeatherPlan(side: AnyObject[] | undefined, context?: BTAIContext) {
+	if (!side?.length) return false;
+	const currentWeather = normalizeWeather(context?.weather);
+	if (currentWeather && side.some(pokemonData => pokemonBenefitsFromWeather(pokemonData, currentWeather))) return true;
+	const setterWeather = side.map(pokemonData => getPokemonWeatherAbilityWeather(pokemonData)).find(Boolean);
+	if (setterWeather && side.some(pokemonData => pokemonBenefitsFromWeather(pokemonData, setterWeather))) return true;
+	return side.some(pokemonData => pokemonSetsWeather(pokemonData)) &&
+		side.some(pokemonData => getPossiblePokemonAbilityIDs(pokemonData).some(ability => (
+			ability in WEATHER_SPEED_ABILITIES ||
+			['dryskin', 'flowergift', 'hydration', 'icebody', 'leafguard', 'raindish', 'sandforce', 'snowcloak', 'solarpower'].includes(ability)
+		)));
+}
+
+function getSideAverages(side: AnyObject[] | undefined, context?: BTAIContext) {
+	const alive = remainingSidePokemon(side);
+	if (!alive.length) return {speed: 0, offense: 0, bulk: 0};
+	let speed = 0;
+	let offense = 0;
+	let bulk = 0;
+	for (const pokemonData of alive) {
+		const hp = getHPData(pokemonData);
+		speed += estimateSpeed(pokemonData, context);
+		offense += Math.max(getStat(pokemonData, 'atk'), getStat(pokemonData, 'spa'));
+		bulk += hp.maxhp + getStat(pokemonData, 'def') + getStat(pokemonData, 'spd');
+	}
+	return {speed: speed / alive.length, offense: offense / alive.length, bulk: bulk / alive.length};
+}
+
+function getTeamArchetype(side: AnyObject[] | undefined, context?: BTAIContext): BTTeamArchetype {
+	const alive = remainingSidePokemon(side);
+	if (!alive.length) return 'balance';
+	if (sideHasWeatherPlan(alive, context)) return 'weather';
+	let recovery = 0;
+	let passive = 0;
+	let setup = 0;
+	let hazards = 0;
+	let damaging = 0;
+	for (const pokemonData of alive) {
+		if (pokemonCanRecover(pokemonData)) recovery++;
+		if (pokemonHasMoveTag(pokemonData, 'setup')) setup++;
+		if (pokemonHasMoveTag(pokemonData, 'hazard')) hazards++;
+		const moves = getPokemonMoveIDs(pokemonData);
+		for (const moveid of moves) {
+			const move = Dex.mod('gen9rrbt').moves.get(moveid);
+			if (!move.exists) continue;
+			if (move.category === 'Status') passive++;
+			if (move.category !== 'Status') damaging++;
+		}
+	}
+	const avg = getSideAverages(alive, context);
+	if (recovery >= 3 || (recovery >= 2 && passive >= damaging)) return 'stall';
+	if ((setup + hazards >= 3 && avg.speed >= 230) || (avg.speed >= 270 && avg.offense > avg.bulk / 3)) return 'hyperoffense';
+	if (avg.bulk >= 650 && avg.offense >= 220) return 'bulkyoffense';
+	return 'balance';
+}
+
+function targetIsWeatherBreaker(targetData: AnyObject | null, context?: BTAIContext) {
+	if (!targetData) return false;
+	const weather = normalizeWeather(context?.weather);
+	return !!weather && pokemonBenefitsFromWeather(targetData, weather);
+}
+
+function scoreWeatherChangeForMatchup(
+	actorData: AnyObject, targetData: AnyObject | null, currentContext?: BTAIContext, nextContext?: BTAIContext
+) {
+	const nextWeather = normalizeWeather(nextContext?.weather);
+	if (!nextWeather || getWeatherGroup(nextWeather) === getWeatherGroup(currentContext?.weather)) return 0;
+	let score = 12;
+	if (targetData) {
+		const targetHP = getHPData(targetData);
+		const actorHP = getHPData(actorData);
+		const currentReverse = getReverseContext(currentContext);
+		const nextReverse = getReverseContext(nextContext);
+		const ownBefore = estimateBestDamageFromPokemon(actorData, targetData, currentContext);
+		const ownAfter = estimateBestDamageFromPokemon(actorData, targetData, nextContext);
+		const targetBefore = estimateBestDamageFromPokemon(targetData, actorData, currentReverse);
+		const targetAfter = estimateBestDamageFromPokemon(targetData, actorData, nextReverse);
+		score += (ownAfter - ownBefore) / Math.max(1, targetHP.maxhp) * 70;
+		score += (targetBefore - targetAfter) / Math.max(1, actorHP.maxhp) * 90;
+	}
+	const currentWeather = normalizeWeather(currentContext?.weather);
+	if (currentWeather) {
+		score += Math.max(0, sideWeatherSpeedValue(currentContext?.targetSide, currentWeather) - sideWeatherSpeedValue(currentContext?.ownSide, currentWeather));
+	}
+	score += sideWeatherSpeedValue(nextContext?.ownSide, nextWeather) - sideWeatherSpeedValue(nextContext?.targetSide, nextWeather);
+	return score;
+}
+
+function scoreWeatherMove(
+	move: Move, pokemonData: AnyObject, targetData: AnyObject | null, targetThreat: number, context?: BTAIContext
+) {
+	const weather = getMoveWeather(move);
+	if (!weather) return -Infinity;
+	const nextContext = applyWeatherContext(context, weather);
+	if (!nextContext || getWeatherGroup(nextContext.weather) === getWeatherGroup(context?.weather)) return -Infinity;
+	let score = 42 + scoreWeatherChangeForMatchup(pokemonData, targetData, context, nextContext);
+	const activeHP = getHPData(pokemonData);
+	if (targetThreat >= activeHP.hp * 0.7) score -= 22;
+	if ((move as AnyObject).selfSwitch) score += 18;
+	return score;
+}
+
 function getSwitchPivotPenalty(
 	switchOption: AnyObject | null, targetData: AnyObject | null, state?: BTBattleState, context?: BTAIContext
 ) {
@@ -1891,6 +2093,51 @@ function getSwitchPivotPenalty(
 	const punishCount = key && state?.pivotPunishedSwitches ? state.pivotPunishedSwitches[key] || 0 : 0;
 	if (punishCount) penalty += Math.min(95, punishCount * 38);
 	return penalty;
+}
+
+function getMoveTypeModAgainstPokemon(move: Move, type: string, sourceData: AnyObject, targetData: AnyObject) {
+	const dex = Dex.mod('gen9rrbt');
+	let typeMod = 0;
+	for (const targetType of getPokemonTypes(targetData)) {
+		if (!dex.getImmunity(type, targetType)) {
+			if (moveIgnoresTypeImmunity(move, type, sourceData, targetType)) continue;
+			return -Infinity;
+		}
+		typeMod += dex.getEffectiveness(type, targetType);
+	}
+	return typeMod;
+}
+
+function pokemonHasConfirmedMove(pokemonData: AnyObject | null, moveid: ID) {
+	if (!pokemonData) return false;
+	if (getPokemonMoveIDsFromData(pokemonData).includes(moveid)) return true;
+	const speciesid = getSpeciesID(pokemonData);
+	return !!opponentMemory[speciesid]?.moves?.[moveid];
+}
+
+function getSwitchKnownThreatPenalty(
+	switchOption: AnyObject | null, targetData: AnyObject | null, context?: BTAIContext
+) {
+	if (!switchOption || !targetData) return 0;
+	const hpData = getHPData(switchOption);
+	let penalty = 0;
+	for (const moveid of getPokemonMoveIDs(targetData)) {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
+		if (!move.exists || move.category === 'Status') continue;
+		const damage = estimateDamage(moveid, targetData, switchOption, false, context);
+		if (damage <= 0) continue;
+		const type = getModifiedMoveType(move, targetData, context);
+		const typeMod = getMoveTypeModAgainstPokemon(move, type, targetData, switchOption);
+		const damageFraction = Math.min(damage, hpData.hp) / Math.max(1, hpData.maxhp);
+		const confirmed = pokemonHasConfirmedMove(targetData, moveid);
+		let movePenalty = 0;
+		if (typeMod > 0) movePenalty += typeMod * (confirmed ? 28 : 14);
+		if (damageFraction >= 0.33) movePenalty += damageFraction * (confirmed ? 95 : 45);
+		if (damage >= hpData.hp) movePenalty += confirmed ? 60 : 28;
+		if (confirmed && typeMod > 0) movePenalty += 18;
+		penalty = Math.max(penalty, movePenalty);
+	}
+	return Math.min(140, penalty);
 }
 
 function isPivotBaitSwitch(
@@ -1914,12 +2161,15 @@ function scoreSwitchOption(
 		score += memoryScore(getMemoryKey(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`)) * 12;
 	}
 	if (!targetData) return score;
+	const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
 	const targetHP = getHPData(targetData);
-	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData, context);
-	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, context ? {...context, sourceSide: undefined} : undefined);
+	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData, switchContext);
+	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(switchContext));
 	score += Math.min(damageOut, targetHP.hp) / targetHP.maxhp * 100;
 	score -= Math.min(damageIn, hpData.hp) / hpData.maxhp * 75;
-	score -= getSwitchPivotPenalty(switchOption, targetData, state, context);
+	score -= getSwitchKnownThreatPenalty(switchOption, targetData, getReverseContext(switchContext));
+	score += scoreWeatherChangeForMatchup(switchOption, targetData, context, switchContext);
+	score -= getSwitchPivotPenalty(switchOption, targetData, state, switchContext);
 	if (damageOut >= targetHP.hp) score += 40;
 	if (damageIn >= hpData.hp) score -= 40;
 	if (pokemonCanHaveAbility(switchOption, 'magicbounce' as ID)) {
@@ -2148,7 +2398,13 @@ function rememberBotSwitch(
 	};
 }
 
-function getModifiedMoveType(move: Move, pokemonData: AnyObject) {
+function getModifiedMoveType(move: Move, pokemonData: AnyObject, context?: BTAIContext) {
+	if (move.id === 'weatherball') {
+		if (hasWeather(context, 'sunnyday' as ID)) return 'Fire';
+		if (hasWeather(context, 'raindance' as ID)) return 'Water';
+		if (hasWeather(context, 'sandstorm' as ID)) return 'Rock';
+		if (hasWeather(context, 'snow' as ID)) return 'Ice';
+	}
 	if (pokemonCanHaveAbility(pokemonData, 'liquidvoice' as ID) && move.flags['sound']) return 'Water';
 	if (pokemonCanHaveAbility(pokemonData, 'normalize' as ID) && move.id !== 'struggle') return 'Normal';
 	if (move.type === 'Normal') {
@@ -2262,12 +2518,22 @@ function estimateDamage(
 	if (!useZMove && ['lowkick', 'grassknot'].includes(moveid)) {
 		basePower = getWeightBasedBasePower(getPokemonWeight(targetData));
 	}
+	if (
+		!useZMove &&
+		moveid === 'weatherball' &&
+		(['sunnyday', 'raindance', 'sandstorm', 'snow'] as ID[]).some(weather => hasWeather(context, weather))
+	) {
+		basePower = 100;
+	}
 	if (!useZMove && moveid === 'knockoff' && pokemonItemCanBeKnockedOff(targetData)) {
 		basePower = Math.floor(basePower * 1.5);
 	}
+	if (!useZMove && ['solarbeam', 'solarblade'].includes(moveid) && context?.weather && !hasWeather(context, 'sunnyday' as ID)) {
+		basePower = Math.floor(basePower * 0.5);
+	}
 	if (move.multihit === 2) basePower *= 2;
 	if (moveid === 'tripleaxel') basePower = 120;
-	const type = getModifiedMoveType(move, sourceData);
+	const type = getModifiedMoveType(move, sourceData, context);
 	const sourceHasAbility = (abilityid: ID) => pokemonCanHaveAbility(sourceData, abilityid);
 	const targetHasAbility = (abilityid: ID) => pokemonCanHaveAbility(targetData, abilityid);
 	if (moveHasSelfKO(move) && (sourceHasAbility('damp' as ID) || targetHasAbility('damp' as ID))) return 0;
@@ -2358,8 +2624,15 @@ function estimateDamage(
 			break;
 		}
 	}
+	if (category === 'Special' && sourceHasAbility('solarpower' as ID) && hasWeather(context, 'sunnyday' as ID)) attack *= 1.5;
 	if (targetHasAbility('vesselofruin' as ID) && category === 'Special' && !sourceHasAbility('vesselofruin' as ID)) attack *= 0.75;
-	const defense = getStat(targetData, defensiveStat, sourceHasAbility('unaware' as ID));
+	let defense = getStat(targetData, defensiveStat, sourceHasAbility('unaware' as ID));
+	if (category === 'Physical' && hasWeather(context, 'snow' as ID) && getPokemonTypes(targetData).includes('Ice')) {
+		defense *= 1.5;
+	}
+	if (category === 'Special' && hasWeather(context, 'sandstorm' as ID) && getPokemonTypes(targetData).includes('Rock')) {
+		defense *= 1.5;
+	}
 	const item = toID(sourceData.item);
 	if (category === 'Physical') {
 		if (item === 'thickclub' && ['Cubone', 'Marowak', 'Marowak-Alola'].includes(sourceSpecies.baseSpecies)) attack *= 2;
@@ -2510,9 +2783,14 @@ function shouldSwitchForAbility(activeData: AnyObject, switchDamage: number, act
 	return false;
 }
 
-function getAccuracyFactor(move: Move, pokemonData: AnyObject) {
+function getAccuracyFactor(move: Move, pokemonData: AnyObject, context?: BTAIContext) {
 	if (move.accuracy === true) return 1;
 	let factor = typeof move.accuracy === 'number' ? Math.max(0.5, move.accuracy / 100) : 0.9;
+	if (['thunder', 'hurricane'].includes(move.id)) {
+		if (hasWeather(context, 'raindance' as ID)) factor = 1;
+		if (hasWeather(context, 'sunnyday' as ID)) factor = 0.5;
+	}
+	if (move.id === 'blizzard' && hasWeather(context, 'snow' as ID)) factor = 1;
 	const ability = getPokemonAbilityID(pokemonData);
 	if (ability === 'victorystar') factor *= 1.1;
 	if (ability === 'hustle' && move.category === 'Physical') factor *= 0.8;
@@ -2779,14 +3057,70 @@ function scoreMoveEffects(
 	return score;
 }
 
+function getSelfSwitchPositioningScore(
+	move: Move, damage: number, pokemonData: AnyObject, targetData: AnyObject,
+	state: BTBattleState, sourceActsBeforeTarget: boolean, context?: BTAIContext
+) {
+	if (!(move as AnyObject).selfSwitch) return 0;
+	const activeHP = getHPData(pokemonData);
+	const targetHP = getHPData(targetData);
+	const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData, getReverseContext(context));
+	if (targetThreat >= activeHP.hp && !sourceActsBeforeTarget) return -90;
+	const activeDamage = estimateBestDamageFromPokemon(pokemonData, targetData, context);
+	const opponentArchetype = getTeamArchetype(context?.targetSide, context);
+	let score = 0;
+	if (damage > 0 && damage < targetHP.hp) score += 16;
+	if (targetThreat >= activeHP.hp * 0.35 && damage < targetHP.hp) score += 24;
+	if (targetIsWeatherBreaker(targetData, context)) score += 34;
+	if (opponentArchetype === 'weather') score += 14;
+	if (opponentArchetype === 'hyperoffense') score += 10;
+	let bestBenchGain = 0;
+	for (const switchOption of remainingSidePokemon(context?.ownSide)) {
+		if (switchOption.active || getPokemonDecisionID(switchOption) === getPokemonDecisionID(pokemonData)) continue;
+		const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
+		const switchDamage = estimateBestDamageFromPokemon(switchOption, targetData, switchContext);
+		const switchThreat = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(switchContext));
+		const switchHP = getHPData(switchOption);
+		const damageGain = (switchDamage - activeDamage) / Math.max(1, targetHP.maxhp) * 75;
+		const safetyGain = (targetThreat / Math.max(1, activeHP.maxhp) - switchThreat / Math.max(1, switchHP.maxhp)) * 70;
+		bestBenchGain = Math.max(bestBenchGain, damageGain + safetyGain);
+	}
+	if (bestBenchGain > 0) score += Math.min(42, bestBenchGain);
+	return score;
+}
+
+function getSetupArchetypeAdjustment(
+	moveid: ID, pokemonData: AnyObject, targetData: AnyObject | null, targetThreat: number,
+	bestDamage: number, sweepPotential: number, context?: BTAIContext
+) {
+	if (!targetData) return 0;
+	const opponentArchetype = getTeamArchetype(context?.targetSide, context);
+	const activeHP = getHPData(pokemonData);
+	const targetHP = getHPData(targetData);
+	const boosts = getSetupBoosts(moveid);
+	const boostedData = boosts ? cloneWithBoosts(pokemonData, boosts) : pokemonData;
+	const boostedDamage = estimateBestDamageFromPokemon(boostedData, targetData, context);
+	const createsImmediateThreat = boostedDamage >= targetHP.hp || sweepPotential >= 3;
+	let adjustment = 0;
+	if (targetThreat >= activeHP.hp * 0.45 && !createsImmediateThreat) adjustment -= 54;
+	if (targetThreat >= activeHP.hp * 0.7 && boostedDamage < targetHP.hp) adjustment -= 45;
+	if (targetIsWeatherBreaker(targetData, context) && !createsImmediateThreat) adjustment -= 70;
+	if (opponentArchetype === 'weather' && !createsImmediateThreat) adjustment -= 24;
+	if (opponentArchetype === 'hyperoffense' && targetThreat >= activeHP.hp * 0.4 && !createsImmediateThreat) adjustment -= 26;
+	if (opponentArchetype === 'stall' && targetThreat < activeHP.hp * 0.45) adjustment += 34;
+	if (opponentArchetype === 'bulkyoffense' && bestDamage * 2 < targetHP.hp && targetThreat < activeHP.hp * 0.5) adjustment += 10;
+	return adjustment;
+}
+
 function scoreDamagingMove(
 	move: Move, moveid: ID, damage: number, pokemonData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null,
-	state: BTBattleState, action: string, context?: BTAIContext, useZMove = false
+	state: BTBattleState, action: string, context?: BTAIContext, useZMove = false, bestCurrentDamage = 0
 ) {
 	const targetHP = getHPData(targetData);
 	const targetMaxHP = Math.max(1, targetHP.maxhp);
 	const sourceHP = getHPData(pokemonData);
 	const movePriority = estimateMovePriority(move, pokemonData);
+	const accuracyFactor = getAccuracyFactor(move, pokemonData, context);
 	const sourceSpeed = estimateSpeed(pokemonData, context);
 	const targetSpeed = estimateSpeed(targetData, getPhazerContext(context));
 	const sourceActsBeforeTarget = movePriority > 0 || (movePriority === 0 && sourceSpeed > targetSpeed);
@@ -2813,6 +3147,14 @@ function scoreDamagingMove(
 			score -= 28;
 		}
 	}
+	const bestCurrentValue = bestCurrentDamage > 0 ? Math.min(bestCurrentDamage, targetHP.hp) / targetMaxHP : 0;
+	const currentValue = Math.min(damage, targetHP.hp) / targetMaxHP;
+	if (bestCurrentValue > currentValue && damage < targetHP.hp) {
+		score -= Math.min(80, (bestCurrentValue - currentValue) * 105);
+		if (accuracyFactor < 0.95) score -= Math.min(34, (0.95 - accuracyFactor) * 120 + 10);
+	} else if (bestCurrentValue > 0 && currentValue >= bestCurrentValue - 0.03 && accuracyFactor >= 0.99) {
+		score += 18;
+	}
 	const switchChance = getSwitchPredictionChance(state, pokemonData, targetData, context);
 	const predictedSwitch = switchChance ? getPredictedSwitchTarget(pokemonData, targetData, context) : null;
 	let predictedSwitchDamage = 0;
@@ -2820,12 +3162,13 @@ function scoreDamagingMove(
 	if (predictedSwitch) {
 		predictedSwitchHP = getHPData(predictedSwitch);
 		predictedSwitchDamage = estimateDamage(moveid, pokemonData, predictedSwitch, useZMove, context);
-		const currentValue = Math.min(damage, targetHP.hp) / targetMaxHP;
 		const switchValue = Math.min(predictedSwitchDamage, predictedSwitchHP.hp) / Math.max(1, predictedSwitchHP.maxhp);
-		score += (switchValue - currentValue) * 120 * switchChance;
-		if (damage >= targetHP.hp && predictedSwitchDamage < predictedSwitchHP.hp) score -= 65 * switchChance;
-		if (predictedSwitchDamage >= predictedSwitchHP.hp) score += 45 * switchChance;
-		if ((move as AnyObject).selfSwitch) score += 14 * switchChance;
+		let predictionWeight = switchChance;
+		if (bestCurrentDamage > 0 && damage < bestCurrentDamage * 0.85 && damage < targetHP.hp) predictionWeight *= 0.3;
+		score += (switchValue - currentValue) * 120 * predictionWeight;
+		if (damage >= targetHP.hp && predictedSwitchDamage < predictedSwitchHP.hp) score -= 65 * predictionWeight;
+		if (predictedSwitchDamage >= predictedSwitchHP.hp) score += 45 * predictionWeight;
+		if ((move as AnyObject).selfSwitch) score += 14 * predictionWeight;
 	}
 	if (damage <= 0) {
 		const usefulPredictedSwitchHit = !!(
@@ -2865,6 +3208,7 @@ function scoreDamagingMove(
 		}
 	}
 	if (movePriority > 0) score += 10 + movePriority * 5;
+	if (movePriority > 0 && targetIsWeatherBreaker(targetData, context) && damage > 0) score += 18;
 	if (movePriority <= 0) {
 		if (sourceSpeed > targetSpeed) {
 			score += 8;
@@ -2882,10 +3226,11 @@ function scoreDamagingMove(
 		score += 28;
 	}
 	if ((move as AnyObject).selfSwitch) score += 10;
+	score += getSelfSwitchPositioningScore(move, damage, pokemonData, targetData, state, sourceActsBeforeTarget, context);
 	if (moveid === 'rapidspin' && context?.ownHazards && hasHazards(context.ownHazards) && damage > 0) {
 		score += 58;
 	}
-	score *= getAccuracyFactor(move, pokemonData);
+	score *= accuracyFactor;
 	score += memoryScore(getMemoryKey(state, pokemonData, targetData, action)) * 15;
 	return score;
 }
@@ -2904,16 +3249,21 @@ function scoreStatusMove(
 	const setupKey = pokemonData.ident || getSpeciesName(pokemonData);
 	const targetThreat = targetData ?
 		estimateBestDamageFromPokemon(targetData, pokemonData, context ? {...context, sourceSide: undefined} : undefined) : 0;
+	const opponentArchetype = getTeamArchetype(context?.targetSide, context);
 	let score = -Infinity;
 
 	if (moveid === 'perishsong' && getSpeciesID(pokemonData) === 'gengar') {
 		score = 115;
 	} else if (isSetupMove(moveid) && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
+		const sweepPotential = estimateSetupSweepPotential(moveid, pokemonData, context);
 		score = 80;
 		if (targetThreat < activeHP.hp * 0.3) score += 34;
 		if (targetThreat >= activeHP.hp * 0.7) score -= 48;
 		if (getSetupPhazingThreat(pokemonData, targetData, targetPokemon, context)) score -= 120;
-		score += estimateSetupSweepPotential(moveid, pokemonData, context) * 10;
+		score += sweepPotential * 10;
+		score += getSetupArchetypeAdjustment(
+			moveid, pokemonData, targetData, targetThreat, bestDamage, sweepPotential, context
+		);
 	} else if (
 		PHASING_MOVE_IDS.has(moveid) &&
 		targetData &&
@@ -2922,6 +3272,7 @@ function scoreStatusMove(
 		const positiveBoosts = getPositiveBoostCount(targetData);
 		score = positiveBoosts ? 88 + positiveBoosts * 12 : targetLooksLikeSetupThreat(targetData) ? 58 : 24;
 		if (targetThreat >= activeHP.hp * 0.7) score += 16;
+		if (opponentArchetype === 'hyperoffense' || opponentArchetype === 'weather') score += 14;
 	} else if (move.flags['futuremove'] && targetData && bestDamage >= 0) {
 		score = 62;
 	} else if (
@@ -2936,6 +3287,11 @@ function scoreStatusMove(
 	) {
 		score = 66 - targetHazards.spikes * 4;
 		if (sideHasAbility(context?.targetSide, 'magicbounce' as ID)) score -= 60;
+		if (opponentArchetype === 'weather' || opponentArchetype === 'hyperoffense') score += 12;
+		if (opponentArchetype === 'stall') score += 8;
+	} else if (getMoveWeather(move)) {
+		score = scoreWeatherMove(move, pokemonData, targetData, targetThreat, context);
+		if (opponentArchetype === 'weather') score += 28;
 	} else if (
 		['recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'synthesis'].includes(moveid) &&
 		hpFraction < 0.55
@@ -2949,8 +3305,12 @@ function scoreStatusMove(
 		score = 58 / counter;
 	} else if (['toxic', 'willowisp', 'thunderwave'].includes(moveid) && targetData && !hasStatus(targetData)) {
 		score = 52;
+		if (opponentArchetype === 'bulkyoffense' || opponentArchetype === 'stall') score += 10;
+		if (opponentArchetype === 'weather' && targetIsWeatherBreaker(targetData, context)) score += 16;
 	} else if (['taunt', 'encore', 'torment'].includes(moveid) && targetData) {
 		score = 38;
+		if (opponentArchetype === 'stall') score += 42;
+		if (opponentArchetype === 'hyperoffense' && targetLooksLikeSetupThreat(targetData)) score += 28;
 	} else if (isStallingMove(moveid) && hpFraction > 0.35) {
 		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
 		score = 26 / counter;
@@ -2986,7 +3346,15 @@ function chooseBestMove(
 		}
 	}
 	const targetHP = targetData ? getHPData(targetData).hp : 1;
-	let bestDamage = -1;
+	let bestDamage = 0;
+	if (targetData) {
+		for (const choice of damagingMoves) {
+			const move = Dex.mod('gen9rrbt').moves.get(choice.move.id);
+			const moveid = choice.move.id as ID;
+			if (futureMoveActive && move.flags['futuremove']) continue;
+			bestDamage = Math.max(bestDamage, estimateDamage(moveid, pokemonData, targetData, false, context));
+		}
+	}
 	let bestChoice = moves[0];
 	let bestIsZ = false;
 	let bestScore = -Infinity;
@@ -2997,12 +3365,12 @@ function chooseBestMove(
 			const moveid = choice.move.id as ID;
 			if (futureMoveActive && move.flags['futuremove']) continue;
 			const damage = estimateDamage(moveid, pokemonData, targetData, false, context);
-			if (damage > bestDamage) bestDamage = damage;
 			const action = `move:${moveid}`;
-			const score = scoreDamagingMove(move, moveid, damage, pokemonData, targetData, targetPokemon, state, action, context);
+			const score = scoreDamagingMove(
+				move, moveid, damage, pokemonData, targetData, targetPokemon, state, action, context, false, bestDamage
+			);
 			if (score > bestScore) {
 				bestScore = score;
-				bestDamage = damage;
 				bestChoice = choice;
 				bestIsZ = false;
 			}
@@ -3013,13 +3381,12 @@ function chooseBestMove(
 				const targetMaxHP = Math.max(1, getHPData(targetData).maxhp);
 				const zUpgrade = Math.min(80, Math.max(0, zDamage - damage) / targetMaxHP * 80);
 				const zScore = scoreDamagingMove(
-					move, moveid, zDamage, pokemonData, targetData, targetPokemon, state, zAction, context, true
+					move, moveid, zDamage, pokemonData, targetData, targetPokemon, state, zAction, context, true, bestDamage
 				) + zUpgrade + (
 					zDamage >= targetHP && damage < targetHP ? 55 : 0
 				) - zMoveConservationPenalty(damage, zDamage, targetData, context);
 				if (zScore > bestScore) {
 					bestScore = zScore;
-					bestDamage = zDamage;
 					bestChoice = choice;
 					bestIsZ = true;
 				}
@@ -3098,13 +3465,14 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData, {...context, sourceSide: undefined});
 			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData, state, context);
 			const switchOption = switchSlot ? request.side.pokemon[switchSlot - 1] : null;
-			const switchDamage = switchOption ? estimateBestDamageFromPokemon(switchOption, targetData, context) : 0;
+			const switchContext = switchOption ? getWeatherContextAfterPokemonSwitch(switchOption, context) || context : context;
+			const switchDamage = switchOption ? estimateBestDamageFromPokemon(switchOption, targetData, switchContext) : 0;
 			const lethalSwitch = !!(
 				switchOption &&
 				targetThreat >= activeHP.hp && bestDamage < targetHP.hp &&
-				shouldSwitchOutOfLethalThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, context)
+				shouldSwitchOutOfLethalThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext)
 			);
-			const pivotPenalty = switchOption ? getSwitchPivotPenalty(switchOption, targetData, state, context) : 0;
+			const pivotPenalty = switchOption ? getSwitchPivotPenalty(switchOption, targetData, state, switchContext) : 0;
 			const pivotBait = isPivotBaitSwitch(
 				pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, pivotPenalty
 			);

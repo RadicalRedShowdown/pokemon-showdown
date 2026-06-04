@@ -19,7 +19,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
 			if (!isRedMistHoundoom(pokemon, this.effectState.source)) return;
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(this.field.weather)) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -35,6 +35,14 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-message', `The red mist is preventing ${move.name}.`);
 				return null;
 			}
+		},
+		onAnyTryMove(pokemon, target, move) {
+			const source = this.effectState.source as Pokemon | undefined;
+			if (!isRedMistHoundoom(source, source) || !source.isActive) return;
+			if (!['destinybond', 'perishsong'].includes(move.id)) return;
+			this.attrLastMove('[still]');
+			this.add('-message', `The red mist is preventing ${move.name}.`);
+			return false;
 		},
 		onSetStatus(status, target, source, effect) {
 			if (!isRedMistHoundoom(target, this.effectState.source)) return;
