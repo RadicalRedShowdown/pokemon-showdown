@@ -2984,6 +2984,10 @@ function moveHasRecoilOrCrash(move: Move) {
 	return !!move.recoil || !!(move as AnyObject).hasCrashDamage || move.selfdestruct === 'always';
 }
 
+function moveWillAlwaysCrit(move: Move) {
+	return !!(move as AnyObject).willCrit;
+}
+
 function getBoosterBoostedStat(pokemonData: AnyObject) {
 	let bestStat: StatIDExceptHP = 'atk';
 	let bestValue = 0;
@@ -3040,6 +3044,22 @@ function getStat(pokemonData: AnyObject, stat: StatIDExceptHP, ignoreBoosts = fa
 	return Math.max(1, Math.floor(base * getBoostModifier(ignoreBoosts ? 0 : pokemonData.boosts?.[stat] || 0)));
 }
 
+function getCritAdjustedStat(
+	pokemonData: AnyObject, stat: StatIDExceptHP, ignoreBoosts: boolean,
+	criticalHit: boolean, offensive: boolean
+) {
+	const boost = pokemonData.boosts?.[stat] || 0;
+	const critIgnoresBoost = criticalHit && (offensive ? boost < 0 : boost > 0);
+	return getStat(pokemonData, stat, ignoreBoosts || critIgnoresBoost);
+}
+
+function getFixedMoveDamage(move: Move, sourceData: AnyObject) {
+	const fixedDamage = (move as AnyObject).damage;
+	if (fixedDamage === 'level') return getLevel(sourceData.details || '');
+	if (typeof fixedDamage === 'number') return fixedDamage;
+	return null;
+}
+
 function estimateDamage(
 	moveid: ID, sourceData: AnyObject, targetData: AnyObject, useZMove = false, context?: BTAIContext
 ) {
@@ -3057,6 +3077,9 @@ function estimateDamage(
 	if (useZMove) {
 		if (!move.zMove?.basePower) return 0;
 		basePower = move.zMove.basePower;
+	}
+	if (!useZMove && ['storedpower', 'powertrip'].includes(moveid)) {
+		basePower = move.basePower + 20 * getPositiveBoostCount(sourceData);
 	}
 	if (!useZMove && ['lowkick', 'grassknot'].includes(moveid)) {
 		basePower = getWeightBasedBasePower(getPokemonWeight(targetData));
@@ -3164,10 +3187,19 @@ function estimateDamage(
 		typeMultiplier <= 1 &&
 		!sourceIgnoresTargetAbility(sourceData, move)
 	) return 0;
+	const fixedDamage = getFixedMoveDamage(move, sourceData);
+	if (fixedDamage !== null) {
+		let damage = Math.max(0, Math.floor(fixedDamage));
+		if (sturdyPreventsOHKO(move, sourceData, targetData, damage, useZMove)) {
+			damage = Math.max(0, getHPData(targetData).hp - 1);
+		}
+		return damage;
+	}
 	const category = move.category;
 	const offensiveStat = (move as AnyObject).overrideOffensiveStat || (category === 'Physical' ? 'atk' : 'spa');
 	const defensiveStat = (move as AnyObject).overrideDefensiveStat || (category === 'Physical' ? 'def' : 'spd');
-	let attack = getStat(sourceData, offensiveStat, targetHasAbility('unaware' as ID));
+	const criticalHit = !useZMove && moveWillAlwaysCrit(move);
+	let attack = getCritAdjustedStat(sourceData, offensiveStat, targetHasAbility('unaware' as ID), criticalHit, true);
 	for (const abilityid of getPossiblePokemonAbilityIDs(sourceData)) {
 		if (abilityBoostIsActive(abilityid, sourceData, context) && getActiveBoosterBoostedStat(abilityid, sourceData) === offensiveStat) {
 			attack *= 1.3;
@@ -3176,7 +3208,7 @@ function estimateDamage(
 	}
 	if (category === 'Special' && sourceHasAbility('solarpower' as ID) && hasWeather(context, 'sunnyday' as ID)) attack *= 1.5;
 	if (targetHasAbility('vesselofruin' as ID) && category === 'Special' && !sourceHasAbility('vesselofruin' as ID)) attack *= 0.75;
-	let defense = getStat(targetData, defensiveStat, sourceHasAbility('unaware' as ID));
+	let defense = getCritAdjustedStat(targetData, defensiveStat, sourceHasAbility('unaware' as ID), criticalHit, false);
 	if (category === 'Physical' && hasWeather(context, 'snow' as ID) && getPokemonTypes(targetData).includes('Ice')) {
 		defense *= 1.5;
 	}
@@ -3195,6 +3227,10 @@ function estimateDamage(
 	let damage = Math.floor(Math.floor(Math.floor((2 * level / 5 + 2) * basePower * attack / defense) / 50) + 2);
 	if (getSourceTypesForMove(sourceData, type).includes(type)) damage = Math.floor(damage * 1.5);
 	damage = Math.floor(damage * typeMultiplier);
+	if (criticalHit) {
+		damage = Math.floor(damage * 1.5);
+		if (sourceHasAbility('sniper' as ID)) damage = Math.floor(damage * 1.5);
+	}
 	if (targetHasAbility('purifyingsalt' as ID) && type === 'Ghost' && !sourceHasAbility('moldbreaker' as ID)) {
 		damage = Math.floor(damage * 0.5);
 	}
@@ -3349,6 +3385,20 @@ function shouldSwitchOutOfLethalThreat(
 	return switchDamage >= activeDamage * 1.25 || switchThreat < targetThreat * 0.75;
 }
 
+function shouldSwitchOutOfNoProgress(
+	activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, targetThreat: number, context?: BTAIContext
+) {
+	if (!switchOption || activeDamage > 0 || targetThreat <= 0) return false;
+	const activeHP = getHPData(activeData);
+	const switchHP = getHPData(switchOption);
+	const switchThreat = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(context));
+	if (switchThreat >= switchHP.hp && targetThreat < activeHP.hp) return false;
+	if (switchDamage > 0) return true;
+	if (CHOICE_ITEM_IDS.has(getPokemonItemID(activeData))) return true;
+	return targetThreat >= activeHP.maxhp * 0.35 || targetThreat >= activeHP.hp * 0.55;
+}
+
 function shouldSwitchForAbility(activeData: AnyObject, switchDamage: number, activeDamage: number) {
 	const ability = getPokemonAbilityID(activeData);
 	const hp = getHPData(activeData);
@@ -3385,6 +3435,19 @@ function pokemonCanRecover(pokemonData: AnyObject | null) {
 
 function moveAppliesHealBlock(move: Move, moveid: ID) {
 	return moveid === 'psychicnoise' || (move.secondary as AnyObject | null)?.volatileStatus === 'healblock';
+}
+
+function estimateRecoveryAmount(moveid: ID, pokemonData: AnyObject, context?: BTAIContext) {
+	const hp = getHPData(pokemonData);
+	let fraction = 0.5;
+	if (['morningsun', 'moonlight', 'synthesis'].includes(moveid)) {
+		if (hasWeather(context, 'sunnyday' as ID)) {
+			fraction = 2 / 3;
+		} else if (context?.weather) {
+			fraction = 0.25;
+		}
+	}
+	return Math.max(1, Math.floor(hp.maxhp * fraction));
 }
 
 function pokemonKnowsMove(pokemonData: AnyObject | null, moveid: ID) {
@@ -3663,6 +3726,48 @@ function getStatusEffectValue(status: ID, sourceData: AnyObject, targetData: Any
 	return 12;
 }
 
+function getStatusPressureScore(
+	moveid: ID, pokemonData: AnyObject, targetData: AnyObject | null,
+	bestDamage: number, targetThreat: number, context?: BTAIContext
+) {
+	if (!targetData) return 0;
+	const targetHP = getHPData(targetData);
+	const activeHP = getHPData(pokemonData);
+	const sourceSpeed = estimateSpeed(pokemonData, context);
+	const targetSpeed = estimateSpeed(targetData, getReverseContext(context));
+	const targetPhysicalThreat = estimateBestDamageByCategory(targetData, pokemonData, 'Physical', getReverseContext(context));
+	const targetSpecialThreat = estimateBestDamageByCategory(targetData, pokemonData, 'Special', getReverseContext(context));
+	const cannot2HKO = bestDamage > 0 && bestDamage * 2 < targetHP.hp;
+	const cannot3HKO = bestDamage > 0 && bestDamage * 3 < targetHP.hp;
+	const targetBoosts = getPositiveBoostCount(targetData);
+	let score = 0;
+	if (cannot2HKO) score += 24;
+	if (cannot3HKO) score += 16;
+	if (pokemonCanRecover(targetData)) score += 18;
+	if (targetLooksLikeSetupThreat(targetData)) score += 20 + Math.min(30, targetBoosts * 7);
+	if (targetThreat >= activeHP.hp * 0.5 && bestDamage < targetHP.hp) score += 12;
+	if (moveid === 'toxic') {
+		if (cannot2HKO || pokemonCanRecover(targetData) || targetLooksLikeSetupThreat(targetData)) score += 34;
+		if (targetBoosts >= 2) score += 22;
+		if (targetThreat < activeHP.hp * 0.35) score += 12;
+	}
+	if (moveid === 'willowisp') {
+		if (targetPhysicalThreat > 0) score += 18;
+		if (targetPhysicalThreat >= targetSpecialThreat) score += 22;
+		if (targetPhysicalThreat >= activeHP.hp * 0.45) score += 22;
+		if ((targetData.boosts?.atk || 0) > 0) score += 18 + (targetData.boosts.atk || 0) * 6;
+	}
+	if (moveid === 'thunderwave') {
+		if (targetSpeed > sourceSpeed) score += 24;
+		if (targetThreat >= activeHP.hp * 0.45) score += 14;
+		if (targetLooksLikeSetupThreat(targetData)) score += 12;
+		if (targetSpeed > sourceSpeed && targetThreat > 0) {
+			score += Math.min(30, targetThreat / Math.max(1, activeHP.hp) * 90 * 0.33);
+		}
+	}
+	return score;
+}
+
 function scoreBoostTable(boosts: SparseBoostsTable | null | undefined, positive: boolean) {
 	if (!boosts) return 0;
 	let score = 0;
@@ -3925,11 +4030,23 @@ function scoreStatusMove(
 
 	if (moveid === 'perishsong' && getSpeciesID(pokemonData) === 'gengar') {
 		score = 115;
-	} else if (isSetupMove(moveid) && !state.setupUsed[setupKey] && bestDamage > 0 && bestDamage * 2 < targetHP) {
+	} else if (isSetupMove(moveid) && targetData && bestDamage > 0 && bestDamage < targetHP) {
 		const sweepPotential = estimateSetupSweepPotential(moveid, pokemonData, context);
-		score = 80;
-		if (targetThreat < activeHP.hp * 0.3) score += 34;
-		if (targetThreat >= activeHP.hp * 0.7) score -= 48;
+		const boosts = getSetupBoosts(moveid);
+		const boostedData = boosts ? cloneWithBoosts(pokemonData, boosts) : pokemonData;
+		const boostedDamage = estimateBestDamageFromPokemon(boostedData, targetData, context);
+		const alreadySetUp = !!state.setupUsed[setupKey];
+		const positiveBoosts = getPositiveBoostCount(pokemonData);
+		score = alreadySetUp ? 50 : 80;
+		if (boostedDamage <= bestDamage && sweepPotential <= 0) score -= 80;
+		if (bestDamage * 2 < targetHP) score += 16;
+		if (boostedDamage >= targetHP && bestDamage < targetHP) score += 48;
+		if (targetThreat < activeHP.hp * 0.3) score += alreadySetUp ? 42 : 34;
+		if (targetThreat < activeHP.hp * 0.18 && boostedDamage > bestDamage * 1.2) score += 22;
+		if (targetThreat >= activeHP.hp * 0.7) score -= alreadySetUp ? 72 : 48;
+		if (alreadySetUp && targetThreat >= activeHP.hp * 0.45 && boostedDamage < targetHP) score -= 34;
+		if (positiveBoosts >= 6 && boostedDamage < targetHP) score -= 34;
+		if (positiveBoosts >= 10) score -= 70;
 		if (getSetupPhazingThreat(pokemonData, targetData, targetPokemon, context)) score -= 120;
 		score += sweepPotential * 10;
 		score += getSetupArchetypeAdjustment(
@@ -3967,7 +4084,14 @@ function scoreStatusMove(
 		['recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'synthesis'].includes(moveid) &&
 		hpFraction < 0.55
 	) {
+		const recoveryAmount = estimateRecoveryAmount(moveid, pokemonData, context);
 		score = 72 + (0.55 - hpFraction) * 80;
+		if (targetData && targetThreat > 0) {
+			const targetIsBeingStalled = hasStatus(targetData);
+			if (bestDamage <= 0 && !targetIsBeingStalled) score -= 105;
+			if (targetThreat >= recoveryAmount * 0.9 && bestDamage < targetHP * 0.25) score -= 78;
+			if (targetThreat >= activeHP.hp && bestDamage < targetHP) score -= 34;
+		}
 	} else if (moveid === 'wish' && (hpFraction < 0.68 || sideHasLowHPAlly(context?.ownSide))) {
 		score = hpFraction < 0.5 ? 86 : 68;
 		if (pokemonKnowsMove(pokemonData, 'protect' as ID)) score += 10;
@@ -3975,7 +4099,7 @@ function scoreStatusMove(
 		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
 		score = 58 / counter;
 	} else if (['toxic', 'willowisp', 'thunderwave'].includes(moveid) && targetData && !hasStatus(targetData)) {
-		score = 52;
+		score = 52 + getStatusPressureScore(moveid, pokemonData, targetData, bestDamage, targetThreat, context);
 		if (opponentArchetype === 'bulkyoffense' || opponentArchetype === 'stall') score += 10;
 		if (opponentArchetype === 'weather' && targetIsWeatherBreaker(targetData, context)) score += 16;
 	} else if (['taunt', 'encore', 'torment'].includes(moveid) && targetData) {
@@ -4088,9 +4212,12 @@ function chooseBestMove(
 		}
 	}
 	if (bestScore === -Infinity) {
+		const activeHP = getHPData(pokemonData);
+		const hpFraction = activeHP.hp / Math.max(1, activeHP.maxhp);
 		bestChoice = moves.find(({move}: {move: AnyObject}) => {
 			const dexMove = Dex.mod('gen9rrbt').moves.get(move.id);
-			return !(futureMoveActive && dexMove.flags['futuremove']);
+			return !(futureMoveActive && dexMove.flags['futuremove']) &&
+				!(RECOVERY_MOVE_IDS.has(move.id) && hpFraction > 0.85);
 		}) || moves[0];
 		bestIsZ = false;
 	}
@@ -4159,6 +4286,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			);
 			const progressSwitch =
 				(bestDamage <= 0 && switchDamage > 0) ||
+				shouldSwitchOutOfNoProgress(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
 				shouldSwitchOutOfBadPriorityMatchup(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
 				shouldSwitchForBetterMatchup(pokemonData, targetData, bestDamage, switchDamage, targetThreat) ||
 				shouldSwitchForAbility(pokemonData, switchDamage, bestDamage);
