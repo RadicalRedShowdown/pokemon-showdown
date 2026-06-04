@@ -50,6 +50,19 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Bone moves ignore immunities; resists take 2x. Blocks halving moves; cures status.",
 	},
 	radicalaura: {
+		onFoeDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id === 'destinybond' || moveSlot.id === 'perishsong') pokemon.disableMove(moveSlot.id);
+			}
+		},
+		onFoeBeforeMovePriority: 100,
+		onFoeBeforeMove(attacker, defender, move) {
+			if (move.id !== 'destinybond' && move.id !== 'perishsong') return;
+			const source = this.effectState.target as Pokemon;
+			this.add('cant', attacker, 'ability: Radical Aura', move);
+			this.add('-message', `${source.name}'s Radical Aura is preventing ${move.name}.`);
+			return false;
+		},
 		onStart(pokemon) {
 			if (this.suppressingAbility(pokemon)) return;
 			if (pokemon.m.radicalAuraAnnounced) return;

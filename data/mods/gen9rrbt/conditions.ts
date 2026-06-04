@@ -2,6 +2,8 @@ function isRedMistHoundoom(pokemon: Pokemon | null | undefined, source: Pokemon 
 	return !!pokemon && pokemon === source && !pokemon.fainted && pokemon.species.id === 'houndoommega';
 }
 
+const RED_MIST_BLOCKED_MOVES = new Set(['destinybond', 'perishsong']);
+
 export const Conditions: {[k: string]: ModdedConditionData} = {
 	redmist: {
 		name: "Red Mist",
@@ -39,9 +41,23 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		onAnyTryMove(pokemon, target, move) {
 			const source = this.effectState.source as Pokemon | undefined;
 			if (!isRedMistHoundoom(source, source) || !source.isActive) return;
-			if (!['destinybond', 'perishsong'].includes(move.id)) return;
+			if (!RED_MIST_BLOCKED_MOVES.has(move.id)) return;
 			this.attrLastMove('[still]');
 			this.add('-message', `The red mist is preventing ${move.name}.`);
+			return false;
+		},
+		onAnyDisableMove(pokemon) {
+			const source = this.effectState.source as Pokemon | undefined;
+			if (!isRedMistHoundoom(source, source) || !source.isActive || pokemon === source) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (RED_MIST_BLOCKED_MOVES.has(moveSlot.id)) pokemon.disableMove(moveSlot.id);
+			}
+		},
+		onAnyBeforeMove(pokemon, target, move) {
+			const source = this.effectState.source as Pokemon | undefined;
+			if (!isRedMistHoundoom(source, source) || !source.isActive) return;
+			if (!RED_MIST_BLOCKED_MOVES.has(move.id)) return;
+			this.add('cant', pokemon, 'move: Red Mist', move);
 			return false;
 		},
 		onSetStatus(status, target, source, effect) {

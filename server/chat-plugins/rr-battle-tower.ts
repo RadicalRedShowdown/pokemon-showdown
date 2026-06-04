@@ -18,11 +18,6 @@ const AI_MEMORY_FILE = 'config/chat-plugins/rr-battle-tower-ai-memory.json';
 const OPPONENT_MEMORY_FILE = 'config/chat-plugins/rr-battle-tower-opponent-memory.json';
 const MEDALS_FILE = 'config/chat-plugins/rr-battle-tower-medals.json';
 const ACCESS_FILE = 'config/chat-plugins/rr-battle-tower-access.json';
-const LEGACY_LEVELS_FILE = 'config/chat-plugins/rr-story-levels.json';
-const LEGACY_PROGRESS_FILE = 'config/chat-plugins/rr-story-progress.json';
-const LEGACY_AI_MEMORY_FILE = 'config/chat-plugins/rr-story-ai-memory.json';
-const LEGACY_OPPONENT_MEMORY_FILE = 'config/chat-plugins/rr-story-opponent-memory.json';
-const LEGACY_MEDALS_FILE = 'config/chat-plugins/rr-story-medals.json';
 
 const BT_MEDALS = {
 	marowak: {
@@ -69,6 +64,7 @@ const DISRUPTION_MOVE_IDS = new Set<ID>([
 	'taunt' as ID, 'encore' as ID, 'torment' as ID,
 ]);
 const FIRST_ACTIVE_MOVE_ONLY_IDS = new Set<ID>(['fakeout' as ID, 'firstimpression' as ID]);
+const ANTI_ATTACK_PRIORITY_MOVE_IDS = new Set<ID>(['suckerpunch' as ID, 'thunderclap' as ID]);
 const STATUS_AILMENT_IDS = new Set<ID>(['brn' as ID, 'par' as ID, 'psn' as ID, 'tox' as ID, 'slp' as ID, 'frz' as ID]);
 const WEATHER_SPEED_ABILITIES: {[k: string]: ID} = {
 	chlorophyll: 'sunnyday' as ID,
@@ -154,7 +150,9 @@ interface BTBattleState {
 	playerStyle: BTPlayerStyle;
 	pendingPlayerAction: BTPendingPlayerAction | null;
 	publicItems: {[ident: string]: ID};
+	consumedItems: {[ident: string]: ID};
 	observedPlayerSets: {[ident: string]: BTObservedPlayerSet};
+	lastPlayerMoveByIdent: {[ident: string]: ID};
 	hpByIdent: {[ident: string]: BTHPState};
 	lastMoveEvent: BTLoggedMove | null;
 	inferredStats: {[ident: string]: Partial<Record<StatIDExceptHP, number>>};
@@ -431,12 +429,12 @@ const btAccess = new Set<ID>(loadBTAccess());
 const btBattles = new Map<RoomID, BTBattleState>();
 const btRequests = new Map<ID, {level: number, replay: boolean}>();
 
-function readConfigFile(path: string, legacyPath: string) {
-	return FS(path).readIfExistsSync() || FS(legacyPath).readIfExistsSync();
+function readConfigFile(path: string) {
+	return FS(path).readIfExistsSync();
 }
 
 function loadLevels() {
-	const data = readConfigFile(LEVELS_FILE, LEGACY_LEVELS_FILE);
+	const data = readConfigFile(LEVELS_FILE);
 	if (!data) return DEFAULT_LEVELS.slice();
 	try {
 		const parsed = JSON.parse(data);
@@ -456,7 +454,7 @@ function loadLevels() {
 
 function loadProgress() {
 	try {
-		const parsed = JSON.parse(readConfigFile(PROGRESS_FILE, LEGACY_PROGRESS_FILE) || "{}");
+		const parsed = JSON.parse(readConfigFile(PROGRESS_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
 		const result: {[userid: string]: number} = {};
 		for (const [userid, cleared] of Object.entries(parsed)) {
@@ -479,7 +477,7 @@ function isBTMedalID(medal: string): medal is BTMedalID {
 
 function loadBTMedals() {
 	try {
-		const parsed = JSON.parse(readConfigFile(MEDALS_FILE, LEGACY_MEDALS_FILE) || "{}");
+		const parsed = JSON.parse(readConfigFile(MEDALS_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
 		const result: {[userid: string]: BTMedalID[]} = {};
 		for (const [userid, medals] of Object.entries(parsed)) {
@@ -526,7 +524,7 @@ function checkBTAccess(context: Chat.CommandContext, user: User) {
 
 function loadAIMemory() {
 	try {
-		const parsed = JSON.parse(readConfigFile(AI_MEMORY_FILE, LEGACY_AI_MEMORY_FILE) || "{}");
+		const parsed = JSON.parse(readConfigFile(AI_MEMORY_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
 		const result: {[key: string]: BTAIMemoryEntry} = {};
 		for (const [key, entry] of Object.entries(parsed)) {
@@ -550,7 +548,7 @@ function saveAIMemory() {
 
 function loadOpponentMemory() {
 	try {
-		const parsed = JSON.parse(readConfigFile(OPPONENT_MEMORY_FILE, LEGACY_OPPONENT_MEMORY_FILE) || "{}");
+		const parsed = JSON.parse(readConfigFile(OPPONENT_MEMORY_FILE) || "{}");
 		if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
 		const result: {[speciesid: string]: BTOpponentMemoryEntry} = {};
 		for (const [speciesid, entry] of Object.entries(parsed)) {
@@ -1477,6 +1475,7 @@ function syncBattleState(room: GameRoom, state: BTBattleState) {
 		if (line.startsWith('|move|')) {
 			if (getLineSideID(parts[2]) === 'p1') {
 				learnOpponentMemoryValue(room, state, parts[2], 'moves', parts[3]);
+				state.lastPlayerMoveByIdent[getBattleIdentID(parts[2])] = toID(parts[3]);
 			}
 		} else if (line.startsWith('|-ability|')) {
 			if (getLineSideID(parts[2]) === 'p1') {
@@ -1492,8 +1491,10 @@ function syncBattleState(room: GameRoom, state: BTBattleState) {
 				const identID = getBattleIdentID(parts[2]);
 				if (line.startsWith('|-item|')) {
 					state.publicItems[identID] = toID(parts[3]);
+					delete state.consumedItems[identID];
 				} else {
 					delete state.publicItems[identID];
+					state.consumedItems[identID] = toID(parts[3]);
 				}
 				learnOpponentMemoryValue(room, state, parts[2], 'items', parts[3]);
 			}
@@ -1536,6 +1537,33 @@ function hasHazards(hazards: BTSideHazards) {
 		hazards.stealthrock || hazards.spikes || hazards.toxicspikes ||
 		hazards.stickyweb || hazards.gmaxsteelsurge
 	);
+}
+
+function pokemonAvoidsEntryHazards(pokemonData: AnyObject | null) {
+	return !!pokemonData && (
+		getPokemonItemID(pokemonData) === 'heavydutyboots' ||
+		pokemonCanHaveAbility(pokemonData, 'shielddust' as ID)
+	);
+}
+
+function estimateHazardDamage(pokemonData: AnyObject | null, hazards?: BTSideHazards) {
+	if (!pokemonData || !hazards || pokemonAvoidsEntryHazards(pokemonData)) return 0;
+	const hp = getHPData(pokemonData);
+	let damage = 0;
+	if (hazards.stealthrock) {
+		const dex = Dex.mod('gen9rrbt');
+		let typeMod = 0;
+		for (const type of getPokemonTypes(pokemonData)) {
+			typeMod += dex.getEffectiveness('Rock', type);
+		}
+		damage += Math.floor(hp.maxhp * Math.pow(2, typeMod) / 8);
+	}
+	if (hazards.spikes && pokemonIsGrounded(pokemonData)) {
+		const divisor = hazards.spikes >= 3 ? 4 : hazards.spikes === 2 ? 6 : 8;
+		damage += Math.floor(hp.maxhp / divisor);
+	}
+	if (hazards.gmaxsteelsurge) damage += Math.floor(hp.maxhp / 8);
+	return Math.max(0, damage);
 }
 
 function scoreLeadIntoTarget(leadData: AnyObject, targetData: AnyObject, context: BTAIContext) {
@@ -1749,17 +1777,22 @@ function addBattlePokemonState(data: AnyObject, pokemon: Pokemon) {
 		])),
 		activeTurns: pokemon.activeTurns,
 		activeMoveActions: pokemon.activeMoveActions,
+		timesAttacked: pokemon.timesAttacked,
 		newlySwitched: pokemon.newlySwitched,
 	};
 }
 
 function addPublicPokemonState(data: AnyObject | null, state?: BTBattleState) {
 	if (!data || !state) return data;
-	const publicItem = state.publicItems[getPokemonDecisionID(data)];
+	const decisionID = getPokemonDecisionID(data);
+	const publicItem = state.publicItems[decisionID];
+	const consumedItem = state.consumedItems?.[decisionID];
 	let result = publicItem ? {...data, item: publicItem} : data;
+	const observedMoves = Object.keys(state.observedPlayerSets?.[decisionID]?.moves || {}) as ID[];
+	if (observedMoves.length >= 4) result = {...result, moves: observedMoves};
 	if (!result.item) {
 		const memoryItem = getLikelyMemoryItemID(result);
-		if (memoryItem) result = {...result, item: memoryItem};
+		if (memoryItem && memoryItem !== consumedItem) result = {...result, item: memoryItem};
 	}
 	const inferredStats = state.inferredStats?.[getPokemonDecisionID(result)];
 	if (inferredStats && result.stats) {
@@ -2405,6 +2438,21 @@ function estimateBestPriorityDamageFromPokemon(
 	return best;
 }
 
+function estimateHighestMovePriorityFromPokemon(
+	sourceData: AnyObject, targetData: AnyObject | null, context?: BTAIContext, foeMoveCategory?: MoveCategory
+) {
+	if (!targetData) return 0;
+	let priority = 0;
+	for (const moveid of getPokemonMoveIDs(sourceData)) {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
+		if (!move.exists) continue;
+		if (ANTI_ATTACK_PRIORITY_MOVE_IDS.has(moveid) && foeMoveCategory === 'Status') continue;
+		if (estimateDamage(moveid, sourceData, targetData, false, context) <= 0 && move.category !== 'Status') continue;
+		priority = Math.max(priority, estimateMovePriority(move, sourceData, targetData));
+	}
+	return priority;
+}
+
 function estimateBestDamageActingBefore(
 	sourceData: AnyObject, targetData: AnyObject | null, foePriority: number, context?: BTAIContext
 ) {
@@ -2666,7 +2714,14 @@ function scoreSwitchOption(
 	switchOption: AnyObject, targetData: AnyObject | null, state?: BTBattleState, context?: BTAIContext
 ) {
 	const hpData = getHPData(switchOption);
-	let score = (hpData.hp / hpData.maxhp) * 25;
+	const entryDamage = estimateHazardDamage(switchOption, context?.ownHazards);
+	if (entryDamage >= hpData.hp) return -Infinity;
+	const effectiveHP = {...hpData, hp: Math.max(1, hpData.hp - entryDamage)};
+	let score = (effectiveHP.hp / effectiveHP.maxhp) * 25;
+	if (entryDamage) {
+		score -= Math.min(85, entryDamage / Math.max(1, hpData.maxhp) * 120);
+		if (entryDamage >= hpData.hp * 0.5) score -= 28;
+	}
 	if (state) {
 		score += memoryScore(getMemoryKey(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`)) * 12;
 	}
@@ -2676,16 +2731,16 @@ function scoreSwitchOption(
 	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData, switchContext);
 	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(switchContext));
 	score += Math.min(damageOut, targetHP.hp) / targetHP.maxhp * 100;
-	score -= Math.min(damageIn, hpData.hp) / hpData.maxhp * 75;
+	score -= Math.min(damageIn, effectiveHP.hp) / effectiveHP.maxhp * 75;
 	const switchHeal = getGrassyTerrainHeal(switchOption, switchContext);
-	if (switchHeal) score += Math.min(18, switchHeal / hpData.maxhp * 90);
+	if (switchHeal) score += Math.min(18, switchHeal / effectiveHP.maxhp * 90);
 	const targetHeal = getGrassyTerrainHeal(targetData, switchContext);
 	if (targetHeal && damageOut < targetHP.hp) score -= Math.min(18, targetHeal / targetHP.maxhp * 90);
 	score -= getSwitchKnownThreatPenalty(switchOption, targetData, getReverseContext(switchContext));
 	score += scoreWeatherChangeForMatchup(switchOption, targetData, context, switchContext);
 	score -= getSwitchPivotPenalty(switchOption, targetData, state, switchContext);
 	if (damageOut >= targetHP.hp) score += 40;
-	if (damageIn >= hpData.hp) score -= 40;
+	if (damageIn >= effectiveHP.hp) score -= 40;
 	if (pokemonCanHaveAbility(switchOption, 'magicbounce' as ID)) {
 		const reflectableValue = getReflectableHazardOrStatusValue(targetData);
 		if (reflectableValue) {
@@ -3099,6 +3154,7 @@ function estimateDamage(
 	}
 	if (move.multihit === 2) basePower *= 2;
 	if (moveid === 'tripleaxel') basePower = 120;
+	if (moveid === 'ragefist') basePower = Math.min(350, 50 + 50 * (sourceData.timesAttacked || 0));
 	if (
 		context?.terrain === 'grassyterrain' &&
 		GRASSY_TERRAIN_WEAKENED_MOVES.has(moveid) &&
@@ -3231,6 +3287,13 @@ function estimateDamage(
 		damage = Math.floor(damage * 1.5);
 		if (sourceHasAbility('sniper' as ID)) damage = Math.floor(damage * 1.5);
 	}
+	const sourceStatus = getPokemonStatusID(sourceData);
+	if (sourceStatus === 'brn' && category === 'Physical' && !sourceHasAbility('guts' as ID) && moveid !== 'facade') {
+		damage = Math.floor(damage * 0.5);
+	}
+	if (sourceStatus === 'frz' && category === 'Special' && moveid !== 'facade') {
+		damage = Math.floor(damage * 0.5);
+	}
 	if (targetHasAbility('purifyingsalt' as ID) && type === 'Ghost' && !sourceHasAbility('moldbreaker' as ID)) {
 		damage = Math.floor(damage * 0.5);
 	}
@@ -3345,6 +3408,25 @@ function shouldSwitchOutOfBadPriorityMatchup(
 	);
 }
 
+function shouldSwitchOutOfPriorityThreat(
+	activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, context?: BTAIContext
+) {
+	if (!switchOption) return false;
+	const activeHP = getHPData(activeData);
+	const targetHP = getHPData(targetData);
+	if (activeDamage >= targetHP.hp) return false;
+	const reverseContext = getReverseContext(context);
+	const priorityThreat = estimateBestPriorityDamageFromPokemon(targetData, activeData, reverseContext);
+	if (priorityThreat.priority <= 0 || priorityThreat.damage <= 0) return false;
+	if (priorityThreat.damage < activeHP.hp * 0.35 && priorityThreat.damage < activeHP.maxhp * 0.28) return false;
+	const switchHP = getHPData(switchOption);
+	const switchPriorityDamage = estimateDamage(priorityThreat.moveid, targetData, switchOption, false, reverseContext);
+	const switchDamageIn = estimateBestDamageFromPokemon(targetData, switchOption, reverseContext);
+	if (switchPriorityDamage >= switchHP.hp && switchDamage < targetHP.hp) return false;
+	return switchPriorityDamage < priorityThreat.damage * 0.55 || switchDamageIn < priorityThreat.damage * 0.75;
+}
+
 function shouldStayToTrade(activeData: AnyObject, targetData: AnyObject, activeDamage: number, targetThreat: number) {
 	const activeHP = getHPData(activeData);
 	const targetHP = getHPData(targetData);
@@ -3428,6 +3510,11 @@ function hasStatus(pokemonData: AnyObject | null) {
 	return !!(pokemonData.condition || '').split(' ')[1];
 }
 
+function getPokemonStatusID(pokemonData: AnyObject | null) {
+	if (!pokemonData) return '' as ID;
+	return toID((pokemonData.condition || '').split(' ')[1] || '');
+}
+
 function pokemonCanRecover(pokemonData: AnyObject | null) {
 	if (!pokemonData) return false;
 	return getPokemonMoveIDs(pokemonData).some(moveid => RECOVERY_MOVE_IDS.has(moveid));
@@ -3453,6 +3540,15 @@ function estimateRecoveryAmount(moveid: ID, pokemonData: AnyObject, context?: BT
 function pokemonKnowsMove(pokemonData: AnyObject | null, moveid: ID) {
 	if (!pokemonData) return false;
 	return getPokemonMoveIDs(pokemonData).includes(moveid);
+}
+
+function pokemonHasAntiAttackPriority(pokemonData: AnyObject | null) {
+	return !!pokemonData && getPokemonMoveIDs(pokemonData).some(moveid => ANTI_ATTACK_PRIORITY_MOVE_IDS.has(moveid));
+}
+
+function targetLikelyProtectingAfterWish(state: BTBattleState, targetData: AnyObject | null) {
+	if (!targetData || !pokemonKnowsMove(targetData, 'protect' as ID)) return false;
+	return state.lastPlayerMoveByIdent?.[getPokemonDecisionID(targetData)] === 'wish';
 }
 
 function pokemonHasMoveTag(pokemonData: AnyObject | null, tag: BTMoveTag) {
@@ -3553,6 +3649,50 @@ function remainingBacklinePokemon(side: AnyObject[] | undefined, activeTarget: A
 	));
 }
 
+function getFutureCoverageValue(pokemonData: AnyObject | null, context?: BTAIContext) {
+	if (!pokemonData || !context?.targetSide?.length || !context.ownSide?.length) return 0;
+	const ownID = getPokemonDecisionID(pokemonData);
+	let value = 0;
+	for (const target of remainingBacklinePokemon(context.targetSide, null)) {
+		const targetHP = getHPData(target);
+		const ownDamage = estimateBestDamageFromPokemon(pokemonData, target, context);
+		if (ownDamage <= 0) continue;
+		let bestOtherDamage = 0;
+		for (const ally of remainingSidePokemon(context.ownSide)) {
+			if (getPokemonDecisionID(ally) === ownID) continue;
+			bestOtherDamage = Math.max(bestOtherDamage, estimateBestDamageFromPokemon(ally, target, context));
+		}
+		const targetThreatToTeam = remainingSidePokemon(context.ownSide).reduce((best, ally) => {
+			if (getPokemonDecisionID(ally) === ownID) return best;
+			const allyHP = getHPData(ally);
+			const damage = estimateBestDamageFromPokemon(target, ally, getReverseContext(context));
+			return Math.max(best, damage / Math.max(1, allyHP.maxhp));
+		}, 0);
+		if (ownDamage >= targetHP.hp && bestOtherDamage < targetHP.hp) {
+			value += targetThreatToTeam >= 0.55 ? 58 : 38;
+		} else if (ownDamage >= targetHP.maxhp * 0.55 && bestOtherDamage < ownDamage * 0.6) {
+			value += targetThreatToTeam >= 0.55 ? 34 : 22;
+		}
+	}
+	return Math.min(120, value);
+}
+
+function shouldPreserveForFutureMatchup(
+	activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, targetThreat: number, context?: BTAIContext
+) {
+	if (!switchOption) return false;
+	const futureValue = getFutureCoverageValue(activeData, context);
+	if (futureValue < 45) return false;
+	const activeHP = getHPData(activeData);
+	const targetHP = getHPData(targetData);
+	if (activeDamage >= targetHP.hp) return false;
+	const switchThreat = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(context));
+	const switchHP = getHPData(switchOption);
+	if (switchThreat >= switchHP.hp && switchDamage < targetHP.hp) return false;
+	return targetThreat >= activeHP.hp * 0.35 || activeDamage < targetHP.maxhp * 0.35;
+}
+
 function hasChoiceResetOption(pokemonData: AnyObject, context?: BTAIContext) {
 	const activeID = getPokemonDecisionID(pokemonData);
 	return remainingSidePokemon(context?.ownSide).some(ally => (
@@ -3595,6 +3735,17 @@ function cloneWithBoosts(pokemonData: AnyObject, boosts: SparseBoostsTable) {
 		clone.boosts[stat] = Math.max(-6, Math.min(6, (clone.boosts[stat] || 0) + (boost as number)));
 	}
 	return clone;
+}
+
+function setupMoveHasBoostRoom(pokemonData: AnyObject, boosts: SparseBoostsTable | null) {
+	if (!boosts) return false;
+	for (const [stat, boost] of Object.entries(boosts)) {
+		const amount = boost as number;
+		const current = pokemonData.boosts?.[stat] || 0;
+		if (amount > 0 && current < 6) return true;
+		if (amount < 0 && current > -6) return true;
+	}
+	return false;
 }
 
 function estimateSetupSweepPotential(moveid: ID, pokemonData: AnyObject, context?: BTAIContext) {
@@ -3714,7 +3865,7 @@ function getStatusEffectValue(status: ID, sourceData: AnyObject, targetData: Any
 	if (status === 'brn') {
 		const physical = estimateBestDamageByCategory(targetData, sourceData, 'Physical', getPhazerContext(context));
 		const special = estimateBestDamageByCategory(targetData, sourceData, 'Special', getPhazerContext(context));
-		return physical >= special ? 30 : 16;
+		return (physical >= special ? 30 : 16) + 10;
 	}
 	if (status === 'par') {
 		return estimateSpeed(targetData, getPhazerContext(context)) > estimateSpeed(sourceData, context) ? 28 : 18;
@@ -3722,7 +3873,11 @@ function getStatusEffectValue(status: ID, sourceData: AnyObject, targetData: Any
 	if (status === 'tox') return 30;
 	if (status === 'psn') return 18;
 	if (status === 'slp') return 38;
-	if (status === 'frz') return 35;
+	if (status === 'frz') {
+		const special = estimateBestDamageByCategory(targetData, sourceData, 'Special', getPhazerContext(context));
+		const physical = estimateBestDamageByCategory(targetData, sourceData, 'Physical', getPhazerContext(context));
+		return (special >= physical ? 34 : 20) + 12;
+	}
 	return 12;
 }
 
@@ -3878,9 +4033,11 @@ function scoreDamagingMove(
 	const movePriority = estimateMovePriority(move, pokemonData);
 	const accuracyFactor = getAccuracyFactor(move, pokemonData, context);
 	const sourceSpeed = estimateSpeed(pokemonData, context);
-	const targetSpeed = estimateSpeed(targetData, getPhazerContext(context));
-	const sourceActsBeforeTarget = movePriority > 0 || (movePriority === 0 && sourceSpeed > targetSpeed);
-	const targetMovesFirst = movePriority <= 0 && targetSpeed > sourceSpeed;
+	const reverseContext = getReverseContext(context);
+	const targetSpeed = estimateSpeed(targetData, reverseContext);
+	const targetPriority = estimateHighestMovePriorityFromPokemon(targetData, pokemonData, reverseContext, move.category);
+	const sourceActsBeforeTarget = movePriority > targetPriority || (movePriority === targetPriority && sourceSpeed > targetSpeed);
+	const targetMovesFirst = targetPriority > movePriority || (movePriority === targetPriority && targetSpeed > sourceSpeed);
 	let score = Math.min(damage, targetHP.hp) / targetMaxHP * 120;
 	if (damage >= targetHP.hp) score += 90;
 	if (PHASING_MOVE_IDS.has(moveid) && phazingMoveCanForceOut(moveid, pokemonData, targetData, targetPokemon, context)) {
@@ -3891,9 +4048,9 @@ function scoreDamagingMove(
 			score += 22;
 		}
 	}
-	if (damage >= targetHP.hp && (movePriority > 0 || targetMovesFirst)) {
-		const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData, getPhazerContext(context));
-		if (movePriority > 0) {
+	if (damage >= targetHP.hp && (sourceActsBeforeTarget || targetMovesFirst)) {
+		const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData, reverseContext);
+		if (sourceActsBeforeTarget) {
 			score += 42;
 			if (targetSpeed > sourceSpeed) score += 28;
 			if (targetThreat >= sourceHP.hp) score += 55;
@@ -3966,7 +4123,9 @@ function scoreDamagingMove(
 		const contactPenalty =
 			(getPokemonItemID(targetData) === 'rockyhelmet' ? 22 : 0) +
 			(CONTACT_DAMAGE_ABILITIES.has(targetAbility) ? 18 : 0) +
-			(CONTACT_STATUS_ABILITIES.has(targetAbility) ? 12 : 0);
+			(CONTACT_STATUS_ABILITIES.has(targetAbility) ? 12 : 0) +
+			(getPossiblePokemonAbilityIDs(targetData).some(ability => CONTACT_DAMAGE_ABILITIES.has(ability)) ? 10 : 0) +
+			(getPossiblePokemonAbilityIDs(targetData).some(ability => CONTACT_STATUS_ABILITIES.has(ability)) ? 8 : 0);
 		if (contactPenalty && damage < targetHP.hp) {
 			score -= sourceHP.hp <= sourceHP.maxhp / 4 ? contactPenalty * 2 : contactPenalty;
 		}
@@ -4002,6 +4161,13 @@ function scoreDamagingMove(
 	if (moveid === 'rapidspin' && context?.ownHazards && hasHazards(context.ownHazards) && damage > 0) {
 		score += 58;
 	}
+	if (targetLikelyProtectingAfterWish(state, targetData)) {
+		if ((move as AnyObject).selfSwitch) {
+			score += 42;
+		} else {
+			score -= 58;
+		}
+	}
 	score *= accuracyFactor;
 	score += memoryScore(getMemoryKey(state, pokemonData, targetData, action)) * 15;
 	return score;
@@ -4033,6 +4199,7 @@ function scoreStatusMove(
 	} else if (isSetupMove(moveid) && targetData && bestDamage > 0 && bestDamage < targetHP) {
 		const sweepPotential = estimateSetupSweepPotential(moveid, pokemonData, context);
 		const boosts = getSetupBoosts(moveid);
+		if (!setupMoveHasBoostRoom(pokemonData, boosts)) return -Infinity;
 		const boostedData = boosts ? cloneWithBoosts(pokemonData, boosts) : pokemonData;
 		const boostedDamage = estimateBestDamageFromPokemon(boostedData, targetData, context);
 		const alreadySetUp = !!state.setupUsed[setupKey];
@@ -4048,6 +4215,10 @@ function scoreStatusMove(
 		if (positiveBoosts >= 6 && boostedDamage < targetHP) score -= 34;
 		if (positiveBoosts >= 10) score -= 70;
 		if (getSetupPhazingThreat(pokemonData, targetData, targetPokemon, context)) score -= 120;
+		if (getPokemonAbilityID(pokemonData) === 'radicalaura' && moveid === 'nastyplot') {
+			score += 42;
+			if (targetThreat < activeHP.hp * 0.55) score += 24;
+		}
 		score += sweepPotential * 10;
 		score += getSetupArchetypeAdjustment(
 			moveid, pokemonData, targetData, targetThreat, bestDamage, sweepPotential, context
@@ -4080,6 +4251,12 @@ function scoreStatusMove(
 	} else if (getMoveWeather(move)) {
 		score = scoreWeatherMove(move, pokemonData, targetData, targetThreat, context);
 		if (opponentArchetype === 'weather') score += 28;
+	} else if ((move as AnyObject).selfSwitch && targetData) {
+		score = 46;
+		if (bestDamage <= 0) score += 34;
+		if (targetLikelyProtectingAfterWish(state, targetData)) score += 48;
+		if (targetThreat < activeHP.hp * 0.35) score += 14;
+		if (opponentArchetype === 'stall' || opponentArchetype === 'bulkyoffense') score += 10;
 	} else if (
 		['recover', 'roost', 'shoreup', 'slackoff', 'softboiled', 'synthesis'].includes(moveid) &&
 		hpFraction < 0.55
@@ -4098,7 +4275,12 @@ function scoreStatusMove(
 	} else if (moveid === 'protect' && pokemonKnowsMove(pokemonData, 'wish' as ID) && hpFraction < 0.8) {
 		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
 		score = 58 / counter;
-	} else if (['toxic', 'willowisp', 'thunderwave'].includes(moveid) && targetData && !hasStatus(targetData)) {
+	} else if (
+		['toxic', 'willowisp', 'thunderwave'].includes(moveid) &&
+		targetData &&
+		!hasStatus(targetData) &&
+		bestDamage < targetHP
+	) {
 		score = 52 + getStatusPressureScore(moveid, pokemonData, targetData, bestDamage, targetThreat, context);
 		if (opponentArchetype === 'bulkyoffense' || opponentArchetype === 'stall') score += 10;
 		if (opponentArchetype === 'weather' && targetIsWeatherBreaker(targetData, context)) score += 16;
@@ -4123,6 +4305,7 @@ function scoreStatusMove(
 		} else if (targetData && move.status && sourceActsBeforeStatusTarget) {
 			score += movePriority > 0 ? 10 : 4;
 		}
+		if (targetData && pokemonHasAntiAttackPriority(targetData)) score += 22;
 		if (move.flags['reflectable'] && sideHasAbility(context?.targetSide, 'magicbounce' as ID)) {
 			score -= getMoveTags(moveid).some(tag => tag === 'hazard' || tag === 'status') ? 55 : 24;
 		}
@@ -4269,6 +4452,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			const targetHP = getHPData(targetData);
 			const activeHP = getHPData(pokemonData);
 			const hasAvailableMoves = (active.moves || []).some((move: AnyObject) => isAvailableMoveChoice(move));
+			const activeWouldDieOnReentry = estimateHazardDamage(pokemonData, state.hazards[ownSideid]) >= activeHP.hp;
 			const bestDamage = estimateBestDamageFromActive(active, pokemonData, targetData, futureMoveActive, context);
 			const targetThreat = estimateBestDamageFromPokemon(targetData, pokemonData, {...context, sourceSide: undefined});
 			const switchSlot = chooseBestSwitchSlot(request, request.active.length, switchChoices, targetData, state, context);
@@ -4288,9 +4472,23 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 				(bestDamage <= 0 && switchDamage > 0) ||
 				shouldSwitchOutOfNoProgress(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
 				shouldSwitchOutOfBadPriorityMatchup(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
+				shouldSwitchOutOfPriorityThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, switchContext) ||
+				shouldPreserveForFutureMatchup(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
+				(targetLikelyProtectingAfterWish(state, targetData) && switchDamage >= bestDamage * 0.75) ||
 				shouldSwitchForBetterMatchup(pokemonData, targetData, bestDamage, switchDamage, targetThreat) ||
 				shouldSwitchForAbility(pokemonData, switchDamage, bestDamage);
-			if (switchSlot && (!hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch))) {
+			let shouldSwitch = !hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch);
+			if (
+				shouldSwitch &&
+				activeWouldDieOnReentry &&
+				!lethalSwitch &&
+				hasAvailableMoves &&
+				bestDamage > 0 &&
+				targetThreat < activeHP.hp
+			) {
+				shouldSwitch = false;
+			}
+			if (switchSlot && shouldSwitch) {
 				switchChoices.push(switchSlot);
 				rememberDecision(state, switchOption, targetData, `switch:${getSpeciesID(switchOption)}`);
 				rememberBotSwitch(state, pokemonData, switchOption, targetData);
@@ -4433,7 +4631,9 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		playerStyle: newPlayerStyle(),
 		pendingPlayerAction: null,
 		publicItems: {},
+		consumedItems: {},
 		observedPlayerSets: {},
+		lastPlayerMoveByIdent: {},
 		hpByIdent: {},
 		lastMoveEvent: null,
 		inferredStats: {},
@@ -4470,13 +4670,6 @@ async function startBTBattle(
 }
 
 export const commands: Chat.ChatCommands = {
-	rrstory: 'story',
-	story() {
-		this.commandDoesNotExist();
-	},
-	storyhelp() {
-		throw new Chat.ErrorMessage(`The command "/story" does not exist.`);
-	},
 	bt: 'battletower',
 	battletower(target, room, user) {
 		if (!checkBTAccess(this, user)) return;

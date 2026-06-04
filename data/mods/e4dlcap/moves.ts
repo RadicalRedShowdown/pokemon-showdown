@@ -389,7 +389,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 0,
 		category: "Status",
 		name: "Forbidden Spell",
-		pp: 5,
+		pp: 1,
+		noPPBoosts: true,
 		priority: 0,
 		flags: {},
 		onHit(target) {
