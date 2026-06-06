@@ -147,6 +147,10 @@ interface BTBattleState {
 	pivotPunishedSwitches: {[key: string]: number};
 	stallMoveCounters: {[ident: string]: number};
 	pendingStallMoves: {[ident: string]: boolean};
+	pendingWishes: {
+		p1: BTPendingWish | null,
+		p2: BTPendingWish | null,
+	};
 	playerStyle: BTPlayerStyle;
 	pendingPlayerAction: BTPendingPlayerAction | null;
 	publicItems: {[ident: string]: ID};
@@ -157,6 +161,7 @@ interface BTBattleState {
 	lastMoveEvent: BTLoggedMove | null;
 	inferredStats: {[ident: string]: Partial<Record<StatIDExceptHP, number>>};
 	turnMoved: {[sideid: string]: boolean};
+	turn: number;
 	lastBotError: string;
 	memoryChanged: boolean;
 }
@@ -196,6 +201,12 @@ interface BTMoveOutcome {
 	status: boolean;
 	flinch: boolean;
 	secondary: boolean;
+}
+
+interface BTPendingWish {
+	wisher: string;
+	heal: number;
+	healTurn: number;
 }
 
 interface BTAIMemoryEntry {
@@ -1286,7 +1297,14 @@ function inferSpeedFromMoveOrder(room: GameRoom, state: BTBattleState, parts: st
 
 function trackBTOutcome(room: GameRoom, line: string, parts: string[], state: BTBattleState) {
 	if (!state.turnMoved) state.turnMoved = {};
+	if (!state.pendingWishes) state.pendingWishes = {p1: null, p2: null};
+	if (typeof state.turn !== 'number') state.turn = 0;
 	if (line.startsWith('|turn|')) {
+		state.turn = parseInt(parts[2]) || state.turn || 0;
+		for (const sideid of ['p1', 'p2'] as const) {
+			const pendingWish = state.pendingWishes?.[sideid];
+			if (pendingWish && pendingWish.healTurn < state.turn) state.pendingWishes[sideid] = null;
+		}
 		state.turnMoved = {};
 		state.lastMoveEvent = null;
 		return;
@@ -1308,6 +1326,10 @@ function trackBTOutcome(room: GameRoom, line: string, parts: string[], state: BT
 			inferDamageFromHPDrop(room, state, state.lastMoveEvent, beforeHP - after.hp);
 		}
 		updateTrackedHP(state, parts[2], parts[3]);
+		if (line.startsWith('|-heal|') && parts.some(part => /^\[from\] move: Wish$/i.test(part))) {
+			const sideid = getLineSideID(parts[2]);
+			if (sideid === 'p1' || sideid === 'p2') state.pendingWishes[sideid] = null;
+		}
 	}
 	if (line.startsWith('|move|')) {
 		const actorSideid = getLineSideID(parts[2]);
@@ -1336,6 +1358,15 @@ function trackBTOutcome(room: GameRoom, line: string, parts: string[], state: BT
 		const actorID = getBattleIdentID(parts[2]);
 		state.lastBotSwitch = null;
 		const moveid = toID(parts[3]);
+		if (moveid === 'wish' && (actorSideid === 'p1' || actorSideid === 'p2')) {
+			const sourceData = getBattlePokemonDataByIdent(room, parts[2], state);
+			const sourceHP = sourceData ? getHPData(sourceData) : null;
+			state.pendingWishes[actorSideid] = {
+				wisher: actorID,
+				heal: sourceHP ? Math.max(1, Math.floor(sourceHP.maxhp / 2)) : 1,
+				healTurn: (state.turn || 0) + 1,
+			};
+		}
 		if (isStallingMove(moveid)) {
 			state.pendingStallMoves[actorID] = true;
 		} else {
@@ -3707,6 +3738,70 @@ function sideHasLowHPAlly(side: AnyObject[] | undefined, threshold = 0.5) {
 	});
 }
 
+function getPokemonSideID(pokemonData: AnyObject | null) {
+	const sideid = getLineSideID(pokemonData?.ident);
+	return sideid === 'p1' || sideid === 'p2' ? sideid : null;
+}
+
+function getPendingWishForPokemon(state: BTBattleState, pokemonData: AnyObject | null) {
+	const sideid = getPokemonSideID(pokemonData);
+	if (!sideid) return null;
+	return state.pendingWishes?.[sideid] || null;
+}
+
+function getWishSelfHealScore(state: BTBattleState, pokemonData: AnyObject) {
+	const pendingWish = getPendingWishForPokemon(state, pokemonData);
+	if (!pendingWish) return 0;
+	const hp = getHPData(pokemonData);
+	const missing = Math.max(0, hp.maxhp - hp.hp);
+	if (!missing) return 0;
+	let score = Math.min(missing, pendingWish.heal) / Math.max(1, hp.maxhp) * 145;
+	if (hp.hp <= hp.maxhp * 0.5) score += 28;
+	if (hp.hp <= hp.maxhp * 0.25) score += 22;
+	return score;
+}
+
+function getBestWishPassScore(state: BTBattleState, pokemonData: AnyObject, context?: BTAIContext) {
+	const pendingWish = getPendingWishForPokemon(state, pokemonData);
+	if (!pendingWish) return 0;
+	const activeID = getPokemonDecisionID(pokemonData);
+	let bestScore = 0;
+	for (const ally of remainingSidePokemon(context?.ownSide)) {
+		const allyID = getPokemonDecisionID(ally);
+		if (allyID === activeID || ally.active) continue;
+		const hp = getHPData(ally);
+		const entryDamage = estimateHazardDamage(ally, context?.ownHazards);
+		const entryHP = hp.hp - entryDamage;
+		if (entryHP <= 0) continue;
+		const missing = Math.max(0, hp.maxhp - entryHP);
+		if (!missing) continue;
+		let score = Math.min(missing, pendingWish.heal) / Math.max(1, hp.maxhp) * 150;
+		if (entryHP <= hp.maxhp * 0.5) score += 26;
+		if (entryHP <= hp.maxhp * 0.25) score += 24;
+		bestScore = Math.max(bestScore, score);
+	}
+	return bestScore;
+}
+
+function activeHasAvailableMove(active: AnyObject, moveid: ID) {
+	return (active.moves || []).some((move: AnyObject) => move.id === moveid && isAvailableMoveChoice(move));
+}
+
+function shouldStayForPendingWish(
+	active: AnyObject, pokemonData: AnyObject, targetData: AnyObject | null,
+	state: BTBattleState, targetThreat: number, context?: BTAIContext
+) {
+	if (!getPendingWishForPokemon(state, pokemonData)) return false;
+	if (activeHasAvailableMove(active, 'protect' as ID) && getWishSelfHealScore(state, pokemonData) >= 30) {
+		return true;
+	}
+	if (activeHasAvailableMove(active, 'teleport' as ID) && getBestWishPassScore(state, pokemonData, context) >= 35) {
+		const hp = getHPData(pokemonData);
+		return targetThreat < hp.hp || !targetData;
+	}
+	return false;
+}
+
 function getGrassyTerrainHeal(pokemonData: AnyObject | null, context?: BTAIContext) {
 	if (!pokemonData || context?.terrain !== 'grassyterrain' || !pokemonIsGrounded(pokemonData)) return 0;
 	const hp = getHPData(pokemonData);
@@ -4255,6 +4350,11 @@ function scoreStatusMove(
 		score = 46;
 		if (bestDamage <= 0) score += 34;
 		if (targetLikelyProtectingAfterWish(state, targetData)) score += 48;
+		const wishPassScore = getBestWishPassScore(state, pokemonData, context);
+		if (wishPassScore) {
+			score += 72 + wishPassScore;
+			if (targetThreat >= activeHP.hp) score -= 90;
+		}
 		if (targetThreat < activeHP.hp * 0.35) score += 14;
 		if (opponentArchetype === 'stall' || opponentArchetype === 'bulkyoffense') score += 10;
 	} else if (
@@ -4271,7 +4371,13 @@ function scoreStatusMove(
 		}
 	} else if (moveid === 'wish' && (hpFraction < 0.68 || sideHasLowHPAlly(context?.ownSide))) {
 		score = hpFraction < 0.5 ? 86 : 68;
-		if (pokemonKnowsMove(pokemonData, 'protect' as ID)) score += 10;
+		if (pokemonKnowsMove(pokemonData, 'protect' as ID)) score += 18;
+		if (pokemonKnowsMove(pokemonData, 'teleport' as ID) && sideHasLowHPAlly(context?.ownSide)) score += 34;
+		if (targetThreat >= activeHP.hp && !pokemonKnowsMove(pokemonData, 'protect' as ID)) score -= 70;
+	} else if (moveid === 'protect' && getPendingWishForPokemon(state, pokemonData)) {
+		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
+		score = (90 + getWishSelfHealScore(state, pokemonData)) / counter;
+		if (targetThreat >= activeHP.hp * 0.45) score += 24;
 	} else if (moveid === 'protect' && pokemonKnowsMove(pokemonData, 'wish' as ID) && hpFraction < 0.8) {
 		const counter = state.stallMoveCounters[getPokemonDecisionID(pokemonData)] || 1;
 		score = 58 / counter;
@@ -4480,6 +4586,13 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			let shouldSwitch = !hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch);
 			if (
 				shouldSwitch &&
+				hasAvailableMoves &&
+				shouldStayForPendingWish(active, pokemonData, targetData, state, targetThreat, context)
+			) {
+				shouldSwitch = false;
+			}
+			if (
+				shouldSwitch &&
 				activeWouldDieOnReentry &&
 				!lethalSwitch &&
 				hasAvailableMoves &&
@@ -4628,6 +4741,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		pivotPunishedSwitches: {},
 		stallMoveCounters: {},
 		pendingStallMoves: {},
+		pendingWishes: {p1: null, p2: null},
 		playerStyle: newPlayerStyle(),
 		pendingPlayerAction: null,
 		publicItems: {},
@@ -4638,6 +4752,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		lastMoveEvent: null,
 		inferredStats: {},
 		turnMoved: {},
+		turn: 0,
 		lastBotError: '',
 		memoryChanged: false,
 	});
