@@ -171,6 +171,7 @@ interface BTBattleState {
 	turnMoved: {[sideid: string]: boolean};
 	boostsByIdent: {[ident: string]: SparseBoostsTable};
 	volatilesByIdent: {[ident: string]: {[volatileid: string]: boolean}};
+	antiAttackPriorityFailures: {[key: string]: number};
 	turn: number;
 	lastBotError: string;
 	memoryChanged: boolean;
@@ -1341,6 +1342,7 @@ function trackBTOutcome(room: GameRoom, line: string, parts: string[], state: BT
 	if (!state.pendingWishes) state.pendingWishes = {p1: null, p2: null};
 	if (!state.boostsByIdent) state.boostsByIdent = {};
 	if (!state.volatilesByIdent) state.volatilesByIdent = {};
+	if (!state.antiAttackPriorityFailures) state.antiAttackPriorityFailures = {};
 	if (typeof state.turn !== 'number') state.turn = 0;
 	if (line.startsWith('|turn|')) {
 		state.turn = parseInt(parts[2]) || state.turn || 0;
@@ -1468,7 +1470,10 @@ function trackBTOutcome(room: GameRoom, line: string, parts: string[], state: BT
 	}
 	if (line.startsWith('|-fail|')) {
 		const actorID = getBattleIdentID(parts[2]);
-		if (state.lastLoggedMoveWasBot) rewardMoveOutcome(state, state.lastBotMoveOutcome, -0.45, false);
+		if (state.lastLoggedMoveWasBot) {
+			rememberAntiAttackPriorityFailure(state, state.lastBotMoveOutcome);
+			rewardMoveOutcome(state, state.lastBotMoveOutcome, -0.45, false);
+		}
 		if (!state.pendingStallMoves[actorID]) return;
 		state.stallMoveCounters[actorID] = 1;
 		delete state.pendingStallMoves[actorID];
@@ -2222,6 +2227,9 @@ function moveIgnoresTypeImmunity(move: Move, type: string, sourceData: AnyObject
 		['Normal', 'Fighting'].includes(type) &&
 		pokemonCanHaveAbility(sourceData, 'scrappy' as ID)
 	) return true;
+	if (targetType === 'Steel' && type === 'Poison' && pokemonCanHaveAbility(sourceData, 'corrosion' as ID)) {
+		return true;
+	}
 	return false;
 }
 
@@ -3833,6 +3841,35 @@ function pokemonHasAntiAttackPriority(pokemonData: AnyObject | null) {
 	return !!pokemonData && getPokemonMoveIDs(pokemonData).some(moveid => ANTI_ATTACK_PRIORITY_MOVE_IDS.has(moveid));
 }
 
+function isAntiAttackPriorityMove(moveid: ID) {
+	return ANTI_ATTACK_PRIORITY_MOVE_IDS.has(moveid);
+}
+
+function getAntiAttackPriorityFailureKeyFromSpecies(actorSpecies: ID, targetSpecies: ID, moveid: ID) {
+	return `${actorSpecies}|${targetSpecies}|${moveid}`;
+}
+
+function getAntiAttackPriorityFailureKey(pokemonData: AnyObject, targetData: AnyObject | null, moveid: ID) {
+	return getAntiAttackPriorityFailureKeyFromSpecies(getSpeciesID(pokemonData), getSpeciesID(targetData), moveid);
+}
+
+function getAntiAttackPriorityFailureCount(
+	state: BTBattleState, pokemonData: AnyObject, targetData: AnyObject | null, moveid: ID
+) {
+	return state.antiAttackPriorityFailures?.[getAntiAttackPriorityFailureKey(pokemonData, targetData, moveid)] || 0;
+}
+
+function rememberAntiAttackPriorityFailure(state: BTBattleState, outcome: BTMoveOutcome | null | undefined) {
+	if (!outcome || !isAntiAttackPriorityMove(outcome.moveid)) return;
+	if (!state.antiAttackPriorityFailures) state.antiAttackPriorityFailures = {};
+	const parts = outcome.decision.key.split('|');
+	const actorSpecies = toID(parts[1]);
+	const targetSpecies = toID(parts[2]);
+	if (!actorSpecies || !targetSpecies) return;
+	const key = getAntiAttackPriorityFailureKeyFromSpecies(actorSpecies, targetSpecies, outcome.moveid);
+	state.antiAttackPriorityFailures[key] = Math.min(9, (state.antiAttackPriorityFailures[key] || 0) + 1);
+}
+
 function targetLikelyProtectingAfterWish(state: BTBattleState, targetData: AnyObject | null) {
 	if (!targetData || !pokemonKnowsMove(targetData, 'protect' as ID)) return false;
 	return state.lastPlayerMoveByIdent?.[getPokemonDecisionID(targetData)] === 'wish';
@@ -4481,6 +4518,17 @@ function scoreDamagingMove(
 		if (!usefulPredictedSwitchHit) return -Infinity;
 		if ((move as AnyObject).selfSwitch) score -= 90;
 	}
+	if (isAntiAttackPriorityMove(moveid)) {
+		const failCount = getAntiAttackPriorityFailureCount(state, pokemonData, targetData, moveid);
+		if (failCount) score -= Math.min(240, 115 * failCount);
+		if (switchChance >= 0.35 && damage < targetHP.hp) score -= 45 + switchChance * 65;
+		const fasterAttackingPriority = estimateHighestMovePriorityFromPokemon(targetData, pokemonData, reverseContext, 'Physical');
+		if (fasterAttackingPriority > movePriority) {
+			const priorityThreat = estimateBestPriorityDamageFromPokemon(targetData, pokemonData, reverseContext);
+			score -= priorityThreat.damage >= sourceHP.hp ? 120 : 70;
+		}
+		if (pokemonCanPivotOut(targetData) && damage < targetHP.hp) score -= 42;
+	}
 	if (!useZMove && moveid === 'knockoff' && getPokemonItemID(targetData) && !pokemonItemCanBeKnockedOff(targetData)) {
 		const damageFraction = Math.min(damage, targetHP.hp) / targetMaxHP;
 		const predictsUsefulSwitch =
@@ -5081,6 +5129,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		turnMoved: {},
 		boostsByIdent: {},
 		volatilesByIdent: {},
+		antiAttackPriorityFailures: {},
 		turn: 0,
 		lastBotError: '',
 		memoryChanged: false,
