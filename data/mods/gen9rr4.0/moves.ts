@@ -1189,8 +1189,8 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	wideguard: {
 		inherit: true,
 		stallingMove: true,
-		onPrepareHit(pokemon) {
-			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
+		onPrepareHit(target, source) {
+			return !!this.queue.willAct() && this.runEvent('StallMove', source);
 		},
 		onTry() {},
 		desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This attack has a 1/X chance of being successful, where X starts at 1 and doubles each time this move is successfully used. X resets to 1 if this attack fails or if the user's last used move is not Baneful Bunker, Detect, Endure, King's Shield, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. If X is 256 or more, this move has a 1/(2^32) chance of being successful. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
