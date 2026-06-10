@@ -986,7 +986,10 @@ function packBTTeam(level: BTLevel) {
 
 function reorderMarowakBossTeam(level: BTLevel, importedTeam: PokemonSet[]) {
 	if (level.medal !== 'marowak') return;
-	const marowakIndex = importedTeam.findIndex(set => toID(set.species) === 'marowakalola');
+	const marowakIndex = importedTeam.findIndex(set => (
+		toID(set.species) === 'marowakalola' ||
+		(toID(set.ability) === 'familialrevenge' && toID(set.item) === 'thickclub' && (set.level || 100) >= 150)
+	));
 	if (marowakIndex >= 0) {
 		const [marowak] = importedTeam.splice(marowakIndex, 1);
 		importedTeam.push(marowak);
@@ -1838,7 +1841,7 @@ function chooseTeamPreview(request: AnyObject, state: BTBattleState, room: GameR
 	if (levels[state.level]?.medal === 'marowak') {
 		const pokemon = request.side?.pokemon || [];
 		const leadIndex = pokemon.findIndex((pokemonData: AnyObject) => toID(getSpeciesName(pokemonData)) === 'gengar');
-		const marowakIndex = pokemon.findIndex((pokemonData: AnyObject) => getSpeciesID(pokemonData) === 'marowakalola');
+		const marowakIndex = pokemon.findIndex((pokemonData: AnyObject) => isMarowakBossPokemon(pokemonData));
 		if (leadIndex >= 0) {
 			const order = [leadIndex + 1];
 			for (let i = 0; i < pokemon.length; i++) {
@@ -1937,7 +1940,8 @@ function getLearnsetPriorityMoveIDs(pokemonData: AnyObject | null) {
 
 function getPokemonMoveIDs(pokemonData: AnyObject) {
 	const moveids = getPokemonMoveIDsFromData(pokemonData);
-	if (moveids.length) return moveids;
+	const observedMoves = ((pokemonData.observedMoves || []) as string[]).map(move => toID(move)).filter(Boolean);
+	if (moveids.length >= 4 || (moveids.length && !observedMoves.length)) return moveids;
 
 	const dex = Dex.mod('gen9rrbt');
 	const species = dex.species.get(getSpeciesName(pokemonData));
@@ -1948,7 +1952,9 @@ function getPokemonMoveIDs(pokemonData: AnyObject) {
 	const randomMoves = ((formatsData.randomBattleMoves || formatsData.randomDoubleBattleMoves || []) as string[])
 		.map(move => toID(move)).filter(Boolean);
 	const priorityMoves = getLearnsetPriorityMoveIDs(pokemonData);
-	return [...new Set([...commonSetMoves, ...memoryMoves, ...knownRandomSetMoves, ...randomMoves, ...priorityMoves])];
+	return [...new Set([
+		...moveids, ...observedMoves, ...commonSetMoves, ...memoryMoves, ...knownRandomSetMoves, ...randomMoves, ...priorityMoves,
+	])];
 }
 
 function getEstimatedStat(base: number, level: number, hp = false) {
@@ -1997,6 +2003,7 @@ function addPublicPokemonState(data: AnyObject | null, state?: BTBattleState) {
 	let result = publicItem ? {...data, item: publicItem} : data;
 	result = addTrackedStateToPokemonData(result, state);
 	const observedMoves = Object.keys(state.observedPlayerSets?.[decisionID]?.moves || {}) as ID[];
+	if (observedMoves.length) result = {...result, observedMoves};
 	if (observedMoves.length >= 4) result = {...result, moves: observedMoves};
 	if (!result.item) {
 		const memoryItem = getLikelyMemoryItemID(result);
@@ -2922,6 +2929,15 @@ function isPivotBaitSwitch(
 	return true;
 }
 
+function sourceLikelyActsBeforeTarget(
+	sourceData: AnyObject, targetData: AnyObject, sourceContext?: BTAIContext, targetContext?: BTAIContext
+) {
+	const sourcePriority = estimateHighestMovePriorityFromPokemon(sourceData, targetData, sourceContext);
+	const targetPriority = estimateHighestMovePriorityFromPokemon(targetData, sourceData, targetContext);
+	if (sourcePriority !== targetPriority) return sourcePriority > targetPriority;
+	return estimateSpeed(sourceData, sourceContext) > estimateSpeed(targetData, targetContext);
+}
+
 function getSupremeOverlordReserve(side: AnyObject[] | undefined, activeData: AnyObject | null) {
 	const activeID = getPokemonDecisionID(activeData);
 	let bestReserve: AnyObject | null = null;
@@ -3002,16 +3018,29 @@ function scoreSwitchOption(
 	const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
 	const targetHP = getHPData(targetData);
 	const damageOut = estimateBestDamageFromPokemon(switchOption, targetData, switchContext);
-	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(switchContext));
+	const reverseSwitchContext = getReverseContext(switchContext);
+	const damageIn = estimateBestDamageFromPokemon(targetData, switchOption, reverseSwitchContext);
 	const setupPressure = getSetupThreatPressure(targetData);
+	let disruptionValue = 0;
 	if (setupPressure) {
-		const disruptionValue = getAntiSetupDisruptionValue(switchOption, targetData, null, null, switchContext);
+		disruptionValue = getAntiSetupDisruptionValue(switchOption, targetData, null, null, switchContext);
 		if (disruptionValue) {
 			score += Math.min(165, disruptionValue);
 			if (damageIn < effectiveHP.hp) score += 24;
 			if (damageIn >= effectiveHP.hp && damageOut < targetHP.hp) score -= 70;
 		} else if (getDefensiveBoostPressure(targetData) >= 4 && damageOut < targetHP.hp * 0.35) {
 			score -= Math.min(70, setupPressure * 0.45);
+		}
+	}
+	if (targetIsSetupFortress(targetData)) {
+		const removesThreat =
+			damageOut >= targetHP.hp ||
+			disruptionValue >= 120 ||
+			(damageOut >= targetHP.maxhp * 0.55 && damageIn < effectiveHP.hp);
+		if (!removesThreat) {
+			score -= Math.min(155, 60 + setupPressure * 0.45);
+			if (targetSetupControlIsActive(targetData, null)) score -= 36;
+			if (damageIn >= effectiveHP.hp * 0.55) score -= 32;
 		}
 	}
 	if (pokemonHasHazardRemovalMove(switchOption) && context?.ownHazards && hasHazards(context.ownHazards)) {
@@ -3031,7 +3060,13 @@ function scoreSwitchOption(
 	score += scoreWeatherChangeForMatchup(switchOption, targetData, context, switchContext);
 	score -= getSwitchPivotPenalty(switchOption, targetData, state, switchContext);
 	if (damageOut >= targetHP.hp) score += 40;
-	if (damageIn >= effectiveHP.hp) score -= 40;
+	if (damageIn >= effectiveHP.hp) {
+		const targetMovesFirst = sourceLikelyActsBeforeTarget(targetData, switchOption, reverseSwitchContext, switchContext);
+		score -= targetMovesFirst && damageOut < targetHP.hp ? 145 : 70;
+	} else if (damageIn >= effectiveHP.hp * 0.72 && damageOut < targetHP.hp) {
+		score -= 34;
+	}
+	if (entryDamage && effectiveHP.hp <= hpData.maxhp * 0.15 && damageOut < targetHP.hp) score -= 95;
 	if (pokemonCanHaveAbility(switchOption, 'supremeoverlord' as ID)) {
 		const fallen = Math.min(countFaintedAllies(context), 5);
 		score += fallen * 14;
@@ -3056,12 +3091,23 @@ function scoreSwitchOption(
 	return score;
 }
 
+function isMarowakBossPokemon(pokemonData: AnyObject | null) {
+	if (!pokemonData) return false;
+	const detailsSpecies = toID((pokemonData.details || '').split(',')[0]);
+	const speciesid = getSpeciesID(pokemonData);
+	if (speciesid === 'marowakalola' || detailsSpecies === 'marowakalola') return true;
+	const abilityid = getPokemonAbilityID(pokemonData);
+	const itemid = getPokemonItemID(pokemonData);
+	const level = getLevel(pokemonData.details || '');
+	return abilityid === 'familialrevenge' && itemid === 'thickclub' && level >= 150;
+}
+
 function shouldReserveMarowakBoss(pokemonData: AnyObject | null, state?: BTBattleState, side?: AnyObject[]) {
 	if (!pokemonData || levels[state?.level || 0]?.medal !== 'marowak') return false;
-	if (getSpeciesID(pokemonData) !== 'marowakalola') return false;
+	if (!isMarowakBossPokemon(pokemonData)) return false;
 	return remainingSidePokemon(side).some(ally => (
 		getPokemonDecisionID(ally) !== getPokemonDecisionID(pokemonData) &&
-		getSpeciesID(ally) !== 'marowakalola'
+		!isMarowakBossPokemon(ally)
 	));
 }
 
@@ -3386,8 +3432,12 @@ function parseBTCompleteArgs(target: string, user: User) {
 			levelText = parts[1];
 		}
 	} else if (parts.length === 1) {
+		const levelFirstMatch = /^(all|\d+)\s+(.+)$/i.exec(parts[0]);
 		const match = /^(.*)\s+(all|\d+)$/i.exec(parts[0]);
-		if (match && toID(match[1])) {
+		if (levelFirstMatch && toID(levelFirstMatch[2])) {
+			levelText = levelFirstMatch[1];
+			targetName = levelFirstMatch[2];
+		} else if (match && toID(match[1])) {
 			targetName = match[1];
 			levelText = match[2];
 		} else if (/^(?:all|\d+)$/i.test(parts[0])) {
@@ -3420,8 +3470,12 @@ function parseBTSetLevelArgs(target: string, user: User) {
 			levelText = parts[1];
 		}
 	} else if (parts.length === 1) {
+		const levelFirstMatch = /^(all|\d+)\s+(.+)$/i.exec(parts[0]);
 		const match = /^(.*)\s+(all|\d+)$/i.exec(parts[0]);
-		if (match && toID(match[1])) {
+		if (levelFirstMatch && toID(levelFirstMatch[2])) {
+			levelText = levelFirstMatch[1];
+			targetName = levelFirstMatch[2];
+		} else if (match && toID(match[1])) {
 			targetName = match[1];
 			levelText = match[2];
 		} else if (/^(?:all|\d+)$/i.test(parts[0])) {
@@ -4067,6 +4121,31 @@ function shouldSwitchOutOfNoProgress(
 	return targetThreat >= activeHP.maxhp * 0.35 || targetThreat >= activeHP.hp * 0.55;
 }
 
+function shouldSwitchOutOfBadChoiceLock(
+	active: AnyObject, activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, context?: BTAIContext
+) {
+	if (!switchOption || !CHOICE_ITEM_IDS.has(getPokemonItemID(activeData))) return false;
+	const availableMoves = (active.moves || []).filter((move: AnyObject) => isAvailableMoveChoice(move));
+	if (availableMoves.length > 1) return false;
+	const activeHP = getHPData(activeData);
+	if (estimateHazardDamage(activeData, context?.ownHazards) >= activeHP.hp) return false;
+	const targetHP = getHPData(targetData);
+	const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
+	const switchHP = getHPData(switchOption);
+	const entryDamage = estimateHazardDamage(switchOption, context?.ownHazards);
+	const effectiveSwitchHP = Math.max(1, switchHP.hp - entryDamage);
+	const switchThreat = estimateBestDamageFromPokemon(targetData, switchOption, getReverseContext(switchContext));
+	if (switchThreat >= effectiveSwitchHP && switchDamage < targetHP.hp) return false;
+	if (activeDamage <= 0 && switchDamage > 0) return true;
+	const activeFraction = activeDamage / Math.max(1, targetHP.maxhp);
+	const switchFraction = switchDamage / Math.max(1, targetHP.maxhp);
+	return activeFraction < 0.32 && (
+		switchFraction >= activeFraction + 0.22 ||
+		(switchDamage >= activeDamage * 1.6 && switchFraction >= 0.35)
+	);
+}
+
 function shouldSwitchForAbility(activeData: AnyObject, switchDamage: number, activeDamage: number) {
 	const ability = getPokemonAbilityID(activeData);
 	const hp = getHPData(activeData);
@@ -4096,6 +4175,43 @@ function shouldSwitchToDisruptSetup(
 	if (targetThreat >= activeHP.hp && activeDamage >= targetHP.hp * 0.55 && !getDefensiveBoostPressure(targetData)) {
 		return false;
 	}
+	return true;
+}
+
+function shouldStayToUseActiveDisruption(
+	activeData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null,
+	targetThreat: number, context?: BTAIContext
+) {
+	const utility = getAntiSetupDisruptionValue(activeData, targetData, null, targetPokemon, context);
+	if (utility < 90) return false;
+	const activeHP = getHPData(activeData);
+	if (targetThreat < activeHP.hp) return true;
+	const activePriority = getPokemonMoveIDs(activeData).some(moveid => {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
+		if (!move.exists) return false;
+		if (!PHASING_MOVE_IDS.has(moveid) && !['haze', 'clearsmog', 'taunt', 'encore'].includes(moveid)) return false;
+		return estimateMovePriority(move, activeData, targetData) > 0;
+	});
+	return activePriority;
+}
+
+function shouldStayAgainstControlledSetupTarget(
+	activeData: AnyObject, targetData: AnyObject, targetPokemon: Pokemon | null, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, targetThreat: number, context?: BTAIContext
+) {
+	if (!targetIsSetupFortress(targetData)) return false;
+	const activeHP = getHPData(activeData);
+	const targetHP = getHPData(targetData);
+	if (targetThreat >= activeHP.hp && activeDamage < targetHP.hp * 0.45) return false;
+	if (!targetSetupControlIsActive(targetData, targetPokemon) && !pokemonHasSetupControlMove(activeData, targetData, targetPokemon, context)) {
+		return false;
+	}
+	if (!switchOption) return true;
+	const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
+	const switchUtility = getAntiSetupDisruptionValue(switchOption, targetData, null, targetPokemon, switchContext);
+	const activeUtility = getAntiSetupDisruptionValue(activeData, targetData, null, targetPokemon, context);
+	if (switchDamage >= targetHP.hp) return false;
+	if (switchUtility >= activeUtility + 80 && switchDamage >= activeDamage) return false;
 	return true;
 }
 
@@ -4234,6 +4350,52 @@ function targetLooksLikeSetupThreat(targetData: AnyObject | null) {
 	return getPositiveBoostCount(targetData) > 0 || pokemonHasMoveTag(targetData, 'setup');
 }
 
+function targetIsSetupFortress(targetData: AnyObject | null) {
+	if (!targetData) return false;
+	const positiveBoosts = getPositiveBoostCount(targetData);
+	const defensivePressure = getDefensiveBoostPressure(targetData);
+	const hasSetupPayoff = pokemonHasSetupPayoffMove(targetData);
+	if (hasSetupPayoff && (positiveBoosts >= 2 || defensivePressure >= 2)) return true;
+	if (hasSetupPayoff && pokemonCanRecover(targetData) && positiveBoosts > 0) return true;
+	if (defensivePressure >= 4 && (pokemonCanRecover(targetData) || pokemonHasMoveTag(targetData, 'setup'))) return true;
+	return false;
+}
+
+function targetSetupControlIsActive(targetData: AnyObject | null, targetPokemon: Pokemon | null = null) {
+	return !!targetData && (
+		pokemonOrDataHasVolatile(targetData, targetPokemon, 'taunt') ||
+		pokemonOrDataHasVolatile(targetData, targetPokemon, 'encore') ||
+		pokemonOrDataHasVolatile(targetData, targetPokemon, 'healblock')
+	);
+}
+
+function shouldCashOutControlledSetupTarget(
+	state: BTBattleState, sourceData: AnyObject, targetData: AnyObject | null,
+	targetPokemon: Pokemon | null = null, context?: BTAIContext
+) {
+	if (!targetIsSetupFortress(targetData)) return false;
+	if (!targetSetupControlIsActive(targetData, targetPokemon)) return false;
+	if (!targetIsThreatenedByPokemon(sourceData, targetData, context)) return false;
+	if (!getPredictedSwitchTarget(sourceData, targetData, context)) return false;
+	return getSwitchPredictionChance(state, sourceData, targetData, context) >= 0.55;
+}
+
+function pokemonHasSetupControlMove(
+	sourceData: AnyObject | null, targetData: AnyObject | null, targetPokemon: Pokemon | null = null,
+	context?: BTAIContext
+) {
+	if (!sourceData || !targetData) return false;
+	for (const moveid of getPokemonMoveIDs(sourceData)) {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
+		if (!move.exists) continue;
+		if (PHASING_MOVE_IDS.has(moveid) && phazingMoveCanForceOut(moveid, sourceData, targetData, targetPokemon, context)) {
+			return true;
+		}
+		if (['haze', 'clearsmog', 'taunt', 'encore', 'torment'].includes(moveid)) return true;
+	}
+	return false;
+}
+
 function pokemonCanPivotOut(pokemonData: AnyObject | null) {
 	if (!pokemonData) return false;
 	for (const moveid of getPokemonMoveIDs(pokemonData)) {
@@ -4353,8 +4515,9 @@ function getAntiSetupDisruptionValue(
 			if (!statusMoveBlocked(move, moveid, sourceData, targetData, targetPokemon, context)) {
 				let tauntValue = 48;
 				if (pokemonHasMoveTag(targetData, 'setup')) tauntValue += 34;
-				if (pokemonCanRecover(targetData)) tauntValue += 24;
+				if (pokemonCanRecover(targetData)) tauntValue += 52;
 				if (pokemonHasSetupPayoffMove(targetData)) tauntValue += 18;
+				if (targetIsSetupFortress(targetData)) tauntValue += 38;
 				if (positiveBoosts) tauntValue += Math.min(65, positiveBoosts * 8 + defensivePressure * 5);
 				best = Math.max(best, tauntValue);
 			}
@@ -4793,6 +4956,17 @@ function getSelfSwitchPositioningScore(
 	if (targetIsWeatherBreaker(targetData, context)) score += 34;
 	if (opponentArchetype === 'weather') score += 14;
 	if (opponentArchetype === 'hyperoffense') score += 10;
+	const cashOutControlledSetup = shouldCashOutControlledSetupTarget(state, pokemonData, targetData, null, context);
+	if (targetIsSetupFortress(targetData) && damage < targetHP.hp) {
+		const setupPressure = getSetupThreatPressure(targetData);
+		if (cashOutControlledSetup) {
+			score += 46;
+		} else {
+			score -= Math.min(135, 55 + setupPressure * 0.45);
+			if (targetSetupControlIsActive(targetData, null)) score -= 48;
+			if (pokemonHasSetupControlMove(pokemonData, targetData, null, context) && targetThreat < activeHP.hp) score -= 26;
+		}
+	}
 	let bestBenchGain = 0;
 	for (const switchOption of bench) {
 		const switchContext = getWeatherContextAfterPokemonSwitch(switchOption, context) || context;
@@ -4805,7 +4979,12 @@ function getSelfSwitchPositioningScore(
 		const safetyGain = (targetThreat / Math.max(1, activeHP.maxhp) - switchThreat / Math.max(1, switchHP.maxhp)) * 70;
 		const setupUtility = getAntiSetupDisruptionValue(switchOption, targetData, null, null, switchContext) * 0.55;
 		const forcedLossPenalty = switchThreat >= effectiveSwitchHP && switchDamage < targetHP.hp ? 105 : 0;
-		bestBenchGain = Math.max(bestBenchGain, damageGain + safetyGain + setupUtility - forcedLossPenalty);
+		let setupFortressPenalty = 0;
+		if (!cashOutControlledSetup && targetIsSetupFortress(targetData) && switchDamage < targetHP.hp && setupUtility < 70) {
+			setupFortressPenalty = 80;
+			if (targetSetupControlIsActive(targetData, null)) setupFortressPenalty += 35;
+		}
+		bestBenchGain = Math.max(bestBenchGain, damageGain + safetyGain + setupUtility - forcedLossPenalty - setupFortressPenalty);
 	}
 	if (bestBenchGain > 0) score += Math.min(42, bestBenchGain);
 	if (bestBenchGain < -20 && damage < targetHP.hp) score += Math.max(-70, bestBenchGain);
@@ -5074,6 +5253,13 @@ function scoreStatusMove(
 		if (alreadySetUp && currentTwoHKO) return -Infinity;
 		const pivotPriorityThreat = getPivotPriorityRevengeThreat(pokemonData, targetData, context);
 		score = alreadySetUp ? 50 : 80;
+		if (targetIsSetupFortress(targetData)) {
+			const targetSetupPressure = getSetupThreatPressure(targetData);
+			const targetPositiveBoosts = getPositiveBoostCount(targetData);
+			score -= Math.min(185, 70 + targetSetupPressure * 0.65);
+			if (targetPositiveBoosts >= 3 || targetThreat >= activeHP.hp * 0.45) score -= 70;
+			if (targetThreat >= activeHP.hp && boostedDamage < targetHP) return -Infinity;
+		}
 		if (boostedDamage <= bestDamage && sweepPotential <= 0) score -= 80;
 		if (bestDamage * 2 < targetHP) score += 16;
 		if (boostedDamage >= targetHP && bestDamage < targetHP) score += 48;
@@ -5131,6 +5317,9 @@ function scoreStatusMove(
 		if (sideHasAbility(context?.targetSide, 'magicbounce' as ID)) score -= 60;
 		if (opponentArchetype === 'weather' || opponentArchetype === 'hyperoffense') score += 12;
 		if (opponentArchetype === 'stall') score += 8;
+		if (targetData && targetIsSetupFortress(targetData)) {
+			score -= Math.min(135, 55 + getSetupThreatPressure(targetData) * 0.45);
+		}
 	} else if (getMoveWeather(move)) {
 		score = scoreWeatherMove(move, pokemonData, targetData, targetThreat, context);
 		if (opponentArchetype === 'weather') score += 28;
@@ -5181,8 +5370,9 @@ function scoreStatusMove(
 		score = 38;
 		if (moveid === 'taunt') {
 			if (setupPressure) score += Math.min(130, 34 + setupPressure);
-			if (pokemonCanRecover(targetData)) score += 24;
+			if (pokemonCanRecover(targetData)) score += targetIsSetupFortress(targetData) ? 74 : 36;
 			if (pokemonHasSetupPayoffMove(targetData)) score += 18;
+			if (targetIsSetupFortress(targetData)) score += 42;
 		} else if (moveid === 'encore') {
 			const lastPlayerMove = state.lastPlayerMoveByIdent?.[getPokemonDecisionID(targetData)];
 			if (lastPlayerMove && (isSetupMove(lastPlayerMove) || RECOVERY_MOVE_IDS.has(lastPlayerMove))) {
@@ -5389,6 +5579,7 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 			const progressSwitch =
 				(bestDamage <= 0 && switchDamage > 0) ||
 				shouldSwitchOutOfNoProgress(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
+				shouldSwitchOutOfBadChoiceLock(active, pokemonData, targetData, switchOption, bestDamage, switchDamage, switchContext) ||
 				shouldSwitchOutOfBadPriorityMatchup(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchContext) ||
 				shouldSwitchOutOfPriorityThreat(pokemonData, targetData, switchOption, bestDamage, switchDamage, switchContext) ||
 				shouldSwitchToDisruptSetup(pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, context) ||
@@ -5397,6 +5588,22 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 				shouldSwitchForBetterMatchup(pokemonData, targetData, bestDamage, switchDamage, targetThreat) ||
 				shouldSwitchForAbility(pokemonData, switchDamage, bestDamage);
 			let shouldSwitch = !hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch);
+			if (
+				shouldSwitch &&
+				hasAvailableMoves &&
+				shouldStayToUseActiveDisruption(pokemonData, targetData, targetPokemon, targetThreat, context)
+			) {
+				shouldSwitch = false;
+			}
+			if (
+				shouldSwitch &&
+				hasAvailableMoves &&
+				shouldStayAgainstControlledSetupTarget(
+					pokemonData, targetData, targetPokemon, switchOption, bestDamage, switchDamage, targetThreat, context
+				)
+			) {
+				shouldSwitch = false;
+			}
 			if (
 				shouldSwitch &&
 				hasAvailableMoves &&
@@ -5842,10 +6049,12 @@ export const handlers: Chat.Handlers = {
 		}
 		flushOpponentMemory(state);
 		updateAIMemory(state.decisions, winner !== state.userid);
+		const cleared = getCleared(state.userid);
+		const replayAtEnd = state.level < cleared;
 		if (winner !== state.userid) {
-			if (!state.replay) {
+			if (!replayAtEnd) {
 				const checkpoint = getMarowakCheckpoint();
-				const newCleared = getCleared(state.userid) >= checkpoint ? checkpoint : 0;
+				const newCleared = cleared >= checkpoint ? checkpoint : 0;
 				if (newCleared) {
 					progress[state.userid] = newCleared;
 				} else {
@@ -5860,16 +6069,16 @@ export const handlers: Chat.Handlers = {
 		}
 		const medalAwarded = level.medal ? awardBTMedal(state.userid, level.medal) : false;
 		const medalMessage = medalAwarded ? ` ${BT_MEDALS[level.medal!].name} awarded.` : ``;
-		const cleared = getCleared(state.userid);
-		if (state.level === cleared) {
-			progress[state.userid] = cleared + 1;
+		if (!replayAtEnd) {
+			const newCleared = Math.max(cleared, state.level + 1);
+			progress[state.userid] = newCleared;
 			saveProgress();
 			clearBTChallenge(state.userid);
-			const next = levels[cleared + 1];
+			const next = levels[newCleared];
 			if (next) {
 				battle.room.add(
 					`|-message|Battle Tower ${getBTLevelLabel(level, state.level)} cleared. ` +
-					`${getBTLevelLabel(next, cleared + 1)} unlocked.${medalMessage}`
+					`${getBTLevelLabel(next, newCleared)} unlocked.${medalMessage}`
 				).update();
 			} else {
 				battle.room.add(
