@@ -351,17 +351,6 @@ const MAROWAK_LEVEL: BTLevel = {
 	boss: true,
 	medal: 'marowak',
 	team: `
-Marowak-Alola @ Thick Club
-Ability: Familial Revenge
-Level: 200
-Tera Type: Fire
-EVs: 252 HP / 252 Atk / 252 Def / 252 SpD
-Adamant Nature
-- Bonemerang
-- Shadow Bone
-- Flare Blitz
-- Knock Off
-
 Gengar @ Gengarite
 Ability: Levitate
 Level: 125
@@ -418,6 +407,17 @@ Jolly Nature
 - Knock Off
 - Triple Axel
 - Low Kick
+
+Marowak-Alola @ Thick Club
+Ability: Familial Revenge
+Level: 200
+Tera Type: Fire
+EVs: 252 HP / 252 Atk / 252 Def / 252 SpD
+Adamant Nature
+- Bonemerang
+- Shadow Bone
+- Flare Blitz
+- Knock Off
 `,
 };
 
@@ -436,6 +436,7 @@ IVs: 0 Atk
 - Fiery Wrath
 - Fire Blast
 - Scorching Sands
+- Nasty Plot
 `,
 };
 
@@ -979,7 +980,22 @@ function packBTTeam(level: BTLevel) {
 	const importedTeam = Teams.import(level.team);
 	if (!importedTeam) throw new Chat.ErrorMessage(`Battle Tower level "${level.name}" does not have a valid team.`);
 	normalizeBTTeam(importedTeam);
+	reorderMarowakBossTeam(level, importedTeam);
 	return Teams.pack(importedTeam);
+}
+
+function reorderMarowakBossTeam(level: BTLevel, importedTeam: PokemonSet[]) {
+	if (level.medal !== 'marowak') return;
+	const marowakIndex = importedTeam.findIndex(set => toID(set.species) === 'marowakalola');
+	if (marowakIndex >= 0) {
+		const [marowak] = importedTeam.splice(marowakIndex, 1);
+		importedTeam.push(marowak);
+	}
+	const gengarIndex = importedTeam.findIndex(set => toID(set.species) === 'gengar');
+	if (gengarIndex > 0) {
+		const [gengar] = importedTeam.splice(gengarIndex, 1);
+		importedTeam.unshift(gengar);
+	}
 }
 
 function normalizeBTTeam(importedTeam: PokemonSet[]) {
