@@ -1822,11 +1822,13 @@ function chooseTeamPreview(request: AnyObject, state: BTBattleState, room: GameR
 	if (levels[state.level]?.medal === 'marowak') {
 		const pokemon = request.side?.pokemon || [];
 		const leadIndex = pokemon.findIndex((pokemonData: AnyObject) => toID(getSpeciesName(pokemonData)) === 'gengar');
+		const marowakIndex = pokemon.findIndex((pokemonData: AnyObject) => getSpeciesID(pokemonData) === 'marowakalola');
 		if (leadIndex >= 0) {
 			const order = [leadIndex + 1];
 			for (let i = 0; i < pokemon.length; i++) {
-				if (i !== leadIndex) order.push(i + 1);
+				if (i !== leadIndex && i !== marowakIndex) order.push(i + 1);
 			}
+			if (marowakIndex >= 0) order.push(marowakIndex + 1);
 			return `team ${order.join(', ')}`;
 		}
 	}
@@ -2904,6 +2906,67 @@ function isPivotBaitSwitch(
 	return true;
 }
 
+function getSupremeOverlordReserve(side: AnyObject[] | undefined, activeData: AnyObject | null) {
+	const activeID = getPokemonDecisionID(activeData);
+	let bestReserve: AnyObject | null = null;
+	let bestScore = -Infinity;
+	for (const ally of remainingSidePokemon(side)) {
+		if (getPokemonDecisionID(ally) === activeID) continue;
+		if (!pokemonCanHaveAbility(ally, 'supremeoverlord' as ID)) continue;
+		const hpData = getHPData(ally);
+		const hpFraction = hpData.hp / Math.max(1, hpData.maxhp);
+		const score = hpFraction * 100 + (getSpeciesID(ally) === 'kingambit' ? 25 : 0);
+		if (score > bestScore) {
+			bestScore = score;
+			bestReserve = ally;
+		}
+	}
+	return bestReserve;
+}
+
+function shouldTacticalSackForSupremeOverlord(
+	activeData: AnyObject, targetData: AnyObject, switchOption: AnyObject | null,
+	activeDamage: number, switchDamage: number, targetThreat: number, switchDamageIn: number, context?: BTAIContext
+) {
+	if (pokemonCanHaveAbility(activeData, 'supremeoverlord' as ID)) return false;
+	const reserve = getSupremeOverlordReserve(context?.ownSide, activeData);
+	if (!reserve) return false;
+	const fallen = Math.min(countFaintedAllies(context), 5);
+	if (fallen >= 5) return false;
+	const activeHP = getHPData(activeData);
+	const targetHP = getHPData(targetData);
+	if (targetThreat < activeHP.hp) return false;
+	if (activeDamage <= 0) return false;
+	const priorityThreat = estimateBestPriorityDamageFromPokemon(targetData, activeData, getReverseContext(context));
+	if (priorityThreat.priority > 0 && priorityThreat.damage >= activeHP.hp) {
+		const immediateDamage = estimateBestDamageActingBefore(activeData, targetData, priorityThreat.priority, context);
+		if (immediateDamage <= 0) return false;
+	}
+	const reserveHP = getHPData(reserve);
+	if (reserveHP.hp <= reserveHP.maxhp * 0.25) return false;
+	const activeDamageFraction = activeDamage / Math.max(1, targetHP.maxhp);
+	if (activeDamage >= targetHP.hp) return true;
+	if (switchOption) {
+		const switchHP = getHPData(switchOption);
+		const switchEntryDamage = estimateHazardDamage(switchOption, context?.ownHazards);
+		const effectiveSwitchHP = Math.max(1, switchHP.hp - switchEntryDamage);
+		if (switchDamage >= targetHP.hp && switchDamageIn < effectiveSwitchHP) return false;
+		if (
+			getPokemonDecisionID(switchOption) === getPokemonDecisionID(reserve) &&
+			fallen < 3 &&
+			switchDamageIn >= effectiveSwitchHP * 0.45 &&
+			activeDamageFraction >= 0.15
+		) {
+			return true;
+		}
+	}
+	const activeHPFraction = activeHP.hp / Math.max(1, activeHP.maxhp);
+	const reserveFutureValue = getFutureCoverageValue(reserve, context);
+	if (activeHPFraction <= 0.35 && activeDamageFraction >= 0.18) return true;
+	if (activeDamageFraction >= 0.32 && reserveFutureValue >= 35) return true;
+	return reserveFutureValue >= 65 && activeDamageFraction >= 0.12;
+}
+
 function scoreSwitchOption(
 	switchOption: AnyObject, targetData: AnyObject | null, state?: BTBattleState, context?: BTAIContext
 ) {
@@ -2953,6 +3016,14 @@ function scoreSwitchOption(
 	score -= getSwitchPivotPenalty(switchOption, targetData, state, switchContext);
 	if (damageOut >= targetHP.hp) score += 40;
 	if (damageIn >= effectiveHP.hp) score -= 40;
+	if (pokemonCanHaveAbility(switchOption, 'supremeoverlord' as ID)) {
+		const fallen = Math.min(countFaintedAllies(context), 5);
+		score += fallen * 14;
+		if (damageOut >= targetHP.hp) score += 18 + fallen * 4;
+		if (fallen < 2 && damageIn >= effectiveHP.hp && damageOut < targetHP.hp) score -= 45;
+		const futureValue = getFutureCoverageValue(switchOption, switchContext);
+		if (futureValue) score += Math.min(35, futureValue * 0.25);
+	}
 	if (pokemonCanHaveAbility(switchOption, 'magicbounce' as ID)) {
 		const reflectableValue = getReflectableHazardOrStatusValue(targetData);
 		if (reflectableValue) {
@@ -2967,6 +3038,15 @@ function scoreSwitchOption(
 		if (physicalThreat > 0 && physicalThreat >= specialThreat) score += 18;
 	}
 	return score;
+}
+
+function shouldReserveMarowakBoss(pokemonData: AnyObject | null, state?: BTBattleState, side?: AnyObject[]) {
+	if (!pokemonData || levels[state?.level || 0]?.medal !== 'marowak') return false;
+	if (getSpeciesID(pokemonData) !== 'marowakalola') return false;
+	return remainingSidePokemon(side).some(ally => (
+		getPokemonDecisionID(ally) !== getPokemonDecisionID(pokemonData) &&
+		getSpeciesID(ally) !== 'marowakalola'
+	));
 }
 
 function chooseSwitch(
@@ -2984,7 +3064,8 @@ function chooseSwitch(
 			!chosen.includes(slot) &&
 			!switchOption.active &&
 			!switchOption.condition.endsWith(' fnt') &&
-			!pokemon[i].reviving
+			!pokemon[i].reviving &&
+			!shouldReserveMarowakBoss(switchOption, state, pokemon)
 		));
 		if (!switches.length) return 'pass';
 		let bestSwitch = switches[0];
@@ -3019,7 +3100,8 @@ function chooseBestSwitchSlot(
 			switchOption.active ||
 			switchOption.condition.endsWith(' fnt') ||
 			switchOption.commanding ||
-			switchOption.reviving
+			switchOption.reviving ||
+			shouldReserveMarowakBoss(switchOption, state, context?.ownSide || pokemon)
 		) {
 			continue;
 		}
@@ -5299,6 +5381,15 @@ function chooseMove(request: AnyObject, room: GameRoom, state: BTBattleState) {
 				shouldSwitchForBetterMatchup(pokemonData, targetData, bestDamage, switchDamage, targetThreat) ||
 				shouldSwitchForAbility(pokemonData, switchDamage, bestDamage);
 			let shouldSwitch = !hasAvailableMoves || lethalSwitch || (!pivotBait && progressSwitch);
+			if (
+				shouldSwitch &&
+				hasAvailableMoves &&
+				shouldTacticalSackForSupremeOverlord(
+					pokemonData, targetData, switchOption, bestDamage, switchDamage, targetThreat, switchDamageIn, context
+				)
+			) {
+				shouldSwitch = false;
+			}
 			if (
 				shouldSwitch &&
 				switchOption &&

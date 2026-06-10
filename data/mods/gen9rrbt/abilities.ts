@@ -1,11 +1,26 @@
 export const Abilities: {[k: string]: ModdedAbilityData} = {
 	familialrevenge: {
 		onStart(pokemon) {
-			if (this.suppressingAbility(pokemon)) return;
+			if (pokemon.m.familialRevengeAnnounced) return;
+			pokemon.m.familialRevengeAnnounced = true;
+			this.add('-ability', pokemon, 'Familial Revenge');
 			this.add('-message', `${pokemon.name}'s Familial Revenge burns hotter.`);
 			if (pokemon.species.id === 'marowakalola') {
 				this.add('-start', pokemon, 'Dynamax', '[silent]');
 			}
+		},
+		onFoeDisableMove(pokemon) {
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id === 'destinybond' || moveSlot.id === 'perishsong') pokemon.disableMove(moveSlot.id);
+			}
+		},
+		onFoeBeforeMovePriority: 100,
+		onFoeBeforeMove(attacker, defender, move) {
+			if (move.id !== 'destinybond' && move.id !== 'perishsong') return;
+			const source = this.effectState.target as Pokemon;
+			this.add('cant', attacker, 'ability: Familial Revenge', move);
+			this.add('-message', `${source.name}'s Familial Revenge is preventing ${move.name}.`);
+			return false;
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move) {
@@ -43,11 +58,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			pokemon.cureStatus();
 			this.add('-message', `${pokemon.name} is too angry to be ${statusName}.`);
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Familial Revenge",
 		rating: 5,
 		gen: 9,
-		desc: "Bone moves ignore immunities and deal double damage when resisted. Super Fang, Ruination, and Nature's Madness fail against this Pokemon. At the end of each turn, this Pokemon cures its own status.",
-		shortDesc: "Bone moves ignore immunities; resists take 2x. Blocks halving moves; cures status.",
+		desc: "Bone moves ignore immunities and deal double damage when resisted. Destiny Bond, Perish Song, Super Fang, Ruination, and Nature's Madness fail against this Pokemon. At the end of each turn, this Pokemon cures its own status. This Ability cannot be suppressed.",
+		shortDesc: "Bone moves ignore immunities; blocks cheese/status; can't be suppressed.",
 	},
 	radicalaura: {
 		onFoeDisableMove(pokemon) {
@@ -64,13 +80,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return false;
 		},
 		onStart(pokemon) {
-			if (this.suppressingAbility(pokemon)) return;
 			if (pokemon.m.radicalAuraAnnounced) return;
 			pokemon.m.radicalAuraAnnounced = true;
 			if (pokemon.species.id === 'houndoommega' && !pokemon.m.radicalAuraDynamaxVisual) {
 				pokemon.m.radicalAuraDynamaxVisual = true;
 				this.add('-start', pokemon, 'Dynamax', '[silent]');
 			}
+			this.add('-ability', pokemon, 'Radical Aura');
 			this.add('-message', `${pokemon.name} eminates a redness aura so radical.`);
 			if (!this.field.getPseudoWeather('redmist')) this.field.addPseudoWeather('redmist', pokemon, this.effect);
 		},
@@ -78,7 +94,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Radical Aura",
 		rating: 5,
 		gen: 9,
-		desc: "On switch-in, this Pokemon summons the permanent Red Mist field condition.",
-		shortDesc: "Summons permanent Red Mist.",
+		desc: "On switch-in, this Pokemon summons the permanent Red Mist field condition. Destiny Bond and Perish Song fail while this Pokemon is active. This Ability cannot be suppressed.",
+		shortDesc: "Summons Red Mist; blocks Destiny Bond/Perish Song; can't be suppressed.",
 	},
 };
