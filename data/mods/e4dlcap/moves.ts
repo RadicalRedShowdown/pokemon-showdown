@@ -2906,6 +2906,38 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "User's level damage. Clemeltan vs Steel: 55%.",
 		gen: 9,
 	},
+	selftinker: {
+		num: -1009,
+		accuracy: true,
+		basePower: 0,
+		category: "Physical",
+		name: "Self Tinker",
+		pp: 5,
+		priority: 0,
+		flags: {snatch: 1, heal: 1, metronome: 1},
+		onHit(pokemon) {
+			let healFactor = 0.5;
+			if (pokemon.ability !== 'fullmetalbody') {
+				const oldAbility = pokemon.setAbility('fullmetalbody', pokemon);
+				if (oldAbility) {
+					this.add('-ability', pokemon, 'Full Metal Body', '[from] move: Self Tinker');
+					if (oldAbility === 'brokenmetalbody') healFactor = 2 / 3;
+				}
+			}
+			const healed = !!this.heal(this.modify(pokemon.maxhp, healFactor));
+			if (!healed) {
+				this.add('-fail', pokemon, 'heal');
+				return this.NOT_FAIL;
+			}
+			return true;
+		},
+		secondary: null,
+		target: "self",
+		type: "Steel",
+		desc: "The user restores 50% of its maximum HP and changes its Ability to Full Metal Body. This Ability change persists after switching out.",
+		shortDesc: "Heals 50%; user's Ability becomes Full Metal Body.",
+		gen: 9,
+	},
 	deathball: {
 		num: -667,
 		accuracy: 100,

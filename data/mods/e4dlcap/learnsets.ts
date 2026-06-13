@@ -57628,6 +57628,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			rockslide: ["9M"],
 			rocksmash: ["9M"],
 			rocktomb: ["9M"],
+			selftinker: ["9L1"],
 			sleeptalk: ["9M"],
 			snore: ["9T"],
 			solarbeam: ["9M"],
