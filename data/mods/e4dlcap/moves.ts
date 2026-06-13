@@ -2916,17 +2916,20 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		priority: 0,
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		onHit(pokemon) {
+			let changedAbility = false;
 			let healFactor = 0.5;
 			if (pokemon.ability !== 'fullmetalbody') {
 				const oldAbility = pokemon.setAbility('fullmetalbody', pokemon);
 				if (oldAbility) {
 					this.add('-ability', pokemon, 'Full Metal Body', '[from] move: Self Tinker');
 					if (oldAbility === 'brokenmetalbody') healFactor = 2 / 3;
+					changedAbility = true;
 				}
 			}
 			const healed = !!this.heal(this.modify(pokemon.maxhp, healFactor));
-			if (!healed) {
-				this.add('-fail', pokemon, 'heal');
+			const boosted = !!this.boost({def: 1}, pokemon, pokemon, this.dex.moves.get('selftinker'));
+			if (!healed && !boosted && !changedAbility) {
+				this.add('-fail', pokemon);
 				return this.NOT_FAIL;
 			}
 			return true;
