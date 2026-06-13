@@ -57,6 +57,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		gen: 8,
 		shortDesc: "If this Pokemon is at full HP, its Fire-type moves have their priority increased by 1.",
 	},
+	brokenmetalbody: {
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			if (move.category === 'Physical' && !side.sideConditions['gmaxsteelsurge']) {
+				this.add('-activate', target, 'ability: Broken Metal Body');
+				side.addSideCondition('gmaxsteelsurge', target);
+			}
+		},
+		flags: {},
+		name: "Broken Metal Body",
+		rating: 3.5,
+		num: -1007,
+		shortDesc: "When hit by a physical attack, sets G-Max Steelsurge on the opposing side.",
+	},
 	blubberdefense: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp >= target.maxhp) {

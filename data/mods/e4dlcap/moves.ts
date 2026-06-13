@@ -2884,6 +2884,28 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Special Knock Off. Blocked by Bulletproof.",
 		gen: 9,
 	},
+	corrosivealuminium: {
+		num: -1008,
+		accuracy: 100,
+		basePower: 0,
+		damageCallback(pokemon, target) {
+			if (pokemon.species.id === 'clemeltan' && target.hasType('Steel')) {
+				return this.clampIntRange(target.getUndynamaxedHP() * 0.55, 1);
+			}
+			return pokemon.level;
+		},
+		category: "Physical",
+		name: "Corrosive Aluminium",
+		pp: 20,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, nonsky: 1, metronome: 1},
+		secondary: null,
+		target: "normal",
+		type: "Steel",
+		desc: "Deals damage equal to the user's level. If used by Clemeltan against a Steel-type target, deals 55% of the target's maximum HP instead.",
+		shortDesc: "User's level damage. Clemeltan vs Steel: 55%.",
+		gen: 9,
+	},
 	deathball: {
 		num: -667,
 		accuracy: 100,
