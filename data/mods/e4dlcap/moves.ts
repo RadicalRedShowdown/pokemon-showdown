@@ -2905,6 +2905,51 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "If this KOs the target, user loses 1/3 max HP. Bullet.",
 		gen: 9,
 	},
+	drainsoul: {
+		num: -1005,
+		accuracy: 100,
+		basePower: 80,
+		category: "Physical",
+		name: "Drain Soul",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, heal: 1, slicing: 1},
+		drain: [1, 2],
+		secondary: null,
+		target: "normal",
+		type: "Fairy",
+		desc: "The user recovers 50% of the damage dealt.",
+		shortDesc: "User recovers 50% of the damage dealt. Slicing.",
+		gen: 9,
+	},
+	heatup: {
+		num: -58,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Heat Up",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1},
+		onModifyMove(move, pokemon) {
+			move.heatUpWasFire = pokemon.hasType('Fire');
+		},
+		basePowerCallback(pokemon, target, move) {
+			if (!move.heatUpWasFire) return move.basePower * 2;
+			return move.basePower;
+		},
+		onAfterMoveSecondarySelf(pokemon) {
+			if (pokemon.getTypes().join() === 'Fire') return;
+			if (!pokemon.setType('Fire')) return;
+			this.add('-start', pokemon, 'typechange', 'Fire', '[from] move: Heat Up');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Fire",
+		desc: "Power doubles if the user was not Fire type when this move was selected. After use, the user becomes Fire type.",
+		shortDesc: "2x power if user wasn't Fire; user becomes Fire.",
+		gen: 9,
+	},
 	flintblade: {
 		num: -556,
 		accuracy: 100,

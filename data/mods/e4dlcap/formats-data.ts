@@ -6825,6 +6825,12 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 	hornet: {
 		tier: "OU",
 	},
+	fiddlesticks: {
+		tier: "OU",
+	},
+	meowcrowave: {
+		tier: "OU",
+	},
 	softandwet: {
 		tier: "OU",
 	},
