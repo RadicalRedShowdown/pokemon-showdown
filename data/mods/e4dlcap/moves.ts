@@ -2849,6 +2849,56 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Ground-type Body Press. Only works if Mavs are tanking.",
 		gen: 9,
 	},
+	cyrosnest: {
+		num: -1013,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Cyro's Nest",
+		pp: 20,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		sideCondition: 'cyrosnest',
+		onTry(source) {
+			if (source.hasAbility('chilllikethat')) return;
+			this.add('-fail', source, 'move: Cyro\'s Nest');
+			return null;
+		},
+		condition: {
+			duration: 5,
+			durationCallback(target, source, effect) {
+				if (source?.hasItem('lightclay')) return 8;
+				return 5;
+			},
+			onAnyModifyDamage(damage, source, target, move) {
+				if (target !== source && this.effectState.target.hasAlly(target)) {
+					if ((target.side.getSideCondition('reflect') && this.getCategory(move) === 'Physical') ||
+							(target.side.getSideCondition('lightscreen') && this.getCategory(move) === 'Special')) {
+						return;
+					}
+					if (!target.getMoveHitData(move).crit && !move.infiltrates) {
+						this.debug("Cyro's Nest weaken");
+						if (this.activePerHalf > 1) return this.chainModify([2732, 4096]);
+						return this.chainModify(0.5);
+					}
+				}
+			},
+			onSideStart(side) {
+				this.add('-sidestart', side, "move: Cyro's Nest");
+			},
+			onSideResidualOrder: 26,
+			onSideResidualSubOrder: 10,
+			onSideEnd(side) {
+				this.add('-sideend', side, "move: Cyro's Nest");
+			},
+		},
+		secondary: null,
+		target: "allySide",
+		type: "Flying",
+		desc: "Only works if the user has Chill Like That. Reduces damage against the user's side like Aurora Veil.",
+		shortDesc: "Aurora Veil effect. Requires Chill Like That.",
+		gen: 9,
+	},
 	bubbleblast: {
 		num: -135,
 		accuracy: 100,

@@ -4947,6 +4947,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 53,
 		eggGroups: ["Undiscovered"],
 	},
+	cyroost: {
+		name: "Cyroost",
+		types: ["Flying"],
+		baseStats: {hp: 70, atk: 255, def: 80, spa: 70, spd: 70, spe: 255},
+		abilities: {0: "Chill Like That"},
+		num: -1013,
+		weightkg: 25,
+		eggGroups: ["Flying"],
+	},
 	softandwet: {
 		name: "Soft and Wet",
 		types: ["Water"],

@@ -71,6 +71,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		num: -1007,
 		shortDesc: "When hit by a physical attack, sets G-Max Steelsurge on the opposing side.",
 	},
+	chilllikethat: {
+		onStart(pokemon) {
+			this.boost({atk: 6}, pokemon);
+		},
+		name: "Chill Like That",
+		rating: 5,
+		num: -1013,
+		desc: "On switch-in, this Pokemon raises its Attack by 6 stages.",
+		shortDesc: "On switch-in, this Pokemon raises its Attack by 6.",
+	},
 	blubberdefense: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp >= target.maxhp) {
