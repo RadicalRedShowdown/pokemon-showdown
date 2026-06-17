@@ -905,6 +905,21 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",
 		shortDesc: "This Pokemon's sound moves deal 1.3x damage; sound damage taken is halved.",
 	},
+	assholesinsufferableness: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug("Asshole's Insufferableness boost");
+				return this.chainModify(3);
+			}
+		},
+		flags: {breakable: 1},
+		name: "Asshole's Insufferableness",
+		rating: 5,
+		num: -1010,
+		desc: "This Pokemon's sound-based moves have their power multiplied by 3.",
+		shortDesc: "This Pokemon's sound moves deal 3x damage.",
+	},
 	unbothered: {
 		onStart(pokemon) {
 			this.add('-ability', pokemon, 'Unbothered');

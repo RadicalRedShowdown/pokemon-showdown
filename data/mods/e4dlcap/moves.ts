@@ -2884,6 +2884,23 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		shortDesc: "Special Knock Off. Blocked by Bulletproof.",
 		gen: 9,
 	},
+	baoyuan: {
+		num: -1012,
+		accuracy: 100,
+		basePower: 80,
+		category: "Special",
+		name: "Baoyuan",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, heal: 1},
+		drain: [3, 4],
+		secondary: null,
+		target: "any",
+		type: "Flying",
+		desc: "The user recovers 75% of the damage dealt. Sound-based.",
+		shortDesc: "User recovers 75% of the damage dealt. Sound.",
+		gen: 9,
+	},
 	corrosivealuminium: {
 		num: -1008,
 		accuracy: 100,
@@ -2914,7 +2931,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		name: "Self Tinker",
 		pp: 5,
 		priority: 0,
-		flags: {snatch: 1, heal: 1, metronome: 1},
+		flags: {snatch: 1, heal: 1, metronome: 1, nosketch: 1},
 		onHit(pokemon) {
 			let changedAbility = false;
 			let healFactor = 0.5;

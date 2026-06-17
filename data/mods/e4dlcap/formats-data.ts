@@ -1342,6 +1342,9 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomDoubleBattleMoves: ["dragonpulse", "focusblast", "tailglow", "hiddenpowerice", "protect", "thunderbolt"],
 		tier: "RU",
 	},
+	ampharosfabio: {
+		tier: "NU",
+	},
 	bellossom: {
 		randomBattleLevel: 88,
 		randomBattleMoves: ["quiverdance", "appleacid", "moonblast", "sleeppowder", "hiddenpowerfire", "substitute"],

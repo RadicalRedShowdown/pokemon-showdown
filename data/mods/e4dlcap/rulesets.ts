@@ -2,6 +2,13 @@ export const Rulesets: {[k: string]: ModdedFormatData} = {
 	obtainablemoves: {
 		inherit: true,
 		checkCanLearn(move, species, lsetData, set) {
+			if (
+				move.id === 'baoyuan' &&
+				(species.id === 'ampharos' || species.id === 'ampharosfabio') &&
+				this.toID(set?.item) === 'councilorb'
+			) {
+				return null;
+			}
 			if (species.id !== 'grafaiai') return this.checkCanLearn(move, species, lsetData, set);
 			const problem = this.checkCanLearn(move, species, lsetData, set);
 			if (!problem) return null;

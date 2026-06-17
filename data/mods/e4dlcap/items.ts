@@ -67,6 +67,30 @@ export const Items: {[k: string]: ModdedItemData} = {
 		inherit: true,
 		isNonstandard: null,
 	},
+	councilorb: {
+		name: "Council Orb",
+		spritenum: 581,
+		fling: {
+			basePower: 60,
+		},
+		onSwitchIn(pokemon) {
+			if (pokemon.isActive && pokemon.baseSpecies.name === 'Ampharos') {
+				this.queue.insertChoice({choice: 'runPrimal', pokemon: pokemon});
+			}
+		},
+		onPrimal(pokemon) {
+			pokemon.formeChange('Ampharos-Fabio', this.effect, true);
+		},
+		onTakeItem(item, source) {
+			if (source.baseSpecies.baseSpecies === 'Ampharos') return false;
+			return true;
+		},
+		itemUser: ["Ampharos"],
+		num: -1011,
+		gen: 9,
+		desc: "If held by an Ampharos, this item triggers its Fabio transformation in battle.",
+		shortDesc: "If held by an Ampharos, transforms it into Ampharos-Fabio in battle.",
+	},
 	armorfossil: {
 		inherit: true,
 		isNonstandard: null,

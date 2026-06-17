@@ -951,7 +951,7 @@
 				"nastyplot",
 				"psyshock",
 				"focusblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -980,7 +980,7 @@
 				"nastyplot",
 				"psyshock",
 				"focusblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -1717,7 +1717,7 @@
 				"spe": 31
 			},
 			"moves": [
-				"hiddenpowerice",
+				"hiddenpower",
 				"healbell",
 				"toxic",
 				"discharge"
@@ -1777,7 +1777,7 @@
 			"moves": [
 				"thunderbolt",
 				"voltswitch",
-				"hiddenpowerice",
+				"hiddenpower",
 				"focusblast"
 			]
 		}
@@ -1956,7 +1956,7 @@
 				"leafstorm",
 				"dracometeor",
 				"recover",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -1985,7 +1985,7 @@
 				"leafstorm",
 				"dracometeor",
 				"gigadrain",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -3241,7 +3241,7 @@
 				"fishiousrend",
 				"iciclecrash",
 				"stoneedge",
-				"hail"
+				"snowscape"
 			]
 		},
 		{
@@ -3330,7 +3330,7 @@
 				"boltbeak",
 				"iciclecrash",
 				"freezedry",
-				"hail"
+				"snowscape"
 			]
 		},
 		{
@@ -3359,7 +3359,7 @@
 				"boltbeak",
 				"iciclecrash",
 				"freezedry",
-				"hail"
+				"snowscape"
 			]
 		},
 		{
@@ -5238,6 +5238,35 @@
 	"beartic": [
 		{
 			"species": "Beartic",
+			"item": "",
+			"ability": "Slush Rush",
+			"level": 88,
+			"teraType": "Ice",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"swordsdance",
+				"icehammer",
+				"closecombat",
+				"snowscape"
+			]
+		},
+		{
+			"species": "Beartic",
 			"item": "Choice Band",
 			"ability": "Slush Rush",
 			"level": 88,
@@ -5351,7 +5380,7 @@
 				"quiverdance",
 				"roost",
 				"bugbuzz",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		},
 		{
@@ -5765,7 +5794,7 @@
 				"quiverdance",
 				"appleacid",
 				"moonblast",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -6622,35 +6651,6 @@
 				"closecombat",
 				"thunderpunch"
 			]
-		},
-		{
-			"species": "Blaziken",
-			"item": "Life Orb",
-			"ability": "Speed Boost",
-			"level": 81,
-			"teraType": "Fire",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"protect",
-				"fireblast",
-				"scorchingsands",
-				"aurasphere"
-			]
 		}
 	],
 	"blazikenmega": [
@@ -6681,35 +6681,6 @@
 				"closecombat",
 				"scorchingsands",
 				"thunderpunch"
-			]
-		},
-		{
-			"species": "Blaziken-Mega",
-			"item": "Blazikenite",
-			"ability": "Speed Boost",
-			"level": 76,
-			"teraType": "Fire",
-			"evs": {
-				"hp": 85,
-				"atk": 85,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"fireblast",
-				"closecombat",
-				"scorchingsands",
-				"stoneedge"
 			]
 		},
 		{
@@ -7570,6 +7541,35 @@
 		}
 	],
 	"bronzong": [
+		{
+			"species": "Bronzong",
+			"item": "",
+			"ability": "Levitate",
+			"level": 86,
+			"teraType": "Steel",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 0
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 0
+			},
+			"moves": [
+				"stealthrock",
+				"gyroball",
+				"bodypress",
+				"teleport"
+			]
+		},
 		{
 			"species": "Bronzong",
 			"item": "Leftovers",
@@ -8452,7 +8452,7 @@
 				"astralbarrage",
 				"psyshock",
 				"drainingkiss",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		},
 		{
@@ -8576,6 +8576,35 @@
 		}
 	],
 	"camerupt": [
+		{
+			"species": "Camerupt",
+			"item": "",
+			"ability": "Solid Rock",
+			"level": 88,
+			"teraType": "Fire",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"lavaplume",
+				"toxic",
+				"earthpower",
+				"slackoff"
+			]
+		},
 		{
 			"species": "Camerupt",
 			"item": "Leftovers",
@@ -10553,11 +10582,11 @@
 				"def": 31,
 				"spa": 31,
 				"spd": 31,
-				"spe": 31
+				"spe": 30
 			},
 			"moves": [
 				"healingwish",
-				"hiddenpowerice",
+				"hiddenpower",
 				"gravapple",
 				"playrough"
 			]
@@ -10713,6 +10742,35 @@
 	"chimecho": [
 		{
 			"species": "Chimecho",
+			"item": "",
+			"ability": "Levitate",
+			"level": 90,
+			"teraType": "Psychic",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"healingwish",
+				"recover",
+				"psychic",
+				"thunderwave"
+			]
+		},
+		{
+			"species": "Chimecho",
 			"item": "Leftovers",
 			"ability": "Levitate",
 			"level": 90,
@@ -10771,35 +10829,6 @@
 		},
 		{
 			"species": "Chimecho",
-			"item": "Leftovers",
-			"ability": "Levitate",
-			"level": 90,
-			"teraType": "Psychic",
-			"evs": {
-				"hp": 85,
-				"atk": 85,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 1,
-				"def": 30,
-				"spa": 30,
-				"spd": 30,
-				"spe": 30
-			},
-			"moves": [
-				"forbiddenspell",
-				"storedpower",
-				"hypnosis",
-				"hiddenpowerfighting"
-			]
-		},
-		{
-			"species": "Chimecho",
 			"item": "Leppa Berry",
 			"ability": "Levitate",
 			"level": 90,
@@ -10824,7 +10853,7 @@
 				"forbiddenspell",
 				"storedpower",
 				"hypnosis",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		}
 	],
@@ -12559,6 +12588,64 @@
 	"cobalion": [
 		{
 			"species": "Cobalion",
+			"item": "",
+			"ability": "Sharpness",
+			"level": 86,
+			"teraType": "Steel",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"stealthrock",
+				"thunderwave",
+				"voltswitch",
+				"ironhead"
+			]
+		},
+		{
+			"species": "Cobalion",
+			"item": "",
+			"ability": "Sharpness",
+			"level": 86,
+			"teraType": "Steel",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"stealthrock",
+				"taunt",
+				"voltswitch",
+				"sacredsword"
+			]
+		},
+		{
+			"species": "Cobalion",
 			"item": "Leftovers",
 			"ability": "Sharpness",
 			"level": 86,
@@ -12641,7 +12728,7 @@
 				"calmmind",
 				"aurasphere",
 				"flashcannon",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -12819,7 +12906,7 @@
 				"calmmind",
 				"drainingkiss",
 				"gigadrain",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -12906,7 +12993,7 @@
 				"calmmind",
 				"drainingkiss",
 				"gigadrain",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -14411,7 +14498,7 @@
 				"rapidspin",
 				"recover",
 				"freezedry",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -14529,7 +14616,7 @@
 				"meteorbeam",
 				"shadowball",
 				"mysticalfire",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		},
 		{
@@ -14968,7 +15055,7 @@
 			"moves": [
 				"futuresight",
 				"psychic",
-				"hiddenpowerice",
+				"hiddenpower",
 				"flamethrower"
 			]
 		},
@@ -15587,7 +15674,7 @@
 				"risingvoltage",
 				"dazzlinggleam",
 				"voltswitch",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -15616,7 +15703,7 @@
 				"risingvoltage",
 				"dazzlinggleam",
 				"uturn",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -15854,7 +15941,7 @@
 				"nastyplot",
 				"mindblown",
 				"grassknot",
-				"scorchingsands"
+				"psyshock"
 			]
 		},
 		{
@@ -15883,7 +15970,7 @@
 				"nastyplot",
 				"mindblown",
 				"dazzlinggleam",
-				"scorchingsands"
+				"psyshock"
 			]
 		},
 		{
@@ -15912,7 +15999,7 @@
 				"nastyplot",
 				"mindblown",
 				"grassknot",
-				"scorchingsands"
+				"psyshock"
 			]
 		},
 		{
@@ -17656,7 +17743,7 @@
 			"species": "Ditto",
 			"item": "Choice Scarf",
 			"ability": "Imposter",
-			"level": 80,
+			"level": 100,
 			"teraType": "Normal",
 			"evs": {
 				"hp": 85,
@@ -18125,7 +18212,7 @@
 			"species": "Doublade",
 			"item": "Eviolite",
 			"ability": "Sharpness",
-			"level": 88,
+			"level": 84,
 			"teraType": "Steel",
 			"evs": {
 				"hp": 85,
@@ -19614,7 +19701,7 @@
 			"moves": [
 				"shadowball",
 				"hurricane",
-				"hiddenpowerfighting",
+				"hiddenpower",
 				"strengthsap"
 			]
 		},
@@ -19701,7 +19788,7 @@
 			"moves": [
 				"shadowball",
 				"hurricane",
-				"hiddenpowerfighting",
+				"hiddenpower",
 				"nastyplot"
 			]
 		},
@@ -19760,7 +19847,7 @@
 				"strengthsap",
 				"nastyplot",
 				"shadowball",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		},
 		{
@@ -19818,7 +19905,7 @@
 				"substitute",
 				"calmmind",
 				"shadowball",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		}
 	],
@@ -21145,7 +21232,7 @@
 				"voltswitch",
 				"gigadrain",
 				"fireblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -21172,7 +21259,7 @@
 			},
 			"moves": [
 				"zapcannon",
-				"hiddenpowerice",
+				"hiddenpower",
 				"fireblast",
 				"hydropump"
 			]
@@ -21323,7 +21410,7 @@
 				"rapidspin",
 				"sleeppowder",
 				"gigadrain",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -21549,8 +21636,8 @@
 			},
 			"ivs": {
 				"hp": 31,
-				"atk": 31,
-				"def": 31,
+				"atk": 0,
+				"def": 30,
 				"spa": 31,
 				"spd": 31,
 				"spe": 31
@@ -21559,7 +21646,7 @@
 				"explosion",
 				"hypervoice",
 				"voltswitch",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -22677,6 +22764,35 @@
 				"recover",
 				"dynamaxcannon",
 				"toxicspikes",
+				"flamethrower"
+			]
+		},
+		{
+			"species": "Eternatus",
+			"item": "Eternamax Orb",
+			"ability": "Pressure",
+			"level": 65,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"recover",
+				"dynamaxcannon",
+				"toxic",
 				"flamethrower"
 			]
 		},
@@ -24005,7 +24121,7 @@
 				"dracobarrage",
 				"gigadrain",
 				"dragonenergy",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -24272,7 +24388,7 @@
 				"lightofruin",
 				"moonblast",
 				"energyball",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -24301,7 +24417,7 @@
 				"calmmind",
 				"moonblast",
 				"synthesis",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -24320,17 +24436,17 @@
 			},
 			"ivs": {
 				"hp": 31,
-				"atk": 0,
+				"atk": 1,
 				"def": 31,
-				"spa": 31,
-				"spd": 31,
+				"spa": 30,
+				"spd": 30,
 				"spe": 31
 			},
 			"moves": [
 				"lightofruin",
 				"moonblast",
 				"energyball",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		}
 	],
@@ -25181,7 +25297,7 @@
 				"quiverdance",
 				"bugbuzz",
 				"icebeam",
-				"hiddenpowerelectric"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25210,7 +25326,7 @@
 				"quiverdance",
 				"bugbuzz",
 				"icebeam",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25239,7 +25355,7 @@
 				"quiverdance",
 				"bugbuzz",
 				"icebeam",
-				"hiddenpowerelectric"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25268,7 +25384,7 @@
 				"quiverdance",
 				"bugbuzz",
 				"icebeam",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25827,7 +25943,7 @@
 				"stickyweb",
 				"bugbuzz",
 				"thunder",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25914,7 +26030,7 @@
 				"stickyweb",
 				"bugbuzz",
 				"thunder",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -25972,7 +26088,7 @@
 				"energyball",
 				"bugbuzz",
 				"thunder",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -28611,7 +28727,7 @@
 			"moves": [
 				"blizzard",
 				"freezedry",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"earthpower"
 			]
 		},
@@ -28640,7 +28756,7 @@
 			"moves": [
 				"blizzard",
 				"snowscape",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"earthpower"
 			]
 		}
@@ -30749,6 +30865,35 @@
 	"grapploct": [
 		{
 			"species": "Grapploct",
+			"item": "",
+			"ability": "Technician",
+			"level": 88,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"jetpunch",
+				"flipturn",
+				"machpunch",
+				"icepunch"
+			]
+		},
+		{
+			"species": "Grapploct",
 			"item": "Leftovers",
 			"ability": "Technician",
 			"level": 88,
@@ -30922,7 +31067,7 @@
 				"spikes",
 				"gunkshot",
 				"icebeam",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -30951,7 +31096,7 @@
 				"spikes",
 				"gunkshot",
 				"hydropump",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -31127,183 +31272,183 @@
 				"rockslide",
 				"gunkshot"
 			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"spikes",
+				"darkpulse",
+				"watershuriken",
+				"hydropump"
+			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"spikes",
+				"darkpulse",
+				"watershuriken",
+				"surf"
+			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"icebeam",
+				"darkpulse",
+				"watershuriken",
+				"hydropump"
+			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"icebeam",
+				"darkpulse",
+				"watershuriken",
+				"surf"
+			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"uturn",
+				"darkpulse",
+				"watershuriken",
+				"hydropump"
+			]
+		},
+		{
+			"species": "Greninja",
+			"item": "Choice Specs",
+			"ability": "Battle Bond",
+			"level": 80,
+			"teraType": "Water",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"uturn",
+				"darkpulse",
+				"watershuriken",
+				"surf"
+			]
 		}
 	],
 	"greninjaash": [
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"spikes",
-				"darkpulse",
-				"watershuriken",
-				"hydropump"
-			]
-		},
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"spikes",
-				"darkpulse",
-				"watershuriken",
-				"surf"
-			]
-		},
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"icebeam",
-				"darkpulse",
-				"watershuriken",
-				"hydropump"
-			]
-		},
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"icebeam",
-				"darkpulse",
-				"watershuriken",
-				"surf"
-			]
-		},
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"uturn",
-				"darkpulse",
-				"watershuriken",
-				"hydropump"
-			]
-		},
-		{
-			"species": "Greninja-Ash",
-			"item": "Choice Specs",
-			"ability": "Battle Bond",
-			"level": 80,
-			"teraType": "Water",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"uturn",
-				"darkpulse",
-				"watershuriken",
-				"surf"
-			]
-		},
 		{
 			"species": "Greninja-Ash",
 			"item": "Life Orb",
@@ -31964,8 +32109,8 @@
 			},
 			"ivs": {
 				"hp": 31,
-				"atk": 31,
-				"def": 31,
+				"atk": 0,
+				"def": 30,
 				"spa": 31,
 				"spd": 31,
 				"spe": 31
@@ -31974,7 +32119,7 @@
 				"rockpolish",
 				"fireblast",
 				"precipiceblades",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -32066,6 +32211,35 @@
 		}
 	],
 	"grumpig": [
+		{
+			"species": "Grumpig",
+			"item": "",
+			"ability": "Thick Fat",
+			"level": 88,
+			"teraType": "Psychic",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"slackoff",
+				"psychic",
+				"thunderwave",
+				"focusblast"
+			]
+		},
 		{
 			"species": "Grumpig",
 			"item": "Leftovers",
@@ -32447,6 +32621,35 @@
 		}
 	],
 	"gurdurr": [
+		{
+			"species": "Gurdurr",
+			"item": "",
+			"ability": "Guts",
+			"level": 88,
+			"teraType": "Fighting",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"bulkup",
+				"drainpunch",
+				"knockoff",
+				"machpunch"
+			]
+		},
 		{
 			"species": "Gurdurr",
 			"item": "Eviolite",
@@ -33621,7 +33824,7 @@
 			"moves": [
 				"lavaplume",
 				"earthpower",
-				"hiddenpowerice",
+				"hiddenpower",
 				"taunt"
 			]
 		},
@@ -33650,7 +33853,7 @@
 			"moves": [
 				"magmastorm",
 				"earthpower",
-				"hiddenpowerice",
+				"hiddenpower",
 				"stealthrock"
 			]
 		},
@@ -33847,7 +34050,7 @@
 			"ivs": {
 				"hp": 31,
 				"atk": 0,
-				"def": 31,
+				"def": 30,
 				"spa": 31,
 				"spd": 31,
 				"spe": 31
@@ -33856,7 +34059,7 @@
 				"boomburst",
 				"thunderbolt",
 				"voltswitch",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -33948,6 +34151,35 @@
 		},
 		{
 			"species": "Heliolisk",
+			"item": "Heavy-Duty Boots",
+			"ability": "Dry Skin",
+			"level": 80,
+			"teraType": "Electric",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 30,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"boomburst",
+				"thunderbolt",
+				"voltswitch",
+				"hiddenpower"
+			]
+		},
+		{
+			"species": "Heliolisk",
 			"item": "Life Orb",
 			"ability": "Dry Skin",
 			"level": 80,
@@ -33974,40 +34206,9 @@
 				"voltswitch",
 				"surf"
 			]
-		}
-	],
-	"m": [
-		{
-			"species": "M",
-			"item": "Heavy-Duty Boots",
-			"ability": "Dry Skin",
-			"level": 80,
-			"teraType": "Electric",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 30,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"boomburst",
-				"thunderbolt",
-				"voltswitch",
-				"hiddenpowerice"
-			]
 		},
 		{
-			"species": "M",
+			"species": "Heliolisk",
 			"item": "Life Orb",
 			"ability": "Dry Skin",
 			"level": 80,
@@ -34032,268 +34233,7 @@
 				"boomburst",
 				"paraboliccharge",
 				"voltswitch",
-				"hiddenpowerice"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"thunderbolt"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"flamethrower"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"thunderbolt",
-				"flamethrower"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"stealthrock"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"thunderbolt"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"flamethrower"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"thunderbolt",
-				"flamethrower"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Life Orb",
-			"ability": "Sheer Force",
-			"level": 86,
-			"teraType": "Poison",
-			"evs": {
-				"hp": 85,
-				"atk": 0,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 0,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"earthpower",
-				"sludgewave",
-				"icebeam",
-				"stealthrock"
-			]
-		},
-		{
-			"species": "M",
-			"item": "Leftovers",
-			"ability": "Serene Grace",
-			"level": 88,
-			"teraType": "Normal",
-			"evs": {
-				"hp": 85,
-				"atk": 85,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
-			},
-			"ivs": {
-				"hp": 31,
-				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
-			},
-			"moves": [
-				"noretreat",
-				"bodyslam",
-				"bite",
-				"roost"
+				"hiddenpower"
 			]
 		}
 	],
@@ -35533,7 +35473,7 @@
 		{
 			"species": "Honchkrow",
 			"item": "Scope Lens",
-			"ability": "Moxie",
+			"ability": "Super Luck",
 			"level": 84,
 			"teraType": "Dark",
 			"evs": {
@@ -37174,7 +37114,7 @@
 			"moves": [
 				"nastyplot",
 				"fireblast",
-				"hiddenpowerelectric",
+				"hiddenpower",
 				"aurasphere"
 			]
 		},
@@ -37552,7 +37492,7 @@
 			"ivs": {
 				"hp": 31,
 				"atk": 0,
-				"def": 31,
+				"def": 30,
 				"spa": 31,
 				"spd": 31,
 				"spe": 31
@@ -37560,7 +37500,7 @@
 			"moves": [
 				"thunderbolt",
 				"voltswitch",
-				"hiddenpowerice",
+				"hiddenpower",
 				"signalbeam"
 			],
 			"nature": "Serious"
@@ -37582,14 +37522,14 @@
 			"ivs": {
 				"hp": 31,
 				"atk": 0,
-				"def": 31,
+				"def": 30,
 				"spa": 31,
 				"spd": 31,
 				"spe": 31
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"substitute",
 				"calmmind"
 			]
@@ -38756,7 +38696,7 @@
 		{
 			"species": "Klinklang",
 			"item": "Life Orb",
-			"ability": "Steelworker",
+			"ability": "Steely Spirit",
 			"level": 83,
 			"teraType": "Steel",
 			"evs": {
@@ -38785,7 +38725,7 @@
 		{
 			"species": "Klinklang",
 			"item": "Leftovers",
-			"ability": "Steelworker",
+			"ability": "Steely Spirit",
 			"level": 83,
 			"teraType": "Steel",
 			"evs": {
@@ -39378,7 +39318,7 @@
 			"species": "Kyurem",
 			"item": "Leftovers",
 			"ability": "Pressure",
-			"level": 80,
+			"level": 100,
 			"teraType": "Dragon",
 			"evs": {
 				"hp": 85,
@@ -40478,7 +40418,7 @@
 			},
 			"moves": [
 				"seedflare",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"synthesis",
 				"quiverdance"
 			]
@@ -41111,6 +41051,37 @@
 			]
 		}
 	],
+	"lunala": [
+		{
+			"species": "Lunala",
+			"item": "",
+			"ability": "Shadow Shield",
+			"level": 76,
+			"teraType": "Psychic",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"moongeistbeam",
+				"moonblast",
+				"roost",
+				"calmmind"
+			]
+		}
+	],
 	"lunatone": [
 		{
 			"species": "Lunatone",
@@ -41715,12 +41686,12 @@
 			"level": 84,
 			"teraType": "Fighting",
 			"evs": {
-				"hp": 85,
-				"atk": 85,
-				"def": 85,
-				"spa": 85,
-				"spd": 85,
-				"spe": 85
+				"hp": 0,
+				"atk": 0,
+				"def": 0,
+				"spa": 0,
+				"spd": 0,
+				"spe": 0
 			},
 			"ivs": {
 				"hp": 31,
@@ -41739,6 +41710,36 @@
 		}
 	],
 	"magcargo": [
+		{
+			"species": "Magcargo",
+			"item": "",
+			"ability": "Simple",
+			"level": 84,
+			"teraType": "Fire",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"flamethrower",
+				"powergem",
+				"earthpower",
+				"shellsmash"
+			],
+			"nature": "Serious"
+		},
 		{
 			"species": "Magcargo",
 			"item": "Heavy-Duty Boots",
@@ -42006,7 +42007,7 @@
 				"thunderbolt",
 				"flashcannon",
 				"voltswitch",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -42035,7 +42036,7 @@
 				"thunderbolt",
 				"flashcannon",
 				"voltswitch",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -42064,7 +42065,7 @@
 				"thunderbolt",
 				"irondefense",
 				"bodypress",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -42414,14 +42415,14 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
 				"spe": 31
 			},
 			"moves": [
 				"thunderbolt",
 				"overheat",
-				"hiddenpowergrass",
+				"hiddenpower",
 				"voltswitch"
 			]
 		},
@@ -42472,14 +42473,14 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
 				"spe": 31
 			},
 			"moves": [
 				"thunderbolt",
 				"overheat",
-				"hiddenpowergrass",
+				"hiddenpower",
 				"voltswitch"
 			]
 		}
@@ -42510,7 +42511,7 @@
 			"moves": [
 				"thunderbolt",
 				"overheat",
-				"hiddenpowerice",
+				"hiddenpower",
 				"voltswitch"
 			]
 		}
@@ -43317,7 +43318,7 @@
 			"moves": [
 				"drainingkiss",
 				"gigadrain",
-				"hiddenpowerground",
+				"hiddenpower",
 				"synthesis"
 			]
 		},
@@ -45168,7 +45169,7 @@
 			"moves": [
 				"bouncybubble",
 				"icebeam",
-				"hiddenpowerelectric",
+				"hiddenpower",
 				"recover"
 			]
 		},
@@ -46895,9 +46896,243 @@
 			]
 		}
 	],
-	"f": [
+	"nidoking": [
 		{
-			"species": "F",
+			"species": "Nidoking",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"thunderbolt"
+			]
+		},
+		{
+			"species": "Nidoking",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"flamethrower"
+			]
+		},
+		{
+			"species": "Nidoking",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"thunderbolt",
+				"flamethrower"
+			]
+		},
+		{
+			"species": "Nidoking",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"stealthrock"
+			]
+		}
+	],
+	"nidoqueen": [
+		{
+			"species": "Nidoqueen",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"thunderbolt"
+			]
+		},
+		{
+			"species": "Nidoqueen",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"flamethrower"
+			]
+		},
+		{
+			"species": "Nidoqueen",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"thunderbolt",
+				"flamethrower"
+			]
+		},
+		{
+			"species": "Nidoqueen",
+			"item": "Life Orb",
+			"ability": "Sheer Force",
+			"level": 86,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"earthpower",
+				"sludgewave",
+				"icebeam",
+				"stealthrock"
+			]
+		},
+		{
+			"species": "Nidoqueen",
 			"item": "Life Orb",
 			"ability": "Sheer Force",
 			"level": 86,
@@ -47127,7 +47362,7 @@
 				"meteorbeam",
 				"sludgewave",
 				"thunderbolt",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		}
 	],
@@ -47937,7 +48172,7 @@
 			"species": "Onix",
 			"item": "Eviolite",
 			"ability": "Rock Head",
-			"level": 80,
+			"level": 100,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -47966,7 +48201,7 @@
 			"species": "Onix",
 			"item": "Eviolite",
 			"ability": "Rock Head",
-			"level": 80,
+			"level": 100,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -47995,7 +48230,7 @@
 			"species": "Onix",
 			"item": "Custap Berry",
 			"ability": "Sturdy",
-			"level": 80,
+			"level": 100,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -48378,6 +48613,37 @@
 				"roost",
 				"hurricane",
 				"revelationdance"
+			]
+		}
+	],
+	"pachirisu": [
+		{
+			"species": "Pachirisu",
+			"item": "",
+			"ability": "Prankster",
+			"level": 88,
+			"teraType": "Electric",
+			"evs": {
+				"hp": 85,
+				"atk": 0,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"reflect",
+				"lightscreen",
+				"nuzzle",
+				"uturn"
 			]
 		}
 	],
@@ -49096,7 +49362,7 @@
 			"species": "Persian",
 			"item": "Loaded Dice",
 			"ability": "Technician",
-			"level": 90,
+			"level": 95,
 			"teraType": "Normal",
 			"evs": {
 				"hp": 85,
@@ -49693,7 +49959,7 @@
 				"nastyplot",
 				"thunderbolt",
 				"surf",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -50021,7 +50287,7 @@
 			"moves": [
 				"voltswitch",
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"surf"
 			]
 		},
@@ -50051,7 +50317,7 @@
 				"surf",
 				"thunderbolt",
 				"nastyplot",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -50347,7 +50613,7 @@
 				"shellsmash",
 				"shadowball",
 				"storedpower",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		},
 		{
@@ -50376,7 +50642,7 @@
 				"shellsmash",
 				"shadowball",
 				"strengthsap",
-				"hiddenpowerfighting"
+				"hiddenpower"
 			]
 		}
 	],
@@ -50789,7 +51055,7 @@
 				"spe": 30
 			},
 			"moves": [
-				"hiddenpowerfire",
+				"hiddenpower",
 				"stealthrock",
 				"flashcannon",
 				"bodypress"
@@ -51420,7 +51686,7 @@
 			"species": "Raichu",
 			"item": "Focus Sash",
 			"ability": "Lightning Rod",
-			"level": 80,
+			"level": 100,
 			"teraType": "Electric",
 			"evs": {
 				"hp": 85,
@@ -51469,8 +51735,37 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"grassknot",
+				"nastyplot"
+			]
+		},
+		{
+			"species": "Raichu",
+			"item": "Life Orb",
+			"ability": "Lightning Rod",
+			"level": 88,
+			"teraType": "Electric",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 30,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"thunderclap",
+				"surf",
+				"hypervoice",
 				"nastyplot"
 			]
 		},
@@ -51498,7 +51793,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"surf",
 				"voltswitch"
 			]
@@ -51527,7 +51822,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"grassknot",
 				"voltswitch"
 			]
@@ -52972,7 +53267,7 @@
 				"dragonenergy",
 				"dracobarrage",
 				"dracometeor",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -53001,7 +53296,7 @@
 				"dragonenergy",
 				"dracobarrage",
 				"dracometeor",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -53051,7 +53346,7 @@
 			},
 			"ivs": {
 				"hp": 31,
-				"atk": 30,
+				"atk": 31,
 				"def": 31,
 				"spa": 31,
 				"spd": 31,
@@ -53059,7 +53354,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"voltswitch",
 				"rapidspin"
 			]
@@ -53109,7 +53404,7 @@
 			},
 			"ivs": {
 				"hp": 31,
-				"atk": 30,
+				"atk": 31,
 				"def": 31,
 				"spa": 31,
 				"spd": 31,
@@ -53117,7 +53412,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"voltswitch",
 				"rapidspin"
 			]
@@ -54008,7 +54303,7 @@
 			"species": "Reuniclus",
 			"item": "Life Orb",
 			"ability": "Magic Guard",
-			"level": 80,
+			"level": 100,
 			"teraType": "Psychic",
 			"evs": {
 				"hp": 85,
@@ -54296,7 +54591,7 @@
 			"moves": [
 				"moonblast",
 				"quiverdance",
-				"hiddenpowerground",
+				"hiddenpower",
 				"stickyweb"
 			]
 		}
@@ -54650,7 +54945,7 @@
 			"moves": [
 				"sludgebomb",
 				"megadrain",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"synthesis"
 			]
 		},
@@ -54679,7 +54974,7 @@
 			"moves": [
 				"sludgebomb",
 				"megadrain",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"ancientpower"
 			]
 		},
@@ -54708,7 +55003,7 @@
 			"moves": [
 				"sludgebomb",
 				"megadrain",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"ancientpower"
 			]
 		},
@@ -54737,7 +55032,7 @@
 			"moves": [
 				"sludgebomb",
 				"megadrain",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"ancientpower"
 			]
 		},
@@ -55002,7 +55297,7 @@
 				"spe": 30
 			},
 			"moves": [
-				"hiddenpowerground",
+				"hiddenpower",
 				"thunderbolt",
 				"freezedry",
 				"nastyplot"
@@ -55835,7 +56130,7 @@
 				"sludgebomb",
 				"flamethrower",
 				"nastyplot",
-				"hiddenpowergrass"
+				"hiddenpower"
 			]
 		}
 	],
@@ -55844,7 +56139,7 @@
 			"species": "Samurott",
 			"item": "White Herb",
 			"ability": "Sharpness",
-			"level": 83,
+			"level": 77,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -55873,7 +56168,7 @@
 			"species": "Samurott",
 			"item": "Focus Sash",
 			"ability": "Sharpness",
-			"level": 83,
+			"level": 77,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -55904,7 +56199,7 @@
 			"species": "Samurott-Hisui",
 			"item": "White Herb",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 75,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -55933,7 +56228,7 @@
 			"species": "Samurott-Hisui",
 			"item": "White Herb",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 75,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -55962,7 +56257,7 @@
 			"species": "Samurott-Hisui",
 			"item": "Life Orb",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 75,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -55991,7 +56286,7 @@
 			"species": "Samurott-Hisui",
 			"item": "Choice Scarf",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 75,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -57935,6 +58230,35 @@
 	"serperior": [
 		{
 			"species": "Serperior",
+			"item": "",
+			"ability": "Contrary",
+			"level": 80,
+			"teraType": "Grass",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 30,
+				"spd": 31,
+				"spe": 30
+			},
+			"moves": [
+				"leafstorm",
+				"hiddenpower",
+				"substitute",
+				"glare"
+			]
+		},
+		{
+			"species": "Serperior",
 			"item": "Leftovers",
 			"ability": "Contrary",
 			"level": 80,
@@ -57951,13 +58275,13 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
-				"spe": 31
+				"spe": 30
 			},
 			"moves": [
 				"leafstorm",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"flash",
 				"glare"
 			]
@@ -58256,7 +58580,7 @@
 			"moves": [
 				"seedflare",
 				"earthpower",
-				"hiddenpowerice",
+				"hiddenpower",
 				"recover"
 			]
 		},
@@ -61847,7 +62171,7 @@
 				"leafstorm",
 				"focusblast",
 				"powergem",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -61876,7 +62200,7 @@
 				"leafstorm",
 				"focusblast",
 				"powergem",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		}
 	],
@@ -63361,7 +63685,7 @@
 			"species": "Sneasel",
 			"item": "Choice Band",
 			"ability": "Infiltrator",
-			"level": 92,
+			"level": 90,
 			"teraType": "Dark",
 			"evs": {
 				"hp": 85,
@@ -64000,7 +64324,7 @@
 			},
 			"moves": [
 				"shadowball",
-				"hiddenpowerfighting",
+				"hiddenpower",
 				"substitute",
 				"nastyplot"
 			]
@@ -66075,7 +66399,7 @@
 			"species": "Swanna",
 			"item": "Heavy-Duty Boots",
 			"ability": "No Guard",
-			"level": 80,
+			"level": 100,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -66104,7 +66428,7 @@
 			"species": "Swanna",
 			"item": "Heavy-Duty Boots",
 			"ability": "No Guard",
-			"level": 80,
+			"level": 100,
 			"teraType": "Water",
 			"evs": {
 				"hp": 85,
@@ -66543,7 +66867,7 @@
 			"moves": [
 				"gigadrain",
 				"knockoff",
-				"hiddenpowerice",
+				"hiddenpower",
 				"earthquake"
 			]
 		},
@@ -66572,7 +66896,7 @@
 			"moves": [
 				"gigadrain",
 				"knockoff",
-				"hiddenpowerice",
+				"hiddenpower",
 				"sleeppowder"
 			]
 		},
@@ -66602,7 +66926,7 @@
 				"gigadrain",
 				"knockoff",
 				"sludgebomb",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -66984,7 +67308,7 @@
 			"moves": [
 				"thunderbolt",
 				"dazzlinggleam",
-				"hiddenpowerice",
+				"hiddenpower",
 				"voltswitch"
 			]
 		},
@@ -67013,7 +67337,7 @@
 			"moves": [
 				"thunderbolt",
 				"dazzlinggleam",
-				"hiddenpowerice",
+				"hiddenpower",
 				"uturn"
 			]
 		},
@@ -67876,7 +68200,7 @@
 			"species": "Terrakion",
 			"item": "Choice Band",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 77,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -67905,7 +68229,7 @@
 			"species": "Terrakion",
 			"item": "Choice Scarf",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 77,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -67934,7 +68258,7 @@
 			"species": "Terrakion",
 			"item": "Life Orb",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 77,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -67963,7 +68287,7 @@
 			"species": "Terrakion",
 			"item": "Life Orb",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 77,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -67992,7 +68316,7 @@
 			"species": "Terrakion",
 			"item": "Focus Sash",
 			"ability": "Sharpness",
-			"level": 80,
+			"level": 77,
 			"teraType": "Rock",
 			"evs": {
 				"hp": 85,
@@ -68309,7 +68633,7 @@
 			"moves": [
 				"thunderbolt",
 				"focusblast",
-				"hiddenpowerice",
+				"hiddenpower",
 				"thunderwave"
 			]
 		}
@@ -68341,7 +68665,7 @@
 				"thunderbolt",
 				"voltswitch",
 				"focusblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -68370,7 +68694,7 @@
 				"thunderbolt",
 				"voltswitch",
 				"focusblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -68399,7 +68723,7 @@
 				"nastyplot",
 				"thunderbolt",
 				"focusblast",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -69607,7 +69931,7 @@
 			"moves": [
 				"boomburst",
 				"overdrive",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"voltswitch"
 			]
 		},
@@ -69658,15 +69982,15 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
-				"spe": 31
+				"spe": 30
 			},
 			"moves": [
 				"boomburst",
 				"overdrive",
 				"sludgewave",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -70337,7 +70661,7 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
 				"spe": 31
 			},
@@ -70345,7 +70669,7 @@
 				"eruption",
 				"flamethrower",
 				"scorchingsands",
-				"hiddenpowergrass"
+				"hiddenpower"
 			]
 		},
 		{
@@ -70366,7 +70690,7 @@
 				"hp": 31,
 				"atk": 0,
 				"def": 31,
-				"spa": 31,
+				"spa": 30,
 				"spd": 31,
 				"spe": 31
 			},
@@ -70374,7 +70698,7 @@
 				"eruption",
 				"flamethrower",
 				"scorchingsands",
-				"hiddenpowergrass"
+				"hiddenpower"
 			]
 		}
 	],
@@ -70938,7 +71262,7 @@
 			"moves": [
 				"forbiddenspell",
 				"mysticalpower",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"ancientpower"
 			]
 		},
@@ -70967,7 +71291,7 @@
 			"moves": [
 				"forbiddenspell",
 				"mysticalpower",
-				"hiddenpowerfighting",
+				"hiddenpower",
 				"ancientpower"
 			]
 		}
@@ -71510,6 +71834,35 @@
 	"uxie": [
 		{
 			"species": "Uxie",
+			"item": "",
+			"ability": "Levitate",
+			"level": 88,
+			"teraType": "Psychic",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 0,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"stealthrock",
+				"memento",
+				"psychicnoise",
+				"yawn"
+			]
+		},
+		{
+			"species": "Uxie",
 			"item": "Leftovers",
 			"ability": "Levitate",
 			"level": 88,
@@ -71594,7 +71947,7 @@
 				"blizzard",
 				"freezedry",
 				"flashcannon",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -71622,7 +71975,7 @@
 			"moves": [
 				"blizzard",
 				"freezedry",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"flashcannon"
 			]
 		},
@@ -71652,7 +72005,7 @@
 				"autotomize",
 				"blizzard",
 				"freezedry",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		}
 	],
@@ -72575,7 +72928,7 @@
 				"tailglow",
 				"bugbuzz",
 				"thunder",
-				"hiddenpowerfire"
+				"hiddenpower"
 			]
 		},
 		{
@@ -72840,7 +73193,7 @@
 				"quiverdance",
 				"fierydance",
 				"bugbuzz",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -72869,7 +73222,7 @@
 				"quiverdance",
 				"fierydance",
 				"roost",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		}
 	],
@@ -72900,7 +73253,7 @@
 				"waterspout",
 				"bouncybubble",
 				"icebeam",
-				"hiddenpowergrass"
+				"hiddenpower"
 			]
 		},
 		{
@@ -74028,7 +74381,7 @@
 				"quiverdance",
 				"bugbuzz",
 				"gigadrain",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		}
 	],
@@ -74528,7 +74881,7 @@
 			"moves": [
 				"geomancy",
 				"moonblast",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"drainingkiss"
 			]
 		},
@@ -74589,7 +74942,7 @@
 				"voltswitch",
 				"thunderbolt",
 				"energyball",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -74618,7 +74971,7 @@
 				"voltswitch",
 				"thunderbolt",
 				"energyball",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -74647,7 +75000,7 @@
 				"thunderbolt",
 				"dazzlinggleam",
 				"energyball",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -74674,7 +75027,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"energyball",
 				"tailglow"
 			]
@@ -74703,7 +75056,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"energyball",
 				"tailglow"
 			]
@@ -74734,7 +75087,7 @@
 				"voltswitch",
 				"thunderbolt",
 				"energyball",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
@@ -74761,7 +75114,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"energyball",
 				"toxic"
 			]
@@ -75443,7 +75796,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75472,7 +75825,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75501,7 +75854,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75530,7 +75883,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75559,7 +75912,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75588,7 +75941,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75617,7 +75970,7 @@
 			"species": "Zamazenta-Crowned",
 			"item": "Rusted Shield",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75648,7 +76001,7 @@
 			"species": "Zamazenta",
 			"item": "Choice Band",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75677,7 +76030,7 @@
 			"species": "Zamazenta",
 			"item": "Choice Scarf",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75706,7 +76059,7 @@
 			"species": "Zamazenta",
 			"item": "Life Orb",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75735,7 +76088,7 @@
 			"species": "Zamazenta",
 			"item": "Leftovers",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75764,7 +76117,7 @@
 			"species": "Zamazenta",
 			"item": "Leftovers",
 			"ability": "Dauntless Shield",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fighting",
 			"evs": {
 				"hp": 85,
@@ -75795,7 +76148,7 @@
 			"species": "Zacian-Crowned",
 			"item": "Rusted Sword",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75824,7 +76177,7 @@
 			"species": "Zacian-Crowned",
 			"item": "Rusted Sword",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75853,7 +76206,7 @@
 			"species": "Zacian-Crowned",
 			"item": "Rusted Sword",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75884,7 +76237,7 @@
 			"species": "Zacian",
 			"item": "Choice Band",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75913,7 +76266,7 @@
 			"species": "Zacian",
 			"item": "Choice Band",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75942,7 +76295,7 @@
 			"species": "Zacian",
 			"item": "Choice Scarf",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -75971,7 +76324,7 @@
 			"species": "Zacian",
 			"item": "Choice Scarf",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -76000,7 +76353,7 @@
 			"species": "Zacian",
 			"item": "Life Orb",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -76029,7 +76382,7 @@
 			"species": "Zacian",
 			"item": "Leftovers",
 			"ability": "Intrepid Sword",
-			"level": 76,
+			"level": 73,
 			"teraType": "Fairy",
 			"evs": {
 				"hp": 85,
@@ -76198,7 +76551,7 @@
 			},
 			"moves": [
 				"discharge",
-				"hiddenpowerice",
+				"hiddenpower",
 				"roost",
 				"defog"
 			]
@@ -76843,7 +77196,7 @@
 			"moves": [
 				"thunderbolt",
 				"flamethrower",
-				"hiddenpowerice",
+				"hiddenpower",
 				"voltswitch"
 			]
 		},
@@ -76872,7 +77225,7 @@
 			"moves": [
 				"thunderbolt",
 				"flamethrower",
-				"hiddenpowergrass",
+				"hiddenpower",
 				"voltswitch"
 			]
 		}
@@ -79761,7 +80114,7 @@
 			},
 			"moves": [
 				"earthpower",
-				"hiddenpowerfire",
+				"hiddenpower",
 				"leafstorm",
 				"hypervoice"
 			]
@@ -80564,7 +80917,7 @@
 			},
 			"moves": [
 				"thunderbolt",
-				"hiddenpowerice",
+				"hiddenpower",
 				"hurricane",
 				"voltswitch"
 			]
@@ -80744,7 +81097,7 @@
 				"nastyplot",
 				"boomburst",
 				"sludgebomb",
-				"hiddenpowerground"
+				"hiddenpower"
 			]
 		},
 		{
@@ -80774,6 +81127,64 @@
 				"poisonjab",
 				"knockoff",
 				"return"
+			]
+		},
+		{
+			"species": "Grafaiai",
+			"item": "Black Sludge",
+			"ability": "Prankster",
+			"level": 85,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"spore",
+				"knockoff",
+				"partingshot",
+				"poisonfang"
+			]
+		},
+		{
+			"species": "Grafaiai",
+			"item": "Heavy-Duty Boots",
+			"ability": "Prankster",
+			"level": 85,
+			"teraType": "Poison",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
+				"tidyup",
+				"partingshot",
+				"toxic",
+				"knockoff"
 			]
 		}
 	],
@@ -81245,14 +81656,14 @@
 				"overheat",
 				"leafstorm",
 				"gigadrain",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		},
 		{
 			"species": "Scovillain",
 			"item": "Heavy-Duty Boots",
 			"ability": "Chlorophyll",
-			"level": 80,
+			"level": 100,
 			"teraType": "Grass",
 			"evs": {
 				"hp": 85,
@@ -81281,7 +81692,7 @@
 			"species": "Scovillain",
 			"item": "Heavy-Duty Boots",
 			"ability": "Chlorophyll",
-			"level": 80,
+			"level": 100,
 			"teraType": "Grass",
 			"evs": {
 				"hp": 85,
@@ -81499,17 +81910,17 @@
 				"spe": 85
 			},
 			"ivs": {
-				"hp": 31,
+				"hp": 30,
 				"atk": 31,
-				"def": 31,
-				"spa": 31,
-				"spd": 31,
-				"spe": 31
+				"def": 30,
+				"spa": 30,
+				"spd": 30,
+				"spe": 30
 			},
 			"moves": [
 				"uturn",
 				"dazzlinggleam",
-				"hiddenpowerfighting",
+				"hiddenpower",
 				"luminacrash"
 			]
 		}
@@ -83486,6 +83897,35 @@
 				"spe": 31
 			},
 			"moves": [
+				"noretreat",
+				"bodyslam",
+				"bite",
+				"roost"
+			]
+		},
+		{
+			"species": "Dudunsparce-Three-Segment",
+			"item": "Leftovers",
+			"ability": "Serene Grace",
+			"level": 88,
+			"teraType": "Normal",
+			"evs": {
+				"hp": 85,
+				"atk": 85,
+				"def": 85,
+				"spa": 85,
+				"spd": 85,
+				"spe": 85
+			},
+			"ivs": {
+				"hp": 31,
+				"atk": 31,
+				"def": 31,
+				"spa": 31,
+				"spd": 31,
+				"spe": 31
+			},
+			"moves": [
 				"coil",
 				"bodyslam",
 				"bite",
@@ -84077,7 +84517,7 @@
 			},
 			"moves": [
 				"moonblast",
-				"hiddenpowerground",
+				"hiddenpower",
 				"mysticalfire",
 				"shadowball"
 			]
@@ -86876,7 +87316,7 @@
 				"thunderclap",
 				"voltswitch",
 				"dracobarrage",
-				"hiddenpowerice"
+				"hiddenpower"
 			]
 		}
 	],
@@ -88454,7 +88894,7 @@
 			"species": "Chillet",
 			"item": "Choice Band",
 			"ability": "Refrigerate",
-			"level": 83,
+			"level": 85,
 			"teraType": "Ice",
 			"evs": {
 				"hp": 85,
@@ -88483,7 +88923,7 @@
 			"species": "Chillet",
 			"item": "Heavy-Duty Boots",
 			"ability": "Refrigerate",
-			"level": 83,
+			"level": 85,
 			"teraType": "Ice",
 			"evs": {
 				"hp": 85,
@@ -88512,7 +88952,7 @@
 			"species": "Chillet",
 			"item": "Heavy-Duty Boots",
 			"ability": "Refrigerate",
-			"level": 83,
+			"level": 85,
 			"teraType": "Ice",
 			"evs": {
 				"hp": 85,
