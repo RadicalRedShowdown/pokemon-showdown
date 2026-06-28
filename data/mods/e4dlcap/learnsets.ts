@@ -70041,6 +70041,7 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			brickbreak: ["9L1"],
 			bulletpunch: ["9L1"],
 			bulkup: ["9L1"],
+			craniumdrain: ["9L1"],
 			doubleedge: ["9L1"],
 			drainpunch: ["9L1"],
 			facade: ["9L1"],
