@@ -2958,7 +2958,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 		basePower: 0,
 		damageCallback(pokemon, target) {
 			if (pokemon.species.id === 'clemeltan' && target.hasType('Steel')) {
-				return this.clampIntRange(target.getUndynamaxedHP() * 0.55, 1);
+				return this.clampIntRange(target.getUndynamaxedHP(target.maxhp) * 0.55, 1);
 			}
 			return pokemon.level;
 		},
