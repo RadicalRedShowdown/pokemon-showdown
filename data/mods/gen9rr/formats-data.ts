@@ -2541,11 +2541,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "UU",
 	},
 	metagrossmega: {
-		randomBattleLevel: 76,
+		randomBattleLevel: 80,
 		randomBattleMoves: ["agility", "earthquake", "hammerarm", "icepunch", "meteormash", "zenheadbutt"],
-		randomDoubleBattleLevel: 76,
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["icepunch", "meteormash", "protect", "stompingtantrum", "thunderpunch", "zenheadbutt"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	regirock: {
 		randomBattleLevel: 88,
@@ -3186,11 +3186,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NU",
 	},
 	gallademega: {
-		randomBattleLevel: 82,
+		randomBattleLevel: 80,
 		randomBattleMoves: ["swordsdance", "psychocut", "sacredsword", "knockoff", "cut", "tripleaxel"],
-		randomDoubleBattleLevel: 81,
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["sacredsword", "leafblade", "psychocut", "nightslash", "protect", "swordsdance"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	probopass: {
 		randomBattleLevel: 88,
@@ -4265,14 +4265,14 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	keldeo: {
-		randomBattleLevel: 82,
+		randomBattleLevel: 80,
 		randomBattleMoves: ["secretsword", "hydropump", "scald", "flipturn", "airslash", "icywind", "substitute", "calmmind"],
-		randomDoubleBattleLevel: 82,
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["airslash", "calmmind", "icywind", "muddywater", "protect", "secretsword"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	keldeoresolute: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	meloetta: {
 		randomBattleLevel: 83,
@@ -5747,10 +5747,10 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		randomBattleMoves: ["boomburst", "overdrive", "sludgewave", "shiftgear"],
 		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["boomburst", "overdrive", "snarl", "protect"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	toxtricitylowkeymega: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	toxtricitygmax: {
 		isNonstandard: "Gigantamax",
@@ -6086,11 +6086,11 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	urshifu: {
-		randomBattleLevel: 78,
+		randomBattleLevel: 80,
 		randomBattleMoves: ["wickedblow", "suckerpunch", "closecombat", "poisonjab", "bulkup"],
-		randomDoubleBattleLevel: 79,
+		randomDoubleBattleLevel: 80,
 		randomDoubleBattleMoves: ["closecombat", "ironhead", "protect", "suckerpunch", "wickedblow"],
-		tier: "Uber",
+		tier: "OU",
 	},
 	urshifurapidstrike: {
 		randomBattleLevel: 80,
@@ -6383,7 +6383,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "NFE",
 	},
 	espathra: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "(DUU)",
 		natDexTier: "Uber",
 	},
@@ -6745,7 +6745,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		natDexTier: "Uber",
 	},
 	walkingwake: {
-		tier: "Uber",
+		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "Uber",
 	},
@@ -6779,7 +6779,7 @@ export const FormatsData: {[k: string]: ModdedSpeciesFormatsData} = {
 		tier: "Uber",
 	},
 	archadulon: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	ursalunabloodmoon: {
 		tier: "Uber",
