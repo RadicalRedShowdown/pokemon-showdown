@@ -4956,6 +4956,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 25,
 		eggGroups: ["Flying"],
 	},
+	xeyan: {
+		name: "Xe-Yan",
+		types: ["Steel", "Ghost"],
+		baseStats: {hp: 65, atk: 125, def: 120, spa: 65, spd: 105, spe: 75},
+		abilities: {0: "Tough Claws", 1: "Levitate", H: "The Look"},
+		num: -1014,
+		weightkg: 5,
+		eggGroups: ["Undiscovered"],
+	},
 	softandwet: {
 		name: "Soft and Wet",
 		types: ["Water"],

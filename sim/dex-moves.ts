@@ -156,6 +156,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	basePower: number;
 	accuracy: true | number;
 	pp: number;
+	maxpp?: number;
 	category: 'Physical' | 'Special' | 'Status';
 	type: string;
 	priority: number;
@@ -431,6 +432,8 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	readonly ignoreImmunity: AnyObject | boolean;
 	/** Base move PP. */
 	readonly pp: number;
+	/** Maximum PP after PP boosts, if it does not follow the standard formula. */
+	readonly maxpp?: number;
 	/** Whether or not this move can receive PP boosts. */
 	readonly noPPBoosts: boolean;
 	/** How many times does this move hit? */
@@ -506,6 +509,7 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 		this.ignoreDefensive = !!data.ignoreDefensive;
 		this.ignoreImmunity = (data.ignoreImmunity !== undefined ? data.ignoreImmunity : this.category === 'Status');
 		this.pp = Number(data.pp);
+		this.maxpp = data.maxpp ? Number(data.maxpp) : undefined;
 		this.noPPBoosts = !!data.noPPBoosts;
 		this.isZ = data.isZ || false;
 		this.isMax = data.isMax || false;

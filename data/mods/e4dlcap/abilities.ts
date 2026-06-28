@@ -81,6 +81,25 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "On switch-in, this Pokemon raises its Attack by 6 stages.",
 		shortDesc: "On switch-in, this Pokemon raises its Attack by 6.",
 	},
+	thelook: {
+		onFoeDisableMove(pokemon) {
+			if (pokemon.lastMove && pokemon.lastMove.id !== 'struggle') {
+				pokemon.disableMove(pokemon.lastMove.id);
+			}
+		},
+		onFoeBeforeMovePriority: 4,
+		onFoeBeforeMove(attacker, defender, move) {
+			if (move.id !== 'struggle' && attacker.lastMove && attacker.lastMove.id === move.id) {
+				this.add('cant', attacker, 'ability: The Look', move);
+				return false;
+			}
+		},
+		name: "The Look",
+		rating: 3.5,
+		num: -1014,
+		desc: "While this Pokemon is active, opposing Pokemon cannot use the same move twice in a row.",
+		shortDesc: "Foes cannot use the same move twice in a row.",
+	},
 	blubberdefense: {
 		onSourceModifyDamage(damage, source, target, move) {
 			if (target.hp >= target.maxhp) {

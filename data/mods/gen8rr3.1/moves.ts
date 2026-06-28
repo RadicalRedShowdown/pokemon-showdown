@@ -1458,6 +1458,7 @@ export const Moves: {[k: string]: ModdedMoveData} =	{
 	prismaticlaser: {
 		inherit: true,
 		pp: 1,
+		maxpp: 4,
 		noPPBoosts: true,
 		secondary: {
 			status: 'slp',

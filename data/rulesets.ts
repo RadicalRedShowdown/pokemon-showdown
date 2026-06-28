@@ -916,17 +916,19 @@ export const Rulesets: {[k: string]: FormatData} = {
 	sleepmovesclause: {
 		effectType: 'ValidatorRule',
 		name: 'Sleep Moves Clause',
-		desc: "Bans all moves that induce sleep, such as Hypnosis",
+		desc: "Bans non-damaging moves that directly induce sleep, such as Hypnosis and Dark Void",
 		banlist: ['Yawn'],
 		onBegin() {
-			this.add('rule', 'Sleep Moves Clause: Sleep-inducing moves are banned');
+			this.add('rule', 'Sleep Moves Clause: Non-damaging sleep-inducing moves are banned');
 		},
 		onValidateSet(set) {
 			const problems = [];
 			if (set.moves) {
 				for (const id of set.moves) {
 					const move = this.dex.moves.get(id);
-					if (move.status === 'slp') problems.push(move.name + ' is banned by Sleep Moves Clause.');
+					if (move.category === 'Status' && move.status === 'slp') {
+						problems.push(move.name + ' is banned by Sleep Moves Clause.');
+					}
 				}
 			}
 			return problems;

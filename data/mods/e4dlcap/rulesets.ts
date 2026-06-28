@@ -1,6 +1,11 @@
 export const Rulesets: {[k: string]: ModdedFormatData} = {
 	obtainablemoves: {
 		inherit: true,
+		onValidateSet(set) {
+			if (this.toID(set.species) === 'cyroost' && this.toID(set.item) === 'assaultvest') {
+				return [`Cyroost cannot hold Assault Vest.`];
+			}
+		},
 		checkCanLearn(move, species, lsetData, set) {
 			if (
 				move.id === 'baoyuan' &&

@@ -350,6 +350,6 @@ export const Tags: {[id: string]: TagData} = {
 	},
 	maxpp: {
 		name: "Max PP",
-		moveNumCol: move => move.pp,
+		moveNumCol: move => move.maxpp ?? move.pp,
 	},
 };
