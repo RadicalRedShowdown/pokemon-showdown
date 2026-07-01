@@ -1765,9 +1765,15 @@ function getHazardSwitchPenalty(
 	let penalty = entryFraction * 95;
 	if (entryFraction >= 0.2) penalty += 28;
 	if (pokemonIsHazardSensitiveSweeper(switchOption, context)) penalty += entryFraction >= 0.18 ? 52 : 22;
+	if (targetHP && damageOut < targetHP.hp) {
+		if (entryDamage >= hp.hp * 0.25) penalty += 55;
+		if (remainingAfterEntry <= hp.maxhp * 0.45) penalty += 38;
+		if (targetLooksLikeSetupThreat(targetData) || pokemonCanRecover(targetData)) penalty += 28;
+	}
 	if (projectedAfterHit > 0 && estimateHazardDamage(switchOption, hazards) >= projectedAfterHit) {
 		penalty += targetHP && damageOut >= targetHP.hp ? 18 : 92;
 	}
+	if (projectedAfterHit <= 0 && targetHP && damageOut < targetHP.hp) penalty += 88;
 	if (damageIn >= remainingAfterEntry * 0.65 && (!targetHP || damageOut < targetHP.hp)) penalty += 58;
 	return Math.min(185, penalty);
 }
@@ -2589,6 +2595,81 @@ function getPredictedSwitchTarget(sourceData: AnyObject, targetData: AnyObject |
 	return bestCandidate;
 }
 
+function moveWouldFailAgainstPokemon(
+	move: Move, moveid: ID, sourceData: AnyObject, targetData: AnyObject | null,
+	targetPokemon: Pokemon | null = null, context?: BTAIContext, useZMove = false
+) {
+	if (!targetData) return false;
+	if (move.category === 'Status') {
+		return statusMoveBlocked(move, moveid, sourceData, targetData, targetPokemon, context);
+	}
+	if (!firstActiveMoveOnlyIsAvailable(moveid, sourceData)) return true;
+	return estimateDamage(moveid, sourceData, targetData, useZMove, context) <= 0;
+}
+
+function getMoveBlockerSwitchCandidate(
+	move: Move, moveid: ID, sourceData: AnyObject, targetData: AnyObject,
+	context?: BTAIContext, useZMove = false
+) {
+	let bestCandidate: AnyObject | null = null;
+	let bestScore = -Infinity;
+	for (const candidate of getPredictedSwitchCandidates(targetData, context)) {
+		if (!moveWouldFailAgainstPokemon(move, moveid, sourceData, candidate, null, context, useZMove)) continue;
+		const candidateHP = getHPData(candidate);
+		const threatBack = estimateBestDamageFromPokemon(candidate, sourceData, getReverseContext(context));
+		const score =
+			candidateHP.hp / Math.max(1, candidateHP.maxhp) * 45 +
+			Math.min(threatBack, getHPData(sourceData).hp) / Math.max(1, getHPData(sourceData).maxhp) * 55;
+		if (score > bestScore) {
+			bestScore = score;
+			bestCandidate = candidate;
+		}
+	}
+	return bestCandidate;
+}
+
+function getPredictedMoveBlockPenalty(
+	move: Move, moveid: ID, sourceData: AnyObject, targetData: AnyObject,
+	state: BTBattleState, context?: BTAIContext, useZMove = false,
+	currentDamage = 0, predictedSwitch: AnyObject | null = null, predictedSwitchDamage = 0
+) {
+	const switchChance = Math.max(
+		getSwitchPredictionChance(state, sourceData, targetData, context),
+		pokemonCanPivotOut(targetData) ? 0.45 : 0
+	);
+	if (switchChance < 0.16) return 0;
+	if (!predictedSwitch) predictedSwitch = getPredictedSwitchTarget(sourceData, targetData, context);
+	let blocker = predictedSwitch && (
+		predictedSwitchDamage <= 0 ||
+		moveWouldFailAgainstPokemon(move, moveid, sourceData, predictedSwitch, null, context, useZMove)
+	) ? predictedSwitch : null;
+	let predictedBlocker = !!blocker;
+	if (!blocker && switchChance >= 0.34) {
+		blocker = getMoveBlockerSwitchCandidate(move, moveid, sourceData, targetData, context, useZMove);
+		predictedBlocker = false;
+	}
+	if (!blocker && switchChance >= 0.22) {
+		blocker = getMoveBlockerSwitchCandidate(move, moveid, sourceData, targetData, context, useZMove);
+		predictedBlocker = false;
+	}
+	if (!blocker) return 0;
+	const targetHP = getHPData(targetData);
+	const currentValue = currentDamage / Math.max(1, targetHP.hp);
+	if (currentDamage >= targetHP.hp) return predictedBlocker ? 18 : 0;
+	let penalty = 210 + switchChance * 260;
+	if (predictedBlocker) penalty += 115;
+	if (pokemonCanPivotOut(targetData)) penalty += 95;
+	if (move.category === 'Status') penalty += 220;
+	if ((move as AnyObject).selfSwitch || SELF_SWITCH_MOVE_IDS.has(moveid)) penalty += 220;
+	if (HAZARD_REMOVAL_MOVE_IDS.has(moveid)) penalty += 180;
+	if (move.flags['futuremove']) penalty += 90;
+	if (currentValue >= 0.7) penalty *= 0.45;
+	if (currentValue >= 0.45) penalty *= 0.7;
+	const blockerHP = getHPData(blocker);
+	if (blockerHP.hp >= blockerHP.maxhp * 0.65) penalty += 45;
+	return Math.min(900, penalty);
+}
+
 function estimateBestDamageByCategory(
 	sourceData: AnyObject, targetData: AnyObject | null, category: MoveCategory, context?: BTAIContext
 ) {
@@ -2600,6 +2681,41 @@ function estimateBestDamageByCategory(
 		bestDamage = Math.max(bestDamage, estimateDamage(moveid, sourceData, targetData, false, context));
 	}
 	return bestDamage;
+}
+
+function getSetupPunishValue(
+	setupData: AnyObject, punishData: AnyObject | null, targetPokemon: Pokemon | null = null, context?: BTAIContext
+) {
+	if (!punishData) return 0;
+	const reverseContext = getReverseContext(context);
+	let value = 0;
+	for (const moveid of getPokemonMoveIDs(punishData)) {
+		const move = Dex.mod('gen9rrbt').moves.get(moveid);
+		if (!move.exists) continue;
+		if (moveid === 'haze') {
+			if (!statusMoveBlocked(move, moveid, punishData, setupData, targetPokemon, reverseContext)) value = Math.max(value, 112);
+			continue;
+		}
+		if (PHASING_MOVE_IDS.has(moveid)) {
+			if (phazingMoveCanForceOut(moveid, punishData, setupData, targetPokemon, reverseContext)) value = Math.max(value, 106);
+			continue;
+		}
+		if (moveid === 'clearsmog') {
+			if (estimateDamage(moveid, punishData, setupData, false, reverseContext) > 0) value = Math.max(value, 96);
+			continue;
+		}
+		if (['toxic', 'willowisp', 'thunderwave', 'spore', 'sleeppowder', 'yawn'].includes(moveid)) {
+			if (!statusMoveBlocked(move, moveid, punishData, setupData, targetPokemon, reverseContext)) {
+				value = Math.max(value, moveid === 'toxic' || moveid === 'willowisp' ? 82 : 62);
+			}
+			continue;
+		}
+		if (['taunt', 'encore', 'torment'].includes(moveid)) {
+			if (!statusMoveBlocked(move, moveid, punishData, setupData, targetPokemon, reverseContext)) value = Math.max(value, 72);
+		}
+	}
+	if (pokemonCanRecover(punishData)) value += 18;
+	return Math.min(140, value);
 }
 
 function firstActiveMoveOnlyIsAvailable(moveid: ID, pokemonData: AnyObject | null) {
@@ -5124,15 +5240,20 @@ function scoreDamagingMove(
 		if (predictedSwitchDamage >= predictedSwitchHP.hp) score += 45 * predictionWeight;
 		if ((move as AnyObject).selfSwitch) score += 14 * predictionWeight;
 	}
+	score -= getPredictedMoveBlockPenalty(
+		move, moveid, pokemonData, targetData, state, context, useZMove, damage, predictedSwitch, predictedSwitchDamage
+	);
 	if (damage <= 0) {
 		const usefulPredictedSwitchHit = !!(
 			predictedSwitch &&
 			predictedSwitchHP &&
 			predictedSwitchDamage > 0 &&
-			switchChance >= 0.35
+			switchChance >= 0.55 &&
+			(predictedSwitchDamage >= predictedSwitchHP.hp * 0.45 ||
+				predictedSwitchDamage >= predictedSwitchHP.maxhp * 0.33)
 		);
 		if (!usefulPredictedSwitchHit) return -Infinity;
-		if ((move as AnyObject).selfSwitch) score -= 90;
+		if ((move as AnyObject).selfSwitch) score -= 160;
 	}
 	if (isAntiAttackPriorityMove(moveid)) {
 		const failCount = getAntiAttackPriorityFailureCount(state, pokemonData, targetData, moveid);
@@ -5263,6 +5384,20 @@ function scoreStatusMove(
 		if (boostedDamage <= bestDamage && sweepPotential <= 0) score -= 80;
 		if (bestDamage * 2 < targetHP) score += 16;
 		if (boostedDamage >= targetHP && bestDamage < targetHP) score += 48;
+		const setupPunish = getSetupPunishValue(pokemonData, targetData, targetPokemon, context);
+		if (setupPunish && boostedDamage < targetHP) {
+			score -= setupPunish;
+			if (setupPunish >= 80 && targetThreat < activeHP.hp * 0.35) score -= 24;
+		}
+		const predictedSwitch = getPredictedSwitchTarget(pokemonData, targetData, context);
+		if (predictedSwitch && getSwitchPredictionChance(state, pokemonData, targetData, context) >= 0.35) {
+			const predictedPunish = getSetupPunishValue(pokemonData, predictedSwitch, null, context);
+			const predictedHP = getHPData(predictedSwitch);
+			const boostedSwitchDamage = estimateBestDamageFromPokemon(boostedData, predictedSwitch, context);
+			if (predictedPunish && boostedSwitchDamage < predictedHP.hp) {
+				score -= Math.min(145, predictedPunish * 0.75);
+			}
+		}
 		if (pivotPriorityThreat.damage) {
 			const revengeFraction = pivotPriorityThreat.damage / Math.max(1, activeHP.maxhp);
 			score -= revengeFraction >= 0.65 ? 105 : 68;
@@ -5392,6 +5527,9 @@ function scoreStatusMove(
 		score = 26;
 	}
 	if (score > -Infinity && move.category === 'Status') {
+		if (targetData) {
+			score -= getPredictedMoveBlockPenalty(move, moveid, pokemonData, targetData, state, context);
+		}
 		if (hasTauntThreat(pokemonData, targetData, context)) score -= 28;
 		if (targetData && ['taunt', 'encore', 'torment'].includes(moveid)) {
 			if (sourceActsBeforeStatusTarget) {
@@ -5767,12 +5905,18 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 	Rooms.global.onCreateBattleRoom([Users.get(userid)!], room, {rated: 0});
 	battle.checkActive();
 	const timer = setInterval(() => advanceBot(room), 500);
-	btBattles.set(room.roomid, {
+	btBattles.set(room.roomid, createBTBattleState(userid, level, replay, timer, room.log.log.length));
+}
+
+function createBTBattleState(
+	userid: ID, level: number, replay: boolean, timer: NodeJS.Timer = null as any, logIndex = 0
+): BTBattleState {
+	return {
 		userid,
 		level,
 		replay,
 		timer,
-		logIndex: room.log.log.length,
+		logIndex,
 		hazards: {p1: newHazards(), p2: newHazards()},
 		perish: {p1: 0, p2: 0},
 		futureMoves: newFutureMoveState(),
@@ -5808,7 +5952,7 @@ function attachBot(room: GameRoom, botTeam: string, userid: ID, level: number, r
 		turn: 0,
 		lastBotError: '',
 		memoryChanged: false,
-	});
+	};
 }
 
 async function startBTBattle(
@@ -5836,6 +5980,14 @@ async function startBTBattle(
 	).update();
 	context.sendReply(`Starting Battle Tower ${getBTLevelLabel(level, levelIndex)}.`);
 }
+
+export const BTDebug = {
+	chooseBotRequest,
+	createBTBattleState,
+	getLevels: () => levels,
+	packBTTeam,
+	syncBattleState,
+};
 
 export const commands: Chat.ChatCommands = {
 	bt: 'battletower',
